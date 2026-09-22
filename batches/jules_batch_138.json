@@ -1,0 +1,807 @@
+[
+  {
+    "egp_id": "1741163713116x221586221050488420",
+    "level": "B1",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "3",
+    "guideword": "FORM: SIMPLE",
+    "can_do_statement": "Can use a wide range of simple (single word) prepositions.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Spatial, temporal, and abstract relationship markers",
+      "pedagogical_hook": "Using a wider variety of single-word prepositions to convey specific abstract or physical relationships.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:through|along|beside|between|above|within|via)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "through",
+              "along",
+              "beside",
+              "between",
+              "above",
+              "within",
+              "via"
+            ]
+          },
+          "POS": "ADP"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We walked along the beautiful beach.",
+        "I think the city won't change that much within the next twenty years."
+      ],
+      "negatives": [
+        "I went to the store yesterday.",
+        "She is sitting on the big chair."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713116x353458240035020350",
+    "level": "B1",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "N/A",
+    "guideword": "FORM: STRANDING",
+    "can_do_statement": "Can end a reported question clause and a relative clause with a preposition, where the preposition is stranded from its complement. \u25ba Clauses: relative",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Deferred prepositional attachment",
+      "pedagogical_hook": "Leaving the preposition at the end of the clause when its object has been moved to the front (e.g., in relative clauses).",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:to|for|with|in|on|at|about|from|of)[.?!]*\\s*$",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "to",
+              "for",
+              "with",
+              "in",
+              "on",
+              "at",
+              "about",
+              "from",
+              "of"
+            ]
+          }
+        },
+        {
+          "IS_PUNCT": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This is the best festival I have been to.",
+        "Please give him all the information he asks for."
+      ],
+      "negatives": [
+        "I went to the beautiful store.",
+        "He works for a very large company."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713116x636100257659625700",
+    "level": "B2",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: FORMAL",
+    "can_do_statement": "Can use less frequent simple prepositions, often in a more formal, literary or business context.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Elevated register relationship markers",
+      "pedagogical_hook": "Deploying rare or literary single-word prepositions for formal impact.",
+      "agency_or_distance": "Increased formal distance"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:throughout|upon|toward|towards|unlike|amongst|among|beyond|beneath|underneath|alongside)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "throughout",
+              "upon",
+              "toward",
+              "towards",
+              "unlike",
+              "amongst",
+              "among",
+              "beyond",
+              "beneath",
+              "underneath",
+              "alongside"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "A silent screaming was heard throughout the whole dark room.",
+        "So why don't you act upon my advice?"
+      ],
+      "negatives": [
+        "He is looking at the picture.",
+        "She is sitting on the big chair."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713116x646932110230855600",
+    "level": "B1",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "2",
+    "guideword": "FORM: COMPLEX",
+    "can_do_statement": "Can use an increasing range of complex prepositions.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Multi-word prepositional clusters",
+      "pedagogical_hook": "Combining adverbs, adjectives, or nouns with simple prepositions to form complex relationship markers.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:instead\\s+of|thanks\\s+to|out\\s+of|due\\s+to|outside\\s+of)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "instead",
+              "thanks",
+              "out",
+              "due",
+              "outside"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "of",
+              "to"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I want to play tennis instead of football.",
+        "The game was cancelled due to the heavy rain."
+      ],
+      "negatives": [
+        "I have an interesting book about ancient history.",
+        "He was playing a brand new video game."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713116x701061838010980100",
+    "level": "C1",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: FORMAL",
+    "can_do_statement": "Can use less frequent complex prepositions, often in a more formal, literary or business context.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Formal multi-word relationship markers",
+      "pedagogical_hook": "Deploying rare, multi-word prepositional phrases to specify precise relationships in formal text.",
+      "agency_or_distance": "Increased formal distance"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:ahead\\s+of|on\\s+account\\s+of|by\\s+means\\s+of|in\\s+accordance\\s+with|with\\s+regard\\s+to|in\\s+terms\\s+of)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "ahead",
+              "on",
+              "by",
+              "in",
+              "with"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "of",
+              "account",
+              "means",
+              "accordance",
+              "regard",
+              "terms"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "of",
+              "with",
+              "to"
+            ]
+          },
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They are so ahead of their time.",
+        "I stayed home on account of the bad weather."
+      ],
+      "negatives": [
+        "He created a new account of his own.",
+        "I was completely out of it today."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713116x829257725032760800",
+    "level": "B1",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'ADVERB' + PREPOSITION",
+    "can_do_statement": "Can use adverbs of degree to modify prepositions and prepositional phrases. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Intensified spatial/abstract relationships",
+      "pedagogical_hook": "Using degree adverbs precisely before prepositions to emphasize or modify the exactness of the location or relationship.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:quite|right|really|especially|just|almost)\\s+(?:near|behind|in|with|at|on|under|above|below|after|before|to|for|from|about)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "quite",
+              "right",
+              "really",
+              "especially",
+              "just",
+              "almost"
+            ]
+          }
+        },
+        {
+          "POS": "ADP"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am going to put it right in front of the window.",
+        "It is quite near my house so I can go there."
+      ],
+      "negatives": [
+        "I really like playing tennis with my friends.",
+        "He was quite happy about the entire situation."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713116x878693855125900300",
+    "level": "B2",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PREPOSITION + 'WH-'WORD",
+    "can_do_statement": "Can use preposition + relative pronoun as complement, to avoid preposition stranding, often in formal contexts. \u25ba Clauses: relative",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Fronted preposition in relative clauses",
+      "pedagogical_hook": "Bringing the preposition forward with the relative pronoun to elevate register and avoid stranding.",
+      "agency_or_distance": "Increased formal distance"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:in|of|to|for|with|by|on|about|from|at)\\s+(?:which|whom|whose)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "in",
+              "of",
+              "to",
+              "for",
+              "with",
+              "by",
+              "on",
+              "about",
+              "from",
+              "at"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "which",
+              "whom",
+              "whose"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You have a vacancy in which I am very interested.",
+        "Children need someone to whom they can talk."
+      ],
+      "negatives": [
+        "Which book are you reading in the library?",
+        "I know the man who is standing over there."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713116x968587932066165600",
+    "level": "B2",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "3",
+    "guideword": "FORM: COMPLEX",
+    "can_do_statement": "Can use a wide range of complex prepositions.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Advanced multi-word relationship markers",
+      "pedagogical_hook": "Mastering diverse complex prepositions for nuance and organization.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:except\\s+for|apart\\s+from|in\\s+addition\\s+to|as\\s+for|in\\s+spite\\s+of)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "except",
+              "apart",
+              "in",
+              "as"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "for",
+              "from",
+              "addition",
+              "spite"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "to",
+              "of"
+            ]
+          },
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She did not say very much except for oh and yes.",
+        "I have many hobbies in addition to reading."
+      ],
+      "negatives": [
+        "He is reading an interesting book.",
+        "I will gladly do it for you right now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713121x244049823776565150",
+    "level": "A1",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Current ongoing action",
+      "pedagogical_hook": "Forming the continuous aspect with a 'be' auxiliary and an '-ing' participle.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:am|is|are|'m|'s|'re)\\s+(?!not\\b|n't\\b|never\\b)(?:[a-z]+\\s+)?[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "AUX",
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "not",
+              "n't",
+              "never"
+            ]
+          },
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am sending you some beautiful flowers.",
+        "She is writing a long letter right now."
+      ],
+      "negatives": [
+        "I am not playing tennis today.",
+        "He is a very good boy."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713121x303053781636601900",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Negated ongoing action",
+      "pedagogical_hook": "Inserting 'not' between the 'be' auxiliary and the present participle.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:am|is|are|'m|'s|'re)\\s+(?:not\\b|n't\\b)\\s+[a-z]+ing\\b|\\b(?:isn't|aren't)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "am",
+              "is",
+              "are",
+              "'m",
+              "'s",
+              "'re",
+              "m",
+              "s",
+              "re"
+            ]
+          },
+          "POS": "AUX"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am not using the computer anymore.",
+        "The fridge isn't working at the moment."
+      ],
+      "negatives": [
+        "She wasn't looking at me yesterday.",
+        "I am eating a really big apple."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713121x475189487230063500",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "2",
+    "guideword": "USE: EVENTS IN PROGRESS",
+    "can_do_statement": "Can use the present continuous with an increasing range of verbs to talk about situations and events in progress.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Broad ongoing events",
+      "pedagogical_hook": "Using the continuous aspect with a wider set of dynamic verbs.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:am|is|are|'m|'s|'re)\\s+(?:not\\s+|n't\\s+)?(?:watch|sell|gett|rain|work|wait|wear|sleep|listen|talk|try)ing\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "AUX",
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "n\u2019t"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "watch",
+              "sell",
+              "get",
+              "rain",
+              "work",
+              "wait",
+              "wear",
+              "sleep",
+              "listen",
+              "talk",
+              "try"
+            ]
+          },
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am watching a huge swimming competition.",
+        "It is getting warmer outside today."
+      ],
+      "negatives": [
+        "I am doing my homework tonight.",
+        "She watches television almost every day."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713121x758287721695059000",
+    "level": "A1",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "1",
+    "guideword": "USE: EVENTS IN PROGRESS",
+    "can_do_statement": "Can use the present continuous with a limited range of verbs to talk about situations and events in progress.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Basic ongoing events",
+      "pedagogical_hook": "Using fundamental dynamic verbs in the continuous aspect.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:am|is|are|'m|'s|'re)\\s+(?:not\\s+|n't\\s+)?(?:miss|send|do|mak|go|play|com|read)ing\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "AUX",
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "n\u2019t"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "miss",
+              "send",
+              "do",
+              "make",
+              "go",
+              "play",
+              "come",
+              "read"
+            ]
+          },
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am sending you these pretty flowers.",
+        "We are doing more speaking now."
+      ],
+      "negatives": [
+        "I am watching a fast swimming competition.",
+        "I made a big chocolate cake yesterday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713121x782587803688478800",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "1",
+    "guideword": "USE: TEMPORARY SITUATIONS ",
+    "can_do_statement": "Can use the present continuous with a limited range of verbs to talk about temporary situations.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Temporary state representation",
+      "pedagogical_hook": "Highlighting a living, working, or studying arrangement as impermanent.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:am|is|are|'m|'s|'re)\\s+(?:not\\s+|n't\\s+)?(?:liv|study|stay|work)ing\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "AUX",
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "n\u2019t"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "live",
+              "study",
+              "stay",
+              "work"
+            ]
+          },
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am living with my friend in the city.",
+        "I am studying hard at the new college."
+      ],
+      "negatives": [
+        "I am going to the large public park.",
+        "She lives in a small apartment in London."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713121x821705049205782300",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use 'wh-' questions, especially in the context of letters and emails.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Inquiring about ongoing events",
+      "pedagogical_hook": "Inverting the subject and auxiliary in present continuous WH- questions.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:what|where|why|who|how|when)\\s+(?:are|is|am|'re|'s|'m)\\s+(?:[a-z]+\\s+)?[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "what",
+              "where",
+              "why",
+              "who",
+              "how",
+              "when"
+            ]
+          }
+        },
+        {
+          "POS": "AUX",
+          "LEMMA": "be"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "How are you doing today?",
+        "What are you bringing with you to the party?"
+      ],
+      "negatives": [
+        "What do you do every day at work?",
+        "I am doing quite well today."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713121x958805116136662400",
+    "level": "B1",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: TEMPORARY REPEATED ACTIONS",
+    "can_do_statement": "Can use the present continuous to describe temporary actions which are repeated or regular.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Repeated events within a limited timeframe",
+      "pedagogical_hook": "Using continuous forms of typically stative or enduring verbs like 'have' or 'take' to frame habitual actions as temporary.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:am|is|are|'m|'s|'re)\\s+(?:currently\\s+|always\\s+|still\\s+)?(?:hav|tak)ing\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "AUX",
+          "LEMMA": "be"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "have",
+              "take"
+            ]
+          },
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am having some complicated problems with my car.",
+        "I am currently taking a Spanish language class."
+      ],
+      "negatives": [
+        "I have a brand new silver car.",
+        "He is making a big chocolate cake."
+      ]
+    }
+  }
+]

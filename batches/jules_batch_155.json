@@ -1,0 +1,769 @@
+[
+  {
+    "egp_id": "1741163713864x981685154549874200",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'IN ITSELF', INTENSIFYING ",
+    "can_do_statement": "Can use the fixed expression 'in itself' as an intensifier .",
+    "example_raw": "I would also spend much more quality time with my family as a whole, which is quite important in itself. (First Certificate in English; B2; Spanish _ Latin American)\n\nThe architecture in itself is beautiful, but the garden is very wonderful, too. (Philippines; B2 VANTAGE; 1993; Japanese; Pass)\n\nTo begin with, a car, in my opinion, can't be harmful in itself. The trouble is that, nowadays, very fast cars are put on the market and we never know if they are going to be driven by wise people or, instead, by crazy or dreadful drivers. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Intensification of intrinsic properties",
+      "pedagogical_hook": "Focusing on the nature of the thing itself",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bin itself\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "in",
+          "DEP": "prep"
+        },
+        {
+          "LOWER": "itself",
+          "DEP": "pobj"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The idea in itself is quite remarkable.",
+        "A car can't be harmful in itself."
+      ],
+      "negatives": [
+        "He was looking in the box itself.",
+        "I will be in soon itself."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713867x574702813002478900",
+    "level": "C2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "USE: DISCOURSE MARKERS",
+    "can_do_statement": "Can use 'as for myself' as a discourse marker to introduce or focus on a personal opinion. ",
+    "example_raw": "As for myself, as you can clearly see from my account of this musical event, music still means an awful lot to me, and most probably allways will. (Belgium; C2 MASTERY; 2001; Dutch; Pass)\n\n As for myself I like taking responsibilities. (Russia; C2 MASTERY; 1999; Russian; Pass)\n\n As for myself, I grew up during the \"internet era\", the years when it was spreading to average peoples homes and therefore I can still remember life without it. (Sweden; C2 MASTERY; 2005; Swedish; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Shifting topic to self",
+      "pedagogical_hook": "Introducing personal opinion",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bas for myself\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "as"
+        },
+        {
+          "LOWER": "for"
+        },
+        {
+          "LOWER": "myself"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "As for myself, I prefer tea.",
+        "Well, as for myself, I agree."
+      ],
+      "negatives": [
+        "I bought it as a gift for myself.",
+        "She works as hard for myself as for others."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713867x150062658595893500",
+    "level": "A1",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "N/A",
+    "guideword": "FORM: (SUBJECT) QUESTIONS WITH 'BE'",
+    "can_do_statement": "Can use the pronouns 'you' and 'it' after 'be' in question forms.",
+    "example_raw": "Hi, Mrs. Bishop. How are you? (Skills for Life (Entry 1); ; A1 BREAKTHROUGH; 2009; Tagalog; Pass)\n\nIs it OK? (Skills for Life (Entry 1); ; A1 BREAKTHROUGH; 2009; Romanian; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Interrogative inversion",
+      "pedagogical_hook": "Asking basic questions",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:\\b(?:are|were)\\s+(?:[a-z]+ly\\s+)?you\\b|\\b(?:is|was)\\s+(?:[a-z]+ly\\s+)?it\\b)[^.?!]*\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "are",
+              "were",
+              "is",
+              "was"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "you",
+              "it"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "How are you today?",
+        "Is it going to rain?"
+      ],
+      "negatives": [
+        "You are my best friend.",
+        "I think it is very good."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713867x281198469131771500",
+    "level": "A1",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "2",
+    "guideword": "FORM: (OBJECT) 'IT'",
+    "can_do_statement": "Can use the pronoun 'it' as a direct object to refer to an object or situation already referred to.",
+    "example_raw": "The maths is boring and I don't like it. (Skills for Life (Entry 1); A1; Portuguese)\n\nIf you can't find it, call me. (Skills for Life (Entry 1); A1; Turkish)\n\nDo you like it too? (Skills for Life (Entry 1); A1; German)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Anaphoric reference",
+      "pedagogical_hook": "Using 'it' to avoid repetition",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:like|find|found|see|saw|have|has|had|do|did|make|made|get|got|take|took|know|want|need|use|eat|drink|read|buy|play|watch|hear|stop|love|hate)(?:\\s+[a-z]+ly)?\\s+it\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        },
+        {
+          "LOWER": "it",
+          "DEP": "dobj"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I bought a new book and I love it.",
+        "She found it under the table."
+      ],
+      "negatives": [
+        "It is a sunny day.",
+        "I think it will rain tomorrow."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713867x530274295544571840",
+    "level": "A1",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "N/A",
+    "guideword": "FORM: (OBJECT) WITH PREPOSITION ",
+    "can_do_statement": "Can use the object pronouns 'me', 'you', 'him', 'her', 'it', 'us' and 'them' in the object position after prepositions. ",
+    "example_raw": "I really like to learn new words. It's very important for me. (Skills for Life (Entry 1); A1; Polish)\n\nSometimes I go with her. (Skills for Life (Entry 1); A1; Polish)\n\nCan you bring some music so we can listen to it. (Skills for Life (Entry 1); A1; no L1 specified)\n\nI spend my free time with them. (Skills for Life (Entry 1); A1; Lithuanian)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Prepositional targets",
+      "pedagogical_hook": "Who or what the action is directed towards",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:for|with|to|about|of|at|on|in|from)\\s+(?:[a-z]+ly\\s+)?(?:me|you|him|her|it|us|them)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "ADP"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "me",
+              "you",
+              "him",
+              "her",
+              "it",
+              "us",
+              "them"
+            ]
+          },
+          "DEP": "pobj"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She gave the book to him.",
+        "I want to go with them."
+      ],
+      "negatives": [
+        "He told me to go.",
+        "I saw him yesterday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713867x609205291409504700",
+    "level": "A1",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "N/A",
+    "guideword": "FORM: (SUBJECT) QUESTIONS",
+    "can_do_statement": "Can use the pronouns 'I', 'you', 'we' and 'they' after an auxiliary or modal verb in question forms.",
+    "example_raw": "Can I help you? (Skills for Life (Entry 1); A1; Arabic \u2013 other)\n\nWhat do you think about that? (Skills for Life (Entry 1); A1; French)\n\nCan we have a chat? (Skills for Life (Entry 1); A1; Russian)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Subject-auxiliary inversion",
+      "pedagogical_hook": "Asking questions with modal/aux",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:do|did|can|could|will|would|shall|should|may|might|must)\\s+(?:[a-z]+ly\\s+)?(?:I|you|we|they)\\b[^.?!]*\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "did",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "we",
+              "they"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Can we go now?",
+        "What do they want?"
+      ],
+      "negatives": [
+        "We can go now.",
+        "They do not want to go."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713867x710371035379195900",
+    "level": "A1",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "2",
+    "guideword": "FORM: (OBJECT) 'ME', 'YOU', 'HER', 'HIM', 'US', 'THEM' ",
+    "can_do_statement": "Can use the pronouns 'me', 'you', 'him', 'her', 'us' and 'them' in the direct object position after a transitive verb.",
+    "example_raw": "I'm very happy that you want to see me. (Skills for Life (Entry 1); A1; German)\n\nI can see her on Saturday at 8 pm. (Skills for Life (Entry 1); A1; Arabic)\n\nIt protects us from rain, wind and sun. (Skills for Life (Entry 1); A1; Portuguese)\n\nYou will find a lot of different shops \u2026 I hope you'll like them. (Skills for Life (Entry 1); A1; Russian)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Verbal targets",
+      "pedagogical_hook": "Receiving the action of a verb",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:see|saw|call|called|find|found|protect|protects|help|helped|tell|told|ask|asked|show|showed|give|gave|love|hate|know|meet|met|invite|invited)(?:\\s+[a-z]+ly)?\\s+(?:me|you|him|her|us|them)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "VERB"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "me",
+              "you",
+              "him",
+              "her",
+              "us",
+              "them"
+            ]
+          },
+          "DEP": {
+            "IN": [
+              "dobj",
+              "iobj",
+              "dative"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I will call him later.",
+        "She told us a story."
+      ],
+      "negatives": [
+        "He went to the store.",
+        "To him, it was perfect."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713867x970460151516622800",
+    "level": "A1",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "3",
+    "guideword": "FORM: (SUBJECT) 'IT' FOR FIRST PERSON",
+    "can_do_statement": "Can use the pronoun 'it' before 'be' to refer to a first person speaker or writer.",
+    "example_raw": "Hello Mrs Bishop. It's Clarisse (Skills for Life (Entry 1); A1; French)\n\nDear Cris, it's me, Paarth. (India; A2 WAYSTAGE; 2009; Hindi; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Self-identification via dummy subject",
+      "pedagogical_hook": "Identifying yourself on the phone or at a door",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b[Ii]t\\s*(?:'s|\\s+is)(?:\\s+[a-z]+ly)?\\s+(?:me|Clarisse|Paarth|John|Sarah|Peter|Mary|David|Emma|Michael|Sophia|James|Olivia|William|Ava)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "it"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "is",
+              "'s",
+              "s"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "cold",
+              "raining"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Hello, it's me.",
+        "Hi John, it is Sarah."
+      ],
+      "negatives": [
+        "It is cold outside.",
+        "It's raining now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713868x463659211645272000",
+    "level": "A1",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "N/A",
+    "guideword": "FORM: (SUBJECT) STATEMENTS",
+    "can_do_statement": "Can use the pronouns 'I', 'you', 'he', 'she', 'it', 'we' and 'they' in the subject position before a verb in statements.",
+    "example_raw": "In my free time I go shopping and I like swimming. (Skills for Life (Entry 1); A1; Polish)\n\nIf you want, you can go inside. (Skills for Life (Entry 1); A1; Hindi)\n\nHe prefers chess. (Skills for Life (Entry 1); A1; Singhalese)\n\nMy friend's name is Julissa, she is from Ecuador and she lives near my home. (Skills for Life (Entry 1); A1; Spanish)\n\nI like my home because it is a beautiful home. It has a big garden and a good sitting room. (Skills for Life (Entry 1); A1; Pashto)\n\nI like my front garden because it's very nice and warm. (Skills for Life (Entry 1); A1; Czech)\n\nThey're nice people. (Skills for Life (Entry 1); A1; Arabic) ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Basic agency",
+      "pedagogical_hook": "Stating who does the action",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|you|he|she|it|we|they)(?:\\s+[a-z]+ly)?\\s+(?:can|will|do|does|have|has|am|is|are|was|were|like|likes|go|goes|want|wants|play|plays|think|thinks|eat|eats|sleep|sleeps|walk|walks|talk|talks|make|makes|love|loves)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "he",
+              "she",
+              "it",
+              "we",
+              "they"
+            ]
+          },
+          "DEP": "nsubj"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She plays tennis.",
+        "We are going home."
+      ],
+      "negatives": [
+        "The cat runs fast.",
+        "John is a doctor."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713868x569801658869344200",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "N/A",
+    "guideword": "FORM: (SUBJECT) ELLIPSIS AFTER 'HOPE'",
+    "can_do_statement": "Can leave out the subject pronoun with 'hope'. \u25ba ellipsis",
+    "example_raw": "Hope to see you soon. (Key English Test ; A2; Turkish)\n\nHi! How are you? Hope you are fine. (India; A2 WAYSTAGE; 2006; Hindi; Pass)",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Informal omission of subject",
+      "pedagogical_hook": "Sounding natural and friendly",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|[.?!]\\s+)Hope\\s+(?:to|you|we|they|he|she|it)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "hope",
+          "IS_SENT_START": true
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "to",
+              "you",
+              "we",
+              "they",
+              "he",
+              "she",
+              "it"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Hope to see you soon.",
+        "Hope you feel better."
+      ],
+      "negatives": [
+        "Hope is what keeps us going.",
+        "I hope to win."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713868x798436542527262600",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "N/A",
+    "guideword": "FORM: (SUBJECT) EMPTY 'IT'",
+    "can_do_statement": "Can use 'it' as an empty subject when there is nothing else to put in subject position, particularly with weather or time. ",
+    "example_raw": "It's warm and windy. (Key English Test for Schools; A2; Vietnamese)\n\nNow it 's 3 pm. (B1 THRESHOLD; 2004; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Placeholder subject",
+      "pedagogical_hook": "Talking about the weather or time",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bit\\s*(?:'s|\\s+is|\\s+was)\\s+(?:[a-z]+ly\\s+)?(?:warm|cold|windy|sunny|raining|snowing|hot|dark|late|early|time|[0-9]+)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "it"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "is",
+              "'s",
+              "s",
+              "was"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "warm",
+              "cold",
+              "windy",
+              "sunny",
+              "raining",
+              "snowing",
+              "hot",
+              "dark",
+              "late",
+              "early",
+              "time",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "12"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It's cold outside.",
+        "I think it is 5 o'clock."
+      ],
+      "negatives": [
+        "It is my book.",
+        "It is a cat."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713875x174658833629234300",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "N/A",
+    "guideword": "FORM: (OBJECT) USING 'IT' TO INTRODUCE",
+    "can_do_statement": "Can use 'it' as an object with 'make' to introduce something the speaker or writer is going to refer to.",
+    "example_raw": "This shyness makes it hard for me to speak in public, or even to go out with my friends as often as I should. (First Certificate in English; B2; Spanish \u2013 European)\n\nOther retail companies with cheaper prices and lots of discounts make it impossible for us to do business. (First Certificate in English; B2; German)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Anticipatory object",
+      "pedagogical_hook": "Using 'it' to setup an adjective",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:make|makes|made|making)(?:\\s+[a-z]+ly)?\\s+it\\s+(?:hard|harder|difficult|impossible|easy|easier|clear|clearer|possible)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "make"
+        },
+        {
+          "LOWER": "it"
+        },
+        {
+          "POS": "ADJ"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They made it difficult to complain.",
+        "This will make it easier for everyone."
+      ],
+      "negatives": [
+        "I made it myself.",
+        "We can make it to the party."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713875x322581852326230000",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "N/A",
+    "guideword": "FORM: (SUBJECT) ELLIPSIS ",
+    "can_do_statement": "Can leave out the subject pronoun with a limited range of verbs, in informal contexts. \u25ba ellipsis",
+    "example_raw": "Must rush now because I have to go out with Paul. (First Certificate in English; B2; Italian)\n\nSounds great. (First Certificate in English; B2; Korean)\n\nGot to go now. (First Certificate in English; B2; Greek)\n\nCan't wait to hear about your exam. (First Certificate in English; Russian) ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Informal conversational omissions",
+      "pedagogical_hook": "Speaking quickly and informally",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|[.?!]\\s+)(?:Must\\s+(?:[a-z]+ly\\s+)?rush|Sounds\\s+(?:[a-z]+ly\\s+)?(?:great|good|awful)|Got\\s+to\\s+go|Gotta\\s+go|Can't\\s+(?:[a-z]+ly\\s+)?wait)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": {
+            "IN": [
+              "must",
+              "sound",
+              "sounds",
+              "got",
+              "gotta",
+              "can",
+              "cant",
+              "cannot"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not",
+              "to"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "rush",
+              "great",
+              "good",
+              "awful",
+              "to",
+              "wait",
+              "go"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Sounds great to me.",
+        "Got to go now."
+      ],
+      "negatives": [
+        "The bells sounds great.",
+        "He got to go home."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713875x553851897238862400",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "3",
+    "guideword": "FORM: (SUBJECT) 'ONE'",
+    "can_do_statement": "Can use 'one' as a generic personal pronoun in the subject position to mean people in general. \u25ba generic pronouns",
+    "example_raw": "If one doesn't live close enough to walk to work, one can choose to get there by bicycle or by car. (First Certificate in English; B2; Swedish)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Impersonal subject",
+      "pedagogical_hook": "Talking about people in general",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bone\\s+(?:[a-z]+ly\\s+)?(?:does|can|must|should|will|has|is|needs|wants)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "one",
+          "DEP": "nsubj"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "One must be careful.",
+        "If one wants to succeed, one must work hard."
+      ],
+      "negatives": [
+        "I bought one apple.",
+        "She is the one I love."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713875x671479205493548800",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "subject/ object",
+    "lexical_range": "N/A",
+    "guideword": "FORM: (SUBJECT) EMPTY 'IT'",
+    "can_do_statement": "Can use dummy 'it' with 'appears', 'feels', 'looks' and 'seems'.",
+    "example_raw": "When you watch a film, it seems to be that you are inside it, and you are a character in it. (First Certificate in English; B2; Spanish - Latin American)\n\n\u2026 your company has carried out a full investigation on the matter and it appears that the disappearance was not the result of criminal activity. (Portugal; B2 VANTAGE; 2008); \n\nIt appears that there was an error with the older computer system. (Tahiti; B2 VANTAGE; 2009; French; Fail)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Evidential framing",
+      "pedagogical_hook": "Expressing impressions objectively",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bit\\s+(?:[a-z]+ly\\s+)?(?:appears|feels|looks|seems)\\s+(?:[a-z]+ly\\s+)?(?:that|like|to|as)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "it"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "appear",
+              "feel",
+              "look",
+              "seem"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "that",
+              "like",
+              "to",
+              "as"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It seems that we are lost.",
+        "It looks like a good idea."
+      ],
+      "negatives": [
+        "He likes how it feels.",
+        "I don't know how it appears."
+      ]
+    }
+  }
+]

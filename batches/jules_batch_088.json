@@ -1,0 +1,796 @@
+[
+  {
+    "egp_id": "1741163711031x153375030941925500",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "need",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PAST, NEGATIVE",
+    "can_do_statement": "Can use 'needn't have' + '-ed'.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Absence of past necessity",
+      "pedagogical_hook": "Past action that happened but wasn't necessary",
+      "agency_or_distance": "Internal agency, past distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bneedn['\u2019]t(?:\\s+[a-z]+ly)?\\s+have(?:\\s+[a-z]+ly)?\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "need"
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "have"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You needn't have bought me anything!",
+        "We needn't really have bothered."
+      ],
+      "negatives": [
+        "You didn't need to buy me anything.",
+        "I don't need to have a reason."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711031x683368301481546160",
+    "level": "C2",
+    "super_category": "MODALITY",
+    "sub_category": "need",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use the question form.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Questioning necessity directly via modal 'need'",
+      "pedagogical_hook": "Inversion with 'need' instead of 'do'",
+      "agency_or_distance": "External agency, immediate distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bneed(?:\\s+[a-z]+ly)?\\s+(?:i|you|he|she|it|we|they)(?:\\s+[a-z]+ly)?\\s+(?!to\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "need"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "DEP": "nsubj"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Need you ask me again?",
+        "Need I say more about it?"
+      ],
+      "negatives": [
+        "Do you need to ask me?",
+        "I need you to stay here."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711031x841582544358879100",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "need",
+    "lexical_range": "N/A",
+    "guideword": "USE: OBLIGATION AND NECESSITY",
+    "can_do_statement": "Can use 'needn't to' talk about a lack of obligation.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Absence of current or general necessity",
+      "pedagogical_hook": "Using 'needn't' followed by a base verb",
+      "agency_or_distance": "Internal agency, immediate distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bneedn['\u2019]t(?:\\s+[a-z]+ly)?\\s+(?!have\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "need"
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "have"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We needn't wear a jacket today.",
+        "You needn't worry about the music."
+      ],
+      "negatives": [
+        "We don't need to wear a jacket.",
+        "You needn't have worried."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711031x889528493173510800",
+    "level": "C2",
+    "super_category": "MODALITY",
+    "sub_category": "need",
+    "lexical_range": "N/A",
+    "guideword": "USE: IN DISCUSSION",
+    "can_do_statement": "Can use the question form rhetorically in discussion, typically in formal contexts.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Rhetorical questioning to emphasize a point",
+      "pedagogical_hook": "Using modal 'need' question to imply the answer is obvious",
+      "agency_or_distance": "External agency, theoretical distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bneed(?:\\s+[a-z]+ly)?\\s+(?:i|we|you)(?:\\s+[a-z]+ly)?\\s+(?:go\\s+on|say|ask|bother|work|explain)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "need"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "DEP": "nsubj"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "go",
+              "say",
+              "ask",
+              "bother",
+              "work",
+              "explain"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Need I go on with this story?",
+        "Need you work in this way?"
+      ],
+      "negatives": [
+        "I need you to work harder.",
+        "Do I need to go on?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711031x948362564696333800",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "need",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Negative modality expressing lack of obligation",
+      "pedagogical_hook": "Forming the negative without auxiliary 'do'",
+      "agency_or_distance": "Internal agency, immediate distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bneed(?:n['\u2019]t|\\s+not(?:\\s+[a-z]+ly)?)\\s+(?!have\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "need"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "have"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You need not actually worry about the time.",
+        "She needn't go out jogging tonight."
+      ],
+      "negatives": [
+        "She doesn't need to go out.",
+        "They did not need it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711031x327482417726489200",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "ought",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Expressing obligation or duty",
+      "pedagogical_hook": "Basic structure of 'ought to' plus verb",
+      "agency_or_distance": "Internal agency, immediate distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bought(?:\\s+[a-z]+ly)?\\s+to(?:\\s+[a-z]+ly)?\\s+(?!have\\b|be\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "ought"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "NOT_IN": [
+              "have",
+              "be"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think we ought to leave now.",
+        "She ought to definitely call her mother."
+      ],
+      "negatives": [
+        "She ought to have called.",
+        "I bought a car to drive."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711031x618063039110384000",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "ought",
+    "lexical_range": "N/A",
+    "guideword": "USE: ADVICE",
+    "can_do_statement": "Can use 'ought to' with 'you' to give advice.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Directing behavior through strong recommendation",
+      "pedagogical_hook": "Using 'you ought to' for advice",
+      "agency_or_distance": "External agency, immediate distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\byou\\s+(?:really\\s+)?ought(?:\\s+[a-z]+ly)?\\s+to(?:\\s+[a-z]+ly)?\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": "really",
+          "OP": "?"
+        },
+        {
+          "LOWER": "ought"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You ought to talk to your parents first.",
+        "I think you really ought to play tennis."
+      ],
+      "negatives": [
+        "He ought to play tennis.",
+        "You should talk to your parents."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711031x774677823144905200",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "ought",
+    "lexical_range": "N/A",
+    "guideword": "FORM: ELLIPSIS",
+    "can_do_statement": "Can use 'ought to' without a following verb where the previous main verb is understood.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Implied obligation avoiding repetition",
+      "pedagogical_hook": "Ending a clause with 'ought to'",
+      "agency_or_distance": "Internal agency, immediate distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bought(?:\\s+[a-z]+ly)?\\s+to(?!(?:\\s+[a-z]+))",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "ought"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "NOT_IN": [
+              "VERB",
+              "AUX",
+              "ADV",
+              "PART",
+              "ADJ",
+              "NOUN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They did not get as much help as they ought to.",
+        "She isn't practicing as much as she really ought to!"
+      ],
+      "negatives": [
+        "She ought to practice more.",
+        "They ought to go home."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711032x281092767712077150",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "ought",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: DESIRED STATES, WITH 'THERE OUGHT TO BE'",
+    "can_do_statement": "Can use 'there ought to be' to talk about desired states of affairs.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Desiring the existence of something",
+      "pedagogical_hook": "Combining existential 'there' with 'ought to be'",
+      "agency_or_distance": "External agency, theoretical distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthere\\s+ought(?:\\s+[a-z]+ly)?\\s+to(?:\\s+[a-z]+ly)?\\s+be\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "there"
+        },
+        {
+          "LOWER": "ought"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "be"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think there ought to be more excursions.",
+        "There ought to definitely be a lift in this building."
+      ],
+      "negatives": [
+        "It ought to be easier than this.",
+        "There should be more excursions."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711032x545399225271266940",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "ought",
+    "lexical_range": "N/A",
+    "guideword": "USE: DESIRED STATES",
+    "can_do_statement": "Can use 'ought to' to talk about desired states of affairs.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Expressing how things ideally should be",
+      "pedagogical_hook": "Using 'ought to' for broad ideals and states",
+      "agency_or_distance": "External agency, theoretical distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!\\bthere\\s)\\bought(?:\\s+[a-z]+ly)?\\s+to(?:\\s+[a-z]+ly)?\\s+(?!have\\b)(?:be\\b|take\\b|provide\\b|know\\b|[a-z]+\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "there"
+            ]
+          }
+        },
+        {
+          "LOWER": "ought"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LEMMA": {
+            "NOT_IN": [
+              "have"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Not all zoos are as good as they ought to be.",
+        "Furthermore, we ought to take care of our health."
+      ],
+      "negatives": [
+        "There ought to be more excursions.",
+        "They ought to have gone home."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711054x175278152218314660",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "ought",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: EMPHASIS, WITH 'REALLY'",
+    "can_do_statement": "Can use 'ought to' with 'really' to add emphasis.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Emphasized obligation",
+      "pedagogical_hook": "Adverbial intensification with 'really'",
+      "agency_or_distance": "Internal agency, immediate distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\breally\\s+ought(?:\\s+[a-z]+ly)?\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "really"
+        },
+        {
+          "LOWER": "ought"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We really ought to think a little bit more about it.",
+        "You really ought to ask for details."
+      ],
+      "negatives": [
+        "We ought to really think about it.",
+        "You really should ask for details."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711055x131146939288121260",
+    "level": "C2",
+    "super_category": "MODALITY",
+    "sub_category": "ought",
+    "lexical_range": "N/A",
+    "guideword": "FORM: CONTRACTED FORM, NEGATIVE",
+    "can_do_statement": "Can use 'oughtn't' (without 'to') + verb.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Negative obligation in contracted form",
+      "pedagogical_hook": "Dropping 'to' after 'oughtn't'",
+      "agency_or_distance": "Internal agency, immediate distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\boughtn['\u2019]t(?:\\s+[a-z]+ly)?\\s+(?!to\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "ought"
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "to"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You oughtn't miss it for the world!",
+        "She oughtn't ever speak to him like that."
+      ],
+      "negatives": [
+        "You oughtn't to miss it.",
+        "You ought not to go."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711055x172792709822924300",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "ought",
+    "lexical_range": "N/A",
+    "guideword": "USE: LIKELIHOOD",
+    "can_do_statement": "Can use 'ought to' to talk about something which is likely.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "High probability based on logical deduction",
+      "pedagogical_hook": "Using obligation modal for likelihood",
+      "agency_or_distance": "External agency, theoretical distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bought(?:\\s+not(?:\\s+[a-z]+ly)?)?\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "ought"
+        },
+        {
+          "LOWER": "not",
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It ought to provide useful information.",
+        "You ought not to be hungry."
+      ],
+      "negatives": [
+        "He should provide information.",
+        "I bought it to provide relief."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711055x305504796629080700",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "ought",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PAST, AFFIRMATIVE",
+    "can_do_statement": "Can use 'ought to have' + '-ed' to refer to desired states of affairs in the past.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Past obligation that was unfulfilled",
+      "pedagogical_hook": "Using perfect infinitive for past unreality",
+      "agency_or_distance": "External agency, past distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bought(?:\\s+[a-z]+ly)?\\s+to(?:\\s+[a-z]+ly)?\\s+have(?:\\s+[a-z]+ly)?\\s+(?!a\\b|an\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "ought"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "have"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We ought to have booked one!",
+        "The government ought to have known that."
+      ],
+      "negatives": [
+        "We ought to book one.",
+        "I think you ought to have a look."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711055x530884409098289800",
+    "level": "C2",
+    "super_category": "MODALITY",
+    "sub_category": "ought",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS, NEGATIVE",
+    "can_do_statement": "Can use 'ought' + subject + 'not to' + verb to form (rhetorical) questions, often in formal contexts.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Rhetorical questioning of negative obligation",
+      "pedagogical_hook": "Inverting 'ought' with subject followed by 'not to'",
+      "agency_or_distance": "External agency, immediate distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bought(?:\\s+[a-z]+ly)?\\s+(?:i|you|he|she|it|we|they|there|[a-z]+)(?:\\s+[a-z]+ly)?\\s+not(?:\\s+[a-z]+ly)?\\s+to(?:\\s+[a-z]+ly)?\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "ought"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "DEP": "nsubj"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "not"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Ought we not to learn from the mistakes of the past?",
+        "Ought they not to stay here?"
+      ],
+      "negatives": [
+        "Ought we to learn from this?",
+        "Should we not learn from the past?"
+      ]
+    }
+  }
+]

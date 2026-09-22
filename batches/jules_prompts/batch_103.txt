@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_103.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163712327x699835533298048600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPEATED EVENTS",
+  "can_do_statement": "Can use the past continuous to talk about ongoing repeated events in the past, often with 'always'.",
+  "example_raw": "Worst of all, in September it was always raining. (Portugal; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nHe was always talking about this prize but I never thought he would win it. (Sri Lanka; B1 THRESHOLD; 2004; Tamil; Pass)"
+ },
+ {
+  "egp_id": "1741163712327x913269929337566600",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS ",
+  "can_do_statement": "Can use the past continuous to make a request or suggestions more polite or less direct.",
+  "example_raw": "I was wondering if I could impose on you again for my next visit. (Chinese, B2 VANTAGE, Pass, 1999)\n\nI was thinking that you could wear your Marilyn Monroe dress as your fancy-dress costume. (===NONE===, B2 VANTAGE, Pass, 2003)\n\nI was thinking that you could come to my house and see the movie. (Spanish - Latin American, B2 VANTAGE, Pass, 2004)"
+ },
+ {
+  "egp_id": "1741163712328x422695616724010100",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "1",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form. ",
+  "example_raw": "Laura realised that she had not been studying very hard lately. (Malaysia; B2 VANTAGE; 1999; Chinese; Pass)\n\nI couldn't tell her about Mark because she hadn't been doing anything else but talking about him for the last three weeks. (Netherlands; B2 VANTAGE; 1993; Dutch; Pass)\n\nLast week, two of your employers came to solve the problems of my central heating system as it had not been working for two days. (Romania; B2 VANTAGE; 2010; Romanian; Pass)"
+ },
+ {
+  "egp_id": "1741163712328x572489570915366600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: BACKGROUND EVENTS ",
+  "can_do_statement": "Can use the past perfect continuous talk about a background action or event which began before a point in the past and was still continuing up to a point in the past when the main event happened. ",
+  "example_raw": "I had been waiting for this letter for months, so I opened it immediately. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nOnce I had been watching TV for 6 hours when my Mum suddenly switched it off. (Russia; B1 THRESHOLD; 2007; Russian; Pass)\n"
+ },
+ {
+  "egp_id": "1741163712328x663782601864534800",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: BACKGROUND INFORMATION WITH TIME CONJUNCTION",
+  "can_do_statement": "Can use the past perfect continuous after a time conjunction to give background information.",
+  "example_raw": "After we had been sunbathing at the beach all day long, we went every evening to a cosy restaurant called \"The Barking Cat\", where we had a good meal and some wine. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nAfter I had been waiting for an hour, I decided to go through the gate and go in on foot. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n"
+ },
+ {
+  "egp_id": "1741163712328x669008360458158700",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "I had been working on the project for over a year. (France; B1 THRESHOLD; 2004; French; Pass)\n\nWe had been waiting for hours. (Greece; B1 THRESHOLD; 2007; Greek; Pass)\n\nI didn't need so much, because I'd been saving money for a few months. (Spain; B1 THRESHOLD; 2010; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163712328x669982657855112700",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: BACKGROUND INFORMATION WITH RELATIVE CLAUSE",
+  "can_do_statement": "Can use the past perfect continuous in a relative clause to give background information.  \u25ba relative clauses",
+  "example_raw": "And there were two men who had been chasing the murderer to find out who the man is and rescue the girl.... (Korea, North; B2 VANTAGE; 2008; Korean; Pass)\n\nThe guide also tells some funny stories about an old lord, who had been living there in the 18th century. (Germany; B2 VANTAGE; 2001; German; Pass)\n\nAfter a few minutes the door was opened and the man who  had been following me came in. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163712328x701653383761448700",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: CONTINUING EVENTS IN THE PAST",
+  "can_do_statement": "Can use the past perfect continuous to talk about an action or event which began before a point in the past and was still continuing up to that point, often with 'for' or 'since', to give background information. ",
+  "example_raw": "I know it very well because we had been exchanging letters for a long time. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass) \n\nShe had been going there since she was ten years old. (Mexico; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\nHe began to think about his own thoughts while he was smoking a cigarette (he had been smoking since he was a child, since he was 12), when suddenly the curtain moved. (Italy; B1 THRESHOLD; 2004; Italian; Pass) "
+ },
+ {
+  "egp_id": "1741163712332x322280679825253100",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: RESULTS",
+  "can_do_statement": "Can use the past perfect continuous to talk about events which started before a time in the past and which finished, but where the effects or results were still important at a point in the past. ",
+  "example_raw": "Unfortunately it had been snowing for a long time and so I was unable to go out for a walk. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nWe had been working very hard all the morning so by that time, I was very tired. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163712332x793082629536507400",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the past perfect continuous with adverbs in the normal mid position. ",
+  "example_raw": "I had been working hard at my job and I had really been looking forward to this holiday. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nWhen he died, he was a rich man, he had only been living ten months in the house he had built for fourteen years \u2026 (France; B2 VANTAGE; 1999; French; Fail)"
+ },
+ {
+  "egp_id": "1741163712332x868931903135236100",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form. ",
+  "example_raw": "What had he been doing that morning? (France; C2 MASTERY; 1993; French; Pass)\n\nSo, why had she been waiting for so long a time? (France; C2 MASTERY; 1993; French; Fail)"
+ },
+ {
+  "egp_id": "1741163712332x472235073902899300",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use negative forms.",
+  "example_raw": "The ABC Company called this morning to say that our company had not delivered the goods on time. (China; B1 THRESHOLD; 2002; Chinese; Pass)\n\nI hadn't heard from her for two months. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n"
+ },
+ {
+  "egp_id": "1741163712332x475879228502143170",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE ",
+  "can_do_statement": "Can use the affirmative form.",
+  "example_raw": "I felt really sorry for you after I had read your last letter. (Poland; B1 THRESHOLD; 2008; Polish; Pass)\n\n[\u2026] I'd forgotten that I have an appointment with the doctor [\u2026] (Spanish - Latin American; Peru; B1 THRESHOLD; Pass)"
+ },
+ {
+  "egp_id": "1741163712332x638122991854022300",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS ",
+  "can_do_statement": "Can use the past perfect simple with a limited range of adverbs (including 'never', 'ever', 'just', 'always', 'already') in the normal mid-position. \u25ba adverbs",
+  "example_raw": "It was the most beautiful one I had ever seen. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nSo, she came to America to see a relation she had never seen before, and she spent the money with me. (Spanish - Latin American; Argentina; B1 THRESHOLD; Pass)\nI had just arrived from school when I saw the letter. (Portugal; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nI had always wanted to visit European cities and Paris was one of the easiest cities to get to from England. (Korea, South; B1 THRESHOLD; 1999; Korean; Pass)"
+ },
+ {
+  "egp_id": "1741163712332x914076237100333000",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'IF' CLAUSES ",
+  "can_do_statement": "Can use the past perfect simple in 'if'-clauses to talk about imagined situations in the past, often with regret. \u25ba 'if'-clauses",
+  "example_raw": "If the weather had been better, we would have enjoyed it more. (Argentina; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\nIf you had gone there with me, you would have been happy. (Korea, South; B1 THRESHOLD; 1999; Korean; Pass)\n\nSo I decided to go back and look for them in the park: believe it or not I would have spent all night in the park, if it hadn't been closed since six o'clock! (Italian; Italy; B1 THRESHOLD; Pass; 2000) "
+ }
+]
+```

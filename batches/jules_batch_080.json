@@ -1,0 +1,808 @@
+[
+ {
+  "egp_id": "1741163710393x306065725753619460",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'can' with an increasing range of adverbs (including 'easily', 'hardly', 'now', 'probably', 'sometimes', 'still') in the normal mid position after the modal verb or after the subject in questions.  \u25ba adverbs",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Modal + Adv",
+   "pedagogical_hook": "Using specific adverbs like easily, hardly, probably with 'can'",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bcan\\s+(?:easily|hardly|now|probably|sometimes|still)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "can"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "easily",
+       "hardly",
+       "now",
+       "probably",
+       "sometimes",
+       "still"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I can easily provide references for you.",
+    "You can hardly imagine how tired I am."
+   ],
+   "negatives": [
+    "I can do it easily if you want.",
+    "She hardly can do anything right."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710393x435738862107397440",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: GENERAL TRUTHS AND TENDENCIES",
+  "can_do_statement": "Can use 'can' to talk about general truths and tendencies.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "General truth / tendency",
+   "pedagogical_hook": "Using 'can' to express tendencies",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:people|things|work|stress|weather|children|students|animals)\\s+can\\s+(?:cause|feel|make|lead|result|be|get)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "LOWER": "can"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "cause",
+       "feel",
+       "make",
+       "lead",
+       "result",
+       "be",
+       "get"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Too much work can cause stress.",
+    "Young people can feel bored at museums."
+   ],
+   "negatives": [
+    "I can feel the wind.",
+    "He can make a cake."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710393x749410106828691000",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: GUESSES AND PREDICTIONS",
+  "can_do_statement": "Can use the negative forms of 'can't' and 'cannot' to guess, predict and deduce.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Negative deduction",
+   "pedagogical_hook": "Using 'can't be' for deductions",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:can\\s*not|can\\s*['\u2019]t)\\s+be\\s+(?:feeling|true|any|right)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "ca",
+       "can"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "LOWER": "be"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "feeling",
+       "true",
+       "any",
+       "right"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It can't be true what they are saying.",
+    "You cannot be feeling well if you look so pale."
+   ],
+   "negatives": [
+    "I can't swim.",
+    "We cannot park here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710394x181194799335548060",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use a wide range of adverbs with 'can' in the normal mid position after the modal verb). \u25ba adverbs",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Modal + Adv (C1)",
+   "pedagogical_hook": "Using complex adverbs like fully, honestly with 'can'",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bcan\\s+(?:you\\s+)?(?:fully|honestly|safely|certainly|readily|truly|clearly|simply)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "can"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "we",
+       "they",
+       "i",
+       "he",
+       "she",
+       "it"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "fully",
+       "honestly",
+       "safely",
+       "certainly",
+       "readily",
+       "truly",
+       "clearly",
+       "simply"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I can honestly say that I know her well.",
+    "Only then can you fully understand the situation."
+   ],
+   "negatives": [
+    "I can run fast.",
+    "She fully can comprehend it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710394x261510254385375330",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPROACHES AND APPEALS",
+  "can_do_statement": "Can use negative forms of 'can' to make reproaches or appeals.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Reproach / Appeal",
+   "pedagogical_hook": "Using 'can't' to appeal to someone's reason",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:can\\s*not|can\\s*['\u2019]t)\\s+(?:you\\s+see|go\\s+on|forget\\s+your\\s+friends|work\\s+all\\s+the\\s+time|be\\s+serious)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "ca",
+       "can"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "go",
+       "forget",
+       "work",
+       "be"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "see",
+       "on",
+       "your",
+       "all",
+       "serious"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You can't forget your friends like that.",
+    "Can't you see how exhausted you are?"
+   ],
+   "negatives": [
+    "I can't see anything without my glasses.",
+    "We can't forget the date."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710394x264223806244499500",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: REFLECTIONS",
+  "can_do_statement": "Can use 'how can' to reflect, through rhetorical questions. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Rhetorical reflection",
+   "pedagogical_hook": "Using 'how can' for reflections",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bhow\\s+can\\s+(?:we|each|one|people|anyone)\\s+(?!help\\b|do\\b|get\\b|make\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "how"
+    },
+    {
+     "LOWER": "can"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "we",
+       "each",
+       "one",
+       "people",
+       "anyone"
+      ]
+     }
+    },
+    {
+     "LEMMA": {
+      "NOT_IN": [
+       "help",
+       "do",
+       "get",
+       "make"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "And how can we improve if we are not allowed to make mistakes?",
+    "But how can each of us stay fit in this world?"
+   ],
+   "negatives": [
+    "How can I help you?",
+    "I asked him how he can run so fast."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710394x510073809645116300",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: EMPHASIS",
+  "can_do_statement": "Can use expressions with 'can' or 'can\u2019t' to give focus or add emphasis, such as 'as you can see', 'I can't say', 'I can tell you that', 'as you can imagine', 'I can say that', 'I can assure you that'. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Emphasis phrase",
+   "pedagogical_hook": "Using fixed phrases like 'as you can see' for emphasis",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:as\\s+you\\s+can\\s+(?:see|imagine)|I\\s+can\\s*['\u2019]t\\s+say|I\\s+can\\s+(?:tell|say|assure))\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "as",
+       "i"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "ca",
+       "can"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "can",
+       "not",
+       "n't"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "see",
+       "imagine",
+       "say",
+       "tell",
+       "assure"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "As you can imagine, it was a very difficult time.",
+    "I can tell you that we worked really hard."
+   ],
+   "negatives": [
+    "I can swim.",
+    "She can say what she wants."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710394x568523559828543400",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PASSIVE ",
+  "can_do_statement": "Can use 'can' in passive reporting clauses in a more formal impersonal style (e.g. for reports and academic contexts), such as 'It can be said that', 'It can be argued (that)', 'It can be concluded that', 'It can be considered'.\u25ba passives",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Passive reporting",
+   "pedagogical_hook": "Using 'it can be + V3' in academic contexts",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bit\\s+can\\s+be\\s+(?:said|argued|concluded|considered|seen)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "it"
+    },
+    {
+     "LOWER": "can"
+    },
+    {
+     "LOWER": "be"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "say",
+       "argue",
+       "conclude",
+       "consider",
+       "see"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It can be argued that the policy failed.",
+    "Taking everything into account, it can be concluded that it is useful."
+   ],
+   "negatives": [
+    "I can be ready in five minutes.",
+    "This box can be moved easily."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710394x606520841619965400",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PAST NEGATIVE, DEDUCTIONS",
+  "can_do_statement": "Can use 'can't' or 'cannot have' + '-ed' to make deductions.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Past negative deduction",
+   "pedagogical_hook": "Using 'can't have + V3'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:can\\s*['\u2019]t|can\\s*not)\\s+have\\s+(?:been|done|gone|seen|used|[a-z]+ed)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "ca",
+       "can"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "VBN",
+       "VBD"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We can't have used so much electricity.",
+    "It cannot have been a disappointment."
+   ],
+   "negatives": [
+    "I can't have a break now.",
+    "They cannot have this item."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716292x104838329159449020",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: REQUESTS",
+  "can_do_statement": "Can use 'could' to make requests.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Request",
+   "pedagogical_hook": "Using 'could you / we' for polite requests",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)^\\s*(?:[A-Za-z]+\\s+)*could\\s+(?:you|we)\\s+(?:please\\s+)?[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "could"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "we"
+      ]
+     }
+    },
+    {
+     "LOWER": "please",
+     "OP": "?"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Could you help me to paint my bedroom?",
+    "Could we meet on Friday afternoon?"
+   ],
+   "negatives": [
+    "I could run fast when I was young.",
+    "Could he have done it?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716292x214601835879246080",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: ABILITY",
+  "can_do_statement": "Can use the negative form of 'could' to talk about inability. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Past inability",
+   "pedagogical_hook": "Using 'couldn't' for past inability",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:I|he|she|we|they|people)\\s+(?:could\\s*not|couldn\\s*['\u2019]t)\\s+(?:work|buy|see|hear|do|go|play)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN"
+      ]
+     }
+    },
+    {
+     "LOWER": "could"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "work",
+       "buy",
+       "see",
+       "hear",
+       "do",
+       "go",
+       "play"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I couldn't work without it.",
+    "She couldn't buy the T-shirt."
+   ],
+   "negatives": [
+    "I could definitely do that.",
+    "Could you help me?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716292x259759930140010000",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Affirmative 'could'",
+   "pedagogical_hook": "Using affirmative 'could'",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:you|we|I|he|she|they)\\s+could\\s+(?!not\\b|have\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "PROPN",
+       "NOUN"
+      ]
+     }
+    },
+    {
+     "LOWER": "could"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "ADV"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You could come by bus.",
+    "We could go to the museum."
+   ],
+   "negatives": [
+    "I couldn't close it.",
+    "Could you help me?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716292x357747992335715200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: ABILITY",
+  "can_do_statement": "Can use the affirmative form of 'could' to talk about ability.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Past ability",
+   "pedagogical_hook": "Using 'could' with ability verbs",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bcould\\s+(?:hear|see|smell|taste|feel|understand|remember|speak|run|swim)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "could"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "hear",
+       "see",
+       "smell",
+       "taste",
+       "feel",
+       "understand",
+       "remember",
+       "speak",
+       "run",
+       "swim"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She could hear a man talking.",
+    "I could run very fast when I was younger."
+   ],
+   "negatives": [
+    "We could go out for dinner.",
+    "You could try the other door."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716292x537771445666802560",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Question 'could'",
+   "pedagogical_hook": "Inverting 'could' for questions",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)^\\s*(?:how|what|where|when|why|who)?\\s*could\\s+(?:I|you|he|she|it|we|they)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "could"
+    },
+    {
+     "POS": "PRON"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Could you help me?",
+    "Could we meet on Friday?"
+   ],
+   "negatives": [
+    "I could close the window.",
+    "They couldn't see."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716292x712077863595412800",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Negative 'could'",
+   "pedagogical_hook": "Using 'could not' / 'couldn't'",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:could\\s*not|couldn\\s*['\u2019]t)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "could"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Too bad you couldn't come.",
+    "I could not close the window."
+   ],
+   "negatives": [
+    "Could you bring it?",
+    "We could go there."
+   ]
+  }
+ }
+]

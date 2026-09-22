@@ -1,0 +1,990 @@
+[
+ {
+  "egp_id": "1741163712333x181896863266680420",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'BECAUSE', EXPLANATIONS ",
+  "can_do_statement": "Can use the past perfect simple after 'because' to give explanatory information.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Establishing causality through prior completion",
+   "pedagogical_hook": "Providing background explanations with 'because' + past perfect",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bbecause\\b[^.?!]{1,40}\\b(?:had|'d)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come|lost|met|read|arranged)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "because"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "'d"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "not",
+       "n't"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was driving on to my parents' house because I had arranged to have dinner with them.",
+    "He was sleeping but I realised that this was because he had lost a lot of blood."
+   ],
+   "negatives": [
+    "I am doing this because I have lost my keys.",
+    "We stayed inside because it had a bad smell."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712333x761860144866407300",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'IF ONLY' AND 'WISH', IMAGINED PAST",
+  "can_do_statement": "Can use the affirmative form after 'if only', and the affirmative and negative forms after 'wish' to talk about regret.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing counterfactual pasts and regret",
+   "pedagogical_hook": "Regret over past events with 'wish' or 'if only' + past perfect",
+   "agency_or_distance": "Internal state/Counterfactual distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:if\\s+only|wish)\\b[^.?!]{1,40}\\b(?:had|'d|hadn't|had\\s+not)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come|lost|met|read|listened|played|told)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "only",
+       "wish"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "'d"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "If only I had listened to my father when he warned me!",
+    "I wish I hadn't told Pat about my plans."
+   ],
+   "negatives": [
+    "I wish I had a car right now.",
+    "If only she would listen to me."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712333x963626763332635600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: TIME UP TO THEN",
+  "can_do_statement": "Can use the past perfect simple to talk about a time before another time in the past.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Sequencing a past action before another past point",
+   "pedagogical_hook": "The \"past in the past\" for narrative timeline building",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:had|'d)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come|lost|met|read|arranged)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "'d"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He then thought how stupid he had been.",
+    "Actually I'd arranged an appointment with my doctor before calling you."
+   ],
+   "negatives": [
+    "I have arranged a meeting for tomorrow.",
+    "She had a really great time at the party."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712334x136453521650765640",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the past perfect simple with a wide range of adverbs (including 'finally', 'recently', 'simply') in the normal mid-position.  \u25ba adverbs",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Modifying prior completed actions with adverbials",
+   "pedagogical_hook": "Mid-position adverbs between auxiliary 'had' and past participle",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:had|'d)\\s+(?:finally|recently|simply|suddenly|just|already|always|never|ever|[a-z]+ly)\\s+(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come|lost|met|read|woken)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "'d"
+      ]
+     }
+    },
+    {
+     "POS": "ADV"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He had finally achieved his goal after years of work!",
+    "She had suddenly woken up at that noise."
+   ],
+   "negatives": [
+    "I had walked there quickly.",
+    "He had been a teacher recently."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712334x353325929078093700",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION WITH 'NO SOONER \u2026 THAN'",
+  "can_do_statement": "Can invert the subject and auxiliary verb with 'no sooner \u2026 than' to talk about something that happened immediately before something else, often in formal contexts.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Emphasising immediate sequence of past events via inversion",
+   "pedagogical_hook": "Formal inversion: 'No sooner had I...' to add dramatic sequencing",
+   "agency_or_distance": "Formal distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bno\\s+sooner\\s+had\\b[^.?!]{1,40}\\bthan\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "no"
+    },
+    {
+     "LOWER": "sooner"
+    },
+    {
+     "LOWER": "had"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "TAG": {
+      "IN": [
+       "VBN",
+       "VBD"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!",
+       "than"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": "than"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "No sooner had I gone to bed than someone broke the door down.",
+    "But, no sooner had I got there than my classmates informed me."
+   ],
+   "negatives": [
+    "I had no sooner finished my work than the bell rang.",
+    "We will leave no sooner than 8 PM."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712334x456379754309706560",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use question forms.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Inquiring about events completed before a past reference point",
+   "pedagogical_hook": "Question inversion with past perfect 'had'",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:^|[.?!]\\s*|why\\s+|where\\s+|when\\s+|how\\s+|what\\s+|who\\s+)\\bhad\\s+(?:the\\s+|a\\s+|an\\s+|my\\s+|your\\s+|his\\s+|her\\s+|their\\s+|our\\s+)?[a-z]+\\s+(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come|lost|met|read)\\b[^.?!]*\\?",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "had"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN",
+       "DET"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "!",
+       "?"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "ORTH": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Had I made the same mistake twice?",
+    "The question was: Why had he done that?"
+   ],
+   "negatives": [
+    "I asked why he had done that.",
+    "Had a great time yesterday?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712334x897130264998052400",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION WITH 'NEVER (BEFORE)'",
+  "can_do_statement": "Can invert the subject and auxiliary verb after 'never (before)' to talk about a unique event, often in formal contexts.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Emphasising uniqueness of a past experience through inversion",
+   "pedagogical_hook": "Formal emphatic phrasing with 'Never had I...'",
+   "agency_or_distance": "Formal distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bnever\\s+(?:before\\s+)?had\\s+(?:[a-z]+\\s+){1,3}(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "never"
+    },
+    {
+     "LOWER": "before",
+     "OP": "?"
+    },
+    {
+     "LOWER": "had"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN",
+       "DET"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Never had I been in such a ridiculous situation!",
+    "Never before had we seen such marvellous species of fish."
+   ],
+   "negatives": [
+    "I had never been in such a situation.",
+    "She will never have time for that."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712334x957245027107264100",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS ",
+  "can_do_statement": "Can leave out the subject before the past perfect simple where it is understood from the previous clause.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Linking sequential facts while omitting redundant subjects",
+   "pedagogical_hook": "Compound predicates sharing a single subject into the past perfect",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:and|but|or|so)\\s+(?:[a-z]+ly\\s+)?had\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come|lost|met|read|written|brought)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "CCONJ",
+       "SCONJ"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": "had"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Simon was a very famous writer and had written ten best-sellers.",
+    "They were cold and had gone numb."
+   ],
+   "negatives": [
+    "Simon was a writer and he had written ten best-sellers.",
+    "She smiled, and had a piece of cake."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712335x315912109814443500",
+  "level": "C1",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION, IMAGINED PAST",
+  "can_do_statement": "Can invert the subject and affirmative auxiliary verb to talk about imagined situations in the past, often with regret, in formal contexts. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing counterfactual pasts without 'if'",
+   "pedagogical_hook": "Inverted 3rd conditionals: 'Had I known...'",
+   "agency_or_distance": "Counterfactual and formal distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:^|\\.\\s*|,\\s*|that\\s+)had\\s+(?:the\\s+|a\\s+|an\\s+|[a-z]+\\s+)(?:[a-z]+\\s+)?(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come)[^.?!]*,",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "had"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN",
+       "DET"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN",
+       "ADJ"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "TAG": "VBN"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!"
+      ]
+     },
+     "OP": "+"
+    },
+    {
+     "ORTH": ","
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Had I known the tour would be so bad, I wouldn't have booked it.",
+    "Sometimes I think that had I gone to Britain without this experience, my life would be different."
+   ],
+   "negatives": [
+    "Had I known the answer?",
+    "If I had known the tour would be so bad, I wouldn't have booked it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712335x352820156836315650",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTS OF STATEMENTS",
+  "can_do_statement": "Can use the past perfect simple to report statements, where the main verb in the reporting clause is in the past simple.  \u25ba reported speech",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Backshifting past facts into reported speech",
+   "pedagogical_hook": "Past simple reporting verb + past perfect reported clause",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:try|tried|say|said|tell|told|explain|explained|think|thought|know|knew|report|reported|announce|announced|claim|claimed|state|stated|reply|replied|answer|answered)\\b[^.?!]{1,40}\\b(?:had|'d)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come|lost|met|read|happened|arrested)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "try",
+       "say",
+       "tell",
+       "explain",
+       "think",
+       "know",
+       "report",
+       "announce",
+       "claim",
+       "state",
+       "reply",
+       "answer"
+      ]
+     },
+     "TAG": "VBD"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "'d"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She tried to explain what had happened, but she couldn't.",
+    "I looked at the address and I knew what had happened to my sister's postcard."
+   ],
+   "negatives": [
+    "She says what had happened.",
+    "He explained what is happening now."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712335x467440951326574700",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: CHANGE OF SITUATION",
+  "can_do_statement": "Can use the past perfect simple to talk about situations which changed. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Contrasting an earlier plan or state with a subsequent change",
+   "pedagogical_hook": "Past perfect of intention (planned/wanted) contrasting with 'but'",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:had|'d)\\s+(?:planned|wanted|hoped|intended|meant|expected|tried)\\b[^.?!]{0,60}\\bbut\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "'d"
+      ]
+     }
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "plan",
+       "want",
+       "hope",
+       "intend",
+       "mean",
+       "expect",
+       "try"
+      ]
+     },
+     "TAG": "VBN"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": "but"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We had planned to go to Switzerland, but unfortunately our car broke down.",
+    "At first she had wanted to make the first move but she wasn't quite convinced."
+   ],
+   "negatives": [
+    "I had hoped she would come.",
+    "We planned to go to the park, but it rained."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712335x576982604394435300",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: BACKGROUND INFORMATION, RELATIVE CLAUSE",
+  "can_do_statement": "Can use the past perfect simple in relative clauses to give background information.    \u25ba relative clauses",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Adding preceding context via relative modifiers",
+   "pedagogical_hook": "Relative pronoun + past perfect for background details",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?<!^)(?<!\\.\\s)(?<!\\?\\s)(?<!!\\s)\\b(?:who|which|that|where)\\s+(?:[a-z]+\\s+){0,4}(?:had|'d)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come|lost|met|read|organised|arranged|sent)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN",
+       "PRON",
+       "VERB",
+       "AUX",
+       "ADJ"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "which",
+       "that",
+       "where"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "who",
+       "which",
+       "that",
+       "where",
+       ".",
+       "?",
+       "!"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "'d"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was Annika who had arranged a huge party for her.",
+    "He went to the hotel to find out who the person was that had sent him a mysterious letter."
+   ],
+   "negatives": [
+    "She found the book which she bought yesterday.",
+    "Who had arranged this?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712335x814539814649439100",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTS OF QUESTIONS ",
+  "can_do_statement": "Can use the past perfect simple to report questions, where the main verb in the reporting clause is in the past simple.  \u25ba reported speech",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Backshifting past questions into reported speech",
+   "pedagogical_hook": "Past reporting verb + wh-word/if + past perfect",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:asked|wondered|questioned|enquired|inquired)\\b[^.?!]{0,40}\\b(?:who|what|where|when|why|how|if|whether)\\s+(?:[a-z]+\\s+){0,4}(?:had|'d)\\s+(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come|happened|given)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "ask",
+       "wonder",
+       "question",
+       "enquire",
+       "inquire"
+      ]
+     },
+     "TAG": "VBD"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "what",
+       "where",
+       "when",
+       "why",
+       "how",
+       "if",
+       "whether"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "'d"
+      ]
+     }
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I asked him who had given him my phone number.",
+    "He asked me if I had seen her somewhere."
+   ],
+   "negatives": [
+    "I asked him who gave him my phone number.",
+    "She wondered what he is doing."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712739x117068598667129380",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: FIXED EXPRESSIONS 'HAD IT NOT BEEN FOR', 'IF IT HADN'T BEEN FOR'",
+  "can_do_statement": "Can use 'had it not been for' \u2026 and 'if it hadn\u2019t been for' with a modal form for giving reasons.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Presenting crucial counterfactual conditions",
+   "pedagogical_hook": "Fixed idioms for attributing negative causality: 'had it not been for'",
+   "agency_or_distance": "Formal distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:had\\s+it\\s+not\\s+been|if\\s+it\\s+had(?:n't|\\s+not)\\s+been)\\s+for\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "if"
+      ]
+     }
+    },
+    {
+     "LOWER": "it"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "hadn't",
+       "not"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "n't",
+       "not",
+       "been"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "been",
+       "not"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": "been",
+     "OP": "?"
+    },
+    {
+     "LOWER": "for"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Had it not been for the fact that I had already read the article, I would have thought otherwise.",
+    "If it hadn't been for my lack of knowledge, I wouldn't have been fired."
+   ],
+   "negatives": [
+    "It had not been for sale at that time.",
+    "If it hasn't been for long, we can wait."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712739x168032886753128670",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'IF ONLY', IMAGINED PAST",
+  "can_do_statement": "Can use the negative form after 'if only' to express regret. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing negative counterfactual regret",
+   "pedagogical_hook": "Negative regret: 'if only' + hadn't",
+   "agency_or_distance": "Internal state/Counterfactual distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bif\\s+only\\s+(?:[a-z]+\\s+){1,3}(?:had\\s+not|hadn't)\\s+(?:[a-z]+ed|been|done|gone|made|seen|had|known|got|come|lost|met|read|helped)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "if"
+    },
+    {
+     "LOWER": "only"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": "had"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "If only she had not changed, we would still be best friends.",
+    "If only I hadn't been that rude!"
+   ],
+   "negatives": [
+    "If only I had listened to you.",
+    "If only they wouldn't do that."
+   ]
+  }
+ }
+]

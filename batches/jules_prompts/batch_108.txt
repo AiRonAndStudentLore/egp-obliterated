@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_108.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163713116x221586221050488420",
+  "level": "B1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "3",
+  "guideword": "FORM: SIMPLE",
+  "can_do_statement": "Can use a wide range of simple (single word) prepositions.",
+  "example_raw": "If it is raining, the rain enters through the holes in the roof and makes the house wet. (B1 Fulani)\n\nTo my surprise, there was a charming beach along the cycle route. (B1 Chinese)\n\nDon't forget to meet me at the theme park beside the main entrance. (B1 Albanian)\n\nIn the middle of the room there is a big bed between two windows and above the bed there is a beautiful painting. (B1 Swedish)\n\nI think Bremen won't change that much within the next 20 years. (B1 German)\n\nI hate shopping via the internet. (B1 Arabic \u2013 Meghreb)"
+ },
+ {
+  "egp_id": "1741163713116x353458240035020350",
+  "level": "B1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: STRANDING",
+  "can_do_statement": "Can end a reported question clause and a relative clause with a preposition, where the preposition is stranded from its complement. \u25ba Clauses: relative",
+  "example_raw": "So this is the best festival I been to. (B1 THRESHOLD; 2008; Albanian; Pass)\n\nPlease give him all the information he asks for. (Switzerland; B1 THRESHOLD; 2005; German; Pass)\n\nEverybody should see which company I work for. (other; B1 THRESHOLD; 2004; Others; Pass)"
+ },
+ {
+  "egp_id": "1741163713116x636100257659625700",
+  "level": "B2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: FORMAL",
+  "can_do_statement": "Can use less frequent simple prepositions, often in a more formal, literary or business context.",
+  "example_raw": "Suddenly the lights went out and a kind of silent screaming was heard throughout the whole dark room. (B2 German)\n\nSo why don\u2019t you act upon my advice? (B2 Brazilian)\n\nI took bus number 19 from Angel tube station toward Battersea Park. (B2 Italian)\n\nIn Tottenham, transport is easy, buses are frequent, unlike other areas. (B2 Thai)\n\nA survey was carried out amongst the students and teachers. (Turkey; B2 VANTAGE; 2001; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163713116x646932110230855600",
+  "level": "B1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "2",
+  "guideword": "FORM: COMPLEX",
+  "can_do_statement": "Can use an increasing range of complex prepositions.",
+  "example_raw": "My parents weren't happy when they heard that I wanted to go to Croatia with my friends instead of flying to the USA. (B1 German)\n\nThe company chose my school thanks to the excellent results of the students. (B1 French)\n\nIt was saying that some company can find me a job in the UK and I can earn up to \u00a3 1000 per month. (Poland; B1 THRESHOLD; 2004; Polish; Pass)\n\n[talking about a watch] I was going out of the shop when I noticed that I had lost it. (B1 Italian)\n\nI would like to apologise because, due to a dental appointment, I will not be able to participate in the English class tomorrow. (B1 French)\n\nThe best place to stay is a hotel a bit outside of the city. (B1 Swiss German)"
+ },
+ {
+  "egp_id": "1741163713116x701061838010980100",
+  "level": "C1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: FORMAL",
+  "can_do_statement": "Can use less frequent complex prepositions, often in a more formal, literary or business context.",
+  "example_raw": "It's unbelievable that this civilization that lived a long time ago could be so ahead of their time. (C1 Brazilian Portuguese)\n\nI think that the next area to develop will be the car industry, which will develop cars that are going to work by solar energy, on account of the levels of pollution in big cities. (C1 Spanish Latin American)"
+ },
+ {
+  "egp_id": "1741163713116x829257725032760800",
+  "level": "B1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'ADVERB' + PREPOSITION",
+  "can_do_statement": "Can use adverbs of degree to modify prepositions and prepositional phrases. ",
+  "example_raw": "It's quite near my house so I can go there easily. (Italy; B1 THRESHOLD; 2003; Italian; Pass)\n\nWhen I was trying to reach the only frame of light I could see in the woods, something moved right behind me. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI'm going to put it right in front of the window, so I have enough light. (Germany; B1 THRESHOLD; 2009; German; Pass)\n\nI felt I was flying and it was really like a dream. (Iran; B1 THRESHOLD; 2003; Farsi; Pass)\n\nBut anyway it's enjoyable to shop for clothes  especially with a group of friends. (Iran; B1 THRESHOLD; 2006; Farsi; Pass)"
+ },
+ {
+  "egp_id": "1741163713116x878693855125900300",
+  "level": "B2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PREPOSITION + 'WH-'WORD",
+  "can_do_statement": "Can use preposition + relative pronoun as complement, to avoid preposition stranding, often in formal contexts. \u25ba Clauses: relative",
+  "example_raw": "According to your advertisement in a language magazine, you have a vacancy in which I am very interested. (Switzerland; B2 VANTAGE; 1998; German; Pass)\n\nI hope that you can help me by answering some questions about the club of which you are the secretary. (Germany; B2 VANTAGE; 1993; Dutch; Pass)\n\nIn my opinion children need someone to whom they can talk. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163713116x968587932066165600",
+  "level": "B2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "3",
+  "guideword": "FORM: COMPLEX",
+  "can_do_statement": "Can use a wide range of complex prepositions.",
+  "example_raw": "She did not say very much except for \"oh\" and \"yes, yes\" every once in a while. (B2 Dutch)\n\n[talking about animals in zoos] And it gives them the possibility of gradually gaining knowledge about other living creatures apart from humans. (B2 Polish)\n\n[giving suggestions on how to make the reception area of a school more attractive] It is based on my personal opinions in addition to a sample of 500 people who are students and staff at the school, and also visitors. (B2 French)\n\nNow, as for the camping, I admit that I'm not a great fan of it. (B2 Greek)\n\nI hope that, in spite of some small problems, people liked the festival and we will be able to attend it next year. (B2 Russian)"
+ },
+ {
+  "egp_id": "1741163713121x244049823776565150",
+  "level": "A1",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form.",
+  "example_raw": "I am sending you some flowers, because you are not well. (Bengali, A1 BREAKTHROUGH, 2009)\n\nI am writing to tell you what I do every day at college. (Mandarin, ===NONE===, A1 BREAKTHROUGH, Pass, 2007)"
+ },
+ {
+  "egp_id": "1741163713121x303053781636601900",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form.",
+  "example_raw": "[talking about a computer] I\u2019m not using it any more. (A2 Turkish)\n\n\u2026the fridge isn't working. (Romanian, ===NONE===, A2 WAYSTAGE, Pass, 2009)\n\n\u2026 he's going to work at 5.00 am, so he's not eating anything ... (A2 WAYSTAGE; 2006; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163713121x475189487230063500",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "2",
+  "guideword": "USE: EVENTS IN PROGRESS",
+  "can_do_statement": "Can use the present continuous with an increasing range of verbs to talk about situations and events in progress.",
+  "example_raw": "I am watching a swimming competition. (A2 Portuguese)\n\nI'm selling an English book. It's called \"English II\". (A2 Spanish - Latin American)\n\nIt's June and it's getting warmer. (A2 German)"
+ },
+ {
+  "egp_id": "1741163713121x758287721695059000",
+  "level": "A1",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "1",
+  "guideword": "USE: EVENTS IN PROGRESS",
+  "can_do_statement": "Can use the present continuous with a limited range of verbs to talk about situations and events in progress.",
+  "example_raw": "[in a message to someone who is ill] We are missing you. (A1 BREAKTHROUGH; 2009; Nepali; Pass)\n\nI am sending you these flowers because I think that you will like these pretty flowers and you will get well soon. (A1 BREAKTHROUGH; 2009; Gujarati; Pass)\n\nI really like it when we are doing more speaking. (A1 BREAKTHROUGH; 2007; Kurdish; Pass)"
+ },
+ {
+  "egp_id": "1741163713121x782587803688478800",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "1",
+  "guideword": "USE: TEMPORARY SITUATIONS ",
+  "can_do_statement": "Can use the present continuous with a limited range of verbs to talk about temporary situations.",
+  "example_raw": "[talking about a temporary situation] I'm living with my friend in Wolverhampton. I'm studying at Wolverhampton College. (A2 Arabic - European)\n\nMy mother is working today so my older brother can bring us to the sports centre. (A2 Portuguese)"
+ },
+ {
+  "egp_id": "1741163713121x821705049205782300",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use 'wh-' questions, especially in the context of letters and emails.",
+  "example_raw": "Dear Mom, How are you doing? (Thailand; A2 WAYSTAGE; 2010; Thai; Pass)\n\nWhat are you bringing with you? (Cyprus; A2 WAYSTAGE; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163713121x958805116136662400",
+  "level": "B1",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: TEMPORARY REPEATED ACTIONS",
+  "can_do_statement": "Can use the present continuous to describe temporary actions which are repeated or regular.",
+  "example_raw": "I'm doing a lot of great leisure activities. (B1 Catalan)\n\n[talking about an interactive internet game which is played over a period of time] I'm playing this exciting game called Diner Dash; it's about making a restaurant. (Indonesian, Indonesia, B1 THRESHOLD, Pass, 2010)\n\nI have to go to the doctor because I'm having some problems. (B1 Spanish - Latin American)"
+ }
+]
+```

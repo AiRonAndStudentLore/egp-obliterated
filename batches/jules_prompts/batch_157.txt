@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_157.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163715599x778722792823544400",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "2",
+  "guideword": "FORM: VERB + '-ING' FORM",
+  "can_do_statement": "Can use an increasing range of verbs followed by an '-ing' form. ",
+  "example_raw": "[talking about cars] ... we can't avoid using them because we are used to them. (Turkey; B2 VANTAGE; 1999; Turkish; Pass)\n\nI couldn't stand being there. (Japan; B2 VANTAGE; 1998; Japanese; Pass)\n\nMoreover we may consider offering bonus schemes, to increase the staff's loyalty to our company. (Russia; B2 VANTAGE; 2010; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163715599x918123165825508200",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: VERBS OF SENSES  + OBJECT + '-ING'",
+  "can_do_statement": "Can use some verbs connected with the senses + direct object + an '-ing' form, to give emphasis to an ongoing activity.",
+  "example_raw": "Then I heard someone screaming, I was afraid and I said to the others: \"Let's go out, something is happening\". (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nI think we can learn nothing by seeing animals out of their habitat: we cannot see them running or eating or hunting. (Italy; B2 VANTAGE; 1993; Italian; Fail)"
+ },
+ {
+  "egp_id": "1741163715607x616643876228690600",
+  "level": "C1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: VERBS OF SENSES + OBJECT + INFINITIVE",
+  "can_do_statement": "Can use some verbs connected with the senses + direct object + infinitive without 'to' emphasising a complete action.",
+  "example_raw": "I would like to see it develop without any pollution and without destroying the environment. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Fail)\n\nNowadays, it is very common in Argentina to hear people talk about the economic depression. (Argentina; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163715607x852787378805638700",
+  "level": "C2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WOULD HATE' + 'TO'",
+  "can_do_statement": "Can use 'would hate' + 'to' infinitive, for emphasis. ",
+  "example_raw": "We in the student committee would hate to see all that space go to waste. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Swedish; Fail)\n\nI am very much aware of my parents\u2019 mistakes and would hate to make the same ones. (Switzerland; C2 MASTERY; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163715278x159320936860696930",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "phrasal",
+  "lexical_range": "2",
+  "guideword": "FORM: VERB + PRONOUN + PARTICLE ",
+  "can_do_statement": "Can use an increasing range of phrasal verbs + object pronoun + particle. ",
+  "example_raw": "I heard about this club when I was watching T.V. and I wanted to check it out. (B1, French)\n\nI really like shopping for clothes, but I hate trying them on because always when I finish, the shop assistant shows me more clothes. (B1, Portuguese)\n\nSo, think it over and tell me what you decide to do. (B1, Russian)"
+ },
+ {
+  "egp_id": "1741163715278x200292821191589960",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "phrasal",
+  "lexical_range": "1",
+  "guideword": "FORM: VERB + PARTICLE + OBJECT",
+  "can_do_statement": "Can use a limited range of phrasal verbs + particle + object.",
+  "example_raw": "Were it not for my university, I would give up this class immediately. (B1, Russian)\n\nI must travel to Mexico City because I won a novel contest and I need to pick up my award. (B1, Spanish - Latin American)\n\nSo I opened the envelope and took out the letter. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nShe turned off the phone and walked to the bathroom. (Argentina; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163715278x361993667632739300",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "phrasal",
+  "lexical_range": "1",
+  "guideword": "FORM: NO OBJECT",
+  "can_do_statement": "Can use a limited range of phrasal verbs without an object.",
+  "example_raw": "I'm going to get up early on Saturday. (A2, Portuguese)\n\nShall we go out this weekend to a concert? (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nWe can meet up at 2 pm. (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)\n\nIf you have time, you can come over and I will introduce you to my friends. (Malaysia; A2 WAYSTAGE; 2010; Chinese; Pass)\n\nEvery day I can see the sea when I wake up. (Spain; A2 WAYSTAGE; 2000; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163715278x620223367206575700",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "phrasal",
+  "lexical_range": "3",
+  "guideword": "FORM: NO OBJECT",
+  "can_do_statement": "Can use a wide range of phrasal verbs without an object.",
+  "example_raw": "Some species are dying out, and keeping such animals in zoos where they can give life to new generations is the only way to prevent them from becoming completely extinct. (B2 Polish)\n\nThe following day my grandpa didn\u2019t show up. (B2 Greek)\n\nIf you are not good enough at reading, you'll end up wasting your time. (B2, Japanese)"
+ },
+ {
+  "egp_id": "1741163715278x654609594383859200",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "phrasal",
+  "lexical_range": "1",
+  "guideword": "FORM: VERB + PRONOUN + PARTICLE ",
+  "can_do_statement": "Can use a limited range of phrasal verbs + object pronoun + particle. ",
+  "example_raw": "I will pick you up and arrange everything. (A2 Burmese)\n\nRing me up or send me an email if you have any questions. (A2 Basque)\n\nYou may need to throw it away, it'll be too dirty after painting. (Thailand; A2 WAYSTAGE; 2006; Thai; Pass)\n\nCould you come here by nine o'clock to help me out? (Brazil; A2 WAYSTAGE; 2006; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163715278x809948393315530200",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "phrasal",
+  "lexical_range": "2",
+  "guideword": "FORM: NO OBJECT",
+  "can_do_statement": "Can use an increasing range of phrasal verbs without an object.",
+  "example_raw": "I needed to hang out because my life was too jam-packed and hectic. (B1, Italian)\n\n[talking about a phone] Its battery had run out. (B1, Portuguese)\n\nShe cried a lot. Her feelings, emotions were all scattered. But Lisa didn't give up. (B1, Vietnamese)"
+ },
+ {
+  "egp_id": "1741163715288x271026624538714300",
+  "level": "C1",
+  "super_category": "VERBS",
+  "sub_category": "phrasal",
+  "lexical_range": "3",
+  "guideword": "FORM: VERB + PRONOUN + PARTICLE ",
+  "can_do_statement": "Can use a wide range of phrasal verbs + object pronoun + particle. ",
+  "example_raw": "[talking about a band] I went to check them out last week and here is my review of the two concerts. (Denmark; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Danish; Pass)\n\n[talking about a living room] I tried to clean it up as much as possible. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Swedish; Pass)\n\n[talking about setting up an office phone system] We just need a small set and a little time to fix it up. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163715288x522910495367056000",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "phrasal",
+  "lexical_range": "N/A",
+  "guideword": "FORM: VERB + NOUN + PARTICLE ",
+  "can_do_statement": "Can use phrasal verbs + nouns as object + particle.",
+  "example_raw": "I am glad that you have decided to take some time off and more glad because you are going to the U.S. (Chile; B2 VANTAGE; 2001; Spanish - Latin American; Pass)\n\nAnother way is also to turn the computers off in the evenings. (B2 VANTAGE; 2009; Swedish; Pass)\n\nIt was necessary to call the electrician up. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nIf we can make these improvements, we might be able to work this problem out. (France; B2 VANTAGE; 2010; French; Pass)"
+ },
+ {
+  "egp_id": "1741163715288x862819908682726700",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "phrasal",
+  "lexical_range": "3",
+  "guideword": "FORM: VERB + PARTICLE + OBJECT",
+  "can_do_statement": "Can use a wide range of phrasal verbs + particle + object. ",
+  "example_raw": "I don't need to use my imagination while I'm surfing the internet, but if I'm reading a book I can build up the whole surroundings and the characters in my own head. (B2, German)\n\nI had already booked my seat on the ferry-boat to Athens and I couldn't put off my crossing. (B2, Italian)\n\nI can surf the internet and look up some useful information. (B2, Chinese)\n\nThe concert finished very late and after the concert I had to clean up the hall. (B2, French)"
+ },
+ {
+  "egp_id": "1741163715274x247232077321416060",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "phrasal-prepositional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'LOOK FORWARD TO'",
+  "can_do_statement": "Can use 'look forward to' as a fixed expression followed by an '-ing' form or noun phrase, usually at the end of correspondence. ",
+  "example_raw": "I'm looking forward to seeing you! (Turkey; A2 WAYSTAGE; 2008; Turkish; Pass)\n\nI look forward to hearing from you. (A2 WAYSTAGE; 2009; Polish; Pass)\n\nI am looking forward to our meeting. (Sri Lanka; A2 WAYSTAGE; 2009; Singhalese; Pass)"
+ },
+ {
+  "egp_id": "1741163715274x284779145472593860",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "phrasal-prepositional",
+  "lexical_range": "2",
+  "guideword": "FORM: VERB + PARTICLE + PREPOSITION + OBJECT",
+  "can_do_statement": "Can use an increasing range of verb + particle + preposition + noun or pronoun.",
+  "example_raw": "I can look up to someone in admiration if he (or she) is dedicating his (or her) life to helping other people. (Switzerland; B2 VANTAGE; 2005; Swiss German; Pass)\n\nOther people will see you as a knowledgeable person and they will look up to you. (Greece; B2 VANTAGE; 2008; Greek; Pass)\n\nYou should face up to the problem and tell everybody the truth, that you are working too hard. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nWe couldn't just swim and eat ice-cream every day of our summer vacation, so we sat down and came up with the craziest idea ever. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)"
+ }
+]
+```

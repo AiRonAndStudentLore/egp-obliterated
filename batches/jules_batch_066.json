@@ -1,0 +1,810 @@
+[
+  {
+    "egp_id": "1741163715818x484532724787778900",
+    "level": "B1",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: REPORTED REQUESTS AND COMMANDS",
+    "can_do_statement": "Can report requests and commands with 'ask' or 'tell' + direct object and 'to-'infinitive. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Reported directives mapping a speaker's instruction onto an object via to-infinitive.",
+      "pedagogical_hook": "Reporting someone else's command or request.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:ask(?:ed|s)?|tell|told)\\s+(?:\\w+\\s+){1,3}to\\s+[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "ask",
+              "tell"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She asked me to come back early.",
+        "They told the students to stay in the car."
+      ],
+      "negatives": [
+        "I want to ask a question.",
+        "He told a story to his friends."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715818x645674419690479600",
+    "level": "B1",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DIRECT SPEECH, REPORTING CLAUSE, END POSITION",
+    "can_do_statement": "Can report speech and thought directly using the reporting verb after the reporting clause.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Direct quotation structured with the reporting clause at the end.",
+      "pedagogical_hook": "Putting the quoted speech first, then saying who said it.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:[,\\\"!?]\\s*\\\"|\\\"\\s*[,\\\"!?])\\s*(?:he|she|it|they|i|we|[A-Z][a-z]+)\\s+(?:said|asked|thought|answered|replied|cried|shouted)",
+      "spacy_token_pattern": [
+        {
+          "ORTH": "\""
+        },
+        {
+          "ORTH": ",",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "say",
+              "ask",
+              "think",
+              "answer",
+              "reply",
+              "cry",
+              "shout"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "\"I am leaving,\" she said.",
+        "\"What is going on?\" he asked."
+      ],
+      "negatives": [
+        "She said, \"I am leaving.\"",
+        "He asked what was going on."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715818x805291884313691800",
+    "level": "B1",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DIRECT SPEECH, REPORTING CLAUSE, INITIAL POSITION",
+    "can_do_statement": "Can report speech and thought directly, using the reporting verb before the reporting clause.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Direct quotation structured with the reporting clause at the beginning.",
+      "pedagogical_hook": "Saying who spoke before giving their exact words.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:said|asked|thought|answered)\\b(?:\\s+to\\s+\\w+)?\\s*[:,]\\s*\\\"",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "say",
+              "ask",
+              "think",
+              "answer"
+            ]
+          }
+        },
+        {
+          "LOWER": "to",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "ORTH": {
+            "IN": [
+              ":",
+              ","
+            ]
+          }
+        },
+        {
+          "ORTH": "\""
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She said: \"I am going home.\"",
+        "He asked, \"Are you coming?\""
+      ],
+      "negatives": [
+        "\"I am going home,\" she said.",
+        "He told me that he was tired."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715818x942794164065401900",
+    "level": "B1",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'WONDER', REPORTED THOUGHT",
+    "can_do_statement": "Can report thought using 'wonder' + 'wh-'word + clause, with a tense shift where relevant. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing an internal question or uncertainty using 'wonder' followed by a wh-clause.",
+      "pedagogical_hook": "Using 'wonder' to talk about thoughts and questions.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwonder(?:s|ed|ing)?\\s+(?:what|who|where|when|why|how|which)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "wonder"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "what",
+              "who",
+              "where",
+              "when",
+              "why",
+              "how",
+              "which"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I wondered what she had written.",
+        "He was wondering who the mysterious guest was."
+      ],
+      "negatives": [
+        "I wonder if it will rain tomorrow.",
+        "It's a wonder how they survived."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715819x177565244544510180",
+    "level": "B2",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: MODIFICATION, REPORTING VERB + ADVERB",
+    "can_do_statement": "Can modify the reporting verb with an adverb. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Modifying a reporting verb with an adverb to express the manner of speech.",
+      "pedagogical_hook": "Describing how someone said something.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:said|asked|shouted|replied|answered|cried|whispered|thought)\\s+[a-z]+ly\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "say",
+              "ask",
+              "shout",
+              "reply",
+              "answer",
+              "cry",
+              "whisper",
+              "think"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ly$"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "\"I won't do it,\" she said forcefully.",
+        "He asked curiously about the details."
+      ],
+      "negatives": [
+        "She quickly finished the work.",
+        "I suddenly thought of an idea."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715819x186805151899247300",
+    "level": "B2",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DIRECT SPEECH, REPORTING CLAUSE, MID POSITION",
+    "can_do_statement": "Can report speech and thought directly using the reporting verb in the mid position of the reported clause.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Interrupting a direct quote with the reporting clause in the middle.",
+      "pedagogical_hook": "Putting the \"he said\" part in the middle of a quote.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\\"\\s*,\\s*(?:he|she|it|they|i|we|[a-z]+)\\s+(?:said|thought|asked)\\s*,\\s*\\\"",
+      "spacy_token_pattern": [
+        {
+          "ORTH": "\""
+        },
+        {
+          "ORTH": ","
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "say",
+              "think",
+              "ask"
+            ]
+          }
+        },
+        {
+          "ORTH": ","
+        },
+        {
+          "ORTH": "\""
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "\"No problem\", I thought, \"there is only one person\".",
+        "\"Forgive me\", he said, \"I will never leave.\""
+      ],
+      "negatives": [
+        "\"No problem, there is only one person,\" I thought.",
+        "He said, \"Forgive me, I will never leave.\""
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715819x225500036872228400",
+    "level": "B2",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DIRECT SPEECH, REPORTING CLAUSE, INVERTED SUBJECT",
+    "can_do_statement": "Can report speech directly inverting the subject and verb in the reporting clause where the subject is a proper noun or noun phrase. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Reporting speech using verb-subject order when the subject is a noun phrase.",
+      "pedagogical_hook": "Using \"said John\" instead of \"John said\" after a quote.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:[,\\\"!?]\\s*\\\"|\\\"\\s*[,\\\"!?])\\s*(?:said|asked)\\s+(?:the\\s+)?[A-Z][a-z]+",
+      "spacy_token_pattern": [
+        {
+          "ORTH": "\""
+        },
+        {
+          "ORTH": ",",
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "say",
+              "ask"
+            ]
+          }
+        },
+        {
+          "LOWER": "the",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "\"I was astonished\", said John.",
+        "\"Who are you?\" asked Peter."
+      ],
+      "negatives": [
+        "\"I was astonished,\" John said.",
+        "John said he was astonished."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715820x279868282649035070",
+    "level": "B2",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: REPORTING VERBS, PAST CONTINUOUS",
+    "can_do_statement": "Can use the past continuous of the reporting verb to report mental processes, with a finite or non-finite 'wh-'clause in the reported clause.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Reporting a continuous past mental state or process.",
+      "pedagogical_hook": "Using past continuous (was wondering, was thinking) to report thoughts.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+(?:wondering|thinking|asking)\\s+(?:why|what|who|where|how|which|when|whether|if)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "wonder",
+              "think",
+              "ask"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "why",
+              "what",
+              "who",
+              "where",
+              "how",
+              "which",
+              "when",
+              "whether",
+              "if"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I was wondering why I failed.",
+        "While he was thinking how to reply, she left."
+      ],
+      "negatives": [
+        "I wondered why I failed.",
+        "He was walking down the street."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715820x680259612514314400",
+    "level": "B2",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: CITATION, PRESENT SIMPLE",
+    "can_do_statement": "Can use the present simple form of the reporting verb to report information from a written source and a present tense verb in the reported clause.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Reporting information from written sources as an enduring fact using present simple.",
+      "pedagogical_hook": "Using 'says' or 'tells' to talk about what's written in a book, sign, or article.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:advertisement|book|guidebook|sign|article|letter|newspaper|magazine|website|it)\\s+(?:says|tells|states)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "advertisement",
+              "book",
+              "guidebook",
+              "sign",
+              "article",
+              "letter",
+              "newspaper",
+              "magazine",
+              "website",
+              "it"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "says",
+              "tells",
+              "states"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The guidebook says that we can get there by train.",
+        "Your advertisement tells us about the hotel."
+      ],
+      "negatives": [
+        "He says he is coming.",
+        "The book was very interesting."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715820x722979507342767900",
+    "level": "B2",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: REPORTED REQUESTS AND COMMANDS, NEGATIVE",
+    "can_do_statement": "Can report requests and commands with 'ask' or 'tell' + direct object + 'not' + 'to-'infinitive. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Reporting a negative directive using not + to-infinitive.",
+      "pedagogical_hook": "Reporting negative commands like 'told him not to do it'.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:ask(?:ed)?|tell|told)\\s+(?:\\w+\\s+){1,3}not\\s+to\\s+[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "ask",
+              "tell"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "not"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She told me not to be scared.",
+        "I asked Pat not to tell anyone."
+      ],
+      "negatives": [
+        "She told me to be careful.",
+        "I asked him not for money, but for advice."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715820x946999443663956600",
+    "level": "B2",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: TEMPORAL SHIFTS, PAST",
+    "can_do_statement": "Can report speech about events in the past with backshifts for tenses and words relating to time. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Backshifting tenses and temporal adverbs when reporting past events.",
+      "pedagogical_hook": "Using past perfect in reported speech for events further in the past.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhad\\s+(?:told|said|asked)\\b.*?\\b(?:previous\\s+day|day\\s+before|following\\s+day|then)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "had"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "tell",
+              "say",
+              "ask"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "previous",
+              "following",
+              "before",
+              "then"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She had told me the previous day that it was important.",
+        "I had told my friends the day before that I expected an A."
+      ],
+      "negatives": [
+        "She told me yesterday that it was important.",
+        "I had told my friends that I liked the movie."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715608x123988758899529200",
+    "level": "A1",
+    "super_category": "VERBS",
+    "sub_category": "linking",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'BE' + COMPLEMENT",
+    "can_do_statement": "Can use linking verb 'be' with complements.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Linking an entity to a state or attribute using the copula.",
+      "pedagogical_hook": "Using 'be' to describe something or someone.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were)\\b\\s+(?![\\w]+ing\\b)(?:from\\s+[A-Z][a-z]+|very\\s+[a-z]+|my\\s+[a-z]+)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "DEP": "advmod",
+          "OP": "*"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "attr",
+              "acomp",
+              "prep"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Because today is my birthday.",
+        "Martin is from Poland."
+      ],
+      "negatives": [
+        "He is running fast.",
+        "They were playing outside."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715620x591479199213417900",
+    "level": "B2",
+    "super_category": "VERBS",
+    "sub_category": "linking",
+    "lexical_range": "3",
+    "guideword": "FORM: LINKING + COMPLEMENT",
+    "can_do_statement": "Can use a wide range of linking verbs with complements.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Using a wide range of linking verbs (seem, appear, remain, taste, sound) with adjectival or nominal complements.",
+      "pedagogical_hook": "Using more advanced linking verbs to describe states.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:seems?|appeared?|remained?|tastes?|sounds?)\\b\\s+(?:very\\s+|a\\s+little\\s+bit\\s+)?[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "seem",
+              "appear",
+              "remain",
+              "taste",
+              "sound"
+            ]
+          }
+        },
+        {
+          "DEP": "advmod",
+          "OP": "*"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "acomp",
+              "attr"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It all seems very confusing.",
+        "The whole house appeared very unfamiliar."
+      ],
+      "negatives": [
+        "He tasted the soup.",
+        "She appeared in the doorway."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715620x718213480807691900",
+    "level": "A2",
+    "super_category": "VERBS",
+    "sub_category": "linking",
+    "lexical_range": "2",
+    "guideword": "FORM: LINKING + COMPLEMENT",
+    "can_do_statement": "Can use an increasing range of linking verbs with complements.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Using an increasing range of linking verbs (look, become, get, feel) with adjectival complements.",
+      "pedagogical_hook": "Using linking verbs to talk about changes or feelings.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:looks?|becomes?|became|gets?|got|feels?|felt)\\b\\s+(?:good|dirty|interesting|sorry|better)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "look",
+              "become",
+              "get",
+              "feel"
+            ]
+          }
+        },
+        {
+          "DEP": "advmod",
+          "OP": "*"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "acomp",
+              "attr"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It looks good on you.",
+        "Make sure they won't get dirty."
+      ],
+      "negatives": [
+        "He looked at the picture.",
+        "I got a new car."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715275x773962644446279300",
+    "level": "A2",
+    "super_category": "VERBS",
+    "sub_category": "patterns_that clauses",
+    "lexical_range": "1",
+    "guideword": "FORM: REPORTING VERBS + DIRECT OBJECT 'THAT'-CLAUSE",
+    "can_do_statement": "Can use a limited range of verbs, typically reporting, with a 'that'-clause as the direct object. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Reporting thoughts or statements using a reporting verb followed by an explicit 'that' clause.",
+      "pedagogical_hook": "Using 'that' to introduce a reported statement.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:hope|think|said|heard)\\b\\s+that\\s+(?:i|you|he|she|it|we|they)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "hope",
+              "think",
+              "say",
+              "hear"
+            ]
+          }
+        },
+        {
+          "LOWER": "that"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I hope that you'll come.",
+        "My mother said that she can help us."
+      ],
+      "negatives": [
+        "I hope you'll come.",
+        "He pointed at the book that was on the table."
+      ]
+    }
+  }
+]

@@ -1,0 +1,861 @@
+[
+ {
+  "egp_id": "1741163712049x737530014792900100",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH VERBS TAKING TWO OBJECTS.",
+  "can_do_statement": "Can use the past simple passive with a limited range of verbs needing two objects, putting the indirect object in subject position. ",
+  "example_raw": "So I was given a ticket for a train, running from Berlin to Munich. (Germany; B1 THRESHOLD; 2006; German; Pass)\n\nWe were lucky, because we were given another chance. (Yugoslavia; B1 THRESHOLD; 2006; Serbian; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Focus on the recipient rather than the actor",
+   "pedagogical_hook": "Past simple passive with two objects",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:was|were)(?:\\s+[a-z]+ly)?\\s+(?:given|offered|sent|told|shown|taught|allowed)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "was",
+       "were"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "give",
+       "offer",
+       "send",
+       "tell",
+       "show",
+       "teach",
+       "allow"
+      ]
+     },
+     "TAG": "VBN"
+    },
+    {
+     "POS": {
+      "IN": [
+       "DET",
+       "NOUN",
+       "PRON",
+       "ADJ",
+       "NUM"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was given a second chance by my manager.",
+    "They were offered a free meal after the mistake."
+   ],
+   "negatives": [
+    "I have been given a lot of homework.",
+    "She gave him a ticket for the train."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712049x855374993067916200",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT SIMPLE, NEGATIVE",
+  "can_do_statement": "Can use the present simple passive negative with a range of pronoun and noun subjects.",
+  "example_raw": "The story is about a girl, who is not accepted in her class. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI think we should replace the printer, because it prints very slowly and the sheets aren't printed properly. (Switzerland; B1 THRESHOLD; 2009; Swiss German; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Expressing negative state or action received by subject in present",
+   "pedagogical_hook": "Present simple passive negative",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:\\bam\\s+not|\\bis\\s+not|\\bare\\s+not|'m\\s+not|'s\\s+not|'re\\s+not|isn't|aren't)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|made|done|seen|found|given|known|taken|kept|left|built|accepted|printed)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "am",
+       "is",
+       "are",
+       "'m",
+       "'s",
+       "'re"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't",
+       "n\u2019t"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The documents are not printed in color.",
+    "The boy is not allowed to go out."
+   ],
+   "negatives": [
+    "The machine wasn't fixed properly.",
+    "He does not accept the terms."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712049x932315866168376600",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST CONTINUOUS AFFIRMATIVE. ",
+  "can_do_statement": "Can use the past continuous passive affirmative. ",
+  "example_raw": "However, to my disappointment, the restaurant was closed because it was being redecorated. (B2 Chinese)\n\nAfter they explained everything to him, he then knew he was being tricked by them and that this was supposed to be a special experience for him. (B2 Chinese) \n\nWe thought that as you lived there, we could go to your house and stay there while the car was being repaired. (B2 Basque)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Action in progress in the past acting upon the subject",
+   "pedagogical_hook": "Past continuous passive",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:was|were)\\s+being(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+ed|done|made|seen|repaired|redecorated|tricked|supposed)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "was",
+       "were"
+      ]
+     }
+    },
+    {
+     "LOWER": "being"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The building was being renovated.",
+    "I knew I was being watched by them."
+   ],
+   "negatives": [
+    "The house is being painted.",
+    "They were being very loud."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712050x914576942340939400",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST SIMPLE NEGATIVE",
+  "can_do_statement": "Can use past simple passive negative. ",
+  "example_raw": "What is worse, the ticket price was not reduced despite the fact that I showed my student ID. (B2 Japanese)\n\nI had to go to the hospital because my back hurt so badly, and I wasn't allowed to work for two weeks. (B2 Hungarian)\n\nI was really disappointed because a lot of things were not done. (Turkey; B2 VANTAGE; 2000; Turkish; Pass)\n\nSome say that studying animals would be impossible, if they weren't kept in zoos \u2026 (B2 Italian)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Expressing negative state or action received by subject in past",
+   "pedagogical_hook": "Past simple passive negative",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:\\bwas\\s+not|\\bwere\\s+not|wasn't|weren't)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|made|done|seen|kept|allowed|reduced|sold)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "was",
+       "were"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't",
+       "n\u2019t"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The tickets were not sold out.",
+    "He wasn't invited to the party."
+   ],
+   "negatives": [
+    "She is not given any help.",
+    "I did not like the movie."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712050x954476408686193200",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST PERFECT SIMPLE, NEGATIVE ",
+  "can_do_statement": "Can use the past perfect passive negative form.",
+  "example_raw": "[talking about a car] In fact, it hadn't been stolen, it had been taken by a man and his wife, because their car broke down and because she was about to have her baby \u2026 (B2 Portuguese)\n\nWe waited for ages because we had not been informed. (B2 Japanese)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Negative action completed before another past point, received by subject",
+   "pedagogical_hook": "Past perfect simple passive negative",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:\\bhad\\s+not|'d\\s+not|hadn't)\\s+been(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+ed|stolen|taken|informed|told|seen|made|done)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "had",
+       "'d"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't",
+       "n\u2019t"
+      ]
+     }
+    },
+    {
+     "LOWER": "been"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The issue had not been resolved before the meeting.",
+    "We left because we hadn't been served."
+   ],
+   "negatives": [
+    "The issue has not been resolved yet.",
+    "I had not been there before."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712051x281512629992666900",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "2",
+  "guideword": "FORM: PRESENT CONTINUOUS, AFFIRMATIVE ",
+  "can_do_statement": "Can use the present continuous passive affirmative with an increasing range of verbs.",
+  "example_raw": "This year's topic is the online training for employees, which is being relaunched . (2786698_1; BECV; Germany; B2 VANTAGE; 2010; German; Pass)\nThe global temperature is rising, the ice is melting, the sea level increases and miles and miles of coast are being submerged. (B2 VANTAGE; 1993; Portuguese; Pass)\n\nThe first thing to be linked through computers was academic knowledge, then came commercial businesses, naturally, and now, people are being linked through billions of personal computers. (Korea, South; B2 VANTAGE; 1999; Korean; Pass)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Action currently in progress acting upon the subject",
+   "pedagogical_hook": "Present continuous passive affirmative",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+being(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+ed|done|made|seen|relaunched|submerged|linked|tested|recorded)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "am",
+       "is",
+       "are",
+       "'m",
+       "'s",
+       "'re"
+      ]
+     }
+    },
+    {
+     "LOWER": "being"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The new system is being tested right now.",
+    "Our calls are being recorded."
+   ],
+   "negatives": [
+    "The system is not being tested.",
+    "The building was being painted."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712051x779313477999546100",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT CONTINUOUS, NEGATIVE",
+  "can_do_statement": "Can use the present continuous passive negative.",
+  "example_raw": "\u2026 students are not being educated equally. (Mongolia; B2 VANTAGE; 2008; Mongolian; Pass)\n\nTo conclude, in my opinion, it is important to keep as many languages as possible alive, so we can make sure that part of the human history is not being lost. (Brazil; B2 VANTAGE; 2011; Portuguese)\n\nFirstly, the fact of different kinds of animals are in a zoo, doesn't means that they aren't being treated right. (Brazil; B2 VANTAGE; 1993; Portuguese; Fail)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Negative ongoing action in the present acting upon the subject",
+   "pedagogical_hook": "Present continuous passive negative",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:\\bam\\s+not|\\bis\\s+not|\\bare\\s+not|'m\\s+not|'s\\s+not|'re\\s+not|isn't|aren't)\\s+being(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+ed|lost|done|made|seen|educated|treated)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "am",
+       "is",
+       "are",
+       "'m",
+       "'s",
+       "'re"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't",
+       "n\u2019t"
+      ]
+     }
+    },
+    {
+     "LOWER": "being"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The rules are not being followed properly.",
+    "It isn't being reviewed at the moment."
+   ],
+   "negatives": [
+    "The rules are being followed.",
+    "They were not being monitored."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712052x105324067307769550",
+  "level": "C1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NON-FINITE CLAUSES",
+  "can_do_statement": "Can use a passive non-finite '-ing' form as a subordinate clause or a noun clause to give explanatory background information.",
+  "example_raw": "Being born and raised in Mexico, I believe her to be this country's best representative to the world. (C1 Spanish - Latin American)\n\nBeing overworked and badly paid, Polish women are torn between their dreams and their real possibilities. (C1 Polish)\n\nBeing invited by your boss for an unexpected lunch makes you feel noticed. (C1 Portuguese)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Backgrounding agent in non-finite continuous clause",
+   "pedagogical_hook": "Passive non-finite -ing form",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bbeing(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+ed|born|paid|invited|overworked|raised|found|seen|given|known|made)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "being"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Being invited to the conference was an honor.",
+    "Being completely exhausted by the hike, we rested for an hour."
+   ],
+   "negatives": [
+    "He is being annoying today.",
+    "She enjoys being a mother."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712052x291725965796862700",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT PERFECT SIMPLE, AFFIRMATIVE ",
+  "can_do_statement": "Can use the present perfect passive affirmative form (often in the context of reporting).  \u25ba reported speech",
+  "example_raw": "I have been asked to write a report about an accident which happened to me last Saturday. (B2 Polish)\n\nI am writing to you to give you further information about the conference organization and about the arrangements which have been made for your group of students. (B2 Italian)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Resultant state in the present from a past action acting upon the subject",
+   "pedagogical_hook": "Present perfect simple passive affirmative",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:\\bhave|\\bhas|'ve|'s)\\s+been(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+ed|made|done|seen|kept|told|given|found|asked)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "have",
+       "has",
+       "'ve",
+       "'s"
+      ]
+     }
+    },
+    {
+     "LOWER": "been"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I have been asked to lead the project.",
+    "A decision has been reached by the board."
+   ],
+   "negatives": [
+    "I have not been asked about it.",
+    "I had been told previously."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712052x534602507801792400",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUMMARIES AND EVALUATIONS",
+  "can_do_statement": "Can use the passive with modal verbs to evaluate or summarise.",
+  "example_raw": "In conclusion, it can be seen that the bicycle is more suitable for those who are living in a little town or in the country. (B2 Italian)\n\nNext, I find that our streets are not very clean, another major problem, and I think something must be done about it. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Evaluating or summarizing a situation using modals in passive voice",
+   "pedagogical_hook": "Passive with modals for summary",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:can|could|must|should|may|might)\\s+be(?:\\s+[a-z]+ly)?\\s+(?:seen|done|said|argued|concluded|noted|observed|understood|expected|found|considered)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "can",
+       "could",
+       "must",
+       "should",
+       "may",
+       "might"
+      ]
+     }
+    },
+    {
+     "LOWER": "be"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "see",
+       "do",
+       "say",
+       "argue",
+       "conclude",
+       "note",
+       "observe",
+       "understand",
+       "expect",
+       "find",
+       "consider"
+      ]
+     },
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "In conclusion, it can be seen that the trends are changing.",
+    "I think something must be done immediately."
+   ],
+   "negatives": [
+    "The bike can be repaired later.",
+    "He should be working now."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712052x640694659658228000",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH VERBS TAKING TWO OBJECTS, , WITH PREPOSITIONAL PHRASE",
+  "can_do_statement": "Can use the passive with a range of tenses and verbs needing two objects (e.g. give, offer, sell) with the direct object in subject position and the indirect object in a prepositional phrase. ",
+  "example_raw": "Your name was given to me by a member of yours, Allan Westwood, whom I met last week. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nIf more training is given to staff, they will be interested in their work  and staff turnover will be reduced. (India; B2 VANTAGE; 2006; Tamil; Fail)\n\nUnfortunately an interview for a job in the New Palace Hotel has been offered to me at the same time as your class. (Spain; B2 VANTAGE; 2003; Spanish - European; Pass)\n",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Focus on the direct object as subject, shifting recipient to prepositional phrase",
+   "pedagogical_hook": "Passive with two-object verbs and 'to' phrase",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:given|offered|sold|sent|shown|paid|taught|lent)\\s+to\\s+(?:me|you|him|her|us|them|[A-Za-z]+)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "give",
+       "offer",
+       "sell",
+       "send",
+       "show",
+       "pay",
+       "teach",
+       "lend"
+      ]
+     },
+     "TAG": "VBN"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The award was given to him by the mayor.",
+    "A discount will be offered to students."
+   ],
+   "negatives": [
+    "I gave the book to her.",
+    "She is going to school."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712052x759366241193606100",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "USE: WITH 'WILL', FUTURE REFERENCE",
+  "can_do_statement": "Can use the passive with 'will' to talk about the future.",
+  "example_raw": "Just to let you know you will be booked into the Palace Hotel \u2026 (B2 Polish)\n\nDear Mr Bixon, First of all, I am very grateful to hear that the cinema will be renovated next year. (B2 Korean)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Future event passively experienced",
+   "pedagogical_hook": "Passive with will",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:\\bwill|'ll)\\s+be(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+ed|booked|renovated|made|done|seen)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "'ll"
+      ]
+     }
+    },
+    {
+     "LOWER": "be"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The room will be cleaned tomorrow.",
+    "You'll be notified of the decision soon."
+   ],
+   "negatives": [
+    "She will be traveling to Paris.",
+    "They will build a new house."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712052x892253245373132200",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH MODAL VERBS",
+  "can_do_statement": "Can use the passive with modal verbs in a range of contexts, with a variety of subjects.",
+  "example_raw": "Architects should be hired to design parks, where people could go for a walk or have a picnic. (B2 Polish)\n\nAlthough I had a marvellous time, I believe there are a few things that could be improved for next year's festival. (Greece; B2 VANTAGE; 2001; Greek; Pass)\n\nAs a result, today, it could be said that nearly everyone is living in a digital world which means computers are necessary and very important. (China; B2 VANTAGE; 1999; Chinese; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Expressing necessity or possibility in passive",
+   "pedagogical_hook": "Passive with modal verbs",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:can|could|should|must|might|may|would)\\s+be(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+ed|made|done|seen|kept|told|said)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "can",
+       "could",
+       "should",
+       "must",
+       "might",
+       "may",
+       "would"
+      ]
+     }
+    },
+    {
+     "LOWER": "be"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The software should be updated regularly.",
+    "The package might be delivered today."
+   ],
+   "negatives": [
+    "I must be dreaming.",
+    "They would be happy to help."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712052x950930440387598800",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH VERBS TAKING TWO OBJECTS.",
+  "can_do_statement": "Can use the passive with a wide range of verbs needing two objects, putting the indirect object in subject position. ",
+  "example_raw": "I was very happy to hear that you have been offered two jobs, one in a restaurant and one in a museum. (Greece; B2 VANTAGE; 2001; Greek; Pass)\n\n[talking about a music contract] She was offered a contract to record a single. (Mexico; B2 VANTAGE; 2006; Spanish - Latin American; Pass)\n\nFirst of all, I felt happy and pleased that your firm has been given some extra money to spend on improvements to the cinema next year. (Malaysia; B2 VANTAGE; 2006; Chinese; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Focus on the recipient by placing indirect object in subject position",
+   "pedagogical_hook": "Passive of two-object verbs",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:be|been|being|was|were|is|are|am|'m|'s|'re)\\s+(?:[a-z]+ly\\s+)?(?:given|offered|awarded|sent|taught|promised|asked|paid|told|shown|lent)\\b(?!\\s+to\\b)",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "give",
+       "offer",
+       "award",
+       "send",
+       "teach",
+       "promise",
+       "ask",
+       "pay",
+       "tell",
+       "show",
+       "lend"
+      ]
+     },
+     "TAG": "VBN"
+    },
+    {
+     "POS": {
+      "IN": [
+       "DET",
+       "NOUN",
+       "PRON",
+       "ADJ",
+       "NUM"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She was offered a great opportunity.",
+    "I have been given the necessary documents."
+   ],
+   "negatives": [
+    "The documents were given to me.",
+    "He gave me a present."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163712052x960121852033115700",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT PERFECT SIMPLE, NEGATIVE ",
+  "can_do_statement": "Can use the present perfect passive negative form (often in the context of reporting). \u25ba reported speech",
+  "example_raw": "\u2026the old-fashioned house which has not been used for twenty years is not a very attractive sight from our town either. (B2 Danish)\n\nThis happened two years ago, and the necklace hasn't been found yet \u2026 (B2 Spanish - European)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Negative resultant state in the present",
+   "pedagogical_hook": "Present perfect simple passive negative",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:(?:\\bhave|\\bhas|'ve|'s)\\s+not|haven't|hasn't)\\s+been(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+ed|found|made|done|seen)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "have",
+       "has",
+       "'ve",
+       "'s"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't",
+       "n\u2019t"
+      ]
+     }
+    },
+    {
+     "LOWER": "been"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The keys haven't been found yet.",
+    "The equipment has not been tested properly."
+   ],
+   "negatives": [
+    "The keys have been found.",
+    "I haven't been feeling well."
+   ]
+  }
+ }
+]

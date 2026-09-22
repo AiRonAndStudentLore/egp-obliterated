@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_143.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163713636x966355033057875000",
+  "level": "C1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NEGATIVE QUESTIONS, OPINION",
+  "can_do_statement": "Can use the negative question form to check opinions.",
+  "example_raw": "Doesn\u2019t it sound fascinating? (Certificate in Advanced English, C1, Korean)\n\nDon't we all like presents? (Certificate in Advanced English, C1, Dutch)\n\nDon't you think that fashion always looks funny if it is not the fashion of today? (Certificate in Advanced English, C1, Russian)"
+ },
+ {
+  "egp_id": "1741163713875x975509971933302300",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THIS'",
+  "can_do_statement": "Can use 'this' as a pronoun with singular reference.",
+  "example_raw": "This is a very interesting place. (A2 WAYSTAGE; 2008; Panjabi; Pass)\n\nI'm very happy about this. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163713876x134748917057494480",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THIS', ALREADY MENTIONED ",
+  "can_do_statement": "Can use 'this' as a pronoun to refer back to single things or groups of plural things which have already been mentioned. ",
+  "example_raw": "Thank you for this. (France; A2 WAYSTAGE; 2004; French; Pass)\n\nI went shopping yesterday at Yalerias;. I bought three green T-shirts, a pair of sneakers and some socks. You might ask, why did I buy all this? (Mexico; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163713876x434828220378989060",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THIS' POINTING ",
+  "can_do_statement": "Can use 'this' as a pronoun to point to or identify single things or entities which are about to follow and have immediate relevance.",
+  "example_raw": "This is my number: 0754 567 78 51. (A2 WAYSTAGE; 2009; Turkish; Pass)\n\nThis is the information about the new art class: the class is on Fridays, and it starts at 4 pm and finishes at 6 pm. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass) "
+ },
+ {
+  "egp_id": "1741163714098x206083399771320740",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THAT', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'that' as a pronoun to refer back to something which has already been mentioned. ",
+  "example_raw": "You know that blue is my favourite colour, so we are going to use that. (India; A2 WAYSTAGE; 2006; Tamil; Pass)\n\nIt has got a camera, and I like that. (Spain; A2 WAYSTAGE; 2007; Catalan; Pass)\n\nThey look really nice on me, that's why I bought them. (France; A2 WAYSTAGE; 2008; French; Pass)\n\nPlease try to come after 4.30 because I won't be there before that. (Sri Lanka; A2 WAYSTAGE; 2009; Singhalese; Pass)"
+ },
+ {
+  "egp_id": "1741163714098x430400984906472960",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: RESPONSE TOKENS WITH 'THAT'S'",
+  "can_do_statement": "Can use 'that's' + adjective to respond to something. ",
+  "example_raw": "That's great! (Switzerland; A2 WAYSTAGE; 2008; Swiss German; Pass)\n\nThat's a pity! (Argentina; A2 WAYSTAGE; 2004; Spanish - Latin American; Pass)\n\nThat's a good idea! (France; A2 WAYSTAGE; 2005; French; Pass)"
+ },
+ {
+  "egp_id": "1741163714098x499091268404870700",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THAT'",
+  "can_do_statement": "Can use 'that' as a pronoun with singular reference.",
+  "example_raw": "That was amazing. (Peru; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)\n\nAfter that, we can go and drink a cup of coffee and eat a piece of cake. (Mexico; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163714098x563109573846865860",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THIS', NOW",
+  "can_do_statement": "Can use 'this' as a pronoun to refer to something that is happening now. ",
+  "example_raw": "This is the best holiday I have ever had! (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass) \n\nThis is just a short note to ask you if you want to go with me to the ReggaRton's concert. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163714099x265234166901190180",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THIS', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'this' as a pronoun to refer back to whole clauses or sentences, especially to highlight or continue an important topic. ",
+  "example_raw": "To stay fit I'm eating lots of fruit and vegetables, but meat and fish, too. I think you should do this, too, if you haven't done it in the past. (Germany; B1 THRESHOLD; 2009; German; Pass)\n\nPeople usually don't care about the cost. Because of this, weddings are more amazing. (Spain; B1 THRESHOLD; 2006; Spanish - European; Pass)\n\nMy room seems to be very cold and very unfriendly. I think flowers and pictures change this. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nOur department currently has a lot of work to do, because there are so many conferences to arrange, and it needs a person to be in charge of this. (China; B1 THRESHOLD; 2006; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163714099x270527763674231580",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THOSE'",
+  "can_do_statement": "Can use 'those' as a pronoun with plural reference.  \u25ba  noun phrases",
+  "example_raw": "Most of my clothes are lemon, green or orange, those are my favourite colours! (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nWell, those are my ideas but you are the ones that are coming, and maybe you don't like the countryside. (Argentina; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163714099x322833948123137900",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THOSE', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'those' as a pronoun to refer to things which have already been mentioned.  \u25ba  noun phrases",
+  "example_raw": "Those are the things I like the most about her. (Chile; B1 THRESHOLD; 2009; Spanish - Latin American; Pass) \n\nI don't really think I'd move, but if I had to, I would love to live in a city like Paris or Rome. I'm very keen on cities like those. (Brazil; B1 THRESHOLD; 2010; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163714099x349717141784129860",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: CLOSING",
+  "can_do_statement": "Can use 'that's all' to end a letter. ",
+  "example_raw": "That's all for now. (Malaysia; A2 WAYSTAGE; 2008; Chinese; Pass)\n\nWell I think that's all. (Peru; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163714099x917601935810197900",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THESE'",
+  "can_do_statement": "Can use 'these' as a pronoun with plural reference.  \u25ba  noun phrases ",
+  "example_raw": "These are the most important years for us as teenagers, and they have to be the best years! (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nThese are the main things that I can tell you. (Russia; B1 THRESHOLD; 2005; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163714099x950999302071885200",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THESE', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'these' as a pronoun to refer to something with immediate relevance which has already been mentioned.  \u25ba  noun phrases  \u25ba  pronouns: demonstrative",
+  "example_raw": "He is very clever and generous, and these are the things that I like most about him. (Brazil; B1 THRESHOLD; 2009; Portuguese; Pass)\n\nThere are a few interesting and funny programmes like The Simpsons, Password or Jos\u00e9 Mota's hour. These are the only programmes I like watching. (Spain; B1 THRESHOLD; 2010; Spanish - European; Pass)\n\nI think that we have similar taste about things like these. (Poland; B1 THRESHOLD; 2008; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163714100x596866519177677700",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THIS ONE', 'THAT ONE' SUBSTITUTION",
+  "can_do_statement": "Can use 'this one', 'that one' as a substitute for countable singular nouns that have previously been mentioned. ",
+  "example_raw": "I don't usually wear dresses but I had to buy this one because I am going to be in a singing competition. (Thailand; B1 THRESHOLD; 2006; Thai; Pass) \n\n[talking about a film] I have chosen that one because of my father and brother, they also like it. (Spain; B1 THRESHOLD; 2006; Spanish - European; Pass)"
+ }
+]
+```

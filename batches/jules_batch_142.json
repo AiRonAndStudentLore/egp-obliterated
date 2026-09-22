@@ -1,0 +1,746 @@
+[
+  {
+    "egp_id": "1741163713633x403618875526840800",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH ADVERBS OF INDEFINITE FREQUENCY ",
+    "can_do_statement": "Can use the present simple with adverbs of indefinite frequency.    \u25ba adverbs",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Habitual or typical occurrence",
+      "pedagogical_hook": "Routines with frequency adverbs",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:always|usually|normally|often|sometimes|occasionally|rarely|seldom|never)\\s+(?:[a-z]+ly\\s+)?(?!ed|ing|wanted|went|have)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "always",
+              "usually",
+              "normally",
+              "often",
+              "sometimes",
+              "occasionally",
+              "rarely",
+              "seldom",
+              "never"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n`t",
+              "n\u2019t",
+              ".",
+              ",",
+              "?",
+              "!"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "People usually try to eat their breakfast early.",
+        "They always make special things for their celebrations."
+      ],
+      "negatives": [
+        "She usually went to the store before it closed.",
+        "I have always wanted to visit that museum."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713633x426061404387356740",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS ",
+    "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'you'.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking information",
+      "pedagogical_hook": "Present simple questions with 'you'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:what|where|when|why|who|how|which)\\s+(?:do|does)\\s+you\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b|(?<!\\w)do\\s+you\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "do"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n`t",
+              "n\u2019t",
+              ".",
+              ",",
+              "?",
+              "!"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Do you have a mobile phone?",
+        "What do you think about my mobile phone?"
+      ],
+      "negatives": [
+        "Did you go to the store?",
+        "Are you going to the concert?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713633x552588242206544260",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "2",
+    "guideword": "FORM: NEGATIVE ",
+    "can_do_statement": "Can use the negative form with an increasing range of regular and irregular verbs.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Denial of state or action",
+      "pedagogical_hook": "Present simple negative (don't/doesn't)",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:do|does)(?:\\s+not|n['`\u2019]t)\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "does"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "n`t",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n`t",
+              "n\u2019t",
+              ".",
+              ",",
+              "?",
+              "!"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I don't need the video because I've got the DVD.",
+        "It doesn't cost very much."
+      ],
+      "negatives": [
+        "I didn't need the video.",
+        "He has not gone to the store."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713633x569058685257493250",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "1",
+    "guideword": "USE: MENTAL PROCESS VERBS",
+    "can_do_statement": "Can use the present simple with a limited range of mental process verbs including 'think', 'hope', 'know'.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expression of thought, hope, or knowledge",
+      "pedagogical_hook": "Mental process verbs (think, hope, know)",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:think|thinks|hope|hopes|know|knows)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "think",
+              "thinks",
+              "hope",
+              "hopes",
+              "know",
+              "knows"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think my bag is in your kitchen.",
+        "Do you know that I am going to a concert on Saturday?"
+      ],
+      "negatives": [
+        "I am thinking about going to the store.",
+        "She hoped he would return."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713633x569339192426698800",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: SUGGESTIONS ",
+    "can_do_statement": "Can use the present simple with 'why don't you\u2026?', 'Why don\u2019t we\u2026?' and 'if you want or if you like' to make suggestions. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Making a suggestion",
+      "pedagogical_hook": "Suggestions with 'why don't' or 'if you like'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:why\\s+don['`\u2019]t\\s+(?:you|we)\\b|if\\s+you\\s+(?:want|like)\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "why",
+              "if"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "you"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not",
+              "want",
+              "like"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Why don't you wear your black suit?",
+        "We can go there, if you like."
+      ],
+      "negatives": [
+        "I don't know why you did that.",
+        "I wonder if you liked the movie."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713633x615618906458430600",
+    "level": "B1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "2",
+    "guideword": "USE: MENTAL PROCESS VERBS",
+    "can_do_statement": "Can use the present simple with an increasing a range of mental process verbs, including 'remember', 'understand', 'believe'.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expression of memory, understanding, or belief",
+      "pedagogical_hook": "Mental process verbs (remember, understand, believe)",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:remember|remembers|understand|understands|believe|believes)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "remember",
+              "remembers",
+              "understand",
+              "understands",
+              "believe",
+              "believes"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I don't remember the title but it's very boring!",
+        "I totally understand that you want to go."
+      ],
+      "negatives": [
+        "She remembered everything.",
+        "They are understanding the lesson."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713633x795560331040402300",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: INSTRUCTIONS AND DIRECTIONS",
+    "can_do_statement": "Can use the present simple to give instructions and directions.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Directing spatial movement",
+      "pedagogical_hook": "Instructions and directions",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:turn\\s+(?:left|right)|go\\s+(?:straight|past|along|down|up)|walk\\s+(?:down|up|past|along))\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "turn",
+              "go",
+              "walk"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "left",
+              "right",
+              "straight",
+              "past",
+              "along",
+              "down",
+              "up",
+              "the",
+              "a"
+            ]
+          },
+          "OP": "+"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Then you turn right and my house is on your left.",
+        "Then you go straight on for about fifty meters."
+      ],
+      "negatives": [
+        "I turned left at the corner.",
+        "We will cross the street."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713633x978808878460501800",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: INDIRECT QUESTIONS",
+    "can_do_statement": "Can form indirect questions with 'Do you know' + 'how', 'where', 'why', or 'what \u2026?'",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Indirect request for information",
+      "pedagogical_hook": "Indirect questions with 'Do you know'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)do\\s+you\\s+know\\s+(?:how|where|why|what)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "do"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": "know"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "how",
+              "where",
+              "why",
+              "what"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Do you know how to get to my house?",
+        "Do you know what time it is?"
+      ],
+      "negatives": [
+        "Do you know him well?",
+        "Did you know how to get there?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713636x147631604573655870",
+    "level": "B1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "1",
+    "guideword": "USE: SPEECH ACT VERBS",
+    "can_do_statement": "Can use the present simple with a limited range of speech act verbs, including 'suggest', 'apologise', 'recommend'. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Performing an action via speech",
+      "pedagogical_hook": "Speech act verbs (suggest, apologise, recommend)",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:suggest|suggests|apologise|apologises|apologize|apologizes|recommend|recommends)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "suggest",
+              "suggests",
+              "apologise",
+              "apologises",
+              "apologize",
+              "apologizes",
+              "recommend",
+              "recommends"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I suggest that you pay for your trip.",
+        "I apologise for missing your class."
+      ],
+      "negatives": [
+        "She suggested a new plan.",
+        "They are recommending this book."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713636x160593634066971800",
+    "level": "B2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: INVERSION WITH 'NOT ONLY \u2026 BUT ALSO'",
+    "can_do_statement": "Can use the inverted form of the past simple with auxiliary 'do', in the phrase 'not only \u2026 but also'.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Emphasis through structural inversion",
+      "pedagogical_hook": "Inversion with 'not only ... but also'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)not\\s+only\\s+(?:do|does)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not"
+        },
+        {
+          "LOWER": "only"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "does"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Not only do they save you filing time, but also they save office space.",
+        "Not only does it look nice but it's also full of places."
+      ],
+      "negatives": [
+        "They not only save time, but also space.",
+        "Not only did they save you filing time, but also they save office space."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713636x207376848650752130",
+    "level": "C1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NEGATIVE QUESTIONS, PERSUASION",
+    "can_do_statement": "Can use the negative question form as a persuasion strategy.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Rhetorical framing to induce agreement",
+      "pedagogical_hook": "Negative questions for persuasion",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:don['`\u2019]t|doesn['`\u2019]t)\\s+(?:you|we|they|he|she|it)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "do",
+          "IS_SENT_START": true
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "n`t",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "POS": "PRON"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Don't you just hate taking the bus to school every morning?",
+        "Don't you find that when you are having a shower or bath, you occasionally run out of water?"
+      ],
+      "negatives": [
+        "You don't just hate taking the bus, do you?",
+        "Why didn't you just hate taking the bus?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713636x303999786952285900",
+    "level": "B2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: STORIES AND COMMENTARIES",
+    "can_do_statement": "Can use the present simple to summarise events or plot in a story or piece of history, often to give immediate dramatic interest. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Vivid storytelling framing",
+      "pedagogical_hook": "Present simple for stories (takes place)",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:takes\\s+place|scene|plot|story)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "takes"
+        },
+        {
+          "LOWER": "place"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The plot of the book takes place in Vienna.",
+        "The scene takes place on a train."
+      ],
+      "negatives": [
+        "The meeting took place yesterday.",
+        "We are taking our places now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713636x311000387736377600",
+    "level": "B1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "1",
+    "guideword": "USE: REPORTING VERBS",
+    "can_do_statement": "Can use the present simple with a limited range of reporting verbs, including 'say', 'show'.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Relaying information",
+      "pedagogical_hook": "Reporting verbs (say, show)",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:say|says|show|shows)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "say",
+              "says",
+              "show",
+              "shows"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Now he says that it improved his social life.",
+        "The movie shows how a pretty woman can do different things."
+      ],
+      "negatives": [
+        "He said that it was good.",
+        "They are showing the movie now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713636x436399267696059800",
+    "level": "B2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "3",
+    "guideword": "USE: SPEECH ACT VERBS",
+    "can_do_statement": "Can use the present simple with a wide range of speech act verbs, including '(dis)agree', 'accept', 'advise'.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Performative speech actions",
+      "pedagogical_hook": "Wide range of speech act verbs",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:disagree|disagrees|agree|agrees|accept|accepts|advise|advises)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "disagree",
+              "disagrees",
+              "agree",
+              "agrees",
+              "accept",
+              "accepts",
+              "advise",
+              "advises"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We disagree with the new numbering system.",
+        "I advise you to take a coat."
+      ],
+      "negatives": [
+        "I agreed with him.",
+        "They are advising us to leave."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713636x943929338741485800",
+    "level": "C1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "3",
+    "guideword": "USE: REPORTING VERBS",
+    "can_do_statement": "Can use the present simple with a wide range of reporting verbs, especially in academic contexts, including 'demonstrate', 'illustrate'.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Academic reporting of evidence",
+      "pedagogical_hook": "Academic reporting verbs",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:demonstrate|demonstrates|illustrate|illustrates)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "demonstrate",
+              "demonstrates",
+              "illustrate",
+              "illustrates"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The popularity of this TV game in Russia clearly demonstrates the nature of human fears.",
+        "The charts illustrate the number of employees."
+      ],
+      "negatives": [
+        "The study demonstrated the effect.",
+        "He is illustrating the book."
+      ]
+    }
+  }
+]

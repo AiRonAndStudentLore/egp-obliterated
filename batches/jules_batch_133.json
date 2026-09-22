@@ -1,0 +1,765 @@
+[
+  {
+    "egp_id": "1741163712327x699835533298048600",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: REPEATED EVENTS",
+    "can_do_statement": "Can use the past continuous to talk about ongoing repeated events in the past, often with 'always'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past continuous for repeated habits",
+      "pedagogical_hook": "Past continuous + always",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+always\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "MORPH": {
+            "IS_SUPERSET": [
+              "Tense=Past"
+            ]
+          }
+        },
+        {
+          "LOWER": "always"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He was always talking during the lecture.",
+        "They were always complaining about the weather."
+      ],
+      "negatives": [
+        "He is always talking during the lecture.",
+        "She always talked about him."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712327x913269929337566600",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: POLITENESS ",
+    "can_do_statement": "Can use the past continuous to make a request or suggestions more polite or less direct.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Past continuous for softening requests",
+      "pedagogical_hook": "I was wondering/thinking/hoping",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+(?:wondering|thinking|hoping|planning)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "MORPH": {
+            "IS_SUPERSET": [
+              "Tense=Past"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "wondering",
+              "thinking",
+              "hoping",
+              "planning"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I was wondering if you could help me with this.",
+        "We were hoping you might join us for dinner."
+      ],
+      "negatives": [
+        "I wonder if you could help me.",
+        "They are hoping to see you soon."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712328x422695616724010100",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past perfect continuous",
+    "lexical_range": "1",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect continuous negative",
+      "pedagogical_hook": "had not been doing",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:had(?:\\s+not|n't)|'d\\s+not)\\s+been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "never"
+            ]
+          }
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She had not been sleeping well lately.",
+        "I hadn't been waiting long when the bus arrived."
+      ],
+      "negatives": [
+        "She had been sleeping well lately.",
+        "I haven't been waiting long."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712328x572489570915366600",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: BACKGROUND EVENTS ",
+    "can_do_statement": "Can use the past perfect continuous talk about a background action or event which began before a point in the past and was still continuing up to a point in the past when the main event happened. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect continuous for background events",
+      "pedagogical_hook": "had been doing before something happened",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:had|'d)\\s+been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I had been walking for hours when I finally found the cabin.",
+        "They'd been trying to fix the car before they called a mechanic."
+      ],
+      "negatives": [
+        "I have been walking for hours.",
+        "They had fixed the car."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712328x663782601864534800",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: BACKGROUND INFORMATION WITH TIME CONJUNCTION",
+    "can_do_statement": "Can use the past perfect continuous after a time conjunction to give background information.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect continuous after a time conjunction",
+      "pedagogical_hook": "after/when we had been doing",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:after|when|before|until|while)\\s+(?:[a-z]+\\s+){1,4}(?:had|'d)\\s+been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "after",
+              "when",
+              "before",
+              "until",
+              "while"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "After we had been waiting for an hour, the train finally arrived.",
+        "When they had been arguing for ten minutes, I decided to leave."
+      ],
+      "negatives": [
+        "We had been waiting for an hour when the train arrived.",
+        "After we waited for an hour, the train arrived."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712328x669008360458158700",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect continuous affirmative",
+      "pedagogical_hook": "had been doing",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:had|'d)\\s+(?!(?:not|n't)\\b)been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I had been studying all night.",
+        "We'd been planning the trip for months."
+      ],
+      "negatives": [
+        "I hadn't been studying all night.",
+        "We have been planning the trip."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712328x669982657855112700",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: BACKGROUND INFORMATION WITH RELATIVE CLAUSE",
+    "can_do_statement": "Can use the past perfect continuous in a relative clause to give background information.  \u25ba relative clauses",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect continuous in relative clauses",
+      "pedagogical_hook": "who had been doing",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:who|which|that)\\s+(?:had|'d)\\s+been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "who",
+              "which",
+              "that"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The man who had been following us suddenly disappeared.",
+        "I found the book that had been missing for weeks."
+      ],
+      "negatives": [
+        "The man had been following us.",
+        "The man who was following us disappeared."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712328x701653383761448700",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: CONTINUING EVENTS IN THE PAST",
+    "can_do_statement": "Can use the past perfect continuous to talk about an action or event which began before a point in the past and was still continuing up to that point, often with 'for' or 'since', to give background information. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect continuous with for/since",
+      "pedagogical_hook": "had been doing for/since",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:had|'d)\\s+been\\s+[a-z]+ing\\b.*?(?:\\bfor\\b|\\bsince\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "TAG": "VBG"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "for",
+              "since"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They had been living there for five years.",
+        "She had been waiting since three o'clock."
+      ],
+      "negatives": [
+        "They had been living there until recently.",
+        "They have been living there for five years."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712332x322280679825253100",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: RESULTS",
+    "can_do_statement": "Can use the past perfect continuous to talk about events which started before a time in the past and which finished, but where the effects or results were still important at a point in the past. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect continuous to show past results",
+      "pedagogical_hook": "had been doing so/because",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:had|'d)\\s+been\\s+[a-z]+ing\\b.*?(?:\\bso\\b|\\bbecause\\b|\\band\\s+so\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "TAG": "VBG"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "so",
+              "because",
+              "therefore"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We had been working very hard all morning so we were exhausted.",
+        "It had been snowing, because the ground was completely white."
+      ],
+      "negatives": [
+        "We had been working very hard all morning.",
+        "We have been working very hard so we are exhausted."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712332x793082629536507400",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH ADVERBS",
+    "can_do_statement": "Can use the past perfect continuous with adverbs in the normal mid position. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect continuous with mid-position adverbs",
+      "pedagogical_hook": "had [adverb] been doing",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:had|'d)\\s+(?!(?:not|n't)\\b)[a-z]+\\s+been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "LOWER": {
+            "NOT_IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I had really been looking forward to this.",
+        "She had only been living there for a month."
+      ],
+      "negatives": [
+        "I had been really looking forward to this.",
+        "I had not been looking forward to this."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712332x868931903135236100",
+    "level": "C2",
+    "super_category": "PAST",
+    "sub_category": "past perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use the question form. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect continuous questions",
+      "pedagogical_hook": "had you been doing?",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhad\\s+(?:[a-z]+\\s+){1,3}been\\s+[a-z]+ing\\b.*?\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "had"
+        },
+        {
+          "OP": "+"
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "TAG": "VBG"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "What had he been doing that morning?",
+        "Had they been waiting for long?"
+      ],
+      "negatives": [
+        "What has he been doing that morning?",
+        "He had been doing something."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712332x472235073902899300",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use negative forms.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect simple negative",
+      "pedagogical_hook": "had not done",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:had(?:\\s+not|n't)|'d\\s+not)\\s+(?!been\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "TAG": "VBN",
+          "LEMMA": {
+            "NOT_IN": [
+              "be"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Our company had not delivered the goods on time.",
+        "I hadn't heard from her for two months."
+      ],
+      "negatives": [
+        "Our company had delivered the goods on time.",
+        "I hadn't been hearing from her for two months."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712332x475879228502143170",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE ",
+    "can_do_statement": "Can use the affirmative form.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect simple affirmative",
+      "pedagogical_hook": "had done",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:had|'d)\\s+(?!(?:not|n't|been)\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "TAG": "VBN",
+          "LEMMA": {
+            "NOT_IN": [
+              "be"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I felt really sorry for you after I had read your last letter.",
+        "I'd forgotten that I had an appointment."
+      ],
+      "negatives": [
+        "I had not read your last letter.",
+        "I had been reading your last letter."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712332x638122991854022300",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past perfect simple",
+    "lexical_range": "1",
+    "guideword": "FORM: WITH ADVERBS ",
+    "can_do_statement": "Can use the past perfect simple with a limited range of adverbs (including 'never', 'ever', 'just', 'always', 'already') in the normal mid-position. \u25ba adverbs",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past perfect simple with mid-position adverbs",
+      "pedagogical_hook": "had never/ever/just/always/already done",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:had|'d)\\s+(?:never|ever|just|always|already)\\s+(?!been\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "never",
+              "ever",
+              "just",
+              "always",
+              "already"
+            ]
+          }
+        },
+        {
+          "TAG": "VBN",
+          "LEMMA": {
+            "NOT_IN": [
+              "be"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It was the most beautiful one I had ever seen.",
+        "I had just arrived from school when I saw the letter."
+      ],
+      "negatives": [
+        "It was the most beautiful one I have ever seen.",
+        "I had really loved the beautiful one I saw."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712332x914076237100333000",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: AFTER 'IF' CLAUSES ",
+    "can_do_statement": "Can use the past perfect simple in 'if'-clauses to talk about imagined situations in the past, often with regret. \u25ba 'if'-clauses",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Past perfect simple in 3rd conditional if-clauses",
+      "pedagogical_hook": "if ... had done",
+      "agency_or_distance": "Hypothetical"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bif\\b.*?(?:had|'d)\\s+(?:not\\s+|n't\\s+|never\\s+)?(?:[a-z]+\\s+){0,2}(?!been\\s+[a-z]+ing\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "had",
+              "'d"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If the weather had been better, we would have enjoyed it more.",
+        "If you had gone there with me, you would have been happy."
+      ],
+      "negatives": [
+        "The weather had been better.",
+        "If you go there with me, you will be happy."
+      ]
+    }
+  }
+]

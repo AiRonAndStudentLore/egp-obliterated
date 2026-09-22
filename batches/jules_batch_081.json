@@ -1,0 +1,850 @@
+[
+ {
+  "egp_id": "1741163716292x917584988638321400",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "1",
+  "guideword": "USE: SUGGESTIONS",
+  "can_do_statement": "Can use 'could' with a limited range of verbs to make suggestions.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Agent uses 'could' + limited verbs (e.g., go, have, take) as a gentle directive or suggestion.",
+   "pedagogical_hook": "Suggesting ideas softly",
+   "agency_or_distance": "Agency: offering a choice to the listener"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:we|you)\\s+could\\s+(?:[a-z]+ly\\s+)?(?:have|go|take|do)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "we",
+       "you"
+      ]
+     }
+    },
+    {
+     "LOWER": "could"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "have",
+       "go",
+       "take",
+       "do"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We could have dinner after that, if you want.",
+    "You could go to Versailles."
+   ],
+   "negatives": [
+    "She could speak French when she was younger.",
+    "Could you pass the salt?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716294x428246963703272000",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: PERMISSION",
+  "can_do_statement": "Can use 'could I' to seek permission.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Agent shifts focus to themselves with 'could I' to ask for authorization or permission.",
+   "pedagogical_hook": "Asking for permission politely",
+   "agency_or_distance": "Agency: requesting authorization"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bcould\\s+i\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "could"
+    },
+    {
+     "LOWER": "i"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Could I take the class that I will miss on Saturday?",
+    "Could I play with it now, please?"
+   ],
+   "negatives": [
+    "I could run very fast when I was a kid.",
+    "We could meet later."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716294x808126531664035200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: POSSIBILITY",
+  "can_do_statement": "Can use 'could' to talk about possibility.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Agent uses 'could' with abstract subjects (it, this) to assess likelihood or potential truth.",
+   "pedagogical_hook": "Saying something might be true",
+   "agency_or_distance": "Distance: stepping back to evaluate probability"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bcould\\s+(?:this|that|it|he|she|they|there|someone|everyone)\\s+(?:[a-z]+ly\\s+)?(?:be|happen|mean|change)\\b|\\b(?:this|that|it|he|she|they|there|someone|everyone)\\s+could\\s+(?:[a-z]+ly\\s+)?(?:be|happen|mean|change)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "it",
+       "this",
+       "that",
+       "he",
+       "she",
+       "they",
+       "there",
+       "someone",
+       "everyone",
+       "could"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "it",
+       "this",
+       "that",
+       "he",
+       "she",
+       "they",
+       "there",
+       "someone",
+       "everyone",
+       "could"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "be",
+       "happen",
+       "become",
+       "mean",
+       "change"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "it could be really fun to have a talkative person",
+    "Could this really happen?"
+   ],
+   "negatives": [
+    "Could you pass the salt?",
+    "We could have dinner after that."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716294x857600764651929500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "2",
+  "guideword": "USE: SUGGESTIONS",
+  "can_do_statement": "Can use 'could' with an increasing range of verbs to make suggestions.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Agent uses 'could' to propose varied actions as possibilities for the listener.",
+   "pedagogical_hook": "Suggesting actions with more variety",
+   "agency_or_distance": "Agency: offering a broader array of choices"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:we|you|i|it)\\s+could\\s+(?:[a-z]+ly\\s+)?(?:meet|try|visit|start|stay|play|use|become|join|buy)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "we",
+       "you",
+       "i",
+       "it"
+      ]
+     }
+    },
+    {
+     "LOWER": "could"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "meet",
+       "try",
+       "visit",
+       "start",
+       "stay",
+       "play",
+       "use",
+       "become",
+       "join",
+       "buy"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We could meet in the nice cafe next to your house.",
+    "you could become a member of a gym."
+   ],
+   "negatives": [
+    "I could jump really high back then.",
+    "Could I get a glass of water?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716295x105998126908799500",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST",
+  "can_do_statement": "Can used 'could' have + '-ed'.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Agent uses 'could have' + past participle to conceptualize a past possibility that did not occur or is uncertain.",
+   "pedagogical_hook": "Talking about past possibilities",
+   "agency_or_distance": "Distance: looking back at an alternative past"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bcould(?:n't|\\s+not)?\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|icked|apped)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "could",
+       "couldn't"
+      ]
+     }
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "In fact it could have been dangerous.",
+    "What could have happened?"
+   ],
+   "negatives": [
+    "I could have a dog if I wanted.",
+    "We could have dinner after that."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716295x133200860687879170",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: CRITICISM",
+  "can_do_statement": "Can use 'could have' + '-ed' form to express disapproval or criticism.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Agent directs disapproval toward another entity (usually 'you' or 'they') for failing to perform a desired past action.",
+   "pedagogical_hook": "Criticizing past inaction",
+   "agency_or_distance": "Agency: asserting normative expectation on another's past behavior"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:you|they|he|she|the\\s+company|the\\s+hotel)\\s+could\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|iven|nged)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "they",
+       "he",
+       "she",
+       "company",
+       "hotel"
+      ]
+     }
+    },
+    {
+     "LOWER": "could"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think that you could have arranged entertainment.",
+    "you could have given them a better service"
+   ],
+   "negatives": [
+    "I could have done that if I had time.",
+    "It could have been worse."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716295x333431392231873200",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: PAST POSSIBILITY",
+  "can_do_statement": "Can used affirmative 'could' have + '-ed' to talk about past possibility.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Agent reflects on alternative outcomes or missed opportunities using abstract or passive subjects.",
+   "pedagogical_hook": "Alternative past outcomes",
+   "agency_or_distance": "Distance: distancing from the actual past to explore a counterfactual"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:mother|she|he|they|problems?|it|this|that|things?)\\s+could\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|oned|oided)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "mother",
+       "she",
+       "he",
+       "they",
+       "problems",
+       "problem",
+       "it",
+       "this",
+       "that",
+       "things",
+       "thing"
+      ]
+     }
+    },
+    {
+     "LOWER": "could"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "her mother could have phoned her but she did not.",
+    "all these problems could have been avoided"
+   ],
+   "negatives": [
+    "I couldn't have bought it.",
+    "You could have asked me."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716295x403332037991284800",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: REGRET",
+  "can_do_statement": "Can use 'could have' + '-ed' to talk about regrets.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Agent looks inward at their own past actions, expressing a counterfactual wish using 'I/we'.",
+   "pedagogical_hook": "Expressing personal regret",
+   "agency_or_distance": "Distance: stepping back to evaluate one's own missed chances"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:i|we)\\s+could\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|ayed|ened)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "i",
+       "we"
+      ]
+     }
+    },
+    {
+     "LOWER": "could"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I wish I could have stayed, especially to help the children.",
+    "I could have listened more to my team members."
+   ],
+   "negatives": [
+    "You could have given them better service.",
+    "It could have been dangerous."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716295x431001332463613700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: PAST SPECULATION",
+  "can_do_statement": "Can use 'could have' + '-ed' to speculate about the past.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Agent posits theories about uncertain past events, typically involving third parties or hypotheticals (who, a thief, she).",
+   "pedagogical_hook": "Theorizing about the past",
+   "agency_or_distance": "Distance: distancing to deduce possible past realities"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:thief|who|she|he|they|someone|somebody)\\s+could\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|ered|ined|ved)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "thief",
+       "who",
+       "she",
+       "he",
+       "they",
+       "someone",
+       "somebody"
+      ]
+     }
+    },
+    {
+     "LOWER": "could"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I thought perhaps a thief could have entered my house.",
+    "who could have saved her?"
+   ],
+   "negatives": [
+    "I wish I could have stayed.",
+    "You could have given me more time."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716295x544491590213676700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTED SPEECH",
+  "can_do_statement": "Can use 'could' as the past form of 'can' in reported speech.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Agent uses 'could' within a subordinate clause to backshift 'can' to the past after a reporting verb.",
+   "pedagogical_hook": "Reporting past abilities or possibilities",
+   "agency_or_distance": "Distance: temporal distance via reported speech backshifting"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:said|told|thought|explained|admitted)\\s+(?:(?:me|him|her|us|them)\\s+)?(?:that\\s+)?(?:[a-z]+\\s+)?couldn?(?:'t|not)?\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "say",
+       "tell",
+       "think",
+       "explain",
+       "admit"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "me",
+       "him",
+       "her",
+       "us",
+       "them"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": "that",
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "PROPN",
+       "NOUN",
+       "DET"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "could",
+       "couldn't"
+      ]
+     }
+    },
+    {
+     "POS": "VERB",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I told them I couldn't go because I didn't have money",
+    "The woman said she could put me up if I wanted"
+   ],
+   "negatives": [
+    "Could you tell me the time?",
+    "I could hear what he said."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716295x549939411550883300",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: SPECULATION ",
+  "can_do_statement": "Can use 'couldn\u2019t have' + '-ed' to speculate about the past.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Agent uses a negative past modal to assert strong improbability or impossibility of a past event.",
+   "pedagogical_hook": "Saying something was impossible in the past",
+   "agency_or_distance": "Distance: stepping back to firmly deduce a negative past conclusion"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bcouldn't\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|eft|den)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "could"
+    },
+    {
+     "LOWER": "n't"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Surely I couldn't have left it on my seat.",
+    "her mother couldn't have hidden it there just like that."
+   ],
+   "negatives": [
+    "I couldn't help it.",
+    "It could have been worse."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710395x413989918547746700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use negative form dare not and daren't +  infinitive without to.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Agent expresses an internal barrier or lack of courage preventing an action using 'dare not' or 'daren't'.",
+   "pedagogical_hook": "Lacking the courage to act",
+   "agency_or_distance": "Agency: grappling with internal fears or boundaries"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bdare\\s+not\\s+(?:[a-z]+ly\\s+)?(?!to\\b)[a-z]+\\b|\\bdaren't\\s+(?:[a-z]+ly\\s+)?(?!to\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "dare"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": "VERB",
+     "LEMMA": {
+      "NOT_IN": [
+       "say",
+       "be"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "But many local people dare not go to Lily, because it is too expensive.",
+    "they daren't give up their car."
+   ],
+   "negatives": [
+    "I dare say you are right.",
+    "I didn't dare to move."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710395x580382123224487700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use affirmative form dare + infinitive without to.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Agent asserts courage or challenges boundaries by acting, using 'dare' + bare infinitive.",
+   "pedagogical_hook": "Having the bravery to act",
+   "agency_or_distance": "Agency: asserting volition and overcoming fear"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?<!how\\s)\\bdare\\s+(?:[a-z]+ly\\s+)?(?!not\\b)(?!n't\\b)(?!to\\b)(?!say\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "how",
+       "didn't",
+       "don't",
+       "doesn't",
+       "wouldn't"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": "dare"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "NOUN",
+       "PROPN"
+      ]
+     },
+     "LEMMA": {
+      "NOT_IN": [
+       "say",
+       "be"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I can cook if you dare eat it!",
+    "I wonder if he dare jump."
+   ],
+   "negatives": [
+    "How dare you speak to me like that!",
+    "I dare not speak.",
+    "I dare say you are right."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710396x202268640000475400",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "USE: BRAVADO",
+  "can_do_statement": "Can use semi-modal 'dare' to talk about being brave enough to do something.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Agent uses 'dare' as a semi-modal to discuss the internal threshold of courage required for an action.",
+   "pedagogical_hook": "Discussing bravery and nerve",
+   "agency_or_distance": "Agency: evaluating the fortitude to cross a boundary"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bdare(?:n't|\\s+not)?\\s+(?:[a-z]+ly\\s+)?(?:give|jump|speak|tell|ask)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "dare"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "give",
+       "jump",
+       "speak",
+       "tell",
+       "ask"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think that they are rather jealous because they daren't give up their car.",
+    "She dare not tell him the truth."
+   ],
+   "negatives": [
+    "I dare say it will rain.",
+    "I double dare you to do it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710396x753443551652472000",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'I DARE SAY'",
+  "can_do_statement": "Can use the fixed expression 'I dare say' to say that something is probably true.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Agent uses the fixed phrase 'I dare say' to cautiously assert probability or likely truth.",
+   "pedagogical_hook": "Softly asserting probability",
+   "agency_or_distance": "Distance: softening a claim through an epistemic framing device"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:i\\s+)?dare\\s+say\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "i",
+     "OP": "?"
+    },
+    {
+     "LOWER": "dare"
+    },
+    {
+     "LOWER": "say"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I dare say that the last option may be the best one.",
+    "which I dare say needs improvement."
+   ],
+   "negatives": [
+    "I dare you to say that to his face.",
+    "I didn't dare to speak."
+   ]
+  }
+ }
+]

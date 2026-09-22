@@ -1,0 +1,794 @@
+[
+  {
+    "egp_id": "1741163711538x884306688947976100",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "adverbs",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: MODAL VERB + MODAL ADVERB, HEDGING OR EMPHASIS",
+    "can_do_statement": "Can use modal verb + modal adverb to modify an assertion, either through hedging or emphasis.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Speaker evaluates probability or necessity using a modal verb combined with a modifying adverb.",
+      "pedagogical_hook": "We use adverbs like 'probably', 'certainly', or 'surely' after modal verbs to emphasize or hedge the meaning.",
+      "agency_or_distance": "INTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:can|could|will|would|shall|should|may|might|must)(?:'t|nt| not)?\\s+(?:surely|certainly|probably|definitely|possibly|really)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "surely",
+              "certainly",
+              "probably",
+              "definitely",
+              "possibly",
+              "really"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You should probably bring your coat.",
+        "He could definitely win the race."
+      ],
+      "negatives": [
+        "He probably should bring his coat.",
+        "You definitely have a point."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711538x899852393729137200",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "adverbs",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT NECESSARILY'",
+    "can_do_statement": "Can use 'not necessarily' to express a possible exception to a general perception, i.e. not in every case.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Speaker signals that a common assumption is not universally true.",
+      "pedagogical_hook": "Use 'not necessarily' to show that something isn't always the case.",
+      "agency_or_distance": "DISTANCE"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:\\bnot|n't)\\s+necessarily\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LOWER": "necessarily"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Bigger isn't necessarily better.",
+        "That does not necessarily mean he is guilty."
+      ],
+      "negatives": [
+        "It is necessarily a bad idea.",
+        "They did not leave the room."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711538x973037262394288500",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "adverbs",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE, 'POSSIBLY', POLITENESS",
+    "can_do_statement": "Can use 'could' + subject + 'possibly' to make requests more polite.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Speaker softens a request by adding 'possibly' to make it extremely polite.",
+      "pedagogical_hook": "Use 'Could you possibly...?' when asking for a big favor.",
+      "agency_or_distance": "DISTANCE"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bcould\\s+(?:[a-z]+\\s+){1,2}possibly\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "could"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "LOWER": "possibly"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Could you possibly help me with this?",
+        "Could we possibly change the time?"
+      ],
+      "negatives": [
+        "You could possibly win the game.",
+        "Could you help me?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710388x206193011712334940",
+    "level": "A1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Speaker asserts capability, permission, or possibility using the modal 'can' with a verb.",
+      "pedagogical_hook": "We use 'can' followed by a base verb to talk about things we are able or allowed to do.",
+      "agency_or_distance": "INTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bcan\\s+(?!not\\b|n't\\b|i\\b|you\\b|we\\b|they\\b|he\\b|she\\b|it\\b)(?:[a-z]+\\s+){0,2}[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "LOWER": "can"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "not",
+              "n't"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You can see a lot of special places.",
+        "We can make a quick snack."
+      ],
+      "negatives": [
+        "I cannot come to see you.",
+        "Can you come for dinner?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710388x273734335473510240",
+    "level": "A1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTION ",
+    "can_do_statement": "Can use the affirmative question form.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Speaker requests permission, information, or action by moving 'can' before the subject.",
+      "pedagogical_hook": "To make a question, start with 'Can' then add the person and the verb.",
+      "agency_or_distance": "EXTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|[.?!]\\s*)\\bcan\\s+(?:i|you|we|he|she|it|they|\\w+)\\s+(?!not\\b|n't\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "can"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN",
+              "DET"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX",
+              "ADV"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Can you come for dinner Monday?",
+        "Can we go to the park?"
+      ],
+      "negatives": [
+        "You can come for dinner.",
+        "I cannot see you today."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710388x482560605581935800",
+    "level": "A1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE ",
+    "can_do_statement": "Can use the negative forms.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Speaker asserts lack of capability or permission using 'cannot' or 'can't'.",
+      "pedagogical_hook": "Use 'cannot' or 'can't' to say something is not possible or not allowed.",
+      "agency_or_distance": "INTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:cannot|can't|can\\s+not)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "can",
+              "ca"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I cannot come to see you.",
+        "I can't say anything."
+      ],
+      "negatives": [
+        "I can cook.",
+        "Can you come on Sunday?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710388x540901022788007400",
+    "level": "A1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "USE: OFFERS",
+    "can_do_statement": "Can use 'can' to make an offer. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Speaker offers assistance or an action using 'can I' or 'I can' with specific offer verbs.",
+      "pedagogical_hook": "We use 'Can I help you?' or 'I can do it' to kindly offer our help to someone.",
+      "agency_or_distance": "INTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:can\\s+i|i\\s+can)\\s+(?:help|do\\s+for|get|bring|offer|make|show|give|take)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "can",
+              "i"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "can",
+              "i"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "help",
+              "do",
+              "get",
+              "bring",
+              "offer",
+              "make",
+              "show",
+              "give",
+              "take"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Can I help you with that?",
+        "I can bring some food if you want."
+      ],
+      "negatives": [
+        "He can help us.",
+        "Can you help me?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710388x882361395502946800",
+    "level": "A1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "USE: ABILITY",
+    "can_do_statement": "Can use 'can' to talk about ability to do something. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Speaker describes an innate or learned physical or mental capability using ability verbs.",
+      "pedagogical_hook": "Use 'can' to talk about things you know how to do, like 'I can swim' or 'I can cook'.",
+      "agency_or_distance": "INTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:can|cannot|can't)\\s+(?:cook|write|read|speak|play|swim|run|walk|sing|dance|drive|understand)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "can",
+              "ca",
+              "cannot"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "cook",
+              "write",
+              "read",
+              "speak",
+              "play",
+              "swim",
+              "run",
+              "walk",
+              "sing",
+              "dance",
+              "drive",
+              "understand"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I can cook very well.",
+        "She can't read this language."
+      ],
+      "negatives": [
+        "Can I help you?",
+        "You can leave now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710391x392174672834575400",
+    "level": "A2",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "USE: PERMISSION",
+    "can_do_statement": "Can use 'can' to give and refuse permission or talk about what is forbidden.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Speaker establishes rules or boundaries about allowed actions for a second party.",
+      "pedagogical_hook": "We use 'you can' or 'you can't' to tell someone what they are allowed or not allowed to do.",
+      "agency_or_distance": "EXTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\byou\\s+(?:can|cannot|can't)\\s+(?:wear|bring|take|go|use|enter|leave|smoke|park|sit|eat|drink)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "can",
+              "ca",
+              "cannot"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "wear",
+              "bring",
+              "take",
+              "go",
+              "use",
+              "enter",
+              "leave",
+              "smoke",
+              "park",
+              "sit",
+              "eat",
+              "drink"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You can wear anything you want.",
+        "You cannot bring your mobile phone."
+      ],
+      "negatives": [
+        "Can you come on Sunday?",
+        "I can play the piano."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710391x459074403345042000",
+    "level": "A1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "USE: REQUESTS",
+    "can_do_statement": "Can use 'can' to make a request.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Speaker attempts to direct the listener to perform an action using a 'can you' question.",
+      "pedagogical_hook": "To ask someone to do something for you, start your question with 'Can you...'.",
+      "agency_or_distance": "EXTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|[.?!]\\s*)\\bcan\\s+you\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "can"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Can you come on Sunday?",
+        "Can you call me later?"
+      ],
+      "negatives": [
+        "You can wear anything.",
+        "Can I help you?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710391x534949859885590850",
+    "level": "A1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "USE: POSSIBILITY",
+    "can_do_statement": "Can use 'can' to talk about possibility.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Speaker outlines what is factually or circumstantially possible using circumstantial verbs.",
+      "pedagogical_hook": "We use 'can' to talk about things that are possible in a certain place or situation.",
+      "agency_or_distance": "INTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:can|cannot|can't)\\s+(?:find|buy|see|meet|get|happen)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "can",
+              "ca",
+              "cannot"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "find",
+              "buy",
+              "see",
+              "meet",
+              "get",
+              "happen"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "There you can find milk and juice.",
+        "I cannot see you today."
+      ],
+      "negatives": [
+        "I can cook dinner.",
+        "Can you come on Sunday?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710391x572079242941361300",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE QUESTIONS",
+    "can_do_statement": "Can use the negative question forms in main clauses and question tags.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Speaker combines a question and negation into a single modal structure for emphasis or tag requests.",
+      "pedagogical_hook": "We use 'can't' at the start of a question or at the end as a tag to ask for confirmation.",
+      "agency_or_distance": "EXTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bcan't\\s+(?:I|you|he|she|it|we|they)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "ca"
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "POS": "PRON"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Can't you go with your parents?",
+        "You can ask your parents, can't you?"
+      ],
+      "negatives": [
+        "I can't go with you.",
+        "She cannot come today."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710391x702389034373436300",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "1",
+    "guideword": "FORM: WITH ADVERBS",
+    "can_do_statement": "Can use 'can' with a limited range of adverbs (including 'also', 'always', 'even', 'just', 'only', 'really', 'still') in the normal mid position after the modal verb.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Speaker modifies the intensity or scope of 'can' using specific adverbs placed immediately after the modal.",
+      "pedagogical_hook": "Put adverbs like 'also', 'just', or 'only' immediately after 'can' to add extra meaning.",
+      "agency_or_distance": "INTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:can|can't|cannot)\\s+(?:also|always|even|just|only|really|still)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "can",
+              "ca",
+              "cannot"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "also",
+              "always",
+              "even",
+              "just",
+              "only",
+              "really",
+              "still"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You can also write postcards.",
+        "I can't even remember the face."
+      ],
+      "negatives": [
+        "I can never remember.",
+        "I really can't say."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710392x546454151321925600",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "USE: GENERAL TRUTHS AND TENDENCIES",
+    "can_do_statement": "Can use 'can be' to talk about general truths and tendencies.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Speaker evaluates typical states or conditions using 'can be' with non-personal subjects.",
+      "pedagogical_hook": "We use 'can be' to talk about what is generally true or common in certain situations.",
+      "agency_or_distance": "DISTANCE"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!\\bI\\s)(?<!\\byou\\s)(?<!\\bhe\\s)(?<!\\bshe\\s)(?<!\\bwe\\s)(?<!\\bthey\\s)\\bcan\\s+be\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "NOT_IN": [
+              "PRON"
+            ]
+          }
+        },
+        {
+          "LOWER": "can"
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "POS": {
+            "IN": [
+              "ADV",
+              "ADJ",
+              "NOUN",
+              "VERB"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The centre of town can be dangerous.",
+        "Summer can be very boring."
+      ],
+      "negatives": [
+        "I can be there tomorrow.",
+        "You can be whatever you want."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710392x628826808565412700",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "can",
+    "lexical_range": "N/A",
+    "guideword": "USE: SURPRISE",
+    "can_do_statement": "Can use 'can you believe' to express surprise.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Speaker conveys disbelief or amazement using the rhetorical phrase 'can you believe'.",
+      "pedagogical_hook": "Use the phrase 'can you believe' to show that you are very surprised by something.",
+      "agency_or_distance": "INTERNAL"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bcan\\s+you\\s+believe\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "can"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "LEMMA": "believe"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They invented a robot, can you believe this?",
+        "Can you believe that!"
+      ],
+      "negatives": [
+        "I can believe it.",
+        "Do you believe me?"
+      ]
+    }
+  }
+]

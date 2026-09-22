@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_080.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163710393x306065725753619460",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'can' with an increasing range of adverbs (including 'easily', 'hardly', 'now', 'probably', 'sometimes', 'still') in the normal mid position after the modal verb or after the subject in questions.  \u25ba adverbs",
+  "example_raw": "In case you need them , I can easily provide references. (Brazil; B2 VANTAGE; 1998; Portuguese; Pass)\n\nOn the other hand you can hardly imagine an evening when you are sitting in your armchair, the tea is on the table and you are reading your favourite novel on a computer screen. (Czech Republic; B2 VANTAGE; 2006; Czech; Pass)\n\nAs you read her book, you can probably imagine what kind of personality she has got, and after finishing it, you will be more cheerful than before. (Japan; B2 VANTAGE; 1993; Japanese; Pass)"
+ },
+ {
+  "egp_id": "1741163710393x435738862107397440",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: GENERAL TRUTHS AND TENDENCIES",
+  "can_do_statement": "Can use 'can' to talk about general truths and tendencies.",
+  "example_raw": "\u2026some young people can feel bored when they have to walk a lot and look at [\u2026] very old things. (Polish, B2 VANTAGE, Pass, 1999)\n\nToo much work can cause \"stress\" and heart problems. (Portuguese, B2 VANTAGE, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163710393x749410106828691000",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: GUESSES AND PREDICTIONS",
+  "can_do_statement": "Can use the negative forms of 'can't' and 'cannot' to guess, predict and deduce.",
+  "example_raw": "You look very pale and you can\u2019t be feeling well. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nI think that it can\u2019t be true. (Uruguay; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\n[talking about someone suspected of being a criminal] He can't be; he is too young. (Chile; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n\nIt cannot be any good for these animals to be taken away from their natural surroundings. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163710394x181194799335548060",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use a wide range of adverbs with 'can' in the normal mid position after the modal verb). \u25ba adverbs",
+  "example_raw": "Only those who live with their relatives can fully understand how essential is the role of your parents, sisters, aunts... (Yugoslavia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Serbian; Pass)\n\nMiss Sylvia Ann Powers is a good friend of mine for over six years, so I can honestly say that I know her personality fairly well. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163710394x261510254385375330",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPROACHES AND APPEALS",
+  "can_do_statement": "Can use negative forms of 'can' to make reproaches or appeals.",
+  "example_raw": "You can\u2019t forget your friends. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\n\u2026he can't go on behaving like this. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nPlease, listen, you can't go on studying so hard. (Spain; B2 VANTAGE; 1993; Catalan; Pass)\n\nYou have to realise that you cannot work all the time: your body needs some rest. (B2 VANTAGE; 1993; ; Pass)\n\nCan't you see how exhausted you are? (France; B2 VANTAGE; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710394x264223806244499500",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: REFLECTIONS",
+  "can_do_statement": "Can use 'how can' to reflect, through rhetorical questions. ",
+  "example_raw": "And how can we improve if we are not allowed to make mistakes, evaluate our experiences in a new light and try again? (Netherlands; C2 MASTERY; 1998; Dutch; Pass) \n\nBut how can each of us stay fit in this world of stress and fast food restaurants? (Greek, C2 MASTERY, Pass, 2005)"
+ },
+ {
+  "egp_id": "1741163710394x510073809645116300",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: EMPHASIS",
+  "can_do_statement": "Can use expressions with 'can' or 'can\u2019t' to give focus or add emphasis, such as 'as you can see', 'I can't say', 'I can tell you that', 'as you can imagine', 'I can say that', 'I can assure you that'. ",
+  "example_raw": "So, as you can see, there are no serious consequences for us, so far. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)\n\nI can't say I was very impressed with the level and the way the classes were given. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Catalan; Pass)\n\nAbout my country, I can tell you that we went through a great number of wars in the last century\u2026 (Argentina; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163710394x568523559828543400",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PASSIVE ",
+  "can_do_statement": "Can use 'can' in passive reporting clauses in a more formal impersonal style (e.g. for reports and academic contexts), such as 'It can be said that', 'It can be argued (that)', 'It can be concluded that', 'It can be considered'.\u25ba passives",
+  "example_raw": "It can be argued, looking at the figures, that the company should consider withdrawing from the heater market. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Spanish - European; Pass)\n\nTaking everything into account, it can be concluded that the current training course is very useful for our company. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Russian; Pass)\n\nAs for marriage and relationships, it can be said that women who have a job, nowadays, do not quit it after marriage. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163710394x606520841619965400",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PAST NEGATIVE, DEDUCTIONS",
+  "can_do_statement": "Can use 'can't' or 'cannot have' + '-ed' to make deductions.",
+  "example_raw": "I live with my partner and we can't have used so much electricity. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Polish; Pass)\n\n\u2026it cannot have been such a disappointment. (Swedish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2000)\n\nThe air-conditioning cannot have been working properly as the coach was too cold. (Danish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1998)"
+ },
+ {
+  "egp_id": "1741163716292x104838329159449020",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: REQUESTS",
+  "can_do_statement": "Can use 'could' to make requests.",
+  "example_raw": "Could you help me to paint my bedroom? (Portuguese, A2 WAYSTAGE, Pass, 2006)\n\nI left my umbrella in your house yesterday. \u2026 Could you bring it to school tomorrow, please? (Czech, A2 WAYSTAGE, Pass, 2005)"
+ },
+ {
+  "egp_id": "1741163716292x214601835879246080",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: ABILITY",
+  "can_do_statement": "Can use the negative form of 'could' to talk about inability. ",
+  "example_raw": "[talking about the key to an office] I couldn't work without it. (Germany; A2 WAYSTAGE; 2005; German; Pass)\n\nI couldn't buy the T-shirt because it was too expensive, but the other things were very nice and quite cheap, so I bought them. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163716292x259759930140010000",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "You could come by bus, and we could meet at the bus station. (Spanish - European, A2 WAYSTAGE, Pass, 2010)\n\nWe could go to the museum near Cibeles. (Spanish - European, A2 WAYSTAGE, Pass, 2001)"
+ },
+ {
+  "egp_id": "1741163716292x357747992335715200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: ABILITY",
+  "can_do_statement": "Can use the affirmative form of 'could' to talk about ability.",
+  "example_raw": "\u2026 she could hear a man talking, he was giving her orders\u2026 (Spanish - Latin American, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163716292x537771445666802560",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form.",
+  "example_raw": "Could you help me? (Polish, A2 WAYSTAGE, Pass, 2007)\n\nCould we meet on Friday afternoon? (Slovak, A2 WAYSTAGE, Pass, 2005)"
+ },
+ {
+  "egp_id": "1741163716292x712077863595412800",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form.",
+  "example_raw": "[talking about a party] Too bad you couldn't come. (Somali, A2 WAYSTAGE, Pass, 2004)\n\nI couldn't close the window. (Chinese, A2 WAYSTAGE, Pass, 2010)\n\n\u2026he was ill, so he could not go to the game. (Swiss German, A2 WAYSTAGE, Pass, 2007)"
+ }
+]
+```

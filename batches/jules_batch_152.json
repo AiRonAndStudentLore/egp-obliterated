@@ -1,0 +1,662 @@
+[
+  {
+    "egp_id": "1741163713638x152872542688260900",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'OURS' AS OBJECT",
+    "can_do_statement": "Can use the possessive pronoun 'ours' with singular and plural reference, in object positions, and complement positions after 'be' and after prepositions.",
+    "example_raw": "Can we rent windsurf boards or should we bring ours with us? (First Certificate in English; B2; Turkish)\n\n[talking about characters in a book] \u2026 when we read about them we think that we are the characters and we live their stories as if they were ours. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nAldous Huxley was able to create a new world which is not so different from ours. (First Certificate in English; B2; Spanish \u2013European)\n\n This road shouldn't be allowed in the middle of a small town like ours. (First Certificate in English; B2; Polish)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Possessive pronouns in object position",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bours(?!\\s+(?:is|are|was|were|has|have|had|will|would|can|could|should|shall|may|might|must|ought|do|does|did|seems|looks|appears)\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "ours",
+          "DEP": {
+            "IN": [
+              "dobj",
+              "pobj",
+              "attr",
+              "acomp",
+              "oprd",
+              "ROOT",
+              "conj"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They told us we should bring ours.",
+        "This big house is actually ours."
+      ],
+      "negatives": [
+        "Ours is the fastest car in the race.",
+        "We parked our car outside."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713638x185275902393746900",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: COMPARATIVE CLAUSES WITH 'OURS', 'HERS'",
+    "can_do_statement": "Can use the possessive pronouns 'hers' and 'ours' in comparative clauses.",
+    "example_raw": "I told my mother that your Spanish omelette is better than hers. (First Certificate in English; B2; Spanish \u2013 European) \n\nLots of changes which may occur during the next fifty years can make us fear that our sons' and grandsons' lives will not be as happy as ours. (Switzerland; B2 VANTAGE; 2002; French; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Comparative with ours/hers",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:than|as)\\s+(?:ours|hers)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "than",
+              "as"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "ours",
+              "hers"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Your project is much better than ours.",
+        "Her score was not as high as hers."
+      ],
+      "negatives": [
+        "That book is ours.",
+        "She is as tall as him."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713638x218168046477418500",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: +  'OF OURS'",
+    "can_do_statement": "Can use the possessive pronoun 'ours' after noun + 'of'.",
+    "example_raw": "Finally we went to Venice where we met some friends of ours and spent with them the rest of the holiday. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nThe credit crunch is heavily affecting this region, therefore all retail sales have fallen and many competitors of ours are decreasing their sales too. (Italy; B2 VANTAGE; 2009; Italian; Pass)\n\nPaul, a classmate of ours, will be the D.J. and we are thinking of listening to rock music, since Mr. Brown likes it. (Greece; B2 VANTAGE; 2000; Greek; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Noun + of ours",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b[a-z]+\\s+of\\s+ours\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PRON"
+            ]
+          }
+        },
+        {
+          "LOWER": "of"
+        },
+        {
+          "LOWER": "ours"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "A good friend of ours will visit tomorrow.",
+        "Many competitors of ours are failing."
+      ],
+      "negatives": [
+        "Some of our friends are coming.",
+        "They are friends of theirs."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713638x836792370741996700",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'OURS' AS SUBJECT ",
+    "can_do_statement": "Can use the possessive pronoun 'ours', with singular and plural reference, in subject position. ",
+    "example_raw": "Ours is the only store in this locality which opens at 7.00 am. (Business English Certificate (Vantage); B2; Tamil) \n\nOurs is a retail company with 5 outlets, dealing in furnishings. (India; B2 VANTAGE; 2006; Hindi; Pass)\n\nIn order to persuade them, we would like to show comparisons between our products and the ones from other companies to demonstrate that ours are more effective and efficient. (Uruguay; B2 VANTAGE; 2006; Spanish - Latin American; Fail)\n",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Possessive pronoun ours as subject",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bours\\s+(?:is|are|was|were|will|has|have|had|can|could|should|would|might|must|ought|do|does|did|seems|looks|appears)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "ours",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Ours is the only store open late.",
+        "I hope ours will be chosen."
+      ],
+      "negatives": [
+        "The best idea was ours.",
+        "A friend of ours called today."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713638x866856905336536400",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'HERS' AS OBJECT",
+    "can_do_statement": "Can use the possessive pronoun 'hers', with singular reference, in object positions, and complement positions after 'be' and after prepositions.",
+    "example_raw": "At the entrance, the security guard asked for my identity card. Pat gave hers. (First Certificate in English; B2; French)\n\nShe didn't remember leaving it there, it wasn't even hers, which is what frightened her the most. (Peru; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\nBut when she gave this suitcase a good look, she realised that it wasn't hers. (Netherlands; B2 VANTAGE; 2008; Dutch; Pass)\n\nShe saw him on a train running parallel to hers. (First Certificate in English; B2; German)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Possessive pronoun hers as object",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhers(?!\\s+(?:is|are|was|were|has|have|had|will|would|can|could|should|shall|may|might|must|ought|do|does|did|seems|looks|appears)\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "hers",
+          "DEP": {
+            "IN": [
+              "dobj",
+              "pobj",
+              "attr",
+              "acomp",
+              "oprd"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She didn't realise the bag wasn't hers.",
+        "Pat happily gave hers to the guard."
+      ],
+      "negatives": [
+        "Hers was a brilliant performance.",
+        "Her brother is coming over."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713638x869888127836414100",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: COMPARATIVE CLAUSES WITH 'MINE', 'YOURS'",
+    "can_do_statement": "Can use the possessive pronouns 'mine' and 'yours', with singular reference, in comparative clauses after '(not) as \u2026 as'.",
+    "example_raw": "Hope you have a friend as good as mine! (Preliminary English Test for Schools; Malaysia; B1 THRESHOLD; 2009; Chinese; Pass)\n\nMy bedroom is not as big as yours but it is lovely. (Preliminary English Test; Cyprus; B1 THRESHOLD; 2001; Turkish; Pass)\n\nMy town isn't very big, so I think it won't grow as fast as yours. (Preliminary English Test; Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI hope [\u2026] my English becomes as good as yours. (Preliminary English Test; Iran; B1 THRESHOLD; 2002; Farsi; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Comparative with mine/yours",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bas\\s+(?:mine|yours)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "as"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "mine",
+              "yours"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My town won't grow as fast as yours.",
+        "I need a car as good as mine."
+      ],
+      "negatives": [
+        "Your town is bigger than mine.",
+        "This lovely bag is yours."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713638x947110035097887900",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "General comment",
+    "can_do_statement": null,
+    "example_raw": "  ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "N/A",
+      "pedagogical_hook": "N/A",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bimpossible\\s+match\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "impossible"
+        },
+        {
+          "LOWER": "match"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This is an impossible match one.",
+        "Another impossible match two."
+      ],
+      "negatives": [
+        "This is possible.",
+        "Another match here."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713638x992181446700698200",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'YOURS' AS SUBJECT",
+    "can_do_statement": "Can use the possessive pronoun 'yours', with singular reference, in subject position.",
+    "example_raw": "We bought it because yours is very old and sometimes stops working. (Uruguay; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)\n\nI really needed some extra information, and yours was very useful. (Spain; B1 THRESHOLD; 2010; Catalan; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Possessive pronoun yours as subject",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\byours\\s+(?:is|are|was|were|will|has|have|had|can|could|should|would|might|must|ought|do|does|did|seems|looks|appears)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "yours",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We bought it because yours is very old.",
+        "I think yours was very useful."
+      ],
+      "negatives": [
+        "This old car is yours.",
+        "Your car stopped working."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713861x328259304388360100",
+    "level": "C1",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'OURS' AS SUBJECT ",
+    "can_do_statement": "Can use the possessive pronoun 'ours', in subject position. ",
+    "example_raw": "I hope that other councils will consider improving the cyclists' cycling conditions as ours did. (Skills for Life; L2; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Arabic - Other; Fail)\n\nYes, of course there are much larger gardens in this area, but ours is more than four times as big as the one we had in Holland. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Dutch; Pass)\n\nWhat is more, the manager organises excursions to London. Ours was breathtaking. We visited unbelievably interesting museums\u2026 (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Possessive pronoun ours as subject",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bours\\s+(?:is|are|was|were|will|has|have|had|can|could|should|would|might|must|ought|do|does|did|seems|looks|appears)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "ours",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Ours was absolutely breathtaking.",
+        "I hope they improve conditions as ours did."
+      ],
+      "negatives": [
+        "The largest garden is ours.",
+        "We are proud of our garden."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713861x378989306596738050",
+    "level": "C2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: WITH 'THAT \u2026 OF'",
+    "can_do_statement": "Can use 'that \u2026 of' + possessive pronouns to express an attitude about someone or something, often in humorous or sarcastic contexts. ",
+    "example_raw": "I could just imagine it, meeting her at her house, her mother asking me to take care of her between puffs of smoke and coughing fits in that hoarse voice of hers. (Certificate of Proficiency in English; C2; Portuguese)\n\nI kept silent when I was introduced to that new girlfriend of his. (Certificate of Proficiency in English; C2; Portuguese)\n\nYou can park that precious jeep of yours. (Certificate of Proficiency in English; C2; Polish)\n\nI've been looking all over for that bright great-nephew of mine. (Certificate of Proficiency in English; C2; Spanish \u2013 Latin American)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "That ... of + possessive pronoun",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthat(?!\\s+(?:is|are|was|were|has|have|had)\\b)\\s+(?:\\w+\\s+){1,4}of\\s+(?:hers|his|yours|mine|ours|theirs)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "that"
+        },
+        {
+          "POS": "ADJ",
+          "OP": "?"
+        },
+        {
+          "POS": "ADJ",
+          "OP": "?"
+        },
+        {
+          "POS": "NOUN"
+        },
+        {
+          "LOWER": "of"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "hers",
+              "his",
+              "yours",
+              "mine",
+              "ours",
+              "theirs"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You can park that precious jeep of yours.",
+        "I kept silent about that new girlfriend of his."
+      ],
+      "negatives": [
+        "That is completely out of mine.",
+        "A friend of yours came by."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713861x561082941367103500",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THEIRS' AS OBJECT ",
+    "can_do_statement": "Can use the possessive pronoun 'theirs', with singular and plural reference, in object positions, and complement positions after 'be' and after prepositions. ",
+    "example_raw": "I could show them the traditional things of our country and learn theirs. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nShe told him that this baby was theirs. (Germany; B2 VANTAGE; 1997; Turkish; Pass)\n\nRed Stone are a very big group, you know that I'm a great fan of theirs. (Greece; B2 VANTAGE; 2002; Greek; Fail)\n\nI realise that it can be a very interesting experience and I can also improve my foreign language as well as theirs. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Possessive pronoun theirs as object",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\btheirs(?!\\s+(?:is|are|was|were|has|have|had|will|would|can|could|should|shall|may|might|must|ought|do|does|did|seems|looks|appears)\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "theirs",
+          "DEP": {
+            "NOT_IN": [
+              "nsubj",
+              "nsubjpass",
+              "csubj"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I can improve my language as well as theirs.",
+        "She told him the baby was theirs."
+      ],
+      "negatives": [
+        "Theirs is a huge responsibility.",
+        "Their language is hard."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713862x157795078394705100",
+    "level": "C2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'HIS'",
+    "can_do_statement": "Can use the possessive pronoun 'his', with singular and plural reference, in subject and object position, and complement positions after 'be' and after prepositions. ",
+    "example_raw": "Therefore, his was not a happy and normal childhood. (C2 MASTERY; 1993; Spanish - Other; Fail)\n\nHe was my confidant and I was his. (Certificate of Proficiency in English; C2; Portuguese)\n\nIt was as if she had completely forgotten about the outlines of his face, his hair, all the features that were his. (Certificate of Proficiency in English; C2; Spanish \u2013 Latin American)\n\nBob attracts many of his students to the teaching career, which is rather looked down on in a developing poor country like his. (Brazil; C2 MASTERY; 1993; Portuguese; Pass)\n",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Possessive pronoun his",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhis(?:(?=\\s+(?:is|are|was|were|has|have|had|will|would|can|could|should|might|must|ought|do|does|did|seems|looks|appears)\\b)|(?=\\s*[.,?!:;]|$))",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "his",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass",
+              "attr",
+              "acomp",
+              "dobj",
+              "pobj",
+              "ROOT",
+              "conj"
+            ]
+          },
+          "POS": "PRON"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "His was not a happy childhood.",
+        "He was my confidant and I was his."
+      ],
+      "negatives": [
+        "His childhood was not happy.",
+        "I saw his face."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713862x246016696032147480",
+    "level": "C2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THEIRS' AS SUBJECT",
+    "can_do_statement": "Can use the possessive pronoun 'theirs', with singular and plural reference, in subject position.",
+    "example_raw": "Theirs is a relationship between two members of the privileged classes, who really don't care about the world around (or below) them. (Portugal; C2 MASTERY; 1993; Portuguese; Pass)\n\nTheirs had always been a love-and-hate relationship. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nYet, beautiful dreams never last long, and theirs lasted until she had to leave England. (Certificate of Proficiency in English; C2; Italian)\n\nWhen comparing the value and achievements of athletes with doctors or scientists, theirs begin to lack in significance. (Greece; C2 MASTERY; 2009; Greek; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Possessive pronoun theirs as subject",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\btheirs\\s+(?:is|are|was|were|will|has|have|had|can|could|should|would|might|must|ought|do|does|did|seems|looks|appears|begin|lasted)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "theirs",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Theirs had always been a complicated relationship.",
+        "Beautiful dreams end, and theirs lasted until she left."
+      ],
+      "negatives": [
+        "The responsibility is theirs.",
+        "Their relationship was complex."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713862x281101637978056000",
+    "level": "C2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'HERS' AS SUBJECT ",
+    "can_do_statement": "Can use the possessive pronoun 'hers' with singular reference, in subject position.",
+    "example_raw": "I put Sophie's pictures in my bag because hers was already packed. (Certificate of Proficiency in English; C2; French)\n\n\n[talking about gazpacho, a type of soup] I also recall my father saying to my mother that hers was not as good as my grandmother's. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Spanish - European; Pass)\n\nShe thought, as she sometimes did, that hers was a drab existence, but that she could do hardly anything to avoid it. (Spain; C2 MASTERY; 1993; Catalan; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Possessive pronoun hers as subject",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhers\\s+(?:is|are|was|were|will|has|have|had|can|could|should|would|might|must|ought|do|does|did|seems|looks|appears)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "hers",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I packed my bag because hers was already packed.",
+        "She thought hers was a drab existence."
+      ],
+      "negatives": [
+        "The packed bag is hers.",
+        "Her bag is already packed."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713862x925885380518367700",
+    "level": "C2",
+    "super_category": "PRONOUNS",
+    "sub_category": "possessive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: OF 'THEIRS', 'HERS', 'HIS'",
+    "can_do_statement": "Can use the possessive pronouns 'hers', 'theirs' and 'his' after noun + 'of'.",
+    "example_raw": "I was a great admirer of hers. (Certificate of Proficiency in English; C2; Greek)\n\nShe asked some old friends of hers and she went to the church where the marriage was taking place. (Greece; C2 MASTERY; 1993; Greek; Fail)\n\nMy parents invited the father of a friend of theirs who spoke French. (Certificate of Proficiency in English; C2; Russian)\n\nThen he showed me a very old diary of his, just for me to have an idea of what to do. (Certificate of Proficiency in English; C2; Portuguese)\n\nHe was able to build a very successful business which allowed him and his family to live very well and to travel (a passion of his). ( Certificate of Proficiency in English; C2; Spanish \u2013 Latin American)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Possession",
+      "pedagogical_hook": "Noun + of theirs/hers/his",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b[a-z]+\\s+of\\s+(?:theirs|hers|his(?!\\s+(?:friends?|parents?|books?|cars?|brothers?|sisters?|family|diary|passion|life|colleagues?|students?)\\b))\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PRON",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "LOWER": "of"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "theirs",
+              "hers",
+              "his"
+            ]
+          },
+          "DEP": "pobj"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She asked some old friends of hers.",
+        "He showed me a very old diary of his."
+      ],
+      "negatives": [
+        "Some of his friends are coming.",
+        "One of their diaries was lost."
+      ]
+    }
+  }
+]

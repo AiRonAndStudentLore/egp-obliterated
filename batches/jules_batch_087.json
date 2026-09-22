@@ -1,0 +1,808 @@
+[
+ {
+  "egp_id": "1741163710845x798749370290314700",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+  "can_do_statement": "Can use 'must' to guess and deduce, most commonly with 'it must be', or 'you must be'.",
+  "example_raw": "Second, it must be boring for you to sit at a computer all day. (Turkish, B1 THRESHOLD)\n\n[talking about moving to another town] You must be so nervous. (Spanish - Latin American, B1 THRESHOLD)\n",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Deduction",
+   "pedagogical_hook": "Speculating on situations",
+   "agency_or_distance": "Distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:it|you)\\s+must\\s+(?:[a-z]+ly\\s+)?be\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "it",
+       "you"
+      ]
+     }
+    },
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "be"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LEMMA": "be"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It must be boring for you to sit at a computer all day.",
+    "You must really be so nervous."
+   ],
+   "negatives": [
+    "They must be at work by now.",
+    "We must be careful when crossing the street."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710846x395037418398339200",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form.",
+  "example_raw": "Is it possible to use the prize next year or must I cancel my trip to India? (Swedish, B2 VANTAGE)\n\nFinally, how much money must I bring with me? (French, B2 VANTAGE)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Obligation",
+   "pedagogical_hook": "Asking about obligations",
+   "agency_or_distance": "Agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust\\s+(?:i|you|he|she|it|we|they)\\s+(?!have\\b)(?:[a-z]+ly\\s+)?[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "i",
+       "you",
+       "he",
+       "she",
+       "it",
+       "we",
+       "they"
+      ]
+     }
+    },
+    {
+     "LEMMA": {
+      "NOT_IN": [
+       "have"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Must I cancel my trip to India?",
+    "How much money must we bring with us?"
+   ],
+   "negatives": [
+    "You must cancel your trip to India.",
+    "I must bring my own money with me."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710846x539626302372578500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "3",
+  "guideword": "USE: OBLIGATION AND NECESSITY",
+  "can_do_statement": "Can use 'must' (with a wide range of pronouns and nouns) to talk about obligation and necessity.",
+  "example_raw": "[talking about something the speaker has found] She took it and said we must go and find him. (Poland; B1 THRESHOLD; 2008; Polish; Pass)\n\nYour parents must learn to let you live your own life \u2026 (German, B1 THRESHOLD)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Obligation",
+   "pedagogical_hook": "Expressing obligations",
+   "agency_or_distance": "Agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust\\s+(?:[a-z]+ly\\s+)?(?:go|learn|do|make|take|pay|work|find|tell|ask)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "IS_ALPHA": true,
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "go",
+       "learn",
+       "do",
+       "make",
+       "take",
+       "pay",
+       "work",
+       "find",
+       "tell",
+       "ask"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We must go and find him.",
+    "Your parents must absolutely learn to let you live your own life."
+   ],
+   "negatives": [
+    "He must be very tired after the long journey.",
+    "It must seem like a crazy idea."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710846x710310357514026400",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS",
+  "can_do_statement": "Can use 'must' to make strong, encouraging suggestions.",
+  "example_raw": "This club has been opened for just two weeks. I mean we must see it. (Czech, B1 THRESHOLD)\n\n[talking about a day out] We must do that again, don't you think?! (Spanish - Latin American, B1 THRESHOLD)\n\nRome is really fantastic and you must go there! (Italy; B1 THRESHOLD; 2004; Italian; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Advice and Suggestions",
+   "pedagogical_hook": "Recommending activities",
+   "agency_or_distance": "Agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:we|you)\\s+must\\s+(?:[a-z]+ly\\s+)?(?:see|do|go|visit|try|come|watch|read)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "we",
+       "you"
+      ]
+     }
+    },
+    {
+     "LOWER": "must"
+    },
+    {
+     "IS_ALPHA": true,
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "see",
+       "do",
+       "go",
+       "visit",
+       "try",
+       "come",
+       "watch",
+       "read"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I mean we must clearly see it.",
+    "Rome is fantastic and you must visit there!"
+   ],
+   "negatives": [
+    "They must try to repair the car.",
+    "She must go to the doctor right away."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710846x862002717036825300",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST AFFIRMATIVE",
+  "can_do_statement": "Can use 'must have' + '-ed'.",
+  "example_raw": "When I realized that he must have forgotten, I called him up. (Chinese, B2 VANTAGE)\n\nWe had lots of fun learning how to ski. It was pretty hard at the beginning. I must have fallen about fifty times. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Deduction",
+   "pedagogical_hook": "Speculating on the past",
+   "agency_or_distance": "Distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust\\s+have\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|forgotten|fallen|gone|done|seen|made|said|left|taken|come|given|found|known|thought|told)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "IS_ALPHA": true,
+     "OP": "?"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "VBN",
+       "VBD"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "When I realized that he must have forgotten, I called him up.",
+    "I must have fallen about fifty times."
+   ],
+   "negatives": [
+    "You must have a ticket to enter.",
+    "I must have it by tomorrow."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711029x414511959030775550",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: EMPHASIS ",
+  "can_do_statement": "Can use the fixed expression 'I must say' to give emphasis, usually about something positive. ",
+  "example_raw": "I must say that I'm most delighted to have you here with us, Mr. Saramago, and it's with enormous pleasure that my students will hear your words. (Portuguese, B2 VANTAGE)\n\nAs I like music a lot I went to as many concerts as possible, and I must say that they were superb. (Germany; B2  ; 2000; German; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Emphasis",
+   "pedagogical_hook": "Giving emphasis",
+   "agency_or_distance": "Distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bi\\s+must\\s+say\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "i"
+    },
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": "say"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I must say that I'm most delighted to have you here with us.",
+    "I must say they were absolutely superb."
+   ],
+   "negatives": [
+    "You must say what you think.",
+    "He must say sorry to her."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711029x470432432448934400",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'must' with an increasing range of adverbs (including 'all', 'never', 'strongly', 'first') in the normal mid position after the modal verb. \u25ba adverbs",
+  "example_raw": "To sum up, we must all act immediately because the existence of humanity may be in danger. (Greek, B2 VANTAGE)\n\nBut there is one, just one thing we must never forget: we have to be authentic. (Peru; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\n[talking about a guide book] In addition I must strongly recommend you add something about nightlife. (Russia; B2 VANTAGE; 2002; Russian; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Obligation",
+   "pedagogical_hook": "Emphasizing rules or duties",
+   "agency_or_distance": "Agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust\\s+(?:all|never|strongly|first|always|also|really|definitely)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "all",
+       "never",
+       "strongly",
+       "first",
+       "always",
+       "also",
+       "really",
+       "definitely"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We must all act immediately because humanity may be in danger.",
+    "There is one thing we must never forget."
+   ],
+   "negatives": [
+    "All the students must wait outside.",
+    "You never must speak to me like that."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711029x580434283031923800",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS",
+  "can_do_statement": "Can use ellipted 'must have' + '-ed' without a subject. \u25ba ellipsis",
+  "example_raw": "[from a story] 'Must have fallen out of a car, or somfin'\" This was his next thought. (Polish, C2 MASTERY)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Deduction",
+   "pedagogical_hook": "Speculating on the past (ellipsis)",
+   "agency_or_distance": "Distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:^|[.!?\"]\\s*)\\bmust\\s+have\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|forgotten|fallen|gone|done|seen|made|said|left|taken|come|given|found)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must",
+     "IS_SENT_START": true
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "IS_ALPHA": true,
+     "OP": "?"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "VBN",
+       "VBD"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Must have fallen out of a car, or something.",
+    "Must have gone to the shop already."
+   ],
+   "negatives": [
+    "He must have fallen out of the bed.",
+    "You must have forgotten the keys again."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711029x833971545638738200",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: OBLIGATION AND NECESSITY",
+  "can_do_statement": "Can use 'must' to ask about obligation and necessity.",
+  "example_raw": "Is it possible to use the prize next year or must I cancel my trip to India? (Swedish, B2 VANTAGE)\n\nFinally, how much money must I bring with me? (French, B2 VANTAGE)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Obligation",
+   "pedagogical_hook": "Asking about obligations",
+   "agency_or_distance": "Agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust\\s+(?:i|you|he|she|it|we|they)\\s+(?!have\\b)(?:[a-z]+ly\\s+)?[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "i",
+       "you",
+       "he",
+       "she",
+       "it",
+       "we",
+       "they"
+      ]
+     }
+    },
+    {
+     "LEMMA": {
+      "NOT_IN": [
+       "have"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Must I cancel my trip to India?",
+    "How much money must we bring with us?"
+   ],
+   "negatives": [
+    "You must cancel your trip to India.",
+    "I must bring my own money with me."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711029x868317160566453600",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+  "can_do_statement": "Can use the perfect form of 'must' to make deductions about the past.",
+  "example_raw": "Of course, India must have changed a lot since Jules Verne wrote his book, but I think that its charm remains. (French, B2 VANTAGE)\n\nI must have looked awful because she asked me whether I was all right. (Poland; B2 VANTAGE; 1993; Polish; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Deduction",
+   "pedagogical_hook": "Speculating on past states",
+   "agency_or_distance": "Distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust\\s+have\\s+(?:[a-z]+ly\\s+)?(?:been|seemed|looked|sounded|felt|meant|thought|changed)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "IS_ALPHA": true,
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "be",
+       "seem",
+       "look",
+       "sound",
+       "feel",
+       "mean",
+       "think",
+       "change"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Of course, India must have changed a lot since then.",
+    "I must have clearly looked awful that day."
+   ],
+   "negatives": [
+    "You must have a license to drive.",
+    "He must have the right tools for the job."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711029x881777172555198800",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: CONCESSIONS",
+  "can_do_statement": "Can use the fixed expression 'I must admit' or 'you must admit' to express concession.",
+  "example_raw": "On the other hand you must admit that not all ready-made meals taste really good and often they are not as healthy as fresh ones. (German, B2 VANTAGE)\n\nHowever, I must admit that I completely agree with Chris and consider the mountain road too daring to try. (Russia; B2  ; 1998; Russian; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Concession",
+   "pedagogical_hook": "Acknowledging points",
+   "agency_or_distance": "Distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:i|you)\\s+must\\s+admit\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "i",
+       "you"
+      ]
+     }
+    },
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": "admit"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "On the other hand you must admit that they taste good.",
+    "I must admit that I completely agree with Chris."
+   ],
+   "negatives": [
+    "He must admit his mistake immediately.",
+    "They must admit that they were wrong."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711029x915601173893870500",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: RULES",
+  "can_do_statement": "Can use the negative forms of 'must' to talk about what is not permitted.",
+  "example_raw": "You must not hit them or punish them without good reason if you do not want them to become your worst enemy. (France; B2 VANTAGE; 1997; French; Pass)\n\nThey must not write on the walls. (Switzerland; B2 VANTAGE; 1993; Danish; Pass)\n\nIn school for example, you mustn't talk during lessons, and you have to be on time. (Sweden; B2 VANTAGE; 2000; Swedish; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Prohibition",
+   "pedagogical_hook": "Establishing rules",
+   "agency_or_distance": "Agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:must\\s+not|mustn't|mustn\\s*'t)\\s+(?!only\\b)(?:[a-z]+ly\\s+)?[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "only"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     },
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You must not hit them or punish them without good reason.",
+    "You mustn't talk during lessons."
+   ],
+   "negatives": [
+    "I must not only run but also jump.",
+    "The must knot on the boat broke."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711030x333448797717017540",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST, NEGATIVE",
+  "can_do_statement": "Can use 'must not have been' (especially with 'easy').",
+  "example_raw": "But I would like to stress that I was really happy that she found another husband, although she had three little children which must not have been easy for him. (German, C2 MASTERY)\n\nSomething I have missed on behalf of my father is a bit more tenderness, but again I am guessing it must not have been easy for him to be a post-wartime son of a widow. (Spanish - European, C2 MASTERY)\n\nIt mustn't have been more than an hour after the first announcement of the captain that there was a second one. (Greece; C2 MASTERY; 2001; Greek; Pass)\n",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Deduction",
+   "pedagogical_hook": "Speculating negatively on the past",
+   "agency_or_distance": "Distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:must\\s+not|mustn't|mustn\\s*'t)\\s+have\\s+been\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "LOWER": "been"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It must not have been easy for him.",
+    "It mustn't have been more than an hour."
+   ],
+   "negatives": [
+    "It must not have done much damage.",
+    "He must not have seen it coming."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711030x411652772454090800",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'must' with a wide range of adverbs in the normal mid position after the modal verb. \u25ba adverbs|",
+  "example_raw": "There must certainly be other solutions to the problem of the need for space for new houses. (Greece; C2 MASTERY; 2008; Greek; Pass)\n\nRECOMMENDATION In my opinion our town must clearly use this area to create a park and a playground for children. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\nI must completely disagree with this statement, since I believe that in all jobs or occupations only the good professionals are able to earn a lot of money. (Portugal; C2 MASTERY; 2005; Portuguese; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Obligation",
+   "pedagogical_hook": "Emphasizing statements",
+   "agency_or_distance": "Agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust\\s+(?:certainly|clearly|completely|absolutely|definitely|undoubtedly|necessarily|surely)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "certainly",
+       "clearly",
+       "completely",
+       "absolutely",
+       "definitely",
+       "undoubtedly",
+       "necessarily",
+       "surely"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "There must certainly be other solutions.",
+    "Our town must clearly use this area."
+   ],
+   "negatives": [
+    "You absolutely must read this book.",
+    "They clearly must state their terms."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711030x504903793194680900",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INVERSION",
+  "can_do_statement": "Can invert 'must' and the subject after negative phrases, e.g. 'not only', 'never', 'nor', to change the focus and give prominence/emphasis.",
+  "example_raw": "Not only must you study really hard during university, but also keep studying afterwards. (Portuguese, C2 MASTERY)\n\nTo sum up, my opinion is that education is sacred, necessary and useful to all of us and never must it be characterised as \"a waste of time\". (Greek, C2 MASTERY)\n\n[talking about personality] Nor must we overlook the human qualities. (French, C2 MASTERY)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Obligation",
+   "pedagogical_hook": "Formal emphasis",
+   "agency_or_distance": "Agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:not\\s+only|never|nor|rarely|seldom|under\\s+no\\s+circumstances)\\s+must\\s+(?:i|you|he|she|it|we|they|the)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "only",
+       "never",
+       "nor",
+       "rarely",
+       "seldom",
+       "circumstances"
+      ]
+     }
+    },
+    {
+     "LOWER": "must"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "DET",
+       "PROPN",
+       "NOUN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Not only must you study hard, but also keep studying.",
+    "Nor must we overlook the human qualities."
+   ],
+   "negatives": [
+    "You must not only read but understand.",
+    "We never must forget what happened."
+   ]
+  }
+ }
+]

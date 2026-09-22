@@ -1,0 +1,872 @@
+[
+ {
+  "egp_id": "1741163715031x105271547041443380",
+  "level": "A2",
+  "super_category": "QUESTIONS",
+  "sub_category": "wh-",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH AUXILIARY 'HAVE'",
+  "can_do_statement": "Can use 'wh-'words + auxiliary 'have' to form 'wh-'questions. \u25ba present perfect  \u25ba  past perfect",
+  "example_raw": "How have you been? (2666051_1; KET; Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)\n\nWhat have you brought for me? (2644997_1; KET; France; A2 WAYSTAGE; 2009; French; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Questioning state/actions connected to the present using perfect aspect",
+   "pedagogical_hook": "To ask questions about past experiences or recent events using 'wh-' words and 'have'",
+   "agency_or_distance": "High agency, inquiring for specific information"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:who|what|where|when|why|how|which|whose|whom)\\b(?:\\s+[a-z]+ly)?\\s+(?:have|has|had)\\b\\s+(?:i|you|he|she|it|we|they|\\w+)\\s+(?:been|[a-z]+ed|gone|done|seen|made|come|brought|known)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "what",
+       "where",
+       "when",
+       "why",
+       "how",
+       "which",
+       "whose",
+       "whom"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": "have",
+     "DEP": "aux"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "What have you brought for me?",
+    "How have you been lately?"
+   ],
+   "negatives": [
+    "I know what you have done.",
+    "Who has the keys?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715031x260861213622010530",
+  "level": "A2",
+  "super_category": "QUESTIONS",
+  "sub_category": "wh-",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH AUXILIARY 'DO'",
+  "can_do_statement": "Can use 'wh-'words + auxiliary 'do' + subject + main verb to form 'wh-'questions. \u25ba present simple;  \u25ba past simple",
+  "example_raw": "What do you think? (Brazil; A2 WAYSTAGE; 2001; Portuguese; Pass)\n\nWhat did you do yesterday? (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nWhere did you go? (Taiwan; A2 WAYSTAGE; 2009; Chinese; Pass)\n\nHow do you know? (Portugal; A2 WAYSTAGE; 2007; Portuguese; Pass)\n\nWhy don't you buy it? (Italy; A2 WAYSTAGE; 2002; Italian; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Seeking factual information or opinions in simple aspects",
+   "pedagogical_hook": "To ask questions in the present or past simple using 'wh-' words and 'do'",
+   "agency_or_distance": "High agency, requesting specific details"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:who|what|where|when|why|how|which|whose|whom)\\b(?:\\s+[a-z]+ly)?\\s+(?:do|does|did|don't|doesn't|didn't)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "what",
+       "where",
+       "when",
+       "why",
+       "how",
+       "which",
+       "whose",
+       "whom"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": "do",
+     "DEP": "aux"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "What do you think about it?",
+    "Where did you go yesterday?"
+   ],
+   "negatives": [
+    "I don't know what to do.",
+    "Tell me how you do it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715031x588201738254725100",
+  "level": "A2",
+  "super_category": "QUESTIONS",
+  "sub_category": "wh-",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH AUXILIARY 'BE'",
+  "can_do_statement": "Can use 'wh-'words + auxiliary 'be' to form 'wh-'questions. \u25ba present continuous \u25ba past continuous",
+  "example_raw": "Who are you going with? (Philippines; A2 WAYSTAGE; 2009; Tagalog; Pass)\n\nWhen are you coming here? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nWhere are you going? (Philippines; A2 WAYSTAGE; 2009; Tagalog; Pass)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Inquiring about ongoing or planned actions",
+   "pedagogical_hook": "To ask questions about continuous actions or plans using 'wh-' words and 'be'",
+   "agency_or_distance": "High agency, gathering information on events in progress"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:who|what|where|when|why|how|which|whose|whom)\\b(?:\\s+[a-z]+ly)?\\s+(?:am|is|are|was|were|isn't|aren't|wasn't|weren't|'m|'s|'re)\\b\\s+(?:i|you|he|she|it|we|they|\\w+)\\s+[a-z]+ing\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "what",
+       "where",
+       "when",
+       "why",
+       "how",
+       "which",
+       "whose",
+       "whom"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": "be",
+     "DEP": "aux"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Where are you going tonight?",
+    "Who were they talking to?"
+   ],
+   "negatives": [
+    "I asked who she was.",
+    "What is the answer?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715031x610001690827891800",
+  "level": "A2",
+  "super_category": "QUESTIONS",
+  "sub_category": "wh-",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MODAL VERBS ",
+  "can_do_statement": "Can use 'wh-'words + modal verbs + subject + main verb to form 'wh-'questions.",
+  "example_raw": "What will you bring? (Turkey; A2 WAYSTAGE; 2009; Turkish; Pass)\n\nWhat can I do? (A2 WAYSTAGE; 2010; Arabic - Other; Pass)\n\nHow can I help you? (A2 WAYSTAGE; 2008; Polish; Pass)\n\nHow will you get here? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nWhen can I visit you? (A2 WAYSTAGE; 2008; Polish; Pass)\n\nWhen can we meet? (Spain; A2 WAYSTAGE; 2005; Spanish - European; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Questioning possibilities, abilities, or future intentions",
+   "pedagogical_hook": "To ask questions involving modals for future plans, ability, or permission",
+   "agency_or_distance": "High agency, exploring options or asking for help"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:who|what|where|when|why|how|which|whose|whom)\\b(?:\\s+[a-z]+ly)?\\s+(?:can|could|will|would|shall|should|may|might|must|'ll|'d)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "what",
+       "where",
+       "when",
+       "why",
+       "how",
+       "which",
+       "whose",
+       "whom"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "MD"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "What will you bring to the party?",
+    "How can I help you today?"
+   ],
+   "negatives": [
+    "I wonder what she will say.",
+    "Tell me how I can help."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715031x643536767928989600",
+  "level": "A2",
+  "super_category": "QUESTIONS",
+  "sub_category": "wh-",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NEGATIVE QUESTONS, SUGGESTIONS",
+  "can_do_statement": "Can use negative question 'why don\u2019t' + pronoun + verb, to make a suggestion or invitation. ",
+  "example_raw": "Why don't we watch a film? (Tamil, A2 WAYSTAGE)\n\nWhy don't you come with me? (Italian, A2 WAYSTAGE)\n",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Proposing a shared action or suggesting a course of action",
+   "pedagogical_hook": "To suggest or invite someone to do something using 'Why don't we/you'",
+   "agency_or_distance": "High agency, interactive suggestion"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bwhy\\b(?:\\s+[a-z]+ly)?\\s+don't\\s+(?:we|you)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "why"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": "do"
+    },
+    {
+     "LOWER": "n't"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "we",
+       "you"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Why don't we watch a film tonight?",
+    "Why don't you come with me?"
+   ],
+   "negatives": [
+    "Why don't they listen?",
+    "I asked him why you don't care."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715031x898125206259626100",
+  "level": "A2",
+  "super_category": "QUESTIONS",
+  "sub_category": "wh-",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MAIN VERB 'BE'",
+  "can_do_statement": "Can use 'wh-'words + main verb 'be' + subject to form 'wh-' questions. ",
+  "example_raw": "How was your dinner yesterday? (Mexico; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nHow are you, my friend? (India; A2 WAYSTAGE; 2010; Hindi; Pass)\n\nWhere are you, men? (Brazil; A2 WAYSTAGE; 2010; Portuguese; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Inquiring about states, descriptions, or locations",
+   "pedagogical_hook": "To ask about facts or current states using 'wh-' words and the verb 'be'",
+   "agency_or_distance": "High agency, requesting factual status"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:who|what|where|when|why|how|which|whose|whom)\\b(?:\\s+[a-z]+ly)?\\s+(?:am|is|are|was|were|isn't|aren't|wasn't|weren't|'m|'s|'re)\\b(?!\\s+(?:i|you|he|she|it|we|they|\\w+)\\s+[a-z]+ing\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "what",
+       "where",
+       "when",
+       "why",
+       "how",
+       "which",
+       "whose",
+       "whom"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": "be",
+     "DEP": {
+      "IN": [
+       "ROOT",
+       "ccomp",
+       "conj"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "How was your dinner yesterday?",
+    "Where are you now?"
+   ],
+   "negatives": [
+    "I wonder where you are.",
+    "What are you doing today?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715031x926368932096683900",
+  "level": "B1",
+  "super_category": "QUESTIONS",
+  "sub_category": "wh-",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE QUESTIONS WITH MODALS",
+  "can_do_statement": "Can use 'wh-'words + the negative form of modal verbs + subject + main verb to form 'wh-'questions.",
+  "example_raw": "Why can't you do both things? (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nWhy couldn't I control myself? (Spanish - Latin American, B1 THRESHOLD)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Questioning obstacles or challenging perceived impossibilities",
+   "pedagogical_hook": "To challenge or ask about inability/impossibility using negative modals",
+   "agency_or_distance": "High agency, actively probing constraints"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:who|what|where|when|why|how|which|whose|whom)\\b(?:\\s+[a-z]+ly)?\\s+(?:can't|couldn't|won't|wouldn't|shan't|shouldn't|mustn't)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "what",
+       "where",
+       "when",
+       "why",
+       "how",
+       "which",
+       "whose",
+       "whom"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "MD"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Why can't you do both things?",
+    "How couldn't I control myself?"
+   ],
+   "negatives": [
+    "I wonder why you can't come.",
+    "She asked what I couldn't see."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715032x219052815087732670",
+  "level": "C1",
+  "super_category": "QUESTIONS",
+  "sub_category": "wh-",
+  "lexical_range": "N/A",
+  "guideword": "USE: FOCUS",
+  "can_do_statement": "Can use 'wh-'questions as a focusing device, often in a narrative or argument.",
+  "example_raw": "Nevertheless, we still give presents because we really want to. You can recognize them normally very fast! They are the ones which are unexpected and made with lots of love. So what makes a good present? From my point of view, the best presents are personal and fitted to the individual. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; German; Pass\n\nThe other very serious problem in connection with cars is pollution, which is the cause of more diseases and problems than we realise at the moment. But what are the alternatives? Berlin has a well-structured and functioning subway\u2026 (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; German; Pass)\n\nSome of them are coin operated but some are magnetic-card operated. Use these coin-operated ones because to call from the other ones, you should buy a magnetic card, which is only possible in post offices. What else can I tell you? If you want anything to drink or to eat after your arrival, there are restaurants at the airport. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Using rhetorical or structural questions to guide the listener's attention in discourse",
+   "pedagogical_hook": "To structure an argument or narrative by posing a question before answering it",
+   "agency_or_distance": "High agency, directing conversational flow"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:but|so|and)\\s+\\b(?:who|what|where|when|why|how|which)\\b|\\b(?:who|what|where|when|why|how|which)\\b(?:\\s+else)?\\s+(?:can|could|should|would)\\s+(?:i|we)\\s+(?:tell|say|add)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "but",
+       "so",
+       "and"
+      ]
+     },
+     "IS_SENT_START": true
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "what",
+       "where",
+       "when",
+       "why",
+       "how",
+       "which"
+      ]
+     }
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "be",
+       "make",
+       "happen",
+       "do"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "But what are the alternatives?",
+    "So what makes a good present?"
+   ],
+   "negatives": [
+    "What are the alternatives?",
+    "I wonder what makes a good present."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715032x903417430290867700",
+  "level": "B2",
+  "super_category": "QUESTIONS",
+  "sub_category": "wh-",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE QUESTIONS WITH MAIN VERBS",
+  "can_do_statement": "Can use 'wh-'words + the negative form of auxiliary 'do' + subject + main verb to form 'wh-'questions.",
+  "example_raw": "You still have this agonising headache. Why don't you go to your doctor? (Polish, B2 VANTAGE)\n\nWhy didn't you check with the ticket office first before you wrote your article? (China; B2 VANTAGE; 1997; Chinese; Fail)\n\nWhy didn't you say something about it? (Spanish - Latin American, B2 VANTAGE)\n\nWhy haven't you told me before? (Bulgaria; B2 VANTAGE; 2008; Bulgarian; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Inquiring about the absence of an action or challenging a failure to act",
+   "pedagogical_hook": "To ask why something hasn't happened or isn't happening using negative forms of 'do'",
+   "agency_or_distance": "High agency, questioning non-events"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:who|what|where|when|why|how|which|whose|whom)\\b(?:\\s+[a-z]+ly)?\\s+(?:don't|doesn't|didn't)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "what",
+       "where",
+       "when",
+       "why",
+       "how",
+       "which",
+       "whose",
+       "whom"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": "do",
+     "DEP": "aux"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Why didn't you say something about it?",
+    "Why don't you go to your doctor?"
+   ],
+   "negatives": [
+    "I don't know why you didn't say something.",
+    "She asked why he didn't check."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715032x756418004139892900",
+  "level": "A1",
+  "super_category": "QUESTIONS",
+  "sub_category": "yes/no",
+  "lexical_range": "1",
+  "guideword": "FORM: MODAL VERBS",
+  "can_do_statement": "Can use a limited range of modal verbs + subject + main verb to form 'yes/no' questions.  \u25ba can",
+  "example_raw": "Can you come to dinner in my house? (A1 BREAKTHROUGH; 2008; Polish; Pass)\n\nI can't find my CD, can you bring some music please? (A1 BREAKTHROUGH; 2008; Romanian; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Making simple requests or asking about basic abilities",
+   "pedagogical_hook": "To ask yes/no questions using 'can' for ability or requests",
+   "agency_or_distance": "High agency, direct interactive request"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:^|[,.!?]\\s*)\\bcan\\b(?:\\s+[a-z]+ly)?\\s+(?:i|you|he|she|it|we|they|\\w+)\\s+[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "can",
+     "TAG": "MD"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "DEP": "nsubj"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Can you come to dinner in my house?",
+    "I can't find my CD, can you bring some music please?"
+   ],
+   "negatives": [
+    "I can do it myself.",
+    "She asked if I can come over."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715033x134646499658930300",
+  "level": "A2",
+  "super_category": "QUESTIONS",
+  "sub_category": "yes/no",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AUXILIARY 'BE'",
+  "can_do_statement": "Can use auxiliary 'be' + subject + the '-ing' form (continuous form) to form 'yes/no' questions.",
+  "example_raw": "Are you going to come? (Spain; A2 WAYSTAGE; 2006; Catalan; Pass)\n\nAre you feeling better? (A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)\n\nAre you going to the new art class? (Cyprus; A2 WAYSTAGE; 2006; Turkish; Pass)\n\nAre you doing anything on Friday? (Spain; A2 WAYSTAGE; 2010; Chinese; Pass)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Asking for verification about ongoing or future planned actions",
+   "pedagogical_hook": "To ask yes/no questions in the continuous aspect using 'be' + '-ing'",
+   "agency_or_distance": "High agency, confirming current or future events"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:^|[,.!?]\\s*)\\b(?:am|is|are|was|were)\\b(?:\\s+[a-z]+ly)?\\s+(?:i|you|he|she|it|we|they|\\w+)\\s+[a-z]+ing\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be",
+     "DEP": "aux"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "DEP": "nsubj"
+    },
+    {
+     "TAG": "VBG"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Are you feeling better?",
+    "Are you doing anything on Friday?"
+   ],
+   "negatives": [
+    "I am wondering if you are going.",
+    "She is working right now."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715277x561147037910384640",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_that clauses",
+  "lexical_range": "N/A",
+  "guideword": "FORM: VERBS + INDIRECT OBJECT CLAUSE",
+  "can_do_statement": "Can use verbs, typically reporting verbs, followed by a noun or pronoun as the indirect object and a clause with or without 'that', as the direct object.",
+  "example_raw": "I told you that she has a new car? (Peru; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)\n\nYou promised me that you will help me to paint my bedroom. (India; A2 WAYSTAGE; 2006; Kannada; Pass)\n\nNisha told me you had an accident last week. (A2 WAYSTAGE; 2008; Gujarati; Pass)\n\n",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Relaying messages or commitments directed at specific individuals",
+   "pedagogical_hook": "To report what someone communicated to someone else using an indirect object and a clause",
+   "agency_or_distance": "Medium agency, mediating information transfer between parties"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:told|promised|reminded|convinced|persuaded|informed)\\b(?:\\s+[a-z]+ly)?\\s+(?!the\\b|to\\b)(?:me|you|him|her|us|them|\\w+)\\s+(?!to\\b)(?:that\\s+)?(?:i|you|he|she|it|we|they|\\w+)\\s+(?:has|have|had|will|would|can|could|did|is|are|was|were|\\w+)",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "tell",
+       "promise",
+       "remind",
+       "convince",
+       "persuade",
+       "inform"
+      ]
+     }
+    },
+    {
+     "DEP": {
+      "IN": [
+       "dobj",
+       "dative",
+       "pobj"
+      ]
+     }
+    },
+    {
+     "LOWER": "that",
+     "OP": "?"
+    },
+    {
+     "DEP": {
+      "IN": [
+       "nsubj",
+       "nsubjpass"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I told you that she has a new car.",
+    "Nisha told me you had an accident last week."
+   ],
+   "negatives": [
+    "I told the story to her.",
+    "She promised to help me later."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715277x859067269502848500",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_that clauses",
+  "lexical_range": "N/A",
+  "guideword": "FORM: VERBS + DIRECT OBJECT CLAUSE WITHOUT 'THAT'",
+  "can_do_statement": "Can use reporting verbs, especially mental process verbs, with a clause as the direct object, without 'that', especially in informal contexts. ",
+  "example_raw": "I hope you can go, buddy. (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)\n\nI think I left my phone there, maybe in your kitchen. (Italy; A2 WAYSTAGE; 2005; Italian; Pass)\n\nI think you should go visit the Kuala Lumpur Twin Towers. (Malaysia; A2 WAYSTAGE; 2001; Malay; Pass)\n\nI know it's impossible for you to come during examination time. (Bangladesh; A2 WAYSTAGE; 2004; Bengali; Pass)\n\nMy mother said you can come to me at 6.30 pm. (Italy; A2 WAYSTAGE; 2009; Italian; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing informal thoughts, beliefs, or statements directly",
+   "pedagogical_hook": "To informally state beliefs or reports without using the word 'that'",
+   "agency_or_distance": "High agency, direct expression of cognitive state"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:hope|think|know|believe|guess|suppose|say|said)\\b(?:\\s+[a-z]+ly)?\\s+(?!that\\b|for\\b)(?:i|you|he|she|it|we|they|\\w+)\\s+(?:can|could|will|would|should|is|are|was|were|have|has|had|left|\\w+)",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "hope",
+       "think",
+       "know",
+       "believe",
+       "guess",
+       "suppose",
+       "say"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "DEP": "nsubj",
+     "LOWER": {
+      "NOT_IN": [
+       "that"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think you should go visit the towers.",
+    "I hope you can go with us."
+   ],
+   "negatives": [
+    "I think that you should go.",
+    "I hope for the best."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715278x350492126289169600",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_that clauses",
+  "lexical_range": "2",
+  "guideword": "FORM: REPORTING VERBS + DIRECT OBJECT 'THAT'-CLAUSE",
+  "can_do_statement": "Can use an increasing range of verbs, typically reporting or mental process verbs, with a 'that'-clause as the direct object. ",
+  "example_raw": "Now you're sixteen, I totally understand that you don't want to go on holiday with your parents. (France; B1 THRESHOLD; 2008; French; Pass)\n\nWhen I got there, I realised that I wasn't the only winner. (Cyprus; B1 THRESHOLD; 2009; Greek; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Formally framing cognitive realisations or statements using explicit subordination",
+   "pedagogical_hook": "To explicitly report thoughts or discoveries using verbs followed by a 'that'-clause",
+   "agency_or_distance": "Medium agency, structurally distancing the cognitive event from the core statement"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:understand|realise|realize|discover|admit|explain|suggest|mention|confirm|agree|realised|realized|discovered|admitted|explained|suggested|mentioned|confirmed|agreed)\\b(?:\\s+[a-z]+ly)?\\s+that\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "understand",
+       "realise",
+       "realize",
+       "discover",
+       "admit",
+       "explain",
+       "suggest",
+       "mention",
+       "confirm",
+       "agree",
+       "know",
+       "think",
+       "believe",
+       "guess",
+       "suppose",
+       "say",
+       "hope",
+       "mean",
+       "feel",
+       "notice"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": "that",
+     "DEP": "mark"
+    },
+    {
+     "DEP": "nsubj"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I totally understand that you don't want to go.",
+    "I realised that I wasn't the only winner."
+   ],
+   "negatives": [
+    "I understand your position.",
+    "I realised what she was doing."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715278x988184472035387100",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_that clauses",
+  "lexical_range": "N/A",
+  "guideword": "FORM: VERBS + PREPOSITIONAL PHRASE + 'THAT'-CLAUSE",
+  "can_do_statement": "Can use some reporting verbs with a prepositional phrase followed by a 'that'-clause as the direct object.",
+  "example_raw": "I think also that you should say to your parents that you want to try a new experience with your friends. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\n[about meeting a famous person] When I said to my friends that I had met with him, they didn't believe me. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Directing a formal report to a specific recipient before declaring the content",
+   "pedagogical_hook": "To report statements addressed to specific people using a prepositional phrase before a 'that'-clause",
+   "agency_or_distance": "Medium agency, mediating complex information flow to specific listeners"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:say|said|explain|explained|suggest|suggested|complain|complained|mention|mentioned)\\s+to\\s+(?:\\w+\\s+){1,3}that\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "say",
+       "explain",
+       "suggest",
+       "complain",
+       "mention"
+      ]
+     }
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": "that",
+     "DEP": {
+      "IN": [
+       "mark",
+       "dobj"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You should say to your parents that you want to try a new experience.",
+    "When I said to my friends that I had met with him, they didn't believe me."
+   ],
+   "negatives": [
+    "I said that he was coming soon.",
+    "He explained the situation to the manager."
+   ]
+  }
+ }
+]

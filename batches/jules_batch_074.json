@@ -1,0 +1,863 @@
+[
+ {
+  "egp_id": "1741163709236x469443168054973600",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future in the past",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE GOING TO'",
+  "can_do_statement": "Can use the simple past form of 'be' + 'going to' to talk about the future from a point in the past. \u25ba 'be going to' ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "past intention or expectation",
+   "pedagogical_hook": "expressing what was planned in the past but usually didn't happen",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:was|were)(?:\\s+[a-z]+ly)?\\s+going\\s+to\\s+(?!the\\b|a\\b|an\\b)[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "was",
+       "were"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ly$"
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": "going"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "TAG": "VB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She was going to return it but she saw something very strange.",
+    "We were clearly going to meet two days later in the square."
+   ],
+   "negatives": [
+    "I am going to do it tomorrow.",
+    "She was going to the store."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709240x412925570751819600",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future in the past",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'WOULD' ",
+  "can_do_statement": "Can use 'would' to talk about the future from a point in the past.\u25ba 'would'",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "past projection",
+   "pedagogical_hook": "expressing future outcomes as seen from a past moment",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:thought|knew|believed|said|hoped|expected)(?:\\s+[a-z]+)*?\\s+would\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "think",
+       "know",
+       "believe",
+       "say",
+       "hope",
+       "expect"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": "would"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I knew it would be a lovely birthday present.",
+    "We thought that the film would be horrible."
+   ],
+   "negatives": [
+    "I would like to have a coffee.",
+    "If I had money, I would buy a car."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709241x319054215667245100",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future in the past",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE ON THE POINT OF'",
+  "can_do_statement": "Can use the simple past form of 'be' + 'on the point of' + '-ing' to talk about things that were expected to happen soon after a point in the past. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "imminent past action",
+   "pedagogical_hook": "emphasizing an action that was very close to happening",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:was|were)\\s+on\\s+the\\s+point\\s+of\\s+[a-z]+ing\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "was",
+       "were"
+      ]
+     }
+    },
+    {
+     "LOWER": "on"
+    },
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "point"
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ing$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was on the point of leaving the office.",
+    "They were on the point of catching him."
+   ],
+   "negatives": [
+    "I am on the point of leaving.",
+    "He made a point of talking to everyone."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709241x526855987091597630",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future in the past",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE ABOUT TO'",
+  "can_do_statement": "Can use the simple past form of 'be' + 'about to' (often with 'just') to talk about the immediate future from a point in the past. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "imminent past action",
+   "pedagogical_hook": "expressing that something was just going to happen",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:was|were)(?:\\s+just)?\\s+about\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "was",
+       "were"
+      ]
+     }
+    },
+    {
+     "LOWER": "just",
+     "OP": "?"
+    },
+    {
+     "LOWER": "about"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "TAG": "VB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was just about to write you a letter.",
+    "Our father was about to buy a brand new car."
+   ],
+   "negatives": [
+    "I am about to leave.",
+    "It was about a boy who went to space."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709241x531655376865656240",
+  "level": "C2",
+  "super_category": "FUTURE",
+  "sub_category": "future in the past",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE DUE TO' ",
+  "can_do_statement": "Can use the simple past form of 'be' + 'due to' to talk about scheduled events in the future from a point in the past. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "past scheduled event",
+   "pedagogical_hook": "talking about something formally planned in the past",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:was|were)\\s+due\\s+to\\s+(?!the\\b|a\\b|an\\b|hard\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "was",
+       "were"
+      ]
+     }
+    },
+    {
+     "LOWER": "due"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "TAG": "VB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "My plane was due to leave in 40 minutes.",
+    "The factory was due to be built near the lake."
+   ],
+   "negatives": [
+    "The flight is due to arrive at noon.",
+    "His success was due to hard work."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709241x116456418775643170",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form of the future perfect continuous.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "ongoing action incomplete at a future point",
+   "pedagogical_hook": "expressing that an action will not have been continuing up to a future point",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:will\\s+not|won't)\\s+have\\s+been\\s+[a-z]+ing\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "wo"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "LOWER": "been"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ing$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I will not have been working here for long.",
+    "They won't have been studying for three hours."
+   ],
+   "negatives": [
+    "I will not have finished my homework by then.",
+    "He hasn't been working here long."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709241x184726411236370240",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE ",
+  "can_do_statement": "Can use the affirmative form with 'will'.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "ongoing action completed at a future point",
+   "pedagogical_hook": "emphasising duration of an activity looking back from a future point",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:will|'ll)\\s+have\\s+been\\s+[a-z]+ing\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "'ll"
+      ]
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "LOWER": "been"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ing$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "This summer I will have been working for three years.",
+    "By then, she'll have been studying for an hour."
+   ],
+   "negatives": [
+    "I will have been to London.",
+    "I will not have been working here for long."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709241x694975673678065400",
+  "level": "C2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: ASSUMPTIONS",
+  "can_do_statement": "Can use the future perfect continuous to make assumptions about the present.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "assumption about an ongoing present state",
+   "pedagogical_hook": "using 'will have been doing' to guess what is happening now",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:supposed?|imagine|guess|think|expect|surely|must\\s+be|probably)\\b.*?\\b(?:will|'ll)\\s+have\\s+been\\s+[a-z]+ing\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "suppose",
+       "imagine",
+       "guess",
+       "think",
+       "expect",
+       "surely",
+       "must",
+       "probably"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "'ll"
+      ]
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "LOWER": "been"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ing$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I suppose you will have been studying very hard for this exam.",
+    "I imagine they'll have been waiting for hours."
+   ],
+   "negatives": [
+    "By tomorrow, I will have been working for ten years.",
+    "I guess he will have finished it by now."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709241x823282465499844400",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: LOOKING BACK FROM A POINT IN THE FUTURE ",
+  "can_do_statement": "Can use the future perfect continuous to look back to the past from a point in the future and to emphasise the duration of an activity or event.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "duration of an activity looking back from the future",
+   "pedagogical_hook": "emphasising how long something will have been going on by a certain future time",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:will|'ll)\\s+have\\s+been\\s+[a-z]+ing\\b.*?\\b(?:for|by|when)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "'ll"
+      ]
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "LOWER": "been"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ing$"
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "for",
+       "by",
+       "when"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "This month, I will have been studying English for seven months.",
+    "I will have been working for my company for one year by the end of June."
+   ],
+   "negatives": [
+    "I imagine you will have been waiting outside.",
+    "I won't have been studying."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709242x337416434344128840",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with 'will'. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "event completed before a future time",
+   "pedagogical_hook": "expressing that something will be finished before a point in the future",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:will|'ll)\\s+have\\s+(?!been\\b)[a-z]+(?:ed|en|t|ne)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "'ll"
+      ]
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "TAG": "VBN",
+     "LEMMA": {
+      "NOT_IN": [
+       "be"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I'm sure I will have learned today's lesson by the next lesson.",
+    "The role of clothes will have disappeared by the year 2050."
+   ],
+   "negatives": [
+    "I will have been learning English for ten years.",
+    "I won't have finished my work by then."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709242x695590620556235600",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE ",
+  "can_do_statement": "Can use the negative form with 'will'. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "event not completed before a future time",
+   "pedagogical_hook": "expressing that something will not be finished before a point in the future",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:will\\s+not|won't)\\s+have\\s+(?!been\\b)[a-z]+(?:ed|en|t|ne|one)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "wo"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "TAG": "VBN",
+     "LEMMA": {
+      "NOT_IN": [
+       "be"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I will not have finished my university exams by June.",
+    "We won't have done more than 40 km."
+   ],
+   "negatives": [
+    "I will have learned the lesson by then.",
+    "They haven't done it yet."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709452x228579889474654900",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: EVENTS COMPLETED IN THE FUTURE",
+  "can_do_statement": "Can use the future perfect simple with 'will' to talk about something which is expected to be completed (or not completed) by a certain point in the future.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "event completed before a future time",
+   "pedagogical_hook": "expressing that something will be finished before a point in the future",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:will|'ll|won't|will\\s+not)\\s+have\\s+(?!been\\b)[a-z]+(?:ed|en|t|ne|one)\\b.*?\\b(?:by|at|before|when|end\\s+of)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "'ll",
+       "wo"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "TAG": "VBN",
+     "LEMMA": {
+      "NOT_IN": [
+       "be"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "by",
+       "at",
+       "before",
+       "when",
+       "end"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The match will have finished by that time.",
+    "You will have saved more money at the end of the month."
+   ],
+   "negatives": [
+    "I will have finished the book.",
+    "I will not have been working here for long."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709453x517184390257893000",
+  "level": "C1",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH ADVERBS ",
+  "can_do_statement": "Can use the future perfect with adverbs (in the normal mid-position). ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "future perfect with modifying adverb",
+   "pedagogical_hook": "adding an adverb mid-sentence for future perfect",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:will|'ll)\\s+(?:not\\s+)?[a-z]+ly\\s+have\\s+(?!been\\b)[a-z]+(?:ed|en|t|ne|one)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "'ll"
+      ]
+     }
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ly$"
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "TAG": "VBN",
+     "LEMMA": {
+      "NOT_IN": [
+       "be"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You will surely have discovered why this man is famous.",
+    "Sales will possibly have fallen again by the end of the year."
+   ],
+   "negatives": [
+    "You will have successfully discovered it.",
+    "I will have learned it by tomorrow."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709453x606798789385971200",
+  "level": "C2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS ",
+  "can_do_statement": "Can use the question form of the future perfect simple.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "asking about a completed event before a future time",
+   "pedagogical_hook": "asking if something will be finished by a future time",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:will|won't)\\s+(?:I|you|he|she|it|we|they|the\\s+[a-z]+)\\s+have\\s+(?!been\\b)[a-z]+(?:ed|en|t|ne|one)\\b.*?\\?",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "won't",
+       "wo"
+      ]
+     }
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN",
+       "DET"
+      ]
+     }
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "TAG": "VBN",
+     "LEMMA": {
+      "NOT_IN": [
+       "be"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "ORTH": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Will he have changed?",
+    "Won't they have finished by tomorrow?"
+   ],
+   "negatives": [
+    "He will have changed.",
+    "Will he change by tomorrow?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709453x634368432932458000",
+  "level": "C1",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: ASSUMPTIONS",
+  "can_do_statement": "Can use the future perfect simple with 'will' to make assumptions about the present, particularly with 'you'.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "assumption about a completed event",
+   "pedagogical_hook": "using 'will have done' to guess what has happened",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:as|because|since|perhaps|probably|surely)\\s+.*?(?:will|'ll)\\s+have\\s+(?!been\\b)[a-z]+(?:ed|en|t|ne|one|rd|nd)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "as",
+       "because",
+       "since",
+       "perhaps",
+       "probably",
+       "surely"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "'ll"
+      ]
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "TAG": "VBN",
+     "LEMMA": {
+      "NOT_IN": [
+       "be"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "As you will have heard, this year's programme was a success.",
+    "All of this is because her book will have included the traditions."
+   ],
+   "negatives": [
+    "You will have finished by tomorrow.",
+    "I will not have done it."
+   ]
+  }
+ }
+]

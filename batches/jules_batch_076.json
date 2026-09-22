@@ -1,0 +1,946 @@
+[
+  {
+    "egp_id": "1741163709462x817785568593135600",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE: WILLINGNESS WITH 'WILL'",
+    "can_do_statement": "Can use 'will' to express willingness. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!\\ba\\s)(?<!\\bthe\\s)(?<!\\bmy\\s)(?<!\\bhis\\s)(?<!\\bher\\s)(?<!\\bour\\s)(?<!\\byour\\s)(?<!\\btheir\\s)\\b(?:'ll|will)(?:\\s+[a-z]+ly)?\\s+(?!with\\b|to\\b|in\\b|on\\b|at\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "will",
+          "POS": "AUX"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My mother will drive us there.",
+        "I will certainly help you with your homework."
+      ],
+      "negatives": [
+        "I have a strong will.",
+        "She filed her will with the lawyer."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709469x456116392447661900",
+    "level": "C2",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE: PREDICTIONS WITH 'SHALL'",
+    "can_do_statement": "Can use 'shall' to make predictions, usually in formal contexts.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bshall(?:\\s+[a-z]+ly)?\\s+(?!we\\b|i\\b|not\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "shall"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We shall meet in November.",
+        "I hope we shall soon discover the truth."
+      ],
+      "negatives": [
+        "He demanded that she shall not pass.",
+        "Shall we dance?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709469x118274875968644050",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "N/A",
+    "guideword": "USE: INTENTIONS",
+    "can_do_statement": "Can use the affirmative and question forms of 'be going to' talk about plans and intentions. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|'m|is|'s|are|'re)\\s+going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|our\\b|their\\b|your\\b|this\\b|that\\b|school\\b|work\\b|bed\\b|church\\b|London\\b|supermarket\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "POS": {
+            "IN": [
+              "AUX",
+              "VERB"
+            ]
+          }
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm going to use pink paint.",
+        "My mum is going to take us by car."
+      ],
+      "negatives": [
+        "I am going to the store.",
+        "He is going to school right now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709469x290402051352341950",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use the question form. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+(?:[a-z]+\\s+){0,3}going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|our\\b|their\\b|your\\b|this\\b|that\\b|school\\b|work\\b|bed\\b|church\\b|London\\b|supermarket\\b)[a-z]+.*\\?",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "POS": {
+            "IN": [
+              "AUX",
+              "VERB"
+            ]
+          }
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "What are you going to wear?",
+        "Are you going to come tomorrow evening?"
+      ],
+      "negatives": [
+        "Are you going to the party?",
+        "Why are they going to the mall?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709469x773626805908608900",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form.  ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|'m|is|'s|are|'re)\\s+going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|our\\b|their\\b|your\\b|this\\b|that\\b|school\\b|work\\b|bed\\b|church\\b|London\\b|supermarket\\b)[a-z]+(?!\\s*\\?)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "POS": {
+            "IN": [
+              "AUX",
+              "VERB"
+            ]
+          }
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm going to wear them on holiday.",
+        "It is going to start at half past four."
+      ],
+      "negatives": [
+        "Are we going to study?",
+        "I am going to the library."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709470x248062943650194430",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am\\s+not|'m\\s+not|is\\s+not|isn't|'s\\s+not|are\\s+not|aren't|'re\\s+not)\\s+going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|our\\b|their\\b|your\\b|this\\b|that\\b|school\\b|work\\b|bed\\b|church\\b|London\\b|supermarket\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am not going to go to school tomorrow.",
+        "There is not going to be an adult there."
+      ],
+      "negatives": [
+        "I am not going to the store.",
+        "She isn't going to the park."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709470x281157442643926720",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PAST",
+    "can_do_statement": "Can use the past form of 'be' + 'going to'. \u25ba future in the past",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|our\\b|their\\b|your\\b|this\\b|that\\b|school\\b|work\\b|bed\\b|church\\b|London\\b|supermarket\\b|hometown\\b|hospital\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "TAG": {
+            "IN": [
+              "VBD"
+            ]
+          }
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It was going to be an extremely hot day.",
+        "We were going to meet at 11.30 am."
+      ],
+      "negatives": [
+        "I was going to the hospital.",
+        "They were going to their hometown."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709470x450747971941201300",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "1",
+    "guideword": "FORM: WITH ADVERBS",
+    "can_do_statement": "Can use 'be' + 'going to' with a limited range of adverbs, after the auxiliary be form, in the normal mid position. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|'m|is|'s|are|'re)\\s+(?!not\\b)(?![a-z]+ing\\b)[a-z]+\\s+going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|our\\b|their\\b|your\\b|this\\b|that\\b|school\\b|work\\b|bed\\b|church\\b|London\\b|supermarket\\b|market\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "POS": "ADV",
+          "LOWER": {
+            "NOT_IN": [
+              "not"
+            ]
+          }
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm never going to forget this moment.",
+        "We are really going to miss you."
+      ],
+      "negatives": [
+        "I am going to learn it.",
+        "She is currently going to the market."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709470x858774598557581800",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "N/A",
+    "guideword": "USE: INTENTIONS",
+    "can_do_statement": "Can use the negative form of 'be going to' to talk about plans and intentions.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am\\s+not|'m\\s+not|is\\s+not|isn't|'s\\s+not|are\\s+not|aren't|'re\\s+not)\\s+going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|our\\b|their\\b|your\\b|this\\b|that\\b|school\\b|work\\b|bed\\b|church\\b|London\\b|supermarket\\b|event\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm not going to be able to meet you.",
+        "I am sure I am not going to live there forever."
+      ],
+      "negatives": [
+        "They are not going to the event.",
+        "He isn't going to school today."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709470x871163716353014800",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "N/A",
+    "guideword": "USE: FUTURE IN THE PAST ",
+    "can_do_statement": "Can use the past form of 'be going to' to refer to the future from a point in the past. \u25ba future in the past",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|our\\b|their\\b|your\\b|this\\b|that\\b|school\\b|work\\b|bed\\b|church\\b|London\\b|supermarket\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "TAG": {
+            "IN": [
+              "VBD"
+            ]
+          }
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She didn't know what was going to happen.",
+        "We were going to meet two days later."
+      ],
+      "negatives": [
+        "I was going to the supermarket.",
+        "They were going to London."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709470x917723267803535400",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "1",
+    "guideword": "USE: PREDICTIONS WITH 'BE' ",
+    "can_do_statement": "Can use 'be going to' with 'be' to make predictions. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|'m|is|'s|are|'re)\\s+going\\s+to\\s+be\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "LOWER": "be"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This Saturday is going to be a nice day.",
+        "It's going to be fantastic."
+      ],
+      "negatives": [
+        "I am going to see him.",
+        "We are going to play football."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709472x233750198781269120",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "N/A",
+    "guideword": "USE: REPORTING",
+    "can_do_statement": "Can use the past form of 'be going to' as the reported form.\u25ba reported speech",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:told|said|knew|thought|heard|believed)\\b.*?(?:was|were)\\s+going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|our\\b|their\\b|your\\b|this\\b|that\\b|school\\b|work\\b|bed\\b|church\\b|London\\b|supermarket\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "say",
+              "tell",
+              "know",
+              "think",
+              "hear",
+              "believe"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LEMMA": "be",
+          "TAG": {
+            "IN": [
+              "VBD"
+            ]
+          }
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He told me he was going to arrive tomorrow.",
+        "I thought it was going to rain."
+      ],
+      "negatives": [
+        "I was going to call you.",
+        "She thought he went to the market."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709472x244172880515270080",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "2",
+    "guideword": "USE: PREDICTIONS ",
+    "can_do_statement": "Can use 'be going to' with an increasing range of verbs to make predictions. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|'m|is|'s|are|'re)\\s+going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|our\\b|their\\b|your\\b|this\\b|that\\b|school\\b|work\\b|bed\\b|church\\b|London\\b|supermarket\\b|hospital\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that",
+              "hospital"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think you're going to like it.",
+        "I think I am going to enjoy that class."
+      ],
+      "negatives": [
+        "He is going to the hospital.",
+        "I am going to the market."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709472x336460271601600300",
+    "level": "C1",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "2",
+    "guideword": "FORM: WITH ADVERBS ",
+    "can_do_statement": "Can use 'be' + 'going to' with an increasing range of adverbs (particularly adverbs of certainty) in the normal mid position. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|'m|is|'s|are|'re)\\s+(?:probably|undoubtedly|surely|definitely|certainly)\\s+going\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "probably",
+              "undoubtedly",
+              "surely",
+              "definitely",
+              "certainly"
+            ]
+          }
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He is probably going to finish soon.",
+        "It is undoubtedly going to have an effect."
+      ],
+      "negatives": [
+        "I am going to probably finish soon.",
+        "He is going to surely try."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709472x588484642713553900",
+    "level": "C2",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "3",
+    "guideword": "FORM: WITH ADVERBS ",
+    "can_do_statement": "Can use 'be' + 'going to' with a wide range of adverbs before the main verb. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing future events or intentions.",
+      "pedagogical_hook": "Using future constructs to indicate forthcoming actions or states.",
+      "agency_or_distance": "Agency via intention; Distance via forward-looking temporal projection."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|'m|is|'s|are|'re)\\s+going\\s+to\\s+(?:[a-z]+ly|still|even|also|really|always|never)\\s+[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": "ADV"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "the",
+              "a",
+              "an",
+              "my",
+              "his",
+              "her",
+              "our",
+              "their",
+              "your",
+              "this",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm going to still live here.",
+        "I am going to briefly introduce the activities."
+      ],
+      "negatives": [
+        "I am going to live here still.",
+        "He is going to introduce it briefly."
+      ]
+    }
+  }
+]

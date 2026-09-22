@@ -1,0 +1,802 @@
+[
+  {
+    "egp_id": "1741163712739x551343528482470600",
+    "level": "C2",
+    "super_category": "PAST",
+    "sub_category": "past perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: INVERSION WITH 'HARDLY \u2026WHEN'",
+    "can_do_statement": "Can invert the subject and affirmative auxiliary verb with 'hardly \u2026 when' to talk about something that happened immediately before something else, in formal contexts.",
+    "example_raw": "Hardly had she spoken these words when it dawned on the musician that life could not continue like that. (Spain; C2 MASTERY; 1998; Spanish - European; Pass)\n\nHardly had he taken them from the counter when the monster vanished again. (Spain; C2 MASTERY; 2000; Catalan; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "An action occurs immediately before another one.",
+      "pedagogical_hook": "Using 'hardly had' adds formal emphasis to the speed of succession between events.",
+      "agency_or_distance": "Distance (formal tone)"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhardly\\s+had\\s+(?:[A-Za-z]+\\s+){1,3}(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|n)\\b.{1,50}\\bwhen\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "hardly"
+        },
+        {
+          "LOWER": "had"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN",
+              "DET"
+            ]
+          },
+          "OP": "+"
+        },
+        {
+          "POS": {
+            "IN": [
+              "ADV",
+              "PART"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Hardly had she spoken these words when it dawned on the musician.",
+        "Hardly had the teacher arrived when the bell rang."
+      ],
+      "negatives": [
+        "She had hardly spoken when the bell rang.",
+        "Hardly anyone noticed when we left the party."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712739x218459335733744320",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "2",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form with an increasing range of verbs.",
+    "example_raw": "I forgot to tell you some details about tomorrow evening. (Turkey; A2 WAYSTAGE; 2009; Turkish; Pass)\n\nI spent about \u00a335 on all those clothes. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\n[talking about a football game] I liked it very much because my favourite team won, it was great. (Peru; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Action completed at a specific time in the past.",
+      "pedagogical_hook": "Past simple affirmative using regular or common irregular verbs.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:[A-Za-z]+)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|forgot|spent|liked|won|went|met|lived|saw)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBD",
+              "VBN",
+              "VBP"
+            ]
+          },
+          "LOWER": {
+            "IN": [
+              "forgot",
+              "spent",
+              "liked",
+              "won",
+              "went",
+              "met",
+              "lived",
+              "saw"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I forgot to tell you some details about tomorrow evening.",
+        "My favourite team won the championship."
+      ],
+      "negatives": [
+        "I forget to tell you details.",
+        "My favourite team is winning."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712739x248735900919531140",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "1",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'you' with a limited range of verbs.",
+    "example_raw": "Did you buy something yesterday? (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\n[talking about a lost phone] Did you find it? (Albania; A2 WAYSTAGE; 2005; Albanian; Pass)\n\nAnd when did you go shopping last? (Russia; A2 WAYSTAGE; 2008; Russian; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking information about a completed past action.",
+      "pedagogical_hook": "Forming questions in the past using 'did' with the pronoun 'you'.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bdid\\s+you\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "did"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Did you buy something yesterday?",
+        "When did you quickly find it?"
+      ],
+      "negatives": [
+        "Do you buy something yesterday?",
+        "Have you found it yet?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712739x256584265013129380",
+    "level": "A1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "1",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form with a limited range of regular and irregular verbs.",
+    "example_raw": "Every day at college I went to class at 9 am. (A1 BREAKTHROUGH; 2007; Portuguese; Pass)\n\nI met her about ten years ago. (A1 BREAKTHROUGH; 2006; Others; Pass)\n\nMy grandmother lived in a village and I often went there. (A1 BREAKTHROUGH; 2007; Polish; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Action completed at a specific time in the past.",
+      "pedagogical_hook": "Past simple affirmative using regular or irregular verbs.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:[A-Za-z]+)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|went|met|lived|saw|forgot|spent|liked|won)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I went to class at 9 am.",
+        "My grandmother lived in a village."
+      ],
+      "negatives": [
+        "I go to class at 9 am.",
+        "My grandmother lives in a village."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712739x802711964566174800",
+    "level": "A1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: EVERYDAY EVENTS AND STATES",
+    "can_do_statement": "Can use the past simple to talk about everyday events or states.",
+    "example_raw": "The people were very polite. (A1, French)\n\nEvery time I went to Hendon Park, I saw so many people there. (A1, Polish)\n\nI liked this place very much. (A1, French)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Everyday state or event completed in the past.",
+      "pedagogical_hook": "Using past simple for descriptions and recurring states.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:[A-Za-z]+)\\s+(?:[a-z]+ly\\s+)?(?:was|were|liked|went|saw|felt)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The people were very polite.",
+        "I liked this place very much."
+      ],
+      "negatives": [
+        "The people are very polite.",
+        "I like this place very much."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712739x998605611367738000",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "1",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form with a limited range of regular and irregular verbs.",
+    "example_raw": "The player from China did not look very happy though. (Malaysia; A2 WAYSTAGE; 2007; Chinese; Pass)\n\nYou did not keep your promise. (Bangladesh; A2 WAYSTAGE; 2004; Bengali; Pass)\n\nI didn't tell you that my house is opposite the new cinema. (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nThey didn't cost much ... (India; A2 WAYSTAGE; 2008; Panjabi; Pass)\n\nI was surprised because the heating didn't work. (Poland; A2 WAYSTAGE; 2010; Polish; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Stating that a past event did not happen.",
+      "pedagogical_hook": "Using 'did not' or 'didn't' to form negative past statements.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bdid(?:n't|n\u2019t|\\s+not)\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "did"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You did not keep your promise.",
+        "I didn't tell you that my house is opposite the cinema."
+      ],
+      "negatives": [
+        "You do not keep your promise.",
+        "I haven't told you that my house is opposite."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712740x655374430632900200",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "3",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form with a wide range of verbs.",
+    "example_raw": "I convinced some of my friends to come with me even if they don't like rap music. (Italy; B1 THRESHOLD; 2006; Italian; Pass)\n\nPreviously I faced many failures but I never gave up. (India; B1 THRESHOLD; 2010; Malayalam; Pass)\n\nThe cameraman filmed us during a lesson and later, walking to the playground. (Spain; B1 THRESHOLD; 2008; Catalan; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Action completed at a specific time in the past.",
+      "pedagogical_hook": "Past simple affirmative applied to diverse verbs.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:[A-Za-z]+)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|faced|gave|filmed|convinced|said|thought)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I convinced some of my friends to come with me.",
+        "The cameraman suddenly filmed us during a lesson."
+      ],
+      "negatives": [
+        "I convince some of my friends to come.",
+        "The cameraman is filming us."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712740x766192438162604200",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH 'WHEN'",
+    "can_do_statement": "Can use 'when' + past simple in subordinate clauses.",
+    "example_raw": "When I arrived, the weather was horrible. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\n[talking about a missing phone] I think I left it in the kitchen when I fell on the slippery floor. (Mexico; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Setting a point in time when something else happened.",
+      "pedagogical_hook": "Using 'when' before a past simple clause.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwhen\\s+(?:[A-Za-z]+\\s+){1,3}(?:[a-z]+ed|fell|arrived|went|was|were)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "when"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN",
+              "DET"
+            ]
+          },
+          "OP": "+"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "When I arrived, the weather was horrible.",
+        "I left it in the kitchen when I completely fell down."
+      ],
+      "negatives": [
+        "When I arrive, the weather is horrible.",
+        "I am leaving it in the kitchen when I fall."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712741x138382859022856420",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "2",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use 'yes/no', 'wh-', tag and negative question forms with an increasing range of verbs.",
+    "example_raw": "Are you still looking for a job or did you succeed in finding one? (France; B2 VANTAGE; 1993; French; Pass)\n\nWhen did you last see your wife and your children? (Germany; B2 VANTAGE; 1993; German; Pass)\n\nIt was great to have met you, and we certainly had a terrific time together, didn't we? (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nDidn't you tell me that you had to go to Orleans today? (B2 VANTAGE; 1993; French; Pass)\n\nWhy didn't you say something about it? (Argentina; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking information about a completed past action.",
+      "pedagogical_hook": "Questions in past simple using did or didn't.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bdid(?:n't|n\u2019t|\\s+not)?\\s+(?:[A-Za-z]+\\s+)(?:[a-z]+ly\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "did"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "n\u2019t"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Did you succeed in finding one?",
+        "Didn't you completely tell me that?"
+      ],
+      "negatives": [
+        "Do you succeed in finding one?",
+        "Haven't you told me that?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712741x166541162399188380",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "2",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form with an increasing range of verbs.",
+    "example_raw": "I didn't realise I had lost the ring till I was at home. (Italy; B1 THRESHOLD; 2000; Italian; Pass)\n\nI didn't trust him. (Spain; B1 THRESHOLD; 2006; Spanish - European; Pass)\n\n[talking about a spare television] \u2026 we had one in the garage that we did not use. (Mexico; B1 THRESHOLD; 2001; Swedish; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Stating that a past event did not happen.",
+      "pedagogical_hook": "Using 'did not' or 'didn't' to form negative past statements.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bdid(?:n't|n\u2019t|\\s+not)\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "did"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I didn't realise I had lost the ring.",
+        "We had one in the garage that we did not immediately use."
+      ],
+      "negatives": [
+        "I don't realise I have lost the ring.",
+        "We have one in the garage that we do not use."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712741x169127699349836300",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: HABITUAL STATES OR ACTIONS",
+    "can_do_statement": "Can use the past simple to talk about habitual states or actions.",
+    "example_raw": "\u2026 he always seemed so confident to me! (Brazil; B1 THRESHOLD; 2002; Portuguese; Pass)\n\n\u2026 we always talked during the class. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "A recurrent event or state in the past that is no longer happening.",
+      "pedagogical_hook": "Past simple used with adverbs of frequency.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:always|often|usually|never|frequently)\\s+(?:[a-z]+ed|seemed|talked|went|did)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "always",
+              "often",
+              "usually",
+              "never",
+              "frequently",
+              "constantly"
+            ]
+          }
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He always seemed so confident to me.",
+        "We often talked during the class."
+      ],
+      "negatives": [
+        "He always seems so confident to me.",
+        "We often talk during the class."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712744x249654248066045100",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: REPEATED CONTINUING EVENTS",
+    "can_do_statement": "Can use the present perfect continuous to talk about repeated activities which began in the past and are still continuing. ",
+    "example_raw": "I've been watching TV a lot, specially the sports programmes. (Brazil; B1 THRESHOLD; 2010; Portuguese; Pass) \n\nI have been playing my new game. (Turkey; B1 THRESHOLD; 2010; Turkish; Pass)\n\nLast week I went out with my cousin Jim and his wife; he told me he had joined a sport club and he has been going there for two weeks; (Italy; B1 THRESHOLD; 2003; Italian; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "An ongoing activity that started in the past and continues or has just finished.",
+      "pedagogical_hook": "Present perfect continuous structure: have/has been + verb-ing.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:have|has|'ve|'s)\\s+(?:[a-z]+ly\\s+)?been\\s+(?:[a-z]+ly\\s+)?[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has",
+              "'ve",
+              "'s"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I've been watching TV a lot lately.",
+        "He has been going there for two weeks."
+      ],
+      "negatives": [
+        "I am watching TV a lot.",
+        "He had been going there for two weeks."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712744x517808240803915500",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form.",
+    "example_raw": "I have been thinking about your letter. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nWe've been studying together since grade one. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nThe letter was from my brother, who has been living in New York since he graduated from university. (Turkey; B1 THRESHOLD; 2008; Turkish; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "An ongoing activity that started in the past and continues.",
+      "pedagogical_hook": "Present perfect continuous structure: have/has been + verb-ing.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:have|has|'ve|'s)\\s+(?:[a-z]+ly\\s+)?been\\s+(?:[a-z]+ly\\s+)?[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has",
+              "'ve",
+              "'s"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We've been studying together since grade one.",
+        "I have recently been thinking about your letter."
+      ],
+      "negatives": [
+        "We are studying together.",
+        "I had been thinking about your letter."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712747x163928397652527870",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "present perfect continuous",
+    "lexical_range": "2",
+    "guideword": "FORM: WITH ADVERBS",
+    "can_do_statement": "Can use the present perfect continuous with adverbs in the normal mid position. ",
+    "example_raw": "I have just been reading an article in your newspaper this morning, about The Westfield Music Festival. (Sweden; B2 VANTAGE; 1997; Swedish; Pass)\n\nI've also been singing in a choir for five years, so I'm very familiar with it. (Sweden; B2 VANTAGE; 2000; Swedish; Pass)\n\nYou have already been complaining about headaches and insomia. (Poland; B2 VANTAGE; 1993; Polish; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "An ongoing activity with emphasis via a mid-position adverb.",
+      "pedagogical_hook": "Placing adverbs like 'just', 'already', 'also' between 'have' and 'been'.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:have|has|'ve|'s)\\s+[a-z]+\\s+been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has",
+              "'ve",
+              "'s"
+            ]
+          }
+        },
+        {
+          "POS": "ADV"
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I have just been reading an article.",
+        "You have already been complaining about headaches."
+      ],
+      "negatives": [
+        "I just read an article.",
+        "You already complained about headaches."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712747x212368838412682500",
+    "level": "C2",
+    "super_category": "PAST",
+    "sub_category": "present perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: INVERSION",
+    "can_do_statement": "Can invert the subject and affirmative auxiliary verb with 'not only \u2026 but' as a focusing device. \u25ba focus \u25ba inversion",
+    "example_raw": "Not only have I been wandering its streets ever since I was ten, but I have also come to know most of the main characters of its history in the past 50 years. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Catalan; Pass)\n\nNot only have I been expecting it for the last few months but I will also give some support to my wife, who has been feeling a little nervous these last weeks. (Portugal; C2 MASTERY; 1993; Portuguese; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Focalizing two related ongoing activities by fronting 'not only'.",
+      "pedagogical_hook": "Inversion: 'Not only have I been...' to heighten emphasis.",
+      "agency_or_distance": "Distance (formal tone)"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bnot\\s+only\\s+(?:have|has)\\s+[A-Za-z]+\\s+(?:[a-z]+ly\\s+)?been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not"
+        },
+        {
+          "LOWER": "only"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Not only have I been wandering its streets, but I also know the people.",
+        "Not only has she recently been studying hard, but she also works."
+      ],
+      "negatives": [
+        "I have not only been wandering its streets.",
+        "Not only had I been wandering its streets."
+      ]
+    }
+  }
+]

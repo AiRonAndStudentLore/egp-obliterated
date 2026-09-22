@@ -1,0 +1,809 @@
+[
+ {
+  "egp_id": "1741163714317x657607295889508100",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE + 'ANYTHING'",
+  "can_do_statement": "Can use 'anything' after a negative verb form. ",
+  "example_raw": "You don't have to bring anything. (Italy; A2 WAYSTAGE; 2006; Italian; Pass)\n\nWhen I want to eat something in the night, I can't find anything because it is too dark. (A2 WAYSTAGE; 2009; Polish; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Absence or non-existence of entities.",
+   "pedagogical_hook": "Using 'anything' instead of 'something' after negative verbs.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?:n't|not|never|hardly|scarcely)\\s+(?:(?:[a-z]+|[a-z]+\\s+[a-z]+)\\s+)?anything\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "n't",
+       "not",
+       "never",
+       "hardly",
+       "scarcely"
+      ]
+     }
+    },
+    {
+     "OP": "*",
+     "LOWER": {
+      "NOT_IN": [
+       "n't",
+       "not",
+       ".",
+       "?",
+       "!"
+      ]
+     }
+    },
+    {
+     "LOWER": "anything"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I don't have anything to wear.",
+    "She hasn't seen anything."
+   ],
+   "negatives": [
+    "I have anything you need.",
+    "Do you have anything?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714317x868674191941517700",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH 'ELSE'",
+  "can_do_statement": "Can use indefinite pronouns with 'else'.",
+  "example_raw": "Have you got something else to do on Saturday or can you come with me? (Italy; A2 WAYSTAGE; 2010; Italian; Pass)\n\nWe have to bring some paints, but nothing else. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)\n\nIf you need anything else, you'll find it in the classroom. (Lebanon; A2 WAYSTAGE; 2006; Arabic - Levant; Pass)\n\nI'm going to a rock concert on Saturday, but I have three tickets for two people (me and my brother) and I am looking for someone else to go with me, so, would you like to go? (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Addition or alternative entities.",
+   "pedagogical_hook": "Using 'else' to mean 'other' or 'additional'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:something|anything|nothing|everything|someone|anyone|no\\s*one|everyone|somebody|anybody|nobody|everybody|somewhere|anywhere|nowhere|everywhere)\\s+else\\b(?!\\'s)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "something",
+       "anything",
+       "nothing",
+       "everything",
+       "someone",
+       "anyone",
+       "no-one",
+       "everyone",
+       "somebody",
+       "anybody",
+       "nobody",
+       "everybody",
+       "somewhere",
+       "anywhere",
+       "nowhere",
+       "everywhere"
+      ]
+     }
+    },
+    {
+     "LOWER": "else"
+    },
+    {
+     "ORTH": {
+      "NOT_IN": [
+       "'s"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Do you need anything else?",
+    "I have someone else in mind."
+   ],
+   "negatives": [
+    "I need something else's cover.",
+    "Who else is coming?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714317x913697265372224600",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'TO' INFINITIVE, SPECIFYING",
+  "can_do_statement": "Can modify 'something' or 'anything' with 'to' infinitive, to make it more specific.",
+  "example_raw": "Please, bring something to drink. (Italy; A2 WAYSTAGE; 2009; Italian; Pass)\n\nBring some sweets and something to wear if you get cold. (France; A2 WAYSTAGE; 2009; French; Pass)\n\nI had to buy them because I didn't have anything to wear on my holidays. (Cyprus; A2 WAYSTAGE; 2008; Greek; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specifying purpose for an indefinite entity.",
+   "pedagogical_hook": "Adding an infinitive verb to explain what the 'something' or 'anything' is for.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:something|anything)\\s+(?:[a-z]+ly\\s+)?to\\s+(?!the\\b|a\\b|an\\b|my\\b|your\\b|his\\b|her\\b|our\\b|their\\b|him\\b|me\\b|us\\b|them\\b|you\\b|it\\b|John\\b|London\\b|school\\b|work\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "something",
+       "anything"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I need something to drink.",
+    "Do you have anything to say?"
+   ],
+   "negatives": [
+    "I gave something to him.",
+    "She sent anything to the wrong address."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714318x692180587563757700",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "3",
+  "guideword": "FORM: OBJECT OR COMPLEMENT",
+  "can_do_statement": "Can use a wide range of indefinite pronouns as objects or complements. ",
+  "example_raw": "I often watch TV, because my computer is broken and I have nothing to do. (Georgia (Republic of); B1 THRESHOLD; 2007; Georgian; Pass)\n\n\u2026 there was nothing on the wall. (India; B1 THRESHOLD; 2009; Gujarati; Pass)\n\nIt's a tennis club and the people there were all strangers for me, I didn't know anyone. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nWhen I arrived at his house there wasn't anyone there. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nHe went everywhere in the world! (Italy; B1 THRESHOLD; 2009; Italian; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Indefinite entities acting as recipients or descriptors.",
+   "pedagogical_hook": "Using indefinite pronouns as the object of a verb or preposition.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:[a-z]+)\\s+(?:something|anything|nothing|everything|someone|anyone|no\\s*one|everyone|somebody|anybody|nobody|everybody|somewhere|anywhere|nowhere|everywhere)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "something",
+       "anything",
+       "nothing",
+       "everything",
+       "someone",
+       "anyone",
+       "no-one",
+       "everyone",
+       "somebody",
+       "anybody",
+       "nobody",
+       "everybody",
+       "somewhere",
+       "anywhere",
+       "nowhere",
+       "everywhere"
+      ]
+     },
+     "DEP": {
+      "IN": [
+       "dobj",
+       "pobj",
+       "attr",
+       "acomp"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I didn't know anyone at the party.",
+    "He saw nothing there."
+   ],
+   "negatives": [
+    "Someone was at the door.",
+    "Nobody answered the phone."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714318x723007439946632600",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "2",
+  "guideword": "FORM: SUBJECT",
+  "can_do_statement": "Can use an increasing range of indefinite pronouns ('something', 'nobody') as subjects, with a singular verb. ",
+  "example_raw": "I was so confused that I thought something was happening. (Argentina; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nUnfortunately something has happened with the airplane's schedule, so I won't be able to arrive at 1.15 pm, as we agreed. (Peru; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nSo I tried to call for help, but nobody answered. (Czech Republic; B1 THRESHOLD; 2009; Czech; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Indefinite entities initiating action or possessing a state.",
+   "pedagogical_hook": "Using indefinite pronouns as subjects taking singular verbs.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:something|anything|nothing|everything|someone|anyone|no\\s*one|everyone|somebody|anybody|nobody|everybody)\\s+(?:\\w+\\s+)?(?:is|was|has|does|goes|comes|makes|takes|seems|feels|looks|happens|works|needs)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "something",
+       "anything",
+       "nothing",
+       "everything",
+       "someone",
+       "anyone",
+       "no-one",
+       "everyone",
+       "somebody",
+       "anybody",
+       "nobody",
+       "everybody"
+      ]
+     },
+     "DEP": "nsubj"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Something is happening.",
+    "Nobody was there."
+   ],
+   "negatives": [
+    "I saw something.",
+    "He didn't find anyone."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714319x138758397083681870",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH RELATIVE CLAUSES, FOCUS",
+  "can_do_statement": "Can use indefinite pronouns with a relative clause to form complex noun phrases, to give focus.",
+  "example_raw": "Something that I like very much is the idea of the classes. (Greece; B2 VANTAGE; 2004; Greek; Pass)\n\nSomething extra, which is not really pleasant, is their behavior. (B2 VANTAGE; 2006; Polish; Pass)\n\nSomething really good about it is that it'd give us some work experience, which we don't have right now. (Uruguay; B2 VANTAGE; 2004; Spanish - Latin American; Pass)\n\nEverything that I believed changed and without any help I managed to write perfectly, according to my teacher. (Greece; B2 VANTAGE; 2002; Greek; Pass)\n\nEveryone who can use a computer can use the new products. (China; B2 VANTAGE; 2008; Chinese; Fail)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Focusing on a specific aspect of an indefinite entity.",
+   "pedagogical_hook": "Modifying indefinite pronouns with a relative clause.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:something|anything|nothing|everything|someone|anyone|no\\s*one|everyone|somebody|anybody|nobody|everybody|somewhere|anywhere|nowhere|everywhere)\\s+(?:that|who|which)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "something",
+       "anything",
+       "nothing",
+       "everything",
+       "someone",
+       "anyone",
+       "no-one",
+       "everyone",
+       "somebody",
+       "anybody",
+       "nobody",
+       "everybody",
+       "somewhere",
+       "anywhere",
+       "nowhere",
+       "everywhere"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "that",
+       "who",
+       "which"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Something that I really like is the food.",
+    "Everyone who can help should come."
+   ],
+   "negatives": [
+    "I need something.",
+    "He is someone we met."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714319x415686089243547200",
+  "level": "C1",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'ANYTHING', ELLIPSIS",
+  "can_do_statement": "Can use 'anything' in an ellipted clause, ('if there is anything \u2026'). ",
+  "example_raw": "Anything else you need, ask Sarah. (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)\n\nAnything you need in connection with my report, please don't hesitate to contact me. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Spanish - European; Pass)\n\nAnything you want to ask me, feel free to do so. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Open condition or request without explicit condition.",
+   "pedagogical_hook": "Dropping 'if there is' before 'anything'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "^[Aa]nything\\s+(?:else\\s+)?[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "anything",
+     "IS_SENT_START": true
+    },
+    {
+     "LOWER": "else",
+     "OP": "?"
+    },
+    {
+     "POS": "PRON"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Anything you need, just ask.",
+    "Anything else you want, let me know."
+   ],
+   "negatives": [
+    "If there is anything you need, ask me.",
+    "I don't need anything."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714319x819857917369870600",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PREMODIFIERS, INTENSIFYING",
+  "can_do_statement": "Can use premodifiers with indefinite pronouns, often to intensify. ",
+  "example_raw": "You can find absolutely anything, whatever you need. (Kazakhstan; B1 THRESHOLD; 2008; Kazakh; Pass)\n\nI like to wear a T-shirt with jeans almost everywhere I go. (Brazil; B1 THRESHOLD; 2006; Portuguese; Pass)\n\nNearly everyone I know sits at a computer all day. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Degree of totality or inclusion.",
+   "pedagogical_hook": "Using words like 'absolutely' or 'almost' before indefinite pronouns.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:absolutely|almost|nearly|practically|virtually)\\s+(?:something|anything|nothing|everything|someone|anyone|no\\s*one|everyone|somebody|anybody|nobody|everybody|somewhere|anywhere|nowhere|everywhere)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "absolutely",
+       "almost",
+       "nearly",
+       "practically",
+       "virtually"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "something",
+       "anything",
+       "nothing",
+       "everything",
+       "someone",
+       "anyone",
+       "no-one",
+       "everyone",
+       "somebody",
+       "anybody",
+       "nobody",
+       "everybody",
+       "somewhere",
+       "anywhere",
+       "nowhere",
+       "everywhere"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I can find absolutely anything in this store.",
+    "Nearly everyone agrees with me."
+   ],
+   "negatives": [
+    "I can find anything in this store.",
+    "Everyone agrees with me."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714319x832568399007343700",
+  "level": "C1",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'ANYTHING', FOCUS ",
+  "can_do_statement": "Can use 'anything' with post-modifiers to form complex noun phrases as subjects with a singular verb, to give focus. ",
+  "example_raw": "Anything else can be attached too if needed. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Chinese; Pass)\n\nAnything to show how happy you are for them will do. (Korea, South; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Korean; Pass)\n\nAnything that puts you in contact with the English language is important. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass) ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Focusing on any entity that meets specific conditions.",
+   "pedagogical_hook": "Using 'anything' modified by a phrase or clause as the subject.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b[Aa]nything\\s+(?:else\\s+)?(?:that|to|which|with|in)\\s+[^!?.]+(?:is|was|has|does|will|can|could|would|should|might|may)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "anything",
+     "DEP": {
+      "IN": [
+       "nsubj",
+       "nsubjpass"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Anything that makes you happy is fine.",
+    "Anything to eat will do."
+   ],
+   "negatives": [
+    "I don't have anything that makes you happy.",
+    "He needs anything to eat."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714319x927217125425351800",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "3",
+  "guideword": "FORM: SUBJECT",
+  "can_do_statement": "Can use the full range of indefinite pronouns as subjects, with a singular verb. ",
+  "example_raw": "But, nowadays nothing is free, so you have to pay for everything. (Hungary; B2 VANTAGE; 2002; Hungarian; Pass)\n\nHer parents had told her everything weeks ago; she had cried and argued, but nothing could change her parents\u2019 opinion. (Germany; B2 VANTAGE; 2008; German; Pass)\n\nYes it was Christmas, that's why everybody tried to smile. (Switzerland; B2 VANTAGE; 1993; French; Pass)\n\nEverywhere is green and clean. (Turkey; B2 VANTAGE; 2003; Turkish; Pass)\n\nWhen we came back home, everywhere was very untidy. (Poland; B2 VANTAGE; 1993; Polish; Fail)\n\nI searched my car to see if anything was missing. (Greece; B2 VANTAGE; 2002; Greek; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Full range of indefinite entities initiating action.",
+   "pedagogical_hook": "Using indefinite pronouns as subjects with a singular verb.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:everything|everybody|everyone|everywhere|nothing|nobody|no\\s*one|nowhere)\\s+(?:\\w+\\s+)?(?:is|was|has|does|will|can|could|would|should|might|may|tries|tried|goes|seems|wants|knows)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "everything",
+       "everybody",
+       "everyone",
+       "everywhere",
+       "nothing",
+       "nobody",
+       "no-one",
+       "nowhere"
+      ]
+     },
+     "DEP": {
+      "IN": [
+       "nsubj",
+       "nsubjpass"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Everything is fine now.",
+    "Everybody tried to smile."
+   ],
+   "negatives": [
+    "I saw everything.",
+    "He talked to everybody."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714319x940429972413785400",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "USE: VAGUE EXPRESSIONS",
+  "can_do_statement": "Can use indefinite pronouns in vague expressions to refer to things in a non-specific way. ",
+  "example_raw": "Is it worth having a nervous breakdown or anything like that? (Portuguese, B2 VANTAGE, Pass, 1993 )\n\nMy personal idea to help the environment is to try to plant more trees around the college, for example, in the zone behind the college or somewhere else. (B2 VANTAGE; 2009; Spanish - Other; Pass)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Non-specific or generalized entity reference.",
+   "pedagogical_hook": "Using phrases like 'or something', 'or anything like that'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\bor\\s+(?:something|anything)(?:\\s+like\\s+that)?\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "or"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "something",
+       "anything"
+      ]
+     }
+    },
+    {
+     "LOWER": "like",
+     "OP": "?"
+    },
+    {
+     "LOWER": "that",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We could go to the park or something.",
+    "I didn't have a cold or anything like that."
+   ],
+   "negatives": [
+    "Do you want something?",
+    "I don't want anything."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163713636x789319610613430500",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: + 'OF MINE' ",
+  "can_do_statement": "Can use the possessive pronoun 'mine' after 'of' in the phrases 'a friend of mine' and 'friends of mine'.",
+  "example_raw": "A friend of mine gave me a present for my birthday. (China; A2 WAYSTAGE; 2004; Chinese; Pass)\n\nSome friends of mine were here with me too. (Key English Test; A2; Portuguese)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Possession expressed via prepositional phrase.",
+   "pedagogical_hook": "Using 'of mine' instead of 'my' for emphasis or variation.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:friend|friends)\\s+of\\s+mine\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "friend",
+       "friends"
+      ]
+     }
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": "mine"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "A friend of mine gave me this book.",
+    "I saw some friends of mine yesterday."
+   ],
+   "negatives": [
+    "My friend gave me this book.",
+    "That book is mine."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163713637x278356900298243550",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'YOURS' AS OBJECT",
+  "can_do_statement": "Can use the possessive pronoun 'yours', with singular reference, in object positions, and complement positions after 'be' and after prepositions.",
+  "example_raw": "It was my best present, although I also loved yours. (Key English Test; A2; Spanish-European)\n\nMy favourite meal is spaghetti with garlic bread. What's yours? (Key English Test for Schools; A2; Tagalog)\n\nTo go to my house from yours, take the first on the right, Victoria Road, and there is an underground station. (Key English Test; A2; French)\n\nI bought a pink mobile. It's like yours. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)\n\nSo that's all about my mobile phone. Please write to me about yours too! (Key English Test; A2;Turkish)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Second-person possession in object position.",
+   "pedagogical_hook": "Using 'yours' instead of 'your + noun' as an object or complement.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:love|loved|like|liked|with|about|like|from|to|for|is|was|are|were)\\s+(?:[a-z]+\\s+)?yours\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "yours",
+     "DEP": {
+      "IN": [
+       "dobj",
+       "pobj",
+       "attr",
+       "acomp"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I also loved yours.",
+    "It's like yours."
+   ],
+   "negatives": [
+    "Yours is better.",
+    "Yours looks nice."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163713637x587743601652187500",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MINE'",
+  "can_do_statement": "Can use the possessive pronoun 'mine', with singular and plural reference, in subject and object positions, and complement positions after 'be' and after prepositions.",
+  "example_raw": "I bought a new jacket because mine was very old. (Key English Test; A2; Italian)\n\nI bought a pullover and trousers because mine are too small for me. (Key English Test; A2; Korean)\n\nThe phone is not mine. (Key English Test; A2 Czech) \n\nYou should bring your computer games and Maths book. I have lost mine. (Key English Test; A2; Turkish) \n\nI want to give you a birthday present like mine. (Key English Test; A2; Chinese) ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "First-person singular possession as an independent entity.",
+   "pedagogical_hook": "Using 'mine' as a standalone pronoun in various positions.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:is|was|are|were|not|like|lost|because|and|but|that|this)\\s+mine\\b|^[Mm]ine\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "mine",
+     "DEP": {
+      "NOT_IN": [
+       "compound"
+      ]
+     },
+     "TAG": {
+      "NOT_IN": [
+       "NN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The phone is not mine.",
+    "Mine are too small for me."
+   ],
+   "negatives": [
+    "It is a gold mine.",
+    "He works in a coal mine."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163713638x109077568335468560",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: + 'OF YOURS' ",
+  "can_do_statement": "Can use the possessive pronoun 'yours' after noun + 'of'.",
+  "example_raw": "Maybe you can take a friend of yours with you there. (Preliminary English Test; B1; German)\n\nI think that it's a very good idea of yours to come to the UK. (Skills for Life (Entry 3); Spanish)\n\nYou can ask some friends of yours to join you. (Preliminary English Test; B1; Greek)",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Second-person possession expressed via prepositional phrase.",
+   "pedagogical_hook": "Using 'of yours' after a noun for emphasis or variation.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:friend|friends|idea|ideas)\\s+of\\s+yours\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "friend",
+       "friends",
+       "idea",
+       "ideas"
+      ]
+     }
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": "yours"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You can take a friend of yours.",
+    "It was a good idea of yours."
+   ],
+   "negatives": [
+    "Your friend is here.",
+    "That idea is yours."
+   ]
+  }
+ }
+]

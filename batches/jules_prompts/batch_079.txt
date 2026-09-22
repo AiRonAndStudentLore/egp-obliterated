@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_079.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163711538x884306688947976100",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MODAL VERB + MODAL ADVERB, HEDGING OR EMPHASIS",
+  "can_do_statement": "Can use modal verb + modal adverb to modify an assertion, either through hedging or emphasis.",
+  "example_raw": "Next year you can surely go somewhere with your friends. (Portugal; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nYou should probably bring sun block, because it's going be hot, and some food of course. (Indonesia; B1 THRESHOLD; 2009; Indonesian; Pass)\n\nIn my opinion if you decided to go to a large school in the centre of town, you would certainly meet a lot of cool people and you'd probably find it great. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163711538x899852393729137200",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT NECESSARILY'",
+  "can_do_statement": "Can use 'not necessarily' to express a possible exception to a general perception, i.e. not in every case.",
+  "example_raw": "As a conclusion, I want to say that while what we wear doesn't necessarily define who we are, it does play a big part in it. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)\n\nThis is not necessarily the way the older generation would see it though. (Slovenia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Slovene; Pass) "
+ },
+ {
+  "egp_id": "1741163711538x973037262394288500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE, 'POSSIBLY', POLITENESS",
+  "can_do_statement": "Can use 'could' + subject + 'possibly' to make requests more polite.",
+  "example_raw": "Could I possibly see you at 3.30? (Thailand; B1 THRESHOLD; 2008; Thai; Pass)\n\nCould you possibly recommend what action should be taken? (China; B1 THRESHOLD; 2002; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163710388x206193011712334940",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form.",
+  "example_raw": "You can see a lot of special places in Wroclaw. (A1 BREAKTHROUGH, 2007, Polish)\n\nYou can make a quick snack, for example, a sandwich. (A1 BREAKTHROUGH, 2006, German)"
+ },
+ {
+  "egp_id": "1741163710388x273734335473510240",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTION ",
+  "can_do_statement": "Can use the affirmative question form.",
+  "example_raw": "Can you come for dinner Monday at 6.00 pm? (Arabic - Other, A1 BREAKTHROUGH, Pass, 2008)\n\nCan we go to the park on the Sunday? (Somali, A1 BREAKTHROUGH, Pass, 2011)"
+ },
+ {
+  "egp_id": "1741163710388x482560605581935800",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE ",
+  "can_do_statement": "Can use the negative forms.",
+  "example_raw": "I cannot come to see you. (A1 BREAKTHROUGH, 2009, Bengali)\n\nI'm very nervous and I can't say anything. (A1 BREAKTHROUGH Polish)"
+ },
+ {
+  "egp_id": "1741163710388x540901022788007400",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: OFFERS",
+  "can_do_statement": "Can use 'can' to make an offer. ",
+  "example_raw": "Can I help you? (A1 BREAKTHROUGH, 2009, Lithuanian)\n\nWhat can I do for you? (A1 BREAKTHROUGH, 2009, Turkish)\n\nHow can I help you? (A1 BREAKTHROUGH, 2009, Polish)\n\nIf you want, I can come to your house and I can help you with for example some housework on Sunday this weekend. (A1 BREAKTHROUGH; 2009; Czech; Pass)"
+ },
+ {
+  "egp_id": "1741163710388x882361395502946800",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: ABILITY",
+  "can_do_statement": "Can use 'can' to talk about ability to do something. ",
+  "example_raw": "I can cook. (A1 BREAKTHROUGH, 2009, Turkish)\n\nI can write English. (A1 BREAKTHROUGH, 2007, Thai)\n\n[talking about someone with a physical disability] He cannot go up stairs. (A1 BREAKTHROUGH, 2009, Urdu)\n\n[talking about reading in English] I can\u2019t read very well. (A1 BREAKTHROUGH, 2007, Polish)"
+ },
+ {
+  "egp_id": "1741163710391x392174672834575400",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: PERMISSION",
+  "can_do_statement": "Can use 'can' to give and refuse permission or talk about what is forbidden.",
+  "example_raw": "You can wear anything you want. (A2 WAYSTAGE, 2008, Spanish - Latin American)\n\nYou can\u2019t bring your mobile phone. (A2 WAYSTAGE, 2006, Spanish - European)\n\nYou cannot wear jeans or flip-flops. (A2 WAYSTAGE, 2008, Portuguese)"
+ },
+ {
+  "egp_id": "1741163710391x459074403345042000",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: REQUESTS",
+  "can_do_statement": "Can use 'can' to make a request.",
+  "example_raw": "Can you come on Sunday at seven o\u2019clock? (A1 BREAKTHROUGH, 2010, Arabic)\n\nCan you call me? (A1 BREAKTHROUGH, 2009, Lithuanian)"
+ },
+ {
+  "egp_id": "1741163710391x534949859885590850",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: POSSIBILITY",
+  "can_do_statement": "Can use 'can' to talk about possibility.",
+  "example_raw": "The shop is next to the post office. There you can find milk, juices and sweets but you can't buy meat. (A1 BREAKTHROUGH, 2008, Spanish - Other)\n\nI cannot see you today. (A1 BREAKTHROUGH, 2009, Farsi)\n\nI'm sorry I can't see you now because I am very busy at work. (A1 BREAKTHROUGH, 2009, Mandarin)"
+ },
+ {
+  "egp_id": "1741163710391x572079242941361300",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE QUESTIONS",
+  "can_do_statement": "Can use the negative question forms in main clauses and question tags.",
+  "example_raw": "Can't you go with your parents some time and with your friends later? (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nWhy can't she visit them alone and I can relax at the beach? (Germany; B1 THRESHOLD; 2008; German; Pass) \n\nYou can ask your parents what they think you should do, can't you? (Brazil; B1 THRESHOLD; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163710391x702389034373436300",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'can' with a limited range of adverbs (including 'also', 'always', 'even', 'just', 'only', 'really', 'still') in the normal mid position after the modal verb.   \u25ba adverbs",
+  "example_raw": "You can also write postcards and letters to your friends. (B1 THRESHOLD, 2008, German)\n\nI can only tell you what I think about it, because you have to decide. (B1 THRESHOLD, 2008, Italian)\n\nI can't even remember the girl's face. (B1 THRESHOLD, 2006, Vietnamese)\n\nThe trouble is that I can't really afford it. (B1 THRESHOLD, 2001, French)"
+ },
+ {
+  "egp_id": "1741163710392x546454151321925600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: GENERAL TRUTHS AND TENDENCIES",
+  "can_do_statement": "Can use 'can be' to talk about general truths and tendencies.",
+  "example_raw": "\u2026 spending an entire summer without your friends can be very boring. (B1 THRESHOLD, 2008,  Spanish - European)\n\nSitting all day long in front of a computer can be very stressful. (Portuguese, B1 THRESHOLD, Pass, 2009)\n\nThe centre of town can be more dangerous and noisy. (B1 THRESHOLD, 2008, Portuguese)"
+ },
+ {
+  "egp_id": "1741163710392x628826808565412700",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: SURPRISE",
+  "can_do_statement": "Can use 'can you believe' to express surprise.",
+  "example_raw": "They invented a robot which plays football, can you believe this? (B1 THRESHOLD, 2008, Portuguese)\n\nIt cost me \u00a350! Can you believe that! It was expensive but worth it! (B1 THRESHOLD, 2009, Tagalog)"
+ }
+]
+```

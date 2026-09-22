@@ -1,0 +1,97 @@
+{
+ "batch": "batches/jules_batch_066.json",
+ "cycles": 1,
+ "passed": 10,
+ "total": 15,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163715818x484532724787778900",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'He told a story to his friends.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715818x645674419690479600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715818x805291884313691800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715818x942794164065401900",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: \"It's a wonder how they survived.\"",
+    "spaCy FALSE-POSITIVE on negative: \"It's a wonder how they survived.\""
+   ]
+  },
+  {
+   "egp_id": "1741163715819x177565244544510180",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715819x186805151899247300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715819x225500036872228400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715820x279868282649035070",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715820x680259612514314400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715820x722979507342767900",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'She told me not to be scared.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715820x946999443663956600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x773962644446279300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x123988758899529200",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Because today is my birthday.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715620x591479199213417900",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'It all seems very confusing.'",
+    "regex FALSE-POSITIVE on negative: 'She appeared in the doorway.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715620x718213480807691900",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

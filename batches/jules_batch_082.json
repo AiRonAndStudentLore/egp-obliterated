@@ -1,0 +1,835 @@
+[
+ {
+  "egp_id": "1741163710609x454833184411402000",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTION",
+  "can_do_statement": "Can use the question form. ",
+  "example_raw": "Dare we run the risk of even one child or adult turning to violent crime because they think it is ok? (Greece; 2010; English)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Courage and defiance of boundaries",
+   "pedagogical_hook": "Ask about boldness",
+   "agency_or_distance": "High agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:^|[.?!]\\s*)\\bdare\\s+(?:[a-z]+)\\s+(?!to\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "dare",
+     "IS_SENT_START": true
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "we",
+       "anyone",
+       "you",
+       "they",
+       "i",
+       "he",
+       "she"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Dare we ask for more time?",
+    "Dare anyone challenge the new rules?"
+   ],
+   "negatives": [
+    "I dare you to jump over that fence.",
+    "How dare you speak to me like that!"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710609x732138645679422100",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NEGATIVE WITH 'DIDN\\'T'",
+  "can_do_statement": "Can use the negative form 'didn\\'t dare' + infinitive without 'to' to talk about not being brave enough to do something. ",
+  "example_raw": "She didn't dare think about him and the possibility that he would never come back. (Sweden; C2 MASTERY; 1993; Swedish; Pass)\n\nSince we didn't dare move our feet, we were slowly swaying to the left and to the right, backwards and forwards. (Turkey; C2 MASTERY; 2001; Turkish; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Lack of courage to act",
+   "pedagogical_hook": "Expressing fear of doing something",
+   "agency_or_distance": "Low agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bdidn't\\s+dare\\s+(?!to\\b|me\\b|him\\b|her\\b|us\\b|them\\b|you\\b|it\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "did"
+    },
+    {
+     "LOWER": "n't"
+    },
+    {
+     "LOWER": "dare"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She didn't dare look back at the explosion.",
+    "They didn't dare say a word during the meeting."
+   ],
+   "negatives": [
+    "I didn't dare to dream about winning.",
+    "He didn't dare me to do it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710609x838509246682484900",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'HOW DARE \u2026!'",
+  "can_do_statement": "Can use 'how dare \u2026 !' to express disapproval or offense about something",
+  "example_raw": "How dare people say that we don't practice sport! (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Catalan; Pass)\n\n\u2026 how dare you say that this event was a complete failure! (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; French; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Outrage at an unacceptable action",
+   "pedagogical_hook": "Expressing indignation",
+   "agency_or_distance": "High emotional distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bhow\\s+dare\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "how"
+    },
+    {
+     "LOWER": "dare"
+    },
+    {
+     "DEP": "nsubj"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "How dare they cancel the show!",
+    "How dare you come into my house!"
+   ],
+   "negatives": [
+    "Dare you tell her the truth?",
+    "I dare say she is right."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710609x441961301901162560",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WILL BE ABLE TO' ",
+  "can_do_statement": "Can use 'will' + 'be able to' + infinitive to talk about possibility and ability. ",
+  "example_raw": "Will you be able to come this time? (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)\n\n[talking about contact lenses] Without them I will not be able to play football. (Spain; A2 WAYSTAGE; 2005; Spanish - European; Pass)\n\nIf you need a musical instrument, I can bring my guitar but unfortunately I won't be able to play it because I have never learned it. (France; A2 WAYSTAGE; 2005; French; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Future potential and capability",
+   "pedagogical_hook": "Predicting ability",
+   "agency_or_distance": "High agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:will|'ll|won't)\\s+(?:not\\s+)?(?:\\w+\\s+)?be\\s+able\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "will"
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "DEP": "nsubj",
+     "OP": "?"
+    },
+    {
+     "LOWER": "be"
+    },
+    {
+     "LOWER": "able"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I won't be able to finish this tonight.",
+    "Will you be able to help me tomorrow?"
+   ],
+   "negatives": [
+    "I am able to swim very well.",
+    "She will be there soon."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710609x529739416125193340",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MODAL WITH 'BE ABLE TO'",
+  "can_do_statement": "Can use a range of modal verbs + 'be able to' + infinitive.",
+  "example_raw": "After finishing school, you might be able to hang out with your friends. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nIf we could meet in Switzerland, we should be able to finish the project on the 20th June. (Switzerland; B1 THRESHOLD; 2003; Swiss German; Fail)\n\nI'd be able to take walks without even worrying about inhaling polluted air. (Malaysia; B1 THRESHOLD; 2010; Chinese; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Hypothetical or conditional capability",
+   "pedagogical_hook": "Guessing about ability",
+   "agency_or_distance": "Medium agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:might|could|should|would|may|must|can|'d)\\s+(?:not\\s+)?be\\s+able\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "might",
+       "could",
+       "should",
+       "would",
+       "may",
+       "must",
+       "can"
+      ]
+     }
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "LOWER": "be"
+    },
+    {
+     "LOWER": "able"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We might be able to fix the car ourselves.",
+    "You should be able to see the mountain from here."
+   ],
+   "negatives": [
+    "I will be able to do it later.",
+    "He is able to run fast."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710609x537948380593027840",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE ALLOWED TO', PERMISSION",
+  "can_do_statement": "Can use 'be allowed to' to talk about permission.",
+  "example_raw": "My mother went with me on this trip because I wasn't allowed to go by myself. (Uruguay; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)\n\nYou won't be allowed to do what you want and you won't enjoy yourself. (Italy; B1 THRESHOLD; 2008; Italian; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Authorization and permission granted by external authority",
+   "pedagogical_hook": "Talking about rules",
+   "agency_or_distance": "External agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|'m|'s|'re|isn't|aren't|wasn't|weren't)\\s+(?:not\\s+)?allowed\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "LOWER": "allowed"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She isn't allowed to stay out late.",
+    "We were allowed to enter the building."
+   ],
+   "negatives": [
+    "I allowed him to go.",
+    "They are allowing us to stay."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710609x971845306195149300",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "1",
+  "guideword": "FORM: 'BE' EXPRESSIONS",
+  "can_do_statement": "Can use a limited range of expressions with 'be' + infinitive ('be allowed to', 'be supposed to', 'be able to') with present and past forms of 'be' and with modal 'will'. ",
+  "example_raw": "First of all, if you are allowed to go out of the building in your break, you should do it. (Cyprus; B1 THRESHOLD; 2009; Greek; Pass)\n\nPerhaps you will be allowed to go on holiday with your friends next year. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nThe film is supposed to start at 7.00 pm so we'd better meet at 6.30 pm. See you there! (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)\n\nI was supposed to be meeting my friend Laura but she didn't come. (France; B1 THRESHOLD; 2009; French; Pass)\n\nI am sorry but I  am not able to meet you next Tuesday. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nWe were able to choose the songs ourselves and so I liked them very much. (Germany; B1 THRESHOLD; 2001; German; Pass)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Core modality using 'be' for capability, expectation, and permission",
+   "pedagogical_hook": "Basic modal phrases with 'be'",
+   "agency_or_distance": "Mixed agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|'m|'s|'re)\\s+(?:not\\s+)?(?:allowed|supposed|able)\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "allowed",
+       "supposed",
+       "able"
+      ]
+     }
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB",
+     "OP": "?"
+    },
+    {
+     "POS": "AUX",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am supposed to finish my homework.",
+    "They are not able to see the stage."
+   ],
+   "negatives": [
+    "They supposed it was true.",
+    "She allowed the dog inside."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710610x579533102478147800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE SUPPOSED TO', PAST EXPECTATION",
+  "can_do_statement": "Can use 'was supposed to', 'were supposed to' to refer to past or future arrangements which may not have happened or may change. ",
+  "example_raw": "I am really sorry, but I will have to make some changes to my trip. I was supposed to arrive on 11th June 2003, but I will arrive the next month. (Mexico; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\nIt was supposed to be on Tuesday at 1.00pm. (Brazil; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nWe were supposed to meet at noon with some friends, but they called her to ask if we could meet at the restaurant. (Mexico; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Broken expectations and changed plans",
+   "pedagogical_hook": "Talking about failed plans",
+   "agency_or_distance": "High distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:was|were)\\s+(?:not\\s+)?supposed\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "was",
+       "were"
+      ]
+     }
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "LOWER": "supposed"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB",
+     "OP": "?"
+    },
+    {
+     "POS": "AUX",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We were supposed to go yesterday.",
+    "I was supposed to tell you about the change."
+   ],
+   "negatives": [
+    "I am supposed to go tomorrow.",
+    "They supposed it was a joke."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710610x653060315541222000",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "3",
+  "guideword": "FORM: 'BE' EXPRESSIONS + INFINITIVE",
+  "can_do_statement": "Can use the full range of expressions with 'be' + infinitive ('be likely to', 'be due to', 'be meant to', 'be bound to', 'be sure to', 'be certain to', 'be obliged to') with present and past forms of 'be' and with modal 'will' .",
+  "example_raw": "People who read books are likely to be more knowledgeable. (Argentina; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\nI'm bound to feel nervous. (France; B2 VANTAGE; 2000; French; Pass)\n\nAccording to our new marketing strategy, we are sure to increase our turnover and our profit. (Austria; B2 VANTAGE; 2008; German; Pass)\n\n[talking about a new job] I am due to start on Monday 4 June. (Georgia (Republic of); B2 VANTAGE; 2007; Georgian; Fail)\n\nI would like to inform you that as of 1st of June all operational staff will be obliged to use identity cards. (Poland; B2 VANTAGE; 2006; Polish; Pass)\n\nSleepy and unwilling to take part of the conference, I was obliged to spend the evening listening to the soft voice of a man who was famous for his boring performances. (Italy; B2 VANTAGE; 1993; Italian; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Degrees of certainty, expectation, and obligation",
+   "pedagogical_hook": "Advanced phrases with 'be'",
+   "agency_or_distance": "Mixed agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|'m|'s|'re)\\s+(?:not\\s+)?(?:likely|due|meant|bound|sure|certain|obliged)\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "likely",
+       "due",
+       "meant",
+       "bound",
+       "sure",
+       "certain",
+       "obliged"
+      ]
+     }
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB",
+     "OP": "?"
+    },
+    {
+     "POS": "AUX",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We are bound to make mistakes.",
+    "She is certain to win the competition."
+   ],
+   "negatives": [
+    "I am supposed to leave now.",
+    "He was able to finish the puzzle."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710610x811443426792687500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE ABLE TO', PAST",
+  "can_do_statement": "Can use 'was able to', 'were able to' to talk about facts in the past.",
+  "example_raw": "[about a bus journey] She was able to get a good seat and she unexpectedly got to school early. (Philippines; B1 THRESHOLD; 2009; Tagalog; Pass)\n\n\u2026 sales had increased recently because of the good performance of our staff so we were able to improve the quality of our products ... (Ecuador; B1 THRESHOLD; 2010; Spanish - Latin American; Pass)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Past capability leading to a factual outcome",
+   "pedagogical_hook": "Talking about past achievements",
+   "agency_or_distance": "High agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:was|were|wasn't|weren't)\\s+(?:not\\s+)?able\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "was",
+       "were"
+      ]
+     }
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "LOWER": "able"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was able to find my lost keys.",
+    "They weren't able to complete the test."
+   ],
+   "negatives": [
+    "I am able to speak three languages.",
+    "She will be able to join us later."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710611x171270541916320500",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE MEANT TO', IDEAL STATES",
+  "can_do_statement": "Can use 'be meant to' to talk about ideal states. ",
+  "example_raw": "Animals are meant to be free, and man should be very careful about interfering with nature. (Swedish, B2 VANTAGE, Pass, 1993)\n\nPrimary school is meant to be there so that you build all the basics of your education. (French, B2 VANTAGE, ===NONE===, 2011)",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Inherent purpose or ideal condition",
+   "pedagogical_hook": "Expressing how things should naturally be",
+   "agency_or_distance": "High distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|'m|'s|'re)\\s+(?:not\\s+)?meant\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "LOWER": "meant"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB",
+     "OP": "?"
+    },
+    {
+     "POS": "AUX",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We are meant to learn from our mistakes.",
+    "It is meant to be a relaxing vacation."
+   ],
+   "negatives": [
+    "I meant to call you earlier.",
+    "She was bound to find out the truth."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710611x315903322735290560",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE DUE TO', 'BE TO', SCHEDULES",
+  "can_do_statement": "Can use 'be due to' and, more formally, 'be to' to talk about things that are scheduled or expected. ",
+  "example_raw": "I have attached the \u2026 company law directive enacted 2 years ago and which is due to be implemented by 2008. (Austria; B2 VANTAGE; 2007; German; Pass)\n\nThe programme was due to start at midday. (Argentina; B2 VANTAGE; 1997; Spanish - Latin American; Pass)\n\nI am sorry that I cannot attend the meeting at head office as expected, as I am to go on a business trip to New York then. (China; B2 VANTAGE; 2002; Chinese; Pass)\n\nI was to take exams in two weeks and had to study hard. (Greece; B2 VANTAGE; 1993; Greek; Pass)",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Future plans based on fixed schedules",
+   "pedagogical_hook": "Formal scheduling",
+   "agency_or_distance": "High distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:am|is|are|was|were|'m|'s|'re|isn't|aren't|wasn't|weren't)\\s+(?:due\\s+)?to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|their\\b|our\\b|bad\\b|this\\b|that\\b|these\\b|those\\b|some\\b|any\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": "due",
+     "OP": "?"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The train is due to arrive at noon.",
+    "I am to start my new job on Monday."
+   ],
+   "negatives": [
+    "I am going to the store.",
+    "It is due to the bad weather."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710611x434796619294706160",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE LIKELY TO', PROBABILITY",
+  "can_do_statement": "Can use 'be' (+modifier) 'likely to' to talk about probability.",
+  "example_raw": "And whenever money is involved, some problems are likely to happen. (Spain; B2 VANTAGE; 2000; Spanish - European; Pass)\n\nI am very likely to make mistakes which I would like to avoid. (Poland; B2 VANTAGE; 1993; Polish; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "High probability of occurrence",
+   "pedagogical_hook": "Predicting likely events",
+   "agency_or_distance": "High distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|'m|'s|'re|isn't|aren't|wasn't|weren't)\\s+(?!(?:much\\s+)?(?:more|less)\\s+)(?:[a-z]+\\s+)?likely\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "more",
+       "less",
+       "much"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": "likely"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is very likely to rain this evening.",
+    "They are likely to forget the appointment."
+   ],
+   "negatives": [
+    "I like to play basketball.",
+    "She is more likely to succeed."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710611x469025318254761660",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'BE MORE/LESS LIKELY', COMPARISON",
+  "can_do_statement": "Can use '(much) more/less' to modify 'likely' in a comparison. ",
+  "example_raw": "In case of an accident, one is more likely to be badly injured when riding a bicycle. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nSince they are more and better educated when they leave school at 18 years old, their minds are more mature and they are more sensible. They are more likely to have better jobs and a better life, and much less likely to cause problems to other people. (B2 VANTAGE; 2009; Chinese; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Comparative probability",
+   "pedagogical_hook": "Comparing likelihoods",
+   "agency_or_distance": "High distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:much\\s+)?(?:more|less)\\s+likely\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "much",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "more",
+       "less"
+      ]
+     }
+    },
+    {
+     "LOWER": "likely"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB",
+     "OP": "?"
+    },
+    {
+     "POS": "AUX",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You are much less likely to get sick if you wash your hands.",
+    "Older cars are more likely to break down."
+   ],
+   "negatives": [
+    "She is likely to arrive on time.",
+    "I liked the movie more than the book."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710611x552856145589085900",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE SUPPOSED TO', HEARSAY",
+  "can_do_statement": "Can use 'be supposed to' to talk about hearsay or supposition.",
+  "example_raw": "That woman is supposed to have killed her husbands (at least two), because she wanted their money. (Spain; B2 VANTAGE; 2000; Spanish - European; Pass)\n\nThe lake is supposed to be very beautiful. (Sweden; B2 VANTAGE; 1998; Swedish; Pass)",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Information received through rumor or popular belief",
+   "pedagogical_hook": "Reporting what people say",
+   "agency_or_distance": "High distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|'m|'s|'re)\\s+(?:not\\s+)?supposed\\s+to\\s+(?:be|have)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "LOWER": "supposed"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "be",
+       "have"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The new restaurant is supposed to be amazing.",
+    "He is supposed to have won the lottery."
+   ],
+   "negatives": [
+    "I am supposed to finish my homework.",
+    "They supposed that he was right."
+   ]
+  }
+ }
+]

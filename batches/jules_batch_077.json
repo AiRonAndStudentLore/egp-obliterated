@@ -1,0 +1,875 @@
+[
+  {
+    "egp_id": "1741163709472x799988979606151400",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future with be going to",
+    "lexical_range": "N/A",
+    "guideword": "USE: PLANS IN THE PAST",
+    "can_do_statement": "Can use the past form of 'be going to' (often followed by 'but') to talk about a plan, sometimes one that may have changed.  ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "past intention that may have been altered",
+      "pedagogical_hook": "past plans using 'was/were going to'",
+      "agency_or_distance": "distance (past plan)"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+(?:\\w+ly\\s+)?going\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|his\\b|her\\b|their\\b|our\\b|school\\b|work\\b|shop\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "going"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We were going to have a cup of coffee on Tuesday.",
+        "I was really going to call you, but I forgot."
+      ],
+      "negatives": [
+        "We are going to get married.",
+        "I was going to the shop when I saw him."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709473x242654561345864160",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "present continuous for future use",
+    "lexical_range": "1",
+    "guideword": "USE: FUTURE ARRANGEMENTS",
+    "can_do_statement": "Can use the present continuous with a limited range of verbs to talk about future arrangements.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "fixed arrangement in the future",
+      "pedagogical_hook": "present continuous for arrangements (A2)",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:'m|am|'s|is|'re|are)\\s+(?:\\w+ly\\s+)?[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am working this Saturday morning.",
+        "We're having the meal at 7pm."
+      ],
+      "negatives": [
+        "I work every Saturday.",
+        "I was working all day yesterday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709473x284037098314951170",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "present continuous for future use",
+    "lexical_range": "1",
+    "guideword": "USE: QUESTIONS ABOUT THE FUTURE",
+    "can_do_statement": "Can use the present continuous with a limited range of verbs to ask about future plans.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "inquiry about fixed arrangement in the future",
+      "pedagogical_hook": "present continuous for future questions (A2)",
+      "agency_or_distance": "distance (interrogative)"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are)\\s+(?:\\w+\\s+){1,4}[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        },
+        {
+          "POS": "DET",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Are you coming to the party tonight?",
+        "When is John going to the store?"
+      ],
+      "negatives": [
+        "Do you work on weekends?",
+        "I am coming to the party."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709473x494283441514848260",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "present continuous for future use",
+    "lexical_range": "2",
+    "guideword": "USE: FUTURE ARRANGEMENTS",
+    "can_do_statement": "Can use the present continuous with an increasing range of verbs to talk about future arrangements.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "fixed arrangement in the future",
+      "pedagogical_hook": "present continuous for arrangements (B1)",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:'m|am|'s|is|'re|are)\\s+(?:\\w+ly\\s+)?[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am attending a funeral tomorrow.",
+        "The movie is starting very soon."
+      ],
+      "negatives": [
+        "I attend meetings every day.",
+        "Are you attending the funeral tomorrow?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709473x902891256431768200",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "present continuous for future use",
+    "lexical_range": "2",
+    "guideword": "USE: QUESTIONS ABOUT THE FUTURE",
+    "can_do_statement": "Can use the present continuous with an increasing range of verbs to ask about future plans.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "inquiry about fixed arrangement in the future",
+      "pedagogical_hook": "present continuous for future questions (B1)",
+      "agency_or_distance": "distance (interrogative)"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are)\\s+(?:\\w+\\s+){1,4}[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        },
+        {
+          "POS": "DET",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Are you visiting my country on your next holiday?",
+        "Why are you moving to a different area?"
+      ],
+      "negatives": [
+        "Do you expect a call?",
+        "I am visiting my country on holiday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709473x972778365312376400",
+    "level": "B2",
+    "super_category": "FUTURE",
+    "sub_category": "present continuous for future use",
+    "lexical_range": "3",
+    "guideword": "USE: FUTURE ARRANGEMENTS",
+    "can_do_statement": "Can use the present continuous with a wide range of verbs to talk about future arrangements.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "fixed arrangement in the future",
+      "pedagogical_hook": "present continuous for arrangements (B2)",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:'m|am|'s|is|'re|are)\\s+(?:\\w+ly\\s+)?[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We're throwing a party for fun on 5th January.",
+        "She is joining the course on Friday."
+      ],
+      "negatives": [
+        "We threw a party last week.",
+        "Are you joining the course?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709666x931279969752233300",
+    "level": "B2",
+    "super_category": "FUTURE",
+    "sub_category": "present continuous for future use",
+    "lexical_range": "3",
+    "guideword": "USE: QUESTIONS ABOUT THE FUTURE",
+    "can_do_statement": "Can use the present continuous with a wide range of common verbs to ask about future plans.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "inquiry about fixed arrangement in the future",
+      "pedagogical_hook": "present continuous for future questions (B2)",
+      "agency_or_distance": "distance (interrogative)"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are)\\s+(?:\\w+\\s+){1,4}[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        },
+        {
+          "POS": "DET",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "So are you planning to visit Japan then?",
+        "When is the festival starting?"
+      ],
+      "negatives": [
+        "Do you provide seminar materials?",
+        "I am planning to visit Japan."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709666x240355824465352520",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "present simple for future use",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH 'WHEN'",
+    "can_do_statement": "Can use the present simple with 'when' to refer to the future. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "future event dependent on another event",
+      "pedagogical_hook": "present simple with 'when' for future",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwhen\\s+(?:I|you|he|she|it|we|they|the)\\s+(?:\\w+\\s+){0,3}(?!(?:arrived|left|came|went|saw|finished|got|did|was|were)\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "when"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'll tell you more when I meet you.",
+        "Can you call me when you find it?"
+      ],
+      "negatives": [
+        "When did you arrive?",
+        "I saw him when I left."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709666x476412061092230640",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "present simple for future use",
+    "lexical_range": "N/A",
+    "guideword": "USE: TIMETABLES AND PLANS",
+    "can_do_statement": "Can use the present simple to talk about timetabled events in the future.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "fixed future event based on a timetable",
+      "pedagogical_hook": "present simple for timetables",
+      "agency_or_distance": "distance (scheduled)"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:start|begin|finish|open|close|end|leave|arrive)s?\\s+(?:at|on|in)\\b",
+      "spacy_token_pattern": [
+        {
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        },
+        {
+          "POS": "ADP"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NUM",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It begins on 8 o'clock in the evening.",
+        "The train leaves at 6 pm."
+      ],
+      "negatives": [
+        "The class started at 6 pm.",
+        "It is finishing at 7 pm."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709666x869572460282350800",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "present simple for future use",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'HOPE'",
+    "can_do_statement": "Can use the present simple with 'I hope' to talk about hopes and wishes for the future.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "expressing a desired future outcome",
+      "pedagogical_hook": "present simple with 'hope'",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhope\\s+(?:that\\s+)?(?:I|you|he|she|it|we|they)\\s+(?:\\w+ly\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "hope"
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "POS": "PRON"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I hope you enjoy your holiday too.",
+        "We hope that he arrives safely."
+      ],
+      "negatives": [
+        "I hoped you would come.",
+        "I hope to see you soon."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710384x781429758496606800",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "present simple for future use",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH 'AS SOON AS'",
+    "can_do_statement": "Can use the present simple with 'as soon as' to refer to the future. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "immediate succession of future events",
+      "pedagogical_hook": "present simple with 'as soon as'",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bas\\s+soon\\s+as\\s+(?:I|you|he|she|it|we|they|the)\\s+(?:\\w+ly\\s+)?(?!(?:arrived|left|came|went|saw|finished|got)\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "as"
+        },
+        {
+          "LOWER": "soon"
+        },
+        {
+          "LOWER": "as"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm planning to move as soon as I finish college.",
+        "I will let you know as soon as the date approaches."
+      ],
+      "negatives": [
+        "I left as soon as I arrived.",
+        "Please reply as soon as possible."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710384x991044369751703600",
+    "level": "C1",
+    "super_category": "FUTURE",
+    "sub_category": "present simple for future use",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH 'BY THE TIME'",
+    "can_do_statement": "Can use the present simple with 'by the time' to refer to the future.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "future event relative to a deadline",
+      "pedagogical_hook": "present simple with 'by the time'",
+      "agency_or_distance": "distance (time frame)"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bby\\s+the\\s+time\\s+(?:I|you|he|she|it|we|they|the)\\s+(?:\\w+ly\\s+)?(?!(?:arrived|left|came|went|saw|finished|got)\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "by"
+        },
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "time"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "DET",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "By the time he gets home, he will want to sleep.",
+        "By the time you arrive the office will be closed."
+      ],
+      "negatives": [
+        "By the time he arrived, it was dark.",
+        "He had left by the time we got there."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710385x601071277336939100",
+    "level": "C1",
+    "super_category": "FUTURE",
+    "sub_category": "present simple for future use",
+    "lexical_range": "N/A",
+    "guideword": "USE: SUGGESTIONS, OBLIGATION ",
+    "can_do_statement": "Can use the present simple after speech act verbs expressing suggestions and obligation. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "imposing obligation or offering formal suggestion",
+      "pedagogical_hook": "present simple/subjunctive after suggestion verbs",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:suggest|recommend|insist|advise|propose|demand|request)s?\\s+(?:that\\s+)?(?:I|you|he|she|it|we|they|the|our|your|their|his|her)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "suggest",
+              "recommend",
+              "insist",
+              "advise",
+              "propose",
+              "demand",
+              "request"
+            ]
+          },
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ",
+              "VB"
+            ]
+          }
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "DET",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ",
+              "VB"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We would suggest that our management takes a closer look.",
+        "I recommend that we go to the theatre."
+      ],
+      "negatives": [
+        "I suggested that we left early.",
+        "I strongly recommend going there."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710385x778921051041153500",
+    "level": "C2",
+    "super_category": "FUTURE",
+    "sub_category": "present simple for future use",
+    "lexical_range": "N/A",
+    "guideword": "FORM: INVERSION WITH 'ONLY WHEN'",
+    "can_do_statement": "Can use the present simple with 'only when' (followed by 'will' and inverted subject) to refer to the future.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "exclusive condition for a future event",
+      "pedagogical_hook": "'only when' + present simple + will inversion",
+      "agency_or_distance": "distance (conditional)"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bonly\\s+when\\b.*?\\bwill\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "only"
+        },
+        {
+          "LOWER": "when"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "will"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Only when we understand that, will we be able to live in better societies.",
+        "Only when the rain stops will we go out."
+      ],
+      "negatives": [
+        "Only when we understood that, did we help.",
+        "It is only when it rains."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710385x337673798370062850",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "adjectives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'IT' + 'BE' + 'IMPORTANT' + CLAUSE ",
+    "can_do_statement": "Can use 'it' + 'be' + 'important' + ('that') clause. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "expressing importance or obligation impersonally",
+      "pedagogical_hook": "'it is important that' clause",
+      "agency_or_distance": "distance (impersonal obligation)"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bit(?:'s|\\s+(?:is|was|has\\s+been|will\\s+be))\\s+important\\s+(?:that\\s+)?(?:I|you|he|she|it|we|they|the)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "it"
+        },
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": "important"
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "DET",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It's important that you take breaks.",
+        "It is important that the children sleep well."
+      ],
+      "negatives": [
+        "It is important to listen.",
+        "An important thing is that you listen."
+      ]
+    }
+  }
+]

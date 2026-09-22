@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_084.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163710618x128533111434523170",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "USE: OBLIGATION",
+  "can_do_statement": "Can use present and past forms of 'have to' + '-ed' to talk about obligations in the past. ",
+  "example_raw": "Nowadays, one has to have finished at least senior high school for any employer to consider hiring you. (Greek, C2 MASTERY, Pass, 2005)\n\nThe State Universities have a higher level of education than Public Universities, but usually to get into a State University you had to have been studying in a public school. (B1 THRESHOLD; 2009; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163710618x284270552774544600",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+  "can_do_statement": "Can use a range of present and past forms of 'have (got) to' to talk about deductions and conclusions.  \u25ba must  \u25ba had to",
+  "example_raw": "[talking about a castle on a small island] It's got to be incredible to see a castle emerging from the sea. (Spanish - European, C2 MASTERY, Pass, 2001)\n\n[wondering why his mother has suddenly decided to come to his house] There had to be something else since she was definitely not the kind of person who drops by without asking. (Portuguese, C2 MASTERY, Pass, 1993)\n\nYes, I was sure, it had to have been Peter. (Spain; C2 MASTERY; 1993; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163710618x426930291367799940",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'I HAVE TO ADMIT'",
+  "can_do_statement": "Can use the fixed expression 'I have to admit' for emphasis. ",
+  "example_raw": "I have to admit that I watch a lot of TV, specially movies and soap operas, I love them. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)\n\nI have to admit that it is a very difficult choice. (Italian, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163710618x485640295433244400",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INFINITIVE ",
+  "can_do_statement": "Can use 'have to' as an infinitive form.",
+  "example_raw": "I am going to have to buy new curtains. (Spanish - Latin American, B1 THRESHOLD, Pass, 2001)\n\nI'm sorry to have to change the time of our meeting next Tuesday. (Spanish - Latin American, B1 THRESHOLD, Pass, 2008)\n\nI'd hate to have to choose between family and friends. (Spanish - Latin American, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163710618x543611533546182200",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST",
+  "can_do_statement": "Can use 'have to have' + '-ed'. ",
+  "example_raw": "[talking about urban versus rural life] In order to have an objective view on which lifestyle tends to be more problematic, you certainly have to have lived at each setting for a rather extensive time period. (Greek, C2 MASTERY, Pass, 2001)\n\nThey stop at the most famous places, which you \"have to have seen\", jump down and take photographs, always chatting with each other. (Switzerland; C2 MASTERY; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163710618x970201243309381400",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTION",
+  "can_do_statement": "Can use 'you (have) got to' to make a strong suggestion.",
+  "example_raw": "If you think you have seen almost everything in this world, you've got to see this museum. (Spanish - European, B2 VANTAGE, Pass, 1998)\n\n[talking about a famous actor] You have to see at least one of her films \u2026 I think if you haven't seen her films, you haven't lived at all! (Spanish - Other, B2 VANTAGE, Pass, 2006)\n\nYou have to relax. You should try to live. You don't know what's going on around you. (Switzerland; B2 VANTAGE; 1993; German; Pass)\n\nThe main thing to remember is that there many possibilities but you have to try to find them and not just say: \"I want to work and earn money\". (Switzerland; B2 VANTAGE; 2000; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710618x224118747511191650",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "[talking about clothes] So I may need them. (India; A2 WAYSTAGE; 2008; Gujarati; Pass)\n\nI think it may be dirty. (Thailand; A2 WAYSTAGE; 2006; Thai; Pass)"
+ },
+ {
+  "egp_id": "1741163710619x228781001251689540",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "USE: POSSIBILITY",
+  "can_do_statement": "Can use 'may' to talk about weak possibility referring to the present and the future. ",
+  "example_raw": "[talking about an important document] It may be in our room inside my bag. (Assamese, A2 WAYSTAGE)\n\n\u2026 bring some money with you. We may need it. (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)\n\n[talking about buying clothes for the summer] And the weather may be hot. (France; A2 WAYSTAGE; 2008; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710619x432353527473768900",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS ",
+  "can_do_statement": "Can use 'may' with a limited range of adverbs (most commonly 'also') in the normal mid-position after the modal verb. \u25ba adverbs",
+  "example_raw": "I may also ask you for another favour.... (India; B1 THRESHOLD; 2005; Hindi; Fail)\n\nWhy don't you try going to the gym before work? It may also help you release stress? (Mexico; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163710619x872875552573129100",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form.",
+  "example_raw": "I knew I may not meet him again. (Thailand; B1 THRESHOLD; 2008; Thai; Pass)\n\nI realise that may not be the best way of resolving your problem. (Poland; B1 THRESHOLD; 2008; Polish; Pass) \n\nThey may not even have internet in the countryside! (Brazil; B1 THRESHOLD; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163710839x443299354624711040",
+  "level": "B1 ",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form with 'I'. ",
+  "example_raw": "May I give you a short presentation on 17th December? (China; B1 THRESHOLD; 2002; Chinese; Pass)\n\nMay I ask you about my accommodation? (Germany; B1 THRESHOLD; 2005; German; Pass)\n\nMay I ask you if our company will receive the usual 10% discount? (Italian, B1 THRESHOLD, Pass, 2001)\n"
+ },
+ {
+  "egp_id": "1741163710839x649757077040261000",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "USE: PERMISSION",
+  "can_do_statement": "Can use 'may I' to ask for permission.",
+  "example_raw": "May I be your guide while you stay here? (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)\n\nMay I borrow your bike?  (Thailand; B1 THRESHOLD; 2005; Thai; Pass)"
+ },
+ {
+  "egp_id": "1741163710840x148674711226765900",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'may' with an increasing range of adverbs (most commonly 'even', 'only', 'already', 'never', 'just', 'sometimes') in the normal mid-position after the modal verb. \u25ba adverbs",
+  "example_raw": "When you're reading books, you may even find words you don't know and if you're an interested person, you will try to find out what it means, thus improving your vocabulary. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nThink of all the children living in cities, they may never get the chance to come near any animals at all. (Nigeria; B2 VANTAGE; 1993; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163710840x171768917119373020",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PAST NEGATIVE",
+  "can_do_statement": "Can use 'may not have' + '-ed' to talk about possibility in the past. ",
+  "example_raw": "The percentage of Dutch people eating a big, hot breakfast may not have been as high as of English people, but it has certainly reduced. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Dutch; Pass)\n\nApart from the income from both partners, it helps them meet other people thereby aquiring other skills they may not have obtained by staying or working from home. (Zambia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2011; Tibetan; )"
+ },
+ {
+  "egp_id": "1741163710840x470507602302159700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "USE: COMMAND",
+  "can_do_statement": "Can use 'may I' to make a polite request, command or suggestion in formal contexts.",
+  "example_raw": "May I have your attention please? (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nMay I ask you to use e-mail or postal services whenever possible? (Switzerland; B2 VANTAGE; 2003; Swiss German; Pass) \n\nIn terms of how we are going to travel around while we are there, may I suggest that we use the two bicycles that are at the house? (Greece; B2 VANTAGE; 2008; Greek; Pass)"
+ }
+]
+```

@@ -1,0 +1,752 @@
+[
+  {
+    "egp_id": "1741163716070x944796112360125800",
+    "level": "B1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: ADVERBS",
+    "can_do_statement": "Can use adverbs 'ever', 'never', 'yet', 'still' in negative contexts.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Modification of negative scope",
+      "pedagogical_hook": "Using time adverbs to reinforce negation",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bnever\\b|(?:not|n't|\\bnobody\\b|\\bnothing\\b).*?\\b(?:ever|yet)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "nobody",
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "LOWER": {
+            "NOT_IN": [
+              ".",
+              "?",
+              "!"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "ever",
+              "yet"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Nobody will ever know who that man was.",
+        "I haven't decided yet."
+      ],
+      "negatives": [
+        "I have ever been there.",
+        "Are you still coming to the party?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716072x182229027169600770",
+    "level": "C1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'WHATSOEVER', EMPHASIS",
+    "can_do_statement": "Can use 'whatsoever' after a negative form for emphasis.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Absolute negation",
+      "pedagogical_hook": "Emphasizing negation with whatsoever",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:no|not|nothing|none|nobody|n't)\\b.*?\\bwhatsoever\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "no",
+              "not",
+              "nothing",
+              "none",
+              "nobody",
+              "n't"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "LOWER": {
+            "NOT_IN": [
+              ".",
+              "?",
+              "!"
+            ]
+          }
+        },
+        {
+          "LOWER": "whatsoever"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We have no experience whatsoever.",
+        "There shall be no implication whatsoever for their rights."
+      ],
+      "negatives": [
+        "I will do whatever you ask.",
+        "There is someone who can help."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716072x190757617985932480",
+    "level": "C1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT ONLY \u2026 (BUT) ALSO' WITH INVERSION",
+    "can_do_statement": "Can use auxiliary 'do' + inverted subject after 'not only', to give focus.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Dual assertion with structural inversion",
+      "pedagogical_hook": "Inverting subject and do/does/did after not only",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|(?<=[.!?]\\s))not\\s+only\\s+(?:do|does|did)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not",
+          "IS_SENT_START": true
+        },
+        {
+          "LOWER": "only"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "does",
+              "did"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Not only do they have the biggest turnover, they also increased it.",
+        "Not only did we lose the match, but we also lost our best player."
+      ],
+      "negatives": [
+        "We not only do our homework, but we also study.",
+        "They not only did the work, but they also checked it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716072x449913250965678900",
+    "level": "C1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT' + STANCE ADVERB, HEDGING",
+    "can_do_statement": "Can use 'not' + stance adverb, often  in a mid position, to soften the directness of a statement.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Mitigation of assertion",
+      "pedagogical_hook": "Softening negatives with stance adverbs",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:not|n't)\\s+(?:necessarily|really|actually|entirely|completely)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "necessarily",
+              "really",
+              "actually",
+              "entirely",
+              "completely"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This is not necessarily the way the older generation would see it.",
+        "Organising the entertainment is not really my thing."
+      ],
+      "negatives": [
+        "I am necessarily going to be late.",
+        "It is actually quite warm today."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716072x485073520726290800",
+    "level": "C1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'NONE', SUBSTITUTION",
+    "can_do_statement": "Can use negative pronoun 'none' to substitute for subject and object pronouns or noun phrases.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Empty set reference",
+      "pedagogical_hook": "Using none to replace a noun",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bnone\\b(?!\\s+of\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "none"
+        },
+        {
+          "IS_PUNCT": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Problems when using English? None.",
+        "I asked for apples but there were none."
+      ],
+      "negatives": [
+        "None of the students were there.",
+        "I like none of these options."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716072x486471898998410700",
+    "level": "B2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'NEITHER OF', 'NONE OF' + PRONOUN",
+    "can_do_statement": "Can use negative forms 'neither of' and 'none of' + pronoun or noun phrase with the affirmative form of the verb. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Quantifying zero across a set",
+      "pedagogical_hook": "Using neither of or none of with a pronoun",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:neither|none)\\s+of\\s+(?:us|them|you|my|our|their|the)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "neither",
+              "none"
+            ]
+          }
+        },
+        {
+          "LOWER": "of"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "DET"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Neither of us is liable in this case.",
+        "Moreover, none of my friends are interested."
+      ],
+      "negatives": [
+        "Neither option is good.",
+        "I want none today."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716072x615032056929655300",
+    "level": "B2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NEITHER \u2026 NOR'",
+    "can_do_statement": "Can use 'neither \u2026 nor' to connect two words, phrases or clauses, often to give emphasis or focus.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Conjoined negation",
+      "pedagogical_hook": "Pairing neither and nor",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bneither\\b.*?\\bnor\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "neither"
+        },
+        {
+          "OP": "*",
+          "LOWER": {
+            "NOT_IN": [
+              ".",
+              "?",
+              "!"
+            ]
+          }
+        },
+        {
+          "LOWER": "nor"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Neither you nor I would like that.",
+        "We can neither eat nor drink during the lessons."
+      ],
+      "negatives": [
+        "I want neither of them.",
+        "Nor do I want this."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716072x678281983839554200",
+    "level": "C1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'NOT ALL', 'NOT EVERY'",
+    "can_do_statement": "Can use 'not with indefinite pronouns 'everyone' and 'everything' and determiners 'every', 'all'.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Partial inclusion via negation",
+      "pedagogical_hook": "Using not before all, every, everyone, or everything",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bnot\\s+(?:all|every(?:one|body|thing)?)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "all",
+              "every",
+              "everyone",
+              "everybody",
+              "everything"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Not everyone likes sports or music.",
+        "Not all students can attend the centre."
+      ],
+      "negatives": [
+        "They did not always agree.",
+        "I will not ever see him again."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716072x770198940521685800",
+    "level": "C1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "USE: FORMAL",
+    "can_do_statement": "Can use '(very) few' meaning 'not many' to refer to people in formal written contexts, often reports or surveys.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Extremely small subset reference",
+      "pedagogical_hook": "Using few as a pronoun for people",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:very\\s+)?few\\s+(?!of\\b|[a-z]+s\\b|people\\b|men\\b|women\\b|children\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "very",
+          "OP": "?"
+        },
+        {
+          "LOWER": "few",
+          "TAG": {
+            "IN": [
+              "PRP",
+              "DT",
+              "JJ"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX",
+              "PUNCT"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They were sent to Britain but few had any real contact.",
+        "Everyone tried to conquer them, but few managed."
+      ],
+      "negatives": [
+        "Very few people know the truth.",
+        "I have a few questions for you."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716072x944158847712108200",
+    "level": "B2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NEVER', INVERTED FRONT POSITION, FOCUS",
+    "can_do_statement": "Can use 'never' in front position followed by an inverted subject (most commonly 'I') + main verb, to give focus.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Fronted absolute temporal negation",
+      "pedagogical_hook": "Inverting subject and verb after sentence-initial never",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|(?<=[.!?]\\s))never\\s+(?:have|had|has|did|do|does|will|would|could|can|should|shall)\\s+(?:I|you|he|she|it|we|they|[A-Z][a-z]+)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "never",
+          "IS_SENT_START": true
+        },
+        {
+          "POS": {
+            "IN": [
+              "AUX",
+              "VERB"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Never have I seen such a realistic and impressive film before.",
+        "Never had I thought that my parents would do this to me."
+      ],
+      "negatives": [
+        "I have never seen such a beautiful day.",
+        "Never give up on your dreams."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716073x696199339681962600",
+    "level": "C2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT A' + NOUN, EMPHASIS",
+    "can_do_statement": "Can use 'not a' + noun, often with a following  passive structure, for emphasis.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Absolute zero quantification",
+      "pedagogical_hook": "Emphasizing absence with not a",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|(?<=[.!?]\\s))not\\s+a\\s+(?:single\\s+|long\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not",
+          "IS_SENT_START": true
+        },
+        {
+          "LOWER": "a"
+        },
+        {
+          "POS": "ADJ",
+          "OP": "?"
+        },
+        {
+          "POS": "NOUN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Not a single noise could be heard from inside.",
+        "Not a single member of the group would have imagined that."
+      ],
+      "negatives": [
+        "It is not a good idea.",
+        "This is not a toy."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716291x581144268274536400",
+    "level": "C2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'DON'T YOU \u2026', WARNING",
+    "can_do_statement": "Can use a negative imperative form with 'you' to give a warning or reprimand.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Prohibitive reprimand",
+      "pedagogical_hook": "Using Don't you for strong warnings",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|(?<=[.!?]\\s))don't\\s+you\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "do",
+          "IS_SENT_START": true
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "LOWER": "you"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Don't you ever do that again!",
+        "Don't you dare forget me!"
+      ],
+      "negatives": [
+        "Why don't you come with us?",
+        "If you don't, you will regret it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716292x111486420070027630",
+    "level": "C2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NEITHER'",
+    "can_do_statement": "Can use 'Neither' or 'Nor' + with 'do' or 'be' + inverted subject to add to a previous related negative clause.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Additive negation with inversion",
+      "pedagogical_hook": "Adding negative points with neither or nor and inversion",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|(?<=[.!?]\\s))(?:neither|nor)\\s+(?:is|are|was|were|do|does|did)\\s+(?:it|I|we|they|he|she|you|the|a|an)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "neither",
+              "nor"
+            ]
+          },
+          "IS_SENT_START": true
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "is",
+              "are",
+              "was",
+              "were",
+              "do",
+              "does",
+              "did"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "DET"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Nor is it possible to watch television peacefully.",
+        "Neither did I oppose her need to get new clothes."
+      ],
+      "negatives": [
+        "Neither option is viable right now.",
+        "I want neither of those choices."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716292x392889013913381400",
+    "level": "C2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'IN THE LEAST', EMPHASIS",
+    "can_do_statement": "Can use 'in the least' after a negative form for emphasis. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Minimization to absolute zero",
+      "pedagogical_hook": "Emphasizing negation with in the least",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:not|n't|nothing|none|no)\\b.*?\\bin\\s+the\\s+least\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "nothing",
+              "none",
+              "no"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "LOWER": {
+            "NOT_IN": [
+              ".",
+              "?",
+              "!"
+            ]
+          }
+        },
+        {
+          "LOWER": "in"
+        },
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "least"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She has lost her brother but that does not discourage her in the least.",
+        "The director is not in the least interested."
+      ],
+      "negatives": [
+        "He is the least interesting person I know.",
+        "At the very least, we should try."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711539x318006443369482940",
+    "level": "A1",
+    "super_category": "NOUNS",
+    "sub_category": "noun phrases",
+    "lexical_range": "N/A",
+    "guideword": "FORM: ADJECTIVE + PLURAL NOUN",
+    "can_do_statement": "Can form simple noun phrases by pre-modifying plural nouns with an adjective and no determiner.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Unbounded plural property attribution",
+      "pedagogical_hook": "Using adjective plus plural noun without a/the",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!\\ba\\s)(?<!\\ban\\s)(?<!\\bthe\\s)(?<!\\bthis\\s)(?<!\\bthat\\s)(?<!\\bthese\\s)(?<!\\bthose\\s)(?<!\\bmy\\s)(?<!\\byour\\s)(?<!\\bhis\\s)(?<!\\bher\\s)(?<!\\bits\\s)(?<!\\bour\\s)(?<!\\btheir\\s)(?<!\\bsome\\s)(?<!\\bany\\s)(?<!\\bno\\s)(?<!\\bare\\s)(?<!\\b're\\s)\\b[a-z]{3,}\\s+[a-z]+s\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "NOT_IN": [
+              "DET",
+              "PRON"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "are",
+              "were"
+            ]
+          }
+        },
+        {
+          "POS": "ADJ"
+        },
+        {
+          "POS": "NOUN",
+          "TAG": "NNS"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I have new neighbours.",
+        "I like reading interesting books in the Library."
+      ],
+      "negatives": [
+        "I have some new neighbours.",
+        "The nice people waved at us."
+      ]
+    }
+  }
+]

@@ -1,0 +1,703 @@
+[
+ {
+  "egp_id": "1741163710843x167923658280904700",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST, NEGATIVE",
+  "can_do_statement": "Can use 'might not have' + '-ed'. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Possibility with a past reference in negative form",
+   "pedagogical_hook": "Past hypothetical negative",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmight(?:\\s+[a-z]+ly)?\\s+not(?:\\s+[a-z]+ly)?\\s+have(?:\\s+[a-z]+ly)?\\s+[a-z]+(?:ed|en|t|n|d)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": "not"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She might not have realised the time.",
+    "They might not have seen it."
+   ],
+   "negatives": [
+    "She might not have time to go.",
+    "They might have seen it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710843x267892712489931740",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: POSSIBILITY IN THE PAST",
+  "can_do_statement": "Can use 'might not have' + '-ed' to talk about possibility with a past reference.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing that something possibly didn't happen",
+   "pedagogical_hook": "Past possibility",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmight(?:\\s+[a-z]+ly)?\\s+not(?:\\s+[a-z]+ly)?\\s+have(?:\\s+[a-z]+ly)?\\s+[a-z]+(?:ed|en|t|n|d)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": "not"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It might not have been a good idea.",
+    "He might not have finished yet."
+   ],
+   "negatives": [
+    "He might not have enough money.",
+    "It might have been lost."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710843x377860994738539200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: FOCUS",
+  "can_do_statement": "Can use 'might' in phrases, such as 'as you might know', 'have already heard', to focus the reader on shared knowledge.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Focusing reader on shared knowledge",
+   "pedagogical_hook": "Shared knowledge focus",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bas\\s+(?:you|we)\\s+might(?:\\s+[a-z]+ly)?\\s+(?:have(?:\\s+[a-z]+ly)?\\s+)?(?:know|hear|guess|see|notice|expect)[a-z]*\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "as"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "we"
+      ]
+     }
+    },
+    {
+     "LOWER": "might"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": "have",
+     "OP": "?"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "know",
+       "hear",
+       "guess",
+       "see",
+       "notice",
+       "expect"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "As you might know, we are moving.",
+    "As you might have heard, she resigned."
+   ],
+   "negatives": [
+    "You might know the answer to this.",
+    "They might have heard the news by now."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710843x613591932833607400",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS ",
+  "can_do_statement": "Can use the question form.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Asking about possibility using might",
+   "pedagogical_hook": "Possibility questions",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmight\\s+(?:it|they|we|she|he|I|you)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "POS": "PRON"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Might it be a good idea?",
+    "Might they have left?"
+   ],
+   "negatives": [
+    "It might be a good idea.",
+    "They might have left."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710844x346277767826757440",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITE CRITICISM",
+  "can_do_statement": "Can use the question form to make polite criticisms and suggestions.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Polite suggestion using might questions",
+   "pedagogical_hook": "Polite suggestions",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmight\\s+(?:I\\s+(?:suggest|ask|add|say)|it\\s+(?:not\\s+)?be\\s+(?:wise|better|good|helpful))\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "i",
+       "it"
+      ]
+     }
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "suggest",
+       "ask",
+       "add",
+       "say",
+       "be"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Might I suggest an alternative?",
+    "Might it not be wise to wait?"
+   ],
+   "negatives": [
+    "It might be wise to wait.",
+    "I might suggest an alternative later."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710844x406795981475466500",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: CONSOLING OR JUSTIFYING",
+  "can_do_statement": "Can use 'might' followed by 'but' to console or justify. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Conceding a point before making a contrast",
+   "pedagogical_hook": "Concession and contrast",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmight\\s+(?:not\\s+)?(?:have\\s+)?[a-z]+[^.]*?\\bbut\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": "but"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It might be hard, but it's worth it.",
+    "You might not agree, but I have to do this."
+   ],
+   "negatives": [
+    "It might be hard.",
+    "But you might not agree."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710844x664690208940296400",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: EMPHASIS",
+  "can_do_statement": "Can use 'try as I might' for emphasis at the beginning of a sentence.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Emphasizing futile effort",
+   "pedagogical_hook": "Emphasis of effort",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)^try\\s+as\\s+I\\s+might\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "try",
+     "IS_SENT_START": true
+    },
+    {
+     "LOWER": "as"
+    },
+    {
+     "LOWER": "i"
+    },
+    {
+     "LOWER": "might"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Try as I might, I couldn't open the jar.",
+    "Try as I might, I just don't understand it."
+   ],
+   "negatives": [
+    "I will try as I might to help.",
+    "He can try, as I might also do."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710844x795406964176839600",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MIGHT AS WELL'",
+  "can_do_statement": "Can use 'might as well', mostly to talk about or suggest what we think is the easiest or most logical course of action, often when we cannot see a better alternative. \u25ba 'may'",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Suggesting the logical course of action",
+   "pedagogical_hook": "Logical suggestions",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmight\\s+as\\s+well\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "LOWER": "as"
+    },
+    {
+     "LOWER": "well"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We might as well go home.",
+    "You might as well ask him."
+   ],
+   "negatives": [
+    "He might as a consequence be late.",
+    "He might go as well."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710844x267345296139498430",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE ",
+  "can_do_statement": "Can use the negative forms.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Prohibition using must not",
+   "pedagogical_hook": "Prohibition",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust\\s+not\\b|\\bmustn't\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You mustn't forget to call.",
+    "They must not leave the area."
+   ],
+   "negatives": [
+    "You must go there.",
+    "I must find it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710844x422781473749080900",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE ",
+  "can_do_statement": "Can use the affirmative form. ",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Obligation using must",
+   "pedagogical_hook": "Obligation",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust\\s+(?!not\\b|n't\\b)[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "not",
+       "n't"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You must wear a helmet.",
+    "I must go now."
+   ],
+   "negatives": [
+    "You mustn't do that.",
+    "They must not touch it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710845x102393047191083890",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: INVITATIONS",
+  "can_do_statement": "Can use 'must' to make invitations.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Strong invitation using must",
+   "pedagogical_hook": "Strong invitations",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\byou\\s+must\\s+(?:come|visit|join|see|try|bring)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "you"
+    },
+    {
+     "LOWER": "must"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "come",
+       "visit",
+       "join",
+       "see",
+       "try",
+       "bring"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You must come and stay with us.",
+    "You must try this cake!"
+   ],
+   "negatives": [
+    "He must come to work on time.",
+    "I must try harder."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710845x174924654487421900",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'must' with a limited range of adverbs (most commonly 'also') in the normal mid position after the modal verb. \u25ba adverbs",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Using adverbs like also or always with must",
+   "pedagogical_hook": "Adverbs with must",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust\\s+(?:also|always|never|definitely|certainly|really|just)\\s+[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "also",
+       "always",
+       "never",
+       "definitely",
+       "certainly",
+       "really",
+       "just"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You must also bring your book.",
+    "He must always be early."
+   ],
+   "negatives": [
+    "You must bring your book also.",
+    "Always you must be early."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710845x290739607145165100",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "1",
+  "guideword": "USE: OBLIGATION AND NECESSITY",
+  "can_do_statement": "Can use 'must' with a limited range of pronouns ('I' and 'you') to talk about obligation and necessity.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Personal obligation using I/you must",
+   "pedagogical_hook": "Personal obligation",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:I|you)\\s+must\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "i",
+       "you"
+      ]
+     }
+    },
+    {
+     "LOWER": "must"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I must finish this today.",
+    "You must take your keys."
+   ],
+   "negatives": [
+    "He must finish it.",
+    "They must take their keys."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710845x693643145529084200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS",
+  "can_do_statement": "Can use ellipted 'must' without a subject. \u25ba ellipsis",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Casual obligation dropping the subject",
+   "pedagogical_hook": "Subject ellipsis",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)^must\\s+[a-z]+|(?<=[.!?]\\s)must\\s+[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must",
+     "IS_SENT_START": true
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Must go now, bye!",
+    "Must be difficult for him."
+   ],
+   "negatives": [
+    "I must go now, bye!",
+    "It must be difficult for him."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710845x775172284240465500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS",
+  "can_do_statement": "Can use 'must' with the following verb ellipted where the previous main verb is understood.    \u25ba ellipsis",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Dropping the main verb after must",
+   "pedagogical_hook": "Verb ellipsis",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmust[.!?,;]",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "must"
+    },
+    {
+     "IS_PUNCT": true
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Because I must!",
+    "If you really must, then go."
+   ],
+   "negatives": [
+    "I must go!",
+    "You must see it."
+   ]
+  }
+ }
+]

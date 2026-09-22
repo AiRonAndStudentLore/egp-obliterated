@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_121.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163711292x266086958039415400",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "USE: NO LONGER TRUE",
+  "can_do_statement": "Can use 'used to' to talk about repeated actions or states in the past that are no longer true. ",
+  "example_raw": "When I was I child, I used to go to a small school and I enjoyed it very much. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\n\u2026and she used to come to my house and play computer games with me. (Hong Kong; B1 THRESHOLD; 2008; Chinese; Pass)\n\nI didn't use to laugh much but since the day we met, I'm always happy. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163711292x489347557953784260",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS",
+  "can_do_statement": "Can use 'used to' without a following verb where the previous main verb is understood. \u25ba ellipsis",
+  "example_raw": "She doesn't travel as much as she used to. (Argentina; B2 VANTAGE; 1999; Spanish - Latin American; Pass)\n\nI must admit that they did sound quite a lot better than they used to. (Denmark; B2 VANTAGE; 1999; Danish; Pass)"
+ },
+ {
+  "egp_id": "1741163711292x519356607079623360",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE|",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "I used to share my room with my brother. (Albania; B1 THRESHOLD; 2007; Albanian; Pass)\n\nWhen I was a little girl, we used to be together all the time. (Hungary; B1 THRESHOLD; 2004; Hungarian; Pass)"
+ },
+ {
+  "egp_id": "1741163711292x729451836972431900",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form. ",
+  "example_raw": "[talking about a change in eating habits] What did we use to eat? (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Dutch; Pass)"
+ },
+ {
+  "egp_id": "1741163711292x936509065215580800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative forms 'didn't use to' and 'didn't used to'. ",
+  "example_raw": "We didn't use to talk to each other. (Brazil; B1 THRESHOLD; 2009; Portuguese; Pass)\n\nBut this year I've met lots of new people that I didn't used to talk to, like Monica and Nina. (Brazil; B1 THRESHOLD; 2009; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163711295x478982689806013000",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'AS' + PRONOUN, NARRATIVE ",
+  "can_do_statement": "Can use 'as' + pronoun + 'used to' \u2026 to add background to a narrative, often to highlight something unusual. ",
+  "example_raw": "She had gone out for a walk in the woods as she used to do every Sunday, with her diary in her hand and a pen in her pocket. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nHe divorced his wife, old flabby Nellie as she used to call her, and proposed to her. (Germany; C2 MASTERY; 1993; German; Pass)\n\nShe married a well-off man, and ended up being a housewife, doing piecework for peanuts, as she used to say. (Portugal; C2 MASTERY; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163711296x829671541616373600",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'USED NOT TO'",
+  "can_do_statement": "Can use negative form 'used not to'",
+  "example_raw": "I used to play until late in the evening, I used not to do my homework and I did not excel at school. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nAs a teenager I used not to be very sociable, I had few friends and none of them felt close. (Poland; C2 MASTERY; 2003; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711296x325230052368145900",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "USE: PLANS AND INTENTIONS",
+  "can_do_statement": "Can use 'will' to ask about plans and intentions. ",
+  "example_raw": "Will you come by bus? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nWill you come with any friends? (Spain; A2 WAYSTAGE; 2009; Basque; Pass)"
+ },
+ {
+  "egp_id": "1741163711296x326455472693880200",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative forms. ",
+  "example_raw": "I will be at your house at 7.30 because I have an appointment before. (A1 BREAKTHROUGH; 2006; Russian; Pass)\n\nI'll come to see you tomorrow morning. (A1 BREAKTHROUGH; 2009; Nepali; Pass)"
+ },
+ {
+  "egp_id": "1741163711296x618996248976702100",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form.",
+  "example_raw": "Will you be at home? (France; A2 WAYSTAGE; 2005; French; Pass)\n\nI'm happy because I'll see you tomorrow, but what time will you be here? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n"
+ },
+ {
+  "egp_id": "1741163711296x650279021780509000",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative forms.",
+  "example_raw": "Don't worry, you won't need anything apart from some pencils and your art book. (Italy; A2 WAYSTAGE; 2006; Italian; Pass)\n\nI hope it will not be boring! (France; A2 WAYSTAGE; 2006; French; Pass)\n"
+ },
+ {
+  "egp_id": "1741163711296x654242803475179900",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "USE: WILLINGNESS, OFFERS",
+  "can_do_statement": "Can use 'will' to talk about willingness and offers",
+  "example_raw": "My mother will get us there, and she will bring us to my house after too. (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163711296x692481066424056800",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "USE: PLANS AND INTENTIONS",
+  "can_do_statement": "Can use 'will' to talk about plans and intentions. ",
+  "example_raw": "I will bring some music to the dinner. (A1 BREAKTHROUGH; 2008; Bengali; Pass)\n\nI'll see you tomorrow. (A1 BREAKTHROUGH; 2006; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711296x854855921125381900",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'IF', FUTURE SITUATIONS",
+  "can_do_statement": "Can use 'will' in the main clause after an 'if-' clause to talk about possible future situations. \u25ba conditionals",
+  "example_raw": "If I need a camera, I will use my mobile phone. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)\n\nAnd if my mum can, she will fetch you. (Italy; A2 WAYSTAGE; 2009; Italian; Pass)\n\nIf you can help me, I will be very happy. (A2 WAYSTAGE; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711297x804281857728954100",
+  "level": "A2 ",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "1",
+  "guideword": "USE: REQUESTS",
+  "can_do_statement": "Can use 'will' to make requests in a limited range of contexts.",
+  "example_raw": "Will you come with me? (India; A2 WAYSTAGE; 2009; Telugu; Pass)\n\nWill you be able to visit some museums with me? (Spain; A2 WAYSTAGE; 2003; Spanish - European; Pass)"
+ }
+]
+```

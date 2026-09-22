@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_156.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163715299x334716733147188740",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "1",
+  "guideword": "FORM: VERB + 'TO'-INFINITIVE",
+  "can_do_statement": "Can use a limited range of verbs followed by a 'to'- infinitive. ",
+  "example_raw": "I like to go to the zoo. (A1 BREAKTHROUGH; 2011; Arabic - Other; Pass)\n\nSometimes I don't like to go out because It's very cold. (A1 BREAKTHROUGH; 2007; Tagalog; Pass)\n\nI want to invite you for dinner. (India; A1 BREAKTHROUGH; 2010; Panjabi; Pass)"
+ },
+ {
+  "egp_id": "1741163715300x285261568472368060",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'WOULD LIKE TO'",
+  "can_do_statement": "Can use 'would like to' + infinitive. ",
+  "example_raw": "I would like to meet you to give you some information about the Brannl State and the shops near her. (A1 BREAKTHROUGH; 2008; Arabic - Other; Pass)\n\nI'd like to invite you on Sunday about six o'clock in the evening. (Poland; A1 BREAKTHROUGH; 2010; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163715300x394950798002922750",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'LIKE' + 'TO'-INFINITIVE OR + '-ING'",
+  "can_do_statement": "Can use 'like' followed either by a 'to'-infinitive or an '-ing' form, with no change in meaning. ",
+  "example_raw": "I like to work with my teacher. (A1 BREAKTHROUGH; 2007; Italian; Pass)\n\nI don't like to eat at College. (A1 BREAKTHROUGH; 2007; Italian; Pass)\n\nI like reading lots of magazines. (Hungary; A1 BREAKTHROUGH; 2010; Hungarian; Pass)\n\nI don't like doing homework in college. (A1 BREAKTHROUGH; 2007; Thai; Pass)\n\nI like learning grammar. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nI like travelling by car. (A1 BREAKTHROUGH; 2011; Others; Pass)"
+ },
+ {
+  "egp_id": "1741163715300x592015717221221800",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM: VERBS + 'TO'-INFINITIVE OR + '-ING'",
+  "can_do_statement": "Can use verbs expressing preference followed either by a 'to'-infinitive or an '-ing' form, with no change in meaning.",
+  "example_raw": "I love to play football. (Thailand; A2 WAYSTAGE; 2007; Thai; Pass)\n\nI love to cook. (A2 WAYSTAGE; 2009; French; Pass)\n\nI prefer to play football but I often go to the gym. (A2 WAYSTAGE; 2009; Farsi; Pass)\n\nI hate to watch any sports. (Poland; A2 WAYSTAGE; 2007; Polish; Pass)\n\nI love cooking and also baking. (Mexico; A2 WAYSTAGE; 2004; Spanish - Latin American; Pass)\n\nI love listening to music, especially hip-hop music. (France; A2 WAYSTAGE; 2005; French; Pass)\n\nI hate wearing trousers in summer. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163715300x705868508262334800",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'ENJOY' + '-ING'",
+  "can_do_statement": "Can use 'enjoy' followed by the '-ing' form. ",
+  "example_raw": "We enjoy playing the piano and singing together. (Iran; A2 WAYSTAGE; 2010; Farsi; Pass)\n\nYou know I really enjoy listening to music. (China; A2 WAYSTAGE; 2010; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163715300x785589912221125100",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WOULD LOVE' + 'TO'",
+  "can_do_statement": "Can use 'would love to' followed by the 'to'-infinitive to give emphasis. ",
+  "example_raw": "I'd love to do the concert. (France; A2 WAYSTAGE; 2005; French; Pass)\n\nI'd love to hear it! (Cyprus; A2 WAYSTAGE; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163715300x883778606119012300",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "2",
+  "guideword": "FORM: VERB + 'TO'- INFINITIVE",
+  "can_do_statement": "Can use an increasing range of verbs followed by a 'to'-infinitive. ",
+  "example_raw": "I bought them because I hope to go to England this year and the weather isn't very good. (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nPlease remember to bring your pyjamas and your tooth brush. (Cyprus; A2 WAYSTAGE; 2009; Greek; Pass)\n\nDon't forget to come. (Iran; A2 WAYSTAGE; 2006; Farsi; Pass)"
+ },
+ {
+  "egp_id": "1741163715598x290277890004933000",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "3",
+  "guideword": "FORM: VERB + 'TO-' INFINITIVE",
+  "can_do_statement": "Can use a wide range of verbs followed by a 'to-' infinitive. ",
+  "example_raw": "\u2026 it's one of the reasons I decided to change class. (France; B1 THRESHOLD; 2002; French; Pass)\n\nI'm going to buy pictures to hang on the wall, because my room seems to be very cold and very unfriendly. (Germany; B1 THRESHOLD; 2001; German; Pass)"
+ },
+ {
+  "egp_id": "1741163715599x129252813485304160",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "1",
+  "guideword": "FORM: VERB + '-ING' FORM",
+  "can_do_statement": "Can use a limited range of verbs followed by an '-ing' form. ",
+  "example_raw": "I would like to stay there a few years to finish studying and to have my own money to start thinking of travelling. (Uruguay; B1 THRESHOLD; 2010; Spanish - Latin American; Pass)\n\nSo, would you mind telling Mr and Mrs Thomas. (China; B1 THRESHOLD; 2003; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163715599x226684987670247260",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MAKE', 'LET' + INFINITIVE WITHOUT 'TO'",
+  "can_do_statement": "Can use 'make' and 'let' + infinitive without 'to'.",
+  "example_raw": "Let me know if it is suitable for you. (Brazil; B1 THRESHOLD; 2003; Portuguese; Fail)\n\nShe makes me smile when I'm sad. (Yugoslavia; B1 THRESHOLD; 2010; Serbian; Pass)\n\nShe always makes me laugh! (Brazil; B1 THRESHOLD; 2009; Portuguese; Pass)\n\nYou are eighteen now, you can do what you want and they should let you do it. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nI think you should talk with your parents and try to make them understand how you feel and what you prefer. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nMaybe your parents are afraid of letting you go away by yourself, they still consider you their baby. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163715599x266418146780823970",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WOULD PREFER' + 'TO', POLITENESS ",
+  "can_do_statement": "Can use 'would prefer' + 'to' infinitive, often for politeness.",
+  "example_raw": "I would prefer to pay by cash. (B1 THRESHOLD; 2003; Pass)\n\nI would prefer to meet you at six o'clock instead of four, at the caf\u00e9 in my hometown. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI'd prefer to go on holiday with my friends. (Germany; B1 THRESHOLD; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163715599x472522749482310100",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'HELP' + OBJECT ",
+  "can_do_statement": "Can use 'help' + object + infinitive with or without 'to', with no change in meaning. ",
+  "example_raw": "I wanted to help him to make some friends. He's just like me. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)\n\nI hope that it will help you to keep fit. (Russia; B1 THRESHOLD; 2009; Russian; Pass)\n\nI hope my advice can help you choose where to go. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nThis house is terrible and I hope you can help me find something better. (B1 THRESHOLD; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163715599x482760253719255500",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM: VERB + NEW SUBJECT + '-ING' FORM",
+  "can_do_statement": "Can introduce a new subject before the '-ing' form (using noun or object pronoun).",
+  "example_raw": "\nIf your boss doesn't mind you delaying, it could be a possible solution. (Germany; B2 VANTAGE; 1993; German; Pass)\n\nI could not stand people shouting at me, or taking pictures of me all day. It would be horrible. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nOh just one more thing: would you mind me staying in your flat again? (Poland; B2 VANTAGE; 1999; Polish; Pass)\n\nWe imagine it being a frozen land, where the people are \u2018frozen\u2019 too - both 'inside' and 'outside'. (Mexico; B2 VANTAGE; 1997; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163715599x760677529197165200",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM: VERBS + DIRECT OBJECT + 'TO' INFINITIVE",
+  "can_do_statement": "Can use some verbs of requesting and commanding followed by a direct object and a 'to-'infinitive. ",
+  "example_raw": "I would like you to come to a picnic on Saturday. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI would like you to come to my office on 16th of May to discuss the terms of the contract. (Poland; B1 THRESHOLD; 2007; Polish; Pass)\n\nYour parents want you to go on holiday with them this summer. (Russia; B1 THRESHOLD; 2008; Russian; Pass)\n\nYou asked me to tell you about one of my friends. (Greece; B1 THRESHOLD; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163715599x773097571519741400",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_with to and -ing",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'TO'-INFINITIVE OR '-ING' FORM, MEANING",
+  "can_do_statement": "Can follow some verbs with a 'to'-infinitive or an '-ing' form, with a change in meaning.",
+  "example_raw": "He said if you need to change the time, remember to contact him to make a new appointment. (Malaysia; B2 VANTAGE; 1999; Chinese; Pass)\n\nI know it is difficult to get by with such a low salary but I am sure you have not stopped to think twice about your life. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nI remember feeling very unhappy and confused all day long. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\nAfter I had a baby, I needed to stop working. (Brazil; B2 VANTAGE; 2003; Portuguese; Pass)"
+ }
+]
+```

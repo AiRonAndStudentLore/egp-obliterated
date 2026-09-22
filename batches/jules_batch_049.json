@@ -1,0 +1,736 @@
+[
+  {
+    "egp_id": "1741163712741x374005051648893500",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "1",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form with a wide range of regular and irregular verbs.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Events explicitly marked as not having occurred in the past.",
+      "pedagogical_hook": "Using 'did not' or 'didn't' to talk about what didn't happen.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:did\\s+not|didn't)\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "did"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I didn't hesitate when they asked me.",
+        "They did not fully understand the consequences."
+      ],
+      "negatives": [
+        "I don't hesitate when I'm asked.",
+        "She doesn't fully understand it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712741x451753538727761150",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH SUBORDINATING CONJUNCTIONS",
+    "can_do_statement": "Can use the past simple with a range of subordinating conjunctions, including 'as soon as', 'before', 'if', 'once', 'since', 'so', 'until', 'when', 'while'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Connecting past events in time or condition.",
+      "pedagogical_hook": "Using conjunctions like 'before' or 'once' with past tense verbs.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:before|if|once|since|so|until|when|while|as\\s+soon\\s+as)\\s+(?:[a-z]+\\s+){0,4}[a-z]+(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood|oke)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "before",
+              "if",
+              "once",
+              "since",
+              "so",
+              "until",
+              "when",
+              "while",
+              "as"
+            ]
+          }
+        },
+        {
+          "LOWER": "soon",
+          "OP": "?"
+        },
+        {
+          "LOWER": "as",
+          "OP": "?"
+        },
+        {
+          "OP": "*",
+          "IS_ALPHA": true
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Before I came here, I was happy.",
+        "Once he got inside, he searched."
+      ],
+      "negatives": [
+        "Before I come here, I am happy.",
+        "Once he gets inside, he searches."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712741x502986363867653060",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: ORDERING OF PAST EVENTS",
+    "can_do_statement": "Can use the past simple to order sequences of events in the past, in the context of narratives.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Narrating a series of sequential events in the past.",
+      "pedagogical_hook": "Using 'and' or 'and then' to link multiple past actions.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b[a-z]+(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood)\\b.*?\\band\\s+(?:then\\s+)?[a-z]+\\b.*?\\b[a-z]+(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood)\\b",
+      "spacy_token_pattern": [
+        {
+          "TAG": "VBD"
+        },
+        {
+          "OP": "*",
+          "IS_ALPHA": true
+        },
+        {
+          "LOWER": "and"
+        },
+        {
+          "LOWER": "then",
+          "OP": "?"
+        },
+        {
+          "OP": "*",
+          "IS_ALPHA": true
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He met a lot of new friends, and then got married.",
+        "We met at 9 and decided to go."
+      ],
+      "negatives": [
+        "He meets a lot of friends and then gets married.",
+        "We meet at 9 and decide to go."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712741x640931114927365400",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: REGRET",
+    "can_do_statement": "Can use the past simple with 'wish (that)' to express regret that things are not different.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing desire for a present or future situation to be different.",
+      "pedagogical_hook": "Using 'wish' followed by the past simple.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwish\\s+(?:that\\s+)?(?:[a-z]+\\s+){0,4}(?:were|was|had|did|could|[a-z]+ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "wish"
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "OP": "*",
+          "IS_ALPHA": true
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I wish that you were here.",
+        "I wish weekends lasted five days."
+      ],
+      "negatives": [
+        "I wish you the best of luck.",
+        "They wish to speak to you."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712741x766030441271033700",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: IMAGINED SITUATIONS AFTER 'IF'",
+    "can_do_statement": "Can use the past simple after 'if' to talk about the possible result of an imagined situation in the present or future.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Hypothesizing about unreal or unlikely present/future conditions.",
+      "pedagogical_hook": "Using the past simple after 'if' to imagine alternatives.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bif\\s+(?:[a-z]+\\s+){0,4}(?:were|was|had|did|could|[a-z]+ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "OP": "*",
+          "IS_ALPHA": true
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If you wanted to do some activities, we could go.",
+        "It would be better if you spent some time here."
+      ],
+      "negatives": [
+        "If you want to do some activities, we can go.",
+        "It will be better if you spend some time."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712741x938657596941798800",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH TIME ADJUNCTS",
+    "can_do_statement": "Can use a range of time adjuncts with the past simple.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Grounding an event in a specific past time frame.",
+      "pedagogical_hook": "Using past simple alongside distinct time markers like 'yesterday' or 'last year'.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:(?:yesterday|last\\s+(?:week|month|year|night|summer)).*?\\b[a-z]+(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood)\\b|\\b[a-z]+(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood)\\b.*?(?:yesterday|last\\s+(?:week|month|year|night|summer)))",
+      "spacy_token_pattern": [
+        {
+          "TAG": "VBD"
+        },
+        {
+          "OP": "*",
+          "IS_ALPHA": true
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "yesterday",
+              "last"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I worked as a helper last summer.",
+        "It happened to me last year."
+      ],
+      "negatives": [
+        "I am working as a helper this summer.",
+        "It happens to me every year."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712741x973372936620190600",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "1",
+    "guideword": "FORM: QUESTIONS  ",
+    "can_do_statement": "Can use 'yes/no', 'wh-', tag and negative question forms with a limited range of verbs.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Requesting information about past events.",
+      "pedagogical_hook": "Using 'did' or 'didn't' to form a question.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^(?:how|what|when|where|why|who)\\s+(?:did|didn't)\\b|^(?:did|didn't)\\b|,\\s+didn't\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "did",
+              "didn't"
+            ]
+          }
+        },
+        {
+          "OP": "?",
+          "IS_ALPHA": true
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Did you receive my present?",
+        "Why didn't he call me?"
+      ],
+      "negatives": [
+        "Do you receive my present?",
+        "Why doesn't he call me?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712743x203885413206849950",
+    "level": "C1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: INVERSION WITH 'NOT ONLY \u2026 BUT ALSO'",
+    "can_do_statement": "Can use the inverted form of the past simple with auxiliary 'do', in the phrase 'not only \u2026 but also'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Adding rhetorical emphasis by fronting the negative particle.",
+      "pedagogical_hook": "Inverting subject and auxiliary after 'Not only'.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)not\\s+only\\s+(?:did|didn't)\\s+[a-z]+\\s+[a-z]+.*\\bbut\\s+also\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not"
+        },
+        {
+          "LOWER": "only"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "did",
+              "didn't"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "IS_ALPHA": true
+        },
+        {
+          "LOWER": "but"
+        },
+        {
+          "LOWER": "also"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Not only did I find them, but also others.",
+        "Not only didn't we travel, but also we stayed."
+      ],
+      "negatives": [
+        "I not only found them, but also others.",
+        "We not only travelled, but also stayed."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712743x210897861318798620",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: POLITENESS: 'I WONDERED' AND 'I WANTED'",
+    "can_do_statement": "Can use the past simple with 'I wondered' and 'I wanted' as politeness structures, when making polite requests and thanking.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Using past tense forms to create social distance and sound more polite.",
+      "pedagogical_hook": "Saying 'I wondered' or 'I wanted' to make a polite request.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bi\\s+(?:wondered|wanted)\\s+(?:if|to)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "i"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "wondered",
+              "wanted"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "if",
+              "to"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I wondered if you could introduce me.",
+        "First of all, I wanted to thank you."
+      ],
+      "negatives": [
+        "I wonder if you could introduce me.",
+        "First of all, I want to thank you."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712743x286039195636331720",
+    "level": "C1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: FOR EMPHASIS, WITH 'DID'",
+    "can_do_statement": "Can use the past simple with 'did' for emphasis.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Asserting truth or contrasting with an expectation.",
+      "pedagogical_hook": "Using 'did' before the main verb for emphasis.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:i|you|he|she|it|we|they|[a-z]+s)\\s+did\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b(?!\\?)",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "LOWER": "did"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We did reach the target figure.",
+        "It is true that it did rain during the day."
+      ],
+      "negatives": [
+        "Did we reach the target figure?",
+        "I didn't reach the target figure."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712743x298607385595879740",
+    "level": "C1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "3",
+    "guideword": "FORM: QUESTIONS ",
+    "can_do_statement": "Can use 'yes/no', 'wh-', tag and negative question forms with a wide range of verbs.  \u25ba Questions",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Requesting information about past events with a wide range of verbs.",
+      "pedagogical_hook": "Forming questions confidently with 'did' or 'didn't'.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^(?:how|what|when|where|why|who)\\s+(?:did|didn't)\\b|^(?:did|didn't)\\b|,\\s+didn't\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "did",
+              "didn't"
+            ]
+          }
+        },
+        {
+          "OP": "?",
+          "IS_ALPHA": true
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Did you spot the fact?",
+        "How did it turn out then?"
+      ],
+      "negatives": [
+        "Do you spot the fact?",
+        "How does it turn out then?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712743x467903740487451800",
+    "level": "C1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: COMPLEX ORDERING OF PAST EVENTS",
+    "can_do_statement": "Can use the past simple to order sequences of events in the past in a complex way.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Sophisticated sequencing of past actions.",
+      "pedagogical_hook": "Using forms like 'following' or 'after having' to order events.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:following|after|having)\\s+(?:[a-z]+\\s+){1,6},\\s+(?:[a-z]+\\s+){0,3}(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "following",
+              "after"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "IS_ALPHA": true
+        },
+        {
+          "IS_PUNCT": true
+        },
+        {
+          "OP": "?",
+          "IS_ALPHA": true
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Following advice from a friend, I purchased the product.",
+        "After having discussed this, we came up with decisions."
+      ],
+      "negatives": [
+        "I purchased the product.",
+        "We came up with decisions."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712743x809106963202299400",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: POLITENESS AFTER 'IF'",
+    "can_do_statement": "Can use the past simple after 'if' as a politeness structure, especially in letters and emails.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Mitigating requests by framing them as hypothetical scenarios.",
+      "pedagogical_hook": "Using the past simple after 'if' in formal contexts like letters.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:would|could)\\s+(?:[a-z]+\\s+)?(?:be|help|appreciate)\\b.*\\bif\\s+(?:[a-z]+\\s+){0,4}(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood|ave)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "would",
+              "could"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "IS_ALPHA": true
+        },
+        {
+          "LOWER": "if"
+        },
+        {
+          "OP": "*",
+          "IS_ALPHA": true
+        },
+        {
+          "TAG": "VBD"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think it would be very helpful if I told you my own case.",
+        "I would be grateful if you gave me this job."
+      ],
+      "negatives": [
+        "I think it will be very helpful if I tell you.",
+        "I will be grateful if you give me this job."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712744x852310054287561700",
+    "level": "C1",
+    "super_category": "PAST",
+    "sub_category": "past simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: POLITENESS: 'I THOUGHT'",
+    "can_do_statement": "Can use the past simple 'I thought' as a politeness structure to sound less direct.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Using the past tense of think to soften statements.",
+      "pedagogical_hook": "Using 'I thought' to make a suggestion sound less direct.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bi\\s+thought\\s+(?:it\\s+would|you\\s+might)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "i"
+        },
+        {
+          "LOWER": "thought"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "it",
+              "you"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "would",
+              "might"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I thought it would be a good idea.",
+        "I thought you might be interested."
+      ],
+      "negatives": [
+        "I think it would be a good idea.",
+        "I think you might be interested."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712744x140719828534094260",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect continuous",
+    "lexical_range": "1",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use the question form with a limited range of verbs. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Inquiring about ongoing actions up to the present.",
+      "pedagogical_hook": "Using 'have/has' + 'been' + verb-ing in a question.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^(?:how|what|when|where|why|who)\\s+)?(?:have|has)\\s+(?:[a-z]+\\s+)?been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has"
+            ]
+          }
+        },
+        {
+          "OP": "?",
+          "IS_ALPHA": true
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Have you been thinking about it a lot?",
+        "What have you been doing?"
+      ],
+      "negatives": [
+        "Are you thinking about it a lot?",
+        "What were you doing?"
+      ]
+    }
+  }
+]

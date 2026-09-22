@@ -1,0 +1,761 @@
+[
+  {
+    "egp_id": "1741163708784x576043020818136800",
+    "level": "C1",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "coordinating",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT ALSO' WITH INVERSION",
+    "can_do_statement": "Can use inverted auxiliary 'do' + the subject after 'not only', to give focus.",
+    "example_raw": "Indeed, not only did they teach us useful knowledge, but they also organised practical exercises to ensure that we had assimilated all the information. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Greek; Pass)\n\nFurthermore, not only do I speak (and write) in fluent English, but I also speak French, Spanish and Portuguese. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2004; Mende; Pass)\n\nFor me, not only do extreme sports provide satisfaction of achievement, but they also help you to express yourself. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "focus & emphasis",
+      "pedagogical_hook": "inversion for emphasis",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|[,;]\\s*(?:[a-z]+ly\\s*,?\\s*)?|and\\s+)not\\s+only\\s+(?:do|does|did)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not"
+        },
+        {
+          "LOWER": "only"
+        },
+        {
+          "LEMMA": "do",
+          "DEP": "aux"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Indeed, not only did they teach us useful knowledge, but they also organised practical exercises.",
+        "Not only do I speak fluent English, but I also speak French."
+      ],
+      "negatives": [
+        "He did not only do his homework, but he also washed the dishes.",
+        "Not only are they nice, they are also smart."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708784x613382438137329400",
+    "level": "C1",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "coordinating",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'YET', CONCESSIVE",
+    "can_do_statement": "Can use '(and) yet' to combine phrases and clauses to introduce a contrast, often unexpected. ",
+    "example_raw": "In the face of these recent events, our department also reviewed the contract with ProLine International, and found some interesting yet unpleasant details. (Romania; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Romanian; Fail)\n\nThis college is famous for its art teachers and very skilled students, and yet it does not have its own gallery. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Polish; Pass)\n\nThe host family was carefully selected, yet it was four miles away from school. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "concession",
+      "pedagogical_hook": "unexpected contrast",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:,\\s*|\\band\\s+)yet\\b(?!\\s*again)(?=\\s+[a-z]+)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              ",",
+              "and"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "yet",
+          "DEP": {
+            "IN": [
+              "cc",
+              "advmod"
+            ]
+          }
+        },
+        {
+          "IS_ALPHA": true,
+          "DEP": {
+            "NOT_IN": [
+              "advmod"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The host family was carefully selected, yet it was four miles away.",
+        "I saw it, and yet it felt weird."
+      ],
+      "negatives": [
+        "I haven't done it yet.",
+        "Are we there yet?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708784x977839839085230600",
+    "level": "C2",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "coordinating",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'AND YET', CONCESSIVE",
+    "can_do_statement": "Can use 'And yet' to combine sentences to introduce a contrast, often unexpected, sometimes in a formal context. ",
+    "example_raw": "If I had, I would try to do the best for them, just like my parents did, and very likely I would make the same mistakes. And yet, I think I would be a good and loving father. (Germany; C2 MASTERY; 1993; German; Pass)\n\nI felt very embarrassed and I was sure I would get the sack. And yet the manager forgave me and I continued to work there. (Poland; B2 VANTAGE; 1993; Polish; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "concession",
+      "pedagogical_hook": "sentence-initial unexpected contrast",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|[.,;]\\s*)and\\s+yet\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "and"
+        },
+        {
+          "LOWER": "yet"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It was raining. And yet, we went out.",
+        "And yet the manager forgave me."
+      ],
+      "negatives": [
+        "I haven't gone out and played yet.",
+        "The host family was carefully selected, yet it was four miles away."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708784x986774694963059200",
+    "level": "C1",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "coordinating",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT ALSO'",
+    "can_do_statement": "Can use 'not only \u2026 but also' to combine phrases and clauses, often for focus or emphasis.",
+    "example_raw": "This book is not only a guide to the history of music but also a compendium of theory. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Catalan; Pass)\n\nIn addition to that, if we move to the new premises, we can not only solve the above problems, but also gain other benefits such as a better environment. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Chinese; Fail)\n\nIf we go back in time we will see that the difference between the old and the modern films is not only the number produced but also the content. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Greek; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "addition",
+      "pedagogical_hook": "combining clauses",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!^)(?<!,\\s)not\\s+only\\b(?!\\s+(?:do|does|did)\\b).+?\\bbut\\s+(?:[a-z]+\\s+)?also\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": false,
+          "LOWER": "not"
+        },
+        {
+          "LOWER": "only"
+        },
+        {
+          "LEMMA": {
+            "NOT_IN": [
+              "do",
+              "does",
+              "did"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This book is not only a guide to the history of music but also a compendium of theory.",
+        "If we move we can not only solve the problems, but also gain other benefits."
+      ],
+      "negatives": [
+        "Not only do I speak fluent English, but I also speak French.",
+        "Not only did they run, but they also hid."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708785x514563206586401860",
+    "level": "A1",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "subordinating",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'BECAUSE' ",
+    "can_do_statement": "Can use 'because' as a subordinating conjunction to introduce a subordinate clause. ",
+    "example_raw": "I want a big garden because I have children. (Arabic - Other)\n\nShe likes meeting other people because she wants to improve her English. (Nepali)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "cause",
+      "pedagogical_hook": "reason clause",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bbecause\\b(?!\\s+of\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "because"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "of"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I want a big garden because I have children.",
+        "She likes meeting other people because she wants to improve her English."
+      ],
+      "negatives": [
+        "Because of the rain, we stayed inside.",
+        "I did it just because of you."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708788x305019632595426400",
+    "level": "B1",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "subordinating",
+    "lexical_range": "2",
+    "guideword": "FORM: SIMPLE",
+    "can_do_statement": "Can use an increasing range of simple subordinating conjunctions ('as, after, before since, until, although, whether, so (that), though') to introduce a subordinate clause.",
+    "example_raw": "In fact, I have to buy a desk, as I don't have one. (French)\n\nI usually read during the afternoon after I have finished my homework. (Italian) \n\nBefore going out in the centre, we went to a pub in order to eat something together, but I didn't see my boyfriend because he stayed at home. (Italian)\n\nI haven't seen him since we were at school. (Portuguese)\n\nI'm really sorry that I'm not available to attend this since I'll be in China for an important meeting with a customer. (Chinese)\n\nBut I didn't remember my ring until I got back home. (Korean)\n\nAlthough the holiday was fantastic, I wished that you were with us. (Afrikaans)\n\nMy parents also want me to go on holiday with them this summer, although I want to stay with my friends. (German)\n\nThere were lots of people waiting for us though we had never met them before. (French)\n\nYou gave it to me so that I could fix it! (Bengal)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "subordination",
+      "pedagogical_hook": "simple subordinating conjunctions",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:after|before|since|until|although|whether|though)\\b\\s+(?:I|you|he|she|it|we|they|the|a|an)\\b|\\bso\\s+that\\b|\\bas\\b\\s+(?:I|you|he|she|it|we|they|the|a|an)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "as",
+              "after",
+              "before",
+              "since",
+              "until",
+              "although",
+              "whether",
+              "so",
+              "though"
+            ]
+          },
+          "DEP": "mark"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I haven't seen him since we were at school.",
+        "But I didn't remember my ring until I got back home."
+      ],
+      "negatives": [
+        "I have been here since.",
+        "He did it as well."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708788x412817088848612500",
+    "level": "B2",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "subordinating",
+    "lexical_range": "N/A",
+    "guideword": "FORM: COMPLEX",
+    "can_do_statement": "Can use more complex subordinating conjunctions ('as long as, as soon as, in order that, despite the fact that, due to the fact that, as if, as though') to introduce a subordinate clause. ",
+    "example_raw": "As far as I am concerned, keeping animals in zoos is not cruel as long as the zoos keep to certain rules concerning the conditions the animals have to be kept in. (Dutch)\n\nI decided to go to Paris as soon as I finished university. (Spanish - Latin American)\n\nThe jazz, rock and classical concerts were really entertaining except that there were some concert halls which were too small for the audience. (Korean) \n\nSo take a rest in your hotel, in order that you can be prepared for your packed schedule. (Greek)\n\nTo sum up, the festival was successful, so I hope most people enjoyed the festival despite the fact that there were some problems with the poor sound system, and so on. (Korean)\n\nDue to the fact that the mass of cars pollute the cities and the environment, we are forced to give up our city habits and learn to be more sensible by using public transportation. (German)\n\nFrom the window of my room I could see her every night, as if she was the great mother of the sky. (Portuguese)\n\nEverything was so familiar, so close, as though he had never left the place. (Russia; B2 VANTAGE; 1997; Russian; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "subordination",
+      "pedagogical_hook": "complex subordinating conjunctions",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:as\\s+long\\s+as|as\\s+soon\\s+as|in\\s+order\\s+that|despite\\s+the\\s+fact\\s+that|due\\s+to\\s+the\\s+fact\\s+that|as\\s+if|as\\s+though)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "as",
+              "in",
+              "despite",
+              "due"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "long",
+              "soon",
+              "order",
+              "the",
+              "to",
+              "if",
+              "though"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "as",
+              "that",
+              "fact",
+              "the"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "that",
+              "fact"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          },
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I decided to go to Paris as soon as I finished university.",
+        "Everything was so familiar, as though he had never left the place."
+      ],
+      "negatives": [
+        "I have as many as you.",
+        "It is due to the weather."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708788x610612165275527200",
+    "level": "B2",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "subordinating",
+    "lexical_range": "3",
+    "guideword": "FORM: SIMPLE",
+    "can_do_statement": "Can use a wide range of simple subordinating conjunctions ('once, whereas, unless, except (that) provided (that)'), to introduce a subordinate clause.",
+    "example_raw": "Believe me, once you have tried it, you'll never give it up. (Spanish - Latin American)\n\nOnce you become an employee, you'll get discounts on books and CDs. (French)\n\nSome of us find it very useful whereas others still have difficulty in accepting technology as a valuable thing for everyone. (Polish)\n\nGetting to work by car is comfortable, and faster unless you are caught in a traffic jam. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nUnless the situation improves, we will be forced to try a new supplier. (Romanian)\n\nWhenever I walk down the street, I always want to go into every shop. (Korean)\n\nI can't say that I\u2019ve changed much, except that now I'm blond! (Brazil; B2 VANTAGE; 2003; Portuguese; Pass)\n\nIt offers special services for students provided you show your student card. (Japanese)\n\nAlso, provided that some customers are always in the shops, the electricity is not really \"wasted\". (Japanese)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "subordination",
+      "pedagogical_hook": "conditional and concessive subordinators",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:once|whereas|unless|except\\s+that|provided(?:\\s+that)?)\\b(?=\\s+[a-z]+)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "once",
+              "whereas",
+              "unless",
+              "except",
+              "provided"
+            ]
+          }
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "LOWER": "now",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN"
+            ]
+          },
+          "DEP": "nsubj"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Once you become an employee, you'll get discounts.",
+        "I can't say that I've changed much, except that now I'm blond!"
+      ],
+      "negatives": [
+        "I did it once.",
+        "Everyone came except John."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708788x790869024789763000",
+    "level": "A2",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "subordinating",
+    "lexical_range": "1",
+    "guideword": "FORM: SIMPLE ",
+    "can_do_statement": "Can use a limited range of simple subordinating conjunctions '(if, when, so, while)' to introduce a subordinate clause.",
+    "example_raw": "But if you don't take your car, you can rent a bike in the park too. (French)\n\nIf I need a camera, I will use my mobile phone. (Turkish)\n\nMy father bought it for me when he saw my grades at school. (Greek)\n\nWhen you buy a pair of shoes, the second pair is free. (Turkish)\n\nMy father said that I should use green, but I don't like green, so I decided to use blue. (Portuguese)\n\nAll of us were dancing while my father sang my favourite song. (Arabic - Meghreb)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "subordination",
+      "pedagogical_hook": "basic subordinators",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:if|when|while)\\b\\s+(?:I|you|he|she|it|we|they|the|a|an)\\b|\\bso\\b\\s+(?:I|you|he|she|it|we|they|the|a|an)\\b(?!\\s+(?:am|are|is|was|were|do|does|did|have|has|had)\\s+)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "if",
+              "when",
+              "while",
+              "so"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "DET"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If I need a camera, I will use my mobile phone.",
+        "My father said that I should use green, but I don't like green, so I decided to use blue."
+      ],
+      "negatives": [
+        "I am so happy.",
+        "I'll do it if and when."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708789x414676979110102140",
+    "level": "C1",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "subordinating",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: FOCUS",
+    "can_do_statement": "Can use 'whatever', 'wherever', 'however', etc. as a subordinating conjunction, at the beginning of a sentence, to give focus.",
+    "example_raw": "Whatever you choose, you'll probably have to share it with other people. (Swedish)\n\nWhatever the cause of the fall in the standard of your services is, we would strongly recommend that you take all the necessary measures to make sure that this won't happen again. (Romania; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Romanian; Fail)\n\nWherever you go, you find shops, hotels and pubs which are full of tourists. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)\n\nWhoever we appoint, he/she should be a well-qualified, educated and flexible person. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Polish; Fail)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "focus",
+      "pedagogical_hook": "focus subordinators",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:[a-z]+\\s*,\\s*)?(?:whatever|wherever|however|whoever|whichever)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": {
+            "IN": [
+              "whatever",
+              "wherever",
+              "however",
+              "whoever",
+              "whichever"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Whatever you choose, you'll probably have to share it with other people.",
+        "Wherever you go, you find shops."
+      ],
+      "negatives": [
+        "I'll do whatever it takes.",
+        "I'll go wherever you go."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708789x914655436588860800",
+    "level": "C2",
+    "super_category": "CONJUNCTIONS",
+    "sub_category": "subordinating",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'IN THAT'",
+    "can_do_statement": "Can use 'in that' as a subordinating conjunction, to give greater in-depth explanation, often in formal contexts. ",
+    "example_raw": "Nowadays it is widely argued that professional sports are damaging to people's health in that they involve gruelling training sessions as an integral part of the occupation. (Russian)\n\nIt's often said that nowadays people must be proud of medical advances, in that life is getting considerably longer. (Spain; C2 MASTERY; 1993; Catalan; Fail)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "explanation",
+      "pedagogical_hook": "in that for explanation",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bin\\s+that\\b\\s+(?:they|it|he|she|I|you|we|life|people|the|a|an)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "in"
+        },
+        {
+          "LOWER": "that"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN"
+            ]
+          },
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "pobj"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Nowadays it is widely argued that professional sports are damaging to people's health in that they involve gruelling training sessions.",
+        "It's often said that nowadays people must be proud of medical advances, in that life is getting considerably longer."
+      ],
+      "negatives": [
+        "I'll be in that room.",
+        "She lives in that house."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708789x105964971324936210",
+    "level": "A1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH NOUNS ",
+    "can_do_statement": "Can use articles 'the', 'a' and 'an' before nouns. \u25ba noun phrases",
+    "example_raw": "She lives in a small flat in the town - it's great! (A1 BREAKTHROUGH; 2006; German; Pass)\n\nI have an appointment with my G.P. at 5.45 pm. (A1 BREAKTHROUGH; 2006; Turkish; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "definiteness",
+      "pedagogical_hook": "articles with nouns",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:the|a|an)\\b\\s+(?!very\\b|beautiful\\b|good\\b|nice\\b|quick\\b|big\\b|small\\b|interesting\\b|old\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "the",
+              "a",
+              "an"
+            ]
+          },
+          "DEP": "det"
+        },
+        {
+          "POS": "NOUN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She lives in a flat.",
+        "I have an appointment."
+      ],
+      "negatives": [
+        "It is a very good place.",
+        "It is an old house."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708789x174288205596050180",
+    "level": "A1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'A' + 'VERY' + ADJECTIVES",
+    "can_do_statement": "Can use 'a' + 'very' + adjectives in basic noun phrases. \u25ba adverbs \u25ba  noun phrases",
+    "example_raw": "He's a very good man. (A1 BREAKTHROUGH; 2006; Mandarin; Pass)\n\nIt is a very beautiful place. (A1 BREAKTHROUGH; 2007; Russian; Pass)\n\nIt's a very nice town. (A1 BREAKTHROUGH; 2007; Slovak; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "intensification",
+      "pedagogical_hook": "a very + adjective",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\ba\\s+very\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "a"
+        },
+        {
+          "LOWER": "very"
+        },
+        {
+          "POS": {
+            "IN": [
+              "ADJ",
+              "NOUN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He's a very good man.",
+        "It is a very beautiful place."
+      ],
+      "negatives": [
+        "I am very happy.",
+        "She has a very."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708789x344483096716751800",
+    "level": "A1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "lexical_range": "1",
+    "guideword": "FORM: 'A' + ADJECTIVES",
+    "can_do_statement": "Can use 'a' and 'an' before adjectives in a noun phrase. \u25ba adjectives \u25ba  noun phrases",
+    "example_raw": "You can make a quick snack, for example a sandwich. (A1 BREAKTHROUGH; 2006; German; Pass)\n\nWe have a big garden and a small swimming pool. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)\n\nI like it because it is an interesting place. (A1 BREAKTHROUGH; 2007; Romanian; Fail)\n\nIt's an old house, about 50 years old. (A1 BREAKTHROUGH; 2007; Arabic - Other; Fail)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "modification",
+      "pedagogical_hook": "article + adjective",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:a|an)\\b\\s+(?!very\\b)[a-z]+\\s+[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "a",
+              "an"
+            ]
+          }
+        },
+        {
+          "DEP": "amod"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You can make a quick snack.",
+        "It is an interesting place."
+      ],
+      "negatives": [
+        "He's a very good man.",
+        "I have an appointment."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708789x819248395543273500",
+    "level": "A1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "lexical_range": "1",
+    "guideword": "FORM: PREPOSITION + 'THE' + NOUN",
+    "can_do_statement": "Can use 'the' in prepositional phrases relating to time.",
+    "example_raw": "I work at the weekend and I'm very busy from Monday to Friday. (A1 BREAKTHROUGH; 2008; Polish; Pass)\n\nI can come to see you on Friday in the morning. (A1 BREAKTHROUGH; 2009; Thai; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "time",
+      "pedagogical_hook": "preposition + the + noun of time",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:at|in|on)\\b\\s+the\\b\\s+(?:weekend|morning|afternoon|evening|night)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "at",
+              "in",
+              "on"
+            ]
+          }
+        },
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "weekend",
+              "morning",
+              "afternoon",
+              "evening",
+              "night"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I work at the weekend and I'm very busy.",
+        "I can come to see you on Friday in the morning."
+      ],
+      "negatives": [
+        "I live in the city.",
+        "I saw it on the table."
+      ]
+    }
+  }
+]

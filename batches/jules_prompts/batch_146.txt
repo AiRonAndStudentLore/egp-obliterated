@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_146.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163713638x152872542688260900",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'OURS' AS OBJECT",
+  "can_do_statement": "Can use the possessive pronoun 'ours' with singular and plural reference, in object positions, and complement positions after 'be' and after prepositions.",
+  "example_raw": "Can we rent windsurf boards or should we bring ours with us? (First Certificate in English; B2; Turkish)\n\n[talking about characters in a book] \u2026 when we read about them we think that we are the characters and we live their stories as if they were ours. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nAldous Huxley was able to create a new world which is not so different from ours. (First Certificate in English; B2; Spanish \u2013European)\n\n This road shouldn't be allowed in the middle of a small town like ours. (First Certificate in English; B2; Polish)"
+ },
+ {
+  "egp_id": "1741163713638x185275902393746900",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPARATIVE CLAUSES WITH 'OURS', 'HERS'",
+  "can_do_statement": "Can use the possessive pronouns 'hers' and 'ours' in comparative clauses.",
+  "example_raw": "I told my mother that your Spanish omelette is better than hers. (First Certificate in English; B2; Spanish \u2013 European) \n\nLots of changes which may occur during the next fifty years can make us fear that our sons' and grandsons' lives will not be as happy as ours. (Switzerland; B2 VANTAGE; 2002; French; Pass)"
+ },
+ {
+  "egp_id": "1741163713638x218168046477418500",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: +  'OF OURS'",
+  "can_do_statement": "Can use the possessive pronoun 'ours' after noun + 'of'.",
+  "example_raw": "Finally we went to Venice where we met some friends of ours and spent with them the rest of the holiday. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nThe credit crunch is heavily affecting this region, therefore all retail sales have fallen and many competitors of ours are decreasing their sales too. (Italy; B2 VANTAGE; 2009; Italian; Pass)\n\nPaul, a classmate of ours, will be the D.J. and we are thinking of listening to rock music, since Mr. Brown likes it. (Greece; B2 VANTAGE; 2000; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163713638x836792370741996700",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'OURS' AS SUBJECT ",
+  "can_do_statement": "Can use the possessive pronoun 'ours', with singular and plural reference, in subject position. ",
+  "example_raw": "Ours is the only store in this locality which opens at 7.00 am. (Business English Certificate (Vantage); B2; Tamil) \n\nOurs is a retail company with 5 outlets, dealing in furnishings. (India; B2 VANTAGE; 2006; Hindi; Pass)\n\nIn order to persuade them, we would like to show comparisons between our products and the ones from other companies to demonstrate that ours are more effective and efficient. (Uruguay; B2 VANTAGE; 2006; Spanish - Latin American; Fail)\n"
+ },
+ {
+  "egp_id": "1741163713638x866856905336536400",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'HERS' AS OBJECT",
+  "can_do_statement": "Can use the possessive pronoun 'hers', with singular reference, in object positions, and complement positions after 'be' and after prepositions.",
+  "example_raw": "At the entrance, the security guard asked for my identity card. Pat gave hers. (First Certificate in English; B2; French)\n\nShe didn't remember leaving it there, it wasn't even hers, which is what frightened her the most. (Peru; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\nBut when she gave this suitcase a good look, she realised that it wasn't hers. (Netherlands; B2 VANTAGE; 2008; Dutch; Pass)\n\nShe saw him on a train running parallel to hers. (First Certificate in English; B2; German)"
+ },
+ {
+  "egp_id": "1741163713638x869888127836414100",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPARATIVE CLAUSES WITH 'MINE', 'YOURS'",
+  "can_do_statement": "Can use the possessive pronouns 'mine' and 'yours', with singular reference, in comparative clauses after '(not) as \u2026 as'.",
+  "example_raw": "Hope you have a friend as good as mine! (Preliminary English Test for Schools; Malaysia; B1 THRESHOLD; 2009; Chinese; Pass)\n\nMy bedroom is not as big as yours but it is lovely. (Preliminary English Test; Cyprus; B1 THRESHOLD; 2001; Turkish; Pass)\n\nMy town isn't very big, so I think it won't grow as fast as yours. (Preliminary English Test; Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI hope [\u2026] my English becomes as good as yours. (Preliminary English Test; Iran; B1 THRESHOLD; 2002; Farsi; Pass)"
+ },
+ {
+  "egp_id": "1741163713638x947110035097887900",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "General comment",
+  "can_do_statement": null,
+  "example_raw": "  "
+ },
+ {
+  "egp_id": "1741163713638x992181446700698200",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'YOURS' AS SUBJECT",
+  "can_do_statement": "Can use the possessive pronoun 'yours', with singular reference, in subject position.",
+  "example_raw": "We bought it because yours is very old and sometimes stops working. (Uruguay; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)\n\nI really needed some extra information, and yours was very useful. (Spain; B1 THRESHOLD; 2010; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163713861x328259304388360100",
+  "level": "C1",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'OURS' AS SUBJECT ",
+  "can_do_statement": "Can use the possessive pronoun 'ours', in subject position. ",
+  "example_raw": "I hope that other councils will consider improving the cyclists' cycling conditions as ours did. (Skills for Life; L2; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Arabic - Other; Fail)\n\nYes, of course there are much larger gardens in this area, but ours is more than four times as big as the one we had in Holland. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Dutch; Pass)\n\nWhat is more, the manager organises excursions to London. Ours was breathtaking. We visited unbelievably interesting museums\u2026 (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163713861x378989306596738050",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'THAT \u2026 OF'",
+  "can_do_statement": "Can use 'that \u2026 of' + possessive pronouns to express an attitude about someone or something, often in humorous or sarcastic contexts. ",
+  "example_raw": "I could just imagine it, meeting her at her house, her mother asking me to take care of her between puffs of smoke and coughing fits in that hoarse voice of hers. (Certificate of Proficiency in English; C2; Portuguese)\n\nI kept silent when I was introduced to that new girlfriend of his. (Certificate of Proficiency in English; C2; Portuguese)\n\nYou can park that precious jeep of yours. (Certificate of Proficiency in English; C2; Polish)\n\nI've been looking all over for that bright great-nephew of mine. (Certificate of Proficiency in English; C2; Spanish \u2013 Latin American)"
+ },
+ {
+  "egp_id": "1741163713861x561082941367103500",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THEIRS' AS OBJECT ",
+  "can_do_statement": "Can use the possessive pronoun 'theirs', with singular and plural reference, in object positions, and complement positions after 'be' and after prepositions. ",
+  "example_raw": "I could show them the traditional things of our country and learn theirs. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nShe told him that this baby was theirs. (Germany; B2 VANTAGE; 1997; Turkish; Pass)\n\nRed Stone are a very big group, you know that I'm a great fan of theirs. (Greece; B2 VANTAGE; 2002; Greek; Fail)\n\nI realise that it can be a very interesting experience and I can also improve my foreign language as well as theirs. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163713862x157795078394705100",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'HIS'",
+  "can_do_statement": "Can use the possessive pronoun 'his', with singular and plural reference, in subject and object position, and complement positions after 'be' and after prepositions. ",
+  "example_raw": "Therefore, his was not a happy and normal childhood. (C2 MASTERY; 1993; Spanish - Other; Fail)\n\nHe was my confidant and I was his. (Certificate of Proficiency in English; C2; Portuguese)\n\nIt was as if she had completely forgotten about the outlines of his face, his hair, all the features that were his. (Certificate of Proficiency in English; C2; Spanish \u2013 Latin American)\n\nBob attracts many of his students to the teaching career, which is rather looked down on in a developing poor country like his. (Brazil; C2 MASTERY; 1993; Portuguese; Pass)\n"
+ },
+ {
+  "egp_id": "1741163713862x246016696032147480",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THEIRS' AS SUBJECT",
+  "can_do_statement": "Can use the possessive pronoun 'theirs', with singular and plural reference, in subject position.",
+  "example_raw": "Theirs is a relationship between two members of the privileged classes, who really don't care about the world around (or below) them. (Portugal; C2 MASTERY; 1993; Portuguese; Pass)\n\nTheirs had always been a love-and-hate relationship. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nYet, beautiful dreams never last long, and theirs lasted until she had to leave England. (Certificate of Proficiency in English; C2; Italian)\n\nWhen comparing the value and achievements of athletes with doctors or scientists, theirs begin to lack in significance. (Greece; C2 MASTERY; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163713862x281101637978056000",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'HERS' AS SUBJECT ",
+  "can_do_statement": "Can use the possessive pronoun 'hers' with singular reference, in subject position.",
+  "example_raw": "I put Sophie's pictures in my bag because hers was already packed. (Certificate of Proficiency in English; C2; French)\n\n\n[talking about gazpacho, a type of soup] I also recall my father saying to my mother that hers was not as good as my grandmother's. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Spanish - European; Pass)\n\nShe thought, as she sometimes did, that hers was a drab existence, but that she could do hardly anything to avoid it. (Spain; C2 MASTERY; 1993; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163713862x925885380518367700",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: OF 'THEIRS', 'HERS', 'HIS'",
+  "can_do_statement": "Can use the possessive pronouns 'hers', 'theirs' and 'his' after noun + 'of'.",
+  "example_raw": "I was a great admirer of hers. (Certificate of Proficiency in English; C2; Greek)\n\nShe asked some old friends of hers and she went to the church where the marriage was taking place. (Greece; C2 MASTERY; 1993; Greek; Fail)\n\nMy parents invited the father of a friend of theirs who spoke French. (Certificate of Proficiency in English; C2; Russian)\n\nThen he showed me a very old diary of his, just for me to have an idea of what to do. (Certificate of Proficiency in English; C2; Portuguese)\n\nHe was able to build a very successful business which allowed him and his family to live very well and to travel (a passion of his). ( Certificate of Proficiency in English; C2; Spanish \u2013 Latin American)"
+ }
+]
+```

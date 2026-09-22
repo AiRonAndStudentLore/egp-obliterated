@@ -1,0 +1,664 @@
+[
+ {
+  "egp_id": "1741163709233x219446270024584740",
+  "level": "C1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: 'EITHER', 'NEITHER' + 'OF' + DETERMINER WITH PLURAL NOUNS",
+  "can_do_statement": "Can use 'either' and 'neither' + 'of' with plural noun phrases or pronouns.\u25ba pronouns",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specification of alternative or negative inclusion from a specific plural set.",
+   "pedagogical_hook": "Using 'either of' or 'neither of' before a group.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:either|neither)(?:\\s+[a-z]+ly)?\\s+of\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "either",
+       "neither"
+      ]
+     }
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "of"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Either of the measures is recommended.",
+    "Neither of us could foresee the problem."
+   ],
+   "negatives": [
+    "I don't like either.",
+    "Neither one is good."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709233x220608988049977300",
+  "level": "C1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "USE: HYPERBOLE",
+  "can_do_statement": "Can use determiners in hyperbole, often in informal contexts ('millions of', 'loads of', 'tons of').",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Exaggeration of quantity for rhetorical effect.",
+   "pedagogical_hook": "Using hyperbole like 'millions of' or 'tons of'.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:millions|loads|tons)\\s+of\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "millions",
+       "loads",
+       "tons"
+      ]
+     }
+    },
+    {
+     "LOWER": "of"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I managed to fit in millions of cookbooks.",
+    "I received tons of plastic ducks."
+   ],
+   "negatives": [
+    "I have a million things to do.",
+    "She has a heavy load to carry."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709233x320864481076375400",
+  "level": "C1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: 'EITHER', 'NEITHER' WITH SINGULAR NOUNS",
+  "can_do_statement": "Can use 'either' and 'neither' with singular nouns.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specifying alternatives with singular entities.",
+   "pedagogical_hook": "Using 'either' or 'neither' directly before a singular noun.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:either|neither)\\s+(?:party|way|floor|side|option|choice|case|parent|hand|end|direction)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "either",
+       "neither"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "party",
+       "way",
+       "floor",
+       "side",
+       "option",
+       "choice",
+       "case",
+       "parent",
+       "hand",
+       "end",
+       "direction"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Neither party could foresee the rise.",
+    "Either way is possible."
+   ],
+   "negatives": [
+    "I like neither of the parties.",
+    "We didn't go that way either."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709233x837764911232126800",
+  "level": "B2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: 'LITTLE/FEW'",
+  "can_do_statement": "Can use modifier + 'little' + uncountable nouns and modifier + 'few' + countable nouns, to indicate a lack of something or not as much as expected of something.\u25ba adverbs",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Emphasizing a scarcity or lack of quantity using modifiers.",
+   "pedagogical_hook": "Using 'very little' or 'so few'.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:very|so|too)\\s+(?:little|few)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "very",
+       "so",
+       "too"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "little",
+       "few"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I spend very little time outside.",
+    "There are so few animals living there."
+   ],
+   "negatives": [
+    "I have a little time left.",
+    "A few friends came over."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709233x867279925750556200",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: MODIFYING",
+  "can_do_statement": "Can modify determiners with adverbs. \u25ba adverbs",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Approximation of determiners using adverbs.",
+   "pedagogical_hook": "Using 'almost all' or 'nearly every'.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:almost|nearly|just|about)\\s+(?:all|every|any|some|no|half)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "almost",
+       "nearly",
+       "just",
+       "about"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "all",
+       "every",
+       "any",
+       "some",
+       "no",
+       "half"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Because almost all of the programmes are stupid.",
+    "We've spent nearly every day together."
+   ],
+   "negatives": [
+    "I have almost finished my homework.",
+    "She is just arriving."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709234x899400819655924500",
+  "level": "C2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM/USE: 'MANY A' WITH SINGULAR NOUNS, FOR FOCUS",
+  "can_do_statement": "Can use 'many a' or 'many an' + singular noun for emphasis and focus.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Literary or emphatic expression of multitude using singular forms.",
+   "pedagogical_hook": "Using 'many a time' or 'many an issue'.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bmany\\s+a(?:n)?\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "many"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "a",
+       "an"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We have climbed many a mountain.",
+    "It has raised many an issue."
+   ],
+   "negatives": [
+    "Many people were there.",
+    "I don't have many apples."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715814x164578011203941220",
+  "level": "A2",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "guideword": "FORM/USE: 'AS YOU KNOW', ORGANISING, MARKING SHARED KNOWLEDGE",
+  "can_do_statement": "Can use 'as you know' as a discourse marker of shared knowledge.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Signalling that the following information is already part of the listener's knowledge.",
+   "pedagogical_hook": "Using 'as you know' to build rapport.",
+   "agency_or_distance": "Interpersonal"
+  },
+  "detection": {
+   "regex_triage": "\\bas\\s+you\\s+know\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "as"
+    },
+    {
+     "LOWER": "you"
+    },
+    {
+     "LOWER": "know"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "As you know, I live in England.",
+    "Because, as you know, I am leaving tomorrow."
+   ],
+   "negatives": [
+    "I know you as a good person.",
+    "As you can see, it is raining."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715815x250435137016574720",
+  "level": "B1",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "guideword": "FORM/USE: ORGANISING, ADDING",
+  "can_do_statement": "Can use a range of words and phrases as discourse markers to add information.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Structuring discourse by explicitly adding to previous points.",
+   "pedagogical_hook": "Using 'moreover' or 'furthermore' to add ideas.",
+   "agency_or_distance": "Textual"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:moreover|furthermore)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "moreover",
+       "furthermore"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Moreover the health of our staff is essential.",
+    "Furthermore, I think that you should exercise."
+   ],
+   "negatives": [
+    "I want to learn more.",
+    "We will go further into the forest."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715815x557924987498417800",
+  "level": "B1",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "guideword": "FORM/USE: ORGANISING, MARKING NEW KNOWLEDGE, INFORMAL",
+  "can_do_statement": "Can use 'you see', 'the thing is' as discourse markers to mark new knowledge, usually in informal contexts. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Introducing explanatory or new information conversationally.",
+   "pedagogical_hook": "Using 'you see' or 'the thing is' to explain.",
+   "agency_or_distance": "Interpersonal"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:you\\s+see|the\\s+thing\\s+is)\\s*,",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "the"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "see",
+       "thing"
+      ]
+     }
+    },
+    {
+     "LOWER": "is",
+     "OP": "?"
+    },
+    {
+     "POS": "PUNCT"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You see, in the park, you can enjoy fresh air.",
+    "The thing is, I'd go to the countryside."
+   ],
+   "negatives": [
+    "I see what you mean.",
+    "The thing is very heavy."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715815x672882522886991900",
+  "level": "A2",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "guideword": "FORM/USE: 'SO', SUMMARISING, INFORMAL",
+  "can_do_statement": "Can use 'so' as a discourse marker to summarise, usually in informal contexts. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Summarising or deducing consequences in conversational contexts.",
+   "pedagogical_hook": "Using 'so' at the start of a clause to summarise.",
+   "agency_or_distance": "Interpersonal"
+  },
+  "detection": {
+   "regex_triage": "\\b[Ss]o\\s*,?\\s*(?:what|i|we|you|he|she|they|it)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "so"
+    },
+    {
+     "POS": "PUNCT",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "what",
+       "i",
+       "we",
+       "you",
+       "he",
+       "she",
+       "they",
+       "it",
+       "the",
+       "a"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "So, what do you think?",
+    "So I'll be at your house at 15.30."
+   ],
+   "negatives": [
+    "I am so tired.",
+    "He ran so quickly."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715815x734409577982950900",
+  "level": "B1",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "guideword": "FORM/USE: SEQUENCING",
+  "can_do_statement": "Can use sequencing adverbs as discourse markers to organise text.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Structuring discourse logically using ordinal adverbs.",
+   "pedagogical_hook": "Using 'firstly', 'secondly', 'finally'.",
+   "agency_or_distance": "Textual"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:firstly|secondly|lastly|finally)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "firstly",
+       "secondly",
+       "lastly",
+       "finally"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Firstly, we need a good expert.",
+    "Secondly, good materials are needed."
+   ],
+   "negatives": [
+    "He came first in the race.",
+    "It was my last chance."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715815x803684934038761500",
+  "level": "B1",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "guideword": "FORM/USE: ORGANISING, CONTRASTING",
+  "can_do_statement": "Can use a range of phrases as discourse markers to introduce contrasting statements. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Highlighting opposing ideas or alternatives.",
+   "pedagogical_hook": "Using 'on the other hand' or 'on the contrary'.",
+   "agency_or_distance": "Textual"
+  },
+  "detection": {
+   "regex_triage": "\\bon\\s+the\\s+(?:other\\s+hand|contrary)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "on"
+    },
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "other",
+       "contrary"
+      ]
+     }
+    },
+    {
+     "LOWER": "hand",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "On the other hand I think you can learn better.",
+    "My new teacher, on the contrary, understands us."
+   ],
+   "negatives": [
+    "I hurt my other hand.",
+    "The contrary is true."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715816x575654726038477250",
+  "level": "B2",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "guideword": "FORM/USE: COMPARING",
+  "can_do_statement": "Can use a range of phrases as discourse markers to introduce a comparison. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Drawing parallels between two states or events.",
+   "pedagogical_hook": "Using 'likewise' or 'similarly'.",
+   "agency_or_distance": "Textual"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:likewise|similarly|in\\s+the\\s+same\\s+way)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "likewise",
+       "similarly",
+       "same"
+      ]
+     }
+    },
+    {
+     "LOWER": "way",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Likewise, in Nepal New Year is celebrated on 1st of Baishak.",
+    "Similarly, the population of children are likely to drop."
+   ],
+   "negatives": [
+    "They walk identically.",
+    "He is very similar to me."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715816x736238572687218000",
+  "level": "B2",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "guideword": "FORM/USE: SUMMARISING, FORMAL",
+  "can_do_statement": "Can use a range of phrases as discourse markers to summarise. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Deducing formal conclusions or consequences.",
+   "pedagogical_hook": "Using 'thus', 'consequently', 'therefore'.",
+   "agency_or_distance": "Textual"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:thus|consequently|hence|therefore)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "thus",
+       "consequently",
+       "hence",
+       "therefore"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Thus, I would be very grateful.",
+    "Consequently, visiting zoos can help people."
+   ],
+   "negatives": [
+    "They lived happily ever after.",
+    "So I went to the store."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715816x791104557132905200",
+  "level": "B1",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "guideword": "FORM/USE: ADVERBS, STANCE",
+  "can_do_statement": "Can use adverbs as discourse markers to indicate an attitude or viewpoint.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing speaker attitude or evaluation of a proposition.",
+   "pedagogical_hook": "Using stance adverbs like 'unfortunately' or 'actually'.",
+   "agency_or_distance": "Interpersonal"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:unfortunately|actually|surprisingly|luckily|frankly|honestly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "unfortunately",
+       "actually",
+       "surprisingly",
+       "luckily",
+       "frankly",
+       "honestly"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Unfortunately, they filmed only the building.",
+    "Actually, I do not have much time."
+   ],
+   "negatives": [
+    "He is an honest man.",
+    "It is an actual fact."
+   ]
+  }
+ }
+]

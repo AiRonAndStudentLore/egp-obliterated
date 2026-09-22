@@ -1,0 +1,792 @@
+[
+  {
+    "egp_id": "1741163708151x653728440102574500",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: SUPERLATIVE ADJECTIVE (+ 'THAT')",
+    "can_do_statement": "Can use a superlative adjective (+ noun) (+ 'that') followed by a clause to talk about something unique.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Identifying unique or extreme instances within a category.",
+      "pedagogical_hook": "Superlative highlighting with relative clauses.",
+      "agency_or_distance": "High specificity."
+    },
+    "detection": {
+      "regex_triage": "\\bthe\\s+(?:[a-z]{2,}est|best|worst|most\\s+[a-z]+)(?:\\s+(?:and|or)\\s+[a-z]+est)?(?:\\s+[a-z]+){0,2}\\s+(?:that\\s+)?(?:i|you|we|they|he|she|it|anyone|everyone|someone|exists?|can|could)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "best",
+              "worst",
+              "most",
+              "fastest",
+              "clearest"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "i",
+              "you",
+              "we",
+              "they",
+              "he",
+              "she",
+              "it",
+              "anyone",
+              "someone",
+              "exist",
+              "can",
+              "could"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "In my opinion this is the worst thing that can ever happen.",
+        "That is the clearest thing I can remember."
+      ],
+      "negatives": [
+        "He is the tallest boy in the class.",
+        "She did the best."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708151x719474108832722800",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "2",
+    "guideword": "FORM: COMPARATIVE ADJECTIVE + 'THAN' + NON-FINITE CLAUSE",
+    "can_do_statement": ".||Can use than + an increasing range of non-finite clauses (to-infinitive, reduced clause)  forming the second part of a comparison after a comparative adjective||",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Comparing an entity's quality against an action or state.",
+      "pedagogical_hook": "Comparative adjective followed by a non-finite clause.",
+      "agency_or_distance": "Evaluative positioning."
+    },
+    "detection": {
+      "regex_triage": "\\b(?:[a-z]{2,}er|better|worse|more\\s+[a-zA-Z]+)(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+\\s+){0,3}than(?:\\s+[a-z]+ly)?\\s+(?:to\\b|[a-z]+ed)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "better",
+              "worse",
+              "easier",
+              "appropriate",
+              "harder",
+              "more",
+              "less",
+              "bigger",
+              "smaller"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "than"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "to",
+              "expected",
+              "anticipated"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It is much easier to be single than to have a partner.",
+        "I think that arbitration is more appropriate than to file an action in court against the tenant."
+      ],
+      "negatives": [
+        "He is taller than his brother.",
+        "I like tea more than coffee."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708151x809054436449001100",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'RATHER THAN' + NON-FINITE CLAUSE",
+    "can_do_statement": "Can use 'rather than' + a non-finite clause to stress one element in a comparison.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Selecting one option over another with explicit contrast.",
+      "pedagogical_hook": "Using 'rather than' with non-finite clauses.",
+      "agency_or_distance": "Expressing preference."
+    },
+    "detection": {
+      "regex_triage": "\\brather\\s+than\\s+(?:to\\s+)?[a-z]{3,}ing\\b|\\brather\\s+than\\s+(?:to\\s+)?[a-z]{3,}\\s",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "rather"
+        },
+        {
+          "LOWER": "than"
+        },
+        {
+          "LEMMA": {
+            "NOT_IN": [
+              "dog",
+              "cat",
+              "noun",
+              "him",
+              "her",
+              "me",
+              "you",
+              "us"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If you prefer watching TV rather than reading, you have to be critical.",
+        "I would prefer to sleep in tents rather than stay in rooms."
+      ],
+      "negatives": [
+        "I would rather go home.",
+        "I like cats rather than dogs."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708152x331629677931650760",
+    "level": "C1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: SUPERLATIVE ADVERB 'BEST' + CLAUSE",
+    "can_do_statement": "Can use 'the best' as a superlative adverb + pronoun + ellipted 'can' or 'could'. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Expressing maximal effort or peak ability.",
+      "pedagogical_hook": "Superlative adverb 'the best' with ellipted modals.",
+      "agency_or_distance": "Self or other evaluation."
+    },
+    "detection": {
+      "regex_triage": "\\bthe\\s+best(?:\\s+that)?\\s+(?:i|you|we|they|he|she|it|anyone|someone)\\s+(?:can|could)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "best"
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "POS": "PRON"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "can",
+              "could"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm sorry to say that she is not the best of cooks but she tries the best she can.",
+        "On Thursday I did the best I could."
+      ],
+      "negatives": [
+        "She is the best singer.",
+        "This is the best I have ever seen."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708152x354145685059116700",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'AS IF' OR 'AS THOUGH' + FINITE CLAUSE",
+    "can_do_statement": "Can use 'as if' or 'as though' + finite clause to introduce a second clause as a comparison. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Projecting a hypothetical situation as a point of comparison.",
+      "pedagogical_hook": "Using 'as if' or 'as though' with finite clauses.",
+      "agency_or_distance": "Imaginative distancing."
+    },
+    "detection": {
+      "regex_triage": "\\bas\\s+(?:if|though)\\s+(?:i|you|we|they|he|she|it|anyone|someone)\\s+(?:was|were|had|is|are)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "as"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "if",
+              "though"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "NOT_IN": [
+              "to",
+              "try",
+              "look"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "have",
+              "look"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Her heart beat extremely fast, as if it was going to burst out of her chest.",
+        "Everything was so familiar, so close, as though he had never left the place."
+      ],
+      "negatives": [
+        "She acts as if to speak.",
+        "It looks as if trying to run."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708152x610028410376589400",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'SO ...  AS TO', FORMAL",
+    "can_do_statement": "Can use 'so' + adjective + 'as' + 'to'-infinitive clause, usually in formal contexts.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Connecting a state to an extreme consequence.",
+      "pedagogical_hook": "Formal 'so ... as to' construction.",
+      "agency_or_distance": "High register evaluation."
+    },
+    "detection": {
+      "regex_triage": "\\bso\\s+[a-z]+\\s+as\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "so"
+        },
+        {
+          "LEMMA": {
+            "NOT_IN": [
+              "be",
+              "have",
+              "do"
+            ]
+          }
+        },
+        {
+          "LOWER": "as"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "LEMMA": {
+            "NOT_IN": [
+              "be"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Travellers should not be so ignorant as to think they can understand.",
+        "Should I be so fortunate as to win the scholarship..."
+      ],
+      "negatives": [
+        "It is so good as this one.",
+        "He spoke so as to be heard."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708153x262593982426201800",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'AS IF' + NON-FINITE CLAUSE",
+    "can_do_statement": "Can use 'as if' + non-finite clause to introduce a second clause as a comparison. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Drawing a comparison to an implied action.",
+      "pedagogical_hook": "'as if' followed by a non-finite clause.",
+      "agency_or_distance": "Imaginative analogy."
+    },
+    "detection": {
+      "regex_triage": "\\bas\\s+if\\s+(?:to\\b|[a-z]+ing\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "as"
+        },
+        {
+          "LOWER": "if"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "to",
+              "try"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She closed her eyes as if to push those thoughts away.",
+        "I was so frightened that my heart was beating like crazy as if trying to leave my body."
+      ],
+      "negatives": [
+        "She acts as if she knows.",
+        "As if he was looking for something."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715620x161645047931569860",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PRESENT SIMPLE 'IF' CLAUSE + MODAL, FUTURE, POSSIBLE OUTCOME",
+    "can_do_statement": "Can use 'if' + present simple to introduce a possible future condition, with modal verbs in the main clause, to talk about a possible result. \u25ba modality",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Setting a condition for a possible future outcome.",
+      "pedagogical_hook": "First conditional with modals.",
+      "agency_or_distance": "Directing potential action."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bif\\s+(?:you|we|they|i|he|she|it|anyone|someone)(?:\\s+[a-z]+ly)?\\s+(?!(?:[a-z]+ed|had|was|were|came|went|did)\\b)[a-z]+\\b.*?(?:can|could|should|would|might|may|'ll|'d)\\b|\\b(?:can|could|should|would|might|may|'ll|'d)\\b.*?\\bif\\s+(?:you|we|they|i|he|she|it|anyone|someone)(?:\\s+[a-z]+ly)?\\s+(?!(?:[a-z]+ed|had|was|were|came|went|did)\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "i",
+              "you",
+              "we",
+              "they",
+              "he",
+              "she",
+              "it"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "start",
+              "come",
+              "go"
+            ]
+          },
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think that it would be very good if you start going to the gym.",
+        "If you come to Brazil you can stay at my home."
+      ],
+      "negatives": [
+        "If he came, I would be happy.",
+        "I wonder if she knows."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715620x337858640533236860",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'IF' CLAUSE + IMPERATIVE, HEDGING",
+    "can_do_statement": "Can use an 'if-' clause ('if you want', 'like', 'prefer') to soften the directness of imperatives, offers or suggestions.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Softening a command or suggestion.",
+      "pedagogical_hook": "Hedging with 'if you want/like/prefer'.",
+      "agency_or_distance": "Polite deferral."
+    },
+    "detection": {
+      "regex_triage": "\\bif\\s+you\\s+(?:want|like|prefer)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "want",
+              "like",
+              "prefer"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Bring some films if you want.",
+        "Please, come here wearing a white T-shirt and a skirt, or shorts if you prefer."
+      ],
+      "negatives": [
+        "If you go to the store, buy milk.",
+        "If you are tired, go to sleep."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715620x498638187111649860",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PRESENT SIMPLE 'IF' CLAUSE, REAL CONDITIONS",
+    "can_do_statement": "Can use 'if' + present simple with present simple, 'can' or imperative in the main clause to refer to things that are true now or very likely to happen. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Establishing a general truth or likely condition.",
+      "pedagogical_hook": "Zero or first conditional for real conditions.",
+      "agency_or_distance": "Factual statement."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bif\\s+(?:i|you|we|they)\\s+(?:have|need|take)\\b.*?(?:read|organise|number|always|contact|house|more)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "POS": "PRON"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If I have spare time I always read a book.",
+        "You can get to my house if you take the number 35 bus."
+      ],
+      "negatives": [
+        "If you had time, you could go.",
+        "There are no ifs or buts about it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715620x555336911205332160",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PRESENT SIMPLE 'IF' CLAUSE + 'WILL', FUTURE, LIKELY OUTCOME (FIRST CONDITIONAL)",
+    "can_do_statement": "Can use 'if' + present simple to introduce a possible future condition, with 'will' in the main clause to talk about a likely result. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Predicting a future outcome based on a condition.",
+      "pedagogical_hook": "First conditional with 'will'.",
+      "agency_or_distance": "Predictive certainty."
+    },
+    "detection": {
+      "regex_triage": "\\bif\\s+(?:you|i|we|they)\\s+(?:tell|go|live)\\b.*?\\bwill\\b|\\bwill\\b.*?\\bif\\s+(?:you|i|we|they)\\s+(?:tell|go|live)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "i",
+              "you",
+              "we",
+              "they"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "tell",
+              "go",
+              "live"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm sure your parents will be happy if you go with them.",
+        "If you live in the countryside you will see beautiful nature."
+      ],
+      "negatives": [
+        "If you went, you would see.",
+        "If you like it, buy it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715620x594637230902398300",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PRESENT SIMPLE 'IF' CLAUSE + IMPERATIVE",
+    "can_do_statement": "Can use 'if' + present simple, with an imperative in the main clause.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Giving an instruction based on a condition.",
+      "pedagogical_hook": "If clause with imperative main clause.",
+      "agency_or_distance": "Directive command."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bif\\s+you\\s+(?:find|want)\\b.*?(?:call|tell|just)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "find",
+              "want"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "TAG": "VB",
+          "LEMMA": {
+            "IN": [
+              "call",
+              "tell"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If you find it, call me.",
+        "If you want to come, just tell me."
+      ],
+      "negatives": [
+        "If you find it, you will be happy.",
+        "If you want to come, you can."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715620x681820697260531000",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'IF' + PRESENT SIMPLE",
+    "can_do_statement": "Can form conditional subordinate clause with 'if' + present simple.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Setting a simple present condition.",
+      "pedagogical_hook": "General 'if + present simple' structure.",
+      "agency_or_distance": "Basic conditional."
+    },
+    "detection": {
+      "regex_triage": "\\bif\\s+you\\s+(?:want|buy|agree)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "want",
+              "buy",
+              "agree"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If you buy a gift for me, please buy a book, because I love to read.",
+        "If you agree, we can go shopping after the film."
+      ],
+      "negatives": [
+        "If you wanted, we could go.",
+        "If you bought it, I would pay."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715620x712487586393501200",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PRESENT CONTINUOUS 'IF' CLAUSE , PLANS & ADVICE",
+    "can_do_statement": "Can use 'if' + present continuous or 'going to' to introduce a possible plan, with modal verbs or imperatives in the main clause to give advice.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Conditioning advice on an ongoing plan.",
+      "pedagogical_hook": "'If' + present continuous for plans.",
+      "agency_or_distance": "Advising based on intention."
+    },
+    "detection": {
+      "regex_triage": "\\bif\\s+you\\s+are\\s+(?:moving|looking|going)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": "are"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "moving",
+              "looking",
+              "going"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Billy, if you are moving you should think a lot.",
+        "But if you are going to live in a town you should choose the large school."
+      ],
+      "negatives": [
+        "If you go, call me.",
+        "If you are happy, I am happy."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715621x282870273772287460",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'IF' + PAST SIMPLE + 'WOULD', FUTURE, IMAGINED SITUATION|(SECOND CONDITIONAL)",
+    "can_do_statement": "Can form conditional subordinate clauses with 'if' + past simple, and would in the main clause, to talk about an imagined situation, often in the context of advice or opinion-giving. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Imagining a hypothetical situation to offer advice.",
+      "pedagogical_hook": "Second conditional ('if' + past, 'would').",
+      "agency_or_distance": "Hypothetical advice."
+    },
+    "detection": {
+      "regex_triage": "\\bif\\s+(?:you|i|we|they|he|she|it)\\s+(?:went|was|were)\\b.*?\\bwould\\b|\\bwould\\b.*?\\bif\\s+(?:you|i|we|they|he|she|it)\\s+(?:went|was|were)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "POS": "PRON"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "went",
+              "was",
+              "were",
+              "had"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Maybe it would be more fun if you went with your friends.",
+        "But, if I was able to move, I would like to live near the coast."
+      ],
+      "negatives": [
+        "If you go, I will be happy.",
+        "If I am late, wait for me."
+      ]
+    }
+  }
+]

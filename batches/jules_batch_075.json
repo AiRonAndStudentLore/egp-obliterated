@@ -1,0 +1,731 @@
+[
+  {
+    "egp_id": "1741163709453x816599367616623800",
+    "level": "C1",
+    "super_category": "FUTURE",
+    "sub_category": "future perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: POLITENESS",
+    "can_do_statement": "Can use the future perfect simple with 'will' as a politeness strategy, often in formal contexts.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Politeness and face-saving",
+      "pedagogical_hook": "Using future perfect simple to soften a statement and sound polite in formal contexts.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:will|'ll)\\s+(?:[a-z]+ly\\s+)?have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|n|d)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "will",
+              "'ll"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LEMMA": "have"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I hope I will have reassured you by the end of this letter.",
+        "I trust we will have clarified the situation sufficiently."
+      ],
+      "negatives": [
+        "I have reassured you many times.",
+        "I will reassure you soon enough."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709453x838199776198091500",
+    "level": "A1",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE 'WILL'",
+    "can_do_statement": "Can use the affirmative forms 'will' and ''ll'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Future time reference",
+      "pedagogical_hook": "Using 'will' to talk about the future in affirmative sentences.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|you|he|she|it|we|they)\\s*(?:will|'ll)\\s+(?!not\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "he",
+              "she",
+              "it",
+              "we",
+              "they"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "will",
+              "'ll"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VB",
+              "RB",
+              "VBG"
+            ]
+          },
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I will see you soon.",
+        "They'll come at seven."
+      ],
+      "negatives": [
+        "I will not do it.",
+        "He left a will for his children."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709453x862696596004533200",
+    "level": "A1",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE: PLANS AND INTENTIONS WITH 'WILL'",
+    "can_do_statement": "Can use 'will' and ''ll' to talk about plans and intentions.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Intentional action",
+      "pedagogical_hook": "Using 'will' to express personal plans and intentions.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|we)\\s*(?:will|'ll)\\s+(?!not\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "we"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "will",
+              "'ll"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VB",
+              "RB",
+              "VBG"
+            ]
+          },
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I will try to come tomorrow.",
+        "We'll bring a football with us."
+      ],
+      "negatives": [
+        "It will rain tomorrow.",
+        "The sun will rise at six."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709454x624344823309990100",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE 'WILL'",
+    "can_do_statement": "Can use the negative forms 'will not' and 'won't'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Negative future time reference",
+      "pedagogical_hook": "Using 'won't' and 'will not' for negative future.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:will\\s+not|won't)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "will",
+              "wo"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Without them I will not be able to play football.",
+        "I won't be at home before seven."
+      ],
+      "negatives": [
+        "I will be at home.",
+        "I want to go home."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709454x714636092733784700",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS ",
+    "can_do_statement": "Can use the question forms of 'will' and 'shall'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Future inquiry",
+      "pedagogical_hook": "Forming questions about the future using 'will' or 'shall' subject inversion.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:will|shall)\\s+(?:I|you|we|he|she|it|they)\\s+[a-z]+(?:\\?|\\s*$)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "will",
+              "shall"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "we",
+              "he",
+              "she",
+              "it",
+              "they"
+            ]
+          }
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VB",
+              "RB"
+            ]
+          },
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Will you come?",
+        "What shall I bring?"
+      ],
+      "negatives": [
+        "I will definitely come.",
+        "We shall go together."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709454x725724780708232700",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE 'SHALL'",
+    "can_do_statement": "Can use the affirmative form 'shall' with 'I' and 'we'. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Formal future intention",
+      "pedagogical_hook": "Using 'shall' with first-person subjects for affirmative statements.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|we)\\s+shall\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "we"
+            ]
+          }
+        },
+        {
+          "LOWER": "shall"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I shall come with you.",
+        "We shall take a bus to the sports centre."
+      ],
+      "negatives": [
+        "Shall we go together?",
+        "He shall arrive soon."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709461x334143938995607360",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE: OFFERS WITH 'SHALL'",
+    "can_do_statement": "Can use 'shall I' to make offers.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Offering help",
+      "pedagogical_hook": "Using 'shall I' to kindly offer assistance.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bshall\\s+I\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "shall"
+        },
+        {
+          "LOWER": "i"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Shall I wait for you?",
+        "Shall I buy you one?"
+      ],
+      "negatives": [
+        "I shall wait for you.",
+        "Shall we wait for them?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709461x479205549406747100",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE: REQUESTS WITH 'WILL'",
+    "can_do_statement": "Can use 'will' to make requests.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Asking someone to do something",
+      "pedagogical_hook": "Using 'will you' to request action from someone else.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwill\\s+you\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "will"
+        },
+        {
+          "LOWER": "you"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Will you come tomorrow to my house?",
+        "Will you send it for me?"
+      ],
+      "negatives": [
+        "You will come tomorrow.",
+        "Will they come tomorrow?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709461x970222053180020700",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE: PLANS AND  INTENTIONS WITH 'WILL'",
+    "can_do_statement": "Can use 'will' to ask about plans and intentions.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Asking about plans",
+      "pedagogical_hook": "Using 'will' in question form to inquire about what someone intends to do.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwill\\s+(?:you|he|she|they|we)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "will"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "you",
+              "he",
+              "she",
+              "they",
+              "we"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Will you have a mobile phone?",
+        "Will they come by train?"
+      ],
+      "negatives": [
+        "I will have a mobile phone.",
+        "They will come by train."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709462x251946416286091620",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE: SUGGESTIONS WITH 'SHALL'",
+    "can_do_statement": "Can use 'shall we' to make suggestions.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Collaborative suggestion",
+      "pedagogical_hook": "Using 'shall we' to suggest a shared activity.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bshall\\s+we\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "shall"
+        },
+        {
+          "LOWER": "we"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Shall we go to my friend's house to get it?",
+        "Shall we go there together?"
+      ],
+      "negatives": [
+        "We shall go there together.",
+        "Shall I go there?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709462x426193932554453060",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE:IMMEDIATE PLANS WITH 'SHALL'",
+    "can_do_statement": "Can use 'shall' with 'I' and 'we' to talk about plans and intentions.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Immediate intention",
+      "pedagogical_hook": "Using 'shall' as an alternative to 'will' for describing personal plans.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|we)\\s+shall\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "we"
+            ]
+          }
+        },
+        {
+          "LOWER": "shall"
+        },
+        {
+          "TAG": "VB",
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I promise that I shall cover all the work tomorrow.",
+        "We shall have a meeting regarding this next week."
+      ],
+      "negatives": [
+        "Shall we go out?",
+        "He shall do it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709462x479959298523018100",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE: PREDICTIONS WITH 'WILL' ",
+    "can_do_statement": "Can use 'will' and '\u2018ll' to make predictions. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Future prediction",
+      "pedagogical_hook": "Using 'will' to state what one believes will happen.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:it|he|she|they|everyone|nobody)\\s+(?:will|'ll|won't)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "it",
+              "he",
+              "she",
+              "they",
+              "everyone",
+              "nobody"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "will",
+              "'ll",
+              "wo"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It will be hotter because of global warming.",
+        "They will not worry about you too much!"
+      ],
+      "negatives": [
+        "I will definitely go there.",
+        "We'll see what happens."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709462x498053003229829800",
+    "level": "C1",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE 'SHALL' ",
+    "can_do_statement": "Can use the negative form 'shall not'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Formal negative future",
+      "pedagogical_hook": "Using 'shall not' for formal negative statements.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bshall\\s+not\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "shall"
+        },
+        {
+          "LOWER": "not"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We shall not forget to mention the legal consequences.",
+        "My client shall not release you from the agreement."
+      ],
+      "negatives": [
+        "We shall forget about it.",
+        "Will they not release you?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709462x743053516670709100",
+    "level": "C2",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE: LONG-TERM INTENTIONS WITH 'SHALL'",
+    "can_do_statement": "Can use 'shall' to talk about long-term intentions.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Enduring intention",
+      "pedagogical_hook": "Using 'shall' with adverbs like 'never' or 'always' for long-term commitments.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bshall\\s+(?:never|always|forever)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "shall"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "never",
+              "always",
+              "forever"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This way I shall never lose hope.",
+        "I shall always remember it as the city of lights."
+      ],
+      "negatives": [
+        "I shall go to the store today.",
+        "We shall meet at noon."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709462x760930219625040500",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future simple (with will and shall)",
+    "lexical_range": "N/A",
+    "guideword": "USE: FIXED PLANS WITH 'WILL'",
+    "can_do_statement": "Can use 'will' to talk about fixed plans, often with timetabled times and dates.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Timetabled future",
+      "pedagogical_hook": "Using 'will' in conjunction with times and dates for fixed events.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:will|'ll|won't)\\s+(?:be\\s+)?[a-z]+\\s+(?:at|on|in|from)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "will",
+              "'ll",
+              "wo"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "be",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VB",
+              "JJ"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "at",
+              "on",
+              "in",
+              "from"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The work will start at eight.",
+        "I won't be able at the time we agreed."
+      ],
+      "negatives": [
+        "I will do it later.",
+        "It will rain tomorrow."
+      ]
+    }
+  }
+]

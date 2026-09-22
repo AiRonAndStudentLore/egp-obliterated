@@ -1,0 +1,817 @@
+[
+  {
+    "egp_id": "1741163708792x578027203654075000",
+    "level": "A1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "FORM: PREPOSITION + NO ARTICLE",
+    "can_do_statement": "Can use no article before a limited range of nouns in some fixed expressions with prepositions.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Spatial and conceptual relationships formalized without specific entity bounding.",
+      "pedagogical_hook": "Common prepositional phrases lack articles because they treat locations or times as concepts.",
+      "agency_or_distance": "Conceptual distance over physical bounds."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:at|by|to|in|on)\\s+(?:home|college|school|work|bed|car|bus|train)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "at",
+              "by",
+              "to",
+              "in",
+              "on"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "home",
+              "college",
+              "school",
+              "work",
+              "bed",
+              "car",
+              "bus",
+              "train"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am at home right now.",
+        "We usually travel by bus."
+      ],
+      "negatives": [
+        "I am at the home of my friend.",
+        "Look at that car."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708793x169611736244202020",
+    "level": "B1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "FORM: PREPOSITION + NO ARTICLE",
+    "can_do_statement": "Can use no article before an increasing range of nouns in some fixed expressions with prepositions. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Expanded prepositional expressions for abstract entities and conditions.",
+      "pedagogical_hook": "Broader use of prepositions without articles for conditions and broad concepts.",
+      "agency_or_distance": "Conceptual states."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:at|on|by|in)\\s+(?:night|television|TV|foot|holiday|vacation|mistake|chance|accident|hand|heart|purpose)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "at",
+              "on",
+              "by",
+              "in"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "night",
+              "television",
+              "tv",
+              "foot",
+              "holiday",
+              "vacation",
+              "mistake",
+              "chance",
+              "accident",
+              "hand",
+              "heart",
+              "purpose"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It gets quite cold at night.",
+        "I saw the documentary on television."
+      ],
+      "negatives": [
+        "We had a long night.",
+        "Please turn on the television."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708793x231349056007116500",
+    "level": "B1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "USE: ONE MORE (WITH 'ANOTHER')",
+    "can_do_statement": "Can use 'another' to talk about something additional. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Additionality mapped onto an existing set.",
+      "pedagogical_hook": "Using 'another' to mean 'one more' of the same kind.",
+      "agency_or_distance": "Extension of an existing set."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\banother\\s+(?:week|reason|slice|drink|cup|piece|hour|minute|month|year|chance)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "another"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "week",
+              "reason",
+              "slice",
+              "drink",
+              "cup",
+              "piece",
+              "hour",
+              "minute",
+              "month",
+              "year",
+              "chance"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am going to spend another week there.",
+        "Can I have another slice of pizza?"
+      ],
+      "negatives": [
+        "He told me another story altogether.",
+        "Let's meet at another place."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708793x394528376329640770",
+    "level": "A1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "FORM/USE: NO ARTICLE",
+    "can_do_statement": "Can use no article before a limited range of singular, plural and uncountable nouns when referring to things in general. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Generalization over specific bounded instances.",
+      "pedagogical_hook": "Using no article for general activities or uncountable materials.",
+      "agency_or_distance": "Abstracted from specific instances."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:play|watch|like|love|hate)\\s+(?:football|tennis|basketball|tv|television|rice|water|music)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "play",
+              "watch",
+              "like",
+              "love",
+              "hate"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "football",
+              "tennis",
+              "basketball",
+              "tv",
+              "television",
+              "rice",
+              "water",
+              "music"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "In my free time I usually play football.",
+        "I really like rice and sweet dishes."
+      ],
+      "negatives": [
+        "I threw the football to him.",
+        "The rice is burning."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708793x555362877047412000",
+    "level": "A2",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "FORM/USE: 'THE' + ADJECTIVES, SPECIFYING",
+    "can_do_statement": "Can use 'the' + adjectives in a noun phrase, to specify. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Specificity marked by definite article plus attribute.",
+      "pedagogical_hook": "Using 'the' with descriptive adjectives to point to a very specific object.",
+      "agency_or_distance": "High specificity."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthe\\s+(?:new|first|red|blue|big|small|old)\\s+(?:caf[e\\u00e9]|class|sofa|car|house|book|dog|boy|girl)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "new",
+              "first",
+              "red",
+              "blue",
+              "big",
+              "small",
+              "old"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "cafe",
+              "caf\u00e9",
+              "class",
+              "sofa",
+              "car",
+              "house",
+              "book",
+              "dog",
+              "boy",
+              "girl"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My house is opposite the new cafe.",
+        "I think it's on the red sofa."
+      ],
+      "negatives": [
+        "It is a new cafe.",
+        "I bought a red sofa."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708793x603808210938091100",
+    "level": "B1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "FORM/USE: NO ARTICLE",
+    "can_do_statement": "Can use no article before an increasing range of singular and plural nouns when referring to things in general. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Broader generalization across domains like society or nature.",
+      "pedagogical_hook": "Zero article used for abstract, overarching concepts.",
+      "agency_or_distance": "High abstraction."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:education|history|science|art|love|money|nature|society)\\s+(?:is|are|will|can|has|have)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "education",
+              "history",
+              "science",
+              "art",
+              "love",
+              "money",
+              "nature",
+              "society"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "will",
+              "can",
+              "have"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Education is very important for our future.",
+        "History will show that we were right."
+      ],
+      "negatives": [
+        "The education he received was excellent.",
+        "A love like theirs is rare."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708793x652344620706507100",
+    "level": "A2",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "FORM: 'THE' + SUPERLATIVES ",
+    "can_do_statement": "Can form a noun phrase with 'the' + superlative adjectives + noun. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Definite article paired with extreme degree attributes.",
+      "pedagogical_hook": "Superlatives single out the absolute pinnacle, requiring 'the'.",
+      "agency_or_distance": "Maximum specificity."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthe\\s+(?:latest|biggest|best|worst|tallest|fastest|greatest)\\s+(?:technology|beach|place|player|building|car|thing|movie)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "latest",
+              "biggest",
+              "best",
+              "worst",
+              "tallest",
+              "fastest",
+              "greatest"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "technology",
+              "beach",
+              "place",
+              "player",
+              "building",
+              "car",
+              "thing",
+              "movie"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It has the latest technology.",
+        "La Baule is the biggest beach."
+      ],
+      "negatives": [
+        "It is a big beach.",
+        "He wants a fast car."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708793x822211978637164400",
+    "level": "B1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "FORM: 'ANOTHER' |",
+    "can_do_statement": "Can use 'another' with singular nouns. \u25ba pronouns \u25ba determiners ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Singular unbounded addition.",
+      "pedagogical_hook": "Using 'another' to refer to a single extra item or instance.",
+      "agency_or_distance": "Unbounded addition."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\banother\\s+(?:great\\s+|nice\\s+|good\\s+|bad\\s+|beautiful\\s+)?(?:joke|day|book|car|girl|boy|person)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "another"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "great",
+              "nice",
+              "good",
+              "bad",
+              "beautiful"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "joke",
+              "day",
+              "book",
+              "car",
+              "girl",
+              "boy",
+              "person"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Tomorrow will be another day.",
+        "He makes another great joke."
+      ],
+      "negatives": [
+        "We need another two weeks.",
+        "Let's meet another time."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708794x298696032662709950",
+    "level": "B1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "USE: DIFFERENT (WITH 'ANOTHER')",
+    "can_do_statement": "Can use 'another' to talk about something different. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Differentiation from current context.",
+      "pedagogical_hook": "'Another' can also mean 'a different one'.",
+      "agency_or_distance": "Shift in focus."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\banother\\s+(?:hotel|city|country|restaurant|school|colour|color|idea|plan)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "another"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "hotel",
+              "city",
+              "country",
+              "restaurant",
+              "school",
+              "colour",
+              "color",
+              "idea",
+              "plan"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It is better to stay at another hotel.",
+        "We should go to another restaurant."
+      ],
+      "negatives": [
+        "Have another slice of cake.",
+        "I will wait another minute."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708794x304620412508079360",
+    "level": "B1",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "FORM/USE: 'THE OTHER'",
+    "can_do_statement": "Can use 'the other' with a singular noun to refer to the second or the opposite of two things, and with a plural noun to refer to one of a set of things. \u25ba pronouns \u25ba  noun phrases",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Binary distinction or definite selection from a set.",
+      "pedagogical_hook": "'The other' refers to the remaining option out of two or a known group.",
+      "agency_or_distance": "Definite alternative."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthe\\s+other\\s+(?:side|house|companies|company|people|hand|way|boys|girls|day|car)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "other"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "side",
+              "house",
+              "company",
+              "people",
+              "hand",
+              "way",
+              "boy",
+              "girl",
+              "day",
+              "car"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I moved because the other house was too small.",
+        "I saw him on the other side of the street."
+      ],
+      "negatives": [
+        "I have other plans.",
+        "Some people like it, others don't."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708998x378745678664328200",
+    "level": "B2",
+    "super_category": "DETERMINERS",
+    "sub_category": "articles",
+    "guideword": "FORM/USE: 'THE MORE \u2026 THE MORE \u2026'",
+    "can_do_statement": "Can use the in comparative phrases 'more', 'less', 'worse', 'better \u2026 the more', 'less', 'worse \u2026' to talk about one thing that is affected by another. \u25ba comparative clauses ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Correlative comparatives showing parallel increase or decrease.",
+      "pedagogical_hook": "'The more... the more...' structure shows a direct relationship between two changes.",
+      "agency_or_distance": "Dynamic parallel change."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthe\\s+(?:more|less|worse|better)\\b(?:(?:\\W|\\w)+?)\\bthe\\s+(?:more|less|worse|better)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "more",
+              "less",
+              "worse",
+              "better"
+            ]
+          }
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "more",
+              "less",
+              "worse",
+              "better"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The more you watch, the worse you become.",
+        "The better education you have, the better opportunities you get."
+      ],
+      "negatives": [
+        "I want the more expensive one.",
+        "It is getting worse and worse."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709001x358121922371724900",
+    "level": "A2",
+    "super_category": "DETERMINERS",
+    "sub_category": "demonstratives",
+    "guideword": "USE: 'THESE', ALREADY MENTIONED",
+    "can_do_statement": "Can use 'these' to refer to things with immediate relevance or which have already been mentioned. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Proximal demonstrative pointing to previously mentioned multiple entities.",
+      "pedagogical_hook": "'These' links back to specific plural items just discussed.",
+      "agency_or_distance": "High proximity and relevance."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthese\\s+(?:places|things|jeans|days|people|books|cars|shoes)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "these"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "place",
+              "thing",
+              "jeans",
+              "day",
+              "people",
+              "book",
+              "car",
+              "shoe"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "These places are very old.",
+        "I will need these things because it is summer."
+      ],
+      "negatives": [
+        "I don't like this place.",
+        "Those things are useless."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709001x603991364400066700",
+    "level": "A2",
+    "super_category": "DETERMINERS",
+    "sub_category": "demonstratives",
+    "guideword": "USE: THOSE POINTING ",
+    "can_do_statement": "Can use 'those' to talk about or point to things which the speaker or writer perceives to be further away in time and space. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Distal demonstrative pointing to entities further away.",
+      "pedagogical_hook": "'Those' is used for plural nouns that are distant in space or time.",
+      "agency_or_distance": "Distal orientation."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthose\\s+(?:birds|mountains|trees|stars|clouds|buildings|guys)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "those"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "bird",
+              "mountain",
+              "tree",
+              "star",
+              "cloud",
+              "building",
+              "guy"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Look at those birds in the sky.",
+        "Those mountains are beautiful from here."
+      ],
+      "negatives": [
+        "These birds are very loud.",
+        "That mountain is tall."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709001x827143402527184000",
+    "level": "C2",
+    "super_category": "DETERMINERS",
+    "sub_category": "demonstratives",
+    "guideword": "FORM/USE: 'THIS' WITH NOUN AND POSSESSIVE",
+    "can_do_statement": "Can use 'this' + noun + 'of' + possessive pronoun to highlight something, often in a positive way. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Highlighting a specific noun phrase through a demonstrative and a possessive structure.",
+      "pedagogical_hook": "Emphasizing a trait by using 'this [noun] of [possessive]'.",
+      "agency_or_distance": "Emphatic focus."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthis\\s+(?:\\w+\\s+)?(?:talent|characteristic|habit|friend|idea|project|book|song)\\s+of\\s+(?:theirs|his|hers|mine|ours|yours)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "this"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "talent",
+              "characteristic",
+              "habit",
+              "friend",
+              "idea",
+              "project",
+              "book",
+              "song"
+            ]
+          }
+        },
+        {
+          "LOWER": "of"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "theirs",
+              "his",
+              "hers",
+              "mine",
+              "ours",
+              "yours"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This rare talent of theirs is used for public pleasure.",
+        "This characteristic of his is shown in every situation."
+      ],
+      "negatives": [
+        "This is his rare talent.",
+        "His characteristic is shown everywhere."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709001x956266227421554000",
+    "level": "A2",
+    "super_category": "DETERMINERS",
+    "sub_category": "demonstratives",
+    "guideword": "FORM: 'THOSE' ",
+    "can_do_statement": "Can use 'those' with plural nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "General distal demonstrative for plural entities.",
+      "pedagogical_hook": "'Those' refers to plural items, distinguishing them from 'these'.",
+      "agency_or_distance": "Distal separation."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthose\\s+(?:clothes|instruments|books|cars|shoes|dogs|cats)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "those"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "clothes",
+              "instrument",
+              "book",
+              "car",
+              "shoe",
+              "dog",
+              "cat"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The cost of those clothes was high.",
+        "I love to play those instruments."
+      ],
+      "negatives": [
+        "I want these clothes.",
+        "That instrument is loud."
+      ]
+    }
+  }
+]

@@ -1,0 +1,720 @@
+[
+  {
+    "egp_id": "1741163710618x128533111434523170",
+    "level": "C2",
+    "super_category": "MODALITY",
+    "sub_category": "have (got) to",
+    "lexical_range": "N/A",
+    "guideword": "USE: OBLIGATION",
+    "can_do_statement": "Can use present and past forms of 'have to' + '-ed' to talk about obligations in the past. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "obligation situated in the past",
+      "pedagogical_hook": "past obligation with have to have",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|had|'ve|'d)\\s+to\\s+have\\s+[a-z]+ed\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has",
+              "had",
+              "'ve",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "LOWER": "have"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You had to have finished the test before leaving.",
+        "She has to have passed the exam to apply."
+      ],
+      "negatives": [
+        "I have to leave now.",
+        "They had to go home."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710618x284270552774544600",
+    "level": "C2",
+    "super_category": "MODALITY",
+    "sub_category": "have (got) to",
+    "lexical_range": "N/A",
+    "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+    "can_do_statement": "Can use a range of present and past forms of 'have (got) to' to talk about deductions and conclusions.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "strong logical deduction",
+      "pedagogical_hook": "have got to for deduction",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:it|there|that)\\s+(?:has|had|'s|'d)\\s+(?:got\\s+)?to\\s+(?:be|have)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "it",
+              "there",
+              "that"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "has",
+              "had",
+              "'s",
+              "'d"
+            ]
+          }
+        },
+        {
+          "LOWER": "got",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "be",
+              "have"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It has got to be a mistake.",
+        "There had to be a reason for this."
+      ],
+      "negatives": [
+        "I have got to go now.",
+        "We have to finish this project."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710618x426930291367799940",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "have (got) to",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'I HAVE TO ADMIT'",
+    "can_do_statement": "Can use the fixed expression 'I have to admit' for emphasis. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "fixed phrase for emphasis and concession",
+      "pedagogical_hook": "I have to admit",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bi(?:'ve|\\s+have)\\s+to\\s+admit\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "i"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "'ve"
+            ]
+          }
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "LOWER": "admit"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I have to admit that it was a good movie.",
+        "I've to admit I was wrong."
+      ],
+      "negatives": [
+        "She has to admit her mistakes.",
+        "I have to leave now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710618x485640295433244400",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "have (got) to",
+    "lexical_range": "N/A",
+    "guideword": "FORM: INFINITIVE ",
+    "can_do_statement": "Can use 'have to' as an infinitive form.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "obligation in infinitive complement",
+      "pedagogical_hook": "to have to",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bto\\s+have\\s+to\\s+\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "to"
+        },
+        {
+          "LOWER": "have"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am going to have to buy a new one.",
+        "I'd hate to have to choose between them."
+      ],
+      "negatives": [
+        "I have to go.",
+        "She wants to have a break."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710618x543611533546182200",
+    "level": "C2",
+    "super_category": "MODALITY",
+    "sub_category": "have (got) to",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PAST",
+    "can_do_statement": "Can use 'have to have' + '-ed'. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "obligation situated in the past perfective",
+      "pedagogical_hook": "have to have + past participle",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhave\\s+to\\s+have\\s+[a-z]+ed\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "have"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "LOWER": "have"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You have to have lived there to understand.",
+        "They have to have finished by now."
+      ],
+      "negatives": [
+        "I have to have a coffee.",
+        "We had to go home."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710618x970201243309381400",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "have (got) to",
+    "lexical_range": "N/A",
+    "guideword": "USE: SUGGESTION",
+    "can_do_statement": "Can use 'you (have) got to' to make a strong suggestion.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "strong recommendation directed at listener",
+      "pedagogical_hook": "you have got to for advice",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\byou(?:'ve|\\s+have)?\\s+(?:got\\s+)?to\\s+(?!be\\b|have\\b)\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "'ve"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "got",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "be",
+              "have"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You've got to see this movie.",
+        "You have to try the pie here."
+      ],
+      "negatives": [
+        "I have got to leave now.",
+        "You have to be kidding me."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710618x224118747511191650",
+    "level": "A2",
+    "super_category": "MODALITY",
+    "sub_category": "may",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "basic possibility",
+      "pedagogical_hook": "may + verb",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b[a-z]+\\s+may\\s+(?!not\\b)\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "LOWER": "may"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "not"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I may need some help later.",
+        "It may be dirty."
+      ],
+      "negatives": [
+        "I may not be able to come.",
+        "May I help you?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710619x228781001251689540",
+    "level": "A2",
+    "super_category": "MODALITY",
+    "sub_category": "may",
+    "lexical_range": "N/A",
+    "guideword": "USE: POSSIBILITY",
+    "can_do_statement": "Can use 'may' to talk about weak possibility referring to the present and the future. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "weak present or future possibility",
+      "pedagogical_hook": "may for possibility",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:it|we|weather)\\s+may\\s+(?!not\\b)\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "it",
+              "we",
+              "weather"
+            ]
+          }
+        },
+        {
+          "LOWER": "may"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "not"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It may rain later.",
+        "We may need your help tomorrow."
+      ],
+      "negatives": [
+        "May I ask a question?",
+        "I may not want to go."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710619x432353527473768900",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "may",
+    "lexical_range": "1",
+    "guideword": "FORM: WITH ADVERBS ",
+    "can_do_statement": "Can use 'may' with a limited range of adverbs (most commonly 'also') in the normal mid-position after the modal verb.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "modal modified by common adverbs",
+      "pedagogical_hook": "may also",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bmay\\s+(?:also|probably|certainly)\\s+\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "may"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "also",
+              "probably",
+              "certainly"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It may also help you relax.",
+        "I may probably come."
+      ],
+      "negatives": [
+        "I may go to the park.",
+        "May I also ask?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710619x872875552573129100",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "may",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "negative possibility",
+      "pedagogical_hook": "may not",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bmay\\s+not\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "may"
+        },
+        {
+          "LOWER": "not"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I knew I may not meet him.",
+        "It may not be the best way."
+      ],
+      "negatives": [
+        "I may go later.",
+        "May I ask a question?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710839x443299354624711040",
+    "level": "B1 ",
+    "super_category": "MODALITY",
+    "sub_category": "may",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use the question form with 'I'. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "asking permission",
+      "pedagogical_hook": "May I",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bmay\\s+i\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "may"
+        },
+        {
+          "LOWER": "i"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "May I ask you a question?",
+        "May I help you with that?"
+      ],
+      "negatives": [
+        "I may go later.",
+        "You may ask a question if you want."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710839x649757077040261000",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "may",
+    "lexical_range": "N/A",
+    "guideword": "USE: PERMISSION",
+    "can_do_statement": "Can use 'may I' to ask for permission.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "requesting permission",
+      "pedagogical_hook": "May I for permission",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bmay\\s+i\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "may"
+        },
+        {
+          "LOWER": "i"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "May I borrow your bike?",
+        "May I be your guide today?"
+      ],
+      "negatives": [
+        "I may need to borrow this.",
+        "He may have gone."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710840x148674711226765900",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "may",
+    "lexical_range": "2",
+    "guideword": "FORM: WITH ADVERBS",
+    "can_do_statement": "Can use 'may' with an increasing range of adverbs (most commonly 'even', 'only', 'already', 'never', 'just', 'sometimes') in the normal mid-position after the modal verb.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "modal modified by expanded adverbs",
+      "pedagogical_hook": "may even/never/just",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bmay\\s+(?:even|only|already|never|just|sometimes)\\s+\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "may"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "even",
+              "only",
+              "already",
+              "never",
+              "just",
+              "sometimes"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You may even find it useful.",
+        "They may never know the truth."
+      ],
+      "negatives": [
+        "I may go there sometimes.",
+        "May I just say something?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710840x171768917119373020",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "may",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PAST NEGATIVE",
+    "can_do_statement": "Can use 'may not have' + '-ed' to talk about possibility in the past. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "negative possibility in the past",
+      "pedagogical_hook": "may not have + past participle",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bmay\\s+not\\s+have\\s+(?:\\w+ed|been|had|done|gone|seen|made|obtained|come)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "may"
+        },
+        {
+          "LOWER": "not"
+        },
+        {
+          "LOWER": "have"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It may not have been the best idea.",
+        "They may not have obtained the results yet."
+      ],
+      "negatives": [
+        "I may not have the time for this.",
+        "He may not be coming."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710840x470507602302159700",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "may",
+    "lexical_range": "N/A",
+    "guideword": "USE: COMMAND",
+    "can_do_statement": "Can use 'may I' to make a polite request, command or suggestion in formal contexts.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "formal polite request or command",
+      "pedagogical_hook": "May I for formal request",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bmay\\s+i\\s+(?:have|ask|suggest)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "may"
+        },
+        {
+          "LOWER": "i"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "ask",
+              "suggest"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "May I have your attention please?",
+        "May I suggest a different approach?"
+      ],
+      "negatives": [
+        "May I go to the bathroom?",
+        "I may have a suggestion."
+      ]
+    }
+  }
+]

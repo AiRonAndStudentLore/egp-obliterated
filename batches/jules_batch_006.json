@@ -1,0 +1,805 @@
+[
+  {
+    "egp_id": "1741163708329x778951051617750700",
+    "level": "A1",
+    "super_category": "CLAUSES",
+    "sub_category": "declarative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE DECLARATIVE WITH 'BE'",
+    "can_do_statement": "Can form a simple negative declarative clause with lexical 'be' + 'not' or 'n't'. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Stating that an entity lacks a certain attribute or identity",
+      "pedagogical_hook": "Negative state of being",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|'m|'re|'s)\\b(?:\\s+[a-z]+ly)?\\s+(?:not|n't)\\b(?!\\s+(?:going|doing|playing)\\b)|\\b(?:isn't|aren't|wasn't|weren't)\\b(?!\\s+(?:going|doing|playing)\\b)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "NOT_IN": [
+              "go",
+              "do",
+              "play",
+              "eat"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My college is not very big.",
+        "This place isn't big."
+      ],
+      "negatives": [
+        "He isn't going to the store.",
+        "I haven't got any time."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708329x894844343465365000",
+    "level": "A1",
+    "super_category": "CLAUSES",
+    "sub_category": "declarative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE DECLARATIVE, LEXICAL VERBS",
+    "can_do_statement": "Can form simple negative declarative clauses.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing negative facts or routines",
+      "pedagogical_hook": "Simple negation of actions",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:do|does|did)(?:n't|\\s+not)\\b(?:\\s+[a-z]+ly)?\\s+[a-z]+|\\b(?:don't|doesn't|didn't)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "do"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I don't like maths.",
+        "He doesn't know."
+      ],
+      "negatives": [
+        "I am not happy.",
+        "I haven't seen it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708329x931125497510935300",
+    "level": "A1",
+    "super_category": "CLAUSES",
+    "sub_category": "declarative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE DECLARATIVE, MODAL AUXILIARY VERBS",
+    "can_do_statement": "Can form an affirmative declarative clause with modal verbs.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Expressing ability, permission, or future intent",
+      "pedagogical_hook": "Basic modal usage",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:can|will|must|should|could|would|might|may|shall)\\b(?:\\s+[a-z]+ly)?\\s+[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "can",
+              "will",
+              "must",
+              "should",
+              "could",
+              "would",
+              "might",
+              "may",
+              "shall"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "not",
+              "n't"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I can go to see her tomorrow.",
+        "I will visit you soon."
+      ],
+      "negatives": [
+        "Can I go?",
+        "I cannot see you."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708330x413468355048861400",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "declarative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE DECLARATIVE, MODAL AUXILIARY VERBS",
+    "can_do_statement": "Can form a simple negative declarative clause with modal verb + 'not' or 'n't'. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Expressing inability, prohibition, or negative future",
+      "pedagogical_hook": "Negating modal verbs",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|you|he|she|it|we|they)\\b\\s+(?:can't|won't|couldn't|wouldn't|shouldn't|mustn't|shan't|mightn't)\\b|\\b(?:I|you|he|she|it|we|they)\\b\\s+(?:can|will|must|should|could|would|might|may|shall)\\b(?:\\s+[a-z]+ly)?\\s+(?:not|n't)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "he",
+              "she",
+              "it",
+              "we",
+              "they"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "can",
+              "will",
+              "must",
+              "should",
+              "could",
+              "would",
+              "might",
+              "may",
+              "shall"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You won't have to bring anything.",
+        "I couldn't come to my party."
+      ],
+      "negatives": [
+        "I will come.",
+        "Can't you see?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708330x456690728495361200",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "declarative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE DECLARATIVE WITH 'HAVE'",
+    "can_do_statement": "Can form a simple negative declarative clause with auxiliary 'have' + 'not' or 'n't' and 'have' + 'not' or 'n't (got)' ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing lack of completion or lack of possession",
+      "pedagogical_hook": "Negating perfect aspect or possession",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:haven't|hasn't|hadn't)\\b|\\b(?:have|has|had)\\b(?:\\s+[a-z]+ly)?\\s+(?:not|n't)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I haven't eaten Italian food for a long time.",
+        "I hadn't got any clothes for summer."
+      ],
+      "negatives": [
+        "I have not.",
+        "Have you seen it?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708330x678606711578176000",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "declarative",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: AUXILIARY 'DO', FOR EMPHASIS",
+    "can_do_statement": "Can use the auxiliary verb 'do' in an affirmative declarative clause, for emphasis and affirmation. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Reaffirming or insisting on a fact",
+      "pedagogical_hook": "Emphatic do",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|you|we|they|he|she|it)\\b\\s+(?:do|does|did)(?:\\s+[a-z]+ly)?\\s+[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "do",
+              "does",
+              "did"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "NOT_IN": [
+              "do",
+              "be"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Yes, I do have a favorite restaurant.",
+        "I do miss you."
+      ],
+      "negatives": [
+        "Do you miss me?",
+        "I don't miss you."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708336x128539343181511400",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE INTERROGATIVE, WITH MODAL AUXILIARY VERBS",
+    "can_do_statement": "Can form interrogative clauses ('yes/no' forms) with modal auxiliary verbs.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Asking for permission, predicting, or requesting",
+      "pedagogical_hook": "Yes/no questions with modals",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:Can|Will|Would|Could|Should|May|Might|Shall|Must)\\b.*\\?$",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "can",
+              "will",
+              "would",
+              "could",
+              "should",
+              "may",
+              "might",
+              "shall",
+              "must"
+            ]
+          },
+          "IS_SENT_START": true
+        },
+        {
+          "IS_ALPHA": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Would you like to come with me?",
+        "Can I come tomorrow to collect it?"
+      ],
+      "negatives": [
+        "I can come tomorrow.",
+        "What will you do?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708336x903931402154698900",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE INTERROGATIVE, WITH AUXILIARY 'BE/HAVE'",
+    "can_do_statement": "Can form interrogative clauses ('yes/no' forms) with auxiliary 'be' and 'have'. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Checking state or completion",
+      "pedagogical_hook": "Yes/no questions with be or have",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:Are|Is|Am|Was|Were|Have|Has|Had)\\b.*\\?$",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "have"
+            ]
+          },
+          "IS_SENT_START": true
+        },
+        {
+          "IS_ALPHA": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Are you going to the new art class?",
+        "Have you got a new dress for the party?"
+      ],
+      "negatives": [
+        "You are going to the art class.",
+        "Where have you been?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708336x928067678664856700",
+    "level": "A1",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE INTERROGATIVE, WITH 'BE'",
+    "can_do_statement": "Can form interrogative clauses with 'be'. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Inquiring about entity state or identity",
+      "pedagogical_hook": "Questions with the verb 'to be'",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were)\\b\\s+(?:I|you|he|she|it|we|they|this|that|these|those)\\b.*\\?$",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "he",
+              "she",
+              "it",
+              "we",
+              "they",
+              "this",
+              "that",
+              "these",
+              "those"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "How are you?",
+        "Are you ok?"
+      ],
+      "negatives": [
+        "I am ok.",
+        "He is happy."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708336x930002080700909000",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE INTERROGATIVE",
+    "can_do_statement": "Can form interrogative clauses ('yes/no' forms) of main lexical verbs with auxiliary 'do'.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Querying about habits or past events",
+      "pedagogical_hook": "Yes/no questions with do",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:Do|Does|Did)\\b.*\\?$",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "do",
+          "IS_SENT_START": true
+        },
+        {
+          "IS_ALPHA": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Do you remember Julie?",
+        "Did you buy a new mobile phone?"
+      ],
+      "negatives": [
+        "I do remember Julie.",
+        "What did you buy?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708342x469176927335390700",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE 'WH-' INTERROGATIVE ",
+    "can_do_statement": "Can form 'wh-' interrogative clauses with a 'wh-' word as object. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Seeking specific entity information",
+      "pedagogical_hook": "Wh- questions",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:Who|What|Where|When|Why|How)\\b(?:.*)\\b(?:am|is|are|was|were|do|does|did|have|has|had|can|could|will|would|shall|should|may|might|must)\\b.*\\?$",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "who",
+              "what",
+              "where",
+              "when",
+              "why",
+              "how"
+            ]
+          },
+          "IS_SENT_START": true
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "do",
+              "have",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "When are you coming here?",
+        "What have you bought?"
+      ],
+      "negatives": [
+        "Do you know when he arrived?",
+        "Who came to the party?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708343x587422418001030500",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'WH-' INTERROGATIVE, SUBJECT",
+    "can_do_statement": "Can form questions with a 'wh-' word as subject, without an auxiliary verb. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Seeking the identity of the subject",
+      "pedagogical_hook": "Wh- subject questions",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:Who|What|Which)\\b\\s+(?!(?:do|does|did|am|is|are|was|were|have|has|had)\\b)[a-z]+.*\\?$",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "who",
+              "what",
+              "which"
+            ]
+          },
+          "IS_SENT_START": true
+        },
+        {
+          "LEMMA": {
+            "NOT_IN": [
+              "be",
+              "do",
+              "have",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "What happened?",
+        "Who cares?"
+      ],
+      "negatives": [
+        "What did you do?",
+        "Who is he?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708343x612263360498884700",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE INTERROGATIVE + ADVERB",
+    "can_do_statement": "Can form negative interrogative clauses with an adverb in mid position, between the subject and the main verb. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Querying exceptions or negative habits",
+      "pedagogical_hook": "Negative questions with adverbs",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:don't|doesn't|didn't|haven't|hasn't|hadn't|aren't|isn't|wasn't|weren't|can't|couldn't|won't|wouldn't|shouldn't)\\b\\s+(?:I|you|we|they|he|she|it|\\w+)\\s+(?:ever|always|usually|often|sometimes|never|really|just)\\b.*\\?$",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "do",
+              "have",
+              "be",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "IS_ALPHA": true
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "ever",
+              "always",
+              "usually",
+              "often",
+              "sometimes",
+              "never",
+              "really",
+              "just",
+              "still"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Why don't you ever listen to me?",
+        "Haven't you ever heard about the photographer?"
+      ],
+      "negatives": [
+        "Don't you listen to me?",
+        "Why do you always listen to me?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708343x784452436860678700",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: INTERROGATIVE + ADVERB",
+    "can_do_statement": "Can form interrogative clauses with an adverb in mid position, between the subject and the main verb. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Asking about frequency or exact timing",
+      "pedagogical_hook": "Questions with adverbs",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:do|does|did|have|has|had|are|is|am|was|were|can|could|will|would|should|may|might)\\b\\s+(?:I|you|we|they|he|she|it|\\w+)\\s+(?:ever|always|usually|often|sometimes|never|really|just|still)\\b.*\\?$",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "do",
+              "have",
+              "be",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "IS_ALPHA": true
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "ever",
+              "always",
+              "usually",
+              "often",
+              "sometimes",
+              "never",
+              "really",
+              "just",
+              "still"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Have you ever been to Marseille?",
+        "Do you still remember my best friend?"
+      ],
+      "negatives": [
+        "Have you been to Marseille?",
+        "Don't you ever listen?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708343x852921288542131100",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'WHICH', 'WHOSE'",
+    "can_do_statement": null,
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Querying specific selection or possession",
+      "pedagogical_hook": "Questions with which or whose",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:which|whose)\\b\\s+(?!(?:is|are|was|were|am|do|does|did|have|has|had|can|could|will|would|should|it|they|he|she|I|we|you)\\b)[a-z]+.*\\?$",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "which",
+              "whose"
+            ]
+          }
+        },
+        {
+          "IS_ALPHA": true,
+          "LEMMA": {
+            "NOT_IN": [
+              "be",
+              "do",
+              "have",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must",
+              "it",
+              "they",
+              "he",
+              "she",
+              "i",
+              "we",
+              "you"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Which book is yours?",
+        "Whose car are we taking?"
+      ],
+      "negatives": [
+        "Which is better?",
+        "I know whose it is."
+      ]
+    }
+  }
+]

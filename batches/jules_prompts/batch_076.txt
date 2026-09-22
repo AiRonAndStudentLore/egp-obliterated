@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_076.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163709462x817785568593135600",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: WILLINGNESS WITH 'WILL'",
+  "can_do_statement": "Can use 'will' to express willingness. ",
+  "example_raw": "My mother will drive us there. (Malaysia; A2 WAYSTAGE; 2008; Malay; Pass)\n\n\u2026 and my elder sister will help us too. (Bangladesh; A2 WAYSTAGE; 2006; Bengali; Pass)"
+ },
+ {
+  "egp_id": "1741163709469x456116392447661900",
+  "level": "C2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: PREDICTIONS WITH 'SHALL'",
+  "can_do_statement": "Can use 'shall' to make predictions, usually in formal contexts.",
+  "example_raw": "Once more I invite you wholeheartedly to stay at my place and I hope we shall meet in November. (Poland; C2 MASTERY; 1998; Polish; Pass)\n\n\u2026 we shall probably have several years more to live. (France; C2 MASTERY; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163709469x118274875968644050",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "USE: INTENTIONS",
+  "can_do_statement": "Can use the affirmative and question forms of 'be going to' talk about plans and intentions. ",
+  "example_raw": "I'm going to use pink paint. (Brazil; A2 WAYSTAGE; 2006; Portuguese; Pass)\n\nMy mum is going to take us by car. (Uruguay; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)\n\nWhat time are you going to come? And what are you going to bring?  (Turkey; A2 WAYSTAGE; 2009; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163709469x290402051352341950",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form. ",
+  "example_raw": "What are you going to wear? (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nWhat colour paint are we going to use? (India; A2 WAYSTAGE; 2006; Hindi; Pass)\n\nAre you going to come tomorrow evening? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163709469x773626805908608900",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form.  ",
+  "example_raw": "[about some new jeans] I 'm going to wear them on holiday. (Turkey; A2 WAYSTAGE; 2008; Turkish; Pass)\n\nIt is going to start at half past four. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)\n\n[about the weather] It's going to be hot. (Taiwan; A2 WAYSTAGE; 2008; Chinese; Pass)\n\nWe are going to take a taxi to get to the sports centre. (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x248062943650194430",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form. ",
+  "example_raw": " I am not going to go to school tomorrow. (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nAlso you can do whatever you want because there is not going to be an adult there to stop you. (Cyprus; B1 THRESHOLD; 2008; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x281157442643926720",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST",
+  "can_do_statement": "Can use the past form of 'be' + 'going to'. \u25ba future in the past",
+  "example_raw": "When we realized it was going to be an extremely hot day, we took water. (Argentina; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\nWe were going to meet at 11.30 am but instead we will meet now at 2.30 pm at the same place. (India; B1 THRESHOLD; 2008; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x450747971941201300",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'be' + 'going to' with a limited range of adverbs, after the auxiliary be form, in the normal mid position. ",
+  "example_raw": "I know that I 'm never going to forget this moment. (Spain; B1 THRESHOLD; 2008; Catalan; Pass)\n\nAlthough we are really happy with your new and, maybe, better job, we are really going to miss you. (Uruguay; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x858774598557581800",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "USE: INTENTIONS",
+  "can_do_statement": "Can use the negative form of 'be going to' to talk about plans and intentions.",
+  "example_raw": "I 'm not going to be able to meet you next Tuesday, because I have to go to the dentist at 5.30. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nI'm sure I'm not going to live in Kutn\u00e1 Hora forever. (Czech Republic; B1 THRESHOLD; 2007; Czech; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x871163716353014800",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "USE: FUTURE IN THE PAST ",
+  "can_do_statement": "Can use the past form of 'be going to' to refer to the future from a point in the past. \u25ba future in the past",
+  "example_raw": "She didn't know what was going to happen. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)\n\nWe were going to meet two days later in the square next to the centre. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x917723267803535400",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "1",
+  "guideword": "USE: PREDICTIONS WITH 'BE' ",
+  "can_do_statement": "Can use 'be going to' with 'be' to make predictions. ",
+  "example_raw": "I think this Saturday is going to be a nice day. (Mexico; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nIt's going to be fantastic. (Peru; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)\n\nIt is going to be great fun. (India; A2 WAYSTAGE; 2009; Tamil; Pass)\n\nYou should wear comfortable clothes because you are going to be hot. (Peru; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163709472x233750198781269120",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTING",
+  "can_do_statement": "Can use the past form of 'be going to' as the reported form.\u25ba reported speech",
+  "example_raw": "Fortunately, he was told his boss was going to be a bit late, so he had some time to go back home. (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nI was very worried but at the end he called me and told me he and his family were fine and that he was going to arrive tomorrow. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163709472x244172880515270080",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "2",
+  "guideword": "USE: PREDICTIONS ",
+  "can_do_statement": "Can use 'be going to' with an increasing range of verbs to make predictions. ",
+  "example_raw": "I think you're going to like it. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nAnd don't you think you are going to miss your parents? (Netherlands; B1 THRESHOLD; 2008; Dutch; Pass)\n\nI think I am going to enjoy that class. (France; B1 THRESHOLD; 2002; French; Pass)\n\nI think that I am not going to sleep tonight because tomorrow is an exciting and interesting day. (Spain; B1 THRESHOLD; 2001; Spanish - European; Pass)\n\nAs a matter of fact, apart from teenagers programmes and children's cartoons, there is not much to watch, and this is not going to teach you many things about life! (France; B1 THRESHOLD; 2010; French; Pass)"
+ },
+ {
+  "egp_id": "1741163709472x336460271601600300",
+  "level": "C1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS ",
+  "can_do_statement": "Can use 'be' + 'going to' with an increasing range of adverbs (particularly adverbs of certainty) in the normal mid position. ",
+  "example_raw": "Mario Soares is already an old man, nearly 70, who is probably going to finish his active political life in 2 or 3 years. (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)\n\nAs the new store is going to be the first and only one in Moscow, and, to make matters worse, it is going to be located close to our most successful outlet, it is undoubtedly going to have a detrimental effect on our company. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2010; Polish; Pass)\n\nAdditionally, many British people stay at \"Tall Trees Campsite\", so I guess we would be forced to speak English all the time, which is also great because it is surely going to help us to improve our English skills. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163709472x588484642713553900",
+  "level": "C2",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS ",
+  "can_do_statement": "Can use 'be' + 'going to' with a wide range of adverbs before the main verb. ",
+  "example_raw": "But I don't know if I'm going to still live here. (Uruguay; B1 THRESHOLD; 2007; Spanish - Latin American; Pass)\n\nFirst, I am going to briefly introduce the three main activities offered by the club. (Switzerland; C2 MASTERY; 2006; French; Pass)\n\nNobody is going to even look at you when your sister is there. (Israel; C2 MASTERY; 1997; Russian; Pass)"
+ }
+]
+```

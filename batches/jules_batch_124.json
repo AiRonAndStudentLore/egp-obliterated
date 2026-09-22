@@ -1,0 +1,801 @@
+[
+  {
+    "egp_id": "1741163716068x228640925138144930",
+    "level": "A2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PRONOUNS ",
+    "can_do_statement": "Can use a limited range of determiners as pronouns and indefinite pronouns in negative contexts.  \u25ba Pronouns: quantity",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Absence of quantity or items",
+      "pedagogical_hook": "Using 'any' or 'many' without a noun to refer back to something absent.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:not|n't|don't|haven't|hasn't|didn't|isn't|aren't|wasn't|weren't)\\b.*?\\b(?:any|many|anything|anyone|anybody)\\b(?!\\s+[a-z]+)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "any",
+              "many",
+              "anything",
+              "anyone",
+              "anybody"
+            ]
+          },
+          "DEP": {
+            "NOT_IN": [
+              "det",
+              "amod",
+              "compound"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I bought a shirt, because I haven't got any.",
+        "As regards close friends, I don't have many."
+      ],
+      "negatives": [
+        "I don't have any money left.",
+        "She didn't see many friends."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716068x372734050861656100",
+    "level": "A2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: MODAL VERBS",
+    "can_do_statement": "Can use negative forms of modal verbs. \u25ba modal verbs",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Impossibility, inability, or prohibition",
+      "pedagogical_hook": "Negating modal verbs like can, will, and should.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:can't|cannot|won't|wouldn't|shouldn't|couldn't|mustn't|mightn't|may\\s+not)\\b",
+      "spacy_token_pattern": [
+        {
+          "TAG": "MD"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "only"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm sorry I can't come to your wedding.",
+        "Sorry but I won't be in town on Wednesday 17th."
+      ],
+      "negatives": [
+        "I will not only go there, but also help out.",
+        "Can you tell me what happened?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716068x445742738976088800",
+    "level": "A2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'DO', IMPERATIVES",
+    "can_do_statement": "Can form negative imperatives of main verbs with 'don\u2019t' + main verb. \u25ba Clauses: imperatives",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Prohibiting an action",
+      "pedagogical_hook": "Using 'Don't' at the start of a clause to give a negative command.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|[.?!]\\s*|\\bplease\\s+)(?:do\\s+not|don't)\\s+[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "do",
+          "TAG": "VB"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Don't forget your electric guitar.",
+        "Please do not be late for the meeting."
+      ],
+      "negatives": [
+        "I don't forget my friends.",
+        "They do not want to be late."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716068x574314163168649300",
+    "level": "A2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AUXILIARY VERBS 'BE', 'HAVE', PRESENT",
+    "can_do_statement": "Can form negative statements of main verbs in the present continuous and present perfect with 'be' and 'have' + 'not/n't'.  \u25ba present continuous \u25ba present perfect",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Current absence of action or experience",
+      "pedagogical_hook": "Negating present continuous and present perfect with 'not'.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:\\b(?:am|is|are|have|has|'m|'s|'re|'ve)\\s+not\\b|\\b(?:isn't|aren't|haven't|hasn't)\\b)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ing|[a-z]+ed|been|got\\b|broken|done|seen|made|come|tidied|working|closing)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "have"
+            ]
+          },
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBG",
+              "VBN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The window is broken and is not closing.",
+        "Now, I haven't got any money."
+      ],
+      "negatives": [
+        "I am not happy about it.",
+        "He has not the time to do this."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716068x909588472060841300",
+    "level": "A1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: MODAL VERB 'CAN'",
+    "can_do_statement": "Can use negative form 'can\u2019t'.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Inability or prohibition",
+      "pedagogical_hook": "Using 'can't' for things you are unable or not allowed to do.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:can't|cannot|can\\s+not)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "can"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "In winter, we can't go visiting because it is too cold.",
+        "I can not find my CD."
+      ],
+      "negatives": [
+        "You can go if you want to.",
+        "Canning fruits is a fun activity, not boring."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716068x977297843398490900",
+    "level": "A2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AUXILIARY VERB 'DO', PAST",
+    "can_do_statement": "Can form negative statements of main verbs in the past simple with 'didn\u2019t' + main verb. \u25ba past simple",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Absence of a past event",
+      "pedagogical_hook": "Negating past actions with 'didn't'.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:did\\s+not|didn't)\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "did"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It was very sad that you didn't come to my birthday party.",
+        "I did not spend a lot of money."
+      ],
+      "negatives": [
+        "I do not spend a lot of money.",
+        "He hasn't spent much money."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716069x187136272892084450",
+    "level": "B1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AUXILIARY VERBS 'BE', 'HAVE', PAST",
+    "can_do_statement": "Can form negative statements of main verbs in the past continuous and past perfect with auxiliary verbs 'be' and 'have' + 'not/n't'. \u25ba past continuous \u25ba past perfect",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Absence of an ongoing or preceding past event",
+      "pedagogical_hook": "Negating past continuous and past perfect with 'not'.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were|had|'d)\\s*not\\b|\\b(?:wasn't|weren't|hadn't)\\b\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ing|[a-z]+ed|been|got\\b|done|seen|made|come|expected|going|raining)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "have"
+            ]
+          },
+          "TAG": "VBD"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBG",
+              "VBN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It was raining for seventy two hours and it wasn't going to stop.",
+        "I hadn't expected to receive a letter from her."
+      ],
+      "negatives": [
+        "I am not expecting a letter.",
+        "She hasn't been feeling well."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716069x352116208624451400",
+    "level": "B1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use negative question forms in main clauses and question tags. \u25ba questions",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking confirmation through negative framing",
+      "pedagogical_hook": "Starting a question with a negative auxiliary or using a negative question tag.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:can't|don't|doesn't|aren't|isn't|wouldn't|shouldn't|didn't|won't|couldn't|hasn't|haven't|hadn't|wasn't|weren't)\\s+(?:you|he|she|it|they|we|I)\\b(?:.*[?]|\\s*\\?$)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "have",
+              "do",
+              "will",
+              "can",
+              "would",
+              "should",
+              "could",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "expl"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Can't you go with your parents some time?",
+        "You're free on Saturday, aren't you?"
+      ],
+      "negatives": [
+        "I can't go with my parents.",
+        "She didn't think it was a good idea."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716069x679616735525116500",
+    "level": "B1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: MENTAL PROCESS VERBS + CLAUSE",
+    "can_do_statement": "Can use the negative forms of mental process verbs ('I don\u2019t think', 'I don\u2019t believe') followed by a complement clause, where the negative form is in the mental process verb rather than the complement clause.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing a negative opinion or belief",
+      "pedagogical_hook": "Using 'I don't think' instead of 'I think it is not'.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:don't|do\\s+not|didn't|did\\s+not)\\s+(?:think|believe|suppose|imagine|expect)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "do"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "think",
+              "believe",
+              "suppose",
+              "imagine",
+              "expect"
+            ]
+          }
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN",
+              "DET"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "But I don't think it'll help you.",
+        "I don't believe that the suitcase will be returned to me."
+      ],
+      "negatives": [
+        "I didn't hear what you said.",
+        "They do not know if they can come."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716069x747151699334092500",
+    "level": "A2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DETERMINERS 'ANY', 'MUCH', 'MANY'",
+    "can_do_statement": "Can use determiners 'any', 'much' and 'many' with nouns in negative contexts. \u25ba Determiners: quantity",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Absence of quantity",
+      "pedagogical_hook": "Using 'any', 'much', or 'many' with a noun in a negative sentence.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:not|n't)\\s+(?:[a-z]+\\s+){0,3}(?:any|much|many)\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "any",
+              "much",
+              "many"
+            ]
+          }
+        },
+        {
+          "POS": "ADJ",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I bought them because I didn't have any shirts.",
+        "I have only spent \u00a325 because I haven't much money."
+      ],
+      "negatives": [
+        "I didn't have any.",
+        "She didn't see much."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716069x752024616613977200",
+    "level": "A2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DETERMINERS 'NO'",
+    "can_do_statement": "Can use determiner 'no' with nouns.  \u25ba Determiners: quantity",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Complete absence",
+      "pedagogical_hook": "Using 'no' directly before a noun to signify zero quantity.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bno\\s+(?!smoking\\b|parking\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "no",
+          "DEP": "det"
+        },
+        {
+          "POS": "ADJ",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "smoking",
+              "parking"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I have no money because they cost \u00a3250.",
+        "I had no clothes to wear at John's party."
+      ],
+      "negatives": [
+        "No, I don't want to go.",
+        "There is a no smoking sign."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716070x300369742852513600",
+    "level": "B1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'NOT', NON FINITE AND ELLIPTED CLAUSES",
+    "can_do_statement": "Can use 'not' before a non-finite or ellipted clause. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Negating a fragment or non-finite verb",
+      "pedagogical_hook": "Using 'not' alone before a participle or adjective.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|for\\s+|and\\s+|but\\s+|or\\s+|[.,!?]\\s+)not\\s+(?:being|to\\s+|[a-z]+ing|this|that|the|a|an|[a-z]{3,})\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "being",
+              "having",
+              "to",
+              "this",
+              "that",
+              "the",
+              "a",
+              "an",
+              "crowded"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I ripped it open as fast as I could. Not this time.",
+        "I would like to apologise for not being able to attend."
+      ],
+      "negatives": [
+        "I am not going to the store.",
+        "He did not want to see it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716070x320077410338691650",
+    "level": "B2",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT', EMPHASIS",
+    "can_do_statement": "Can use uncontracted 'not' for emphasis or in formal contexts.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Emphasized negation",
+      "pedagogical_hook": "Using the full uncontracted 'not' to emphasize the negative point.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:do|does|did|is|are|am|was|were|have|has|had|can|could|will|would|shall|should|may|might|must)\\s+not\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "AUX",
+              "VERB"
+            ]
+          }
+        },
+        {
+          "LOWER": "not"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Do not take on too many assignments at a time.",
+        "Keeping them in zoos will not help them."
+      ],
+      "negatives": [
+        "Don't take on too many assignments.",
+        "I won't help them."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716070x446178260215358340",
+    "level": "B1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "N/A",
+    "guideword": "USE: SEEKING AGREEMENT",
+    "can_do_statement": "Can use negative questions and question tags to involve the listener/reader by seeking agreement or checking something. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking agreement",
+      "pedagogical_hook": "Using negative questions or tags to involve the listener.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:isn't|aren't|don't|doesn't|didn't|hasn't|haven't|won't|can't|couldn't|wouldn't|shouldn't)\\s+(?:it|you|we|he|she|they)\\b.*[?]",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "have",
+              "do",
+              "will",
+              "can",
+              "would",
+              "should",
+              "could"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "expl"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Isn't it marvellous?",
+        "You love books, don't you?"
+      ],
+      "negatives": [
+        "I didn't think it was marvellous.",
+        "He doesn't love books."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716070x726962276746828700",
+    "level": "B1",
+    "super_category": "NEGATION",
+    "sub_category": "negation",
+    "lexical_range": "2",
+    "guideword": "FORM: PRONOUNS",
+    "can_do_statement": "Can use an increasing range of indefinite pronouns in negative contexts. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Absence of entities",
+      "pedagogical_hook": "Using indefinite pronouns like 'nothing' or 'anyone' in negative contexts.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:\\b(?:nothing|nobody|no\\s+one|nowhere)\\b|\\b(?:not|n't|didn't|don't|haven't|hasn't|isn't|aren't|wasn't|weren't|hadn't|won't|wouldn't|couldn't|shouldn't|can't)\\b\\s+(?:[a-z]+\\s+){0,4}(?:anything|anyone|anybody|anywhere)\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "nothing",
+              "nobody",
+              "nowhere",
+              "anything",
+              "anyone",
+              "anybody",
+              "anywhere"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I said I had nothing, but he didn't believe me.",
+        "I haven't seen anything yet."
+      ],
+      "negatives": [
+        "I have something for you.",
+        "Everyone is here."
+      ]
+    }
+  }
+]

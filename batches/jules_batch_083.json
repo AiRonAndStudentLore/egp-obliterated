@@ -1,0 +1,848 @@
+[
+  {
+    "egp_id": "1741163710611x575620351539563000",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'BE BOUND TO', CERTAINTY",
+    "can_do_statement": "Can use 'be' (+ modifier) 'bound to' to talk about something certain or inevitable.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Certainty",
+      "pedagogical_hook": "be bound to",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|being|'m|'re|'s)(?:\\s+(?:almost|really|[a-z]+ly))?\\s+bound\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "bound"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It is bound to happen sooner or later.",
+        "They're almost bound to find out."
+      ],
+      "negatives": [
+        "The package is bound for London.",
+        "He bound the pages to the cover."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710611x641365217086004500",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'BE' + ADJECTIVE + 'THAT'",
+    "can_do_statement": "Can use 'be' + 'obvious/sure/likely/certain' followed by a 'that'-clause.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Certainty",
+      "pedagogical_hook": "be obvious/sure/likely/certain that",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|being|'m|'re|'s)(?:\\s+(?:quite|really|[a-z]+ly))?\\s+(?:obvious|sure|likely|certain)\\s+that\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "obvious",
+              "sure",
+              "likely",
+              "certain"
+            ]
+          }
+        },
+        {
+          "LOWER": "that"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It is obvious that he lied.",
+        "I am quite sure that they will win."
+      ],
+      "negatives": [
+        "Are you sure of that?",
+        "That is a likely story."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710611x851664498917631400",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'BE SUPPOSED TO', OBLIGATION, EXPECTATION",
+    "can_do_statement": "Can use 'be supposed to' to talk about expectation or obligation. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Obligation",
+      "pedagogical_hook": "be supposed to",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|being|'m|'re|'s)(?:\\s+not|n't)?(?:\\s+(?:really|[a-z]+ly))?\\s+supposed\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "supposed"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We are supposed to leave now.",
+        "I am not supposed to be here."
+      ],
+      "negatives": [
+        "I supposed to myself that he was right.",
+        "The supposed rules were unclear."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710612x402995334969845200",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: IMPERATIVE",
+    "can_do_statement": "Can use the imperative form 'be sure to', to express obligation. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Obligation",
+      "pedagogical_hook": "imperative be sure to",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|[.!?]\\s+|\\bplease\\s+)be\\s+sure\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "be",
+          "DEP": "ROOT"
+        },
+        {
+          "LOWER": "sure"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Be sure to contact me.",
+        "Please be sure to tell him."
+      ],
+      "negatives": [
+        "I want to be sure to get there.",
+        "Are you sure to go?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710612x901003785079941200",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'BE SURE/CERTAIN TO'",
+    "can_do_statement": "Can use 'be sure to', 'be certain to' to talk about certainty. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Certainty",
+      "pedagogical_hook": "be sure/certain to",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|been|being|'m|'re|'s)\\s+(?:(?:almost|really|[a-z]+ly)\\s+)?(?:sure|certain)\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be",
+          "LOWER": {
+            "NOT_IN": [
+              "be",
+              "being",
+              "been"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "sure",
+              "certain"
+            ]
+          }
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You are sure to find it.",
+        "They're almost certain to win."
+      ],
+      "negatives": [
+        "I am sure of that.",
+        "Be sure to do it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710613x108457117806470160",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'BE FORCED TO', OBLIGATION",
+    "can_do_statement": "Can use 'be forced to' to talk about an unnamed obligation, where the circumstances are beyond the control of the speaker/writer. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Obligation",
+      "pedagogical_hook": "be forced to",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|being|'m|'re|'s)(?:\\s+(?:really|[a-z]+ly))?\\s+forced\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "forced"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I was forced to leave.",
+        "We are forced to cut the budget."
+      ],
+      "negatives": [
+        "He forced me to go.",
+        "The forced labor was hard."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710613x174694583388425250",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: HEDGING",
+    "can_do_statement": "Can use 'be' + 'not' + adjective + 'that-' clause to make an assertion less direct.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Hedging",
+      "pedagogical_hook": "be not adjective that",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|being|'m|'re|'s)\\s+(?:not|n't)\\s+(?:[a-z]+ly\\s+)?[a-z]+\\s+that\\b|\\b(?:isn't|aren't|wasn't|weren't)\\s+(?:[a-z]+ly\\s+)?[a-z]+\\s+that\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": "ADJ"
+        },
+        {
+          "LOWER": "that"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am not sure that it will work.",
+        "It isn't likely that they will come."
+      ],
+      "negatives": [
+        "I am sure that it is not true.",
+        "She is not the one that I saw."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710613x336970391866066940",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'BE SET TO', ASSERTION",
+    "can_do_statement": "Can use 'be set to' to talk about strong assertion about the future, especially in institutional contexts. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Assertion",
+      "pedagogical_hook": "be set to",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|being|'m|'re|'s)(?:\\s+(?:really|[a-z]+ly))?\\s+set\\s+to\\b\\s+(?!perfection\\b)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "set"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The population is set to increase.",
+        "We are set to leave."
+      ],
+      "negatives": [
+        "The table is set to perfection.",
+        "He set the dial to five."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710613x411995420006495200",
+    "level": "C2",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use 'be' + 'not' + adjective + 'to' + infinitive.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Negative",
+      "pedagogical_hook": "be not adjective to infinitive",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|being|'m|'re|'s)\\s+(?:not|n't)\\s+(?:[a-z]+ly\\s+)?(?!trying\\b|going\\b)[a-z]+\\s+to\\b|\\b(?:isn't|aren't|wasn't|weren't)\\s+(?:[a-z]+ly\\s+)?(?!trying\\b|going\\b)[a-z]+\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "ADJ",
+              "VERB"
+            ]
+          },
+          "LEMMA": {
+            "NOT_IN": [
+              "try",
+              "go"
+            ]
+          }
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You are not likely to win.",
+        "She isn't expected to come."
+      ],
+      "negatives": [
+        "He is not ready for you.",
+        "We are not trying to leave."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710613x796455236335726800",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'BE OBLIGED TO', OBLIGATION",
+    "can_do_statement": "Can use 'be obliged to' to talk about an external obligation, especially in institutional contexts. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Obligation",
+      "pedagogical_hook": "be obliged to",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|being|'m|'re|'s)(?:\\s+(?:really|[a-z]+ly))?\\s+obliged\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "obliged"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We are obliged to wear a uniform.",
+        "They were obliged to give up their house."
+      ],
+      "negatives": [
+        "I felt obliged to him.",
+        "He obliged me to do it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710614x791981949538591400",
+    "level": "C2",
+    "super_category": "MODALITY",
+    "sub_category": "expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'BE' + ADJECTIVE + 'NOT' + 'TO'",
+    "can_do_statement": "Can use 'be' + adjective + 'not' + 'to' + infinitive for emphasis.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Emphasis",
+      "pedagogical_hook": "be adjective not to",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|being|'m|'re|'s)(?:\\s+(?:almost|really|[a-z]+ly))?\\s+[a-z]+\\s+not\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "ADJ",
+              "VERB"
+            ]
+          }
+        },
+        {
+          "LOWER": "not"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We are determined not to fail.",
+        "They are obliged not to tell anyone."
+      ],
+      "negatives": [
+        "I am not to blame.",
+        "She promised not to go."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710614x141232985119578830",
+    "level": "A2",
+    "super_category": "MODALITY",
+    "sub_category": "have (got) to",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use the question forms. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Questions",
+      "pedagogical_hook": "have (got) to question",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:what|when|where|why|how|who)?\\s*\\b(?:do|does|did)\\b.*?\\b(?:have)\\s+to\\b|\\b(?:have|has|had)\\b.*?\\bgot\\s+to\\b.*\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "does",
+              "did",
+              "have",
+              "has",
+              "had"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LEMMA": "have",
+          "OP": "?"
+        },
+        {
+          "LOWER": "got",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "What do you have to wear?",
+        "Have you got to bring a pencil?"
+      ],
+      "negatives": [
+        "I have to go now.",
+        "She has got to win."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710614x486320350557277500",
+    "level": "A2",
+    "super_category": "MODALITY",
+    "sub_category": "have (got) to",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative forms. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Negative",
+      "pedagogical_hook": "have (got) to negative",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:do|does|did)\\s*(?:not|n't)\\s+have\\s+to\\b|\\b(?:have|has|had)\\s*(?:not|n't)\\s*(?:got\\s+)?to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "do",
+              "have"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LEMMA": "have",
+          "OP": "?"
+        },
+        {
+          "LOWER": "got",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You don't have to bring many things with you.",
+        "We haven't got to bring anything with us."
+      ],
+      "negatives": [
+        "I have to go.",
+        "She hasn't a clue."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710614x493203769213027600",
+    "level": "A2",
+    "super_category": "MODALITY",
+    "sub_category": "have (got) to",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative forms. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Affirmative",
+      "pedagogical_hook": "have (got) to affirmative",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|had|'ve|'s|'d)\\s+(?:got\\s+)?to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have",
+          "LOWER": {
+            "NOT_IN": [
+              "'s"
+            ]
+          }
+        },
+        {
+          "LOWER": "got",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This weekend I have to go to a party.",
+        "You have got to bring a cap."
+      ],
+      "negatives": [
+        "I have a dog.",
+        "He got to the station."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163710614x653642415559389200",
+    "level": "A2",
+    "super_category": "MODALITY",
+    "sub_category": "have (got) to",
+    "lexical_range": "N/A",
+    "guideword": "USE: OBLIGATION",
+    "can_do_statement": "Can use 'have (got) to' to talk about obligations.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Obligation",
+      "pedagogical_hook": "have (got) to obligation",
+    "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|had|'ve|'s|'d)\\s+(?:got\\s+)?to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have",
+          "LOWER": {
+            "NOT_IN": [
+              "'s"
+            ]
+          }
+        },
+        {
+          "LOWER": "got",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We have to go before then.",
+        "You have to bring your swimming costume."
+      ],
+      "negatives": [
+        "They have a nice house.",
+        "She got to work early."
+      ]
+    }
+  }
+]

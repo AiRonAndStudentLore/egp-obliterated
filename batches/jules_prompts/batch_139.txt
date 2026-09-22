@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_139.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163712739x551343528482470600",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INVERSION WITH 'HARDLY \u2026WHEN'",
+  "can_do_statement": "Can invert the subject and affirmative auxiliary verb with 'hardly \u2026 when' to talk about something that happened immediately before something else, in formal contexts.",
+  "example_raw": "Hardly had she spoken these words when it dawned on the musician that life could not continue like that. (Spain; C2 MASTERY; 1998; Spanish - European; Pass)\n\nHardly had he taken them from the counter when the monster vanished again. (Spain; C2 MASTERY; 2000; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163712739x218459335733744320",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "2",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with an increasing range of verbs.",
+  "example_raw": "I forgot to tell you some details about tomorrow evening. (Turkey; A2 WAYSTAGE; 2009; Turkish; Pass)\n\nI spent about \u00a335 on all those clothes. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\n[talking about a football game] I liked it very much because my favourite team won, it was great. (Peru; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712739x248735900919531140",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "1",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'you' with a limited range of verbs.",
+  "example_raw": "Did you buy something yesterday? (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\n[talking about a lost phone] Did you find it? (Albania; A2 WAYSTAGE; 2005; Albanian; Pass)\n\nAnd when did you go shopping last? (Russia; A2 WAYSTAGE; 2008; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163712739x256584265013129380",
+  "level": "A1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "1",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with a limited range of regular and irregular verbs.",
+  "example_raw": "Every day at college I went to class at 9 am. (A1 BREAKTHROUGH; 2007; Portuguese; Pass)\n\nI met her about ten years ago. (A1 BREAKTHROUGH; 2006; Others; Pass)\n\nMy grandmother lived in a village and I often went there. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163712739x802711964566174800",
+  "level": "A1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: EVERYDAY EVENTS AND STATES",
+  "can_do_statement": "Can use the past simple to talk about everyday events or states.",
+  "example_raw": "The people were very polite. (A1, French)\n\nEvery time I went to Hendon Park, I saw so many people there. (A1, Polish)\n\nI liked this place very much. (A1, French)"
+ },
+ {
+  "egp_id": "1741163712739x998605611367738000",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "1",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form with a limited range of regular and irregular verbs.",
+  "example_raw": "The player from China did not look very happy though. (Malaysia; A2 WAYSTAGE; 2007; Chinese; Pass)\n\nYou did not keep your promise. (Bangladesh; A2 WAYSTAGE; 2004; Bengali; Pass)\n\nI didn't tell you that my house is opposite the new cinema. (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nThey didn't cost much ... (India; A2 WAYSTAGE; 2008; Panjabi; Pass)\n\nI was surprised because the heating didn't work. (Poland; A2 WAYSTAGE; 2010; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163712740x655374430632900200",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "3",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with a wide range of verbs.",
+  "example_raw": "I convinced some of my friends to come with me even if they don't like rap music. (Italy; B1 THRESHOLD; 2006; Italian; Pass)\n\nPreviously I faced many failures but I never gave up. (India; B1 THRESHOLD; 2010; Malayalam; Pass)\n\nThe cameraman filmed us during a lesson and later, walking to the playground. (Spain; B1 THRESHOLD; 2008; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163712740x766192438162604200",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH 'WHEN'",
+  "can_do_statement": "Can use 'when' + past simple in subordinate clauses.",
+  "example_raw": "When I arrived, the weather was horrible. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\n[talking about a missing phone] I think I left it in the kitchen when I fell on the slippery floor. (Mexico; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712741x138382859022856420",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "2",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use 'yes/no', 'wh-', tag and negative question forms with an increasing range of verbs.",
+  "example_raw": "Are you still looking for a job or did you succeed in finding one? (France; B2 VANTAGE; 1993; French; Pass)\n\nWhen did you last see your wife and your children? (Germany; B2 VANTAGE; 1993; German; Pass)\n\nIt was great to have met you, and we certainly had a terrific time together, didn't we? (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nDidn't you tell me that you had to go to Orleans today? (B2 VANTAGE; 1993; French; Pass)\n\nWhy didn't you say something about it? (Argentina; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n"
+ },
+ {
+  "egp_id": "1741163712741x166541162399188380",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "2",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form with an increasing range of verbs.",
+  "example_raw": "I didn't realise I had lost the ring till I was at home. (Italy; B1 THRESHOLD; 2000; Italian; Pass)\n\nI didn't trust him. (Spain; B1 THRESHOLD; 2006; Spanish - European; Pass)\n\n[talking about a spare television] \u2026 we had one in the garage that we did not use. (Mexico; B1 THRESHOLD; 2001; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163712741x169127699349836300",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: HABITUAL STATES OR ACTIONS",
+  "can_do_statement": "Can use the past simple to talk about habitual states or actions.",
+  "example_raw": "\u2026 he always seemed so confident to me! (Brazil; B1 THRESHOLD; 2002; Portuguese; Pass)\n\n\u2026 we always talked during the class. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712744x249654248066045100",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPEATED CONTINUING EVENTS",
+  "can_do_statement": "Can use the present perfect continuous to talk about repeated activities which began in the past and are still continuing. ",
+  "example_raw": "I've been watching TV a lot, specially the sports programmes. (Brazil; B1 THRESHOLD; 2010; Portuguese; Pass) \n\nI have been playing my new game. (Turkey; B1 THRESHOLD; 2010; Turkish; Pass)\n\nLast week I went out with my cousin Jim and his wife; he told me he had joined a sport club and he has been going there for two weeks; (Italy; B1 THRESHOLD; 2003; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163712744x517808240803915500",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form.",
+  "example_raw": "I have been thinking about your letter. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nWe've been studying together since grade one. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nThe letter was from my brother, who has been living in New York since he graduated from university. (Turkey; B1 THRESHOLD; 2008; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163712747x163928397652527870",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "present perfect continuous",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the present perfect continuous with adverbs in the normal mid position. ",
+  "example_raw": "I have just been reading an article in your newspaper this morning, about The Westfield Music Festival. (Sweden; B2 VANTAGE; 1997; Swedish; Pass)\n\nI've also been singing in a choir for five years, so I'm very familiar with it. (Sweden; B2 VANTAGE; 2000; Swedish; Pass)\n\nYou have already been complaining about headaches and insomia. (Poland; B2 VANTAGE; 1993; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163712747x212368838412682500",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "present perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION",
+  "can_do_statement": "Can invert the subject and affirmative auxiliary verb with 'not only \u2026 but' as a focusing device. \u25ba focus \u25ba inversion",
+  "example_raw": "Not only have I been wandering its streets ever since I was ten, but I have also come to know most of the main characters of its history in the past 50 years. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Catalan; Pass)\n\nNot only have I been expecting it for the last few months but I will also give some support to my wife, who has been feeling a little nervous these last weeks. (Portugal; C2 MASTERY; 1993; Portuguese; Pass)"
+ }
+]
+```

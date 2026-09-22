@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+
+# spaCy training artifacts
+training/
+data/*.spacy

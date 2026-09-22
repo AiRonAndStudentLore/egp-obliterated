@@ -75,3 +75,118 @@
 - **2026-09-22 10:51** [build] build_batch.py jules_batch_014.json: 13/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
 - **2026-09-22 10:51** [build] build_batch.py completed jules_batch_070.json: 14/15 passed after 1 cycle(s)
 - **2026-09-22 10:51** [build] build_batch.py jules_batch_070.json: 14/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 10:55** [build] build_batch.py completed jules_batch_005.json: 128/165 passed after 1 cycle(s)
+- **2026-09-22 10:55** [build] build_batch.py jules_batch_005.json: 128/165 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 11:04** [build] Farm live: 12 sessions COMPLETED, 6 in-flight, 6 refilled (071-076). Wave-1 gate: 77/100 first-pass (77%); DB ~227+ passed. Fixed: harvester venv-python bug (system python lacked spacy -> gate None), refill egp_id-dedup, gate parsing via report JSON verdicts. pkill self-match gotcha documented (bracket pattern). jules-delegation-connectors adopted for skill reference as MCP harness. Universal skill updated at ~/.config/opencode/skills/jules-workflow/SKILL.md
+- **2026-09-22 14:43** [build] build_batch.py completed jules_batch_003.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:43** [build] build_batch.py jules_batch_003.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:43** [build] build_batch.py completed jules_batch_004.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:43** [build] build_batch.py jules_batch_004.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:43** [build] build_batch.py completed jules_batch_005.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:43** [build] build_batch.py jules_batch_005.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:43** [build] build_batch.py completed jules_batch_006.json: 12/15 passed after 1 cycle(s)
+- **2026-09-22 14:43** [build] build_batch.py jules_batch_006.json: 12/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:44** [build] build_batch.py completed jules_batch_007.json: 4/15 passed after 1 cycle(s)
+- **2026-09-22 14:44** [build] build_batch.py jules_batch_007.json: 4/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:44** [build] build_batch.py completed jules_batch_009.json: 5/15 passed after 1 cycle(s)
+- **2026-09-22 14:44** [build] build_batch.py jules_batch_009.json: 5/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:44** [build] build_batch.py completed jules_batch_010.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:44** [build] build_batch.py jules_batch_010.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:45** [build] build_batch.py completed jules_batch_011.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:45** [build] build_batch.py jules_batch_011.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:45** [build] build_batch.py completed jules_batch_012.json: 13/15 passed after 1 cycle(s)
+- **2026-09-22 14:45** [build] build_batch.py jules_batch_012.json: 13/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:45** [build] build_batch.py completed jules_batch_013.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:45** [build] build_batch.py jules_batch_013.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:45** [build] build_batch.py completed jules_batch_014.json: 13/15 passed after 1 cycle(s)
+- **2026-09-22 14:45** [build] build_batch.py jules_batch_014.json: 13/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:46** [build] build_batch.py completed jules_batch_015.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:46** [build] build_batch.py jules_batch_015.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:46** [build] build_batch.py completed jules_batch_070.json: 14/15 passed after 1 cycle(s)
+- **2026-09-22 14:46** [build] build_batch.py jules_batch_070.json: 14/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:46** [build] build_batch.py completed jules_batch_049.json: 7/15 passed after 1 cycle(s)
+- **2026-09-22 14:46** [build] build_batch.py jules_batch_049.json: 7/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:46** [build] build_batch.py completed jules_batch_066.json: 10/15 passed after 1 cycle(s)
+- **2026-09-22 14:46** [build] build_batch.py jules_batch_066.json: 10/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:47** [build] build_batch.py completed jules_batch_071.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:47** [build] build_batch.py jules_batch_071.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:47** [build] build_batch.py completed jules_batch_072.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:47** [build] build_batch.py jules_batch_072.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:47** [build] build_batch.py completed jules_batch_073.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:47** [build] build_batch.py jules_batch_073.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:47** [build] build_batch.py completed jules_batch_074.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:47** [build] build_batch.py jules_batch_074.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:47** [build] build_batch.py completed jules_batch_075.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:47** [build] build_batch.py jules_batch_075.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 14:48** [build] build_batch.py completed jules_batch_076.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 14:48** [build] build_batch.py jules_batch_076.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:00** [build] build_batch.py completed jules_batch_077.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:00** [build] build_batch.py jules_batch_077.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:00** [build] build_batch.py completed jules_batch_078.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:00** [build] build_batch.py jules_batch_078.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:00** [build] build_batch.py completed jules_batch_079.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:00** [build] build_batch.py jules_batch_079.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:00** [build] build_batch.py completed jules_batch_080.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:00** [build] build_batch.py jules_batch_080.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:01** [build] build_batch.py completed jules_batch_082.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:01** [build] build_batch.py jules_batch_082.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:01** [build] build_batch.py completed jules_batch_084.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:01** [build] build_batch.py jules_batch_084.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:01** [build] build_batch.py completed jules_batch_085.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:01** [build] build_batch.py jules_batch_085.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:07** [build] build_batch.py completed jules_batch_083.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:07** [build] build_batch.py jules_batch_083.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:07** [build] build_batch.py completed jules_batch_086.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:07** [build] build_batch.py jules_batch_086.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:07** [build] build_batch.py completed jules_batch_087.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:07** [build] build_batch.py jules_batch_087.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:08** [build] build_batch.py completed jules_batch_090.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:08** [build] build_batch.py jules_batch_090.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:08** [build] build_batch.py completed jules_batch_118.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:08** [build] build_batch.py jules_batch_118.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:08** [build] build_batch.py completed jules_batch_120.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:08** [build] build_batch.py jules_batch_120.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:14** [build] build_batch.py completed jules_batch_088.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:14** [build] build_batch.py jules_batch_088.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:14** [build] build_batch.py completed jules_batch_122.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:14** [build] build_batch.py jules_batch_122.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:15** [build] build_batch.py completed jules_batch_123.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:15** [build] build_batch.py jules_batch_123.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:15** [build] build_batch.py completed jules_batch_124.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:15** [build] build_batch.py jules_batch_124.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:15** [build] build_batch.py completed jules_batch_125.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:15** [build] build_batch.py jules_batch_125.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:16** [build] build_batch.py completed jules_batch_126.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:16** [build] build_batch.py jules_batch_126.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:16** [build] build_batch.py completed jules_batch_127.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:16** [build] build_batch.py jules_batch_127.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:16** [build] build_batch.py completed jules_batch_128.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:16** [build] build_batch.py jules_batch_128.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:22** [build] build_batch.py completed jules_batch_121.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:22** [build] build_batch.py jules_batch_121.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:23** [build] build_batch.py completed jules_batch_130.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:23** [build] build_batch.py jules_batch_130.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:23** [build] build_batch.py completed jules_batch_131.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:23** [build] build_batch.py jules_batch_131.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:23** [build] build_batch.py completed jules_batch_132.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:23** [build] build_batch.py jules_batch_132.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:24** [build] build_batch.py completed jules_batch_133.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:24** [build] build_batch.py jules_batch_133.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:24** [build] build_batch.py completed jules_batch_134.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:24** [build] build_batch.py jules_batch_134.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:25** [build] build_batch.py completed jules_batch_137.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:25** [build] build_batch.py jules_batch_137.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:25** [build] build_batch.py completed jules_batch_138.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:25** [build] build_batch.py jules_batch_138.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:26** [build] build_batch.py completed jules_batch_139.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:26** [build] build_batch.py jules_batch_139.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:26** [build] build_batch.py completed jules_batch_140.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:26** [build] build_batch.py jules_batch_140.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:27** [build] build_batch.py completed jules_batch_150.json: 7/15 passed after 1 cycle(s)
+- **2026-09-22 15:27** [build] build_batch.py jules_batch_150.json: 7/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:32** [build] build_batch.py completed jules_batch_129.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:32** [build] build_batch.py jules_batch_129.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:33** [build] build_batch.py completed jules_batch_141.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:33** [build] build_batch.py jules_batch_141.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 15:46** [build] build_batch.py completed jules_batch_151.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 15:46** [build] build_batch.py jules_batch_151.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows

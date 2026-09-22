@@ -1,0 +1,777 @@
+[
+  {
+    "egp_id": "1741163715813x920160730248656800",
+    "level": "C1",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM: INVERTED CONDITIONAL CLAUSE, 'SHOULD'",
+    "can_do_statement": "Can introduce a conditional subordinate clause with 'should' + inverted subject.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Hypothetical condition introduced by modal inversion",
+      "pedagogical_hook": "Using 'should' to mean 'if' in formal contexts",
+      "agency_or_distance": "High distance, formal"
+    },
+    "detection": {
+      "regex_triage": "(?i)^\\s*should\\s+(?:there|[a-z]+)",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": "should"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Should you require any further information, please ask.",
+        "Should there be a lack of mutual understanding a break-up is unavoidable."
+      ],
+      "negatives": [
+        "You should require more information.",
+        "I think you should go."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715814x475016379352568560",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'IF IT WERE NOT FOR', FORMAL",
+    "can_do_statement": "Can use 'If it weren\u2019t / were not for' + noun phrase to introduce conditions in formal contexts. \u25ba past simple",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Counterfactual condition based on the absence of something",
+      "pedagogical_hook": "Expressing how things would be different without a specific factor",
+      "agency_or_distance": "High distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^\\s*If\\s+it\\s+(?:were\\s+not|weren['\u2019]t)\\s+for\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": "if"
+        },
+        {
+          "LOWER": "it"
+        },
+        {
+          "LOWER": "were"
+        },
+        {
+          "LOWER": "n't",
+          "OP": "?"
+        },
+        {
+          "LOWER": "not",
+          "OP": "?"
+        },
+        {
+          "LOWER": "for"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If it weren't for that boy, I would have failed.",
+        "If it were not for his determination, he would have resigned."
+      ],
+      "negatives": [
+        "I wonder if it were not meant to be.",
+        "They asked if it were not for me, but for him."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715814x629362533174766300",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'IF IT WERE' + 'TO'-INFINITIVE FORM, FORMAL",
+    "can_do_statement": "Can use 'If it were' + 'to-' infinitive to introduce conditions in formal contexts. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Hypothetical future condition",
+      "pedagogical_hook": "Using 'were to' for unlikely future scenarios",
+      "agency_or_distance": "High distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bif\\s+it\\s+were\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "LOWER": "it"
+        },
+        {
+          "LOWER": "were"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If it were to be published, the first issue would include an introduction.",
+        "It will need planning if it were to succeed."
+      ],
+      "negatives": [
+        "I asked if it were too late.",
+        "If it were true, I would know."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715814x878379023593554300",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "conditional",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'WHETHER OR NOT', FORMAL ",
+    "can_do_statement": "Can use 'whether or not' to introduce conditions in formal contexts.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Condition that is irrelevant to the outcome",
+      "pedagogical_hook": "Expressing that something is true in either case",
+      "agency_or_distance": "Neutral"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwhether\\s+or\\s+not\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "whether"
+        },
+        {
+          "LOWER": "or"
+        },
+        {
+          "LOWER": "not"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Whether or not the visitors should imitate local customs is debatable.",
+        "Whether or not it is better to educate boys and girls separately is widely discussed."
+      ],
+      "negatives": [
+        "I don't know whether to go or not.",
+        "Whether he comes or not is unknown."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708153x322996688200238400",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "coordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: MULTIPLE MAIN CLAUSES, INSTRUCTIONS",
+    "can_do_statement": "Can combine multiple main clauses, with commas and conjunctions expressing order, often to give instructions or directions. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Sequential steps in a process",
+      "pedagogical_hook": "Giving directions using 'and' or 'then'",
+      "agency_or_distance": "High agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:,\\s*(?:and|then|so)\\s+.*?,\\s*(?:and|then|so)\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "and",
+              "then",
+              "so"
+            ]
+          }
+        },
+        {
+          "OP": "+"
+        },
+        {
+          "IS_PUNCT": true,
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "and",
+              "then",
+              "so"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Go straight ahead, then turn right, and walk to the end.",
+        "Turn down the street, and then go straight, so you'll see it."
+      ],
+      "negatives": [
+        "I like apples and oranges.",
+        "He went home because he was tired."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708153x328592532654335940",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "coordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NEITHER \u2026 NOR', EMPHASIS",
+    "can_do_statement": "Can combine two main clauses of the same type using 'neither' in front or mid position, followed by 'nor' to introduce the second clause, for emphasis. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Exclusion of two alternatives",
+      "pedagogical_hook": "Saying 'not this and not that'",
+      "agency_or_distance": "Neutral"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bneither\\b.*?\\bnor\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "neither"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "nor"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They neither got married nor had children.",
+        "We neither walk nor do exercises."
+      ],
+      "negatives": [
+        "I want neither of them.",
+        "Nor did I know about it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708153x480316823264789900",
+    "level": "A1",
+    "super_category": "CLAUSES",
+    "sub_category": "coordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM: CLAUSE + CLAUSE, ELLIPTED SUBJECT",
+    "can_do_statement": "Can omit the subject in a second main declarative clause when the subject is obvious or the same as the first clause. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Linking actions to the same subject",
+      "pedagogical_hook": "Saying what you do without repeating 'I'",
+      "agency_or_distance": "Neutral"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:and|or|but)\\s+(?:(?:[a-z]+ly\\s+)?)(?:watch|play|study|clean|cook|read)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "and",
+              "or",
+              "but"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "watch",
+              "play",
+              "study",
+              "clean",
+              "cook",
+              "read"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She likes to listen to music and watch TV.",
+        "Sometimes I go to the park and play tennis."
+      ],
+      "negatives": [
+        "I went home and he stayed.",
+        "She likes music and TV."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708153x695756963015404300",
+    "level": "A1",
+    "super_category": "CLAUSES",
+    "sub_category": "coordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM: MAIN CLAUSE + MAIN CLAUSE",
+    "can_do_statement": "Can combine two main declarative clauses using co-ordinating conjunctions ('and', 'but', 'or'). ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Adding or contrasting complete thoughts",
+      "pedagogical_hook": "Connecting sentences with basic conjunctions",
+      "agency_or_distance": "Neutral"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:and|but|or)\\s+(?:I|you|he|she|it|we|they|the|a|an)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "and",
+              "but",
+              "or"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "he",
+              "she",
+              "it",
+              "we",
+              "they",
+              "the",
+              "a",
+              "an"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I like my college and I like my class.",
+        "I visit my friends, but I often stay at home."
+      ],
+      "negatives": [
+        "I like apples and oranges.",
+        "She is tall and beautiful."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708153x699829274975112700",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "coordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM: COMBINING CLAUSES OF THE SAME TYPE",
+    "can_do_statement": "Can combine clauses of the same type, main or subordinate, finite or non-finite, with conjunctions. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Parallel structure in complex sentences",
+      "pedagogical_hook": "Using conjunctions for parallel structures",
+      "agency_or_distance": "Neutral"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:because|if|although|while)\\s+.*?\\band\\s+(?:there|it|he|she|they|we|I)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "because",
+              "if",
+              "although",
+              "while"
+            ]
+          }
+        },
+        {
+          "OP": "+"
+        },
+        {
+          "LOWER": "and"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "there",
+              "it",
+              "he",
+              "she",
+              "they",
+              "we",
+              "i"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They chose it because it is modern and there are many students.",
+        "You will have a great time because they are going to the seaside and they are staying in a hotel."
+      ],
+      "negatives": [
+        "I am happy because I won.",
+        "He came and went."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708153x823286292425265000",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "coordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: MULTIPLE MAIN CLAUSES, NARRATIVE",
+    "can_do_statement": "Can combine multiple main clauses with a range of conjunctions, often in a narrative context. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Sequencing events in a story",
+      "pedagogical_hook": "Telling a story with multiple events",
+      "agency_or_distance": "Neutral"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:,\\s+(?:so|but|and|then)\\s+.*?){2,}",
+      "spacy_token_pattern": [
+        {
+          "IS_PUNCT": true
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "so",
+              "but",
+              "and",
+              "then"
+            ]
+          }
+        },
+        {
+          "OP": "+"
+        },
+        {
+          "IS_PUNCT": true
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "so",
+              "but",
+              "and",
+              "then"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He was lost, so he went home, but then he found it.",
+        "I saw her, and I waved, so she smiled."
+      ],
+      "negatives": [
+        "I like apples, oranges, and bananas.",
+        "He is tall and strong."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708153x841687423551314000",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "coordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'EITHER \u2026 OR'",
+    "can_do_statement": "Can combine two main clauses of the same type using 'either' in front or mid position, followed by 'or' to introduce the second clause. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Presenting two mutually exclusive options",
+      "pedagogical_hook": "Giving two choices",
+      "agency_or_distance": "Neutral"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\beither\\b.*?\\bor\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "either"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "or"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You can either visit us or write to us.",
+        "Either I talk to her now or I will never talk to her."
+      ],
+      "negatives": [
+        "I don't want either of them.",
+        "Do you want tea or coffee?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708154x515786574797433100",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "coordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT (ALSO)', FOCUS",
+    "can_do_statement": "Can combine clauses using 'not only' in mid position of the first clause followed by \u2026 'but (also)' to introduce the second clause, to give focus.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Adding emphasis to a second point",
+      "pedagogical_hook": "Emphasizing two related points",
+      "agency_or_distance": "Neutral"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!^)(?<!^\\s)\\bnot\\s+only\\b.*?\\bbut\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not",
+          "IS_SENT_START": false
+        },
+        {
+          "LOWER": "only"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "but"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It is nice not only because it is colorful, but because I like it.",
+        "He not only studies hard, but also plays well."
+      ],
+      "negatives": [
+        "Not only was he there, but she was too.",
+        "This is my only hope."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708328x809057828256698500",
+    "level": "C1",
+    "super_category": "CLAUSES",
+    "sub_category": "coordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT (ALSO)' WITH INVERSION, FOCUS",
+    "can_do_statement": "Can combine clauses using 'not only' in front position followed by an inverted first clause + \u2026 'but (also)' to introduce the second clause, to give focus.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Emphatic addition with formal inversion",
+      "pedagogical_hook": "Starting a sentence with 'not only' for dramatic effect",
+      "agency_or_distance": "High distance, formal"
+    },
+    "detection": {
+      "regex_triage": "(?i)^\\s*(?:and\\s+)?not\\s+only\\s+(?:did|was|were|has|have|had|is|are|do|does|can|could|will|would|shall|should|may|might)\\b.*?\\bbut\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "and",
+              "not"
+            ]
+          },
+          "IS_SENT_START": true
+        },
+        {
+          "LOWER": "not",
+          "OP": "?"
+        },
+        {
+          "LOWER": "only"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "do",
+              "be",
+              "have",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "but"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Not only did they come, but many others attended.",
+        "And not only was he helpful but the students learned a lot."
+      ],
+      "negatives": [
+        "He not only studies hard, but also plays well.",
+        "I only wanted to help."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708329x546836553751250300",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "coordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NEGATIVE CLAUSE +  'NOR', FOCUS",
+    "can_do_statement": "Can combine a negative clause with an inverted clause with 'nor', to give focus.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Addition of a second negative point",
+      "pedagogical_hook": "Using 'nor' after a negative sentence",
+      "agency_or_distance": "High distance, formal"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:not|n't|never|no|hardly|scarcely)\\b.*?\\bnor\\s+(?:did|was|were|has|have|had|is|are|do|does|can|could|will|would|shall|should|may|might)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "never",
+              "no",
+              "hardly",
+              "scarcely"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "nor"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "do",
+              "be",
+              "have",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "That night Kevin did not sleep; nor did Kristin.",
+        "Her diary was never found, nor was Juliette."
+      ],
+      "negatives": [
+        "They neither got married nor had children.",
+        "I have neither time nor money."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708329x286701804737242940",
+    "level": "A1",
+    "super_category": "CLAUSES",
+    "sub_category": "declarative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE DECLARATIVE",
+    "can_do_statement": "Can form simple affirmative declarative clauses.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Basic statement of fact",
+      "pedagogical_hook": "Making simple statements",
+      "agency_or_distance": "Neutral"
+    },
+    "detection": {
+      "regex_triage": "^(?:I|We|You|He|She|It|They|My|The|A|An)\\b[^?]*\\.",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "we",
+              "you",
+              "he",
+              "she",
+              "it",
+              "they",
+              "my",
+              "the",
+              "a",
+              "an"
+            ]
+          },
+          "IS_SENT_START": true
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I study English at college.",
+        "My friend is a nurse."
+      ],
+      "negatives": [
+        "Are you my friend?",
+        "Go to the store."
+      ]
+    }
+  }
+]

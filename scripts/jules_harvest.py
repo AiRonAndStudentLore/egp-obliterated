@@ -46,48 +46,83 @@ def session_state(sid):
         return json.loads(resp.read()).get("state")
 
 
-def gate_batch(batch_file):
+ALLOWED_PREFIXES = ("batches/",)
+
+
+def patch_is_safe(patch_file):
+    """Reject patches that touch anything outside batches/ (deletion guard)."""
+    r = subprocess.run(["git", "apply", "--numstat", patch_file], cwd=EGP_DIR,
+                       capture_output=True, text=True)
+    for line in r.stdout.splitlines():
+        parts = line.split("\t")
+        if len(parts) >= 3:
+            path = parts[2]
+            if not path.startswith(ALLOWED_PREFIXES):
+                return False, path
+    return True, None
+
+
+def gate_batch(batch_file, egp_ids):
+    """Run build_batch, then read the report JSON for THIS batch's egp_ids only.
+    (build_batch re-verifies the whole registry each run; stdout aggregates.)"""
+    stem = Path(batch_file).stem
+    report = EGP_DIR / "batches" / f"_report_{stem}.json"
     r = subprocess.run(
         [sys.executable, "build_batch.py", batch_file, "--no-autofix",
-         "--report", str(EGP_DIR / "batches" / f"_report_{Path(batch_file).stem}.json")],
-        cwd=EGP_DIR, capture_output=True, text=True, timeout=300,
+         "--report", str(report)],
+        cwd=EGP_DIR, capture_output=True, text=True, timeout=600,
     )
-    out = r.stdout
-    passed = "PRECHECK" in out
-    # parse "cycle 1: gate = N passed" from output
-    import re as _re
-    m = _re.search(r"gate = (\d+) passed, (\d+) rejected, (\d+) failed", out)
-    if m:
-        return {"p": int(m.group(1)), "rej": int(m.group(2)), "f": int(m.group(3))}
-    return None
+    if not report.exists():
+        return {"error": f"no report; stderr: {r.stderr[-300:]}"}
+    rep = json.loads(report.read_text())
+    want = set(egp_ids)
+    p = rej = f_ = 0
+    rows = rep.get("verdicts", [])
+    for row in rows:
+        if row.get("egp_id") not in want:
+            continue
+        verdict = (row.get("verdict") or row.get("gate") or row.get("status") or "").lower()
+        if "pass" in verdict:
+            p += 1
+        elif "reject" in verdict:
+            rej += 1
+        else:
+            f_ += 1
+    return {"p": p, "rej": rej, "f": f_}
 
 
 def harvest_once(refill=0):
     state = load_state()
     completed = failed = in_flight = 0
     for s in state["sessions"]:
-        if s.get("state") in TERMINAL and s.get("gated") is not None:
-            continue  # already done
+        gated = s.get("gated")
+        already_done = (
+            s.get("state") in TERMINAL
+            and gated is not None
+            and "error" not in str(gated)
+        )
+        if already_done:
+            continue  # clean terminal state; errors retry
         try:
             st = session_state(s["session_id"])
         except Exception as e:
-            print(f"batch_{s['batch_index']+1:03d}: poll error {e}")
+            print(f"batch_{s['batch_index']+1:03d}: poll error {e}", flush=True)
             continue
         s["state"] = st
         if st == "COMPLETED":
             completed += 1
             patch_file = f"/tmp/opencode/jules_batch_{s['batch_index']+1:03d}.patch"
             try:
-                acts = fetch_activities(s["session_id"])
-                # reuse fetch_activities? it prints; simpler: call internal
-            except SystemExit:
-                pass
-            try:
                 subprocess.run(
                     [sys.executable, str(Path(__file__).parent / "jules_fetch_patch.py"),
                      s["session_id"], patch_file],
                     capture_output=True, text=True, timeout=60,
                 )
+                safe, bad_path = patch_is_safe(patch_file)
+                if not safe:
+                    s["gated"] = {"error": f"patch rejected: touches {bad_path}"}
+                    print(f"batch_{s['batch_index']+1:03d}: PATCH REJECTED (touches {bad_path})")
+                    continue
                 r = subprocess.run(["git", "apply", "--check", patch_file], cwd=EGP_DIR,
                                    capture_output=True, text=True)
                 if r.returncode != 0:
@@ -96,38 +131,51 @@ def harvest_once(refill=0):
                 else:
                     subprocess.run(["git", "apply", patch_file], cwd=EGP_DIR, check=True)
                 bf = s["batch_file"]
-                if (EGP_DIR / bf).exists():
-                    g = gate_batch(bf)
+                ok, reason = False, None
+                if not (EGP_DIR / bf).exists():
+                    reason = "batch file missing after apply"
+                else:
+                    try:
+                        parsed = json.loads((EGP_DIR / bf).read_text())
+                        if not isinstance(parsed, list) or len(parsed) != len(s["egp_ids"]):
+                            reason = f"rule count mismatch: {len(parsed) if isinstance(parsed, list) else '?'} != {len(s['egp_ids'])}"
+                        else:
+                            ok = True
+                    except json.JSONDecodeError as e:
+                        reason = f"invalid JSON: {e}"
+                if ok:
+                    g = gate_batch(bf, s["egp_ids"])
                     s["gated"] = g
                     s["fetched"] = True
-                    print(f"batch_{s['batch_index']+1:03d}: COMPLETED -> gate {g}")
+                    print(f"batch_{s['batch_index']+1:03d}: COMPLETED -> gate {g}", flush=True)
                 else:
-                    s["gated"] = {"error": "batch file missing after apply"}
-                    print(f"batch_{s['batch_index']+1:03d}: COMPLETED but {bf} missing!")
+                    s["gated"] = {"error": reason}
+                    s["fetched"] = True
+                    print(f"batch_{s['batch_index']+1:03d}: VERIFICATION FAILED: {reason}", flush=True)
             except subprocess.CalledProcessError as e:
                 s["gated"] = {"error": f"apply/patch error: {e.stderr[:200]}"}
-                print(f"batch_{s['batch_index']+1:03d}: patch apply failed")
+                print(f"batch_{s['batch_index']+1:03d}: patch apply failed", flush=True)
         elif st == "FAILED":
             failed += 1
             s["gated"] = {"error": "session FAILED"}
-            print(f"batch_{s['batch_index']+1:03d}: FAILED")
+            print(f"batch_{s['batch_index']+1:03d}: FAILED", flush=True)
         else:
             in_flight += 1
     save_state(state)
-    print(f"\nsummary: completed={completed} failed={failed} in_flight={in_flight}")
+    print(f"\nsummary: completed={completed} failed={failed} in_flight={in_flight}", flush=True)
 
     if refill > 0:
-        done_batches = {s["batch_index"] for s in state["sessions"]}
-        rows = pending_rows()
-        total = (len(rows) + BATCH_SIZE - 1) // BATCH_SIZE
-        from jules_spawn_wave_cli import build_prompt as bp  # same builder
+        state = load_state()
+        assigned = {e for s in state["sessions"] for e in s.get("egp_ids", [])}
+        rows = [r for r in pending_rows() if r["egp_id"] not in assigned]
         n = 0
-        for b in range(total):
+        next_index = max(s["batch_index"] for s in state["sessions"]) + 1
+        for i in range(0, len(rows), BATCH_SIZE):
             if n >= refill:
                 break
-            if b in done_batches:
-                continue
-            batch = rows[b * BATCH_SIZE:(b + 1) * BATCH_SIZE]
+            b = next_index
+            next_index += 1
+            batch = rows[i : i + BATCH_SIZE]
             prompt = build_prompt(batch, b + 1)
             pf = PROMPT_DIR / f"batch_{b+1:03d}.txt"
             PROMPT_DIR.mkdir(exist_ok=True)
@@ -137,7 +185,7 @@ def harvest_once(refill=0):
             import re as _re
             m = _re.search(r"ID:\s*(\d+)", r.stdout + r.stderr)
             if not m:
-                print(f"batch_{b+1:03d}: refill spawn failed: {(r.stdout+r.stderr)[:150]}")
+                print(f"batch_{b+1:03d}: refill spawn failed: {(r.stdout+r.stderr)[:150]}", flush=True)
                 continue
             state["sessions"].append({
                 "batch_index": b, "batch_file": f"batches/jules_batch_{b+1:03d}.json",
@@ -147,7 +195,7 @@ def harvest_once(refill=0):
             })
             save_state(state)
             n += 1
-            print(f"batch_{b+1:03d}: refilled session {m.group(1)}")
+            print(f"batch_{b+1:03d}: refilled session {m.group(1)}", flush=True)
             time.sleep(2)
     return state
 
@@ -160,7 +208,7 @@ if __name__ == "__main__":
     if args.watch:
         while True:
             harvest_once(refill=args.refill)
-            print("=" * 60)
+            print("=" * 60, flush=True)
             time.sleep(args.watch)
     else:
         harvest_once(refill=args.refill)

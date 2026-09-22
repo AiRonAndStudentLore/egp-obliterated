@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_144.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163714100x832020859880195100",
+  "level": "B1     ",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MODIFYING",
+  "can_do_statement": "Can use quantifying determiners + 'of' with demonstrative pronouns  \u25ba determiners: demonstrative",
+  "example_raw": "If you can't, you must choose one of these. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nAnd we have to go to Sydney to see all of that. (Spain; B1 THRESHOLD; 2001; Spanish - European; Pass)\n\nThere are a lot of programmes in my country, but only some of these are interesting. (France; B1 THRESHOLD; 2010; French; Pass) "
+ },
+ {
+  "egp_id": "1741163714101x204016393074029760",
+  "level": "C1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THAT OF', 'THOSE OF'",
+  "can_do_statement": "Can use 'that of' and 'those of' as a possessive form, in formal and professional contexts. ",
+  "example_raw": "It is widely known that the Russian educational system differs dramatically from that of the European, Asian or American countries. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Russian; Pass) \n\nThe strength of our product is that it fits the customers' demands - especially those of middle-aged single consumers. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; German; Pass)\n\nTherefore, I urge you to publish this letter and reconsider your opinions, which clearly do not reflect those of the general population. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163714101x483581657596987140",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THOSE', SUBSTITUTION ",
+  "can_do_statement": "Can use 'those' as a substitute, followed by a relative clause or '-ed' or '-ing'. ",
+  "example_raw": "Moreover, for those who are not interested in sports and who prefer shopping, it would be a good idea to prevent cars and especially lorries from running in the center of the town. (France; B2 VANTAGE; 1993; French; Pass)\n\nIn my opinion students should be forced to study all of the subjects, not only those which are enjoyable. (Polish, B2 VANTAGE, Pass, 2008)\n\n[talking about buildings]  Those that can be rebuilt wouldn't be demolished. (Spain; B2 VANTAGE; 1993; Catalan; Pass)\n\nThe opening hours of the store came in for a lot of praise, with 87% of those surveyed ranking it as good. (India; B2 VANTAGE; 2003; Tamil; Pass)\n\nAll those attending are requested to be on time. (Urdu, B2 VANTAGE, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163714101x765546723658128100",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THESE ONES', 'THOSE ONES' SUBSTITUTION",
+  "can_do_statement": "Can use 'these ones', 'those ones' as a substitute for plural countable nouns that have previously been mentioned.",
+  "example_raw": "This is only the beginning; there are a lot of things that should be done, but let's just start with these ones. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nI have got several of those ones. (Hungary; B2 VANTAGE; 1993; Hungarian; Pass)"
+ },
+ {
+  "egp_id": "1741163714319x193965760925490560",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "generic use",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'ONE', GENERAL, FORMAL",
+  "can_do_statement": "Can use 'one' to refer to people in general, in formal contexts. ",
+  "example_raw": "The television, I think, is like a box where one can find anything: rubbish and good things. (Italian, B1 THRESHOLD, Pass, 2007) \n\nOne more reason I like Singapore is that one sees cats everywhere.(Tulu, 2010)"
+ },
+ {
+  "egp_id": "1741163714319x695175885408785500",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "generic use",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'YOU', GENERAL",
+  "can_do_statement": "Can use 'you' to refer to people in general. ",
+  "example_raw": "My new mobile phone can do lots of things! You can play games, you can take pictures. (Turkish, A2 WAYSTAGE, Pass, 2007)\n\nLet's say if you want to travel to China, you need to learn a little Chinese. (Nepali, 2011)"
+ },
+ {
+  "egp_id": "1741163714320x570187312160225660",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "generic use",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'WE', 'US', GENERAL",
+  "can_do_statement": "Can use 'we' and 'us' to refer to people in general.",
+  "example_raw": "These days the car is everywhere, we can see cars all over the world. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nIn this film we can see the life of a female teenager \u2026 in South-Africa. (Switzerland; B2 VANTAGE; 1999; German; Pass)\n\nWe all know that being a writer is difficult; either we know how to write or we don't. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nSome of us find it very useful, whereas others still have difficulty in accepting technology as a valuable thing for everyone. (Poland; B2 VANTAGE; 2001; Polish; Pass)\n\n[talking about zoos giving us a chance to see many exotic animals] Zoos give us different opportunities to do that and so to understand nature. (Germany; B2 VANTAGE; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163714321x943493236628559500",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "generic use",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: GENDER NEUTRAL",
+  "can_do_statement": "Can use 'they/them' to refer back to indefinite pronouns when we do not know the number or gender.",
+  "example_raw": "If someone is watching a film that they don't like they can always choose another channel to watch to. (Portugal; B2 VANTAGE; 1993; Portuguese; Fail)\n \nIf anyone wishes to make any presentation they can contact Mr. Hari, Events Department. (India; B2 VANTAGE; 2010; Tamil; Pass)\n \nIf a student wants to make music there is no point teaching them science, but to be a good musician I think general knowledge is important as well . (Turkey; B2 VANTAGE; 2008; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163715024x612825975757156400",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "generic use",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: GENDER NEUTRAL",
+  "can_do_statement": "Can use 'he/she', 'he' or 'she' or 'they' to refer back to gender neutral singular nouns or indefinite pronouns when we are not sure of the gender.",
+  "example_raw": "If a child had free time, he/she would play on his/her own and not with other children. (Greece; B2 VANTAGE; 2006; Greek; Pass)\n\nFurthermore, if somebody wants to be a journalist, he or she has to have an enormous knowledge of the world and people, because sometimes they must act like psychologists in order to obtain pieces of information. (Poland; B2 VANTAGE; 2005; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163714316x327680895714844900",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "2",
+  "guideword": "FORM: OBJECT OR COMPLEMENT",
+  "can_do_statement": "Can use an increasing range of indefinite pronouns as objects or complements of prepositions. ",
+  "example_raw": "[talking about a phone] I need it because I have to call someone. (Brazil; A2 WAYSTAGE; 2005; Portuguese; Pass)\n\nI invited everyone in the school but some people didn't come \u2026 (Brazil; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nI have borrowed it from somebody. (India; A2 WAYSTAGE; 2005; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163714316x468029054820445100",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "1",
+  "guideword": "FORM: OBJECT",
+  "can_do_statement": "Can use a limited range of indefinite pronouns as objects. ",
+  "example_raw": "I like doing everything at College because I love my college \u2026 (A1 BREAKTHROUGH; 2007; Arabic - Other; Pass)\n\nI like to eat everything. (A1 BREAKTHROUGH; 2006; Polish; Pass)\n\nI can clean your house and cook something for you. (A1 BREAKTHROUGH; 2009; Portuguese; Pass)\n\nIf you need anything, please let me know. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)"
+ },
+ {
+  "egp_id": "1741163714316x693313936907989500",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'EVERYTHING', SUBJECT",
+  "can_do_statement": "Can use 'everything' as subject, with a singular verb. ",
+  "example_raw": "I hope everything is all right. (A1 BREAKTHROUGH; 2008; Polish; Pass)\n\n[talking about the countryside] Everything is nice and green there. (A1 BREAKTHROUGH; 2007; Slovak; Pass)"
+ },
+ {
+  "egp_id": "1741163714317x160160517145117470",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "1",
+  "guideword": "FORM: SUBJECT",
+  "can_do_statement": "Can use a limited range of indefinite pronouns ('someone', 'everyone') as subjects, with a singular verb. ",
+  "example_raw": "I bought them because someone stole my luggage at the airport. (France; A2 WAYSTAGE; 2008; French; Pass)\n\nWhen someone calls me, it rings with a very lovely song. (Cyprus; A2 WAYSTAGE; 2007; Turkish; Pass)\n\nI liked the competition because it is an enjoyable game and everyone likes it. (India; A2 WAYSTAGE; 2007; Hindi; Pass) "
+ },
+ {
+  "egp_id": "1741163714317x316233802350039740",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'SOMETHING' IN VAGUE EXPRESSIONS",
+  "can_do_statement": "Can use 'something' in vague expressions, to refer to things in a non-specific way. ",
+  "example_raw": "After the concert we can have a pizza or something else. (Spain; A2 WAYSTAGE; 2010; Spanish - European; Pass)\n\nYou do not have to bring any food, but I will pleased if you could bring something to drink -  wine, coke or something. (A2 WAYSTAGE; 2006; Hungarian; Pass)\n\nYou can bring a cake or something like that. (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163714317x442069880874508000",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH ADJECTIVE, SPECIFYING",
+  "can_do_statement": "Can modify 'something' or 'anything' with an adjective, to make it more specific.",
+  "example_raw": "Next weekend it's my mum's birthday party, so I needed something new to wear. (Cyprus; A2 WAYSTAGE; 2008; Greek; Pass)\n\nYou need to wear something comfortable. (Lebanon; A2 WAYSTAGE; 2008; Arabic - Levant; Pass)\n\nBut I didn't find anything wrong . (Turkey; A2 WAYSTAGE; 2010; Turkish; Pass) \n\nYou don't have to bring anything special. (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)"
+ }
+]
+```

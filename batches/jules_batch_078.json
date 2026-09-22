@@ -1,0 +1,773 @@
+[
+ {
+  "egp_id": "1741163710385x500120926290810800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "guideword": "FORM/USE: 'IF'-CLAUSE + 'POSSIBLE', POLITENESS",
+  "can_do_statement": "Can use 'if-' clauses + 'possible', as a politeness strategy. ",
+  "detection": {
+   "regex_triage": "(?i)\\bif\\b\\s+(?:it\\s+is\\s+|it's\\s+|it\\s+was\\s+)?possible\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "if"
+    },
+    {
+     "LOWER": "it",
+     "OP": "?"
+    },
+    {
+     "LEMMA": "be",
+     "OP": "?"
+    },
+    {
+     "LOWER": "possible"
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Conditional feasibility marking",
+   "pedagogical_hook": "Softening requests with conditional possibility",
+   "agency_or_distance": "Hedging/Politeness distance"
+  },
+  "unit_tests": {
+   "positives": [
+    "If it is possible I would like to pay by credit card.",
+    "If possible, could you please send it again?"
+   ],
+   "negatives": [
+    "It is possible if you try hard enough.",
+    "I wonder if a possible solution exists."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163710385x581159408154841040",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "guideword": "FORM/USE: 'IT' + 'BE' + ADJECTIVE + INFINITIVE, HEDGING, EMPHASIS",
+  "can_do_statement": "Can use 'it' + 'be' + adjective + 'to' + infinitive, to make an assertion more or less direct. ",
+  "detection": {
+   "regex_triage": "(?i)\\bit\\s+(?:is|was|'s)\\s+(?:\\w+\\s+)?(?:necessary|essential|possible|impossible)\\s+to\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "it"
+    },
+    {
+     "LEMMA": "be"
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "necessary",
+       "essential",
+       "possible",
+       "impossible"
+      ]
+     }
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Impersonal evaluation framing",
+   "pedagogical_hook": "Presenting evaluations objectively",
+   "agency_or_distance": "Distancing evaluation from speaker"
+  },
+  "unit_tests": {
+   "positives": [
+    "Sometimes it is essential to do what they want.",
+    "It was absolutely impossible to install the system."
+   ],
+   "negatives": [
+    "It is possible that he will arrive late.",
+    "The task is impossible to finish."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163710385x692584626357576800",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "guideword": "FORM: 'BE' + 'SURE' + CLAUSE ",
+  "can_do_statement": "Can use 'I' + 'be' + 'sure' + clause.",
+  "detection": {
+   "regex_triage": "(?i)\\bi(?:'m|\\s+am)\\s+(?:not\\s+)?sure\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "i"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "am",
+       "'m"
+      ]
+     }
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "sure"
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Speaker certainty declaration",
+   "pedagogical_hook": "Expressing confidence in a statement",
+   "agency_or_distance": "High epistemic commitment"
+  },
+  "unit_tests": {
+   "positives": [
+    "I'm sure I can beat you at chess.",
+    "I am not sure what I want to do."
+   ],
+   "negatives": [
+    "Are you sure about this?",
+    "He is sure that we will win."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163710385x880822948927010600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "guideword": "FORM: 'IT' + 'BE' + ADJECTIVE + 'FOR' + OBJECT + INFINITIVE",
+  "can_do_statement": "Can use 'it' + 'be' + adjective + 'for' + object + 'to' + infinitive.",
+  "detection": {
+   "regex_triage": "(?i)\\bit\\s+(?:is|was|'s)\\s+(?:\\w+\\s+)?(?:important|impossible|essential|necessary)\\s+for\\s+\\w+\\s+to\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "it"
+    },
+    {
+     "LEMMA": "be"
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "important",
+       "impossible",
+       "essential",
+       "necessary"
+      ]
+     }
+    },
+    {
+     "LOWER": "for"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Impersonal requirement directed at a specific entity",
+   "pedagogical_hook": "Stating requirements for someone else",
+   "agency_or_distance": "External obligation"
+  },
+  "unit_tests": {
+   "positives": [
+    "It is important for you to know what they are like.",
+    "It is essential for me to go now."
+   ],
+   "negatives": [
+    "It is important to know the rules.",
+    "For me, it is essential."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163710386x348002796343913640",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "guideword": "FORM: 'IT' + LINKING VERB + ADJECTIVES + CLAUSE",
+  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause. ",
+  "detection": {
+   "regex_triage": "(?i)\\bit\\s+(?:seems|appears|is|was)\\s+(?:quite\\s+|very\\s+)?(?:clear|obvious|possible)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "it"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "seem",
+       "appear",
+       "be"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "clear",
+       "obvious",
+       "possible"
+      ]
+     }
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Impersonal evidentiality framing",
+   "pedagogical_hook": "Presenting facts or possibilities objectively",
+   "agency_or_distance": "Distancing evidence from speaker"
+  },
+  "unit_tests": {
+   "positives": [
+    "It seems clear to me that swimming is good.",
+    "It is obvious that some people prefer reading."
+   ],
+   "negatives": [
+    "The answer seems clear.",
+    "His mistake is obvious to everyone."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163710387x307020078437927360",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "guideword": "FORM/USE: 'IT' + LINKING VERB + ADJECTIVES + CLAUSE, HEDGING",
+  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause to make an assertion less direct.",
+  "detection": {
+   "regex_triage": "(?i)\\bit\\s+(?:does\\s+not\\s+seem|doesn't\\s+seem|seems|is)\\s+(?:quite\\s+|very\\s+)?(?:possible|likely)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "it"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "do",
+       "seem",
+       "be"
+      ]
+     },
+     "OP": "+"
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "LOWER": "seem",
+     "OP": "?"
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "possible",
+       "likely"
+      ]
+     }
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Hedging assertions via impersonal structures",
+   "pedagogical_hook": "Softening claims to avoid absolute certainty",
+   "agency_or_distance": "Mitigated epistemic commitment"
+  },
+  "unit_tests": {
+   "positives": [
+    "It does not seem possible that we can live without it.",
+    "It is likely that we will learn some new words."
+   ],
+   "negatives": [
+    "The plan seems possible.",
+    "It is clear that he is right."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163710387x650967748684691500",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "guideword": "FORM/USE: 'IT' + LINKING VERB + ADJECTIVES + ('THAT') CLAUSE, FOCUS",
+  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause as a focusing device.",
+  "detection": {
+   "regex_triage": "(?i)\\bit\\s+(?:is|was|'s|seems)\\s+(?:quite\\s+|very\\s+|absolutely\\s+)?(?:clear|obvious|crucial|essential)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "it"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "be",
+       "seem"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "clear",
+       "obvious",
+       "crucial",
+       "essential"
+      ]
+     }
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Focusing via cleft-like impersonal adjectives",
+   "pedagogical_hook": "Highlighting a key fact or necessity",
+   "agency_or_distance": "High focus/emphasis"
+  },
+  "unit_tests": {
+   "positives": [
+    "It is clear that we can't live without computers.",
+    "It seems obvious that this oil comes from there."
+   ],
+   "negatives": [
+    "The message is clear.",
+    "It is possible that it rains."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163710387x670189134684302700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "guideword": "FORM: SUBJECT + 'BE' + ADJECTIVE + 'TO' + INFINITIVE ",
+  "can_do_statement": "Can use pronoun or noun + 'be' + adjective + 'to' + (past) infinitive. ",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:are|is|was|were|am|'re|'s|'m)\\s+(?:unlikely|likely|sure)\\s+to\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "unlikely",
+       "likely",
+       "sure"
+      ]
+     }
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Subject-oriented probability",
+   "pedagogical_hook": "Expressing likelihood about someone or something",
+   "agency_or_distance": "Objective probability calculation"
+  },
+  "unit_tests": {
+   "positives": [
+    "They are unlikely to arrive on Friday.",
+    "We are sure to increase our turnover."
+   ],
+   "negatives": [
+    "It is unlikely that they will arrive.",
+    "Are you sure about this?"
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163710388x558221911355252500",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "guideword": "FORM/USE: MODIFYING ADJECTIVES, EMPHASIS",
+  "can_do_statement": "Can modify adjectives with adverbs, often for emphasis.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:painfully|highly|extremely|absolutely)\\s+(?:obvious|unlikely|impossible|certain)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "painfully",
+       "highly",
+       "extremely",
+       "absolutely"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "obvious",
+       "unlikely",
+       "impossible",
+       "certain"
+      ]
+     }
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Intensified epistemic evaluation",
+   "pedagogical_hook": "Adding strong emphasis to assertions",
+   "agency_or_distance": "High involvement/emphasis"
+  },
+  "unit_tests": {
+   "positives": [
+    "It is painfully obvious that it will rescue our city.",
+    "It is highly unlikely that the goods can vanish."
+   ],
+   "negatives": [
+    "It is very possible that they win.",
+    "It is quite probable that it rains."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163710388x886068932656131300",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "guideword": "FORM/USE: MODIFYING ADJECTIVES, HEDGING",
+  "can_do_statement": "Can modify adjectives with degree adverbs, often to make an assertion less direct.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:quite|almost|somewhat)\\s+(?:probable|certain|possible|likely)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "quite",
+       "almost",
+       "somewhat"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "probable",
+       "certain",
+       "possible",
+       "likely"
+      ]
+     }
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Mitigated epistemic evaluation",
+   "pedagogical_hook": "Softening assertions with degree adverbs",
+   "agency_or_distance": "Hedging/Distancing"
+  },
+  "unit_tests": {
+   "positives": [
+    "There's a public transport strike which is quite probable.",
+    "It is almost certain that we'll have fights."
+   ],
+   "negatives": [
+    "It is highly unlikely that it happens.",
+    "It is totally certain."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163711535x514214856539001000",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "guideword": "FORM: CLAUSE POSITION",
+  "can_do_statement": "Can use adverbs of certainty and possibility ('maybe', 'perhaps'), before a clause or ellipted clause. \u25ba adverbs: position",
+  "detection": {
+   "regex_triage": "(?i)(?:^|,\\s+)\\b(?:maybe|perhaps)\\b\\s+(?!(?:$|[.!?,]))",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "maybe",
+       "perhaps"
+      ]
+     },
+     "IS_SENT_START": true
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Clause-initial epistemic framing",
+   "pedagogical_hook": "Introducing possibilities at the start of a phrase",
+   "agency_or_distance": "Low certainty introduction"
+  },
+  "unit_tests": {
+   "positives": [
+    "Maybe we could visit that park.",
+    "Perhaps it's in the kitchen under the table."
+   ],
+   "negatives": [
+    "I don't know, maybe.",
+    "That is perhaps true."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163711535x744252869965837700",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "guideword": "FORM/USE: MID POSITION, HEDGING OR EMPHASIS",
+  "can_do_statement": "Can use adverbs in mid position or after main verb 'be', to modify an assertion, either through hedging or emphasis. \u25ba adverbs: position",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:is|are|was|were|should|will|can|could|would)\\s+(?:probably|definitely)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "be",
+       "shall",
+       "will",
+       "can",
+       "may",
+       "would",
+       "could",
+       "should"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "probably",
+       "definitely"
+      ]
+     }
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Mid-clause epistemic modification",
+   "pedagogical_hook": "Modifying certainty mid-sentence",
+   "agency_or_distance": "Integrated epistemic marker"
+  },
+  "unit_tests": {
+   "positives": [
+    "It is probably in the sitting room.",
+    "You should probably wear a T-shirt."
+   ],
+   "negatives": [
+    "Probably, he will come.",
+    "I think so, definitely."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163711538x197686206470594000",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "guideword": "FORM/USE: EMPHASIS",
+  "can_do_statement": "Can use an increasing range of adverbs, for emphasis.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:certainly|obviously|definitely)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "certainly",
+       "obviously",
+       "definitely"
+      ]
+     }
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Emphatic adverbial marking",
+   "pedagogical_hook": "Using varied adverbs to emphasize claims",
+   "agency_or_distance": "High certainty/emphasis"
+  },
+  "unit_tests": {
+   "positives": [
+    "I'd certainly choose not to go with your parents.",
+    "You obviously can't keep fit."
+   ],
+   "negatives": [
+    "Maybe I will go.",
+    "Perhaps it is true."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163711538x400045316322393600",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "guideword": "FORM/USE, RESPONSE TOKENS",
+  "can_do_statement": "Can use adverbs expressing certainty as short responses. ",
+  "detection": {
+   "regex_triage": "(?i)(?:^|[?.!]\\s+)\\b(?:Definitely|Certainly|Absolutely|Undoubtedly)\\b(?:$|[.!])",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "definitely",
+       "certainly",
+       "absolutely",
+       "undoubtedly"
+      ]
+     },
+     "IS_SENT_START": true
+    },
+    {
+     "IS_PUNCT": true,
+     "OP": "*"
+    },
+    {
+     "IS_SENT_START": true,
+     "OP": "?"
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Adverbial short response",
+   "pedagogical_hook": "Responding forcefully with single adverbs",
+   "agency_or_distance": "Direct high-certainty response"
+  },
+  "unit_tests": {
+   "positives": [
+    "Do I agree with this statement? Definitely.",
+    "Will you join us? Certainly."
+   ],
+   "negatives": [
+    "I will definitely join you.",
+    "She is certainly right."
+   ]
+  },
+  "lexical_range": "N/A"
+ },
+ {
+  "egp_id": "1741163711538x841661069635560700",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "guideword": "FORM/USE: RESPONSE TOKENS",
+  "can_do_statement": "Can use 'not necessarily' as a short response. ",
+  "detection": {
+   "regex_triage": "(?i)(?:^|[?.!]\\s+)\\bNot\\s+necessarily\\b(?:$|[.!])",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "not",
+     "IS_SENT_START": true
+    },
+    {
+     "LOWER": "necessarily"
+    }
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Dissenting short response",
+   "pedagogical_hook": "Politely disagreeing or doubting",
+   "agency_or_distance": "Mitigated disagreement"
+  },
+  "unit_tests": {
+   "positives": [
+    "Thinking of Christmas? Not necessarily.",
+    "Does that mean we lose? Not necessarily."
+   ],
+   "negatives": [
+    "It is not necessarily true.",
+    "That does not necessarily mean anything."
+   ]
+  },
+  "lexical_range": "N/A"
+ }
+]

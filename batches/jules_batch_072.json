@@ -1,0 +1,866 @@
+[
+  {
+    "egp_id": "1741163715816x805574954101757600",
+    "level": "C1",
+    "super_category": "DISCOURSE MARKERS",
+    "sub_category": "discourse markers in writing",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: TEXTUAL REFERENCE",
+    "can_do_statement": "Can use a range of phrases as discourse markers to point to other parts of a text. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Textual space mapping",
+      "pedagogical_hook": "Navigating references within a document",
+      "agency_or_distance": "Spatial distance within the text"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:as|see|is)\\s+(?:mentioned|shown|stated|discussed|explained)\\s+(?:above|below|earlier|previously)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "as",
+              "is"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "mention",
+              "show",
+              "state",
+              "discuss",
+              "explain"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "above",
+              "below",
+              "earlier",
+              "previously"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "As mentioned earlier, we have already shipped the order.",
+        "The results are completely valid, as shown above."
+      ],
+      "negatives": [
+        "He mentioned earlier that he would be late.",
+        "The painting above the fireplace is beautiful."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715816x910085760581765400",
+    "level": "B2",
+    "super_category": "DISCOURSE MARKERS",
+    "sub_category": "discourse markers in writing",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: ORGANISING, OPENINGS AND CLOSINGS, FORMAL",
+    "can_do_statement": "Can use a range of phrases as discourse markers to open and close texts and point to conclusions, often in formal contexts. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Discourse structuring",
+      "pedagogical_hook": "Formal sectioning of arguments",
+      "agency_or_distance": "Structuring logical progression"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:in\\s+conclusion|in\\s+summary|to\\s+sum\\s+up)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "in"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "conclusion",
+              "summary"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "In conclusion, the experiment was a complete success.",
+        "In summary, we need to focus on cost reduction."
+      ],
+      "negatives": [
+        "We arrived at the same conclusion yesterday.",
+        "He gave a quick summary of the plot."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715820x150522391030215800",
+    "level": "B1",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: FRONTING, ADVERBS",
+    "can_do_statement": "Can use adverbs in the front position for focus.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Information structuring via fronting",
+      "pedagogical_hook": "Putting the spotlight on the adverb",
+      "agency_or_distance": "Emphatic positioning"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:Here|Quickly|Suddenly|Outside|Slowly|Unfortunately)\\b\\s*,?\\s+(?:I|he|she|it|they|we|the|a)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": {
+            "IN": [
+              "here",
+              "quickly",
+              "suddenly",
+              "outside",
+              "slowly",
+              "unfortunately"
+            ]
+          }
+        },
+        {
+          "IS_PUNCT": true,
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "he",
+              "she",
+              "it",
+              "they",
+              "we",
+              "the",
+              "a"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Suddenly, the door swung wide open.",
+        "Quickly I grabbed my coat and left."
+      ],
+      "negatives": [
+        "The door suddenly swung wide open.",
+        "I quickly grabbed my coat and left."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715820x418754553525479940",
+    "level": "B1",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'IT' + 'BE' ADJECTIVE + 'THAT' CLAUSE",
+    "can_do_statement": "Can use 'it' + 'be' + adjective + 'that-'clause for focus. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Evaluative extraposition",
+      "pedagogical_hook": "Stating an opinion objectively",
+      "agency_or_distance": "Distanced evaluation"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bit\\s*(?:is|was|'s)\\s+(?:really\\s+|very\\s+)?(?:great|true|important|sad|good|nice|clear)\\s+that\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "it"
+        },
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "really",
+              "very",
+              "extremely"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": "ADJ"
+        },
+        {
+          "LOWER": "that"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It's great that you found a new apartment.",
+        "It is important that everyone arrives on time."
+      ],
+      "negatives": [
+        "I think that it is a great idea.",
+        "That book is really great."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715820x505908632783048000",
+    "level": "A2",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PREPOSITIONAL PHRASES, FRONTING ",
+    "can_do_statement": "Can use prepositional phrases in the front position for focus.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Contextual framing",
+      "pedagogical_hook": "Setting the scene before the main event",
+      "agency_or_distance": "Spatial or temporal fronting"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:in|from|at|on|after|before)\\s+(?:the|my|your|his|her|our|their|a|an)\\s+[a-z]+\\s*,\\s+(?:I|he|she|it|we|they|the|a)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": {
+            "IN": [
+              "in",
+              "from",
+              "at",
+              "on",
+              "after",
+              "before"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "the",
+              "my",
+              "your",
+              "his",
+              "her",
+              "our",
+              "their",
+              "a",
+              "an"
+            ]
+          }
+        },
+        {
+          "IS_ALPHA": true
+        },
+        {
+          "LOWER": ","
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "In the morning, we usually go for a walk.",
+        "From my window, I can see the whole city."
+      ],
+      "negatives": [
+        "We usually go for a walk in the morning.",
+        "I can see the whole city from my window."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716064x592610604587924000",
+    "level": "B2",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'THE THING/ FACT/ POINT/ PROBLEM IS (THAT)'",
+    "can_do_statement": "Can use 'The thing, fact, point, problem, or reason + is (that)' for focus.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Highlighting a core issue",
+      "pedagogical_hook": "Drawing attention to the main point",
+      "agency_or_distance": "Emphatic focus"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthe\\s+(?:thing|fact|point|problem|reason)\\s+(?:is|was)\\s*(?:,)?\\s*(?:that\\b)?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "thing",
+              "fact",
+              "point",
+              "problem",
+              "reason"
+            ]
+          }
+        },
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": ",",
+          "OP": "?"
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The problem is that we don't have enough time.",
+        "The point is, we need to try harder."
+      ],
+      "negatives": [
+        "I completely understand the problem.",
+        "That is a very interesting fact."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716064x749646630905427700",
+    "level": "B2",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'THE REASON (THAT)', 'THE PLACE (WHICH)' + CLAUSE, SUBJECT",
+    "can_do_statement": "Can use 'The reason (that)', 'The place (which)' + clause as subject + 'be' for focus. \u25ba Relative clauses",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Subject-focused relative clause",
+      "pedagogical_hook": "Defining the specific reason or place",
+      "agency_or_distance": "Precision in description"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthe\\s+(?:reason|place)\\s+(?:that|which|where)?\\s*(?:[a-z]+\\s+){1,4}(?:is|was)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "reason",
+              "place"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "that",
+              "which",
+              "where"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        },
+        {
+          "LEMMA": "be"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The reason I called is to ask for your help.",
+        "The place we visited was absolutely stunning."
+      ],
+      "negatives": [
+        "I do not know the reason for his departure.",
+        "This is the place where we met."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716064x767849913238654200",
+    "level": "C1",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: FIXED EXPRESSIONS, FRONTING",
+    "can_do_statement": "Can use fixed expressions in the front position for focus.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Summarizing or concluding via idiom",
+      "pedagogical_hook": "Using idiomatic frames for focus",
+      "agency_or_distance": "Stepping back to evaluate"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:All\\s+in\\s+all|All\\s+things\\s+considered|At\\s+the\\s+end\\s+of\\s+the\\s+day)\\s*,",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": "all"
+        },
+        {
+          "LOWER": "in"
+        },
+        {
+          "LOWER": "all"
+        },
+        {
+          "LOWER": ","
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "All in all, it was a fantastic experience.",
+        "All in all, the movie exceeded my expectations."
+      ],
+      "negatives": [
+        "They were all in all the best players on the team.",
+        "I put my all in all my projects."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716065x120095405121205090",
+    "level": "C2",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT A' + NOUN",
+    "can_do_statement": "Can use 'Not a' + noun with a passive verb or inverted auxiliary and subject for focus. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Absolute negation for dramatic effect",
+      "pedagogical_hook": "Emphasizing absence completely",
+      "agency_or_distance": "High intensity negation"
+    },
+    "detection": {
+      "regex_triage": "(?i)^not\\s+a\\s+[a-z]+\\s+(?:was|were|is|are|do|does|did|have|has|had|can|could|will|would)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": "not"
+        },
+        {
+          "LOWER": "a"
+        },
+        {
+          "POS": "NOUN"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "do",
+              "have",
+              "can",
+              "could",
+              "will",
+              "would"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Not a word was spoken during the entire meeting.",
+        "Not a cloud could be seen in the sky."
+      ],
+      "negatives": [
+        "It is not a good idea to leave now.",
+        "This is not a drill."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716065x166400508777969860",
+    "level": "C1",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'WHAT' CLEFT CLAUSE",
+    "can_do_statement": "Can use 'What' + noun or pronoun + verb phrase as subject + 'be', for focus.  ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Clefting to highlight the object of desire/need",
+      "pedagogical_hook": "Isolating the most important detail",
+      "agency_or_distance": "Structural emphasis"
+    },
+    "detection": {
+      "regex_triage": "(?i)^what\\s+(?:we|everyone|companies|tourists|I|you|they|he|she|people|students)\\s+(?:[a-z]+\\s+){1,4}(?:is|are|was|were)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": "what"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "ADP",
+              "ADV",
+              "PART"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": "be"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "What we need is a better strategy for the team.",
+        "What I really want is a glass of cold water."
+      ],
+      "negatives": [
+        "I do not know what we need to do.",
+        "What is the best way to handle this?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716065x303072824467764300",
+    "level": "C1",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: IMPERATIVES",
+    "can_do_statement": "Can use imperatives as pointing devices within texts for focus.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Directing reader attention",
+      "pedagogical_hook": "Commanding focus to a specific element",
+      "agency_or_distance": "High agency instruction"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:note|notice|see|observe)\\s+(?:the|this|that|these|those)\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LEMMA": {
+            "IN": [
+              "note",
+              "notice",
+              "see",
+              "observe"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "the",
+              "this",
+              "that",
+              "these",
+              "those"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "ADJ",
+              "VERB"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": "NOUN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Notice the difference in the shading techniques.",
+        "See the attached document for more details."
+      ],
+      "negatives": [
+        "Did you notice the difference between them?",
+        "I want to see the latest figures tomorrow."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716065x319522763957327500",
+    "level": "C1",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'WH-'CLEFT CLAUSE, TITLES",
+    "can_do_statement": "Can use 'Wh-'cleft clauses as titles or subtitles, to point to something that follows, for focus.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Using a question-like structure as a declarative title",
+      "pedagogical_hook": "Framing topics dynamically",
+      "agency_or_distance": "Thematic staging"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:why|how)\\s+(?:i|we|you)\\s+(?:think|should|could|can)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": {
+            "IN": [
+              "why",
+              "how"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "we",
+              "you"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Why I think this will work is another story.",
+        "How we can improve sales in the next quarter."
+      ],
+      "negatives": [
+        "Why do you think this will work?",
+        "How can we improve sales in the next quarter?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716065x380877789960183400",
+    "level": "C1",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NON-FINITE WITH '-ED' CLAUSES",
+    "can_do_statement": "Can use a non-finite subordinate clause with an '-ed' form, before a main clause, for focus, often in formal, academic or business contexts.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Participial clause framing",
+      "pedagogical_hook": "Setting conditions elegantly",
+      "agency_or_distance": "Formal distancing"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:Compared|Outlined|Given|Seen|Provided)\\s+(?:to|below|that|by|in|with)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LEMMA": {
+            "IN": [
+              "compare",
+              "outline",
+              "base",
+              "give",
+              "see",
+              "provide"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "to",
+              "below",
+              "on",
+              "in",
+              "by",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Compared to last year, our profits have doubled.",
+        "Outlined below are the main reasons for our decision."
+      ],
+      "negatives": [
+        "We compared our results to last year's figures.",
+        "The proposal outlined below needs review."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716065x880428316136173400",
+    "level": "C2",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'THE' + PREMODIFIER + 'THING, FACT etc.' + 'IS (THAT)'",
+    "can_do_statement": "Can use 'The' + premodifier + 'thing, fact, point, problem or reason' + 'is (that)' for focus.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Modified emphatic highlighting",
+      "pedagogical_hook": "Adding color to the focal point",
+      "agency_or_distance": "Subjective evaluation"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthe\\s+(?:sad|strange|relevant|only|main|important|good|bad)\\s+(?:thing|fact|point|problem|reason)\\s+(?:about\\s+[a-z]+\\s+)?(?:is|was)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "POS": "ADJ"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "thing",
+              "fact",
+              "point",
+              "problem",
+              "reason"
+            ]
+          }
+        },
+        {
+          "LOWER": "about",
+          "OP": "?"
+        },
+        {
+          "POS": "PRON",
+          "OP": "?"
+        },
+        {
+          "LEMMA": "be"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The sad thing about it was that he never returned.",
+        "The main problem is that we have no backup."
+      ],
+      "negatives": [
+        "It was a very sad thing to witness.",
+        "We discussed the main problem at length."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716065x984349956970362600",
+    "level": "C2",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'WH-'CLEFT  CLAUSE",
+    "can_do_statement": "Can use 'How', 'Why', or 'Where' cleft clauses as subject, for focus",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Adverbial clefts for subject focus",
+      "pedagogical_hook": "Making circumstances the subject",
+      "agency_or_distance": "High-level syntactic manipulation"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:How|Why|Where)\\s+(?:[a-z]+\\s+){1,6}(?:is|was|were)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": {
+            "IN": [
+              "how",
+              "why",
+              "where"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LEMMA": "be"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "How they influenced my life is hard to tell.",
+        "Where he had gone to was a complete mystery."
+      ],
+      "negatives": [
+        "Do you know how they influenced my life?",
+        "Where had he gone after the party?"
+      ]
+    }
+  }
+]

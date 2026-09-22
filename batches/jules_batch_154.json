@@ -1,0 +1,753 @@
+[
+  {
+    "egp_id": "1741163715025x801370095944183200",
+    "level": "C1",
+    "super_category": "PRONOUNS",
+    "sub_category": "reciprocal",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'EACH \u2026' + 'THE OTHER(S)', AS COMPLEMENT",
+    "can_do_statement": "Can use 'each' (+ noun or pronoun) as subject followed by 'the other(s)' a complement of a preposition, to refer to two related things. \u25ba pronouns: quantity",
+    "example_raw": "Each person could be a help to the other. (Sri Lanka; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Tamil; Pass)\n\nThey all seem to mean exactly the same but if you study them more carefully, you realize that each of them differs from the others in tiny details that can be relevant. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Spanish - European; Pass)\n\nGenerally speaking, each individual is different from the others. (Vietnam; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2011; Urdu;)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Reciprocal relations",
+      "pedagogical_hook": "Using 'each' as subject and 'the other(s)' as prepositional complement",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\beach\\b(?:(?!\\beach\\b).){1,60}?\\b(?:to|for|with|from|of|on|in|at|by|about|between|among)\\s+the\\s+others?\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "each"
+        },
+        {
+          "OP": "*",
+          "LOWER": {
+            "NOT_IN": [
+              ".",
+              "?",
+              "!",
+              ","
+            ]
+          }
+        },
+        {
+          "POS": "ADP"
+        },
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "other",
+              "others"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Each person could be a help to the other.",
+        "Each of them differs slightly from the others."
+      ],
+      "negatives": [
+        "Each of them admires the other's intelligence.",
+        "They each helped the others."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715025x810006712006467000",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reciprocal",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'ONE ANOTHER', FORMAL",
+    "can_do_statement": "Can use 'one another' as the object of a verb or complement of a preposition to talk about the mutual behaviour of two or more people, often in formal contexts. ",
+    "example_raw": "I also thought to create a studying space where students, staff and visitors can meet one another. (Italy; B2 VANTAGE; 1999; Italian; Pass)\n\nSince we last saw one another many things have happened, but I must admit I have never enjoyed myself again the way I did when I was with you. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nPerhaps it will help me understand what my two dogs say to one another. (Portugal; B2 VANTAGE; 2008; Portuguese; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Reciprocal relations",
+      "pedagogical_hook": "Using formal 'one another'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bone\\s+another\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "one"
+        },
+        {
+          "LOWER": "another"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They can meet one another there.",
+        "We talk to one another every day."
+      ],
+      "negatives": [
+        "One should help another person.",
+        "I saw one, and then another."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715026x505796493500260540",
+    "level": "C2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reciprocal",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'EACH \u2026 THE OTHER(S)', AS OBJECT",
+    "can_do_statement": "Can use 'each' (+ noun or pronoun) as subject followed by 'the other(s)' as object , to refer to two related things. \u25ba pronouns: quantity",
+    "example_raw": "Each of them admires the other's intelligence. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nAs regards other aspects of my upbringing my parents taught me the importance of having all the family together, each one helping the others, each one loving the others. (Italy; C2 MASTERY; 1993; Italian; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Reciprocal relations",
+      "pedagogical_hook": "Using 'each' as subject and 'the other(s)' as object",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\beach\\b(?:(?!\\beach\\b).){1,60}?(?<!\\bto\\s)(?<!\\bfrom\\s)(?<!\\bwith\\s)(?<!\\bfor\\s)(?<!\\bof\\s)(?<!\\bon\\s)(?<!\\bin\\s)(?<!\\bat\\s)(?<!\\bby\\s)(?<!\\band\\s)(?<!\\bor\\s)\\bthe\\s+others?(?:'s)?\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "each"
+        },
+        {
+          "OP": "*",
+          "LOWER": {
+            "NOT_IN": [
+              ".",
+              "?",
+              "!",
+              ","
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "be",
+              "am",
+              "is",
+              "are",
+              "was",
+              "were",
+              "been",
+              "being"
+            ]
+          }
+        },
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "other",
+              "others"
+            ]
+          }
+        },
+        {
+          "LOWER": "'s",
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Each of them admires the other's intelligence.",
+        "Each one is helping the others."
+      ],
+      "negatives": [
+        "Each person could be a help to the other.",
+        "Each gave a gift to the other."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713862x154445028287858000",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "1",
+    "guideword": "FORM: SAME SUBJECT AND OBJECT.",
+    "can_do_statement": "Can use a limited range of singular reflexive pronouns ('myself', 'yourself') with a limited range of verbs ('enjoy', 'buy') to refer to actions where the subject and object of the verb are the same.",
+    "example_raw": "I enjoyed myself so much. (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)\n\nI bought myself a yellow T-shirt with nothing on it. (Germany; A2 WAYSTAGE; 2008; German; Pass)\n\nI hope you'll enjoy yourself . (Italy; A2 WAYSTAGE; 2001; Italian; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Reflexive actions",
+      "pedagogical_hook": "Using 'myself' or 'yourself' with 'enjoy' or 'buy'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:enjoy(?:s|ed|ing)?|buy(?:s|ing)?|bought)\\s+(?:myself|yourself)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "enjoy",
+              "buy"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "myself",
+              "yourself"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I enjoyed myself so much at the party.",
+        "I bought myself a yellow T-shirt."
+      ],
+      "negatives": [
+        "She enjoyed herself at the beach.",
+        "I bought a shirt for myself."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713862x630910430482545900",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "2",
+    "guideword": "FORM: SAME SUBJECT AND OBJECT, SINGULAR ",
+    "can_do_statement": "Can use an increasing range of singular reflexive pronouns with an increasing range of verbs to refer to actions where the subject and object of the verb are the same.",
+    "example_raw": "I decided to talk to him and introduce myself. (Preliminary English Test; B1; Turkish)\n\nFirst you should ask yourself if you have enough money for the journey. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nLisa told herself to be strong and hoped everything would be alright. (Preliminary English Test for Schools; B1; Vietnamese)\n\nI was really surprised when I read the e-mail. It was from someone who calls himself  the black shadow. (Chile; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Reflexive actions",
+      "pedagogical_hook": "Using singular reflexives with a variety of verbs as objects",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:ask(?:s|ed|ing)?|tell(?:s|ing)?|told|introduce(?:s|d|ing)?|call(?:s|ed|ing)?|teach(?:es|ing)?|taught|hurt(?:s|ing)?|warn(?:ed|s|ing)?)\\s+(?:myself|yourself|himself|herself)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "ask",
+              "tell",
+              "introduce",
+              "call",
+              "teach",
+              "hurt",
+              "warn"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "myself",
+              "yourself",
+              "himself",
+              "herself"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I decided to introduce myself to him.",
+        "First you should ask yourself if you have enough money."
+      ],
+      "negatives": [
+        "I bought myself a drink.",
+        "She went by herself."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713862x808025709875744000",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'BY' + SINGULAR ",
+    "can_do_statement": "Can use the singular reflexive pronouns 'myself', 'yourself', 'himself' and 'herself' with 'by' to mean alone, without any help.",
+    "example_raw": "I will ask my friends from the class and I will study by myself. (Preliminary English Test; B1; Czech)\n\nYou can do some exercise by yourself. (Preliminary English Test; B1;Turkish)\n\nHe tried to open it by himself. (Preliminary English Test; B1; Spanish \u2013 Latin American)\n\nShe decided to find him by herself. (Preliminary English Test; B1; Arabic \u2013 Meghreb)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Independence",
+      "pedagogical_hook": "Using 'by' + singular reflexive pronoun to mean 'alone'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bby\\s+(?:myself|yourself|himself|herself)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "by"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "myself",
+              "yourself",
+              "himself",
+              "herself"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I will study by myself.",
+        "He tried to open it by himself."
+      ],
+      "negatives": [
+        "I did it myself.",
+        "She talked about herself."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713863x119857807264091460",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: SINGULAR, AFTER PREPOSITIONS",
+    "can_do_statement": "Can use the singular reflexive pronouns 'myself', 'yourself', 'himself' and 'herself' after prepositions where the object of the preposition is the same as the subject of the verb.",
+    "example_raw": "He told me about himself and how he started playing the guitar. (Preliminary English Test; B1; Catalan)\n\nNow she was very proud of herself. (Preliminary English Test; B1; Spanish \u2013Latin American)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Reflexive actions",
+      "pedagogical_hook": "Using singular reflexives after prepositions",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:about|for|to|with|of|on|in|at)\\s+(?:myself|yourself|himself|herself)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "ADP",
+          "LOWER": {
+            "NOT_IN": [
+              "by"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "myself",
+              "yourself",
+              "himself",
+              "herself"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He told me about himself.",
+        "She was very proud of herself."
+      ],
+      "negatives": [
+        "He opened it by himself.",
+        "I enjoyed myself."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713863x283697850044881920",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "USE: SINGULAR, FOR EMPHASIS",
+    "can_do_statement": "Can use the singular reflexive pronouns 'myself', 'yourself', 'himself' and 'herself' for emphasis.",
+    "example_raw": "The best solution will be if you decide yourself what to do. (Preliminary English Test; B1; Polish)\n\nI think it was the director himself who guided the actress through our wonderful school gardens to film the opening scene there. (Preliminary English Test; B1; German)\n\nThe food was delicious, especially the cake, which Sandra had cooked herself. (Preliminary English Test; B1; Russian) ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Emphasis",
+      "pedagogical_hook": "Using singular reflexives for emphasis",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!\\bby\\s)(?<!\\babout\\s)(?<!\\bfor\\s)(?<!\\bto\\s)(?<!\\bwith\\s)(?<!\\bof\\s)(?<!\\bintroduce\\s)(?<!\\bask\\s)(?<!\\bbuy\\s)(?<!\\bbought\\s)(?<!\\benjoy\\s)(?<!\\benjoyed\\s)(?<!\\bhurt\\s)(?<!\\bcut\\s)\\b(?:myself|yourself|himself|herself)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "NOT_IN": [
+              "ADP"
+            ]
+          },
+          "LEMMA": {
+            "NOT_IN": [
+              "cut",
+              "hurt",
+              "enjoy",
+              "buy",
+              "ask",
+              "tell",
+              "introduce"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "myself",
+              "yourself",
+              "himself",
+              "herself"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The director himself guided the actress.",
+        "I myself would rather stay at home."
+      ],
+      "negatives": [
+        "I cut myself.",
+        "He learned it by himself."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713863x705171809781664600",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'BY' + PLURAL ",
+    "can_do_statement": "Can use plural reflexive pronouns with 'by' to mean alone, without any help.",
+    "example_raw": "A friend of mine and I are planning to spend a short holiday by ourselves. (First Certificate in English; B2; Chinese)\n\nThere are many things to say, but I think that you will find these by yourselves. (First Certificate in English; B2; Greek)\n\nThen suddenly, the lights started clicking on and off, the windows opened by themselves. (First Certificate in English; B2; Greek)\n",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Independence",
+      "pedagogical_hook": "Using 'by' + plural reflexive pronoun to mean 'alone'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bby\\s+(?:ourselves|yourselves|themselves)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "by"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "ourselves",
+              "yourselves",
+              "themselves"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We are planning to spend a short holiday by ourselves.",
+        "The windows opened by themselves."
+      ],
+      "negatives": [
+        "They did it themselves.",
+        "We looked at ourselves in the mirror."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713864x114619505443246400",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'YOURSELVES', FOR POLITENESS ",
+    "can_do_statement": "Can use the plural reflexive pronoun 'yourselves' for politeness.",
+    "example_raw": "Dear Sir/Madam, I am writing to you in response to the advertisement published by yourselves in \"the Traveller\" regarding The Trip of a Lifetime. (First Certificate in English; B2; Portuguese)\n\nThe question you asked droves me back to my early life. My childhood. Like yourselves I am also living in a busy town, in a busy street. But when I was a little kid I was with my grand parents in Kandy. (Sri Lanka; B1 THRESHOLD; 2010; Singhalese; Pass)\n\nAlso, it is a great opportunity to improve my sailing skills as training will be provided by yourselves. (Brazil; B2 VANTAGE; 2001; Portuguese; Pass\u00a0\u00a0)",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Politeness",
+      "pedagogical_hook": "Using 'yourselves' for politeness instead of 'you'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:like|for|to|from|by|regarding)\\s+yourselves\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "ADP"
+        },
+        {
+          "LOWER": "yourselves"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Training will be provided by yourselves.",
+        "Like yourselves, I am living in a busy town."
+      ],
+      "negatives": [
+        "You enjoyed yourselves.",
+        "You cooked the food yourselves."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713864x227611017911317760",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'ITSELF', FOR EMPHASIS ",
+    "can_do_statement": "Can use the singular pronoun 'itself' for emphasis.",
+    "example_raw": "In my opinion, the main characters do not have to be liked by readers but the story itself must be good and interesting to be successful. (First Certificate in English; B2; Swiss German)\n\nThe building itself looks splendid and beautiful. (Thailand; B2 VANTAGE; 2001; Thai; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Emphasis",
+      "pedagogical_hook": "Using 'itself' for emphasis",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!\\bby\\s)(?<!\\bof\\s)(?<!\\bto\\s)(?<!\\bfor\\s)(?<!\\bwith\\s)(?<!\\bin\\s)(?<!\\bat\\s)(?<!\\bhurt\\s)(?<!\\bcut\\s)(?<!\\bopened\\s)(?<!\\bcloses\\s)(?<!\\bkeeps\\s)(?<!\\brepeats\\s)(?<!\\bprotect\\s)(?<!\\bfinds\\s)(?<!\\bshows\\s)\\b[a-z]{3,}\\s+itself\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          },
+          "LEMMA": {
+            "NOT_IN": [
+              "hurt",
+              "cut",
+              "open",
+              "close",
+              "repeat"
+            ]
+          }
+        },
+        {
+          "LOWER": "itself"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The story itself must be good.",
+        "The building itself looks splendid."
+      ],
+      "negatives": [
+        "It opened by itself.",
+        "The process repeats."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713864x333646306844270800",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PLURAL, AFTER PREPOSITIONS",
+    "can_do_statement": "Can use plural reflexive pronouns after prepositions where the object of the preposition is the same as the subject of the verb.",
+    "example_raw": "Doing sports is an excellent way to relax and it can help us to feel good about ourselves. (First Certificate in English; B2; Hungarian)\n\nThe staff didn't have enough time for themselves. (First Certificate in English; B2; Polish)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Reflexive actions",
+      "pedagogical_hook": "Using plural reflexives after prepositions",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:about|for|to|with|of|on|in|at)\\s+(?:ourselves|yourselves|themselves)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "ADP",
+          "LOWER": {
+            "NOT_IN": [
+              "by",
+              "like"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "ourselves",
+              "yourselves",
+              "themselves"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It can help us to feel good about ourselves.",
+        "They didn't have enough time for themselves."
+      ],
+      "negatives": [
+        "They opened by themselves.",
+        "We entertained ourselves."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713864x447435342130462200",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: SAME SUBJECT AND OBJECT, PLURAL",
+    "can_do_statement": "Can use plural reflexive pronouns to refer to actions where the subject and object of the verb are the same.",
+    "example_raw": "In this way we will be able to enjoy ourselves even if this is not well-paid work. (First Certificate in English; B2; Italian)\n\nIn the afternoons, you'll be able to visit the archaeological sites and in the evening you can entertain yourselves by dancing or listening to music in our city clubs. (First Certificate in English; B2; Greek)\n\nBut adults often ask themselves the question - isn't it cruel to keep animals in zoos? (First Certificate in English; B2; Polish)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Reflexive actions",
+      "pedagogical_hook": "Using plural reflexives as verb objects",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:enjoy(?:ed|s|ing)?|entertain(?:ed|s|ing)?|ask(?:ed|s|ing)?)\\s+(?:ourselves|yourselves|themselves)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "enjoy",
+              "entertain",
+              "ask"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "ourselves",
+              "yourselves",
+              "themselves"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We will be able to enjoy ourselves.",
+        "Adults often ask themselves the question."
+      ],
+      "negatives": [
+        "We did the work ourselves.",
+        "They went by themselves."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713864x455439077287223000",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "USE: PLURAL, FOR EMPHASIS",
+    "can_do_statement": "Can use plural reflexive pronouns for emphasis.",
+    "example_raw": "The food is not very good, but sometimes we can prepare something to eat ourselves. (First Certificate in English; B2; Czech)\n\nThey patiently explained to me my job even though they were fairly busy themselves. (First Certificate in English; B2; Chinese)\n\nCars themselves are never dangerous. It depends on us, actually. (First Certificate in English; B2; Japanese)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Emphasis",
+      "pedagogical_hook": "Using plural reflexives for emphasis",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!\\bby\\s)(?<!\\babout\\s)(?<!\\bfor\\s)(?<!\\bto\\s)(?<!\\bwith\\s)(?<!\\bof\\s)(?<!\\bask\\s)(?<!\\benjoy\\s)(?<!\\benjoyed\\s)(?<!\\bentertain\\s)(?<!\\bentertained\\s)(?<!\\btaught\\s)(?<!\\bteach\\s)\\b(?:ourselves|yourselves|themselves)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "NOT_IN": [
+              "ADP"
+            ]
+          },
+          "LEMMA": {
+            "NOT_IN": [
+              "ask",
+              "enjoy",
+              "help",
+              "entertain",
+              "teach"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "ourselves",
+              "yourselves",
+              "themselves"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Cars themselves are never dangerous.",
+        "We ourselves don't know the answer."
+      ],
+      "negatives": [
+        "They taught themselves how to play.",
+        "We traveled by ourselves."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713864x952104218120751700",
+    "level": "B2",
+    "super_category": "PRONOUNS",
+    "sub_category": "reflexive",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'BY ITSELF'",
+    "can_do_statement": "Can use the reflexive pronoun 'itself' with 'by' to mean alone or without any help.",
+    "example_raw": "If an animal is kept by itself , with no one to keep it company, it will get lonely and very sad. (First Certificate in English; B2; Danish)\n\nSuddenly, the window opened by itself and the room filled with cold air. (First Certificate in English; B2; Greek)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Independence",
+      "pedagogical_hook": "Using 'itself' with 'by' to mean 'alone'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bby\\s+itself\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "by"
+        },
+        {
+          "LOWER": "itself"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The window opened by itself.",
+        "An animal kept by itself will get lonely."
+      ],
+      "negatives": [
+        "The building itself looks splendid.",
+        "He did it by himself."
+      ]
+    }
+  }
+]

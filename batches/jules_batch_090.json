@@ -1,0 +1,854 @@
+[
+  {
+    "egp_id": "1741163711286x101954602280780900",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PAST NEGATIVE",
+    "can_do_statement": "Can use 'should have' + '-ed'.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "An action was not recommended or required in the past.",
+      "pedagogical_hook": "When did you do something you weren't supposed to? Say 'I shouldn't have done it'.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bshould\\s*(?:not|n['\u2019]t)\\s+have\\s+(?:been|[a-z]+ed|done|taken|gone|seen|heard|had|made)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "should"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "LEMMA": "have"
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I know I shouldn't have taken it during school time.",
+        "She really should not have gone there alone."
+      ],
+      "negatives": [
+        "I shouldn't have any problems.",
+        "You should have been with us."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711286x245382741783872320",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PAST AFFIRMATIVE",
+    "can_do_statement": "Can use 'should' have + '-ed'.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "An action was recommended or required in the past, but likely didn't happen.",
+      "pedagogical_hook": "When did you miss out on something? Say 'I should have gone'.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!not\\s)(?<!n['\u2019]t\\s)\\bshould\\s+(?:have|'ve)\\s+(?:been|[a-z]+ed|done|taken|gone|seen|heard|had|made|written)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "should"
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "'ve"
+            ]
+          }
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You should have been with us.",
+        "I knew I should have written before."
+      ],
+      "negatives": [
+        "I shouldn't have taken it.",
+        "You should have a good time."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711286x540510273565590660",
+    "level": "A2",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "USE: SUGGESTIONS",
+    "can_do_statement": "Can use 'should' to make suggestions.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Proposing a good idea for someone else to follow.",
+      "pedagogical_hook": "Give advice to a friend using 'you should'.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:you|we)\\s+(?:really\\s+)?should\\s+(?!have\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "you",
+              "we"
+            ]
+          }
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "LOWER": "should"
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think we should meet at 2 pm.",
+        "You should bring your guitar."
+      ],
+      "negatives": [
+        "It should be a good day.",
+        "You should have been there."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711286x857657935609748000",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: QUESTION TAGS",
+    "can_do_statement": "Can use the question tag form 'shouldn't' + pronoun to make suggestions and ask for opinions.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking confirmation for a proposed action.",
+      "pedagogical_hook": "Make a suggestion and ask if it's right using ', shouldn't we?'",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i),\\s*should(?:n['\u2019]t|not)\\s+(?:we|i|you|they|he|she|it)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_PUNCT": true
+        },
+        {
+          "LOWER": "should"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "POS": "PRON"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We should rent some movies, shouldn't we?",
+        "I should write about the history, shouldn't I?"
+      ],
+      "negatives": [
+        "You shouldn't do that.",
+        "Shouldn't it be here by now?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711287x155607228538747300",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "USE: LIKELIHOOD",
+    "can_do_statement": "Can use 'should' to talk about what is likely to happen.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Predicting a probable outcome based on current conditions.",
+      "pedagogical_hook": "What is likely to happen? Say 'It should be fine'.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:it|this|that|there|weather|flight|train)\\s+should\\s+(?:be|happen|arrive|take)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "it",
+              "this",
+              "that",
+              "there",
+              "weather",
+              "flight",
+              "train"
+            ]
+          }
+        },
+        {
+          "LOWER": "should"
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "happen",
+              "arrive",
+              "take"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It should be a good day!",
+        "The weather should be nice tomorrow."
+      ],
+      "negatives": [
+        "You should eat more vegetables.",
+        "I should have written before."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711287x214849958095665100",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "USE: IDEAL OR DESIRED SITUATIONS",
+    "can_do_statement": "Can use 'should' to talk about ideal or desired situations.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Describing how the world ought to be, universally.",
+      "pedagogical_hook": "What would make the world better? Say 'People should...'",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:people|everyone|everybody|nobody|government|they|all)\\s+should\\s+(?!have\\b)[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "people",
+              "everyone",
+              "everybody",
+              "nobody",
+              "government",
+              "they",
+              "all"
+            ]
+          }
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "LOWER": "should"
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "British people should eat more vegetables.",
+        "I think everyone should learn to cook."
+      ],
+      "negatives": [
+        "You should bring your guitar.",
+        "It should be a good day!"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711287x279520438235405950",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "USE: THANKING",
+    "can_do_statement": "Can use 'you shouldn\u2019t have' (+ '-ed') in polite acceptance of a gift.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Expressing gratitude by playfully suggesting a gift was unnecessary.",
+      "pedagogical_hook": "Receive a gift? Say 'Thank you, you shouldn't have!'",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:thank|thanks).{1,50}you\\s+should(?:n['\u2019]t|not)\\s+have\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "thank",
+              "thanks"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": "should"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "LEMMA": "have"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Thank you for the present you sent me, you shouldn't have!",
+        "Thanks for the money, you shouldn't have sent it."
+      ],
+      "negatives": [
+        "You shouldn't have done that.",
+        "I shouldn't have taken it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711287x337411277365052160",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "FORM: ELLIPSIS ",
+    "can_do_statement": "Can use 'should' and 'shouldn't' without a following verb where the previous main verb is understood.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Omitting the main verb when it is already known from context.",
+      "pedagogical_hook": "Agree with a suggestion without repeating it: 'I think you should.'",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bshould(?:n['\u2019]t|not)?\\s*[.,?!;](?!\\s*(?:have|be)\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "should"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "IS_PUNCT": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Well, have you ever checked your blood pressure? I think you should.",
+        "he wanted to answer and meet her again, but he knew that he shouldn't."
+      ],
+      "negatives": [
+        "You should bring your guitar.",
+        "You shouldn't have done that."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711287x768774727410203500",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "USE: NARRATIVE DEVICE",
+    "can_do_statement": "Can use 'you should have' + '-ed' to emphasise points in a story.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Highlighting the extreme nature of a past event to a listener.",
+      "pedagogical_hook": "Telling a crazy story? Say 'You should have seen...'",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\byou\\s+should\\s+have\\s+(?:seen|heard|been)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "you"
+        },
+        {
+          "LOWER": "should"
+        },
+        {
+          "LOWER": "have"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "see",
+              "hear",
+              "be"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You should have heard the noise.",
+        "You should have seen my face, I was so happy."
+      ],
+      "negatives": [
+        "I should have written before.",
+        "You should have eaten your vegetables."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711287x879466057870175200",
+    "level": "B1",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "USE: REGRET",
+    "can_do_statement": "Can use 'should have' + '-ed' to talk about regrets or undesirable situations in the past.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Expressing sorrow over a past action that cannot be changed.",
+      "pedagogical_hook": "Regret something? Say 'I'm sorry, I shouldn't have done it'.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:sorry|wish|regret|sad|unfortunately)\\b.{0,60}\\bshould(?:n['\u2019]t|\\s+not)?\\s+have\\s+[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "sorry",
+              "wish",
+              "regret",
+              "sad",
+              "unfortunately"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "should"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "have"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He had written that he was sorry and that he should not have done it.",
+        "Unfortunately, I should have studied more for the exam."
+      ],
+      "negatives": [
+        "You should have been there with me, I had a great time.",
+        "You should have seen my face!"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711291x330489296656484280",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'SHOULD BE' + '-ING'",
+    "can_do_statement": "Can use 'should be' + '-ing'.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "A continuous action is recommended or expected right now.",
+      "pedagogical_hook": "What is someone supposed to be doing right now? Say 'They should be working'.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bshould\\s+be\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "should"
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Well, you should be bouncing up and down with joy!",
+        "We should be reading books instead of watching television."
+      ],
+      "negatives": [
+        "It should be a good day.",
+        "We should read books instead of watching television."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711291x489521855903887900",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: AFTER 'IF' CLAUSES",
+    "can_do_statement": "Can use 'should' after 'if' to talk about possible situations in the future.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Describing a hypothetical future condition with a low probability.",
+      "pedagogical_hook": "Just in case... Say 'If you should need anything'.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bif\\s+(?:[a-z]+\\s+)?should\\s+[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "POS": "PRON",
+          "OP": "?"
+        },
+        {
+          "LOWER": "should"
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If you should change your mind and prefer to take a taxi, call us.",
+        "If something should happen, call 112."
+      ],
+      "negatives": [
+        "You should change your mind if you want to.",
+        "He should call 112 if something happens."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711291x569539011340594050",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "USE: OBLIGATION ",
+    "can_do_statement": "Can use 'should be' + '-ing' to talk about present general obligation.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Expressing a continuous duty or rule that applies generally.",
+      "pedagogical_hook": "What is the rule? Say 'Animals should be running free'.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:animals|driver|people|children|students|he|she|they)\\s+should(?:n['\u2019]t|not)?\\s+be\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "animals",
+              "driver",
+              "people",
+              "children",
+              "students",
+              "he",
+              "she",
+              "they"
+            ]
+          }
+        },
+        {
+          "LOWER": "should"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Wild animals should be running free.",
+        "If a driver has drunk alcohol, he shouldn't be driving."
+      ],
+      "negatives": [
+        "You should be bouncing up and down with joy!",
+        "The computer systems should be working again."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711291x955830775192889600",
+    "level": "B2",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "USE: EXPECTATIONS ",
+    "can_do_statement": "Can use 'should be' + '-ing' to talk about expectations.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Predicting a continuous state based on a plan or typical behavior.",
+      "pedagogical_hook": "What's expected to happen? Say 'The situation should be improving'.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:systems?|situation|economy|weather|groom|bride)\\s+should\\s+be\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "system",
+              "systems",
+              "situation",
+              "economy",
+              "weather",
+              "groom",
+              "bride"
+            ]
+          }
+        },
+        {
+          "LOWER": "should"
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The computer systems should be working again once you restart them.",
+        "The situation should be improving in the next 6 months."
+      ],
+      "negatives": [
+        "We should be reading books.",
+        "Wild animals should be running free."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711292x177435763592044280",
+    "level": "C1",
+    "super_category": "MODALITY",
+    "sub_category": "should",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: INVERSION",
+    "can_do_statement": "Can use 'should' with an inverted subject to refer to possible situations, in formal contexts.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "A highly formal, conditional structure replacing 'if'.",
+      "pedagogical_hook": "Write a formal letter: 'Should you need assistance, please call'.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)^should\\s+(?:you|we|he|she|they|it)\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "should",
+          "IS_SENT_START": true
+        },
+        {
+          "POS": "PRON"
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Should you need any further information, don't hesitate to contact us.",
+        "Should you withhold any important information, this could stop payment."
+      ],
+      "negatives": [
+        "You should need any further information.",
+        "Why should you withhold important information?"
+      ]
+    }
+  }
+]

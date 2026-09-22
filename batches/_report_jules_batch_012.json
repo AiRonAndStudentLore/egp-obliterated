@@ -1,0 +1,90 @@
+{
+ "batch": "batches/jules_batch_012.json",
+ "cycles": 1,
+ "passed": 13,
+ "total": 15,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163708792x578027203654075000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x169611736244202020",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x231349056007116500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x394528376329640770",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x555362877047412000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x603808210938091100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x652344620706507100",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'It has the latest technology.'",
+    "spaCy MISSED positive: 'La Baule is the biggest beach.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708793x822211978637164400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708794x298696032662709950",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708794x304620412508079360",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708998x378745678664328200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709001x358121922371724900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709001x603991364400066700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709001x827143402527184000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709001x956266227421554000",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'The cost of those clothes was high.'"
+   ]
+  }
+ ]
+}

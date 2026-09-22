@@ -1,0 +1,743 @@
+[
+  {
+    "egp_id": "1741163712747x851758421234194700",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: SINGLE CONTINUING EVENT",
+    "can_do_statement": "Can use the present perfect continuous to talk about a single activity or state that began in the past and is still continuing, often with 'for' or 'since'. ",
+    "example_raw": "I've been studying International business there for four years. (Algeria; B1 THRESHOLD; 2003; Arabic - Meghreb; Pass)\n\nI've been living here since last April and it seemed no problem during spring and summer. (Japan; B1 THRESHOLD; 2001; Japanese; Pass)\n\nSusan has been working in our company for 6 years as a Sales Representative. (Hong Kong; B2 VANTAGE; 2001; Chinese; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Action began in past and continues to present",
+      "pedagogical_hook": "Present perfect continuous for single continuing event with for/since",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s+(?:not\\s+|n't\\s+)?(?:[a-z]+ly\\s+)?been\\s+[a-z]+ing\\b[^.?!]{0,40}\\b(?:for|since)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I have been studying French since I was a child.",
+        "She has been living there for three years now."
+      ],
+      "negatives": [
+        "I have been to Paris before.",
+        "They are studying for their exam."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712747x885210955530291000",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "present perfect continuous",
+    "lexical_range": "1",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form.",
+    "example_raw": "I hope that I have not been wasting your time and giving you too much trouble. (Malaysia; B2 VANTAGE; 1997; Chinese; Pass)\n\nHope you haven't been working too hard! (Japan; B2 VANTAGE; 2000; Japanese; Pass)\n\nThe heating system has not been working properly since your staff completed the work in my house. (Turkey; B2 VANTAGE; 2010; Turkish; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Denial of a continuing past-to-present action",
+      "pedagogical_hook": "Present perfect continuous in negative form",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s*(?:not|n't)\\s+(?:[a-z]+ly\\s+)?been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I haven't been working too hard lately.",
+        "The machine has not been running correctly."
+      ],
+      "negatives": [
+        "I haven't seen her in a while.",
+        "She has been doing her homework."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712747x939400938846862500",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "present perfect continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: RECENT PAST",
+    "can_do_statement": "Can use the present perfect continuous to focus on a finished activity in the recent past but where the effects or results are still important or relevant. ",
+    "example_raw": "They might be slippery when it has been snowing. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Recent continuous action whose effects are still visible",
+      "pedagogical_hook": "Present perfect continuous for recent past effects",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s+(?:[a-z]+ly\\s+)?been\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has",
+              "'ve",
+              "ve",
+              "'s",
+              "s"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The roads are wet because it has been raining.",
+        "I'm tired because I've been working all day."
+      ],
+      "negatives": [
+        "I am working on a new project.",
+        "He had been running before the game started."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712747x124721408738829090",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: WITH 'YET'",
+    "can_do_statement": "Can use the negative form with 'yet' to talk about events which are expected to be completed at some point in the future. ",
+    "example_raw": "[talking about a new mobile phone] I haven't seen it yet . (Cyprus; A2 WAYSTAGE; 2009; Greek; Pass)\n\n[talking about a book] It's very important because I haven't finished it yet. (Nepal; A2 WAYSTAGE; 2005; Nepali; Pass)\n\nI haven't seen this film yet. (Estonia; A2 WAYSTAGE; 2003; Estonian; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expectation of a completion in the future",
+      "pedagogical_hook": "Negative present perfect simple with 'yet'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s*(?:not|n't)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)[^.?!]{0,60}\\byet\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I haven't finished my homework yet.",
+        "She has not seen the new movie yet."
+      ],
+      "negatives": [
+        "I didn't see the movie yet.",
+        "I did not see that one."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712747x157745710696413300",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: TIME WITH 'FOR'",
+    "can_do_statement": "Can use the negative form with 'for' to talk about a past event or action which hasn't occurred again in the period of time up to now.",
+    "example_raw": "I haven't eaten Italian food for a long time. (Ecuador; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nI'm sorry I haven't written for so long. (Greece; A2 WAYSTAGE; 2009; Greek; Pass)\n\nI haven't seen you for ages. (Russia; A2 WAYSTAGE; 2004; Russian; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Absence of an action over a period of time",
+      "pedagogical_hook": "Negative present perfect simple with 'for'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s*(?:not|n't)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)[^.?!]{0,60}\\bfor\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I haven't eaten pizza for a month.",
+        "We haven't met for ages."
+      ],
+      "negatives": [
+        "I didn't see it yet.",
+        "I have lived here for a long time."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712747x300382600384414560",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "1",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form 'have' + '-ed' with pronouns 'I' and 'we', and with a limited range of verbs.",
+    "example_raw": "I have seen the Eiffel Tower and many old buildings. (Turkey; A2 WAYSTAGE; 1999; Turkish; Pass)\n\nI like Japanese people and I've been to Japan more than three times. (China; A2 WAYSTAGE; 2002; Chinese; Pass)\n\nWe have seen the Tower of London, Big Ben, the Houses of the Parliament and of course Buckingham Palace. (France; A2 WAYSTAGE; 1999; French; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Reporting a past experience with present relevance",
+      "pedagogical_hook": "Affirmative present perfect simple with I and We",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|we)(?:\\s+have|'ve)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "we"
+            ]
+          }
+        },
+        {
+          "LEMMA": "have"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I have visited the museum several times.",
+        "We've completed the project."
+      ],
+      "negatives": [
+        "They have been to the museum.",
+        "I hadn't seen the movie."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712747x475008652441932600",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "1",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form 'haven't' + '-ed' with 'I' with a limited range of verbs. ",
+    "example_raw": "I haven't eaten Italian food for a long time. (Ecuador; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nI haven't seen you for a long time. (A2 WAYSTAGE; 2008; Hungarian; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Denying a past experience up to the present",
+      "pedagogical_hook": "Negative present perfect simple with 'I'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bI\\s+(?:have\\s+not|haven't)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "i"
+        },
+        {
+          "LOWER": "have"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I haven't tried Italian food.",
+        "I have not seen that episode."
+      ],
+      "negatives": [
+        "We haven't been there.",
+        "He hasn't called me."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712748x393349898324399200",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "1",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use the question form 'have you' + '-ed' with with a limited range of verbs.",
+    "example_raw": "Have you bought anything? (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nHi Jools, How have you been? (Japan; A2 WAYSTAGE; 2010; Japanese; Pass)\n\nWhere have you been? (Ecuador; A2 WAYSTAGE; 2010; Spanish - Latin American; Pass) \n",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Inquiring about someone's experiences",
+      "pedagogical_hook": "Question form 'have you' + past participle",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhave\\s+you\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "have"
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Have you finished your dinner?",
+        "Where have you been all day?"
+      ],
+      "negatives": [
+        "Have they seen the show?",
+        "Do you have a pet?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713101x219481632919301660",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: WITH 'ALREADY'",
+    "can_do_statement": "Can use the present perfect simple with 'already' to emphasise that something is done, often before the expected time.  \u25ba adverbs",
+    "example_raw": "I've already planned the party, bought his present, and most important of all, I 've already told everyone. (Mexico; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n\nI have already bought a new arm-chair, yellow and comfortable. (Sweden; B1 THRESHOLD; 2001; Swedish; Pass)\n\nIn Spain lots of universities have already accepted this plan.. (B1 THRESHOLD; 2009; Spanish - Other; Pass)\n\nSo we decided to go to Farhang cinema tonight and we have already bought the tickets. (Iran; B1 THRESHOLD; 2004; Farsi; Pass)\n\nShe has already won three gold medals at international tournaments. (Italy; B1 THRESHOLD; 2003; Italian; Fail)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Highlighting early or completed realization",
+      "pedagogical_hook": "Present perfect simple with 'already'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s+already\\s+(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": "already"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I have already planned the trip.",
+        "She has already spoken to the manager."
+      ],
+      "negatives": [
+        "I will already be there.",
+        "They haven't done it yet."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713101x377184134338727900",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "2",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative forms with a range of pronouns and nouns and an increasing range of verbs.",
+    "example_raw": "I've left some clothes at the dry cleaner's 100 yards from my home, in Park Street. (B1 THRESHOLD; 2009; Mandarin; Pass)\n\nIt's been an amazing week for me. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nShe is from California, but she has just moved to Italy. (Italy; B1 THRESHOLD; 2002; Italian; Pass)\n\nOur company has signed deals with a few German companies. (India; B1 THRESHOLD; 2006; Panjabi; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Reporting positive past events connected to present state",
+      "pedagogical_hook": "Present perfect simple affirmative",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s+(?!not\\b|n't\\b|never\\b)(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "never",
+              "not",
+              "n't",
+              "n\u2019t"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She has signed the contract.",
+        "We've moved to a new city."
+      ],
+      "negatives": [
+        "I haven't signed anything.",
+        "He has never seen snow."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713101x437459773177046000",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "1",
+    "guideword": "FORM: WITH ADVERBS",
+    "can_do_statement": "Can use the present perfect simple with a limited range of adverbs in the normal mid position. ",
+    "example_raw": "I have never seen a competition like that before, and I love it. (Brazil; A2 WAYSTAGE; 2007; Portuguese; Pass)\n\nI have just seen your notice. (Malaysia; A2 WAYSTAGE; 2005; Chinese; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Modifying experience frequency or recency",
+      "pedagogical_hook": "Present perfect simple with mid-position adverbs",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s+(?:never|just|always|often|ever)\\s+(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "never",
+              "just",
+              "always",
+              "often",
+              "ever"
+            ]
+          }
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I have never visited the museum.",
+        "She has just left the building."
+      ],
+      "negatives": [
+        "I have already seen it.",
+        "They haven't finished it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713101x488385456450781700",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "2",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative forms with a range of pronouns and an increasing range of verbs. ",
+    "example_raw": "He hasn't spoken to anyone from that time till now. (Iran; B1 THRESHOLD; 2004; Farsi; Pass)\n\nShe is a quiet person so she has not made a lot of friends. (China; B1 THRESHOLD; 2000; Chinese; Pass)\n\nWe haven't decided where to go yet, but probably it will be to somewhere like Australia or New Zealand. (Brazil; B1 THRESHOLD; 2008; Portuguese; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Denial of past events connected to present",
+      "pedagogical_hook": "Present perfect simple negative forms",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s*(?:not|n't)\\s+(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He hasn't spoken to anyone.",
+        "We have not decided where to go."
+      ],
+      "negatives": [
+        "I have decided already.",
+        "They didn't go to the park."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713101x501579906052687300",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: DURATION WITH 'SINCE'",
+    "can_do_statement": "Can use the present perfect simple with 'since' to talk about duration.",
+    "example_raw": "I have been here since August 2006. (B1 THRESHOLD; 2006; French; Pass)\n\nIt's been a long time since we went out together so I think we will have a great time at the park playing sports and chatting! (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nMany things have changed since your last visit. (Switzerland; B1 THRESHOLD; 2001; German; Pass)\n\nSuch a long time has passed since the last time we met. (Argentina; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Marking the starting point of a continuous state",
+      "pedagogical_hook": "Present perfect simple with 'since'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s+(?:not\\s+|n't\\s+)?(?:[a-z]+ly\\s+)?(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)[^.?!]{0,60}\\bsince\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has",
+              "'ve",
+              "ve",
+              "'s",
+              "s"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I have lived here since 2005.",
+        "It's been a long time since we met."
+      ],
+      "negatives": [
+        "I lived here since I was born.",
+        "She was working there."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713101x767578464485243900",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE QUESTIONS",
+    "can_do_statement": "Can use the negative question form. ",
+    "example_raw": "Haven't you seen it yet? (Argentina; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)\n\nHaven't your parents given you their advice? (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking confirmation of an expected event",
+      "pedagogical_hook": "Negative present perfect simple questions",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!why\\s)(?<!where\\s)(?<!when\\s)(?<!how\\s)(?<!what\\s)(?<!who\\s)\\b(?:haven't|hasn't)\\s+(?:[a-z]+\\s+){1,3}(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Haven't you seen the new update?",
+        "Hasn't he given you the money?"
+      ],
+      "negatives": [
+        "Have you seen the new update?",
+        "Why haven't they left yet?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713101x851368956145501200",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: EXPERIENCES",
+    "can_do_statement": "Can use the present perfect simple to talk about experiences up to now. ",
+    "example_raw": "I've seen the British Museum. (Taiwan; A2 WAYSTAGE; 1999; Chinese; Pass)\n\nWe have visited the Coliseum and several museums. (Russia; A2 WAYSTAGE; 2009; Armenian; Pass)\n\nAfter the film, we should go to \"The Golden Pagoda\" because I've never been there. (Myanmar; A2 WAYSTAGE; 2003; Burmese; Pass)\n\nYou know I haven't been to France before. (A2 WAYSTAGE; 2008; Hungarian; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Stating life experiences without a specific time",
+      "pedagogical_hook": "Present perfect simple for experiences",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s+(?:never\\s+)?(?:[a-z]+ed|been|had|done|gone|seen|made|come|obtained|known|got|met|read|changed|bought|won|left|signed|spoken|decided|finished|thought|found|eaten|written|planned|told|accepted|moved|given|visited)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": "never",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I have visited the Coliseum.",
+        "She has never been to France."
+      ],
+      "negatives": [
+        "I am going to the British Museum.",
+        "He went to the museum yesterday."
+      ]
+    }
+  }
+]

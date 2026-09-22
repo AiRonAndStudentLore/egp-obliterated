@@ -1,0 +1,770 @@
+[
+  {
+    "egp_id": "1741163713101x869805445646449900",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: RECENT PAST",
+    "can_do_statement": "Can use the present perfect simple to refer to a finished event or state in the recent past, that has a present relevance, often with 'just'.  ► adverbs",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past events that have just finished with present relevance.",
+      "pedagogical_hook": "When talking about something that happened very recently, use 'have/has just' plus the past participle.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:have|has|'ve|'s)\\s+just\\s+[a-z]+(?:ed|en|t|n|d)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": "just"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I've just received your mail.",
+        "My mother has just broken her right leg."
+      ],
+      "negatives": [
+        "I just received your mail.",
+        "I'm just going to the shop."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713101x942811642239743600",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "2",
+    "guideword": "FORM: WITH ADVERBS",
+    "can_do_statement": "Can use the present perfect simple with an increasing range of adverbs in the normal mid position. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Placing adverbs smoothly between the auxiliary 'have' and the main verb in present perfect tense.",
+      "pedagogical_hook": "Adverbs like 'always', 'never', 'already' go right after 'have' or 'has' in present perfect sentences.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:have|has|'ve|'s)\\s+(?:always|never|ever|already|often|finally|certainly|really|definitely)\\s+[a-z]+(?:ed|en|t|n|d)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "always",
+              "never",
+              "ever",
+              "already",
+              "often",
+              "finally",
+              "certainly",
+              "really",
+              "definitely"
+            ]
+          }
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I've always loved seafood.",
+        "She has never seen this movie."
+      ],
+      "negatives": [
+        "I always love seafood.",
+        "She never saw this movie."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713102x805096612277930600",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: UNFINISHED ",
+    "can_do_statement": "Can use the present perfect simple to refer to a state or period of time which is unlimited or indefinite. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Describing states or situations that started in the past and continue into the present.",
+      "pedagogical_hook": "Use the present perfect with stative verbs to talk about something true from the past until now.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:have|has|'ve|'s)\\s+(?:been|had|won|lived|worked|known)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "have",
+              "know",
+              "live",
+              "work",
+              "love",
+              "want",
+              "understand"
+            ]
+          },
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I've known him for years.",
+        "It has been a sunny, warm weekend."
+      ],
+      "negatives": [
+        "I know him very well.",
+        "It was a sunny, warm weekend."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713111x354631070539948000",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "2",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use the question form with an increasing range of verbs.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Forming questions in the present perfect with interrogative words.",
+      "pedagogical_hook": "To ask a question in present perfect, put 'have' or 'has' before the subject.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:how|what|why|where|when|who)\\s+(?:have|has)\\s+(?:[a-z]+\\s+){1,3}(?:been|done|changed|made|seen|gone|[a-z]+ed)\\b\\s*\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "how",
+              "what",
+              "why",
+              "where",
+              "when",
+              "who"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has",
+              "haven't",
+              "hasn't"
+            ]
+          }
+        },
+        {
+          "OP": "+",
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET",
+              "ADJ"
+            ]
+          }
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "But what have these animals done?",
+        "How has your family been?"
+      ],
+      "negatives": [
+        "What did these animals do?",
+        "How is your family?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713111x611310529067472800",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: WITH 'STILL'",
+    "can_do_statement": "Can use the negative form of the present perfect simple with 'still' to emphasise that something that was expected to happen continues not to happen.  ► adverbs",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Emphasizing an unfulfilled expectation that persists to the present.",
+      "pedagogical_hook": "Use 'still haven't' or 'still hasn't' to show frustration that something expected has not happened yet.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\bstill\\s+(?:have|has)(?:n't|\\s+not)\\s+[a-z]+(?:ed|en|t|n|d)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "still"
+        },
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I still haven't decided.",
+        "He still has not replied to my message."
+      ],
+      "negatives": [
+        "I haven't decided yet.",
+        "I still don't know."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713111x811420585366934300",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: WITH SUPERLATIVE ",
+    "can_do_statement": "Can use the present perfect simple with a superlative adjective to talk about a unique experience.  ► adjectives: superlatives",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Connecting a subjective ultimate evaluation to the total experience up to now.",
+      "pedagogical_hook": "When you say something is the 'best' or 'most', you often use the present perfect with 'ever' to describe your experience.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:most\\s+[a-z]+|[a-z]+est)\\b.{1,60}\\b(?:have|has|'ve)\\s+(?:ever\\s+)?[a-z]+(?:ed|en|t|n|d)\\b",
+      "spacy_token_pattern": [
+        {
+          "TAG": {
+            "IN": [
+              "JJS",
+              "RBS"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LOWER": "ever",
+          "OP": "?"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This restaurant has the most delicious shrimps I have ever tasted.",
+        "That is the best game I've played."
+      ],
+      "negatives": [
+        "I have played a very good game.",
+        "This is the best game I play."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713111x834717044155053800",
+    "level": "C1",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "3",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the full negative forms with a wide range of verbs, often in formal contexts.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Formal denial of an action that was expected or possible up to the present.",
+      "pedagogical_hook": "In formal writing, use the full 'have not' instead of 'haven't'.",
+      "agency_or_distance": "formal or objective distance"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:have|has)\\s+not\\s+[a-z]+(?:ed|en|t|n|d)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has"
+            ]
+          }
+        },
+        {
+          "LOWER": "not"
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Thus, you have not fulfilled your task with due care.",
+        "Somehow, education has not evolved in my country."
+      ],
+      "negatives": [
+        "Thus, you haven't fulfilled your task.",
+        "Education hasn't evolved."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713112x784244213132092200",
+    "level": "C2",
+    "super_category": "PAST",
+    "sub_category": "present perfect simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: NEWSWORTHY",
+    "can_do_statement": "Can use the present perfect simple to introduce news. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Presenting recent events as new and highly relevant information to the listener.",
+      "pedagogical_hook": "Use the present perfect to deliver fresh news, like 'A new store has opened.'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:have|has|'ve|'s)\\s+(?:opened|started|announced|discovered|released|resigned|arrived|happened)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "open",
+              "start",
+              "announce",
+              "discover",
+              "release",
+              "resign",
+              "arrive",
+              "happen"
+            ]
+          },
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "A new shopping centre has opened in our town.",
+        "The president has announced a new law."
+      ],
+      "negatives": [
+        "A new shopping centre opened yesterday.",
+        "The president is announcing a new law."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713112x603850914179882600",
+    "level": "A1",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PREPOSITION + NOUN PHRASE",
+    "can_do_statement": "Can form prepositional phrases with a preposition and a noun phrase. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Connecting objects, places or times to the main sentence.",
+      "pedagogical_hook": "Use prepositions like 'in', 'on', or 'with' followed by a noun or noun phrase to add details.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:in|on|at|to(?!\\s+[a-z]+)|with|for|about|from|by|of)\\s+(?:the|a|an|my|your|his|her|our|their)?\\s*[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "in",
+              "on",
+              "at",
+              "to",
+              "with",
+              "for",
+              "about",
+              "from",
+              "by",
+              "of"
+            ]
+          },
+          "POS": "ADP"
+        },
+        {
+          "POS": {
+            "IN": [
+              "DET",
+              "PRON",
+              "ADJ",
+              "NUM"
+            ]
+          },
+          "OP": "*"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "When I have free time, I go to the park with my dog.",
+        "We have lots of fruit in the summer."
+      ],
+      "negatives": [
+        "I am happy.",
+        "She runs fast."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713112x664516393932309100",
+    "level": "A2",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'JUST' + PREPOSITION",
+    "can_do_statement": "Can use 'just' to modify prepositions. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Adding precision or exactness to a spatial or temporal location.",
+      "pedagogical_hook": "Put 'just' before a preposition to mean 'exactly' or 'very close to'.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\bjust\\s+(?:near|in|after|before|outside|behind|below|under|over|above|like|about|next|across|along)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "just"
+        },
+        {
+          "POS": "ADP"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It's just near the cinema.",
+        "My house is just after the library."
+      ],
+      "negatives": [
+        "I just arrived.",
+        "He just called me."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713112x806003192035927200",
+    "level": "A1",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "1",
+    "guideword": "FORM: SIMPLE",
+    "can_do_statement": "Can use a limited range of simple (single-word) prepositions. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Basic relations between entities, locations, or times.",
+      "pedagogical_hook": "Common single words like 'in', 'on', 'at', 'to' connect places or times to the action.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:in|on|at|to|for|with)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "in",
+              "on",
+              "at",
+              "to",
+              "for",
+              "with"
+            ]
+          },
+          "POS": "ADP"
+        },
+        {
+          "POS": {
+            "IN": [
+              "DET",
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm sending some flowers to you.",
+        "He works in Bognor Regis."
+      ],
+      "negatives": [
+        "I am happy.",
+        "She runs fast."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713112x864243593656802700",
+    "level": "A2",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "1",
+    "guideword": "FORM: COMPLEX",
+    "can_do_statement": "Can use a limited range of complex prepositions. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Multi-word phrases acting as single conceptual links.",
+      "pedagogical_hook": "Some prepositions are made of two or three words, like 'next to' or 'such as'.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:near\\s+to|such\\s+as|in\\s+front\\s+of|next\\s+to|according\\s+to|because\\s+of|instead\\s+of|out\\s+of)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "such",
+              "according",
+              "due",
+              "because",
+              "instead",
+              "out",
+              "next",
+              "in",
+              "near"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "as",
+              "to",
+              "of",
+              "front"
+            ]
+          }
+        },
+        {
+          "LOWER": "of",
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We can meet in the park near to my house.",
+        "I have a lot of hobbies, such as reading."
+      ],
+      "negatives": [
+        "I am near the house.",
+        "The front door is open."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713112x995827873320149100",
+    "level": "A2",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "2",
+    "guideword": "FORM: SIMPLE",
+    "can_do_statement": "Can use an increasing range of simple (single-word) prepositions. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Expanding the set of spatial, temporal, and abstract relationships.",
+      "pedagogical_hook": "You can use words like 'during', 'between', 'opposite', and 'by' to give more precise locations or times.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:by|like|between|before|opposite|during|after|without|against|among|behind)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "by",
+              "like",
+              "between",
+              "before",
+              "opposite",
+              "during",
+              "after",
+              "without",
+              "against",
+              "among",
+              "behind"
+            ]
+          },
+          "POS": "ADP"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Please return it by tomorrow morning.",
+        "The match was between Arsenal and Liverpool."
+      ],
+      "negatives": [
+        "I am happy today.",
+        "She walks fast."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713115x117482459797167540",
+    "level": "A2",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "N/A",
+    "guideword": "FORM: + '-ING'",
+    "can_do_statement": "Can form prepositional phrases using the '-ing' form of verbs as complements. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Treating actions (verbs) as noun concepts following a relationship word.",
+      "pedagogical_hook": "When a verb comes immediately after a preposition (like 'by', 'about', 'for'), it must be in the '-ing' form.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:by|for|about|without|after|before|in|on|at|of)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "ADP",
+          "LOWER": {
+            "NOT_IN": [
+              "to"
+            ]
+          }
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBG",
+              "NOUN"
+            ]
+          },
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I can help by bringing the sound box.",
+        "I was crazy about playing tennis."
+      ],
+      "negatives": [
+        "I like bringing my own lunch.",
+        "He started playing tennis yesterday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713115x831925659489416200",
+    "level": "A2",
+    "super_category": "PREPOSITIONS",
+    "sub_category": "prepostions",
+    "lexical_range": "N/A",
+    "guideword": "FORM: STRANDING",
+    "can_do_statement": "Can end a 'wh-' question with a preposition, where the preposition is stranded from its complement. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Delaying the preposition until the end of a question where the object is the question word.",
+      "pedagogical_hook": "In English, questions often end with the preposition, like 'Who are you talking to?'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:who|what|where|which|whom)\\b.{1,60}\\b(?:with|for|to|from|about|in|on|at)\\s*\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "who",
+              "what",
+              "where",
+              "which",
+              "whom"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "POS": "ADP",
+          "LOWER": {
+            "IN": [
+              "with",
+              "for",
+              "to",
+              "from",
+              "about",
+              "in",
+              "on",
+              "at"
+            ]
+          }
+        },
+        {
+          "LOWER": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Who are you going with?",
+        "So what are you waiting for?"
+      ],
+      "negatives": [
+        "With whom are you going?",
+        "For what are you waiting?"
+      ]
+    }
+  }
+]

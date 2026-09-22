@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_096.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163711539x336320676887564860",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DETERMINER + ADJECTIVE + NOUN",
+  "can_do_statement": "Can form simple noun phrases by pre-modifying singular and plural nouns with an adjective after a determiner. ",
+  "example_raw": "Martin is my best friend. (A1 BREAKTHROUGH; 2006; Slovak; Pass)\n\nWe have a big garden and a small swimming pool. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)\n\nHer favourite colours are blue and black. (A1 BREAKTHROUGH; 2006; Hungarian; Pass)"
+ },
+ {
+  "egp_id": "1741163711539x384428957229715900",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "1",
+  "guideword": "FORM: DETERMINER + NOUN",
+  "can_do_statement": "Can form simple noun phrases with a limited range of determiners + singular and plural nouns. \u25ba Nouns and noun phrases: functions",
+  "example_raw": "There is also a park near my house. (A1 BREAKTHROUGH; 2009; Pashto; Pass)\n\nMy husband is a teacher. (A1 BREAKTHROUGH; 2009; Korean; Pass)\n\nThat's why I like this place. (A1 BREAKTHROUGH; 2007; Urdu; Pass)\n\nI go to college every day. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711539x458750897089793800",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN + NOUN",
+  "can_do_statement": "Can form noun phrases by pre-modifying a limited range of nouns with another noun. ",
+  "example_raw": "Every Friday I go swimming and play computer games. (Poland; A1 BREAKTHROUGH; 2010; Polish; Pass)\n\nI am having a dinner party on Friday 25 December at 7 pm. (India; A1 BREAKTHROUGH; 2010; Panjabi; Pass)\n\nCan you come to my house on Friday evening? (Iran; A1 BREAKTHROUGH; 2010; Farsi; Pass)\n\nMy girlfriend likes vegetable pasta with tomato sauce, because she is vegetarian. (A1 BREAKTHROUGH; 2006; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711543x198151940455300030",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH RELATIVE CLAUSE AS POSTMODIFIER",
+  "can_do_statement": "Can post-modify noun phrases by using a non-defining relative clause. \u25ba Clauses: relative",
+  "example_raw": "She's in a volleyball team like me, but we're not in the same one. She was for the other team, which lost. (Switzerland; A2 WAYSTAGE; 2007; Swiss German; Pass)\n\nYou can always visit our Shopping Centre, which is one of the biggest in Brazil. (Brazil; A2 WAYSTAGE; 2001; Portuguese; Pass)\n"
+ },
+ {
+  "egp_id": "1741163711543x516239433928662500",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "2",
+  "guideword": "FORM: DETERMINER + NOUN",
+  "can_do_statement": "Can form simple noun phrases by pre-modifying nouns with an increasing range of determiners.",
+  "example_raw": "There are so many shops, you can play games, eat food like Chinese food. (China; A2 WAYSTAGE; 2001; Chinese; Pass)\n\nI had so much fun! (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nI spent too much money, five hundred euros, but I don\u2019t mind because they are beautiful! (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nI visited a lot of museums and I went shopping. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nAll of our classmates were there and some of my cousins too. (Malaysia; A2 WAYSTAGE; 2004; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163711543x777814761336798300",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DETERMINER + UNCOUNTABLE NOUN",
+  "can_do_statement": "Can form simple noun phrases with a limited range of determiners + uncountable nouns.",
+  "example_raw": "The food was delicious and the music was great. (Turkey; A2 WAYSTAGE; 1999; Turkish; Pass)\n\nThe weather was so cold. (Philippines; A2 WAYSTAGE; 2009; Chinese; Pass)\n\nI phoned for more information two days ago. (Italy; A2 WAYSTAGE; 2006; Italian; Pass)\n\n[talking about a book] It is very important because I need to do some homework in it. (India; A2 WAYSTAGE; 2005; Marathi; Pass)"
+ },
+ {
+  "egp_id": "1741163711543x798815849394851200",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "1",
+  "guideword": "FORM: NOUN PHRASES WITH ADJECTIVES",
+  "can_do_statement": "Can pre-modify noun phrases with a limited range of more than one adjective. ",
+  "example_raw": "I bought a beautiful pink skirt and a white top. (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nLysiane is taller than me and she has short black hair. (A2 WAYSTAGE; 2010; Portuguese; Pass)\n\nIt is a beautiful old city and there is the old wall around the city. (Latvia; A2 WAYSTAGE; 1999; Russian; Pass)\n\nI left my small white bag. (Argentina; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)\n\nDon't forget to wear old, comfortable clothes. (Peru; A2 WAYSTAGE; 2006; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163711544x121774905611857550",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPLEX NOUN PHRASES WITH ADVERBS + ADJECTIVES",
+  "can_do_statement": "Can form complex noun phrases with adverb + adjective + noun. ",
+  "example_raw": "It took us a very long time but it was a great fun! (Poland; B1 THRESHOLD; 2009; Polish; Pass)\n\nThey made really good friends. (Argentina; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163711544x322105234805026600",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN + PREPOSITIONAL PHRASES ",
+  "can_do_statement": "Can form complex noun phrases by using a prepositional phrase after the main noun in a noun phrase. ",
+  "example_raw": "It was a beautiful red dress with blue flowers on the back. (Andorra; B1 THRESHOLD; 2010; French; Pass)\n\nYesterday a TV company came to our school to make a film about Bavarian pupils. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI don't spend too much time in front of the television, I just watch it twice a week and on Sundays morning. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI received your letter and you asked me about the future of my town. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI have to travel to Montevideo to see my doctor because I'm having some problems with my health. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n"
+ },
+ {
+  "egp_id": "1741163711544x351321536679149760",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH RELATIVE CLAUSE AS COMPLEMENT",
+  "can_do_statement": "Can form complex noun phrases by using a defining relative clause as a complement to a noun phrase. \u25ba Clauses: relative",
+  "example_raw": "The mobile phone which I bought yesterday is brilliant. (Russia; A2 WAYSTAGE; 2007; Russian; Pass)\n\nThe person who gave me it was my father. (Portugal; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nThe last day when we can see the movie is Thursday. (Romania; A2 WAYSTAGE; 2003; Romanian; Pass)\n\nI want to invite you to a pop concert that is going to take place in the National Stadium. (Peru; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nThe music that I like is Rock & Roll. (Russia; A2 WAYSTAGE; 2005; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163711544x365357840588922800",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "2",
+  "guideword": "FORM: COMPLEX NOUN PHRASES WITH ADJECTIVES",
+  "can_do_statement": "Can form an increasing range of complex noun phrases with more than one adjective. ",
+  "example_raw": "The Northeast is so beautiful and it's famous because of its white sandy beaches and the coconut trees. (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)\n\nLast weekend I went to S\u00e3o Paulo to buy some winter clothes. I bought a white hooded jacket, a blue jumper, black gloves and a beautiful blue scarf. (Brazil; B1 THRESHOLD; 2010; Portuguese; Pass)\n\nInside there were three samples of a nasty purple liquid. (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nI know your company are offering an exciting new service in our area. (China; B1 THRESHOLD; 2007; Chinese; Pass)\n\nHe had beautiful green eyes, short, curly, red hair and he was wearing an elegant black suit with a red tie. (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nYou can walk along the streets and eat typical Spanish food in good restaurants. (Spain; B1 THRESHOLD; 2004; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163711544x688186986093687800",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: POSSESSION WITH ''S' + NOUN",
+  "can_do_statement": "Can use possessive determiner ''s' with a singular noun. ",
+  "example_raw": "It's my sister's jacket. (Uruguay; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)\n\nI bought a red tie because next Sunday it will be my father's birthday. (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nYesterday about 8 pm, when I was coming back home from a shop, I saw two men near my neighbour's car. (B1 THRESHOLD; 2007; Slovak; Pass)"
+ },
+ {
+  "egp_id": "1741163711544x757635296935339600",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'SUCH (A)' + ADJECTIVE + NOUN",
+  "can_do_statement": "Can form noun phrases with 'such a' + adjective + singular noun and 'such' + adjective + plural noun, to give emphasis. ",
+  "example_raw": "It was so terrible because I've never been in such a terrible situation. (Russia; B1 THRESHOLD; 2000; Russian; Pass)\n\nSo it was really funny to hear from her after such a long time. (Germany; B1 THRESHOLD; 2004; German; Pass)\n\nThank you for giving me such a fantastic birthday present. (China; B1 THRESHOLD; 2003; Chinese; Pass)\n\nAlso, we both liked to read and that was why we were such good friends. (Taiwan; B1 THRESHOLD; 2009; Chinese; Pass)\n\nI had never worn such high heels before. (Albania; B1 THRESHOLD; 2010; Albanian; Pass)\n\n"
+ },
+ {
+  "egp_id": "1741163711813x389587358719478900",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NOUN PHRASES WITH SUPERLATIVES",
+  "can_do_statement": "Can use a clause with a present perfect or past perfect as a superlative noun phrase complement, to talk about uniqueness. ",
+  "example_raw": "It has the best promenade I have seen. (B1 THRESHOLD; 2003; Pass)\n\nThe best book I've read is \"The Da Vinci code\". (Italy; B1 THRESHOLD; 2005; Italian; Pass)\n\nIt was the best decision you had ever made. (Chile; B1 THRESHOLD; 2007; Spanish - Latin American; Pass)\n\nWe enjoy going shopping, walking and talking hour after hour - She's the funniest person I've ever known! (B1 THRESHOLD; 2004; ; Pass)"
+ },
+ {
+  "egp_id": "1741163711813x590477919798190200",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: POSSESSIVE '\u2018S' WITHOUT NOUN ",
+  "can_do_statement": "Can omit the noun after possessive '\u2019s' to talk about a place which is familiar to the speaker and listener.",
+  "example_raw": "Last week I left my clothes at the dry cleaner's and I can't collect them. (B1 THRESHOLD; 2009; Polish; Pass)\n\nI have to go to the dentist\u2019s. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nI'll be picking you up at eight o'clock near the McDonald's, OK? (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)\n\nI'm going to be absent from the English class next week, because I am going to the doctor's. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nIt's next to your grandma's. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)"
+ }
+]
+```

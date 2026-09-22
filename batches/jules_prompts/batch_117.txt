@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_117.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163713864x981685154549874200",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'IN ITSELF', INTENSIFYING ",
+  "can_do_statement": "Can use the fixed expression 'in itself' as an intensifier .",
+  "example_raw": "I would also spend much more quality time with my family as a whole, which is quite important in itself. (First Certificate in English; B2; Spanish _ Latin American)\n\nThe architecture in itself is beautiful, but the garden is very wonderful, too. (Philippines; B2 VANTAGE; 1993; Japanese; Pass)\n\nTo begin with, a car, in my opinion, can't be harmful in itself. The trouble is that, nowadays, very fast cars are put on the market and we never know if they are going to be driven by wise people or, instead, by crazy or dreadful drivers. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163713867x574702813002478900",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "N/A",
+  "guideword": "USE: DISCOURSE MARKERS",
+  "can_do_statement": "Can use 'as for myself' as a discourse marker to introduce or focus on a personal opinion. ",
+  "example_raw": "As for myself, as you can clearly see from my account of this musical event, music still means an awful lot to me, and most probably allways will. (Belgium; C2 MASTERY; 2001; Dutch; Pass)\n\n As for myself I like taking responsibilities. (Russia; C2 MASTERY; 1999; Russian; Pass)\n\n As for myself, I grew up during the \"internet era\", the years when it was spreading to average peoples homes and therefore I can still remember life without it. (Sweden; C2 MASTERY; 2005; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163713867x150062658595893500",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) QUESTIONS WITH 'BE'",
+  "can_do_statement": "Can use the pronouns 'you' and 'it' after 'be' in question forms.",
+  "example_raw": "Hi, Mrs. Bishop. How are you? (Skills for Life (Entry 1); ; A1 BREAKTHROUGH; 2009; Tagalog; Pass)\n\nIs it OK? (Skills for Life (Entry 1); ; A1 BREAKTHROUGH; 2009; Romanian; Pass)"
+ },
+ {
+  "egp_id": "1741163713867x281198469131771500",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "2",
+  "guideword": "FORM: (OBJECT) 'IT'",
+  "can_do_statement": "Can use the pronoun 'it' as a direct object to refer to an object or situation already referred to.",
+  "example_raw": "The maths is boring and I don't like it. (Skills for Life (Entry 1); A1; Portuguese)\n\nIf you can't find it, call me. (Skills for Life (Entry 1); A1; Turkish)\n\nDo you like it too? (Skills for Life (Entry 1); A1; German)"
+ },
+ {
+  "egp_id": "1741163713867x530274295544571840",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (OBJECT) WITH PREPOSITION ",
+  "can_do_statement": "Can use the object pronouns 'me', 'you', 'him', 'her', 'it', 'us' and 'them' in the object position after prepositions. ",
+  "example_raw": "I really like to learn new words. It's very important for me. (Skills for Life (Entry 1); A1; Polish)\n\nSometimes I go with her. (Skills for Life (Entry 1); A1; Polish)\n\nCan you bring some music so we can listen to it. (Skills for Life (Entry 1); A1; no L1 specified)\n\nI spend my free time with them. (Skills for Life (Entry 1); A1; Lithuanian)"
+ },
+ {
+  "egp_id": "1741163713867x609205291409504700",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) QUESTIONS",
+  "can_do_statement": "Can use the pronouns 'I', 'you', 'we' and 'they' after an auxiliary or modal verb in question forms.",
+  "example_raw": "Can I help you? (Skills for Life (Entry 1); A1; Arabic \u2013 other)\n\nWhat do you think about that? (Skills for Life (Entry 1); A1; French)\n\nCan we have a chat? (Skills for Life (Entry 1); A1; Russian)"
+ },
+ {
+  "egp_id": "1741163713867x710371035379195900",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "2",
+  "guideword": "FORM: (OBJECT) 'ME', 'YOU', 'HER', 'HIM', 'US', 'THEM' ",
+  "can_do_statement": "Can use the pronouns 'me', 'you', 'him', 'her', 'us' and 'them' in the direct object position after a transitive verb.",
+  "example_raw": "I'm very happy that you want to see me. (Skills for Life (Entry 1); A1; German)\n\nI can see her on Saturday at 8 pm. (Skills for Life (Entry 1); A1; Arabic)\n\nIt protects us from rain, wind and sun. (Skills for Life (Entry 1); A1; Portuguese)\n\nYou will find a lot of different shops \u2026 I hope you'll like them. (Skills for Life (Entry 1); A1; Russian)"
+ },
+ {
+  "egp_id": "1741163713867x970460151516622800",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "3",
+  "guideword": "FORM: (SUBJECT) 'IT' FOR FIRST PERSON",
+  "can_do_statement": "Can use the pronoun 'it' before 'be' to refer to a first person speaker or writer.",
+  "example_raw": "Hello Mrs Bishop. It's Clarisse (Skills for Life (Entry 1); A1; French)\n\nDear Cris, it's me, Paarth. (India; A2 WAYSTAGE; 2009; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163713868x463659211645272000",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) STATEMENTS",
+  "can_do_statement": "Can use the pronouns 'I', 'you', 'he', 'she', 'it', 'we' and 'they' in the subject position before a verb in statements.",
+  "example_raw": "In my free time I go shopping and I like swimming. (Skills for Life (Entry 1); A1; Polish)\n\nIf you want, you can go inside. (Skills for Life (Entry 1); A1; Hindi)\n\nHe prefers chess. (Skills for Life (Entry 1); A1; Singhalese)\n\nMy friend's name is Julissa, she is from Ecuador and she lives near my home. (Skills for Life (Entry 1); A1; Spanish)\n\nI like my home because it is a beautiful home. It has a big garden and a good sitting room. (Skills for Life (Entry 1); A1; Pashto)\n\nI like my front garden because it's very nice and warm. (Skills for Life (Entry 1); A1; Czech)\n\nThey're nice people. (Skills for Life (Entry 1); A1; Arabic) "
+ },
+ {
+  "egp_id": "1741163713868x569801658869344200",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) ELLIPSIS AFTER 'HOPE'",
+  "can_do_statement": "Can leave out the subject pronoun with 'hope'. \u25ba ellipsis",
+  "example_raw": "Hope to see you soon. (Key English Test ; A2; Turkish)\n\nHi! How are you? Hope you are fine. (India; A2 WAYSTAGE; 2006; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163713868x798436542527262600",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) EMPTY 'IT'",
+  "can_do_statement": "Can use 'it' as an empty subject when there is nothing else to put in subject position, particularly with weather or time. ",
+  "example_raw": "It's warm and windy. (Key English Test for Schools; A2; Vietnamese)\n\nNow it 's 3 pm. (B1 THRESHOLD; 2004; Pass)"
+ },
+ {
+  "egp_id": "1741163713875x174658833629234300",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (OBJECT) USING 'IT' TO INTRODUCE",
+  "can_do_statement": "Can use 'it' as an object with 'make' to introduce something the speaker or writer is going to refer to.",
+  "example_raw": "This shyness makes it hard for me to speak in public, or even to go out with my friends as often as I should. (First Certificate in English; B2; Spanish \u2013 European)\n\nOther retail companies with cheaper prices and lots of discounts make it impossible for us to do business. (First Certificate in English; B2; German)"
+ },
+ {
+  "egp_id": "1741163713875x322581852326230000",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) ELLIPSIS ",
+  "can_do_statement": "Can leave out the subject pronoun with a limited range of verbs, in informal contexts. \u25ba ellipsis",
+  "example_raw": "Must rush now because I have to go out with Paul. (First Certificate in English; B2; Italian)\n\nSounds great. (First Certificate in English; B2; Korean)\n\nGot to go now. (First Certificate in English; B2; Greek)\n\nCan't wait to hear about your exam. (First Certificate in English; Russian) "
+ },
+ {
+  "egp_id": "1741163713875x553851897238862400",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "3",
+  "guideword": "FORM: (SUBJECT) 'ONE'",
+  "can_do_statement": "Can use 'one' as a generic personal pronoun in the subject position to mean people in general. \u25ba generic pronouns",
+  "example_raw": "If one doesn't live close enough to walk to work, one can choose to get there by bicycle or by car. (First Certificate in English; B2; Swedish)"
+ },
+ {
+  "egp_id": "1741163713875x671479205493548800",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) EMPTY 'IT'",
+  "can_do_statement": "Can use dummy 'it' with 'appears', 'feels', 'looks' and 'seems'.",
+  "example_raw": "When you watch a film, it seems to be that you are inside it, and you are a character in it. (First Certificate in English; B2; Spanish - Latin American)\n\n\u2026 your company has carried out a full investigation on the matter and it appears that the disappearance was not the result of criminal activity. (Portugal; B2 VANTAGE; 2008); \n\nIt appears that there was an error with the older computer system. (Tahiti; B2 VANTAGE; 2009; French; Fail)"
+ }
+]
+```

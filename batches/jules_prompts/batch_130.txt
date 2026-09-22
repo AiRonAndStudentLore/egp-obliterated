@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_130.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163712320x420977783135077200",
+  "level": "C1",
+  "super_category": "PASSIVES",
+  "sub_category": "get and have",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'GET' + OBJECT + '-ING'",
+  "can_do_statement": "Can use 'get' + object + '-ing' to talk about causing someone or something to do something.",
+  "example_raw": "First of all, I would like to underline the sheer boredom of these CDs, which got me yawning from the very first minute. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Spanish - European; Pass)\n\nI was very happy when I received your letter, although I must say that your dilemma got me thinking. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)\n\nAs soon as they realized there was no way to get the employees moving, they got excited and nervous. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; German; Pass)\n\nBut still both concerts were great as Elton John and \"Metallica\" really know how to get people moving, but in two completely different ways. (Denmark; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Danish; Pass)\n\n"
+ },
+ {
+  "egp_id": "1741163712321x355132007254578300",
+  "level": "C2",
+  "super_category": "PASSIVES",
+  "sub_category": "get and have",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'HAVE' + OBJECT + INFINITIVE",
+  "can_do_statement": "Can use 'have' + object + infinitive without 'to' to talk about asking or causing someone to do something, often in formal contexts.",
+  "example_raw": "In order to attract people and have them practise their English, we could point out the benefits and the possibilities one obtains, by acquiring a degree in this language ... (Greece; C2 MASTERY; 2010; Greek; at level)\n\nIn assessing the prospective student's linguistic skills it does not suffice to just have him fill out a multiple-choice-form (Hong Kong; C2 MASTERY; 1999; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163712047x184306606922612260",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'BY' IN A RELATIVE CLAUSE|",
+  "can_do_statement": "Can use the passive with 'by' in a relative clause, often to add more information.",
+  "example_raw": "I also like wearing clothes which are manufactured by famous brands. (India; B1 THRESHOLD; 2006; Tamil; Pass)\n\nIt's the highest mountain in U.A.E. Special roads were built for people to reach the top of the mountain, which was surrounded by houses. (United Arab Emirates; B1 THRESHOLD; 2003; Arabic - Gulf; Pass)"
+ },
+ {
+  "egp_id": "1741163712047x352927366474730100",
+  "level": "A2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST SIMPLE, AFFIRMATIVE",
+  "can_do_statement": "Can use the past simple passive affirmative after a singular subject. ",
+  "example_raw": "It was built in 1880. (China; A2 WAYSTAGE; 2001; Chinese; Pass)\n\nOn Saturday morning I was invited to a sports competition. (India; A2 WAYSTAGE; 2007; Tamil; Pass)"
+ },
+ {
+  "egp_id": "1741163712047x585480674416874600",
+  "level": "A2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT SIMPLE, AFFIRMATIVE",
+  "can_do_statement": "Can use the present simple passive affirmative with a singular subject.",
+  "example_raw": "The group is called \"playmo\". (France; A2 WAYSTAGE; 2005; French; Pass)\n\nI bought a T-shirt, it cost \u00a342 because it is made of cotton. (Argentina; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712047x673355343552202160",
+  "level": "A2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'BY' TO ADD INFORMATION",
+  "can_do_statement": "Can use the passive with 'by' to add information about something already known.",
+  "example_raw": "It was bought by my uncle. (China; A2 WAYSTAGE; 2004; Chinese; Pass)\n\nIt's made by Sony-Ericsson, I love it \u2026 (Italy; A2 WAYSTAGE; 2007; Italian; Pass)\n\n\u2026 it was written by an excellent author, Lev Tolstoy. (Russia; A2 WAYSTAGE; 2004; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163712048x136041892375174060",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT SIMPLE, AFFIRMATIVE ",
+  "can_do_statement": "Can use the present simple passive affirmative with a range of pronoun and noun subjects.",
+  "example_raw": "Our office is situated near the airport. (B1 Argentina ; Spanish - Latin American)\n\nThe walls are painted in a dark blue, and the floor is wood. (B1 Dutch) "
+ },
+ {
+  "egp_id": "1741163712048x581247857975133000",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST SIMPLE, AFFIRMATIVE",
+  "can_do_statement": "Can use the past simple passive affirmative with a range of pronoun and noun subjects both singular and plural.",
+  "example_raw": "It was written in a strange language that I tried to translate. (B1 Spanish - Latin American)\n\nNext day, I heard that my neighbour's car was stolen. (B1 Polish)\n\nThey filmed the flowers and trees, and some pupils were interviewed about their work in the garden, too. (B1 German)"
+ },
+ {
+  "egp_id": "1741163712048x766157093174026800",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "1",
+  "guideword": "FORM: PRESENT CONTINUOUS, AFFIRMATIVE ",
+  "can_do_statement": "Can use the present continuous passive affirmative with a limited range of verbs.",
+  "example_raw": "Did you know that the next Harry Potter movie is being filmed in my school? (Spain; B1 THRESHOLD; 2008; Catalan; Pass)\n\nWhy don't we stay at my house and visit Tokyo, where an interesting Japanese history exhibition is being held. (Japan; B1 THRESHOLD; 2004; Japanese; Pass)\n\nAs a result of that, Russia's economy is being followed by many experts. (Turkey; B1 THRESHOLD; 2008; Turkish; Pass)\n\nThey filmed a class where the clothes are being tested at the moment and they interviewed some people. (Germany; B1 THRESHOLD; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163712048x834192566226660200",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "1",
+  "guideword": "FORM: INFINITIVE ",
+  "can_do_statement": "Can use the passive infinitive after a limited number of forms including 'going to', 'have to', 'need to', 'want to'. ",
+  "example_raw": "It is going to be shown this Friday. (B1 PET Turkish)\n\nAfter that, they printed an authorisation, form which had to be signed by my parents because I'm not over eighteen. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nHe wants to be informed about sales development by the end of November 2001. (B1 Switzerland German)"
+ },
+ {
+  "egp_id": "1741163712049x217545267830854720",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "2",
+  "guideword": "FORM: INFINITIVE",
+  "can_do_statement": "Can use the passive infinitive affirmative and negative forms after an increasing range of main verbs, modal verbs, adjectives and nouns, in impersonal constructions. ",
+  "example_raw": "According to your advertisement, some training is supposed to be given. (B2 South Korean)\n\nMy composition was ready to be printed and I was searching for a piece of paper\u2026 (B2 Austria)\n\nI would prefer to sleep in a tent because I have never done it and I think it is an experience not to be missed, a very original adventure! (B2 French)\n\nThe reason that I took part in your research was to help youngsters not to be addicted to computer games \u2026  (B2 Greek)\n\nFor one, the future homes might not be built out of bricks at all! (Korea, South; B2 VANTAGE; 2000; Korean; Pass)"
+ },
+ {
+  "egp_id": "1741163712049x264322572450322000",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "USE: PRESENT CONTINUOUS, FUTURE REFERENCE",
+  "can_do_statement": "Can use the present continuous passive to refer to the future.",
+  "example_raw": "The seminar is being held at Chennai in the next week. (India; B1 THRESHOLD; 2004; Marathi; Pass)\n\nWe are being visited by our Sales Director on Thursday morning. (Brazil; B1 THRESHOLD; 2001; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163712049x417888525913085100",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST PERFECT SIMPLE, AFFIRMATIVE ",
+  "can_do_statement": "Can use the past perfect passive affirmative form.",
+  "example_raw": "The car had been serviced and everything seemed to be all right. (B2 Portuguese)\n\nAt this moment, Lime walked in and realised he had been set up. (B2 Dutch)"
+ },
+ {
+  "egp_id": "1741163712049x547897454512315650",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MODAL PERFECT ",
+  "can_do_statement": "Can use the present perfect simple affirmative and negative forms with modal verbs to refer to the past.",
+  "example_raw": "I think that all these problems could have been avoided and that asking for my money back is the best way of forgetting that evening. (B2 Catalan)\n\nI don't remember how I lost it, it might have been stolen. (B2 Japanese)\n\nOf course, some groups were better than others but I think they all played well and have talent: they should have been given a chance! (B2 Italian)\n\nIt should not have been used in this kind of article. (B2 Korean)"
+ },
+ {
+  "egp_id": "1741163712049x551851143800730300",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "USE: GIVING FOCUS WITH 'BY'",
+  "can_do_statement": "Can use the passive with 'by' to give focus.",
+  "example_raw": "My school was chosen by the TV company because it is one of the newest in town. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ }
+]
+```

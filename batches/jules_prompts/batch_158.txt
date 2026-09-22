@@ -1,0 +1,160 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 9 EGP rows below.
+
+Create ONE file: `batches/jules_batch_158.json`
+- A JSON array with exactly 9 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163715288x297270598417309800",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "types",
+  "lexical_range": "1",
+  "guideword": "FORM: MODAL AUXILIARY VERBS",
+  "can_do_statement": "Can use a limited range of modal auxiliary verbs ('can', 'will', 'would'). ",
+  "example_raw": "Can you bring some music with you to the dinner. (A1 BREAKTHROUGH; 2008; Bengali; Pass)\n\nI'll be very happy to help you. (A1 BREAKTHROUGH; 2009; Romanian; Pass)\n\nI would like to eat some Spanish food. (A1 BREAKTHROUGH; 2006; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163715288x539616242661052000",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "types",
+  "lexical_range": "N/A",
+  "guideword": "FORM: LINKING VERB, 'BE'",
+  "can_do_statement": "Can use linking verb 'be'. ",
+  "example_raw": " I am 22 years old. (A1 BREAKTHROUGH; 2008; Bengali; Pass)\n\nThere are 4 rooms. (A1 BREAKTHROUGH; 2009; Tamil; Pass)\n\nAnd I like my home because it's not too big and it's a very nice flat. (A1 BREAKTHROUGH; 2009; Tamil; Pass)\n\nIt was very nice. (A1 BREAKTHROUGH; 2007; Urdu; Pass)"
+ },
+ {
+  "egp_id": "1741163715288x929829619225120500",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "types",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MAIN VERBS",
+  "can_do_statement": "Can use regular and irregular main verbs in simple verb phrases. \u25ba present simple \u25ba past simple",
+  "example_raw": "You know, I love your cooking! (A1 BREAKTHROUGH; 2006; Slovak; Pass)\n\nI have very good friends. (A1 BREAKTHROUGH; 2009; Polish; Pass)\n\nShe comes from India. (A1 BREAKTHROUGH; 2006; Nepali; Pass)\n\nShe has long, dark hair and brown eyes. (A1 BREAKTHROUGH; 2006; Polish; Pass)\n\nHe gets up at 6 o'clock and goes to work. (A1 BREAKTHROUGH; 2006; Polish; Pass)\n\nI heard from our neighbours about you. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)\n\nMy grandmother lived in a village and I often went there. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163715289x441588090140317300",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "types",
+  "lexical_range": "2",
+  "guideword": "FORM: MODAL AUXILIARY VERBS",
+  "can_do_statement": "Can use an increasing range of modal auxiliary verbs. ",
+  "example_raw": "And I think we should go somewhere else to have a drink after the film. (Vietnam; A2 WAYSTAGE; 2003; Vietnamese; Pass)\n\nPlease wear some of your old and torn clothes because they might get dirty. (India; A2 WAYSTAGE; 2006; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163715289x911878511149574100",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "types",
+  "lexical_range": "N/A",
+  "guideword": "FORM: LINKING VERBS + ADJECTIVE",
+  "can_do_statement": "Can use linking verbs with adjective complements. ",
+  "example_raw": "It makes me feel comfortable and the room looks bigger with the colour. (Thailand; A2 WAYSTAGE; 2006; Thai; Pass)\n\nMy bedroom will be blue because the colour blue always looks fresh and I like it if it's always fresh. (Poland; A2 WAYSTAGE; 2006; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163715289x979513878826105700",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "types",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AUXILIARY VERBS 'HAVE' AND 'DO'",
+  "can_do_statement": "Can use auxiliary verbs 'have' and 'do'. ",
+  "example_raw": "It has been a long time since I saw you. (Cyprus; A2 WAYSTAGE; 2003; Greek; Pass)\n\nI have left my suitcase in your house. (India; A2 WAYSTAGE; 2005; Hindi; Pass)\n\nHave you got a mobile phone? (Italy; A2 WAYSTAGE; 2007; Italian; Pass)\n\nI haven't emailed you in a long time. (India; A2 WAYSTAGE; 2009; Tamil; Pass)\n\n[responding to a question] Yes, I do. I am really excited about the idea. (Mexico; A2 WAYSTAGE; 2002; Spanish - Latin American; Pass)\n\nDo you like shopping? (France; A2 WAYSTAGE; 2008; French; Pass)\n\nDid you buy a new mobile phone? (Spain; A2 WAYSTAGE; 2007; Spanish - European; Pass)\n\nI thought that I wouldn't find nice clothes for me, but surprisingly, I did. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nWhy didn't you come to my birthday party? (Sri Lanka; A2 WAYSTAGE; 2004; Singhalese; Pass)"
+ },
+ {
+  "egp_id": "1741163715299x362507539878509800",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "types",
+  "lexical_range": "N/A",
+  "guideword": "FORM: SEMI-MODAL AUXILIARY VERBS, 'DARE', 'NEED'",
+  "can_do_statement": "Can use semi-modal auxiliary verbs, 'dare' and 'need'. ",
+  "example_raw": "You needn't worry about where we can stay. (China; B2 VANTAGE; 1998; Chinese; Pass)\n\nI think that they are rather jealous because they daren't give up their car. (France; B2 VANTAGE; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163715299x493284650055276540",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "types",
+  "lexical_range": "N/A",
+  "guideword": "FORM: SEMI-MODAL AUXILIARY VERBS, 'USED TO', 'OUGHT TO'",
+  "can_do_statement": "Can use semi-modal auxiliary verbs, 'used to' and 'ought to'. ",
+  "example_raw": "But we used to play together every single day! (Japan; B1 THRESHOLD; 1999; Japanese; Pass)\n\nI think you ought to join a gym and you should go for a walk at least three times a week. (Libya; B1 THRESHOLD; 2009; Arabic - Meghreb; Pass)"
+ },
+ {
+  "egp_id": "1741163715299x518076142407359000",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "types",
+  "lexical_range": "N/A",
+  "guideword": "FORM: SEMI-MODAL AUXILIARY VERBS, 'HAVE (GOT) TO'",
+  "can_do_statement": "Can use semi-modal auxiliary verb 'have (got) to'.",
+  "example_raw": "You've got to bring paintbrushes, paper and paint, that's all. (Vietnam; A2 WAYSTAGE; 2006; French; Pass)\n\nYou don't have to bring anything except your clothes. (Greece; A2 WAYSTAGE; 2009; Greek; Pass)"
+ }
+]
+```

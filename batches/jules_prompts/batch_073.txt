@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_073.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163716067x147000311893029860",
+  "level": "C2",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IT' CLEFT",
+  "can_do_statement": "Can use 'It' + 'be' + noun + 'that' clause for focus.",
+  "example_raw": "It is Lily who decides to go to the seaside and it is also her who kills the turkey given by a lorry-driver. (France; C2 MASTERY; 1993; French; Pass)\n\nIt was Paul who stole the money. (Hong Kong; C2 MASTERY; 1997; Chinese; Pass)\n\nIt is Piggy who finds the conch and knows how to blow it. (Denmark; C2 MASTERY; 1993; Danish; Fail)\n\nIt is my mother who always plays the role of mediator. (Poland; C2 MASTERY; 1993; Polish; Pass)\n\nIt is this silence that gives me the impression of togetherness, for which no words are needed. (Netherlands; C2 MASTERY; 1997; Dutch; Pass)"
+ },
+ {
+  "egp_id": "1741163716067x243366578638317700",
+  "level": "C2",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MULTIPLE FIXED EXPRESSIONS",
+  "can_do_statement": "Can use more than one fixed expression in the front position for added focus.",
+  "example_raw": "But all of a sudden, out of nowhere a bunch of people came running towards him, yelling something he couldn't understand. (Switzerland; C2 MASTERY; 2000; Chinese; Pass)\n\nAll in all, taking everything into account, I would suggest that a leisure centre would be the most beneficial as it provides all the facilities necessary to attract and benefit a number of people in the community. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\nWhat is more, from my point of view happiness has nothing to do with big things but with small things such as day-to-day details. (Spain; C2 MASTERY; 1993; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163709234x399877343853970240",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE WITH 'WILL' ",
+  "can_do_statement": "Can use the affirmative form with 'will'.",
+  "example_raw": "I'll be waiting for you. (Portugal; A2 WAYSTAGE; 2009; Portuguese; Pass)\n\nWe will be starting at 12 o'clock this afternoon. (Malaysia; A2 WAYSTAGE; 2006; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163709234x555675180554027650",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with 'will' and 'shall'.",
+  "example_raw": "However, I shall be attending class the day after tomorrow and I shall cover the work I miss by copying it from John. (India; B1 THRESHOLD; 2006; Tamil; Pass)\n\nWe will be waiting for you at the River's Caf\u00e9 at 6.30. (Mexico; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163709234x671025735588754300",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: FUTURE ARRANGEMENTS",
+  "can_do_statement": "Can use the future continuous with 'will' to talk about an event or action in progress at a specified time in the future.",
+  "example_raw": "Tomorrow please come at 4.30 pm because I'll be working before. (France; A2 WAYSTAGE; 2009; French; Pass)\n\nTomorrow I'll be studying in the morning, so you can come at 2. (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163709234x709818430358317700",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE WITH 'WILL'",
+  "can_do_statement": "Can use the negative form with 'will' ('won\u2019t').",
+  "example_raw": "I would like you to know that I won't be attending your English class next week. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI won't be coming because my family and I are going on a tour of London. (Malaysia; B1 THRESHOLD; 2006; Malay; Pass)"
+ },
+ {
+  "egp_id": "1741163709235x267104607541658750",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS",
+  "can_do_statement": "Can use the future continuous with 'will' as a polite question form, in place of the present simple or future simple.  ",
+  "example_raw": "Will I be needing any money? (Switzerland; B2 VANTAGE; 2000; French; Pass)"
+ },
+ {
+  "egp_id": "1741163709235x495747867128213400",
+  "level": "C1",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: EXPECTATIONS WITH 'MIGHT' OR 'MAY'",
+  "can_do_statement": "Can use the future continuous with 'might' or 'may' to talk about an event or activity potentially in progress at a specified or understood time in the future.",
+  "example_raw": "As far as I'm concerned, we should definitely do some additional publicity, particularly for the new offerings which might be coming up. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Dutch; Pass)\n\nFor example, your boss may be calling at 10 pm asking you to prepare a report for next day's meeting. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2010; Chinese; )"
+ },
+ {
+  "egp_id": "1741163709235x737206541062207200",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS ",
+  "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'will'. ",
+  "example_raw": "Will they be holding any activities at night? (Brazil; B2 VANTAGE; 2008; Portuguese; Pass)\n\nWill I be needing any money? (Switzerland; B2 VANTAGE; 2000; French; Pass)\n\nWhat will you be doing in a few years if now you don't even try to do anything? (Poland; B2 VANTAGE; 1999; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163709235x749861660179369300",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'BE ABOUT TO'",
+  "can_do_statement": "Can use the present forms of 'be' + 'about to'.  ",
+  "example_raw": "You are not going to believe what I am about to tell you! (Chile; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n\nI'm in a hurry, my class is about to begin. (Yugoslavia; B2 VANTAGE; 2006; Serbian; Pass)\n\nThey are to offer the spectators a view of the variety and the beauty of the world we are surrounded by and which we are about to destroy. (Jordan; B2 VANTAGE; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163709236x496378598600284700",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: SCHEDULES",
+  "can_do_statement": "Can use 'be due to' and, more formally, 'be to' talk about things that are scheduled or expected. ",
+  "example_raw": "Our annual conference for HR managers is due to take place on 10 December 2010. (Austria; B2 VANTAGE; 2010; German; Pass)\n\nHowever, the demand for products is still estimated as \u2018normal\u2019 and is due to increase within the next 6 months. (Russia; B2 VANTAGE; 2009; Russian; Pass)\n\nI am sorry but we are to leave a bit earlier - at about 16.00. (Czech Republic; B2 VANTAGE; 2003; Czech; Pass)"
+ },
+ {
+  "egp_id": "1741163709236x556509988634357200",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'BE TO'",
+  "can_do_statement": "Can use the present form of 'be' + 'to'.",
+  "example_raw": "Dear Erica, I am sorry that I cannot attend the meeting at head office as expected, as I am to go on a business trip to New York then. (China; B2 VANTAGE; 2002; Chinese; Pass)\n\nHe is to come to Athens next Friday. (Greece; B2 VANTAGE; 1993; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163709236x688226297067415600",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: OBLIGATIONS AND  INSTRUCTIONS WITH 'BE TO'",
+  "can_do_statement": "Can use 'be to' talk about future obligations and to give instructions. ",
+  "example_raw": "[talking about gorillas] We have no right to do so, because they are to be respected as much as any other living form on this planet! (Italy; B2 VANTAGE; 1993; Italian; Pass) \n\nThey are to have their passports with them. (Russia; B2 VANTAGE; 2006; Russian; Pass)\n\nYou're to sit in front of the TV and just watch the film. (Argentina; B2 VANTAGE; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163709236x705248128205473900",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: IMMEDIATE FUTURE WITH 'BE ABOUT TO'",
+  "can_do_statement": "Can use 'be about to' to talk about the immediate future, often with 'just'. ",
+  "example_raw": "I know what you 're about to answer, and moreover you might be right; (France; B2 VANTAGE; 1993; French; Pass)\n\nWe're about to introduce a new identity card system in our company. (Spain; B2 VANTAGE; 2006; Spanish - European; Pass)\n\nMy company has a high reputation for manufacturing healthy foods and we are just about to launch a newly-developed healthy snack for children which requires financial backing urgently. (China; B2 VANTAGE; 2008; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163709236x822096858545011700",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'BE DUE TO'",
+  "can_do_statement": "Can use the present form of 'be' + 'due to'. ",
+  "example_raw": "I am afraid that July is the only appropriate month, because I am due to start work in August. (Turkey; B2 VANTAGE; 2000; Turkish; Pass)\n\nAs some of the members of our team are due to be present at a sales promotion programme next Friday, the marketing meeting once scheduled for next Friday is postponed to next Saturday. (China; B2 VANTAGE; 2008; Chinese; Pass)"
+ }
+]
+```

@@ -1,0 +1,835 @@
+[
+  {
+    "egp_id": "1741163712056x106461892688326740",
+    "level": "C1",
+    "super_category": "PASSIVES",
+    "sub_category": "passives: form",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PRESENT CONTINUOUS NEGATIVE",
+    "can_do_statement": "Can use the present continuous passive negative form to refer to ongoing situations in the present.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Action ongoing in present being negated.",
+      "pedagogical_hook": "Present continuous passive with negation to show lack of current action.",
+      "agency_or_distance": "Distance from action"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:\\b(?:am|'m|is|'s|are|'re)\\s+not|isn't|aren't)\\s+(?:[a-z]+ly\\s+)?being\\s+(?:[a-z]+ed|built|done|made|seen|used|told|given|found|kept|left|promoted)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "am",
+              "m",
+              "is",
+              "s",
+              "are",
+              "re"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": "being"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "ADJ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The store is not being promoted enough.",
+        "They aren't being seen as equals."
+      ],
+      "negatives": [
+        "The store is being promoted well.",
+        "They have not been seen."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712056x185610578351898660",
+    "level": "C2",
+    "super_category": "PASSIVES",
+    "sub_category": "passives: form",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NON-FINITE PERFECT CLAUSES",
+    "can_do_statement": "Can use passive non-finite '-ing' perfect forms in subordinate clauses to give explanatory background information.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Past completed action contextualizing current state.",
+      "pedagogical_hook": "Using 'having been V3' as a clause.",
+      "agency_or_distance": "Distance from action"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!for\\s)(?<!of\\s)(?<!without\\s)(?<!about\\s)(?<!after\\s)(?<!before\\s)(?<!with\\s)\\b(?:not\\s+)?having\\s+been\\s+(?:[a-z]+ed|built|done|made|seen|used|told|given|taught)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not",
+          "OP": "?"
+        },
+        {
+          "LOWER": "having"
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "ADJ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Having been taught the rules, we went home.",
+        "Not having been given orders, he left."
+      ],
+      "negatives": [
+        "Having been to Paris is a great advantage.",
+        "Not having been to the store, we lacked food."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712056x220763356502948540",
+    "level": "C2",
+    "super_category": "PASSIVES",
+    "sub_category": "passives: form",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NON-FINITE PERFECT COMPLEMENTS ",
+    "can_do_statement": "Can use non-finite '-ing' perfect forms of the passive as the complement of prepositions.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Prepositional object describing a past passive state.",
+      "pedagogical_hook": "Using preposition + 'having been V3'.",
+      "agency_or_distance": "Distance from action"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:for|of|about|without|in|on|at|by|with|from|after|before|as)\\s+(?:not\\s+)?having\\s+been\\s+(?:[a-z]+ed|built|done|made|seen|used|told|given|rewarded|invited|bidden)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "ADP"
+        },
+        {
+          "LOWER": "not",
+          "OP": "?"
+        },
+        {
+          "LOWER": "having"
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "ADJ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He got a reward for having been invited.",
+        "She entered without having been bidden to do so."
+      ],
+      "negatives": [
+        "Having been given the gift, she smiled.",
+        "Not having been told, he was confused."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712056x332718835608695200",
+    "level": "C1",
+    "super_category": "PASSIVES",
+    "sub_category": "passives: form",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: SUMMARISING, EVALUATING WITH 'IT'.",
+    "can_do_statement": "Can use the passive with 'it' as a dummy subject, to summarise or evaluate in discussions, usually in formal or academic writing.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Impersonal evaluation.",
+      "pedagogical_hook": "Using 'it' passive to evaluate.",
+      "agency_or_distance": "Distance from evaluation"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bit\\s+(?:has\\s+been|had\\s+been|is|was|can\\s+be|could\\s+be|may\\s+be|might\\s+be|must\\s+be|should\\s+be|will\\s+be|would\\s+be)\\s+(?:concluded|found|seen|said|argued|assumed|thought|estimated|suggested|shown|reported|expected|believed|considered|known|understood|agreed|decided)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "it"
+        },
+        {
+          "POS": "AUX",
+          "OP": "+"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "ADJ",
+              "AUX"
+            ]
+          },
+          "LEMMA": {
+            "IN": [
+              "conclude",
+              "find",
+              "see",
+              "say",
+              "argue",
+              "assume",
+              "think",
+              "estimate",
+              "suggest",
+              "show",
+              "report",
+              "expect",
+              "believe",
+              "consider",
+              "know",
+              "understand",
+              "agree",
+              "decide"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It can be concluded that the project was a success.",
+        "It has been found that these products are safe."
+      ],
+      "negatives": [
+        "The manual can be concluded by reading it.",
+        "He has been found in the woods."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712056x976576319443112100",
+    "level": "C2",
+    "super_category": "PASSIVES",
+    "sub_category": "passives: form",
+    "lexical_range": "N/A",
+    "guideword": "PRESENT PERFECT CONTINUOUS COMMENT",
+    "can_do_statement": null,
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Action ongoing from past to present receiving comment.",
+      "pedagogical_hook": "Present perfect continuous passive.",
+      "agency_or_distance": "Distance from action"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|'ve|'s)\\s+(?:not\\s+)?been\\s+being\\s+(?:[a-z]+ed|built|done|made|seen|used|told|given|discussed|watched)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has",
+              "'ve",
+              "'s",
+              "ve",
+              "s"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "been"
+        },
+        {
+          "LOWER": "being"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "ADJ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The problem has been being discussed a lot lately.",
+        "These roads have been being repaired for months."
+      ],
+      "negatives": [
+        "We have been discussing the problem.",
+        "The problem has been discussed."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712321x293020264590759800",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Action occurring in the past.",
+      "pedagogical_hook": "Past continuous affirmative.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|he|she|it|we|you|they|[A-Za-z]+)\\s+(?:was|were)\\s+(?!not\\b|n't\\b)[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I was waiting for you all evening.",
+        "They were playing football."
+      ],
+      "negatives": [
+        "Was I waiting for you?",
+        "I was not waiting for you."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712321x444348941700378800",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use the question form.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Asking about past ongoing action.",
+      "pedagogical_hook": "Past continuous questions.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+(?!not\\b|n't\\b)(?:[a-z]+\\s+){1,2}[a-z]+ing\\b.*\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "What were you doing there?",
+        "Was he playing with you?"
+      ],
+      "negatives": [
+        "He was playing with you.",
+        "I was not doing anything."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712321x580479358300843000",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "1",
+    "guideword": "FORM: WITH ADVERBS",
+    "can_do_statement": "Can use the past continuous with a limited range of adverbs in the normal mid position. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Modifying past ongoing action with simple adverb.",
+      "pedagogical_hook": "Past continuous + just/always.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+(?:just|always|also|never|ever)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "just",
+              "always",
+              "also",
+              "never",
+              "ever"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I was just watching a match.",
+        "She was always dreaming of it."
+      ],
+      "negatives": [
+        "I was watching a match just now.",
+        "He was constantly bothering me."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712321x614372617735755500",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: BACKGROUND EVENTS",
+    "can_do_statement": "Can use the past continuous to show that an event was happening in the background to the main event.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Background ongoing event interrupted by main event.",
+      "pedagogical_hook": "Past continuous background + past simple main.",
+      "agency_or_distance": "Distance from event"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:when\\b.*?\\b(?:[a-z]+ed|left|went|came|arrived|saw|heard|found|took|made|did|got)\\b.*?\\b(?:was|were)\\s+[a-z]+ing\\b|\\b(?:was|were)\\s+[a-z]+ing\\b.*?\\b(?:when|and|but)\\b.*?\\b(?:[a-z]+ed|left|went|came|arrived|saw|heard|found|took|made|did|got)\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "when",
+              "and",
+              "but"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It was raining when I arrived.",
+        "We were studying and I left my book."
+      ],
+      "negatives": [
+        "I was studying all day long.",
+        "It rained when I arrived."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712321x623567407739942400",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "2",
+    "guideword": "FORM: WITH ADVERBS",
+    "can_do_statement": "Can use the past continuous with an increasing range of adverbs in the normal mid position. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Modifying past ongoing action with diverse adverbs.",
+      "pedagogical_hook": "Past continuous + actually/still/suddenly.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+(?:still|actually|finally|suddenly|probably|definitely|certainly)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "still",
+              "actually",
+              "finally",
+              "suddenly",
+              "probably",
+              "definitely",
+              "certainly"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He was still waiting for her.",
+        "She was actually acting like a ghost."
+      ],
+      "negatives": [
+        "I was just waiting.",
+        "I was always dreaming."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712321x644327601969835100",
+    "level": "A2",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: EVENTS IN PROGRESS ",
+    "can_do_statement": "Can use the past continuous to talk about actions and states in progress around a particular time in the past.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Event anchored to specific past time.",
+      "pedagogical_hook": "Past continuous with specific time reference.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+[a-z]+ing\\b.*?\\b(?:yesterday|last\\s+night|at\\s+\\d+|then|morning|evening|afternoon)\\b|\\b(?:yesterday|last\\s+night|at\\s+\\d+|then|morning|evening|afternoon)\\b.*?\\b(?:was|were)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Yesterday I was watching a game.",
+        "We were sleeping at 10 PM."
+      ],
+      "negatives": [
+        "I watched a game yesterday.",
+        "I will be sleeping at 10 PM."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712321x656261946310561000",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: REASON ",
+    "can_do_statement": "Can use the past continuous to give a reason for something, often with 'because'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Ongoing action as reason.",
+      "pedagogical_hook": "Because + past continuous.",
+      "agency_or_distance": "Distance from cause"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bbecause\\s+(?:[a-z]+\\s+){0,3}(?:was|were)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "because"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I stayed home because it was raining.",
+        "Because she was sitting there, she saw him."
+      ],
+      "negatives": [
+        "It was raining heavily.",
+        "I went home because it rained."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712321x822329729417525800",
+    "level": "B1",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Action not occurring in past.",
+      "pedagogical_hook": "Past continuous negative.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:\\b(?:was|were)\\s+not|wasn't|weren't)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He was not planning to go.",
+        "Her phone wasn't working."
+      ],
+      "negatives": [
+        "He was planning to go.",
+        "I am not planning to go."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712327x107883069547981780",
+    "level": "C2",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: UNDESIRED EVENTS",
+    "can_do_statement": "Can use the past continuous with 'always' or 'constantly' to talk about repeated events which are undesired or uncontrolled. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Frustration with repeated past action.",
+      "pedagogical_hook": "Past continuous + always/constantly.",
+      "agency_or_distance": "Distance from control"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+(?:always|constantly|continually|forever)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "always",
+              "constantly",
+              "continually",
+              "forever"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I was constantly trying to balance my life.",
+        "He was always getting into trouble."
+      ],
+      "negatives": [
+        "He was actually acting weird.",
+        "I was just watching TV."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712327x209263766016802180",
+    "level": "B2",
+    "super_category": "PAST",
+    "sub_category": "past continuous",
+    "lexical_range": "3",
+    "guideword": "FORM: WITH ADVERBS",
+    "can_do_statement": "Can use the past continuous with a wide range of adverbs in the normal mid position.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Modifying past ongoing action with complex adverbs.",
+      "pedagogical_hook": "Past continuous + wistfully/increasingly/etc.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:was|were)\\s+(?!just\\b|always\\b|still\\b|only\\b|also\\b|really\\b|even\\b|actually\\b|never\\b|ever\\b)[a-z]+ly\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "LOWER": {
+            "NOT_IN": [
+              "just",
+              "always",
+              "still",
+              "only",
+              "also",
+              "really",
+              "even",
+              "actually",
+              "never",
+              "ever"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My brother was constantly bothering me.",
+        "She was wistfully walking in the dusk."
+      ],
+      "negatives": [
+        "He was always dreaming.",
+        "I was just watching."
+      ]
+    }
+  }
+]

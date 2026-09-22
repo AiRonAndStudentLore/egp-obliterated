@@ -1,0 +1,90 @@
+{
+ "batch": "batches/jules_batch_014.json",
+ "cycles": 1,
+ "passed": 13,
+ "total": 15,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163709012x123278635116746530",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x230041547102954000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x344511888995459460",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x385518589517292100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x416302896661777700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709230x682584219326611800",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: \"I haven't got many winter clothes.\"",
+    "spaCy MISSED positive: \"I haven't got many winter clothes.\""
+   ]
+  },
+  {
+   "egp_id": "1741163709230x890396805087210400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x184772883851782600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x384570160463784100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x447456423959638800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x599038386454310800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x782328236071253400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x799263972459703900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x840776157772557800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x973378158122198000",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'They interviewed a few of the students.'"
+   ]
+  }
+ ]
+}

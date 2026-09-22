@@ -1,0 +1,104 @@
+{
+ "batch": "batches/jules_batch_150.json",
+ "cycles": 1,
+ "passed": 7,
+ "total": 15,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163715026x124934317842935180",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715026x244056815814885470",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy FALSE-POSITIVE on negative: 'Believe it or not, I actually won the race.'",
+    "spaCy FALSE-POSITIVE on negative: 'Whether you like it or not, we are going.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715026x510674477671172500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715026x780872145435740400",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'Is it in the car or on the table?'"
+   ]
+  },
+  {
+   "egp_id": "1741163715026x782914672927385200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715028x242469073040096920",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'Could you bring tea or coffee?'",
+    "spaCy FALSE-POSITIVE on negative: 'Will you go to the store or will you stay home?'"
+   ]
+  },
+  {
+   "egp_id": "1741163715028x672938393631707000",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy FALSE-POSITIVE on negative: 'Should we take this route or the other one?'"
+   ]
+  },
+  {
+   "egp_id": "1741163715029x581931663090474100",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy FALSE-POSITIVE on negative: \"You didn't buy new clothes, did you?\""
+   ]
+  },
+  {
+   "egp_id": "1741163715029x597656273954143700",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'Are you still with him or did you two break up?'",
+    "regex FALSE-POSITIVE on negative: 'Do you want apples, oranges or bananas?'"
+   ]
+  },
+  {
+   "egp_id": "1741163715029x648850706024519700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715029x648987133230414000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715029x657729815451493500",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy FALSE-POSITIVE on negative: 'You bought new black clothes, did you?'"
+   ]
+  },
+  {
+   "egp_id": "1741163715030x194842096031816000",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy FALSE-POSITIVE on negative: 'We shall overcome, shall we?'"
+   ]
+  },
+  {
+   "egp_id": "1741163715030x321100995378926500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715030x683749532720890600",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

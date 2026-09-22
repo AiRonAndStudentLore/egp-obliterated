@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_071.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163706534x938846205163626000",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "lexical_range": "1",
+  "guideword": "FORM: ELLIPSIS, WITH 'THE'",
+  "can_do_statement": "Can use 'the' with a limited range of superlative adjectives without a following noun, when the noun is understood.",
+  "example_raw": "My relatives gave me presents but the computer game was the best. (Turkey; A2 WAYSTAGE; 2004; Turkish; Pass)\n\nBut Mark's present was the most beautiful! (Russia; A2 WAYSTAGE; 2004; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163706536x720681284938151700",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "lexical_range": "2",
+  "guideword": "FORM: ELLIPSIS, WITH 'THE'",
+  "can_do_statement": "Can use '(one of) the' with an increasing range of superlative adjectives without a following noun, when the noun is understood.",
+  "example_raw": "There have been so many embarrassing moments in my life. It's very difficult to pick the most embarrassing. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nI'm not quite sure if I agree that the car is the greatest danger to human life today, but it sure is one of the greatest. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nThat period of my life was one of the worst . (Singapore; B2 VANTAGE; 2000; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x100067556201106640",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'VERY' + ADJECTIVES",
+  "can_do_statement": "Can use 'very' to modify common gradable adjectives.",
+  "example_raw": "My home is very nice. (A1 BREAKTHROUGH; 2009; Italian; Pass)\n\nMy teacher is very good. (A1 BREAKTHROUGH; 2007; Gujarati; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x261151446832563970",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: TIME  and SEQUENCING, MODIFYING CLAUSES",
+  "can_do_statement": "Can use time and sequencing adverbs to modify clauses and sentences. ",
+  "example_raw": "Yesterday I went shopping and bought some clothes. (Russia; A2 WAYSTAGE; 2008; Russian; Pass)\n\nFirst we had dinner in my house and after we went to the pub. (Brazil; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nI just heard about your accident. (A2 WAYSTAGE; 2008; Panjabi; Pass)\n\nI often eat it at weekends. (Philippines; A2 WAYSTAGE; 2009; Tagalog; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x459747949486635000",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "2",
+  "guideword": "FORM: MANNER, MODIFYING VERBS  ",
+  "can_do_statement": "Can use an increasing range of manner adverbs to modify verbs.",
+  "example_raw": "You have to choose carefully. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nMy smile slowly disappeared as I finished my reading. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nShe looked at me seriously and said \"Can you sing a song right now?\u201d (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x670021003351025900",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "1",
+  "guideword": "FORM: MANNER, MODIFYING VERBS",
+  "can_do_statement": "Can use a limited range of manner adverbs to modify verbs.",
+  "example_raw": "I really liked it because all the candidates were professional and swam very fast. (Argentina; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)\n\nI learned to use my phone very quickly and easily. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x698576615346089300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "1",
+  "guideword": "FORM: DEGREE, MODIFYING ADVERBS",
+  "can_do_statement": "Can use a limited range of degree adverbs to modify adverbs. \u25ba adverb phrases: form",
+  "example_raw": "We left really early on a Friday morning. (Brazil; B1 THRESHOLD; 2003; Portuguese; Pass)\n\nSo I couldn't wait and I opened it very carefully. (India; B1 THRESHOLD; 2009; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x743541438966270800",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'VERY' + TIME ADVERBS ",
+  "can_do_statement": "Can use 'very' to modify time adverbs. \u25ba adverb phrases",
+  "example_raw": "I hope you get well very soon. (A1 BREAKTHROUGH; 2009; Bengali; Pass)\n\nI don't like it at college when I have a lesson very early. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x827649422602473600",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PLACE, COMPLEMENT",
+  "can_do_statement": "Can use place adverbs ('here', 'there') as complements of verbs. ",
+  "example_raw": "I am happy here because people are very nice. (A1 BREAKTHROUGH; 2007; Hindi; Pass)\n\nI hope you will be there. (A1 BREAKTHROUGH; 2011; Portuguese; Pass)\n\nYou must go there. (A1 BREAKTHROUGH; 2008; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x889779704010106100",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "2",
+  "guideword": "FORM/USE: MODIFYING CLAUSES, STANCE",
+  "can_do_statement": "Can use adverbs to modify clauses and sentences to indicate stance or attitude. ",
+  "example_raw": "But, obviously, you prefer going with your friends because you will have a better time. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nLuckily, I arrived in time. (Czech Republic; B1 THRESHOLD; 2006; Czech; Pass)\n\nI think you should walk with a friend, otherwise it could be boring. (Spain; B1 THRESHOLD; 2009; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x956633908640879100",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DEGREE, MODIFYING ADJECTIVES",
+  "can_do_statement": "Can use a range of degree adverbs to modify common gradable adjectives. ",
+  "example_raw": "I'm so happy because you can come! (France; A2 WAYSTAGE; 2009; French; Pass)\n\n[referring to a lost book] It's really important for me, because I need to do some homework. (Czech Republic; A2 WAYSTAGE; 2005; Czech; Pass)\n\nBut it is too expensive. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x987923532840156800",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DEGREE and TIME, MODIFYING VERBS",
+  "can_do_statement": "Can use degree and time adverbs to modify verbs.",
+  "example_raw": "I really like Japanese music. (A1 BREAKTHROUGH; 2008; Chinese; Pass)\n\nI like my college very much. (A1 BREAKTHROUGH; 2007; Polish; Fail)\n\nI always go to the park with my children. We sometimes go to the shopping centre. (A1 BREAKTHROUGH; 2010; Arabic - Other; Pass)"
+ },
+ {
+  "egp_id": "1741163706930x186899124179832800",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DEGREE, MODIFYING COMPARATIVES",
+  "can_do_statement": "Can use degree adverbs ('slightly', 'a bit', 'much') to modify comparatives.",
+  "example_raw": "My Spanish is slightly more fluent than my English, because I lived in Spain longer than in England. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Russian; Fail)\n\nIt will be a bit more expensive than the bus but it's safer and quicker. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; French; Pass)\n\nDespite all the controversies between these two generations, the grandchildren shouldn't forget that their grandparents are much more experienced. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163706930x228413817377030900",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DEGREE, MODIFYING DETERMINERS",
+  "can_do_statement": "Can use degree adverbs ('almost', 'very') to modify determiners. \u25ba determiners",
+  "example_raw": "Today, thanks to the Internet, I can work at home almost all the time, which is far more relaxing and less boring. (Spain; B2 VANTAGE; 2000; Catalan; Pass)\n\nThere are probably very few of us who have never been to a zoo. (Poland; B2 VANTAGE; 1993; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163706930x408715502774479550",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "2",
+  "guideword": "FORM: DEGREE, MODIFYING ADVERBS",
+  "can_do_statement": "Can use an increasing range of degree adverbs to modify a range of adverb types. \u25ba adjectives \u25ba adverb phrases: form",
+  "example_raw": "The attitude of young people today towards keeping fit and healthy has almost completely changed.  (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; German; Pass)\n\nMoreover, making use of some techniques I practised in the How to Negotiate classes is something which happens to me quite frequently. (Italy; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Romanian; Pass)\n\nThe mobile market is growing incredibly fast in Britain and your company is leading this process. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Portuguese; Pass)\n\nRecently, the charity organised a fun-raising day, which went  reasonably well . (Thailand; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Thai; Pass)"
+ }
+]
+```

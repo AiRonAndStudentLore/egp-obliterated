@@ -1,0 +1,761 @@
+[
+  {
+    "egp_id": "1741163716067x147000311893029860",
+    "level": "C2",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'IT' CLEFT",
+    "can_do_statement": "Can use 'It' + 'be' + noun + 'that' clause for focus.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Highlighting a specific entity in discourse by placing it in a cleft structure",
+      "pedagogical_hook": "Use 'It is X that/who...' to emphasize the importance of X.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bit\\s+(?:is|was|'s)\\s+(?!clear\\b|true\\b|obvious\\b|likely\\b|certain\\b)(?:[a-z'-]+\\s+){1,4}(?:that|who)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "it"
+        },
+        {
+          "LEMMA": "be"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN",
+              "PRON"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "that",
+              "who"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It was Paul who stole the money.",
+        "It is this silence that gives me the impression of togetherness."
+      ],
+      "negatives": [
+        "It is clear that he is absolutely right.",
+        "I know the man who is standing there."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163716067x243366578638317700",
+    "level": "C2",
+    "super_category": "FOCUS",
+    "sub_category": "focus",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: MULTIPLE FIXED EXPRESSIONS",
+    "can_do_statement": "Can use more than one fixed expression in the front position for added focus.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Stacking discourse markers for heavy emphasis at the beginning of a sentence",
+      "pedagogical_hook": "Use multiple fixed expressions like 'All in all, taking everything into account' to strongly frame your point.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\ball\\s+in\\s+all,\\s+taking\\s+everything\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "all"
+        },
+        {
+          "LOWER": "in"
+        },
+        {
+          "LOWER": "all"
+        },
+        {
+          "LOWER": ","
+        },
+        {
+          "LOWER": "taking"
+        },
+        {
+          "LOWER": "everything"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "All in all, taking everything into account, it was a great experience.",
+        "All in all, taking everything into account, we decided to stay."
+      ],
+      "negatives": [
+        "All in all it was quite good.",
+        "Taking everything into account, it was fine."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709234x399877343853970240",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE WITH 'WILL' ",
+    "can_do_statement": "Can use the affirmative form with 'will'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Visualizing an action in progress at a point in the future",
+      "pedagogical_hook": "Use 'will be -ing' to describe an ongoing action in the future.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:will|'ll)\\s+be\\s+\\w+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "will",
+              "'ll"
+            ]
+          }
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'll be waiting for you at the station.",
+        "We will be starting at noon."
+      ],
+      "negatives": [
+        "I will be there on time.",
+        "She is waiting for you now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709234x555675180554027650",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form with 'will' and 'shall'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Visualizing an action in progress at a point in the future using formal auxiliary",
+      "pedagogical_hook": "Use 'shall be -ing' or 'will be -ing' for future ongoing actions.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:will|'ll|shall)\\s+be\\s+\\w+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "will",
+              "'ll",
+              "shall"
+            ]
+          }
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I shall be attending class the day after tomorrow.",
+        "We will be waiting for you at the cafe."
+      ],
+      "negatives": [
+        "I shall go to the market later.",
+        "I will be happy to assist you."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709234x671025735588754300",
+    "level": "A2",
+    "super_category": "FUTURE",
+    "sub_category": "future continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: FUTURE ARRANGEMENTS",
+    "can_do_statement": "Can use the future continuous with 'will' to talk about an event or action in progress at a specified time in the future.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Connecting a future time expression with an ongoing action",
+      "pedagogical_hook": "Combine 'Tomorrow' or 'Tonight' with 'will be -ing' for future plans.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:tomorrow|tonight|next)\\b.*\\b(?:will|'ll)\\s+be\\s+\\w+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "tomorrow",
+              "tonight",
+              "next"
+            ]
+          }
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "will",
+              "'ll"
+            ]
+          }
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Tomorrow I'll be working in the morning.",
+        "Tonight we will be resting."
+      ],
+      "negatives": [
+        "I'll be working later today.",
+        "Tomorrow I will work hard."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709234x709818430358317700",
+    "level": "B1",
+    "super_category": "FUTURE",
+    "sub_category": "future continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE WITH 'WILL'",
+    "can_do_statement": "Can use the negative form with 'will' ('won\u2019t').",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Expressing that an action will not be in progress at a future time",
+      "pedagogical_hook": "Use 'won't be -ing' to say what you will not be doing in the future.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:won't|will\\s+not)\\s+be\\s+\\w+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "wo",
+              "will"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not"
+            ]
+          }
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I won't be attending your English class next week.",
+        "He will not be coming to the party."
+      ],
+      "negatives": [
+        "I will be attending the class.",
+        "I won't go there."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709235x267104607541658750",
+    "level": "B2",
+    "super_category": "FUTURE",
+    "sub_category": "future continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: POLITENESS",
+    "can_do_statement": "Can use the future continuous with 'will' as a polite question form, in place of the present simple or future simple.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Softening a question by shifting it into a progressive future aspect",
+      "pedagogical_hook": "Use 'Will I be -ing?' to ask questions more politely.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwill\\s+(?:i|we|you)\\s+be\\s+\\w+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "will"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "we",
+              "you"
+            ]
+          }
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Will I be needing any money?",
+        "Will you be requiring further assistance today?"
+      ],
+      "negatives": [
+        "Will they be needing any help?",
+        "I will be needing some money."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709235x495747867128213400",
+    "level": "C1",
+    "super_category": "FUTURE",
+    "sub_category": "future continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: EXPECTATIONS WITH 'MIGHT' OR 'MAY'",
+    "can_do_statement": "Can use the future continuous with 'might' or 'may' to talk about an event or activity potentially in progress at a specified or understood time in the future.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing uncertainty about an action in progress in the future",
+      "pedagogical_hook": "Use 'might be -ing' or 'may be -ing' for possible future actions.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:might|may)\\s+be\\s+\\w+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "might",
+              "may"
+            ]
+          }
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The new offerings might be coming up shortly.",
+        "Your boss may be calling at 10 pm tonight."
+      ],
+      "negatives": [
+        "They will be coming soon.",
+        "Your boss may call later."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709235x737206541062207200",
+    "level": "B2",
+    "super_category": "FUTURE",
+    "sub_category": "future continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS ",
+    "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'will'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Inquiring about an ongoing action in the future",
+      "pedagogical_hook": "Use 'Will... be -ing?' to ask about future plans in progress.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwill\\s+(?:\\w+\\s+){1,3}be\\s+\\w+ing\\b.*\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "will"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": "be"
+        },
+        {
+          "TAG": "VBG"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Will they be holding any activities at night?",
+        "What will you be doing in a few years from now?"
+      ],
+      "negatives": [
+        "They will be holding activities at night.",
+        "Will you do that for me?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709235x749861660179369300",
+    "level": "B2",
+    "super_category": "FUTURE",
+    "sub_category": "future expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'BE ABOUT TO'",
+    "can_do_statement": "Can use the present forms of 'be' + 'about to'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Positioning an event on the immediate verge of occurrence",
+      "pedagogical_hook": "Use 'am/is/are about to' when something is going to happen very soon.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+about\\s+to\\s+\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "am",
+              "is",
+              "are",
+              "'m",
+              "'s",
+              "'re"
+            ]
+          }
+        },
+        {
+          "LOWER": "about"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You are not going to believe what I am about to tell you!",
+        "I'm in a hurry, my class is about to begin."
+      ],
+      "negatives": [
+        "I was about to begin when the phone rang.",
+        "They were about to win the game."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709236x496378598600284700",
+    "level": "B2",
+    "super_category": "FUTURE",
+    "sub_category": "future expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "USE: SCHEDULES",
+    "can_do_statement": "Can use 'be due to' and, more formally, 'be to' talk about things that are scheduled or expected.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Framing an action as formally scheduled",
+      "pedagogical_hook": "Use 'be due to' or 'be to' for scheduled future events.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+(?:due\\s+to|to)\\s+\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "am",
+              "is",
+              "are",
+              "'m",
+              "'s",
+              "'re"
+            ]
+          }
+        },
+        {
+          "LOWER": "due",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Our annual conference is due to take place next week.",
+        "We are to leave a bit earlier today."
+      ],
+      "negatives": [
+        "I was due to go yesterday.",
+        "I have to leave right now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709236x556509988634357200",
+    "level": "B2",
+    "super_category": "FUTURE",
+    "sub_category": "future expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'BE TO'",
+    "can_do_statement": "Can use the present form of 'be' + 'to'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Framing an action as formally scheduled or required",
+      "pedagogical_hook": "Use 'is to' or 'are to' for formal arrangements.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+to\\s+\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "am",
+              "is",
+              "are",
+              "'m",
+              "'s",
+              "'re"
+            ]
+          }
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am to go on a business trip to New York.",
+        "He is to come to Athens next Friday."
+      ],
+      "negatives": [
+        "I have to go to work.",
+        "I am planning to come."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709236x688226297067415600",
+    "level": "B2",
+    "super_category": "FUTURE",
+    "sub_category": "future expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "USE: OBLIGATIONS AND  INSTRUCTIONS WITH 'BE TO'",
+    "can_do_statement": "Can use 'be to' talk about future obligations and to give instructions.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Imposing an obligation using a formal construction",
+      "pedagogical_hook": "Use 'you are to' to give strict instructions.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:you|they|we)(?:\\s+are|'re)\\s+to\\s+\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "you",
+              "they",
+              "we"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "are",
+              "'re"
+            ]
+          }
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You're to sit in front of the TV.",
+        "They are to have their passports ready."
+      ],
+      "negatives": [
+        "They are sitting in front of the TV.",
+        "You have to sit here."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709236x705248128205473900",
+    "level": "B2",
+    "super_category": "FUTURE",
+    "sub_category": "future expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "USE: IMMEDIATE FUTURE WITH 'BE ABOUT TO'",
+    "can_do_statement": "Can use 'be about to' to talk about the immediate future, often with 'just'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Positioning an event on the immediate verge of occurrence with emphasis",
+      "pedagogical_hook": "Use 'just about to' for things happening right this second.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+just\\s+about\\s+to\\s+\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "am",
+              "is",
+              "are",
+              "'m",
+              "'s",
+              "'re"
+            ]
+          }
+        },
+        {
+          "LOWER": "just"
+        },
+        {
+          "LOWER": "about"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We are just about to launch a new product.",
+        "I'm just about to call him."
+      ],
+      "negatives": [
+        "We are about to launch a product.",
+        "I am just calling him now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709236x822096858545011700",
+    "level": "B2",
+    "super_category": "FUTURE",
+    "sub_category": "future expressions with be",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'BE DUE TO'",
+    "can_do_statement": "Can use the present form of 'be' + 'due to'.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Framing an action as formally scheduled using 'due to'",
+      "pedagogical_hook": "Use 'is due to' for scheduled events.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+due\\s+to\\s+\\w+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "am",
+              "is",
+              "are",
+              "'m",
+              "'s",
+              "'re"
+            ]
+          }
+        },
+        {
+          "LOWER": "due"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am due to start work in August.",
+        "We are due to be present at the meeting."
+      ],
+      "negatives": [
+        "I was due to start work last week.",
+        "The assignment is due tomorrow."
+      ]
+    }
+  }
+]

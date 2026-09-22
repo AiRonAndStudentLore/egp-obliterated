@@ -1,0 +1,672 @@
+[
+ {
+  "egp_id": "1741163713875x793481865058558700",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "1",
+  "guideword": "FORM: (SUBJECT) USING 'IT' TO INTRODUCE",
+  "can_do_statement": "Can use dummy 'it' as a subject to introduce something the speaker or writer is going to refer to.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Dummy 'it' to set up a situation or refer forward",
+   "pedagogical_hook": "Using 'it' to introduce a topic",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bit(?:'s|\\s+(?:is|was))\\s+(?:[a-z]+\\s+){0,3}(?:to|that)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "it"
+    },
+    {
+     "LEMMA": "be"
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "to",
+       "that"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is best to spend your time in the countryside.",
+    "It's normal that your parents want you to go with them."
+   ],
+   "negatives": [
+    "It is my favorite book.",
+    "It was sitting on the table."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163713875x822556848048788000",
+  "level": "C1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: (SUBJECT) 'IT' + PASSIVE ",
+  "can_do_statement": "Can use 'it' with the passive voice where the subject is unknown or unimportant, often in formal contexts. \u25ba passives",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Impersonal passive construction with dummy 'it'",
+   "pedagogical_hook": "Formal passive with 'it'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bit\\s+(?:is|'s|was|has\\s+been|will\\s+be|would\\s+be|can\\s+be)\\s+(?:[a-z]+ed|known|thought|said|hoped|highlighted|seen|considered)\\s+(?:to|that)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "it"
+    },
+    {
+     "LEMMA": "be"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "to",
+       "that"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is hoped that this report will help the club.",
+    "It was considered to be the most important thing."
+   ],
+   "negatives": [
+    "It is a beautiful day today.",
+    "It was painted by a famous artist."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163713875x914428795342302700",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) CLEFT CONSTRUCTIONS WITH 'IT'",
+  "can_do_statement": "Can form a cleft construction beginning with 'it' to emphasise the subject of the main clause. \u25ba clauses",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Cleft construction starting with 'it'",
+   "pedagogical_hook": "Emphasising with 'it is... who/that'",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bit\\s+(?:is|was|'s)\\s+(?:[a-z]+\\s+){1,4}(?:who|that|which)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "it"
+    },
+    {
+     "LEMMA": "be"
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "who",
+       "that",
+       "which"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was my father who took all this away from me.",
+    "It is the blue one that I prefer."
+   ],
+   "negatives": [
+    "It is hot today.",
+    "It was going to rain."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714104x984668926241232300",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'ONE'",
+  "can_do_statement": "Can use 'one' as a pronoun to substitute for singular countable nouns which have already been mentioned or are obvious from the context. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Pronoun substitution for a singular noun",
+   "pedagogical_hook": "Using 'one' instead of repeating a noun",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:black|old|new|red|good|bad|big|small)\\s+one\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "one"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I bought a new pullover, because my old one is too small.",
+    "I chose the black one with the numbers in orange."
+   ],
+   "negatives": [
+    "I have one dog.",
+    "One day I will go there."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714109x164825312440932680",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: POSTMODIFYING, SPECIFYING",
+  "can_do_statement": "Can use 'the one' and 'the' + pre-modifier + 'one' with a complement, to refer to something specific.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specifying a particular item using 'the one' with a postmodifier",
+   "pedagogical_hook": "Saying 'the one with/who/that' to be specific",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bthe\\s+(?:[a-z]+\\s+)?one\\s+(?:with|who|which|that|on|in|I|you|he|she|we|they)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "POS": "ADJ",
+     "OP": "?"
+    },
+    {
+     "LOWER": "one"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "with",
+       "who",
+       "which",
+       "that",
+       "on",
+       "in",
+       "i",
+       "you",
+       "he",
+       "she",
+       "we",
+       "they"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "My house is No.8 and it's the one with silver gates.",
+    "Do you remember the one that we saw last week?"
+   ],
+   "negatives": [
+    "I have one.",
+    "He was the one."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714109x196422108517507740",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRE-MODIFYING",
+  "can_do_statement": "Can use determiners + premodifers + 'one'. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Determiner and adjective before 'one'",
+   "pedagogical_hook": "Using words like 'a new one' or 'the blue one'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:a|an|the|my|your|his|her|our|their)\\s+[a-z]+\\s+one\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "a",
+       "an",
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "one"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I love blue so I bought the blue one.",
+    "I like my present very much because I needed a new one."
+   ],
+   "negatives": [
+    "He has one car.",
+    "I need one right now."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714109x541528043515127500",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THIS ONE', 'THAT ONE'",
+  "can_do_statement": "Can use 'this one', 'that one' to refer to a singular countable noun.  \u25ba  pronouns: demonstratives",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Demonstrative substitution using 'this one' or 'that one'",
+   "pedagogical_hook": "Saying 'this one' or 'that one'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:this|that)\\s+one\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "this",
+       "that"
+      ]
+     }
+    },
+    {
+     "LOWER": "one"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I choose that one, because it is a very good and quiet place.",
+    "I'm thinking about buying a new desk because this one is very old."
+   ],
+   "negatives": [
+    "This is a dog.",
+    "I have that."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714109x956909866320716900",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'WHICH ONE'",
+  "can_do_statement": "Can use 'one' after 'which' in indirect questions to refer to one of two or more options. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Questioning options using 'which one'",
+   "pedagogical_hook": "Asking 'which one'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bwhich\\s+one\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "which"
+    },
+    {
+     "LOWER": "one"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "If you ask me which one I would choose, I would first go camping.",
+    "This way you see which one is the best."
+   ],
+   "negatives": [
+    "Which do you like?",
+    "Which of these is better?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714110x132568523130677460",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'ONES'",
+  "can_do_statement": "Can use 'ones' as a pronoun to substitute for plural nouns which have already been mentioned or are obvious from the context. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Pronoun substitution for plural nouns",
+   "pedagogical_hook": "Using 'ones' for plurals",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:new|old|small|large|good|bad|big)\\s+ones\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "ones"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "My pillows are getting old and I need new ones.",
+    "To tell the truth, I prefer large schools to small ones."
+   ],
+   "negatives": [
+    "I have one.",
+    "Ones are not numbers."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714110x318658885213508350",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THESE ONES', 'THOSE ONES'",
+  "can_do_statement": "Can use 'these ones', 'those ones' as a substitute for plural countable nouns which have already been mentioned or are obvious from the context.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Demonstrative substitution using 'these ones' or 'those ones'",
+   "pedagogical_hook": "Saying 'these ones' or 'those ones'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:these|those)\\s+ones\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "these",
+       "those"
+      ]
+     }
+    },
+    {
+     "LOWER": "ones"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Let's just start with these ones.",
+    "Beside those ones, there's also an equal number of individuals."
+   ],
+   "negatives": [
+    "These are good.",
+    "Those dogs are loud."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714110x530097687650274750",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PREMODIFIER + 'ONES', GENERAL REFERENCE ",
+  "can_do_statement": "Can use premodifiers with 'ones', to refer to something in general. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Premodified 'ones' for general reference",
+   "pedagogical_hook": "Adjective + 'ones'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:new|old|fast|slow|expensive|cheap|interesting|boring|large|small|good|bad)\\s+ones\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "ones"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Our computers are out-dated and slow. I think we should replace them with new ones.",
+    "Large schools are usually better than small ones."
+   ],
+   "negatives": [
+    "I have ones.",
+    "The ones we saw were nice."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714110x612439062259095800",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRE-MODIFYING",
+  "can_do_statement": "Can use determiners + premodifers + 'ones'.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Determiners and adjectives before 'ones'",
+   "pedagogical_hook": "Using phrases like 'the old ones' or 'some good ones'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:the|some|my|your|his|her|our|their|many|few)\\s+(?:[a-z]+\\s+)?ones\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "some",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their",
+       "many",
+       "few"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ",
+     "OP": "?"
+    },
+    {
+     "LOWER": "ones"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I've bought five new t-shirts, because I don't like my old ones anymore.",
+    "There are some good ones on the first channel."
+   ],
+   "negatives": [
+    "The dog is big.",
+    "Some are here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714110x633342796946525000",
+  "level": "C1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'NONE'",
+  "can_do_statement": "Can use 'none' as a pronoun. \u25ba  determiners: quantity  \u25ba  pronouns: quantity ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Using 'none' as a pronoun",
+   "pedagogical_hook": "'none' to mean 'not any'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bnone\\s*[.!?,;]",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "none"
+    },
+    {
+     "IS_PUNCT": true
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Then I searched for a Coca-Cola, but I found none.",
+    "We expected a social programme but there was none."
+   ],
+   "negatives": [
+    "None of them are here.",
+    "They were none the wiser."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714110x685287364915753600",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: POSTMODIFYING, SPECIFYING",
+  "can_do_statement": "Can use 'the ones' with a complement, to refer to something specific.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specifying specific plural items using 'the ones' with a postmodifier",
+   "pedagogical_hook": "'the ones who/which/that/in/on'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bthe\\s+ones\\s+(?:in|on|at|with|who|which|that|I|you|he|she|we|they)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "ones"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "in",
+       "on",
+       "at",
+       "with",
+       "who",
+       "which",
+       "that",
+       "i",
+       "you",
+       "he",
+       "she",
+       "we",
+       "they"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Weddings in our country? Well, they're pretty different from the ones in England.",
+    "The products we received were not exactly the ones we ordered."
+   ],
+   "negatives": [
+    "The ones are good.",
+    "We like the ones."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163714316x658765118459248000",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE ONE(S) THAT', FOR FOCUS",
+  "can_do_statement": "Can use 'The one(s) that' + clause in subject position, for focus. \u25ba focus",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Subject focus using 'The one(s) that'",
+   "pedagogical_hook": "'The one(s) that' for emphasizing a subject",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)^The\\s+one(?:s)?\\s+that\\s+",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the",
+     "IS_SENT_START": true
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "one",
+       "ones"
+      ]
+     }
+    },
+    {
+     "LOWER": "that"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The one that impressed me a lot is the Chinese Lunar New Year Carnival.",
+    "The ones that wear clothes made by their mothers never seem to ask for much attention."
+   ],
+   "negatives": [
+    "I liked the one that you bought.",
+    "He saw the ones that were red."
+   ]
+  }
+ }
+]

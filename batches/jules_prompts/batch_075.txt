@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_075.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163709453x816599367616623800",
+  "level": "C1",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS",
+  "can_do_statement": "Can use the future perfect simple with 'will' as a politeness strategy, often in formal contexts.",
+  "example_raw": "[from a formal letter] I hope I will have reassured you. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163709453x838199776198091500",
+  "level": "A1",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE 'WILL'",
+  "can_do_statement": "Can use the affirmative forms 'will' and ''ll'. ",
+  "example_raw": "I will see you soon. (A1 BREAKTHROUGH; 2009; Urdu; Pass)\n I'll come at 7 o'clock. (A1 BREAKTHROUGH; 2006; Others; Pass)"
+ },
+ {
+  "egp_id": "1741163709453x862696596004533200",
+  "level": "A1",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: PLANS AND INTENTIONS WITH 'WILL'",
+  "can_do_statement": "Can use 'will' and ''ll' to talk about plans and intentions. ",
+  "example_raw": "I will try to come to see you tomorrow. (A1 BREAKTHROUGH; 2009; Romanian; Pass)\n\nI'll bring a football ball with me. (A1 BREAKTHROUGH; 2011; Bulgarian; Pass)"
+ },
+ {
+  "egp_id": "1741163709454x624344823309990100",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE 'WILL'",
+  "can_do_statement": "Can use the negative forms 'will not' and 'won't'.",
+  "example_raw": "Without them I will not be able to play football. (Spain; A2 WAYSTAGE; 2005; Spanish - European; Pass)\n\nCan you come at 7 o'clock? I won't be at home before.  (Italy; A2 WAYSTAGE; 2009; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163709454x714636092733784700",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS ",
+  "can_do_statement": "Can use the question forms of 'will' and 'shall'.",
+  "example_raw": "Will you come? (Russia; A2 WAYSTAGE; 2006; Russian; Pass)\n\nAnd what shall I bring to the party? (Italy; A2 WAYSTAGE; 2009; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163709454x725724780708232700",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE 'SHALL'",
+  "can_do_statement": "Can use the affirmative form 'shall' with 'I' and 'we'. ",
+  "example_raw": "I shall come with you. (India; A2 WAYSTAGE; 2003; Hindi; Pass)\n\nWe shall take a bus to the sports centre. (Hindi, A2 WAYSTAGE, Pass, 2008)\n\nWe shall go together next year! (Brazil; A2 WAYSTAGE; 2007; Portuguese; Pass))"
+ },
+ {
+  "egp_id": "1741163709461x334143938995607360",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: OFFERS WITH 'SHALL'",
+  "can_do_statement": "Can use 'shall I' to make offers.",
+  "example_raw": "Shall I wait for you? (Mexico; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nShall I buy you one? (Spanish - European, A2 WAYSTAGE, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163709461x479205549406747100",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: REQUESTS WITH 'WILL'",
+  "can_do_statement": "Can use 'will' to make requests.",
+  "example_raw": "Will you come tomorrow at 6.35 pm to my house? (Italy; A2 WAYSTAGE; 2009; Italian; Pass)\n\n[talking about a parcel] Will you send it for me? (Sri Lanka; A2 WAYSTAGE; 2005; Tamil; Pass)"
+ },
+ {
+  "egp_id": "1741163709461x970222053180020700",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: PLANS AND  INTENTIONS WITH 'WILL'",
+  "can_do_statement": "Can use 'will' to ask about plans and intentions. ",
+  "example_raw": "Will you have a mobile phone? (France; A2 WAYSTAGE; 2007; French; Pass)\n\nWill you come by train? (Switzerland; A2 WAYSTAGE; 2009; Spanish - Other; Pass)"
+ },
+ {
+  "egp_id": "1741163709462x251946416286091620",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS WITH 'SHALL'",
+  "can_do_statement": "Can use 'shall we' to make suggestions.",
+  "example_raw": "Shall we go to my friend's house to get it? (Brazil; A2 WAYSTAGE; 2005; Portuguese; Pass)\n\nShall we go there together? (Kazakhstan; A2 WAYSTAGE; 2009; Kazakh; Pass)"
+ },
+ {
+  "egp_id": "1741163709462x426193932554453060",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE:IMMEDIATE PLANS WITH 'SHALL'",
+  "can_do_statement": "Can use 'shall' with 'I' and 'we' to talk about plans and intentions.",
+  "example_raw": "I promise that I shall cover all the work and give it to you tomorrow. (Thai, B1 THRESHOLD, Pass, 2006)\n\nAfter that, I shall go to the beach. (Yugoslavia; B1 THRESHOLD; 2001; Serbian; Pass)\n\nWe shall have a meeting regarding this next week. (India; B1 THRESHOLD; 2006; Telugu; Pass)"
+ },
+ {
+  "egp_id": "1741163709462x479959298523018100",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: PREDICTIONS WITH 'WILL' ",
+  "can_do_statement": "Can use 'will' and '\u2018ll' to make predictions. ",
+  "example_raw": "It will be hotter because of global warming.  (2246945_2; PET; Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n But, if you go on holiday with your parents, there are some advantages too: you will not have money problems and your parents will not worry about you too much! (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nI won't live here in the future, because in March I'm moving to Lima, to study at the university. (Peru; B1 THRESHOLD; 2007; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163709462x498053003229829800",
+  "level": "C1",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE 'SHALL' ",
+  "can_do_statement": "Can use the negative form 'shall not'.",
+  "example_raw": "However, we shall not forget to mention the legal and social consequences of such a merger to the average employees. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Swiss German; Pass)\n\nTherefore, my client shall not release you from the agreement, which is binding upon both parties. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; German; Pass)"
+ },
+ {
+  "egp_id": "1741163709462x743053516670709100",
+  "level": "C2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: LONG-TERM INTENTIONS WITH 'SHALL'",
+  "can_do_statement": "Can use 'shall' to talk about long-term intentions. ",
+  "example_raw": "I must believe, believe in myself and in everybody else, and mainly in what I look for, this way I shall never lose hope. (Mexico; C2 MASTERY; 1993; Spanish - Latin American; Pass)\n\nI shall always remember it as the city of lights. (Switzerland; C2 MASTERY; 1997; French; Pass)\n\nI shall always keep it in mind, in order to keep my children close to me and avoid being hated. (France; C2 MASTERY; 1993; French; Pass)\n\nI came to the conclusion that the Excel Academy is not worth the money our company paid and that we shall not send further candidates there. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163709462x760930219625040500",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: FIXED PLANS WITH 'WILL'",
+  "can_do_statement": "Can use 'will' to talk about fixed plans, often with timetabled times and dates.",
+  "example_raw": "The work will start at 8 a.m. and finish at 2 p.m. The new schedule starts on 1 June. (Russia; B1 THRESHOLD; 2007; Russian; Pass)\nI won't be able to get there at the time we agreed. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
+ }
+]
+```

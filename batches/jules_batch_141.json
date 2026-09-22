@@ -1,0 +1,933 @@
+[
+  {
+    "egp_id": "1741163713121x994056627950362600",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "1",
+    "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY",
+    "can_do_statement": "Can use the present continuous with a limited range of adverbs of indefinite frequency, often to talk about surprising or undesirable situations or events (especially with 'always').",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Action happening with high/unwanted frequency",
+      "pedagogical_hook": "Present continuous with 'always' for habits",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+(?:not\\s+|n't\\s+)?always\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "always"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am always losing my keys.",
+        "She is always talking during the movie."
+      ],
+      "negatives": [
+        "I always walk to school.",
+        "They are walking to the store now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713122x609663333417254100",
+    "level": "B1",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "3",
+    "guideword": "USE: TEMPORARY SITUATIONS",
+    "can_do_statement": "Can use the present continuous with a wide range of verbs to talk about temporary situations.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Temporary state vs permanent fact",
+      "pedagogical_hook": "Present continuous for temporary situations",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+(?:not\\s+|n't\\s+)?(?:[a-z]+ly\\s+)?(?:living|staying|working|studying|using|enjoying|renting|raining)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ly"
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "live",
+              "stay",
+              "work",
+              "study",
+              "use",
+              "enjoy",
+              "rent",
+              "rain"
+            ]
+          },
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am currently studying in London for the summer.",
+        "They are staying at a nice hotel this week."
+      ],
+      "negatives": [
+        "I studied in London last year.",
+        "They stay at that hotel every summer."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713122x846846152825808300",
+    "level": "B1",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "3",
+    "guideword": "USE: EVENTS IN PROGRESS",
+    "can_do_statement": "Can use the present continuous with a wide range of verbs to talk about situations and events in progress.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Action currently in progress",
+      "pedagogical_hook": "Present continuous for events happening now",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+(?:not\\s+|n't\\s+)?(?:[a-z]+ly\\s+)?(?:planning|expecting|falling|making|doing|getting|trying|looking)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ly"
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "plan",
+              "expect",
+              "fall",
+              "make",
+              "do",
+              "get",
+              "try",
+              "look"
+            ]
+          },
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am planning a big party for my brother.",
+        "We are getting very close to the final decision."
+      ],
+      "negatives": [
+        "I plan to go there tomorrow.",
+        "We get a new car every five years."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713625x476438924071697100",
+    "level": "C2",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: POLITENESS",
+    "can_do_statement": "Can use the present continuous with verbs that are not usually used in this form to make statements and requests sound less direct.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Softening directness for politeness",
+      "pedagogical_hook": "Present continuous with stative verbs for politeness",
+      "agency_or_distance": "Increased psychological distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+(?:not\\s+|n't\\s+)?(?:[a-z]+ly\\s+)?(?:asking|wanting|needing|wondering|hoping|wishing)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ly"
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "asking",
+              "wanting",
+              "needing",
+              "wondering",
+              "hoping",
+              "wishing"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am hoping you might be able to help me.",
+        "We are wondering if you would like to come over."
+      ],
+      "negatives": [
+        "I hope you can help me.",
+        "I wondered what he was doing."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713625x540058676609126000",
+    "level": "C2",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "3",
+    "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY",
+    "can_do_statement": "Can use the present continuous with a wide range of adverbs of indefinite frequency, often to talk about surprising or undesirable situations or events.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Persistent or perpetual frequency",
+      "pedagogical_hook": "Present continuous with advanced frequency adverbs",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+(?:not\\s+|n't\\s+)?(?:persistently|permanently|perpetually|endlessly|incessantly)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "persistently",
+              "permanently",
+              "perpetually",
+              "endlessly",
+              "incessantly"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They are persistently changing the rules of the game.",
+        "He is perpetually complaining about the weather."
+      ],
+      "negatives": [
+        "They persistently change the rules of the game.",
+        "She is always complaining about the weather."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713625x675785619911793800",
+    "level": "C1",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "N/A",
+    "guideword": "USE: RHETORICAL QUESTIONS ",
+    "can_do_statement": "Can use question forms to ask rhetorical questions.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Questioning without expecting an answer",
+      "pedagogical_hook": "Rhetorical questions using present continuous",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:why|how)\\s+(?:am|are|is)\\s+(?:[a-z]+\\s+)?(?:[a-z]+ly\\s+)?[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "why",
+              "how"
+            ]
+          }
+        },
+        {
+          "LEMMA": "be"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ly"
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Why are we becoming shallow over something so trivial?",
+        "Why is technology taking over our lives?"
+      ],
+      "negatives": [
+        "Why do you leave so early?",
+        "How did they fix the roof?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713625x686455222331109500",
+    "level": "B2",
+    "super_category": "PRESENT",
+    "sub_category": "present continuous",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY ",
+    "can_do_statement": "Can use the present continuous with an increasing range of adverbs of indefinite frequency, often to talk about surprising or undesirable situations or events.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Continuous undesirable frequency",
+      "pedagogical_hook": "Present continuous with 'constantly' or 'forever'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+(?:not\\s+|n't\\s+)?(?:constantly|continuously|continually|forever)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "constantly",
+              "continuously",
+              "continually",
+              "forever"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ing"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You are constantly interrupting me when I speak.",
+        "She is forever losing her glasses in this house."
+      ],
+      "negatives": [
+        "She is always losing her glasses in this house.",
+        "I continuously monitor the system for errors."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713626x133661684035994100",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "2",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form with an increasing range of regular and irregular verbs.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Present simple affirmative with diverse verbs",
+      "pedagogical_hook": "Basic present simple statements",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|you|we|they|he|she|it)\\s+(?:[a-z]+ly\\s+)?(?:bring|take|hope|think|know|believe|seem|look|need|want|cost)(?:s|es)?\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "we",
+              "they",
+              "he",
+              "she",
+              "it"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ly"
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "bring",
+              "take",
+              "hope",
+              "think",
+              "know",
+              "believe",
+              "seem",
+              "look",
+              "need",
+              "want",
+              "cost"
+            ]
+          },
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They bring me good luck every day.",
+        "It takes about half an hour to get there."
+      ],
+      "negatives": [
+        "They are bringing me good luck right now.",
+        "She took a long time to answer the phone."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713626x199664325289681020",
+    "level": "A2",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: REAL AND IMAGINED SITUATIONS AFTER 'IF'",
+    "can_do_statement": "Can use the present simple after 'if' to talk about real and imagined situations.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Condition and consequence",
+      "pedagogical_hook": "First conditional with present simple",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bif\\s+(?:I|you|we|they|he|she|it|there)\\s+(?:do\\s+not\\s+|don't\\s+|does\\s+not\\s+|doesn't\\s+)?(?![a-z]+ed\\b)[a-z]+(?:s|es)?\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        },
+        {
+          "LEMMA": "do",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "If you want some help, I will be free next week.",
+        "If he doesn't arrive soon, we will start without him."
+      ],
+      "negatives": [
+        "I want some help with this project.",
+        "If he arrived earlier, we wouldn't be late."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713626x335670389512142900",
+    "level": "A1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "1",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use the negative form with a limited range of regular and irregular verbs.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Stating falsehoods or dislikes",
+      "pedagogical_hook": "Present simple negative basics",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:do\\s+not|don't|does\\s+not|doesn't)\\s+(?:[a-z]+ly\\s+)?(?:like|know|have|want|go|think|play)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "does"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ly"
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "like",
+              "know",
+              "have",
+              "want",
+              "go",
+              "think",
+              "play"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I don't like meat and fish.",
+        "She doesn't know the place."
+      ],
+      "negatives": [
+        "I do like meat.",
+        "They didn't know the answer."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713626x414037782388433340",
+    "level": "A1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "USE: HABITS AND GENERAL FACTS",
+    "can_do_statement": "Can use the present simple to talk about repeated events or habits, and general facts.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Habitual actions and unchanging truths",
+      "pedagogical_hook": "Present simple for routines",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|you|we|they|he|she|it)\\s+(?:[a-z]+ly\\s+)?(?:work|live|watch|read|eat|sleep|take)(?:s|es)?\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "we",
+              "they",
+              "he",
+              "she",
+              "it"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ly"
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "work",
+              "live",
+              "watch",
+              "read",
+              "eat",
+              "sleep",
+              "take"
+            ]
+          },
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I work in a supermarket.",
+        "It takes 25 minutes by car."
+      ],
+      "negatives": [
+        "I am working in a supermarket.",
+        "They worked hard yesterday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713626x486355013779909760",
+    "level": "A1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "1",
+    "guideword": "FORM: AFFIRMATIVE",
+    "can_do_statement": "Can use the affirmative form with a limited range of regular and irregular verbs.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Basic statements of fact or state",
+      "pedagogical_hook": "First present simple verbs",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|you|we|they|he|she|it)\\s+(?:[a-z]+ly\\s+)?(?:learn(?:s)?|play(?:s)?|like(?:s)?|love(?:s)?|have|has)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "we",
+              "they",
+              "he",
+              "she",
+              "it"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": ".*ly"
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "learn",
+              "play",
+              "like",
+              "love",
+              "have"
+            ]
+          },
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I learn new words every day.",
+        "She plays tennis at the weekend."
+      ],
+      "negatives": [
+        "I learned a new word yesterday.",
+        "They are playing tennis right now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713626x606524312014730500",
+    "level": "A1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH 'REALLY'",
+    "can_do_statement": "Can use the present simple with the adverb 'really' as an intensifier.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Intensifying truth or feeling",
+      "pedagogical_hook": "Present simple with 'really'",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:I|you|we|they|he|she|it)\\s+really\\s+(?![a-z]+ed\\b)[a-z]+(?:s|es)?\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "we",
+              "they",
+              "he",
+              "she",
+              "it"
+            ]
+          }
+        },
+        {
+          "LOWER": "really"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I really like my new kitchen.",
+        "She really wants to see you."
+      ],
+      "negatives": [
+        "I like my new kitchen very much.",
+        "He really wanted to go home."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713633x233890848639745730",
+    "level": "B1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NEGATIVE TAG QUESTIONS",
+    "can_do_statement": "Can use 'don't you think' or 'don't you agree' to look for agreement or an opinion.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking confirmation or agreement",
+      "pedagogical_hook": "Negative tag questions",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bdon't\\s+you\\s+(?:think|agree)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "do"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          }
+        },
+        {
+          "LOWER": "you"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "think",
+              "agree"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It is a bit strange, don't you think?",
+        "That is the best way, don't you agree?"
+      ],
+      "negatives": [
+        "Do you think it is strange?",
+        "I don't agree with you on that."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713633x370718520406196900",
+    "level": "B1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM: QUESTIONS",
+    "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with a wide range of subjects.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Inquiring about facts",
+      "pedagogical_hook": "Present simple questions",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:do|does)\\s+(?!not\\b)(?:[a-z-]+\\s+){1,2}(?:go|want|know|think|like|have)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "do",
+          "LOWER": {
+            "IN": [
+              "do",
+              "does"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "DET",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "POS": "VERB",
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Does your brother go with your parents?",
+        "Where do they want to spend their holidays?"
+      ],
+      "negatives": [
+        "He does not want to go there.",
+        "Are they going on holiday soon?"
+      ]
+    }
+  }
+]

@@ -1,0 +1,818 @@
+[
+  {
+    "egp_id": "1741163711821x616876087798387200",
+    "level": "B2",
+    "super_category": "NOUNS",
+    "sub_category": "types",
+    "lexical_range": "2",
+    "guideword": "FORM'-ING' FORMS, SUBJECT",
+    "can_do_statement": "Can use the '-ing' form of verbs as nouns in subject position.  ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Action as Concept",
+      "pedagogical_hook": "Using '-ing' verbs as the main subject of a sentence to talk about activities.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|(?<=[.?!]\\s))\\b[A-Za-z]{3,}ing\\b(?:\\s+[a-z]+){0,5}\\s+(?:is|are|was|were|has|have|will|can|could|would|should|makes|takes|demands|requires|means|causes)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "REGEX": "^[a-z]{3,}ing$"
+          },
+          "LEMMA": {
+            "NOT_IN": [
+              "morning",
+              "evening",
+              "thing",
+              "nothing",
+              "something",
+              "everything",
+              "anything",
+              "building",
+              "ceiling",
+              "meaning",
+              "spring",
+              "king",
+              "ring"
+            ]
+          },
+          "DEP": {
+            "IN": [
+              "csubj",
+              "nsubj",
+              "csubjpass",
+              "nsubjpass"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Working until midnight every evening is not reasonable.",
+        "Driving in a city is stressful."
+      ],
+      "negatives": [
+        "I am working until midnight every evening.",
+        "The morning is nice."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711821x861251815294192800",
+    "level": "B1",
+    "super_category": "NOUNS",
+    "sub_category": "types",
+    "lexical_range": "2",
+    "guideword": "FORM: COMMON NOUNS",
+    "can_do_statement": "Can use an increasing range of common nouns. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Vocabulary Expansion",
+      "pedagogical_hook": "Using a wider variety of everyday common nouns.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:exercise|design|damage|heart|body|repair|rest|machine|tool|factory)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "exercise",
+              "design",
+              "damage",
+              "heart",
+              "body",
+              "repair",
+              "rest",
+              "machine",
+              "tool",
+              "factory"
+            ]
+          },
+          "POS": "NOUN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "When you're swimming you exercise all of your body.",
+        "My heart was hurt and nobody will repair the damage."
+      ],
+      "negatives": [
+        "I go.",
+        "She went."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711822x210963616833492060",
+    "level": "A2",
+    "super_category": "NOUNS",
+    "sub_category": "uncountable",
+    "lexical_range": "1",
+    "guideword": "FORM: UNCOUNTABLE NOUNS",
+    "can_do_statement": "Can use a limited range of uncountable nouns. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Uncountable Substances and Concepts",
+      "pedagogical_hook": "Talking about things you can't count, like music, weather, and money.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:music|weather|time|meat|money|furniture|information|news|advice|homework|fun|bread)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "music",
+              "weather",
+              "time",
+              "meat",
+              "money",
+              "furniture",
+              "information",
+              "news",
+              "advice",
+              "homework",
+              "fun",
+              "bread"
+            ]
+          },
+          "POS": "NOUN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I listen to music, I watch TV and I talk to my friends.",
+        "Bring some money with you."
+      ],
+      "negatives": [
+        "The cat is black.",
+        "She likes cars."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711827x907347986663720800",
+    "level": "A2",
+    "super_category": "NOUNS",
+    "sub_category": "uncountable",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH 'THE' ",
+    "can_do_statement": "Can use uncountable nouns with 'the' to talk about something specific. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Specific Uncountable Entities",
+      "pedagogical_hook": "Using 'the' to talk about a specific amount or instance of an uncountable noun.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthe\\s+(?:music|weather|information|news|advice|homework|fun|bread|meat|money|time|water|milk|sugar)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "music",
+              "weather",
+              "information",
+              "news",
+              "advice",
+              "homework",
+              "fun",
+              "bread",
+              "meat",
+              "money",
+              "time",
+              "water",
+              "milk",
+              "sugar"
+            ]
+          },
+          "POS": "NOUN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The music is going to be loud, since it's rap.",
+        "If you can't find the information about the new art class after school, please call me."
+      ],
+      "negatives": [
+        "The cat is black.",
+        "I like the apples."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711828x163854860427175000",
+    "level": "B1",
+    "super_category": "NOUNS",
+    "sub_category": "uncountable",
+    "lexical_range": "2",
+    "guideword": "FORM: WITH DETERMINERS, QUANTITY",
+    "can_do_statement": "Can use uncountable nouns with an increasing range of quantity words and phrases including 'much', 'a bit of', 'a little bit of', 'enough', 'further', 'plenty of', 'loads of'.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Quantifying Uncountables",
+      "pedagogical_hook": "Expressing amounts of uncountable things with phrases like 'a bit of' or 'plenty of'.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:much|enough|further|bit\\s+of|plenty\\s+of|loads\\s+of)\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "much",
+              "enough",
+              "further",
+              "bit",
+              "plenty",
+              "loads"
+            ]
+          }
+        },
+        {
+          "LOWER": "of",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "ADJ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I hope this little bit of advice can help you!",
+        "So I would like you to attend a meeting next week for further information."
+      ],
+      "negatives": [
+        "I don't have many apples.",
+        "A few cars are here."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711828x251823774434196220",
+    "level": "C1",
+    "super_category": "NOUNS",
+    "sub_category": "uncountable",
+    "lexical_range": "3",
+    "guideword": "FORM: UNCOUNTABLE NOUNS",
+    "can_do_statement": "Can use a wide range of uncountable nouns, particularly referring to abstract concepts. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Abstract Concepts",
+      "pedagogical_hook": "Using uncountable nouns for complex, abstract ideas like humanity or solidarity.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:safety|administration|vision|humanity|solidarity|tolerance|respect|equality|justice|freedom|democracy|wisdom|integrity)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "safety",
+              "administration",
+              "vision",
+              "humanity",
+              "solidarity",
+              "tolerance",
+              "respect",
+              "equality",
+              "justice",
+              "freedom",
+              "democracy",
+              "wisdom",
+              "integrity"
+            ]
+          },
+          "POS": "NOUN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Through that we can develop more humanity, solidarity, tolerance and respect among people of different countries.",
+        "Above all, the administration is not very efficient."
+      ],
+      "negatives": [
+        "I have three apples.",
+        "He drove the car."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711828x356216667164534850",
+    "level": "A2",
+    "super_category": "NOUNS",
+    "sub_category": "uncountable",
+    "lexical_range": "1",
+    "guideword": "FORM: WITH DETERMINERS, QUANTITY",
+    "can_do_statement": "Can use uncountable nouns with a limited range of quantity words and phrases including 'some', 'any', 'a lot of', 'more'.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Basic Quantities",
+      "pedagogical_hook": "Using 'some', 'any', 'a lot of', or 'more' with uncountable nouns.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:some|any|a\\s+lot\\s+of|more)\\s+(?:homework|money|fun|information|music|weather|time|meat|water|milk|sugar)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "some",
+              "any",
+              "lot",
+              "more"
+            ]
+          }
+        },
+        {
+          "LOWER": "of",
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "homework",
+              "money",
+              "fun",
+              "information",
+              "music",
+              "weather",
+              "time",
+              "meat",
+              "water",
+              "milk",
+              "sugar"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I need to do some homework.",
+        "We have had a lot of fun."
+      ],
+      "negatives": [
+        "I have some apples.",
+        "I need more chairs."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711828x527765417669890940",
+    "level": "A2",
+    "super_category": "NOUNS",
+    "sub_category": "uncountable",
+    "lexical_range": "N/A",
+    "guideword": "FORM: CONTAINERS, QUANTITY EXPRESSIONS",
+    "can_do_statement": "Can refer to an individual example or quantity of an uncountable noun using words for containers and countable items. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Containers for Uncountables",
+      "pedagogical_hook": "Using countable containers (like a bottle or a piece) for uncountable things.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:a|an|one|two|three|some)\\s+(?:bottle|piece|cup|glass|slice|drop)s?\\s+of\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "bottle",
+              "bottles",
+              "piece",
+              "pieces",
+              "cup",
+              "cups",
+              "glass",
+              "glasses",
+              "slice",
+              "slices",
+              "drop",
+              "drops"
+            ]
+          }
+        },
+        {
+          "LOWER": "of"
+        },
+        {
+          "POS": "NOUN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We have to bring a bottle of water, trainers and a T-shirt or top.",
+        "I can drink a cup of tea in a caf\u00e9."
+      ],
+      "negatives": [
+        "I like water.",
+        "He drank tea."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711828x662115964014106400",
+    "level": "B2",
+    "super_category": "NOUNS",
+    "sub_category": "uncountable",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NO ARTICLE",
+    "can_do_statement": "Can use uncountable nouns without a definite article to refer to an abstract thing in general. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "General Abstract Truths",
+      "pedagogical_hook": "Using abstract nouns at the start of a sentence without 'the' to talk in general terms.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|(?<=[.?!]\\s))\\b(?:Television|Music|Education|Language|Science|History|Art|Literature|Love|Time|Life)\\s+(?:is|was|can|has|plays|reflects|will|would|should|makes|takes|always|often|sometimes|never)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "television",
+              "music",
+              "education",
+              "language",
+              "science",
+              "history",
+              "art",
+              "literature",
+              "love",
+              "time",
+              "life"
+            ]
+          },
+          "IS_SENT_START": true,
+          "POS": "NOUN"
+        },
+        {
+          "POS": {
+            "IN": [
+              "AUX",
+              "VERB",
+              "ADV"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Television is more attractive because it has moving images.",
+        "Education is important to prevent you from being a dog on a leash!"
+      ],
+      "negatives": [
+        "The education I received was poor.",
+        "His music was amazing."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163711828x908159161146285200",
+    "level": "B1",
+    "super_category": "NOUNS",
+    "sub_category": "uncountable",
+    "lexical_range": "2",
+    "guideword": "FORM: UNCOUNTABLE NOUNS",
+    "can_do_statement": "Can use an increasing range of uncountable nouns. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Uncountable Entities (Intermediate)",
+      "pedagogical_hook": "Using a broader variety of uncountable nouns, such as countryside or accommodation.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:countryside|fashion|accommodation|architecture|history|traffic|knowledge|evidence|research|luggage)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "countryside",
+              "fashion",
+              "accommodation",
+              "architecture",
+              "history",
+              "traffic",
+              "knowledge",
+              "evidence",
+              "research",
+              "luggage"
+            ]
+          },
+          "POS": "NOUN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think the countryside is better than the town centre",
+        "I hope you can help me to find new accommodation as soon as is possible."
+      ],
+      "negatives": [
+        "The cats are nice.",
+        "He read a book."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712056x895221609473611600",
+    "level": "B1",
+    "super_category": "PASSIVES",
+    "sub_category": "get and have",
+    "lexical_range": "1",
+    "guideword": "FORM: 'GET' + '-ED'",
+    "can_do_statement": "Can form the 'get'-passive with a range of forms of 'get' + past participles.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Adverse or Accidental Passive",
+      "pedagogical_hook": "Using 'get' with a past participle to describe things that happen to someone, often accidentally.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:get|gets|got|getting)\\s+(?:[a-z]+ly\\s+)?(?:broken|hurt|stolen|paid|trained|killed|involved|lost|married|divorced|fired|hired|[a-z]{3,}ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "get"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "REGEX": "(?:ed|en|hurt|paid|stolen|lost|built)$"
+          },
+          "TAG": {
+            "IN": [
+              "VBN",
+              "JJ"
+            ]
+          },
+          "LEMMA": {
+            "NOT_IN": [
+              "red",
+              "bed"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "mine got broken, so I need it to see myself in it.",
+        "You should be careful while you are crossing or you will get hurt."
+      ],
+      "negatives": [
+        "I got a nice present.",
+        "She has got red hair."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712057x241065069713333200",
+    "level": "B2",
+    "super_category": "PASSIVES",
+    "sub_category": "get and have",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'HAVE' + OBJ + '-ED', PROACTIVE PASSIVE",
+    "can_do_statement": "Can use have + object + -ed to talk about something where the speaker is in a pro-active or a passive role.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Delegated Action or Adverse Experience",
+      "pedagogical_hook": "Using 'have something done' to talk about arranging a service or experiencing something negative.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:have|has|had|having|'ve|'d)\\s+(?:my|your|his|her|its|our|their|the|a|an)\\s+[a-z]+\\s+(?:[a-z]+ly\\s+)?(?:serviced|redecorated|stolen|broken|painted|cleaned|repaired|done|[a-z]+ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "have"
+        },
+        {
+          "POS": {
+            "IN": [
+              "DET",
+              "PRON"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": "NOUN"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": "VERB",
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I had my car serviced and visited Washington",
+        "I had my purse stolen"
+      ],
+      "negatives": [
+        "I have finished my homework.",
+        "She had finally seen the movie."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712057x414876536962195400",
+    "level": "C1",
+    "super_category": "PASSIVES",
+    "sub_category": "get and have",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'GET' + OBJECT + '-ED'",
+    "can_do_statement": "Can use 'get' + object + '-ed' to talk about causing or instructing something to happen or to be done by somebody else, often informally. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Informal Delegated Action",
+      "pedagogical_hook": "Using 'get something done' to casually talk about causing something to happen.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:get|gets|got|getting)\\s+(?:my|your|his|her|its|our|their|the|a|an|it|them|things|this|that|those|these)\\b(?:\\s+[a-z]+){0,2}\\s+(?:done|repaired|delivered|fixed|finished|changed|checked|[a-z]+ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "get"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "DET"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "POS": "VERB",
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "she is always the one who tries to get things done.",
+        "it took hours to get it repaired."
+      ],
+      "negatives": [
+        "I got to go to the store.",
+        "She got a new book for her birthday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712057x530445527704735500",
+    "level": "B2",
+    "super_category": "PASSIVES",
+    "sub_category": "get and have",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'GET' + REFLEXIVE PRONOUN + '-ED'",
+    "can_do_statement": "Can use a reflexive pronoun with the 'get'-passive. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Reflexive Adverse Passive",
+      "pedagogical_hook": "Using a reflexive pronoun (like 'yourself') with 'get' + past participle.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:get|gets|got|getting)\\s+(?:myself|yourself|himself|herself|itself|ourselves|themselves|yourselves)\\s+(?:[a-z]+ly\\s+)?(?:killed|involved|caught|hurt|lost|fired|hired|[a-z]+ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "get"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "myself",
+              "yourself",
+              "himself",
+              "herself",
+              "itself",
+              "ourselves",
+              "themselves",
+              "yourselves"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "ADJ"
+            ]
+          },
+          "TAG": {
+            "IN": [
+              "VBN",
+              "JJ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "you could get yourself killed if you don't drive carefully enough.",
+        "he uses it to get himself involved in illegal activities."
+      ],
+      "negatives": [
+        "I got myself a new car.",
+        "He got himself out of the room."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163712057x955381549397373800",
+    "level": "B2",
+    "super_category": "PASSIVES",
+    "sub_category": "get and have",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'GET' + OBJECT + 'TO'-INFINITIVE",
+    "can_do_statement": "Can use 'get' + object + 'to'-infinitive to talk about causing someone to do something. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Causative Action",
+      "pedagogical_hook": "Using 'get someone to do something' to talk about persuading or causing someone to act.",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:get|gets|got|getting)\\s+(?:my|your|his|her|its|our|their|the|a|an|it|them|him|me|us|people|students|children|friends)\\b(?:(?!\\bto\\b)\\s+[a-z]+){0,2}\\s+to\\s+(?:[a-z]+ly\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "get"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "DET",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "POS": "VERB",
+          "DEP": {
+            "IN": [
+              "xcomp",
+              "ccomp",
+              "advcl"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "in order to get them to visit us more frequently.",
+        "It is a good way to get them to shop at this particular store."
+      ],
+      "negatives": [
+        "I got a nice present from my parents.",
+        "She got into trouble at school."
+      ]
+    }
+  }
+]

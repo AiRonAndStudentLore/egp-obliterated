@@ -1,0 +1,765 @@
+[
+ {
+  "egp_id": "1741163711528x635492123385210640",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS WITH 'LIKE'",
+  "can_do_statement": "Can use the question form 'would you like'.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing desires or offers formally.",
+   "pedagogical_hook": "Using 'would you like' to offer or invite.",
+   "agency_or_distance": "Distal/Polite"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bwould\\s+you\\s+(?:[a-z]+ly\\s+)?like\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "would"
+    },
+    {
+     "LOWER": "you"
+    },
+    {
+     "OP": "?",
+     "LOWER": {
+      "REGEX": "^[a-z]+ly$"
+     }
+    },
+    {
+     "LOWER": "like"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Would you like to play tennis?",
+    "I'm going to a concert, would you like to come?"
+   ],
+   "negatives": [
+    "Do you like tennis?",
+    "I would like some water."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711528x898984751471889600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'IF' CLAUSES",
+  "can_do_statement": "Can use 'would' in the main clause of a conditional sentence to talk about an imagined situation, often in the context of advice or opinion-giving.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Speculating about imagined scenarios, especially for advice.",
+   "pedagogical_hook": "Using 'would' in conditional main clauses to give advice.",
+   "agency_or_distance": "Hypothetical"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bif\\b\\s+(?:I\\s+were|I\\s+had|you\\s+decided|you\\s+want|we\\s+went|he\\s+was|she\\s+was)[^.?!]{1,40}\\b(?:would|'d)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "if"
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "would",
+       "'d"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "If I were you, I would not watch TV all the time.",
+    "If I had the chance, I'd go with my friends."
+   ],
+   "negatives": [
+    "I would like a cup of tea.",
+    "She said she would arrive late."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711529x426495349233583900",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: FUTURE IN THE PAST",
+  "can_do_statement": "Can use 'would' to talk about the future in the past.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Referring to an event that was in the future from a past perspective.",
+   "pedagogical_hook": "Using 'would' as the past form of 'will' to talk about the future from the past.",
+   "agency_or_distance": "Past"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:thought|believed|knew|hoped|felt|expected)\\b(?:[^.?!]{1,40})\\b(?:would|'d)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "think",
+       "believe",
+       "know",
+       "hope",
+       "feel",
+       "expect"
+      ]
+     },
+     "TAG": {
+      "IN": [
+       "VBD",
+       "VBN"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "would",
+       "'d"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I thought they would be great for the party.",
+    "We believed the film would be horrible."
+   ],
+   "negatives": [
+    "I think they will be great.",
+    "I would like to go there."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711529x535567954222940100",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use an limited range of adverbs with 'would', including 'really', 'probably', 'certainly', 'definitely'.\u25ba adverbs",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Modifying the degree of certainty or emphasis of 'would'.",
+   "pedagogical_hook": "Using adverbs like 'really', 'probably', 'certainly' with 'would'.",
+   "agency_or_distance": "Evaluative"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:would|'d)\\s+(?:really|probably|certainly|definitely)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "would",
+       "'d"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "really",
+       "probably",
+       "certainly",
+       "definitely"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think you would really enjoy it.",
+    "It would probably be the best idea."
+   ],
+   "negatives": [
+    "I really like it.",
+    "She would like to definitely go."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711529x657615441693555600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use question forms.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Forming questions using 'would' to ask for opinions or offer.",
+   "pedagogical_hook": "Inverting 'would' and subject to ask a question.",
+   "agency_or_distance": "Interrogative"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bwould(?:n't)?\\s+(?:you|he|she|it|we|they|I|that|this|there)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "would"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "he",
+       "she",
+       "it",
+       "we",
+       "they",
+       "i",
+       "that",
+       "this",
+       "there"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Would you let me know what you think?",
+    "Wouldn't that be wonderful?"
+   ],
+   "negatives": [
+    "I wouldn't do that.",
+    "You would let me know."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711534x225764774682792860",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITE REQUESTS",
+  "can_do_statement": "Can use 'would' to make polite requests, often in the fixed expression 'would you mind'.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Making polite requests.",
+   "pedagogical_hook": "Using 'would you mind' or similar polite structures.",
+   "agency_or_distance": "Polite"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bwould\\s+(?:you\\s+mind|it\\s+be\\s+possible)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "would"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "it"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "mind",
+       "be"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Would you mind if we met at five?",
+    "Would it be possible for you to meet me?"
+   ],
+   "negatives": [
+    "I would mind if you did that.",
+    "It would be possible."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711534x311504042687477570",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: HABITUAL PAST",
+  "can_do_statement": "Can use 'would' to talk about habitual actions and events in the past.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Describing repeated actions in the past.",
+   "pedagogical_hook": "Using 'would' for habitual past actions.",
+   "agency_or_distance": "Past Habitual"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:every\\s+day|at\\s+night|always|often|usually)[^.?!]{1,40}\\b(?:would|'d)\\s+(?:go|spend|play|sit)\\b|\\b(?:would|'d)\\s+(?:always|often|usually)\\s+(?:go|spend|play|sit)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "would",
+       "'d"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "always",
+       "often",
+       "usually",
+       "never"
+      ]
+     }
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "As a child, I would always play outside.",
+    "We would often go to the beach."
+   ],
+   "negatives": [
+    "I would like to play outside.",
+    "She said she would go tomorrow."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711534x454213530321553800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: INDIRECTNESS",
+  "can_do_statement": "Can use 'would' with verbs such as 'advise', 'imagine', 'recommend', 'say' to be less direct.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Using 'would' to soften statements and sound less direct.",
+   "pedagogical_hook": "Using 'would advise', 'would say' to be less direct.",
+   "agency_or_distance": "Polite/Indirect"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:would|'d)\\s+(?:advise|imagine|recommend|say|suggest|guess)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "would",
+       "'d"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "advise",
+       "imagine",
+       "recommend",
+       "say",
+       "suggest",
+       "guess"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I'd advise you to go with your friends.",
+    "Finally, I'd say that you should talk with your parents."
+   ],
+   "negatives": [
+    "I advise you to do it.",
+    "She said she would go."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711534x485840810825062460",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: IMAGINED SITUATIONS IN THE PAST",
+  "can_do_statement": "Can use 'would' to talk about imagined situations in the past. \u25ba conditionals",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Speculating about imagined scenarios in the past.",
+   "pedagogical_hook": "Using 'would have' to talk about imagined situations in the past.",
+   "agency_or_distance": "Counterfactual"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:would|'d)(?:n't|\\s+not)?\\s+(?:[a-z]+ly\\s+)?have\\s+(?:[a-z]+ed|been|had|done|gone|seen|made|come|chosen|flown|known)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "would",
+       "'d"
+      ]
+     }
+    },
+    {
+     "OP": "?",
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "OP": "?",
+     "LOWER": {
+      "REGEX": "^[a-z]+ly$"
+     }
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The next week I would have flown to Miami.",
+    "I wouldn't have known how to do it."
+   ],
+   "negatives": [
+    "I would have a coffee.",
+    "I have known him for years."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711534x522343728787019200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTED SPEECH",
+  "can_do_statement": "Can use 'would' as the past form of 'will' in reported clauses.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Reporting statements that originally used 'will'.",
+   "pedagogical_hook": "Using 'would' as the past form of 'will' in reported speech.",
+   "agency_or_distance": "Reported"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:said|told|promised|announced|reported|mentioned)\\b(?:[^.?!]{1,40})\\b(?:would|'d)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "say",
+       "tell",
+       "promise",
+       "announce",
+       "report",
+       "mention"
+      ]
+     },
+     "TAG": {
+      "IN": [
+       "VBD",
+       "VBN"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "would",
+       "'d"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She said that she would come.",
+    "He told me I would like it."
+   ],
+   "negatives": [
+    "She said that she wants to come.",
+    "I would like to tell you."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711534x531065253308636860",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: WILLINGNESS IN THE PAST",
+  "can_do_statement": "Can use the negative forms of 'would' to talk about willingness in the past.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Expressing refusal or unwillingness in the past.",
+   "pedagogical_hook": "Using 'would not' or 'wouldn't' to show past unwillingness.",
+   "agency_or_distance": "Past Unwillingness"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:would\\s+not|wouldn't)\\s+(?:wait|allow|start|open|listen|let|stop|help|work)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "would"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "wait",
+       "allow",
+       "start",
+       "open",
+       "listen",
+       "let",
+       "stop",
+       "help",
+       "work"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The bus driver wouldn't wait.",
+    "My parents would not allow me to buy it."
+   ],
+   "negatives": [
+    "I wouldn't go there.",
+    "I would wait for you."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711534x798351647415961600",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use an increasing range of adverbs with 'would', including 'strongly', 'easily', 'especially', 'actually', 'absolutely', 'gladly'  \u25ba adverbs",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Modifying 'would' with an increasing range of adverbs.",
+   "pedagogical_hook": "Using 'would strongly recommend', 'would easily fit'.",
+   "agency_or_distance": "Evaluative"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:would|'d)\\s+(?:strongly|easily|especially|actually|absolutely|gladly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "would",
+       "'d"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "strongly",
+       "easily",
+       "especially",
+       "actually",
+       "absolutely",
+       "gladly"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I would strongly recommend the following changes.",
+    "Nascha would easily fit into a family."
+   ],
+   "negatives": [
+    "I strongly recommend it.",
+    "I would really like it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163711534x901809977839047200",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use a wide range of adverbs with 'would', including 'undoubtedly', 'possibly', 'normally', 'personally', 'eventually', 'obviously', 'significantly', 'inevitably'. \u25ba adverbs",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Modifying 'would' with advanced adverbs.",
+   "pedagogical_hook": "Using 'would undoubtedly', 'would significantly' for precision.",
+   "agency_or_distance": "Evaluative"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:would|'d)\\s+(?:undoubtedly|possibly|normally|personally|eventually|obviously|significantly|inevitably)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "would",
+       "'d"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "undoubtedly",
+       "possibly",
+       "normally",
+       "personally",
+       "eventually",
+       "obviously",
+       "significantly",
+       "inevitably"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The construction would undoubtedly contribute.",
+    "It would significantly increase membership."
+   ],
+   "negatives": [
+    "It is undoubtedly true.",
+    "I would really increase it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716067x101148462288360720",
+  "level": "A1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AUXILIARY VERB 'DO', PRESENT",
+  "can_do_statement": "Can form negative statements of main verbs in the present simple with 'don't' + main verb. \u25ba present simple \u25ba can",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Negating actions in the present simple.",
+   "pedagogical_hook": "Using 'don't' before a main verb to form a negative statement.",
+   "agency_or_distance": "Negative"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bdon't\\s+[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "do"
+    },
+    {
+     "LOWER": "n't"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I don't have a dining room.",
+    "We don't like other lessons."
+   ],
+   "negatives": [
+    "I didn't have a dining room.",
+    "Do you like lessons?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163716067x824562184770361200",
+  "level": "A1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MAIN VERB 'BE'",
+  "can_do_statement": "Can form negative statements of main verb 'be', with contracted and uncontracted forms.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Negating states or identities in the present.",
+   "pedagogical_hook": "Using 'am not', 'isn't', 'aren't' for negative statements.",
+   "agency_or_distance": "Negative State"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:\\bam\\s+not|'m\\s+not|\\bis\\s+not|\\bisn't|\\bare\\s+not|\\baren't)\\b(?!\\s+(?:[a-z]+ed|been|being|[a-z]+ing)\\b)",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    },
+    {
+     "TAG": {
+      "NOT_IN": [
+       "VBG",
+       "VBN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "My college is not very big.",
+    "I'm not a good swimmer."
+   ],
+   "negatives": [
+    "I am not swimming today.",
+    "The cake was not eaten."
+   ]
+  }
+ }
+]

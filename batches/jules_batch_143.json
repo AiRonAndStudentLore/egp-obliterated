@@ -1,0 +1,725 @@
+[
+  {
+    "egp_id": "1741163713636x966355033057875000",
+    "level": "C1",
+    "super_category": "PRESENT",
+    "sub_category": "present simple",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NEGATIVE QUESTIONS, OPINION",
+    "can_do_statement": "Can use the negative question form to check opinions.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Checking or confirming an opinion using a negative question.",
+      "pedagogical_hook": "Checking opinions using negative questions.",
+      "agency_or_distance": "Interpersonal involvement"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:do|does|is|are)(?:n['\u2019]?t|\\s+not)(?:\\s+[a-z]+ly)?\\s+(?:[a-z]+\\s+){1,3}(?:think|sound|like|agree|believe|feel|look|seem|suppose)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "do",
+              "be"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not",
+              "n\u2019t"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "n\u2019t",
+              ".",
+              "?",
+              "!"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "think",
+              "sound",
+              "like",
+              "agree",
+              "believe",
+              "feel",
+              "look",
+              "seem",
+              "suppose"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Doesn't it really sound like a good idea?",
+        "Don't you think we should go now?"
+      ],
+      "negatives": [
+        "I don't think it sounds good.",
+        "You do not like it at all."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713875x975509971933302300",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THIS'",
+    "can_do_statement": "Can use 'this' as a pronoun with singular reference.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Using a singular demonstrative pronoun to refer to a nearby or salient entity.",
+      "pedagogical_hook": "'This' as a standalone pronoun.",
+      "agency_or_distance": "High proximity"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthis\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "this",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass",
+              "dobj",
+              "pobj",
+              "ROOT",
+              "attr"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This is exactly what I wanted.",
+        "I cannot believe you did this."
+      ],
+      "negatives": [
+        "This car is too fast for me.",
+        "I will go this morning."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713876x134748917057494480",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'THIS', ALREADY MENTIONED ",
+    "can_do_statement": "Can use 'this' as a pronoun to refer back to single things or groups of plural things which have already been mentioned. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Using 'this' anaphorically to summarize or reference a prior noun phrase.",
+      "pedagogical_hook": "'This' referring back.",
+      "agency_or_distance": "Textual proximity"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:for|about|all|with|of|like|buy|do|see|have|know)\\s+this\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "ADP",
+              "VERB",
+              "DET"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "all",
+          "OP": "?"
+        },
+        {
+          "LOWER": "this",
+          "DEP": {
+            "IN": [
+              "pobj",
+              "dobj"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Thank you so much for this.",
+        "I never asked for all this."
+      ],
+      "negatives": [
+        "This book belongs to me.",
+        "This man came to my house."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163713876x434828220378989060",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'THIS' POINTING ",
+    "can_do_statement": "Can use 'this' as a pronoun to point to or identify single things or entities which are about to follow and have immediate relevance.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Cataphoric or deictic reference using 'this' before revealing the entity.",
+      "pedagogical_hook": "'This' pointing forward.",
+      "agency_or_distance": "Immediate relevance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthis\\s+(?:is|was|will\\s+be|would\\s+be)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "this",
+          "DEP": "nsubj"
+        },
+        {
+          "LEMMA": "be"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This is my phone number if you need it.",
+        "This is the information you requested."
+      ],
+      "negatives": [
+        "This computer is completely broken.",
+        "He bought this house last year."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714098x206083399771320740",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'THAT', ALREADY MENTIONED",
+    "can_do_statement": "Can use 'that' as a pronoun to refer back to something which has already been mentioned. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Using 'that' anaphorically.",
+      "pedagogical_hook": "'That' referring back.",
+      "agency_or_distance": "Distal reference"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:use|like|do|see|know|about|for|before|after|with)\\s+that\\b|\\bthat['\u2019]?s\\s+(?:why|how)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "that",
+          "DEP": {
+            "IN": [
+              "pobj",
+              "dobj",
+              "nsubj"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I really didn't know about that.",
+        "We will deal with that later."
+      ],
+      "negatives": [
+        "That dog is very loud.",
+        "I think that he is right."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714098x430400984906472960",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: RESPONSE TOKENS WITH 'THAT'S'",
+    "can_do_statement": "Can use 'that's' + adjective to respond to something. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Evaluating a situation using 'That's' + adjective.",
+      "pedagogical_hook": "'That's' + adjective.",
+      "agency_or_distance": "Evaluating statement"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthat(?:['\u2019]s|\\s+is)\\s+(?:a\\s+)?(?:[a-z]+\\s+){0,2}(?:great|pity|idea|good|bad|wonderful|terrible|awesome|nice|cool|amazing|sad)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "that",
+          "DEP": "nsubj"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "'s",
+              "is"
+            ]
+          },
+          "LEMMA": "be"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "a",
+              "an",
+              "very",
+              "really",
+              "so"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "ADJ",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "That's wonderful news!",
+        "That's great to hear!"
+      ],
+      "negatives": [
+        "That dog is absolutely great.",
+        "I think that is it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714098x499091268404870700",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THAT'",
+    "can_do_statement": "Can use 'that' as a pronoun with singular reference.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Using 'that' as a pronoun.",
+      "pedagogical_hook": "'That' as a singular pronoun.",
+      "agency_or_distance": "Distal reference"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthat\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "that",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass",
+              "pobj",
+              "dobj",
+              "ROOT",
+              "attr"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "That was a really amazing show.",
+        "I can't believe he said that."
+      ],
+      "negatives": [
+        "I know that you are lying.",
+        "That man is my uncle."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714098x563109573846865860",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'THIS', NOW",
+    "can_do_statement": "Can use 'this' as a pronoun to refer to something that is happening now. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Using 'this' to refer to a current, ongoing experience.",
+      "pedagogical_hook": "'This' for the present moment.",
+      "agency_or_distance": "Temporal immediacy"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthis\\s+(?:is|has\\s+been)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "this",
+          "DEP": "nsubj"
+        },
+        {
+          "LEMMA": "be",
+          "TAG": {
+            "IN": [
+              "VBZ",
+              "VBP"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This is the best party ever!",
+        "This is turning into a huge disaster."
+      ],
+      "negatives": [
+        "I will do this tomorrow morning.",
+        "This old picture reminds me of you."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714099x265234166901190180",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'THIS', ALREADY MENTIONED",
+    "can_do_statement": "Can use 'this' as a pronoun to refer back to whole clauses or sentences, especially to highlight or continue an important topic. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Using 'this' to encapsulate a whole preceding proposition.",
+      "pedagogical_hook": "'This' referring to a whole clause.",
+      "agency_or_distance": "Discourse cohesion"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:do|because\\s+of|change|charge\\s+of|about|stop|prevent)\\s+this\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "do",
+              "of",
+              "change",
+              "stop",
+              "prevent",
+              "about"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": "this",
+          "DEP": {
+            "IN": [
+              "pobj",
+              "dobj"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He was late, and because of this we missed the train.",
+        "You need to stop doing this immediately."
+      ],
+      "negatives": [
+        "This apple is very sweet.",
+        "I bought this car yesterday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714099x270527763674231580",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THOSE'",
+    "can_do_statement": "Can use 'those' as a pronoun with plural reference.  \u25ba  noun phrases",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Using 'those' as a plural demonstrative pronoun.",
+      "pedagogical_hook": "'Those' as a standalone pronoun.",
+      "agency_or_distance": "Plural distal reference"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthose\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "those",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass",
+              "pobj",
+              "dobj",
+              "ROOT",
+              "attr"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Those are my favorite shoes!",
+        "I want to buy some of those."
+      ],
+      "negatives": [
+        "Those people are waiting for you.",
+        "I remember those days fondly."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714099x322833948123137900",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'THOSE', ALREADY MENTIONED",
+    "can_do_statement": "Can use 'those' as a pronoun to refer to things which have already been mentioned.  \u25ba  noun phrases",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Plural distal anaphoric reference.",
+      "pedagogical_hook": "'Those' referring back.",
+      "agency_or_distance": "Textual distal cohesion"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:those\\s+are|like\\s+those|with\\s+those|about\\s+those)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "those",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "pobj",
+              "dobj"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Those are exactly the things I meant.",
+        "I don't like movies like those."
+      ],
+      "negatives": [
+        "Those apples look delicious.",
+        "Can you pass me those books?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714099x349717141784129860",
+    "level": "A2",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "USE: CLOSING",
+    "can_do_statement": "Can use 'that's all' to end a letter. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Summarizing the entirety of a message to signal closing.",
+      "pedagogical_hook": "'That's all' to sign off.",
+      "agency_or_distance": "Discourse boundary"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthat['\u2019]?s\\s+all(?:\\s+(?:for\\s+now|from\\s+me|folks))?[.?!,]",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "that"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "'s",
+              "is"
+            ]
+          }
+        },
+        {
+          "LOWER": "all",
+          "DEP": "attr"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Well, I guess that's all for now.",
+        "Anyway, that's all from me."
+      ],
+      "negatives": [
+        "That's all the money I have.",
+        "Is that all you can say?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714099x917601935810197900",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THESE'",
+    "can_do_statement": "Can use 'these' as a pronoun with plural reference.  \u25ba  noun phrases ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Plural proximal demonstrative pronoun.",
+      "pedagogical_hook": "'These' as a standalone pronoun.",
+      "agency_or_distance": "Plural proximal reference"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthese\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "these",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass",
+              "pobj",
+              "dobj",
+              "ROOT",
+              "attr"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "These are the best cookies I have ever had.",
+        "Can you hold these for a second?"
+      ],
+      "negatives": [
+        "These shoes are too tight.",
+        "I don't like these new rules."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714099x950999302071885200",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "USE: 'THESE', ALREADY MENTIONED",
+    "can_do_statement": "Can use 'these' as a pronoun to refer to something with immediate relevance which has already been mentioned.  \u25ba  noun phrases  \u25ba  pronouns: demonstrative",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Proximal plural anaphoric reference.",
+      "pedagogical_hook": "'These' referring back.",
+      "agency_or_distance": "Textual proximity"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:these\\s+are|like\\s+these|with\\s+these|about\\s+these)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "these",
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "pobj",
+              "dobj"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "These are the reasons I decided to quit.",
+        "I have never seen pictures like these."
+      ],
+      "negatives": [
+        "These students are very smart.",
+        "These days are getting shorter."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163714100x596866519177677700",
+    "level": "B1",
+    "super_category": "PRONOUNS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'THIS ONE', 'THAT ONE' SUBSTITUTION",
+    "can_do_statement": "Can use 'this one', 'that one' as a substitute for countable singular nouns that have previously been mentioned. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Lexical substitution using 'one' with a singular demonstrative.",
+      "pedagogical_hook": "'This one' or 'that one'.",
+      "agency_or_distance": "Specific entity discrimination"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:this|that)\\s+one\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "this",
+              "that"
+            ]
+          }
+        },
+        {
+          "LOWER": "one"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think I will buy this one.",
+        "Could you pass me that one instead?"
+      ],
+      "negatives": [
+        "This is the only one I have.",
+        "That man is the one who helped me."
+      ]
+    }
+  }
+]

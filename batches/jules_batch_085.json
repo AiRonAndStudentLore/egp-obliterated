@@ -1,0 +1,730 @@
+[
+ {
+  "egp_id": "1741163710840x532362863135737100",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PAST AFFIRMATIVE",
+  "can_do_statement": "Can use 'may have' + '-ed' to talk about possibility in the past.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Speculating about a past event",
+   "pedagogical_hook": "When you guess about what happened before now, use 'may have' plus the past participle.",
+   "agency_or_distance": "High psychological distance (past uncertainty)"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmay(?:\\s+[a-z]+ly)?\\s+have(?:\\s+[a-z]+ly)?\\s+[a-z]+(?:ed|en|n|t|d)\\b|\\bmay(?:\\s+[a-z]+ly)?\\s+have\\s+(?:been|seen|done|gone|taken|given|known|found|left|come|put|read|made|had)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "may"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He may have forgiven me for that accident.",
+    "As you may have noticed, there has been a delay."
+   ],
+   "negatives": [
+    "He may have a new car.",
+    "May we have some water?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710840x547885966746675300",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITE REQUEST",
+  "can_do_statement": "Can use 'may I' to make a polite request for permission.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Asking for permission politely",
+   "pedagogical_hook": "To ask for permission in a formal or polite way, start with 'May I'.",
+   "agency_or_distance": "High interpersonal distance (politeness)"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmay\\s+I\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "may"
+    },
+    {
+     "LOWER": "i"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Sir, may I come in?",
+    "May I ask you if your special offer will be still available?"
+   ],
+   "negatives": [
+    "He may go to the store.",
+    "The month of May is warm."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710840x730541799606596100",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'MAY WELL'",
+  "can_do_statement": "Can use 'may well' to give emphasis to something unexpected.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Emphasizing a strong possibility",
+   "pedagogical_hook": "When something is very likely, you can say it 'may well' happen.",
+   "agency_or_distance": "High certainty (epistemic)"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmay\\s+well\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "may"
+    },
+    {
+     "LOWER": "well"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think they may well come to an agreement.",
+    "It may well be that after leaving school they become our employees."
+   ],
+   "negatives": [
+    "He may do well on the exam.",
+    "The well may dry up."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710840x911616768286395600",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "USE: FOCUSING",
+  "can_do_statement": "Can use 'may' in phrases such as as 'you may know', or 'as you may have' + '-ed' to focus the reader on shared knowledge.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Referring to shared knowledge",
+   "pedagogical_hook": "To remind someone of something they probably know, use 'as you may know' or 'as you may have heard'.",
+   "agency_or_distance": "Shared epistemic ground"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\byou\\s+may\\s+(?:know|remember|recall|understand|guess|have\\s+(?:heard|seen|read|understood|noticed|guessed))\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "you"
+    },
+    {
+     "LOWER": "may"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "know",
+       "remember",
+       "recall",
+       "understand",
+       "guess",
+       "have"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "As you may know, it takes many hours.",
+    "As you may have heard, I am going to change to the engineering department."
+   ],
+   "negatives": [
+    "You may leave when you are ready.",
+    "He may know the answer to the question."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710840x998342327190675100",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "USE: OPINION",
+  "can_do_statement": "Can use 'may \u2026 but' to express an unexpected point of view. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Conceding a point before introducing a counter-argument",
+   "pedagogical_hook": "To agree with something briefly before adding a surprising twist, use 'may' followed by 'but'.",
+   "agency_or_distance": "Contrastive stance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmay\\s+(?:surprise|think|seem|be)[^\\.\\?!]{0,40}\\bbut\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "may"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "surprise",
+       "think",
+       "seem",
+       "be",
+       "find",
+       "feel"
+      ]
+     }
+    },
+    {
+     "OP": "*",
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!"
+      ]
+     }
+    },
+    {
+     "LOWER": "but"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "This may surprise you but I've managed to lose some weight.",
+    "You may think that it is quite boring but it is not."
+   ],
+   "negatives": [
+    "He may go to the store, but I don't think he will.",
+    "May I go? But why?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710841x403556143145239230",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'MAY AS WELL'",
+  "can_do_statement": "Can use 'may as well' to talk about what we think is the easiest or most logical course of action, often when we cannot see a better alternative or when it will not spoil the situation if you do that thing. \u25ba might",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Accepting the most logical course of action",
+   "pedagogical_hook": "When there's no better alternative, you can say you 'may as well' do something.",
+   "agency_or_distance": "Low agency (default choice)"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmay\\s+as\\s+well\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "may"
+    },
+    {
+     "LOWER": "as"
+    },
+    {
+     "LOWER": "well"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "After all, you may as well know.",
+    "I may as well see the other things."
+   ],
+   "negatives": [
+    "He may do as well as she did.",
+    "She may well win the race."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710841x706837420800042400",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "USE: HEDGING",
+  "can_do_statement": "Can use 'it may be' + '-ed' that as a hedging device when drawing conclusions and summarising, particularly in academic contexts. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Softening a conclusion or argument",
+   "pedagogical_hook": "In academic writing, use 'it may be argued that' to soften your statements.",
+   "agency_or_distance": "High distance (impersonal hedging)"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bit\\s+may\\s+be\\s+[a-z]+(?:ed|en)\\s+that\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "it"
+    },
+    {
+     "LOWER": "may"
+    },
+    {
+     "LOWER": "be"
+    },
+    {
+     "TAG": "VBN"
+    },
+    {
+     "LOWER": "that"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It may be concluded that their ultimate aim remains unchanged.",
+    "It may be argued that a child's academic success is crucial."
+   ],
+   "negatives": [
+    "It may be that he is right.",
+    "The car may be parked there."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710841x848786099914337500",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "USE: CONCESSION",
+  "can_do_statement": "Can use 'may' in a subordinate clause expressing concession with 'however', 'whatever', 'whoever' \u2026 + 'it or this may be or seem'.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Conceding a point regardless of conditions",
+   "pedagogical_hook": "To say that something is true no matter what, use 'whatever it may be' or 'however it may seem'.",
+   "agency_or_distance": "Irrealis concession"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:however|whatever|whoever|wherever|whenever)[^\\.\\?!,]{0,30}\\s+(?:it|this)\\s+may\\s+(?:be|seem)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "however",
+       "whatever",
+       "whoever",
+       "wherever",
+       "whenever"
+      ]
+     }
+    },
+    {
+     "OP": "*",
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!",
+       ","
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "it",
+       "this"
+      ]
+     }
+    },
+    {
+     "LOWER": "may"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "be",
+       "seem"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "However small it may be, I love it.",
+    "People enjoy what they are doing whatever it may be."
+   ],
+   "negatives": [
+    "However, it may be true.",
+    "Whatever you do, you may be happy."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710842x165685210295420480",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing possibility",
+   "pedagogical_hook": "To talk about something that is possible, use 'might' with a base verb.",
+   "agency_or_distance": "Low certainty"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?<!\\bnot\\s)\\bmight(?:\\s+(?!not\\b)[a-z]+ly)?\\s+(?!not\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "POS": "ADV",
+     "LOWER": {
+      "NOT_IN": [
+       "not"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     },
+     "LOWER": {
+      "NOT_IN": [
+       "not"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The weather might be hot and sunny.",
+    "I think it might be in your bedroom."
+   ],
+   "negatives": [
+    "It might not be true.",
+    "I shouldn't do this."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710842x176865262675485200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS",
+  "can_do_statement": "Can use 'might' to make polite suggestions and give advice.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Giving soft advice",
+   "pedagogical_hook": "To give gentle advice or suggest an idea politely, tell someone 'you might' do something.",
+   "agency_or_distance": "High interpersonal distance (politeness)"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\byou\\s+might(?:\\s+[a-z]+ly)?\\s+(?:need|want|talk|try|like|wish|consider)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "you"
+    },
+    {
+     "LOWER": "might"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "need",
+       "want",
+       "talk",
+       "try",
+       "like",
+       "wish",
+       "consider",
+       "prefer"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You might need to bring some food and drink.",
+    "I think that you might talk with your parents."
+   ],
+   "negatives": [
+    "He might talk to his parents.",
+    "You might be late."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710842x255780476758331600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: POSSIBILITY IN THE PAST",
+  "can_do_statement": "Can use 'might have' + '-ed' to talk about possibility with a past reference.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Speculating about a past event",
+   "pedagogical_hook": "To talk about what was possible in the past, use 'might have' with the past participle.",
+   "agency_or_distance": "High psychological distance (past uncertainty)"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmight\\s+have(?:\\s+[a-z]+ly)?\\s+[a-z]+(?:ed|en|n|t|d)\\b|\\bmight\\s+have\\s+(?:been|seen|done|gone|taken|given|known|found|left|led|broken)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Many things might have led to these changes.",
+    "I thought that a burglar might have broken into our house."
+   ],
+   "negatives": [
+    "He might have a lot of money.",
+    "She might have to leave early."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710842x294632080213531140",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST AFFIRMATIVE",
+  "can_do_statement": "Can use 'might have' + '-ed'. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Forming the past modal of possibility",
+   "pedagogical_hook": "To make 'might' past tense, add 'have' and a past participle.",
+   "agency_or_distance": "High psychological distance (past uncertainty)"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmight\\s+have(?:\\s+[a-z]+ly)?\\s+[a-z]+(?:ed|en|n|t|d)\\b|\\bmight\\s+have\\s+(?:been|seen|done|gone|taken|given|known|found|left|led|broken)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "LOWER": "have"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It might have been our neighbours' cat.",
+    "He might have seen us."
+   ],
+   "negatives": [
+    "They might have some issues.",
+    "I might have to go now."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710842x376058808932568060",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTED SPEECH",
+  "can_do_statement": "Can use 'might' as the past form of 'may' in indirect reports.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Reporting someone else's uncertainty",
+   "pedagogical_hook": "When reporting what someone said using 'may', change it to 'might'.",
+   "agency_or_distance": "High interpersonal distance (reported speech)"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:said|thought|told|believed|felt|knew|explained)[^\\.\\?!]{0,40}?\\bmight\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "say",
+       "think",
+       "tell",
+       "believe",
+       "feel",
+       "know",
+       "explain"
+      ]
+     },
+     "TAG": "VBD"
+    },
+    {
+     "OP": "*",
+     "LOWER": {
+      "NOT_IN": [
+       ".",
+       "?",
+       "!"
+      ]
+     }
+    },
+    {
+     "LOWER": "might"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "My parents said it might be the last holiday.",
+    "Lisa thought it might be a lucky one so she showed it to her Dad."
+   ],
+   "negatives": [
+    "It might rain today.",
+    "They say it might snow tomorrow."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710842x597284439250826500",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: POSSIBILITY",
+  "can_do_statement": "Can use 'might' to talk about weak possibility. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing weak possibility",
+   "pedagogical_hook": "If something is only a small possibility, use 'might' instead of 'will'.",
+   "agency_or_distance": "Low certainty"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?<!\\bnot\\s)\\bmight(?:\\s+(?!not\\b)[a-z]+ly)?\\s+(?!not\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "POS": "ADV",
+     "LOWER": {
+      "NOT_IN": [
+       "not"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     },
+     "LOWER": {
+      "NOT_IN": [
+       "not"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He might take us.",
+    "It might be on the computer table."
+   ],
+   "negatives": [
+    "I might not know.",
+    "I shouldn't do this."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163710842x878448062310088800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing negative possibility",
+   "pedagogical_hook": "To say it's possible something won't happen, use 'might not' or 'mightn't'.",
+   "agency_or_distance": "Low certainty"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmight\\s+not\\b|\\bmightn't\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "might"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It might not be very fashionable.",
+    "This mightn't be such a good thing."
+   ],
+   "negatives": [
+    "It might be a problem.",
+    "She might go to the store."
+   ]
+  }
+ }
+]

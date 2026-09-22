@@ -1,0 +1,937 @@
+{
+ "batch": "batches/jules_batch_005.json",
+ "cycles": 1,
+ "passed": 128,
+ "total": 165,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163708153x322996688200238400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708153x328592532654335940",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708153x480316823264789900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708153x695756963015404300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708153x699829274975112700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708153x823286292425265000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708153x841687423551314000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708154x515786574797433100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708328x809057828256698500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708329x286701804737242940",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708329x546836553751250300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708329x778951051617750700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708329x894844343465365000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708329x931125497510935300",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'Can I go?'",
+    "spaCy FALSE-POSITIVE on negative: 'Can I go?'"
+   ]
+  },
+  {
+   "egp_id": "1741163708330x413468355048861400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708330x456690728495361200",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'I have not.'",
+    "spaCy FALSE-POSITIVE on negative: 'I have not.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708330x678606711578176000",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy FALSE-POSITIVE on negative: 'Do you miss me?'"
+   ]
+  },
+  {
+   "egp_id": "1741163708336x128539343181511400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708336x903931402154698900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708336x928067678664856700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708336x930002080700909000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708342x469176927335390700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708343x138205144325988400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708343x470186262730331460",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: \"I don't know what a dog is.\"",
+    "spaCy FALSE-POSITIVE on negative: \"What a pity you couldn't stay.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708343x587422418001030500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708343x612263360498884700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708343x784452436860678700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708343x852921288542131100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708343x892117738381544400",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: \"He isn't here right now.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708343x903441921851317900",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: \"Tell me what didn't work.\"",
+    "spaCy FALSE-POSITIVE on negative: \"Tell me what didn't work.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708344x316156631249672000",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'How are you?'",
+    "regex FALSE-POSITIVE on negative: \"I don't know how fast he was going.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708562x194655656955947460",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'How do you do that?'"
+   ]
+  },
+  {
+   "egp_id": "1741163708563x223728715353026530",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'The man who is standing there is my brother.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708563x237474925872659840",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708563x360382864417081200",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: \"Doesn't that sound excellent to you?!\""
+   ]
+  },
+  {
+   "egp_id": "1741163708563x534984544701562900",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'I know that he is here.'",
+    "regex FALSE-POSITIVE on negative: 'That is my car.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708563x609059917595893100",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'I saw Mary, who was walking her dog.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708563x629778718895767000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708563x842654366263886400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708563x872592345857643000",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'How differently we were brought up.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708564x475588905228959040",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'The colour which I prefer is pink.'",
+    "regex FALSE-POSITIVE on negative: \"I don't know which game you mean.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708567x363468807312569340",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708567x510473221734893950",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'I asked her if she wanted tea, but she declined.'",
+    "spaCy FALSE-POSITIVE on negative: 'I asked her if she wanted tea, but she declined.'",
+    "regex FALSE-POSITIVE on negative: 'I am not sure if it will work.'",
+    "spaCy FALSE-POSITIVE on negative: 'I am not sure if it will work.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708567x890527430865632800",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'I want to go to the park.'",
+    "regex FALSE-POSITIVE on negative: 'She gave the book to him.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708567x901227389993147800",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: \"I don't know when he will arrive.\"",
+    "spaCy FALSE-POSITIVE on negative: \"I don't know when he will arrive.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708567x913678567426078300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708569x268710231555063360",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708569x385656258064060800",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Provided the weather is fine, you could go swimming.'",
+    "regex FALSE-POSITIVE on negative: 'I was provided with a new laptop for work.'",
+    "regex FALSE-POSITIVE on negative: 'He provided that information yesterday.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708569x527540071099035200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708570x262059735785698850",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708570x297785508495203460",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Were they to be paid a sufficient sum, they would agree.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708570x301704306507399700",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Compared to the campsite job this one has its advantages.'",
+    "spaCy MISSED positive: 'Based on the assessment above, I recommend some actions.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708570x407214749191681340",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'Although she was committed to her job, she quit.'",
+    "regex FALSE-POSITIVE on negative: 'Though he is tired, he continues.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708570x600858468058892400",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Should you need any further assistance, contact me.'",
+    "spaCy MISSED positive: 'Had we known that before, we could have taken more money.'",
+    "regex FALSE-POSITIVE on negative: 'Should we leave now?'",
+    "regex FALSE-POSITIVE on negative: 'Had they already left when you arrived?'"
+   ]
+  },
+  {
+   "egp_id": "1741163708570x758271347243594900",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: \"Not having accepted his wife's death, the father is left alone.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708570x985060556560681900",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'Running is good for you.'",
+    "regex FALSE-POSITIVE on negative: 'Swimming makes me hungry.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715813x920160730248656800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715814x475016379352568560",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715814x629362533174766300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715814x878379023593554300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708775x236006169337418240",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708775x324182637264445630",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708775x343585548868345200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708775x495770064260905300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708775x971363187748411900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708776x353462175520579140",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708776x617714358104645400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708776x708485975676895760",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708776x893117091364795400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708776x915082045254572900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708783x284853209894606820",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708783x595841847573481700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708783x837178860138102800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708784x444948210386186400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708784x469404755926666750",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708792x578027203654075000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x169611736244202020",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x231349056007116500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x394528376329640770",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x555362877047412000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x603808210938091100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708793x652344620706507100",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'It has the latest technology.'",
+    "spaCy MISSED positive: 'La Baule is the biggest beach.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708793x822211978637164400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708794x298696032662709950",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708794x304620412508079360",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708998x378745678664328200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709001x358121922371724900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709001x603991364400066700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709001x827143402527184000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709001x956266227421554000",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'The cost of those clothes was high.'"
+   ]
+  },
+  {
+   "egp_id": "1741163709005x222434593719802460",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709005x427091401714639400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709005x516384222350658750",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709005x786738476096090000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709006x299781618592868100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709006x327871317577952200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709006x384215267940110500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709006x393418761234294800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709006x638132110056680000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709006x759727598856757100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709011x101004395816580500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709011x121675845924224210",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x117638123076284200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x123278635116746530",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x230041547102954000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x344511888995459460",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x385518589517292100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x416302896661777700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x469636454463137700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709012x498407182012378100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709230x682584219326611800",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: \"I haven't got many winter clothes.\"",
+    "spaCy MISSED positive: \"I haven't got many winter clothes.\""
+   ]
+  },
+  {
+   "egp_id": "1741163709230x890396805087210400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x184772883851782600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x384570160463784100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x447456423959638800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x599038386454310800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x782328236071253400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x799263972459703900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x840776157772557800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709231x973378158122198000",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'They interviewed a few of the students.'"
+   ]
+  },
+  {
+   "egp_id": "1741163709233x219446270024584740",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709233x220608988049977300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709233x320864481076375400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709233x837764911232126800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709233x867279925750556200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163709234x899400819655924500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715814x164578011203941220",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715815x250435137016574720",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715815x557924987498417800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715815x672882522886991900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715815x734409577982950900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715815x803684934038761500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715816x575654726038477250",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715816x736238572687218000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715816x791104557132905200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163712741x374005051648893500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163712741x451753538727761150",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'Before I came here, I was happy.'"
+   ]
+  },
+  {
+   "egp_id": "1741163712741x502986363867653060",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'He met a lot of new friends, and then got married.'",
+    "regex MISSED positive: 'We met at 9 and decided to go.'",
+    "spaCy MISSED positive: 'We met at 9 and decided to go.'",
+    "regex FALSE-POSITIVE on negative: 'He meets a lot of friends and then gets married.'"
+   ]
+  },
+  {
+   "egp_id": "1741163712741x640931114927365400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163712741x766030441271033700",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'It would be better if you spent some time here.'"
+   ]
+  },
+  {
+   "egp_id": "1741163712741x938657596941798800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163712741x973372936620190600",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: \"Why didn't he call me?\""
+   ]
+  },
+  {
+   "egp_id": "1741163712743x203885413206849950",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Not only did I find them, but also others.'",
+    "spaCy MISSED positive: \"Not only didn't we travel, but also we stayed.\""
+   ]
+  },
+  {
+   "egp_id": "1741163712743x210897861318798620",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163712743x286039195636331720",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'It is true that it did rain during the day.'"
+   ]
+  },
+  {
+   "egp_id": "1741163712743x298607385595879740",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163712743x467903740487451800",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'Following advice from a friend, I purchased the product.'",
+    "regex MISSED positive: 'After having discussed this, we came up with decisions.'"
+   ]
+  },
+  {
+   "egp_id": "1741163712743x809106963202299400",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'I think it would be very helpful if I told you my own case.'",
+    "regex MISSED positive: 'I would be grateful if you gave me this job.'"
+   ]
+  },
+  {
+   "egp_id": "1741163712744x140719828534094260",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163712744x852310054287561700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715274x912538940118367500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x268506157109972930",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'Anyway, let me tell you what ideas I came up with.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715275x765416794436642000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x850594612311856000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x913732212255741200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x932225330988349400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x957741138272661000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715288x262148040901666750",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715607x526138276437947400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715607x671128268905876200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x234716564632592830",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x423925668920691600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x437514984752567900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x515455874028492200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x998353966000377700",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

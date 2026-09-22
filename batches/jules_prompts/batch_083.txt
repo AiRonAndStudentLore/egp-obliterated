@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_083.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163710611x575620351539563000",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE BOUND TO', CERTAINTY",
+  "can_do_statement": "Can use 'be' (+ modifier) 'bound to' to talk about something certain or inevitable.",
+  "example_raw": "I assure you that it is bound to be popular with different clients, especially young people and white-collar workers. (China; B2 VANTAGE; 2008; Chinese; Pass)\n\nIt is hardly possible to catch a cold when travelling by car in rain which is almost bound to happen while riding a bicycle. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nTo sum up, where many people get together, problems are bound to arise. (Denmark; B2 VANTAGE; 2000; Danish; Pass)"
+ },
+ {
+  "egp_id": "1741163710611x641365217086004500",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'BE' + ADJECTIVE + 'THAT'",
+  "can_do_statement": "Can use 'be' + 'obvious/sure/likely/certain' followed by a 'that'-clause.",
+  "example_raw": "It is about 1000 years old, so I am sure that you will find it fascinating to see it. (Japan; B2 VANTAGE; 2001; Japanese; Pass)\n\nIt was obvious that I would be late to work. (Greece; B2 VANTAGE; 2002; Greek; Pass)\n\nIt is likely that by reading books we will learn some new words and phrases so that we will be able to write better. (Poland; B2 VANTAGE; 2008; Polish; Pass)\n\nIt is certain that our state-of-the-art LCD will be well received and make great profits. (China; B2 VANTAGE; 2008; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163710611x851664498917631400",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE SUPPOSED TO', OBLIGATION, EXPECTATION",
+  "can_do_statement": "Can use 'be supposed to' to talk about expectation or obligation. ",
+  "example_raw": "However, the show is only on the 14th of March, the same day we are supposed to go to a Science Museum. (Brazil; B2 VANTAGE; 2000; Portuguese; Pass)\n\nOur travels are supposed to provide us with pleasure, knowledge and new experiences. (B2 VANTAGE; 1993; Polish; Pass)\n\nI have bought some disks but I don't know what I am supposed to do with them. (Spain; B2 VANTAGE; 1997; Spanish - European; Pass)\n\nI was supposed to explain to them what they had to do. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n"
+ },
+ {
+  "egp_id": "1741163710612x402995334969845200",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: IMPERATIVE",
+  "can_do_statement": "Can use the imperative form 'be sure to', to express obligation. ",
+  "example_raw": "If you cannot attend, be sure to inform me in advance. (Chinese, B2 VANTAGE, Pass, 2008)\n\nBe sure to contact me for any further information. (Russia; B2 VANTAGE; 2008; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163710612x901003785079941200",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE SURE/CERTAIN TO'",
+  "can_do_statement": "Can use 'be sure to', 'be certain to' to talk about certainty. ",
+  "example_raw": "A person that will act in that way is sure to be successful. (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nFurthermore, by bicycle, you don't spend your time in traffic-jams and you are sure to arrive at work on time. (France; B2 VANTAGE; 1993; French; Pass)\n\nThe market for this product is not yet fully developed, but we are certain to attract more and more people, especially students. (China; B2 VANTAGE; 2008; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163710613x108457117806470160",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE FORCED TO', OBLIGATION",
+  "can_do_statement": "Can use 'be forced to' to talk about an unnamed obligation, where the circumstances are beyond the control of the speaker/writer. ",
+  "example_raw": "I don't like to be forced to do something that I don't want to do. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nDue to decreasing sales over the last months, we are forced to cut the budget. (German, B2 VANTAGE, Pass, 2006)"
+ },
+ {
+  "egp_id": "1741163710613x174694583388425250",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: HEDGING",
+  "can_do_statement": "Can use 'be' + 'not' + adjective + 'that-' clause to make an assertion less direct.",
+  "example_raw": "[talking about a town near a dump where people cannot open their windows] I am not certain that they have got used to it. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; French; Pass)\n\n[talking about distractions while studying] It's not likely that you'll make progress. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Fail)\n\nAs you can see, I'm really in favour of this plan but I'm not sure that the council has anticipated everything. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; French; Pass) "
+ },
+ {
+  "egp_id": "1741163710613x336970391866066940",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE SET TO', ASSERTION",
+  "can_do_statement": "Can use 'be set to' to talk about strong assertion about the future, especially in institutional contexts. ",
+  "example_raw": "The turnover of our company is set to increase dramatically after the establishment of the e-shop, which itself requires little investment. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Chinese; Pass)\n\nThe population of children is set to plummet to 11.5% and that of working people also to 46.2% in 2050. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2011; English; )"
+ },
+ {
+  "egp_id": "1741163710613x411995420006495200",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use 'be' + 'not' + adjective + 'to' + infinitive.",
+  "example_raw": "The country's population is not likely to increase fast enough. (France; C2 MASTERY; 1993; French; Pass)\n\n[talking about relatives] You are not obliged to invite them over. (Greece; C2 MASTERY; 1993; Greek; Pass)\n\n[talking about tourism] Its positive effects are not certain to outweigh the negative ones. (Switzerland; C2 MASTERY; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163710613x796455236335726800",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE OBLIGED TO', OBLIGATION",
+  "can_do_statement": "Can use 'be obliged to' to talk about an external obligation, especially in institutional contexts. ",
+  "example_raw": "The Sales Representatives are obliged to participate. (Switzerland; B2 VANTAGE; 2005; German; Pass)\n\nBy January 2 everybody is obliged to have a parking permit when using the company car park. (German, B2 VANTAGE, Pass, 2001)\n\nThey were obliged to give up their house. (France; B2 VANTAGE; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710614x791981949538591400",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'BE' + ADJECTIVE + 'NOT' + 'TO'",
+  "can_do_statement": "Can use 'be' + adjective + 'not' + 'to' + infinitive for emphasis.",
+  "example_raw": "People should be obliged not to have more than a very small number of children otherwise they will be punished. (Greece; C2 MASTERY; 1993; Greek; Pass)\n\nNow without her knowledge, I know everything about her and she is bound not to conceal the truth! (France; C2 MASTERY; 1993; French; Fail)\n\nIndeed, whatever path parents choose, they are almost certain not to do a good job. (France; C2 MASTERY; 1993; French; Fail)\n\nBe sure not to miss the alligator steak. (C2 MASTERY; 1993; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163710614x141232985119578830",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question forms. ",
+  "example_raw": "What do you have to wear? (Thai, A2 WAYSTAGE, Pass, 2006)\n\nWhat do we have to bring? (Basque, A2 WAYSTAGE, Pass, 2006)\n\nDo you have to wear a skirt? (Spanish - Latin American, A2 WAYSTAGE, Pass, 2008)\n\nHave you got to bring a pencil? (Catalan, A2 WAYSTAGE, Pass, 2006)"
+ },
+ {
+  "egp_id": "1741163710614x486320350557277500",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative forms. ",
+  "example_raw": "You don't have to bring many things with you. (Greek, A2 WAYSTAGE, Pass, 2006)\n\nAbout the transport, you do not have to worry as my daddy can drop us at the sports centre. (Malay, A2 WAYSTAGE, Pass, 2008)\n\nWe haven't got to bring anything with us.  (Basque, A2 WAYSTAGE, Pass, 2006) "
+ },
+ {
+  "egp_id": "1741163710614x493203769213027600",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative forms. ",
+  "example_raw": "This weekend I have to go to a party. (Hungarian, A2 WAYSTAGE, Pass, 2008)\n\nWe\u2019ll meet at four o'clock because my mom has to go to the Shopping Centre then. (Portuguese, A2 WAYSTAGE, Pass, 2008)\n\nYou have got to bring a cap for the sun. (Spanish - European, A2 WAYSTAGE, Pass, 2009)\n\nFor the art lessons we've got to bring a rubber, two pencils and some colour pencils. (Spanish - European, A2 WAYSTAGE, Pass, 2006)"
+ },
+ {
+  "egp_id": "1741163710614x653642415559389200",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "USE: OBLIGATION",
+  "can_do_statement": "Can use 'have (got) to' to talk about obligations.",
+  "example_raw": "The concert starts at midnight but we have to go before then because we have got to buy our tickets. (Spanish - European, A2 WAYSTAGE, Pass, 2010)\n\nYou have to bring your swimming costume. (Spanish - European, A2 WAYSTAGE, Pass, 2009)"
+ }
+]
+```

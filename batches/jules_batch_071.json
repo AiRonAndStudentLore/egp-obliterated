@@ -1,0 +1,774 @@
+[
+  {
+    "egp_id": "1741163706534x938846205163626000",
+    "level": "A2",
+    "super_category": "ADJECTIVES",
+    "sub_category": "superlatives",
+    "lexical_range": "1",
+    "guideword": "FORM: ELLIPSIS, WITH 'THE'",
+    "can_do_statement": "Can use 'the' with a limited range of superlative adjectives without a following noun, when the noun is understood.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Identifying the extreme point on a scale without explicitly naming the entity",
+      "pedagogical_hook": "When you already know what we're talking about, just say 'the best' instead of 'the best thing'.",
+      "agency_or_distance": "High conceptual distance (referencing an abstract peak)."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthe\\s+(?:best|worst|most\\s+[a-z]+|[a-z]+est)(?:\\s*[,.!?;:]|\\s+(?:is|was|are|were|has|have|did|does|can|could|would|should|will|shall|might|must|may)\\b|\\s*$)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "most",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "JJS",
+              "RBS",
+              "JJ"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              ".",
+              "!"
+            ]
+          },
+          "IS_PUNCT": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My relatives gave me presents but the computer game was the best.",
+        "But Mark's present was the most beautiful!"
+      ],
+      "negatives": [
+        "It is the best book I have ever read.",
+        "That is the most beautiful car."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706536x720681284938151700",
+    "level": "B2",
+    "super_category": "ADJECTIVES",
+    "sub_category": "superlatives",
+    "lexical_range": "2",
+    "guideword": "FORM: ELLIPSIS, WITH 'THE'",
+    "can_do_statement": "Can use '(one of) the' with an increasing range of superlative adjectives without a following noun, when the noun is understood.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Identifying one of the extreme points on a scale without explicitly naming the entity",
+      "pedagogical_hook": "When describing extremes, say 'one of the best' and stop there if the noun is obvious.",
+      "agency_or_distance": "High conceptual distance."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:one\\s+of\\s+)?the\\s+(?:best|worst|most\\s+[a-z]+|[a-z]+est)(?:\\s*[,.!?;:]|\\s+(?:is|was|are|were|has|have|did|does|can|could|would|should|will|shall|might|must|may)\\b|\\s*$)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "most",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "JJS",
+              "RBS"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "NOT_IN": [
+              "NOUN",
+              "PROPN",
+              "PART",
+              "PRON"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It's very difficult to pick the most embarrassing.",
+        "That period of my life was one of the worst ."
+      ],
+      "negatives": [
+        "It was one of the worst moments of my life.",
+        "He is the greatest player in the team."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706728x100067556201106640",
+    "level": "A1",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'VERY' + ADJECTIVES",
+    "can_do_statement": "Can use 'very' to modify common gradable adjectives.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Intensifying a descriptive quality",
+      "pedagogical_hook": "Use 'very' before words like 'good' or 'nice' to make them stronger.",
+      "agency_or_distance": "Low distance (direct description)."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bvery\\s+(?:nice|good|bad|big|small|happy|sad|beautiful|ugly|hot|cold)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "very"
+        },
+        {
+          "POS": "ADJ",
+          "LOWER": {
+            "IN": [
+              "nice",
+              "good",
+              "bad",
+              "big",
+              "small",
+              "happy",
+              "sad",
+              "beautiful",
+              "ugly",
+              "hot",
+              "cold"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My home is very nice.",
+        "My teacher is very good."
+      ],
+      "negatives": [
+        "She ran very fast.",
+        "Thank you very much."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706728x261151446832563970",
+    "level": "A2",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "N/A",
+    "guideword": "FORM: TIME  and SEQUENCING, MODIFYING CLAUSES",
+    "can_do_statement": "Can use time and sequencing adverbs to modify clauses and sentences. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Framing an entire event with a time or sequence marker",
+      "pedagogical_hook": "Start your sentence with words like 'Yesterday' or 'First' to set the scene.",
+      "agency_or_distance": "Temporal distance."
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:yesterday|first|today|tomorrow|then|afterwards|later|recently|soon)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "yesterday",
+              "first",
+              "today",
+              "tomorrow",
+              "then",
+              "afterwards",
+              "later",
+              "recently",
+              "soon"
+            ]
+          },
+          "IS_SENT_START": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Yesterday I went shopping and bought some clothes.",
+        "First we had dinner in my house and after we went to the pub."
+      ],
+      "negatives": [
+        "The first time I saw her was magical.",
+        "I need a today newspaper."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706728x459747949486635000",
+    "level": "B1",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "2",
+    "guideword": "FORM: MANNER, MODIFYING VERBS  ",
+    "can_do_statement": "Can use an increasing range of manner adverbs to modify verbs.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Describing the specific way an action is performed",
+      "pedagogical_hook": "Add '-ly' words like 'carefully' or 'slowly' right next to the verb.",
+      "agency_or_distance": "High agency (how an actor acts)."
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:\\b(?:choose|look|say|think|act|run|walk|speak|sing|play)\\w*\\s+(?:at\\s+[a-z]+\\s+)?[a-z]+ly\\b)|(?:\\b[a-z]+ly\\s+(?:choose|look|say|think|act|run|walk|speak|sing|play)\\w*\\b)",
+      "spacy_token_pattern": [
+        {
+          "POS": "VERB"
+        },
+        {
+          "OP": "*",
+          "POS": "ADP"
+        },
+        {
+          "OP": "*",
+          "POS": "PRON"
+        },
+        {
+          "POS": "ADV",
+          "LOWER": {
+            "REGEX": "ly$"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You have to choose carefully.",
+        "She looked at me seriously and said something."
+      ],
+      "negatives": [
+        "It is a carefully chosen gift.",
+        "That is a seriously bad idea."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706728x670021003351025900",
+    "level": "A2",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "1",
+    "guideword": "FORM: MANNER, MODIFYING VERBS",
+    "can_do_statement": "Can use a limited range of manner adverbs to modify verbs.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Basic description of action quality",
+      "pedagogical_hook": "Use common words like 'fast' or 'well' to describe how you do something.",
+      "agency_or_distance": "High agency."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:swam|run|use|work|play|speak|eat|read|write)\\b(?:\\s+(?:my|your|his|her|its|our|their)\\s+[a-z]+)?(?:\\s+(?:very|so|really))?\\s+(?:fast|quickly|well|easily|hard)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "VERB"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "my",
+              "your",
+              "his",
+              "her",
+              "its",
+              "our",
+              "their"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "POS": "NOUN",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "very",
+              "so",
+              "really"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "fast",
+              "quickly",
+              "well",
+              "easily",
+              "hard"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They swam very fast.",
+        "I learned to use my phone very quickly."
+      ],
+      "negatives": [
+        "It is a very fast car.",
+        "The well is very deep."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706728x698576615346089300",
+    "level": "B1",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "1",
+    "guideword": "FORM: DEGREE, MODIFYING ADVERBS",
+    "can_do_statement": "Can use a limited range of degree adverbs to modify adverbs. \u25ba adverb phrases: form",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Intensifying the manner or timing of an action",
+      "pedagogical_hook": "Combine words like 'really' and 'early' or 'very' and 'carefully'.",
+      "agency_or_distance": "Low distance."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:really|very|so|quite|too)\\s+(?:early|carefully|fast|well|hard|late|quickly)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "really",
+              "very",
+              "so",
+              "quite",
+              "too"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "early",
+              "carefully",
+              "fast",
+              "well",
+              "hard",
+              "late",
+              "quickly"
+            ]
+          },
+          "POS": "ADV"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We left really early on a Friday morning.",
+        "I opened it very carefully."
+      ],
+      "negatives": [
+        "I am very happy.",
+        "It was a really good movie."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706728x743541438966270800",
+    "level": "A1",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'VERY' + TIME ADVERBS ",
+    "can_do_statement": "Can use 'very' to modify time adverbs. \u25ba adverb phrases",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Emphasizing extreme timing",
+      "pedagogical_hook": "Use 'very soon' or 'very early' to show something happens at an extreme time.",
+      "agency_or_distance": "Temporal distance."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bvery\\s+(?:soon|early|late|often|recently)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "very"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "soon",
+              "early",
+              "late",
+              "often",
+              "recently"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I hope you get well very soon.",
+        "I have a lesson very early."
+      ],
+      "negatives": [
+        "She is very nice.",
+        "We arrived at the very end."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706728x827649422602473600",
+    "level": "A1",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PLACE, COMPLEMENT",
+    "can_do_statement": "Can use place adverbs ('here', 'there') as complements of verbs. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Situating an entity in a spatial location",
+      "pedagogical_hook": "Use 'here' or 'there' right after verbs like 'be' or 'go'.",
+      "agency_or_distance": "Spatial distance."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|go|went|stay|live|been)\\s+(?:happy\\s+)?(?:here|there)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "go",
+              "stay",
+              "live"
+            ]
+          }
+        },
+        {
+          "POS": "ADJ",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "here",
+              "there"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am happy here because people are very nice.",
+        "You must go there."
+      ],
+      "negatives": [
+        "There are many people in the room.",
+        "Here is your pen."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706728x889779704010106100",
+    "level": "B1",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "2",
+    "guideword": "FORM/USE: MODIFYING CLAUSES, STANCE",
+    "can_do_statement": "Can use adverbs to modify clauses and sentences to indicate stance or attitude. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing speaker attitude over an entire proposition",
+      "pedagogical_hook": "Start a sentence with 'Luckily' or 'Obviously' to show how you feel about the whole statement.",
+      "agency_or_distance": "High distance (speaker perspective)."
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:obviously|luckily|fortunately|unfortunately|personally|honestly|surprisingly|hopefully)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "obviously",
+              "luckily",
+              "fortunately",
+              "unfortunately",
+              "personally",
+              "honestly",
+              "surprisingly",
+              "hopefully"
+            ]
+          },
+          "IS_SENT_START": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Obviously, you prefer going with your friends.",
+        "Luckily, I arrived in time."
+      ],
+      "negatives": [
+        "He was obviously upset.",
+        "She luckily found her keys."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706728x956633908640879100",
+    "level": "A2",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEGREE, MODIFYING ADJECTIVES",
+    "can_do_statement": "Can use a range of degree adverbs to modify common gradable adjectives. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Scaling the intensity of a property",
+      "pedagogical_hook": "Use 'so', 'really', or 'too' before adjectives to change their strength.",
+      "agency_or_distance": "Low distance."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:so|really|too|quite|pretty)\\s+(?:happy|expensive|important|big|small|good|bad)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "so",
+              "really",
+              "too",
+              "quite",
+              "pretty"
+            ]
+          }
+        },
+        {
+          "POS": "ADJ"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I'm so happy because you can come!",
+        "But it is too expensive."
+      ],
+      "negatives": [
+        "I really like it.",
+        "He runs so fast."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706728x987923532840156800",
+    "level": "A1",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEGREE and TIME, MODIFYING VERBS",
+    "can_do_statement": "Can use degree and time adverbs to modify verbs.",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Modifying the frequency or intensity of an action",
+      "pedagogical_hook": "Put words like 'always', 'sometimes', or 'really' right before the verb.",
+      "agency_or_distance": "Temporal distance."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:really|always|sometimes|never|often|usually)\\s+(?:like|go|eat|play|read|write)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "really",
+              "always",
+              "sometimes",
+              "never",
+              "often",
+              "usually"
+            ]
+          }
+        },
+        {
+          "POS": "VERB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I really like Japanese music.",
+        "I always go to the park with my children."
+      ],
+      "negatives": [
+        "It is a really good book.",
+        "She is always happy."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706930x186899124179832800",
+    "level": "C1",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEGREE, MODIFYING COMPARATIVES",
+    "can_do_statement": "Can use degree adverbs ('slightly', 'a bit', 'much') to modify comparatives.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Fine-tuning the gap between two compared entities",
+      "pedagogical_hook": "Use 'slightly', 'a bit', or 'much' before a comparative like 'more' or 'better'.",
+      "agency_or_distance": "Low distance."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:slightly|much|bit|far)\\s+(?:more|less|[a-z]+er)\\b(?!\\s+now\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "slightly",
+              "much",
+              "bit",
+              "far"
+            ]
+          }
+        },
+        {
+          "LOWER": "more",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "JJR",
+              "RBR"
+            ]
+          }
+        },
+        {
+          "LOWER": "now",
+          "OP": "!"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My Spanish is slightly more fluent than my English.",
+        "Their grandparents are much more experienced."
+      ],
+      "negatives": [
+        "I am much better now at reading.",
+        "I like it very much."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706930x228413817377030900",
+    "level": "B2",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEGREE, MODIFYING DETERMINERS",
+    "can_do_statement": "Can use degree adverbs ('almost', 'very') to modify determiners. \u25ba determiners",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Approximating or emphasizing a quantity",
+      "pedagogical_hook": "Use 'almost' or 'very' right before quantity words like 'all' or 'few'.",
+      "agency_or_distance": "High distance."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:almost|very)\\s+(?:all|few|every|many|no|any|some)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "almost",
+              "very"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "all",
+              "few",
+              "every",
+              "many",
+              "no",
+              "any",
+              "some"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I can work at home almost all the time.",
+        "There are probably very few of us."
+      ],
+      "negatives": [
+        "It is almost ready.",
+        "She is very happy."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706930x408715502774479550",
+    "level": "C1",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "2",
+    "guideword": "FORM: DEGREE, MODIFYING ADVERBS",
+    "can_do_statement": "Can use an increasing range of degree adverbs to modify a range of adverb types. \u25ba adjectives \u25ba adverb phrases: form",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Intensifying an existing adverbial modifier",
+      "pedagogical_hook": "Combine strong modifiers like 'incredibly' or 'reasonably' with other adverbs like 'fast' or 'well'.",
+      "agency_or_distance": "Low distance."
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:almost|quite|incredibly|reasonably|extremely|fairly|pretty)\\s+(?:completely|frequently|fast|well)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "almost",
+              "quite",
+              "incredibly",
+              "reasonably",
+              "extremely",
+              "fairly",
+              "pretty"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "LOWER": {
+            "IN": [
+              "completely",
+              "frequently",
+              "fast",
+              "well"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The attitude has almost completely changed.",
+        "The charity event went reasonably well."
+      ],
+      "negatives": [
+        "It is incredibly beautiful.",
+        "I am fairly certain."
+      ]
+    }
+  }
+]
