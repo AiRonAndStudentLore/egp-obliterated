@@ -1,0 +1,87 @@
+{
+ "batch": "batches/jules_batch_070.json",
+ "cycles": 1,
+ "passed": 14,
+ "total": 15,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163715274x912538940118367500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x268506157109972930",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'Anyway, let me tell you what ideas I came up with.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715275x765416794436642000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x850594612311856000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x913732212255741200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x932225330988349400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715275x957741138272661000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715288x262148040901666750",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715607x526138276437947400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715607x671128268905876200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x234716564632592830",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x423925668920691600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x437514984752567900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x515455874028492200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715608x998353966000377700",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

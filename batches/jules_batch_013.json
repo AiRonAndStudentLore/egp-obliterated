@@ -1,0 +1,756 @@
+[
+  {
+    "egp_id": "1741163709005x786738476096090000",
+    "level": "C2",
+    "super_category": "DETERMINERS",
+    "sub_category": "demonstratives",
+    "lexical_range": "N/A",
+    "guideword": "USE: EMOTIONAL DISTANCE",
+    "can_do_statement": "Can use 'that' and 'those' to convey emotional distance, often to express disapproval.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Distancing oneself from a concept or behaviour.",
+      "pedagogical_hook": "Using 'that' or 'those' for emotional distance or disapproval.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(that|those)\\s+(sort\\s+of|kind\\s+of|type\\s+of|so-called)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "that",
+              "those"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "sort",
+              "kind",
+              "type",
+              "so"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "of",
+              "-"
+            ]
+          }
+        },
+        {
+          "LOWER": "called",
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I would never accept that sort of treatment.",
+        "Why do we listen to those so-called heroes?"
+      ],
+      "negatives": [
+        "I have that sort in my collection already.",
+        "Those are my friends."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709005x222434593719802460",
+    "level": "A2",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: SINGULAR NOUN +''S'",
+    "can_do_statement": "Can use ''s' after singular or proper nouns to indicate possession.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?!(it|he|she|that|there|what|who)\\b)[a-z]+'s\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "LOWER": "'s"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I found my sister's jacket.",
+        "We are going to Linda's party."
+      ],
+      "negatives": [
+        "It's raining outside today.",
+        "He's running very fast."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709005x427091401714639400",
+    "level": "A1",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH NOUNS",
+    "can_do_statement": "Can use possessive determiners 'my', 'your', 'his', 'her' and 'our' before nouns. \u25ba noun phrases \u25ba possessive pronouns",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(my|your|his|her|our)\\s+(?:[a-z]+\\s+){0,2}[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "my",
+              "your",
+              "his",
+              "her",
+              "our"
+            ]
+          }
+        },
+        {
+          "POS": "ADJ",
+          "OP": "*"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I live with my family.",
+        "She lost her favorite book."
+      ],
+      "negatives": [
+        "He is looking at me.",
+        "I saw them yesterday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709005x516384222350658750",
+    "level": "A2",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH QUANTIFYING DETERMINERS + 'OF' ",
+    "can_do_statement": "Can use quantifying determiners + possessive determiners + 'of' + noun. \u25ba noun phrases",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(all|some|many|most|none|both|any|much|each|several|few)\\s+of\\s+(my|your|his|her|its|our|their)\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "all",
+              "some",
+              "many",
+              "most",
+              "none",
+              "both",
+              "any",
+              "much",
+              "each",
+              "several",
+              "few"
+            ]
+          }
+        },
+        {
+          "LOWER": "of"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "my",
+              "your",
+              "his",
+              "her",
+              "its",
+              "our",
+              "their"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "All of my friends were there.",
+        "Bring some of your DVDs."
+      ],
+      "negatives": [
+        "Some friends were there.",
+        "I saw all the cars."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709006x299781618592868100",
+    "level": "B2",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: OF + NOUN PHRASE ''S'",
+    "can_do_statement": "Can use ''s' after a noun phrase with of to indicate possession.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bof\\s+(?:my|your|his|her|our|their)\\s+[a-z]+'s\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "of"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "my",
+              "your",
+              "his",
+              "her",
+              "our",
+              "their"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "LOWER": "'s"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He is a friend of my father's.",
+        "I heard a story of your brother's."
+      ],
+      "negatives": [
+        "He is a friend of my father.",
+        "My father's friend is here."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709006x327871317577952200",
+    "level": "B2",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PLURAL NOUN + 'S''",
+    "can_do_statement": "Can use 's'' after plural nouns to indicate possession.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b[a-z]+s'\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "TAG": {
+            "IN": [
+              "NNS",
+              "NNPS"
+            ]
+          }
+        },
+        {
+          "TEXT": "'"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We stayed at my parents' house.",
+        "I want to study animals' behaviour."
+      ],
+      "negatives": [
+        "The cat's toy is missing.",
+        "It's a beautiful day."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709006x384215267940110500",
+    "level": "B1",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: IRREGULAR PLURAL NOUN + ''S'",
+    "can_do_statement": "Can use ''s' after irregular plural nouns to indicate possession.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(people|children|men|women|mice|teeth|geese)'s\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "people",
+              "children",
+              "men",
+              "women",
+              "mice",
+              "teeth",
+              "geese"
+            ]
+          }
+        },
+        {
+          "LOWER": "'s"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They attract people's attention.",
+        "It is far from the children's school."
+      ],
+      "negatives": [
+        "The people are waiting.",
+        "The dog's bone is buried here."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709006x393418761234294800",
+    "level": "B2",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "USE: GENERIC 'THEIR'",
+    "can_do_statement": "Can use 'their' before nouns to refer to a generic body or group of people expressed as a singular subject. \u25ba generic pronouns",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(everyone|everybody|someone|somebody|anyone|anybody|nobody|person|customer)\\s+(?:[a-z]+\\s+){0,4}their\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "everyone",
+              "everybody",
+              "someone",
+              "somebody",
+              "anyone",
+              "anybody",
+              "nobody",
+              "person",
+              "customer"
+            ]
+          }
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": "their"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Everyone has their own opinion.",
+        "Every customer wants their product fast."
+      ],
+      "negatives": [
+        "Their car is parked outside.",
+        "Everyone knows he is right."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709006x638132110056680000",
+    "level": "B1",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THEIR'",
+    "can_do_statement": "Can use possessive determiner 'their'. \u25ba noun phrases \u25ba possessive pronouns",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\btheir\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "their"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They returned to their car.",
+        "I couldn't see their faces."
+      ],
+      "negatives": [
+        "There is a problem.",
+        "They are coming over."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709006x759727598856757100",
+    "level": "B2",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'ITS'  ",
+    "can_do_statement": "Can use possessive determiner 'its' before nouns to refer to a singular inanimate subject or object. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bits\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "its"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "ADJ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It has its own screen.",
+        "Verona is great with its buildings."
+      ],
+      "negatives": [
+        "It's a huge screen.",
+        "I love its."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709011x101004395816580500",
+    "level": "C2",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: SINGULAR NOUN ENDING IN 'S' + APOSTROPHE",
+    "can_do_statement": "Can use an apostrophe after singular nouns ending in 's', to indicate possession.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(series|species|boss|class|bus|gas|glass|dress|thomas|james|charles|chris|jesus)'\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "REGEX": "^.*s$"
+          },
+          "TAG": {
+            "IN": [
+              "NN",
+              "NNP"
+            ]
+          }
+        },
+        {
+          "TEXT": "'"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We must keep the series' aspects the same.",
+        "I drove James' car to the store."
+      ],
+      "negatives": [
+        "My parents' house is nearby.",
+        "The dog's bowl is empty."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709011x121675845924224210",
+    "level": "C1",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'ONE'S'",
+    "can_do_statement": "Can use 'one's' to indicate possession, referring to people in general. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bone's\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "one"
+        },
+        {
+          "LOWER": "'s"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN",
+              "ADJ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Tourism can affect one's life.",
+        "It depends on one's ability to communicate."
+      ],
+      "negatives": [
+        "One is enough for me.",
+        "He's the only one."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709012x469636454463137700",
+    "level": "C2",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: ''S + 'S'",
+    "can_do_statement": "Can use two possessive ''s' constructions in the same noun phrase. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b[a-z]+'s\\s+[a-z]+'s\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "'s"
+        },
+        {
+          "POS": "ADJ",
+          "OP": "*"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "LOWER": "'s"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They were in Ann's mother's albums.",
+        "We went to Emily's grandmother's house."
+      ],
+      "negatives": [
+        "Ann's mother is nice.",
+        "The cat's toy is under the dog's bed."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709012x498407182012378100",
+    "level": "C2",
+    "super_category": "DETERMINERS",
+    "sub_category": "possessives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: ''S' WITH ELLIPTED NOUN",
+    "can_do_statement": "Can use ''s' without a following noun when the noun has already been mentioned or is obvious in the context. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b[a-z]+'s(?=\\s*[.,;!?]|$)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "'s"
+        },
+        {
+          "POS": {
+            "NOT_IN": [
+              "NOUN",
+              "PROPN",
+              "ADJ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Olivia's experiences are probably the narrator's.",
+        "The empty account was my friend's."
+      ],
+      "negatives": [
+        "My friend's car is empty.",
+        "Olivia's experience was fun."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163709012x117638123076284200",
+    "level": "A1",
+    "super_category": "DETERMINERS",
+    "sub_category": "quantity",
+    "lexical_range": "1",
+    "guideword": "FORM: WITH PLURAL NOUNS ",
+    "can_do_statement": "Can use a limited range of quantifying determiners with plural nouns ('some', 'lots of', 'a lot of' and numbers).",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+      "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(some|lots\\s+of|a\\s+lot\\s+of|two|three|four|five|six|seven|eight|nine|ten|many)\\s+[a-z]+s\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "some",
+              "lots",
+              "lot",
+              "two",
+              "three",
+              "four",
+              "five",
+              "many"
+            ]
+          }
+        },
+        {
+          "LOWER": "of",
+          "OP": "?"
+        },
+        {
+          "POS": "NOUN",
+          "TAG": "NNS"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Near my home there are some shops.",
+        "My house has got three rooms."
+      ],
+      "negatives": [
+        "I have a lot of water.",
+        "There is some trouble here."
+      ]
+    }
+  }
+]

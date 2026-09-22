@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_018.json`
 ```json
 [
  {
-  "egp_id": "1741163709236x469443168054973600",
-  "level": "B1",
-  "super_category": "FUTURE",
-  "sub_category": "future in the past",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'BE GOING TO'",
-  "can_do_statement": "Can use the simple past form of 'be' + 'going to' to talk about the future from a point in the past. \u25ba 'be going to' ",
-  "example_raw": "She was going to return it but she saw something very strange, her number was on the screen. (Argentina; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nShe didn't know what was going to happen. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)\n\nWe were going to meet two days later in the square next to the centre. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163709240x412925570751819600",
-  "level": "B1",
-  "super_category": "FUTURE",
-  "sub_category": "future in the past",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'WOULD' ",
-  "can_do_statement": "Can use 'would' to talk about the future from a point in the past.\u25ba 'would'",
-  "example_raw": "I've just bought a new dress, and a beautiful black T-shirt. When I saw them, I thought they would be great for tonight's party. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)\n\n\u2026 we thought that the film would be horrible because of the title but when the film started, the story was beautiful and Mauricio and I liked it a lot. (Portuguese, B1 THRESHOLD, Pass, 2002)\n\nAs I saw the advert, I knew it would be a lovely birthday present. (B1 THRESHOLD; 2003; ; Pass)"
- },
- {
-  "egp_id": "1741163709241x319054215667245100",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future in the past",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'BE ON THE POINT OF'",
-  "can_do_statement": "Can use the simple past form of 'be' + 'on the point of' + '-ing' to talk about things that were expected to happen soon after a point in the past. ",
-  "example_raw": "In addition, when I was on the point of leaving the office, another phone rang. (Greece; B2 VANTAGE; 2002; Greek; Pass)\n\nIn fact he simulated his death to escape from the police, who were on the point of catching him fora penicillin racket. (Laos; B2 VANTAGE; 1993; Lao; Pass)"
- },
- {
-  "egp_id": "1741163709241x526855987091597630",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future in the past",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'BE ABOUT TO'",
-  "can_do_statement": "Can use the simple past form of 'be' + 'about to' (often with 'just') to talk about the immediate future from a point in the past. ",
-  "example_raw": "Two days before, I told him that our father was about to buy a brand new car. (France; B2 VANTAGE; 2000; French; Pass)\n\nWhen I was about to answer the question, I realised that it was not as easy as I had thought. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nDear Helen, Believe it or not, I was just about to write you a letter when I received yours. (Chile; B2 VANTAGE; 2005; Spanish - Latin American; Pass)\n\nJust as we were about to climb through the broken window, a policeman arrived on the scene. (Greece; B2 VANTAGE; 1993; Greek; Pass)"
- },
- {
-  "egp_id": "1741163709241x531655376865656240",
-  "level": "C2",
-  "super_category": "FUTURE",
-  "sub_category": "future in the past",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'BE DUE TO' ",
-  "can_do_statement": "Can use the simple past form of 'be' + 'due to' to talk about scheduled events in the future from a point in the past. ",
-  "example_raw": "It was quite early in the morning, only 7.15 am, and my plane was due to leave in about 40 minutes. (Germany; C2 MASTERY; 1993; German; Pass)\n\nTen minutes after the time we were due to begin, she arrived. (Spain; C2 MASTERY; 1998; Catalan; Pass)\n\nWe have succeeded in persuading the local Council that the factory that was due to be built near the lake was dangerous. (Greece; C2 MASTERY; 1993; Greek; Pass)"
- },
- {
-  "egp_id": "1741163709241x116456418775643170",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": null,
-  "example_raw": null
- },
- {
-  "egp_id": "1741163709241x184726411236370240",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE ",
-  "can_do_statement": "Can use the affirmative form with 'will'.",
-  "example_raw": "This summer I will have been working for three years for my company \u2026 (Spain; B2 VANTAGE; 2008; Catalan; Pass)"
- },
- {
-  "egp_id": "1741163709241x694975673678065400",
-  "level": "C2",
-  "super_category": "FUTURE",
-  "sub_category": "future perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: ASSUMPTIONS",
-  "can_do_statement": "Can use the future perfect continuous to make assumptions about the present.",
-  "example_raw": "I do not think that this aspect is really necessary because it is supposed that \u2026 you will have been studying very hard to occupy that job \u2026. (Argentina; C2 MASTERY; 2005; Spanish - Latin American; Fail)"
- },
- {
-  "egp_id": "1741163709241x823282465499844400",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: LOOKING BACK FROM A POINT IN THE FUTURE ",
-  "can_do_statement": "Can use the future perfect continuous to look back to the past from a point in the future and to emphasise the duration of an activity or event.",
-  "example_raw": "Now I am staying in Hastings in England and this month, I will have been studying English for seven months. (Korea, South; B2 VANTAGE; 1999; Korean; Fail)\nI think I could have a holiday just in July because I will have been working for my company for one year by the end of the June. (Turkey; B2 VANTAGE; 2000; Turkish; Pass)"
- },
- {
-  "egp_id": "1741163709242x337416434344128840",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form with 'will'. ",
-  "example_raw": "I'm sure I will have learned today's lesson by the next lesson. (Brazil; B2 VANTAGE; 2003; Portuguese; Pass)\n\nIt seems that the decorative role of clothes will have disappeared by the year 2050. (Kazakhstan; B2 VANTAGE; 2000; Russian; Pass)"
- },
- {
-  "egp_id": "1741163709242x695590620556235600",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE ",
-  "can_do_statement": "Can use the negative form with 'will'. ",
-  "example_raw": "I think that the best time for me to visit Scotland would be in July, because I will not have finished my university exams by June. (Greece; B2 VANTAGE; 2008; Greek; Pass)\n\n[talking about a cycling trip] Once we have finished, it we won't have done more than 40 km, and there are just another 10 to get to the Lakeside Inn. (Spain; B2 VANTAGE; 1998; Spanish - European; Pass)"
- },
- {
   "egp_id": "1741163709452x228579889474654900",
   "level": "B2",
   "super_category": "FUTURE",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_018.json`
   "guideword": "USE: ASSUMPTIONS",
   "can_do_statement": "Can use the future perfect simple with 'will' to make assumptions about the present, particularly with 'you'.",
   "example_raw": "As you will have heard, this year's work experience programme in Britain was in general a success. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Greek; Pass)\n\nAll of this is because her book will have included the cultural traditions that go with the dishes. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163709453x816599367616623800",
+  "level": "C1",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS",
+  "can_do_statement": "Can use the future perfect simple with 'will' as a politeness strategy, often in formal contexts.",
+  "example_raw": "[from a formal letter] I hope I will have reassured you. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163709453x838199776198091500",
+  "level": "A1",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE 'WILL'",
+  "can_do_statement": "Can use the affirmative forms 'will' and ''ll'. ",
+  "example_raw": "I will see you soon. (A1 BREAKTHROUGH; 2009; Urdu; Pass)\n I'll come at 7 o'clock. (A1 BREAKTHROUGH; 2006; Others; Pass)"
+ },
+ {
+  "egp_id": "1741163709453x862696596004533200",
+  "level": "A1",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: PLANS AND INTENTIONS WITH 'WILL'",
+  "can_do_statement": "Can use 'will' and ''ll' to talk about plans and intentions. ",
+  "example_raw": "I will try to come to see you tomorrow. (A1 BREAKTHROUGH; 2009; Romanian; Pass)\n\nI'll bring a football ball with me. (A1 BREAKTHROUGH; 2011; Bulgarian; Pass)"
+ },
+ {
+  "egp_id": "1741163709454x624344823309990100",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE 'WILL'",
+  "can_do_statement": "Can use the negative forms 'will not' and 'won't'.",
+  "example_raw": "Without them I will not be able to play football. (Spain; A2 WAYSTAGE; 2005; Spanish - European; Pass)\n\nCan you come at 7 o'clock? I won't be at home before.  (Italy; A2 WAYSTAGE; 2009; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163709454x714636092733784700",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS ",
+  "can_do_statement": "Can use the question forms of 'will' and 'shall'.",
+  "example_raw": "Will you come? (Russia; A2 WAYSTAGE; 2006; Russian; Pass)\n\nAnd what shall I bring to the party? (Italy; A2 WAYSTAGE; 2009; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163709454x725724780708232700",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE 'SHALL'",
+  "can_do_statement": "Can use the affirmative form 'shall' with 'I' and 'we'. ",
+  "example_raw": "I shall come with you. (India; A2 WAYSTAGE; 2003; Hindi; Pass)\n\nWe shall take a bus to the sports centre. (Hindi, A2 WAYSTAGE, Pass, 2008)\n\nWe shall go together next year! (Brazil; A2 WAYSTAGE; 2007; Portuguese; Pass))"
+ },
+ {
+  "egp_id": "1741163709461x334143938995607360",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: OFFERS WITH 'SHALL'",
+  "can_do_statement": "Can use 'shall I' to make offers.",
+  "example_raw": "Shall I wait for you? (Mexico; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nShall I buy you one? (Spanish - European, A2 WAYSTAGE, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163709461x479205549406747100",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: REQUESTS WITH 'WILL'",
+  "can_do_statement": "Can use 'will' to make requests.",
+  "example_raw": "Will you come tomorrow at 6.35 pm to my house? (Italy; A2 WAYSTAGE; 2009; Italian; Pass)\n\n[talking about a parcel] Will you send it for me? (Sri Lanka; A2 WAYSTAGE; 2005; Tamil; Pass)"
+ },
+ {
+  "egp_id": "1741163709461x970222053180020700",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: PLANS AND  INTENTIONS WITH 'WILL'",
+  "can_do_statement": "Can use 'will' to ask about plans and intentions. ",
+  "example_raw": "Will you have a mobile phone? (France; A2 WAYSTAGE; 2007; French; Pass)\n\nWill you come by train? (Switzerland; A2 WAYSTAGE; 2009; Spanish - Other; Pass)"
+ },
+ {
+  "egp_id": "1741163709462x251946416286091620",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS WITH 'SHALL'",
+  "can_do_statement": "Can use 'shall we' to make suggestions.",
+  "example_raw": "Shall we go to my friend's house to get it? (Brazil; A2 WAYSTAGE; 2005; Portuguese; Pass)\n\nShall we go there together? (Kazakhstan; A2 WAYSTAGE; 2009; Kazakh; Pass)"
+ },
+ {
+  "egp_id": "1741163709462x426193932554453060",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE:IMMEDIATE PLANS WITH 'SHALL'",
+  "can_do_statement": "Can use 'shall' with 'I' and 'we' to talk about plans and intentions.",
+  "example_raw": "I promise that I shall cover all the work and give it to you tomorrow. (Thai, B1 THRESHOLD, Pass, 2006)\n\nAfter that, I shall go to the beach. (Yugoslavia; B1 THRESHOLD; 2001; Serbian; Pass)\n\nWe shall have a meeting regarding this next week. (India; B1 THRESHOLD; 2006; Telugu; Pass)"
  }
 ]
 ```

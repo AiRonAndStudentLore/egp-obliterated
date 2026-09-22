@@ -1,0 +1,695 @@
+[
+  {
+    "egp_id": "1741163708567x363468807312569340",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: REASON",
+    "can_do_statement": "Can use a finite subordinate clause with conjunctions to introduce reasons, after a main clause. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Establishing a causal relationship between events",
+      "pedagogical_hook": "Giving reasons with 'as' or 'since'",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?:^|[,;]\\s*|\\s)\\b(?:as|since|because)\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){0,3}(?:am|is|are|was|were|have|has|had|do|does|did|will|would|can|could|shall|should|may|might|must|[a-z]+s|[a-z]+ed|be)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "as",
+              "since",
+              "because"
+            ]
+          },
+          "DEP": "mark"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass",
+              "expl"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I prefer to stay home, as I have got another appointment.",
+        "We will have to cancel the trip since it is raining heavily."
+      ],
+      "negatives": [
+        "I have been living here since 2010.",
+        "She works as a manager in the new company."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708567x510473221734893950",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'IF' CLAUSES, CONDITIONS",
+    "can_do_statement": "Can use a finite subordinate clause with 'if', before or after a main clause, to introduce conditions. \u25ba clauses: conditionals",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing a conditional scenario",
+      "pedagogical_hook": "Basic 'if' conditionals",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bif\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){0,3}(?:am|is|are|was|were|have|has|had|do|does|did|will|would|can|could|[a-z]+s?|[a-z]+ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if",
+          "DEP": "mark"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass",
+              "expl"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I would be very happy if you visit me.",
+        "If you want to come, just tell me."
+      ],
+      "negatives": [
+        "I asked her if she wanted tea, but she declined.",
+        "I am not sure if it will work."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708567x890527430865632800",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PURPOSE",
+    "can_do_statement": "Can use a non-finite subordinate clause with 'to', to introduce purpose.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Stating the purpose or goal of an action",
+      "pedagogical_hook": "Infinitive of purpose",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bto\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:[a-z]+)?\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "to",
+          "DEP": "aux"
+        },
+        {
+          "DEP": "advmod",
+          "OP": "?"
+        },
+        {
+          "DEP": "advcl",
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "To reach my house, you just have to turn left.",
+        "I went to the store to buy some milk."
+      ],
+      "negatives": [
+        "I want to go to the park.",
+        "She gave the book to him."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708567x901227389993147800",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: TIME",
+    "can_do_statement": "Can use a finite subordinate clause with time conjunctions, before or after a main clause. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Linking events in time",
+      "pedagogical_hook": "Time clauses with when/while",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:when|while|before|after|until|as soon as)\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){1,3}[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "when",
+              "while",
+              "before",
+              "after",
+              "until"
+            ]
+          },
+          "DEP": {
+            "IN": [
+              "mark",
+              "advmod",
+              "prep"
+            ]
+          }
+        },
+        {
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass",
+              "expl"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I feel comfortable when I am wearing these clothes.",
+        "While we were eating pizza, the phone rang."
+      ],
+      "negatives": [
+        "I don't know when he will arrive.",
+        "The meeting is after lunch."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708567x913678567426078300",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: PURPOSE, RESULT",
+    "can_do_statement": "Can use a finite subordinate clause with conjunctions ('so (that), in order that') to introduce purpose and result, after a main clause.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Expressing purpose or intended result",
+      "pedagogical_hook": "Purpose clauses with so that / in order that",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:so(?:\\s+that)?|in\\s+order\\s+that)\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){1,3}(?:can|could|may|might|will|would)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "so",
+              "order"
+            ]
+          }
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass",
+              "expl"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Please give me some extra exercises so that I can cover the work.",
+        "Bring your camera in order that we can take photos."
+      ],
+      "negatives": [
+        "I was so tired that I fell asleep immediately.",
+        "He ordered that the doors be closed."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708569x268710231555063360",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NON-FINITE WITH '-ING'",
+    "can_do_statement": "Can use a non-finite subordinate clause with 'after' + 'having/being' + '-ed' form, before a main clause, to refer to past time. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Sequencing past events with perfect participle",
+      "pedagogical_hook": "After having done...",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bafter\\s+(?:having|being)\\s+[a-z]+(?:ed|en)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "after"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "having",
+              "being"
+            ]
+          }
+        },
+        {
+          "TAG": "VBN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "After having worked for many hours, you'll be tired.",
+        "After being given the pass, you can take pictures."
+      ],
+      "negatives": [
+        "After working all day, I went home.",
+        "He arrived after having a big dinner."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708569x385656258064060800",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: CONDITIONS",
+    "can_do_statement": "Can use a finite subordinate clause, before or after a main clause, with conjunctions to introduce conditions. \u25ba clauses: conditionals",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Establishing complex conditions",
+      "pedagogical_hook": "Conditionals with unless/provided",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:unless|provided(?:\\s+that)?)\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){1,3}[a-z]+",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "unless",
+              "provided"
+            ]
+          },
+          "DEP": "mark"
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass",
+              "expl"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Unless something is done, many people will die.",
+        "Provided the weather is fine, you could go swimming."
+      ],
+      "negatives": [
+        "I was provided with a new laptop for work.",
+        "He provided that information yesterday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708569x527540071099035200",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NON-FINITE WITH '-ING'",
+    "can_do_statement": "Can use a non-finite subordinate clause with 'before' and 'after' + '-ing', before or after a main clause, to refer to time. ",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Linking an action in time to a progressive action",
+      "pedagogical_hook": "Before/After + -ing",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:before|after)\\s+(?:(?:not|never)\\s+)?[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "before",
+              "after"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "never"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "TAG": "VBG",
+          "DEP": "pcomp"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I read them in the evening before going to bed.",
+        "We can relax after working hard at school."
+      ],
+      "negatives": [
+        "I saw him before the morning meeting.",
+        "She arrived after the moving truck."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708570x262059735785698850",
+    "level": "C1",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NON-FINITE AFTER 'IF'",
+    "can_do_statement": "Can use non-finite clauses after 'if'. .\u25ba 'clauses: conditionals'",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Abbreviating conditional states",
+      "pedagogical_hook": "if + VBN or VBG",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bif\\s+(?:not\\s+)?[a-z]+(?:ed|en|ing)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "if"
+        },
+        {
+          "LOWER": "not",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBN",
+              "VBG"
+            ]
+          },
+          "DEP": "advcl"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Please do not hesitate to ask for further assistance if needed.",
+        "There are some suggestions that, if taken, could improve the school."
+      ],
+      "negatives": [
+        "If you need anything, let me know.",
+        "I don't know if he is coming."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708570x297785508495203460",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'WERE' + PRONOUN + 'TO' INFINITIVE, FORMAL",
+    "can_do_statement": "Can use 'Were' + pronoun + 'to' infinitive to introduce a condition, in formal contexts. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Hypothetical inversion for high formality",
+      "pedagogical_hook": "Were I to...",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^were\\s+(?:I|you|he|she|it|we|they)\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "were",
+          "DEP": "advcl"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass"
+            ]
+          }
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Were we to give them this opportunity, it would be a great advantage.",
+        "Were they to be paid a sufficient sum, they would agree."
+      ],
+      "negatives": [
+        "We were to meet at noon.",
+        "If we were to go, we would need money."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708570x301704306507399700",
+    "level": "C1",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NON-FINITE WITH '-ED' CLAUSES, FOCUS",
+    "can_do_statement": "Can use a non-finite subordinate clause with an '-ed' form, before a main clause, to give focus.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Fronting a participial phrase for discourse focus",
+      "pedagogical_hook": "Fronted past participle clauses",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^[A-Z][a-z]+(?:ed|en)\\s+(?:to|on|by|in|with|from)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "TAG": "VBN",
+          "DEP": "advcl"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Compared to the campsite job this one has its advantages.",
+        "Based on the assessment above, I recommend some actions."
+      ],
+      "negatives": [
+        "He based his theory on recent data.",
+        "They compared the two products carefully."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708570x407214749191681340",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NON-FINITE AFTER 'ALTHOUGH', 'THOUGH'",
+    "can_do_statement": "Can use non-finite clauses after subordinating conjunctions '(although, though)', to express contrast. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Contrasting abbreviated states",
+      "pedagogical_hook": "although/though + past participle or adjective",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:although|though)\\s+(?:not\\s+)?[a-z]+(?:ed|en|ing)?\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "although",
+              "though"
+            ]
+          }
+        },
+        {
+          "LOWER": "not",
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBN",
+              "VBG",
+              "JJ"
+            ]
+          },
+          "DEP": {
+            "IN": [
+              "advcl",
+              "amod",
+              "acomp"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Although committed to her job, she maintains social contacts.",
+        "Jack, though disappointed, respects the result."
+      ],
+      "negatives": [
+        "Although she was committed to her job, she quit.",
+        "Though he is tired, he continues."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708570x600858468058892400",
+    "level": "C1",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: INVERSION",
+    "can_do_statement": "Can introduce a subordinate clause with inverted 'should/had/were' + subject + verb, in formal contexts. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Inversion for counterfactuals or strong conditions",
+      "pedagogical_hook": "Had we known... Should you need...",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:should|had|were)\\s+(?:I|you|he|she|it|we|they|[A-Z][a-z]+)\\s+(?:not\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "should",
+              "had",
+              "were"
+            ]
+          },
+          "IS_SENT_START": true,
+          "DEP": "advcl"
+        },
+        {
+          "DEP": "nsubj"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Should you need any further assistance, contact me.",
+        "Had we known that before, we could have taken more money."
+      ],
+      "negatives": [
+        "Should we leave now?",
+        "Had they already left when you arrived?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708570x758271347243594900",
+    "level": "C1",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'NOT' + '-ING' CLAUSE",
+    "can_do_statement": "Can use a non-finite clause, introduced by 'not' + '-ing', to give more information. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Providing circumstantial background negatively",
+      "pedagogical_hook": "Not + -ing for background information",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^not\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "not",
+          "IS_SENT_START": true
+        },
+        {
+          "TAG": "VBG",
+          "DEP": "advcl"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Not knowing the North of London very well, it took me time.",
+        "Not having accepted his wife's death, the father is left alone."
+      ],
+      "negatives": [
+        "He is not going to the party.",
+        "I preferred not doing anything yesterday."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708570x985060556560681900",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: '-ING' CLAUSE",
+    "can_do_statement": "Can use a non-finite clause, introduced by '-ing' before a main clause, to give more information. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Setting background with progressive participle",
+      "pedagogical_hook": "Fronted -ing clauses",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)^[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "TAG": "VBG",
+          "DEP": "advcl"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Having no choice, I sat down on a bench.",
+        "Using his best smile, Paul asked her."
+      ],
+      "negatives": [
+        "Running is good for you.",
+        "Swimming makes me hungry."
+      ]
+    }
+  }
+]

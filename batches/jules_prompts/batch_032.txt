@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_032.json`
 ```json
 [
  {
-  "egp_id": "1741163711031x153375030941925500",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "need",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PAST, NEGATIVE",
-  "can_do_statement": "Can use 'needn't have' + '-ed'.",
-  "example_raw": "You needn't have bought me anything! (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Spanish - European; Pass)\n\nHowever, you needn't have bothered so much. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; French; Pass)"
- },
- {
-  "egp_id": "1741163711031x683368301481546160",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "need",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use the question form. ",
-  "example_raw": "Need you ask? (Greece; C2 MASTERY; 2002; Greek; Pass)\n\nLastly I would appreciate , as I am sure others would too, if the premises were cleaner. Need I say more? (India; 2005; English;)\n"
- },
- {
-  "egp_id": "1741163711031x841582544358879100",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "need",
-  "lexical_range": "N/A",
-  "guideword": "USE: OBLIGATION AND NECESSITY",
-  "can_do_statement": "Can use 'needn't to' talk about a lack of obligation. ",
-  "example_raw": "I like summer so much because the weather is hot and we needn't wear a jacket. (Greece; B2 VANTAGE; 2000; Greek; Pass) \n\n[talking about preparing for a party] As for the music, you needn't worry about it. (Greece; B2 VANTAGE; 2009; Greek; Pass)"
- },
- {
-  "egp_id": "1741163711031x889528493173510800",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "need",
-  "lexical_range": "N/A",
-  "guideword": "USE: IN DISCUSSION",
-  "can_do_statement": "Can use the question form rhetorically in discussion, typically in formal contexts.",
-  "example_raw": "Need I go on? (Cyprus; C2 MASTERY; 2000; Greek; Pass)\n\nNeed you work in this way? (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163711031x948362564696333800",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "need",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the negative form.",
-  "example_raw": "You needn't worry about where we can stay. (China; B2 VANTAGE; 1998; Chinese; Pass)\n\n \u2026 when I send an e-mail, I need not worry about the time. (Japan; B2 VANTAGE; 2000; Japanese; Pass)\n\nYou needn't go out jogging in the evening because you have already had your exercise. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)"
- },
- {
-  "egp_id": "1741163711031x327482417726489200",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "ought",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form. ",
-  "example_raw": "I think you ought to go on holiday with both of them. (Turkey; B1 THRESHOLD; 2008; Turkish; Pass)\n\nOh, I'm sorry, my mum's calling and I ought to go. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163711031x618063039110384000",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "ought",
-  "lexical_range": "N/A",
-  "guideword": "USE: ADVICE",
-  "can_do_statement": "Can use 'ought to' with 'you' to give advice.",
-  "example_raw": "Then, if you'd rather go with your friend, you ought to talk to your parents first, and tell them what you think about it. (France; B1 THRESHOLD; 2008; French; Pass)\n\nI think that you ought to play tennis or football at the weekend. (Switzerland; B1 THRESHOLD; 2009; Swiss German; Pass)"
- },
- {
-  "egp_id": "1741163711031x774677823144905200",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "ought",
-  "lexical_range": "N/A",
-  "guideword": "FORM: ELLIPSIS",
-  "can_do_statement": "Can use 'ought to' without a following verb where the previous main verb is understood. \u25ba ellipsis",
-  "example_raw": "Otherwise some students would not get as much specialised help as they ought to. (Germany; B2 VANTAGE; 2010; German; Pass)"
- },
- {
-  "egp_id": "1741163711032x281092767712077150",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "ought",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: DESIRED STATES, WITH 'THERE OUGHT TO BE' ",
-  "can_do_statement": "Can use 'there ought to be' to talk about desired states of affairs. ",
-  "example_raw": "The rooms were dirty, there was no room service and there ought to be a lift since the rooms were on the 4th floor. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)\n\n\u2026 we came to the conclusion that there ought to be some changes to the club\u2019s publicity. (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)\n\nI think there ought to be more excursions and guided tours. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)"
- },
- {
-  "egp_id": "1741163711032x545399225271266940",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "ought",
-  "lexical_range": "N/A",
-  "guideword": "USE: DESIRED STATES ",
-  "can_do_statement": "Can use 'ought to' to talk about desired states of affairs.",
-  "example_raw": "Furthermore, we ought to take care of our health by going on trips to not unpolluted places as often as possible. (France; B2 VANTAGE; 1999; French; Pass)\n\nOf course not all zoos are as good as they ought to be, but today we know so much about the different animals that they don't have to get bored in the zoo and we're able to provide them with the environment they prefer. (Denmark; B2 VANTAGE; 1993; Danish; Pass)\n\nThere shouldn't be any rubbish dumps, all the rubbish ought to be recycled. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163711054x175278152218314660",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "ought",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: EMPHASIS, WITH 'REALLY'",
-  "can_do_statement": "Can use 'ought to' with 'really' to add emphasis.",
-  "example_raw": "Moreover, you really ought to ask for details about the timetable they've set for schooling hours, just to be sure that its fits the with way of studying you are accustomed to. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)\n\nThis is what almost everyone thinks, but we really ought to think a little bit more about it. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Catalan; Pass)\n\nOne really ought to know the interests, wishes and demands of the receiver. (Slovakia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Slovak; Pass)"
- },
- {
   "egp_id": "1741163711055x131146939288121260",
   "level": "C2",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_032.json`
   "guideword": "FORM: QUESTIONS, NEGATIVE ",
   "can_do_statement": "Can use 'ought' + subject + 'not to' + verb to form (rhetorical) questions, often in formal contexts. ",
   "example_raw": "And if not, ought we not to learn from the mistakes of the past? (Denmark; C2 MASTERY; 1998; Danish; Pass)"
+ },
+ {
+  "egp_id": "1741163711055x585919331905116800",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "ought",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form 'ought not to'. ",
+  "example_raw": "Secondly, there ought not to be a division between rich and poor. (Netherlands; C2 MASTERY; 1999; Dutch; Pass)\n\nWe ought not to forget that in the last twenty years the food industry has increased the number of chemicals used in its products. (Uruguay; C2 MASTERY; 2006; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163711055x171614615026989500",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "shall",
+  "lexical_range": "N/A",
+  "guideword": "USE: OFFERS",
+  "can_do_statement": "Can use 'shall I' to make offers.",
+  "example_raw": "Shall I go and buy some cake and crackers? (Bulgarian, A2 WAYSTAGE, Pass, 2009)\n\nThe tickets cost \u20ac25. Shall I buy you one? (Spanish - European, A2 WAYSTAGE, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163711055x215173738549169900",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "shall",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "We shall start tomorrow at 2 o'clock. (Marathi, A2 WAYSTAGE, Pass, 2006)\n\nI shall be free on Sunday at 6 o'clock in the evening. (Ukraine; A2 WAYSTAGE; 2005; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163711055x245124661514512830",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "shall",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS",
+  "can_do_statement": "Can use 'shall' with 'we' to make suggestions.",
+  "example_raw": "Tomorrow evening there is Laura Pausini's concert in Turin. Shall we go? (Italian, A2 WAYSTAGE, Pass, 2010)\n\nShall we go to a Korean restaurant after the film? (Korean, A2 WAYSTAGE, Pass, 2003)"
+ },
+ {
+  "egp_id": "1741163711055x654239307859430400",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "shall",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form.",
+  "example_raw": "Shall we meet at half past 4 in front of my house? (Japanese, A2 WAYSTAGE, Pass, 2008)\n\nWhat time shall I come? And what shall I bring to the party? (Italian, A2 WAYSTAGE, Pass, 2009)"
+ },
+ {
+  "egp_id": "1741163711057x155202045665735940",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "shall",
+  "lexical_range": "N/A",
+  "guideword": "USE: COMMANDS AND INSTRUCTIONS ",
+  "can_do_statement": "Can use 'shall' to express commands in very formal contexts.",
+  "example_raw": "We therefore need to insist that the agreement is binding and that the contract shall be fulfilled. (Swiss German, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2007)"
+ },
+ {
+  "egp_id": "1741163711057x158399813598145700",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "shall",
+  "lexical_range": "N/A",
+  "guideword": "USE: AFTER 'IF' CLAUSES",
+  "can_do_statement": "Can use 'shall' in the main clause after an 'if-' clause  \u25ba conditionals",
+  "example_raw": "Nowadays people live longer than they did in the past, which is very nice and pleasant, but we must be careful because if things get out of hand, \u2026 we shall be doomed to live in complete chaos. (Portuguese, C2 MASTERY, Pass, 1993)\n\nI have to inform you that if we do not receive a reply this time we shall take the matter to court. (Poland; C2 MASTERY; 1993; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711057x209644856293522680",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "shall",
+  "lexical_range": "N/A",
+  "guideword": "USE: PLANS AND INTENTIONS",
+  "can_do_statement": "Can use 'shall' to talk about plans and intentions, particularly in formal contexts.",
+  "example_raw": "I promise that I shall cover all the work and give it to you tomorrow. (Thai, B1 THRESHOLD, Pass, 2006)\n\nRemember that we shall meet inside the bar. (Russian, B1 THRESHOLD, Pass, 2008)\n\nI apologise for having to miss tomorrow's English class as my cousin's wedding will be taking place ... I shall be attending class the day after tomorrow. (Tamil, B1 THRESHOLD, Pass, 2006)"
+ },
+ {
+  "egp_id": "1741163711057x361262241051185400",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "shall",
+  "lexical_range": "N/A",
+  "guideword": "USE: PREDICTIONS",
+  "can_do_statement": "Can use 'shall' to make predictions.",
+  "example_raw": "As a result, our town shall have financial benefits, as people visiting the library will visit the city\u2019s shops for their needs. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\n\u2026 we shall probably have several years more to live. (France; C2 MASTERY; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163711057x774242678413627800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "shall",
+  "lexical_range": "N/A",
+  "guideword": "USE: SEEKING ADVICE",
+  "can_do_statement": "Can use 'shall' to seek advice.",
+  "example_raw": "What shall I buy for her wedding? (Slovak, B1 THRESHOLD, Pass, 2004)\n\n[a student writing to a teacher] I am really sorry but I have to travel to Argentina for health reasons. What shall I do with next week's work? (Spanish - Latin American, B1 THRESHOLD, Pass, 2009)\n"
+ },
+ {
+  "egp_id": "1741163711057x995048909365883900",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "shall",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form.",
+  "example_raw": "This way, students shall not die of boredom or feel that their stay was useless. (Japan; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Japanese; Pass)\n\nSecondly, supplier contracts shall not be omitted. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Russian; Pass)\n\nThis is, as I mentioned in my letter, only in the event I shall not be able to pick you up at the airport. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)"
  }
 ]
 ```

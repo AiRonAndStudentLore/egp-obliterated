@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_066.json`
 ```json
 [
  {
-  "egp_id": "1741163715034x128016271247440200",
-  "level": "B1",
-  "super_category": "QUESTIONS",
-  "sub_category": "yes/no",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE QUESTIONS WITH 'BE'",
-  "can_do_statement": "Can use main verb 'be' + 'n\u2019t' to form negative 'yes/no' questions.",
-  "example_raw": "Aren't you excited about it? (Uruguay; B1 THRESHOLD; 2003; ; Pass)\n\nIsn't he sweet? (Germany; B1 THRESHOLD; 2001; German; Pass)\n\n[talking about a cottage] Isn't it in the mountains? (Czech Republic; B1 THRESHOLD; 2008; Czech; Pass)"
- },
- {
-  "egp_id": "1741163715034x165762004955058560",
-  "level": "B1",
-  "super_category": "QUESTIONS",
-  "sub_category": "yes/no",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE QUESTIONS, AUXILIARY VERBS",
-  "can_do_statement": "Can use auxiliary 'do' and 'have' + 'n\u2019t' + subject + main verb to form negative 'yes/no' questions. ",
-  "example_raw": "Don't you think so? (Japan; B1 THRESHOLD; 2008; Japanese; Pass)\n\nDon't you like any programmes? (Spain; B1 THRESHOLD; 2007; Spanish - European; Pass)\n\nDon't you think she would be happy? (Argentina; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)\n\nDon't you know me? (China; B1 THRESHOLD; 2006; Chinese; Pass)\n\nHaven't you seen it yet? (Argentina; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)\n\nHaven't they got their own style? (Germany; B1 THRESHOLD; 2006; German; Pass)"
- },
- {
-  "egp_id": "1741163715034x328104656808845060",
-  "level": "B1",
-  "super_category": "QUESTIONS",
-  "sub_category": "yes/no",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE QUESTIONS MODAL VERBS",
-  "can_do_statement": "Can use modal verbs + 'not' + subject + main verb to form 'yes/no' questions. ",
-  "example_raw": "Wouldn't you like to come? (Uruguay; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)\n\nI'm going to a picnic next Saturday with my parents, won't you come with us? (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nCan't you make both? (France; B1 THRESHOLD; 2008; French; Pass)"
- },
- {
-  "egp_id": "1741163715034x378736507797090750",
-  "level": "B1",
-  "super_category": "QUESTIONS",
-  "sub_category": "yes/no",
-  "lexical_range": "N/A",
-  "guideword": "USE: SEEKING AGREEMENT",
-  "can_do_statement": "Can use negative 'yes/no' questions to involve the listener or reader by seeking agreement. ",
-  "example_raw": "Finally two days ago I found it in my pocket! It's funny! Don't you think? (Italy; B1 THRESHOLD; 2000; Italian; Pass)\n\nThey're filming a part of Harry Potter at our school, because our main building is very old. Isn't that great? (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nYou can even just relax and sunbathe while you drink a nice, cold lemonade. Wouldn't that be amazing? (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nWhile we were there, there was also a concert and I got to see Rihanna and Chris Brown! Isn't that awesome? (Tagalog, B1 THRESHOLD, Pass, 2009)"
- },
- {
-  "egp_id": "1741163715034x601077874617532500",
-  "level": "C2",
-  "super_category": "QUESTIONS",
-  "sub_category": "yes/no",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: NEGATIVE QUESTIONS WITH 'NOT', EMPHASIS",
-  "can_do_statement": "Can form negative questions with uncontracted 'not' to emphasise a point in an argument. ",
-  "example_raw": "Do we not want our children to be as happy as possible? (Argentina; C2 MASTERY; 2002; Spanish - Latin American; Pass)\n\nIs it not too easy to put the blame systematically on our education? (France; C2 MASTERY; 2007; French; Pass)\n\nIs it not possible to have this, though maybe on a smaller scale, in our everyday living right where we spend the majority of our time on earth? (Switzerland; C2 MASTERY; 2000; French; Pass)\n\nAre they not aware of the negative effects the use of cars has on cities? (Spain; C2 MASTERY; 2010; Spanish - European; Pass)\n\nCan it not, sometimes, be harmful to the world? (Portugal; C2 MASTERY; 1993; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163715817x253069047706943500",
-  "level": "A2",
-  "super_category": "REPORTED SPEECH",
-  "sub_category": "reported speech",
-  "lexical_range": "N/A",
-  "guideword": "FORM: REPORTED STATEMENTS WITH 'TELL', PRONOUN SHIFT",
-  "can_do_statement": "Can report statements using a reporting clause with 'tell' + direct object + 'that-'clause, with a pronoun shift where relevant. ",
-  "example_raw": "[about a mobile phone] It's very important to me to have it with me because my brother is in the hospital and my father told me that he will call. (Argentina; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)\n\nMy sister told me that this film is very good. (Brazil; A2 WAYSTAGE; 2003; Portuguese; Pass)\n\nGill told me that you had an accident last week. (A2 WAYSTAGE; 2008; Italian; Pass)"
- },
- {
-  "egp_id": "1741163715817x584156896390892800",
-  "level": "B1",
-  "super_category": "REPORTED SPEECH",
-  "sub_category": "reported speech",
-  "lexical_range": "N/A",
-  "guideword": "FORM: REPORTED 'YES-NO' QUESTIONS",
-  "can_do_statement": "Can report questions using 'ask' + 'if' or 'whether' + clause, with a pronoun and tense shift where relevant. ",
-  "example_raw": "You asked me if I like shopping. (Germany; B1 THRESHOLD; 2006; German; Pass)\n\nI am asking you if we can change the time of the meeting to 5.00 pm. (Peru; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nA very rich movie producer asked her if she wanted to be in a movie, he said she would get paid 500,000 dollars, she agreed. (Peru; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI asked her if she wanted to go and have dinner together. (Cyprus; B1 THRESHOLD; 2006; Greek; Pass)\n\nRenata, a really good friend of mine, told me she was in this club, but she left it some time ago; she asked me if I was interested in joining this amazing club. (Mexico; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\nI'm writing to ask whether you're free next Saturday or not. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)"
- },
- {
-  "egp_id": "1741163715817x739086227561965400",
-  "level": "A2",
-  "super_category": "REPORTED SPEECH",
-  "sub_category": "reported speech",
-  "lexical_range": "N/A",
-  "guideword": "FORM: REPORTED STATEMENTS WITH 'SAY', PRONOUN SHIFT",
-  "can_do_statement": "Can report statements using a reporting clause with 'say' + 'that-'clause, with a pronoun shift where relevant. ",
-  "example_raw": "My mother said that she can take us there. (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)\n\nThe teacher said that we have to bring a notebook, a pencil and a rubber. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163715817x804980721338935900",
-  "level": "B1",
-  "super_category": "REPORTED SPEECH",
-  "sub_category": "reported speech",
-  "lexical_range": "N/A",
-  "guideword": "FORM: REPORTED 'WH-' QUESTIONS",
-  "can_do_statement": "Can report 'wh-'questions using a reporting verb + 'wh-'word + clause, with a change of pronoun and tense shift where relevant. ",
-  "example_raw": "I asked why she was here. (Italy; B1 THRESHOLD; 1999; Italian; Pass)\n\nI phoned and asked what sports we could play in this club. (France; B1 THRESHOLD; 2003; French; Pass)\n\nWhen we asked why they were filming our school, they said they were looking for a location where they could film some boys and girls leaving the school and so they filmed us! (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nHe saw a guy sat there so he sat next to him and asked where the football players were. (Portugal; B1 THRESHOLD; 2009; Portuguese; Pass)\n\nThey filmed it and interviewed a few pupils about what they think about the new swimming pool in the gym and I asked when it would be on TV. (Germany; B1 THRESHOLD; 2008; Polish; Pass)"
- },
- {
-  "egp_id": "1741163715817x889153733096531600",
-  "level": "B1",
-  "super_category": "REPORTED SPEECH",
-  "sub_category": "reported speech",
-  "lexical_range": "N/A",
-  "guideword": "FORM: REPORTED STATEMENTS, PRONOUN AND TENSE SHIFT",
-  "can_do_statement": "Can report statements using a reporting clause with 'say' or 'tell' + 'that-'clause, with a pronoun and tense shift where relevant. ",
-  "example_raw": "I immediately called her to see if everything was o.k. and she said that she had won the lottery and she wanted to give some of the money to me. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nHe said that she was in big trouble because the phone was a bomb. (Peru; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nThey said that our school was the most suitable school for that movie. (Turkey; B1 THRESHOLD; 2008; Turkish; Pass)\n\nHe said that it was his phone and he had left it in a cafe. (Uzbekhistan (Republic of); B1 THRESHOLD; 2008; Uzbek; Pass)\n\nHe said that he was a nuclear scientist and we had met before. (Hong Kong; B1 THRESHOLD; 1999; Chinese; Pass)\n\nMary told me that she was dating John. (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)\n\nIn the letter, he told me that he was coming to Madrid on the first of June and he asked me if I was free. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163715818x394138066867376200",
-  "level": "B1",
-  "super_category": "REPORTED SPEECH",
-  "sub_category": "reported speech",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: TEMPORAL SHIFTS, FUTURE",
-  "can_do_statement": "Can report speech about events in the future with and without backshifts for words relating to time. ",
-  "example_raw": "At the airport they told him to come the next morning. (Switzerland; B1 THRESHOLD; 2006; Swiss German; Pass)\n\nThe trainer was impressed and said that if I play next time as well as this time, I'll be the 'pointing guard' in the team. (Poland; B1 THRESHOLD; 2001; German; Pass)\n\nThe letter said that he is coming home next month. (Malaysia; B1 THRESHOLD; 2008; Chinese; Pass)\n\nHer husband told me that the following day they would return to Germany so that was the last time I saw Sara. (Spain; B1 THRESHOLD; 2006; Basque; Pass)"
- },
- {
   "egp_id": "1741163715818x484532724787778900",
   "level": "B1",
   "super_category": "REPORTED SPEECH",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_066.json`
   "guideword": "FORM/USE: 'WONDER', REPORTED THOUGHT",
   "can_do_statement": "Can report thought using 'wonder' + 'wh-'word + clause, with a tense shift where relevant. ",
   "example_raw": "I always had good times with her and was very impatient to read this letter: I wondered what she had written. (France; B1 THRESHOLD; 2008; French; Pass)\n\nI really wondered who he was, but I was embrassed to look at him. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163715819x177565244544510180",
+  "level": "B2",
+  "super_category": "REPORTED SPEECH",
+  "sub_category": "reported speech",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MODIFICATION, REPORTING VERB + ADVERB",
+  "can_do_statement": "Can modify the reporting verb with an adverb. ",
+  "example_raw": "\"So this is a real cow, mom?\" she asked doubtfully. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\n\"A hundred dollars for one day. Is that a deal?\" her husband said forcefully. (Malaysia; B2 VANTAGE; 1999; Chinese; Pass)\n\n\"Come on, what's wrong?\" Bella asked curiously. (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\n\"Put that light out!\" I shouted calmly. (St. Helena; B2 VANTAGE; 1993; Japanese; Fail)"
+ },
+ {
+  "egp_id": "1741163715819x186805151899247300",
+  "level": "B2",
+  "super_category": "REPORTED SPEECH",
+  "sub_category": "reported speech",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DIRECT SPEECH, REPORTING CLAUSE, MID POSITION",
+  "can_do_statement": "Can report speech and thought directly using the reporting verb in the mid position of the reported clause.",
+  "example_raw": "\"No problem\", I thought, \"there is only one person\". (Botswana; B2 VANTAGE; 1993; Vietnamese; Pass)\n\n\"We have come together\", this man said, \"to celebrate our annual meeting and to call our master's ghost tonight!\u201d (Germany; B2 VANTAGE; 1993; German; Pass)\n\n\"No problem\", I thought, \"there is only one person\". (Botswana; B2 VANTAGE; 1993; Vietnamese; Pass)\n\n\"Forgive me, sweetheart\", he said, \"I will never leave you alone again.\u201d (Poland; B2 VANTAGE; 1993; Polish; Pass) "
+ },
+ {
+  "egp_id": "1741163715819x225500036872228400",
+  "level": "B2",
+  "super_category": "REPORTED SPEECH",
+  "sub_category": "reported speech",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DIRECT SPEECH, REPORTING CLAUSE, INVERTED SUBJECT",
+  "can_do_statement": "Can report speech directly inverting the subject and verb in the reporting clause where the subject is a proper noun or noun phrase. ",
+  "example_raw": "\"I was astonished when I saw them standing there\", said John. (Netherlands; B2 VANTAGE; 1999; Dutch; Pass)\n\n\"Who are you?\" asked Peter. (Turkey; B2 VANTAGE; 1997; Turkish; Pass)\n\n\"Would you mind lending me a part of your newspaper?\" said a whispering voice. (Switzerland; B2 VANTAGE; 1993; German; Pass)\n\nWhat do you think about this? said the Inspector to the policeman. (Spain; B2 VANTAGE; 1997; Spanish - European; Fail)"
+ },
+ {
+  "egp_id": "1741163715820x279868282649035070",
+  "level": "B2",
+  "super_category": "REPORTED SPEECH",
+  "sub_category": "reported speech",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: REPORTING VERBS, PAST CONTINUOUS",
+  "can_do_statement": "Can use the past continuous of the reporting verb to report mental processes, with a finite or non-finite 'wh-'clause in the reported clause.",
+  "example_raw": "I was wondering why I failed. (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nSo, he was wondering why we didn't have our letters. (Korea, North; B2 VANTAGE; 2006; Korean; Pass)\n\nI was thinking which of the two would be more interesting, and I prefer to go to \"Can Animals Speak\", since I love them and I have two. So, I want to know how to communicate with them. (Mexico; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\nWe were wondering what had happened for a few minutes but then we realised that there had been a power cut. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nWhile he was thinking how to reply, Jenny took his hand and led him to the school. (Poland; B2 VANTAGE; 2000; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163715820x680259612514314400",
+  "level": "B2",
+  "super_category": "REPORTED SPEECH",
+  "sub_category": "reported speech",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: CITATION, PRESENT SIMPLE",
+  "can_do_statement": "Can use the present simple form of the reporting verb to report information from a written source and a present tense verb in the reported clause.",
+  "example_raw": "First of all, your advertisement says that you have got two great nights in a hotel for us. (Turkey; B2 VANTAGE; 1997; Turkish; Pass)\n\nIt says you are asking for people to help in a summer camp for foreign school children. (B2 VANTAGE; 1993; Portuguese; Pass)\n\nFirstly, your advertisement  tells  us that hotel has two great nights in a wonderful 3-star hotel (Turkey; B2 VANTAGE; 1997; Turkish; Fail)\n\nThe guidebook says that we can get there by train from London. (Korea, South; B2 VANTAGE; 1999; Korean; Fail)"
+ },
+ {
+  "egp_id": "1741163715820x722979507342767900",
+  "level": "B2",
+  "super_category": "REPORTED SPEECH",
+  "sub_category": "reported speech",
+  "lexical_range": "N/A",
+  "guideword": "FORM: REPORTED REQUESTS AND COMMANDS, NEGATIVE",
+  "can_do_statement": "Can report requests and commands with 'ask' or 'tell' + direct object + 'not' + 'to-'infinitive. ",
+  "example_raw": "Meanwhile, she told me not to be scared but the place was very... old. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\nI told him not to climb the wall but he was so interested in doing movements that he did not listen to me. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nArriving there, my father told me not to go far and to stay near him. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\nI asked Pat not to tell anyone, and she promised me she wouldn't. (Brazil; B2 VANTAGE; 2000; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163715820x946999443663956600",
+  "level": "B2",
+  "super_category": "REPORTED SPEECH",
+  "sub_category": "reported speech",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: TEMPORAL SHIFTS, PAST",
+  "can_do_statement": "Can report speech about events in the past with backshifts for tenses and words relating to time. ",
+  "example_raw": "She had told me the previous day that she had something important to tell me. (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nWe met Daisy at school on the following day and we told her that the previous day we had been at her house; her grandfather had told us that unluckily she wasn't at home. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nMy boss had told me the previous day that an important customer was going to visit the company in the morning. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nI had told my friends the day before that I expected to get an A! (Spain; B2 VANTAGE; 1993; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163715608x123988758899529200",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "linking",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'BE' + COMPLEMENT",
+  "can_do_statement": "Can use linking verb 'be' with complements.",
+  "example_raw": "Because today is my birthday. (A1 BREAKTHROUGH; 2008; Mandarin; Pass)\n\nMartin is from Poland. (A1 BREAKTHROUGH; 2006; Polish; Pass)\n\nMy house is very clean. (A1 BREAKTHROUGH; 2009; Bengali; Pass)"
+ },
+ {
+  "egp_id": "1741163715620x591479199213417900",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "linking",
+  "lexical_range": "3",
+  "guideword": "FORM: LINKING + COMPLEMENT",
+  "can_do_statement": "Can use a wide range of linking verbs with complements.",
+  "example_raw": "There are indeed many ways of doing this and it all seems very confusing. (Denmark; B2 VANTAGE; 1993; Danish; Pass)\n\nThe food is a little bit strange but tastes good. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\nNow the whole house appeared very unfamiliar to me. (France; B2 VANTAGE; 1993; French; Pass)\n\nAlice was so unhappy that she remained silent for a long time. (Hong Kong; B2 VANTAGE; 2001; Chinese; Pass)\n\nI am writing to inform you that there is some incorrect information which appears in The Student Tourist Guidebook you published last year. (China; B2 VANTAGE; 1999; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163715620x718213480807691900",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "linking",
+  "lexical_range": "2",
+  "guideword": "FORM: LINKING + COMPLEMENT",
+  "can_do_statement": "Can use an increasing range of linking verbs with complements.",
+  "example_raw": "It looks good on you. (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)\n\nWe will really become good pen-friends. (China; A2 WAYSTAGE; 2002; Chinese; Pass)\n\nMake sure you wear something over your clothes so that they won't get dirty. (Malaysia; A2 WAYSTAGE; 2006; Others; Pass)\n\nBecause it sounds interesting. (China; A2 WAYSTAGE; 2002; Chinese; Pass)\n\nI feel sorry for you. I hope you get better as soon as possible. (A2 WAYSTAGE; 2008; Kurdish; Pass)"
+ },
+ {
+  "egp_id": "1741163715275x773962644446279300",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "patterns_that clauses",
+  "lexical_range": "1",
+  "guideword": "FORM: REPORTING VERBS + DIRECT OBJECT 'THAT'-CLAUSE",
+  "can_do_statement": "Can use a limited range of verbs, typically reporting, with a 'that'-clause as the direct object. ",
+  "example_raw": "I hope that you'll come. (India; A2 WAYSTAGE; 2009; Tamil; Pass)\n\nI think that it begins on 20 or 21 May. (Spain; A2 WAYSTAGE; 2006; Catalan; Pass)\n\nMy mother said that she can help us. (Peru; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)\n\nI heard that you are quite busy right now. (Thailand; A2 WAYSTAGE; 2004; Thai; Pass)"
  }
 ]
 ```

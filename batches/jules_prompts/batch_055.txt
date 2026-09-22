@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_055.json`
 ```json
 [
  {
-  "egp_id": "1741163713633x403618875526840800",
-  "level": "A2",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH ADVERBS OF INDEFINITE FREQUENCY ",
-  "can_do_statement": "Can use the present simple with adverbs of indefinite frequency.    \u25ba adverbs",
-  "example_raw": "People usually try to eat their breakfast between 7 and 9 am. (Skills for Life Elementary 2, A2, Polish)\n\nThey always make special things for their celebrations. (Skills for Life Elementary 2, A2, Panjabi)"
- },
- {
-  "egp_id": "1741163713633x426061404387356740",
-  "level": "A2",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS ",
-  "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'you'.",
-  "example_raw": "Do you have a mobile phone? (Key English Test, A2, Greek)\n\nDo you know we are going to have a concert at school?(Key English Test, A2, Bengali) \n\nWhat do you think about my mobile phone? (Key English Test, A2, Turkish)\n\nWho do you want to come to the concert? (Key English Test, A2, Spanish)"
- },
- {
-  "egp_id": "1741163713633x552588242206544260",
-  "level": "A2",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "2",
-  "guideword": "FORM: NEGATIVE ",
-  "can_do_statement": "Can use the negative form with an increasing range of regular and irregular verbs.",
-  "example_raw": "I don't need the video because I've got the DVD. (Key English Test, A2, Greek)\n\nYou don't bring anything because it's the first day. (Key English Test, A2, Spanish - European)\n\nIt doesn't cost very much. (Key English Test, A2, Italian)"
- },
- {
-  "egp_id": "1741163713633x569058685257493250",
-  "level": "A2",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "1",
-  "guideword": "USE: MENTAL PROCESS VERBS",
-  "can_do_statement": "Can use the present simple with a limited range of mental process verbs including 'think', 'hope', 'know'.",
-  "example_raw": "I think my bag is in your kitchen. (Key English Test, A2,German)\n\nI hope that you feel better. (Skills for Life Elementary 2, A2, Polish)\n\nDo you know  that I am going to a concert on Saturday. (Key English Test, A2, Tamil)"
- },
- {
-  "egp_id": "1741163713633x569339192426698800",
-  "level": "A2",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: SUGGESTIONS ",
-  "can_do_statement": "Can use the present simple with 'why don't you\u2026?', 'Why don\u2019t we\u2026?' and 'if you want or if you like' to make suggestions. ",
-  "example_raw": "Why don't you wear your black suit? (Key English Test, A2, Arabic \u2013 Levant)\n\nWhy don\u2019t we go to a disco when the film ends? (Key English Test, A2, Spanish \u2013 Latin American)\n\nWe could have dinner after that if you want. (Key English Test, A2, Arabic \u2013 Egyptian)\n\nWe can go there, if you like. (Key English Test, A2, Vietnamese)"
- },
- {
-  "egp_id": "1741163713633x615618906458430600",
-  "level": "B1",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "2",
-  "guideword": "USE: MENTAL PROCESS VERBS",
-  "can_do_statement": "Can use the present simple with an increasing a range of mental process verbs, including 'remember', 'understand', 'believe'.",
-  "example_raw": "I'm reading an adventure book, I don't remember the title but it's very boring! (Preliminary English Test, B1, Italian)\n\nWell, I totally understand that you want to go somewhere with your friends. (Preliminary English Test, B1, German)"
- },
- {
-  "egp_id": "1741163713633x795560331040402300",
-  "level": "A2",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: INSTRUCTIONS AND DIRECTIONS",
-  "can_do_statement": "Can use the present simple to give instructions and directions.",
-  "example_raw": "Then you turn right and my house is on your left. (Key English Test, A2, Greek)\n\nTo find my house you have to leave the bus at the station \"Unberhof\" Then you go straight on for about fifty meters. (Key English Test, A2, Swiss German)\n\nThen you walk for a few minutes See you tomorrow. (Key English Test, A2, Italian)\n"
- },
- {
-  "egp_id": "1741163713633x978808878460501800",
-  "level": "A2",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM: INDIRECT QUESTIONS",
-  "can_do_statement": "Can form indirect questions with 'Do you know' + 'how', 'where', 'why', or 'what \u2026?'",
-  "example_raw": "Do you know how to get to my house? (Key English Test, A2, Spanish)\n\nDo you know which present I like best? (Key English Test, A2, Chinese)"
- },
- {
-  "egp_id": "1741163713636x147631604573655870",
-  "level": "B1",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "1",
-  "guideword": "USE: SPEECH ACT VERBS",
-  "can_do_statement": "Can use the present simple with a limited range of speech act verbs, including 'suggest', 'apologise', 'recommend'. ",
-  "example_raw": "I suggest that if you travel, you should pay for your trip. (B1, Spanish \u2013 Latin American)\n\nI apologise for missing your class. (Preliminary English Test, B1, French)\n\nFor these reasons, I definitely recommend staying in a city. (Preliminary English Test, B1, Italian)"
- },
- {
-  "egp_id": "1741163713636x160593634066971800",
-  "level": "B2",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM: INVERSION WITH 'NOT ONLY \u2026 BUT ALSO'",
-  "can_do_statement": "Can use the inverted form of the past simple with auxiliary 'do', in the phrase 'not only \u2026 but also'.",
-  "example_raw": "Not only do they save you filing time, but also they save office space. (First Certificate in English, B2, Chinese)\n\nNot only does it look nice but it's also full of places that we should visit, such as the enormous old castle or the extremely fascinating butterfly farm!! (First Certificate in English, B2, Italian)"
- },
- {
-  "egp_id": "1741163713636x207376848650752130",
-  "level": "C1",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: NEGATIVE QUESTIONS, PERSUASION",
-  "can_do_statement": "Can use the negative question form as a persuasion strategy.",
-  "example_raw": "Don't you just hate taking the bus to school every morning? well I have a perfect solution for you, a great bike with good brakes, a bell and lights. it is a great bike but since I never use it I would be happy to sell it to you. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Dutch; Fail)\n\nDon't you find that when you are having a shower or bath, you occasionally run out of water? (Korea, South; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Korean; Pass)"
- },
- {
   "egp_id": "1741163713636x303999786952285900",
   "level": "B2",
   "super_category": "PRESENT",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_055.json`
   "guideword": "USE: REPORTING VERBS",
   "can_do_statement": "Can use the present simple with a wide range of reporting verbs, especially in academic contexts, including 'demonstrate', 'illustrate'.",
   "example_raw": "The popularity of this TV game in Russia clearly demonstrates the nature of human fears and dreams. (Certificate in Advanced English, C1, Russian)\n\nThe 2 charts illustrate the number of employees, and the trends in profit for three factories, namely the factories located in London, Leeds, and Bristol, which belong to the same company, during the year 2003. (C1, Chinese) "
+ },
+ {
+  "egp_id": "1741163713636x966355033057875000",
+  "level": "C1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NEGATIVE QUESTIONS, OPINION",
+  "can_do_statement": "Can use the negative question form to check opinions.",
+  "example_raw": "Doesn\u2019t it sound fascinating? (Certificate in Advanced English, C1, Korean)\n\nDon't we all like presents? (Certificate in Advanced English, C1, Dutch)\n\nDon't you think that fashion always looks funny if it is not the fashion of today? (Certificate in Advanced English, C1, Russian)"
+ },
+ {
+  "egp_id": "1741163713875x975509971933302300",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THIS'",
+  "can_do_statement": "Can use 'this' as a pronoun with singular reference.",
+  "example_raw": "This is a very interesting place. (A2 WAYSTAGE; 2008; Panjabi; Pass)\n\nI'm very happy about this. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163713876x134748917057494480",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THIS', ALREADY MENTIONED ",
+  "can_do_statement": "Can use 'this' as a pronoun to refer back to single things or groups of plural things which have already been mentioned. ",
+  "example_raw": "Thank you for this. (France; A2 WAYSTAGE; 2004; French; Pass)\n\nI went shopping yesterday at Yalerias;. I bought three green T-shirts, a pair of sneakers and some socks. You might ask, why did I buy all this? (Mexico; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163713876x434828220378989060",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THIS' POINTING ",
+  "can_do_statement": "Can use 'this' as a pronoun to point to or identify single things or entities which are about to follow and have immediate relevance.",
+  "example_raw": "This is my number: 0754 567 78 51. (A2 WAYSTAGE; 2009; Turkish; Pass)\n\nThis is the information about the new art class: the class is on Fridays, and it starts at 4 pm and finishes at 6 pm. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass) "
+ },
+ {
+  "egp_id": "1741163714098x206083399771320740",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THAT', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'that' as a pronoun to refer back to something which has already been mentioned. ",
+  "example_raw": "You know that blue is my favourite colour, so we are going to use that. (India; A2 WAYSTAGE; 2006; Tamil; Pass)\n\nIt has got a camera, and I like that. (Spain; A2 WAYSTAGE; 2007; Catalan; Pass)\n\nThey look really nice on me, that's why I bought them. (France; A2 WAYSTAGE; 2008; French; Pass)\n\nPlease try to come after 4.30 because I won't be there before that. (Sri Lanka; A2 WAYSTAGE; 2009; Singhalese; Pass)"
+ },
+ {
+  "egp_id": "1741163714098x430400984906472960",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: RESPONSE TOKENS WITH 'THAT'S'",
+  "can_do_statement": "Can use 'that's' + adjective to respond to something. ",
+  "example_raw": "That's great! (Switzerland; A2 WAYSTAGE; 2008; Swiss German; Pass)\n\nThat's a pity! (Argentina; A2 WAYSTAGE; 2004; Spanish - Latin American; Pass)\n\nThat's a good idea! (France; A2 WAYSTAGE; 2005; French; Pass)"
+ },
+ {
+  "egp_id": "1741163714098x499091268404870700",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THAT'",
+  "can_do_statement": "Can use 'that' as a pronoun with singular reference.",
+  "example_raw": "That was amazing. (Peru; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)\n\nAfter that, we can go and drink a cup of coffee and eat a piece of cake. (Mexico; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163714098x563109573846865860",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THIS', NOW",
+  "can_do_statement": "Can use 'this' as a pronoun to refer to something that is happening now. ",
+  "example_raw": "This is the best holiday I have ever had! (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass) \n\nThis is just a short note to ask you if you want to go with me to the ReggaRton's concert. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163714099x265234166901190180",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THIS', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'this' as a pronoun to refer back to whole clauses or sentences, especially to highlight or continue an important topic. ",
+  "example_raw": "To stay fit I'm eating lots of fruit and vegetables, but meat and fish, too. I think you should do this, too, if you haven't done it in the past. (Germany; B1 THRESHOLD; 2009; German; Pass)\n\nPeople usually don't care about the cost. Because of this, weddings are more amazing. (Spain; B1 THRESHOLD; 2006; Spanish - European; Pass)\n\nMy room seems to be very cold and very unfriendly. I think flowers and pictures change this. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nOur department currently has a lot of work to do, because there are so many conferences to arrange, and it needs a person to be in charge of this. (China; B1 THRESHOLD; 2006; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163714099x270527763674231580",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THOSE'",
+  "can_do_statement": "Can use 'those' as a pronoun with plural reference.  \u25ba  noun phrases",
+  "example_raw": "Most of my clothes are lemon, green or orange, those are my favourite colours! (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nWell, those are my ideas but you are the ones that are coming, and maybe you don't like the countryside. (Argentina; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163714099x322833948123137900",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'THOSE', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'those' as a pronoun to refer to things which have already been mentioned.  \u25ba  noun phrases",
+  "example_raw": "Those are the things I like the most about her. (Chile; B1 THRESHOLD; 2009; Spanish - Latin American; Pass) \n\nI don't really think I'd move, but if I had to, I would love to live in a city like Paris or Rome. I'm very keen on cities like those. (Brazil; B1 THRESHOLD; 2010; Portuguese; Pass)"
  }
 ]
 ```

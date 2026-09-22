@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_053.json`
 ```json
 [
  {
-  "egp_id": "1741163713116x221586221050488420",
-  "level": "B1",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "3",
-  "guideword": "FORM: SIMPLE",
-  "can_do_statement": "Can use a wide range of simple (single word) prepositions.",
-  "example_raw": "If it is raining, the rain enters through the holes in the roof and makes the house wet. (B1 Fulani)\n\nTo my surprise, there was a charming beach along the cycle route. (B1 Chinese)\n\nDon't forget to meet me at the theme park beside the main entrance. (B1 Albanian)\n\nIn the middle of the room there is a big bed between two windows and above the bed there is a beautiful painting. (B1 Swedish)\n\nI think Bremen won't change that much within the next 20 years. (B1 German)\n\nI hate shopping via the internet. (B1 Arabic \u2013 Meghreb)"
- },
- {
-  "egp_id": "1741163713116x353458240035020350",
-  "level": "B1",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "N/A",
-  "guideword": "FORM: STRANDING",
-  "can_do_statement": "Can end a reported question clause and a relative clause with a preposition, where the preposition is stranded from its complement. \u25ba Clauses: relative",
-  "example_raw": "So this is the best festival I been to. (B1 THRESHOLD; 2008; Albanian; Pass)\n\nPlease give him all the information he asks for. (Switzerland; B1 THRESHOLD; 2005; German; Pass)\n\nEverybody should see which company I work for. (other; B1 THRESHOLD; 2004; Others; Pass)"
- },
- {
-  "egp_id": "1741163713116x636100257659625700",
-  "level": "B2",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: FORMAL",
-  "can_do_statement": "Can use less frequent simple prepositions, often in a more formal, literary or business context.",
-  "example_raw": "Suddenly the lights went out and a kind of silent screaming was heard throughout the whole dark room. (B2 German)\n\nSo why don\u2019t you act upon my advice? (B2 Brazilian)\n\nI took bus number 19 from Angel tube station toward Battersea Park. (B2 Italian)\n\nIn Tottenham, transport is easy, buses are frequent, unlike other areas. (B2 Thai)\n\nA survey was carried out amongst the students and teachers. (Turkey; B2 VANTAGE; 2001; Turkish; Pass)"
- },
- {
-  "egp_id": "1741163713116x646932110230855600",
-  "level": "B1",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "2",
-  "guideword": "FORM: COMPLEX",
-  "can_do_statement": "Can use an increasing range of complex prepositions.",
-  "example_raw": "My parents weren't happy when they heard that I wanted to go to Croatia with my friends instead of flying to the USA. (B1 German)\n\nThe company chose my school thanks to the excellent results of the students. (B1 French)\n\nIt was saying that some company can find me a job in the UK and I can earn up to \u00a3 1000 per month. (Poland; B1 THRESHOLD; 2004; Polish; Pass)\n\n[talking about a watch] I was going out of the shop when I noticed that I had lost it. (B1 Italian)\n\nI would like to apologise because, due to a dental appointment, I will not be able to participate in the English class tomorrow. (B1 French)\n\nThe best place to stay is a hotel a bit outside of the city. (B1 Swiss German)"
- },
- {
-  "egp_id": "1741163713116x701061838010980100",
-  "level": "C1",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: FORMAL",
-  "can_do_statement": "Can use less frequent complex prepositions, often in a more formal, literary or business context.",
-  "example_raw": "It's unbelievable that this civilization that lived a long time ago could be so ahead of their time. (C1 Brazilian Portuguese)\n\nI think that the next area to develop will be the car industry, which will develop cars that are going to work by solar energy, on account of the levels of pollution in big cities. (C1 Spanish Latin American)"
- },
- {
-  "egp_id": "1741163713116x829257725032760800",
-  "level": "B1",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'ADVERB' + PREPOSITION",
-  "can_do_statement": "Can use adverbs of degree to modify prepositions and prepositional phrases. ",
-  "example_raw": "It's quite near my house so I can go there easily. (Italy; B1 THRESHOLD; 2003; Italian; Pass)\n\nWhen I was trying to reach the only frame of light I could see in the woods, something moved right behind me. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI'm going to put it right in front of the window, so I have enough light. (Germany; B1 THRESHOLD; 2009; German; Pass)\n\nI felt I was flying and it was really like a dream. (Iran; B1 THRESHOLD; 2003; Farsi; Pass)\n\nBut anyway it's enjoyable to shop for clothes  especially with a group of friends. (Iran; B1 THRESHOLD; 2006; Farsi; Pass)"
- },
- {
-  "egp_id": "1741163713116x878693855125900300",
-  "level": "B2",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: PREPOSITION + 'WH-'WORD",
-  "can_do_statement": "Can use preposition + relative pronoun as complement, to avoid preposition stranding, often in formal contexts. \u25ba Clauses: relative",
-  "example_raw": "According to your advertisement in a language magazine, you have a vacancy in which I am very interested. (Switzerland; B2 VANTAGE; 1998; German; Pass)\n\nI hope that you can help me by answering some questions about the club of which you are the secretary. (Germany; B2 VANTAGE; 1993; Dutch; Pass)\n\nIn my opinion children need someone to whom they can talk. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163713116x968587932066165600",
-  "level": "B2",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "3",
-  "guideword": "FORM: COMPLEX",
-  "can_do_statement": "Can use a wide range of complex prepositions.",
-  "example_raw": "She did not say very much except for \"oh\" and \"yes, yes\" every once in a while. (B2 Dutch)\n\n[talking about animals in zoos] And it gives them the possibility of gradually gaining knowledge about other living creatures apart from humans. (B2 Polish)\n\n[giving suggestions on how to make the reception area of a school more attractive] It is based on my personal opinions in addition to a sample of 500 people who are students and staff at the school, and also visitors. (B2 French)\n\nNow, as for the camping, I admit that I'm not a great fan of it. (B2 Greek)\n\nI hope that, in spite of some small problems, people liked the festival and we will be able to attend it next year. (B2 Russian)"
- },
- {
-  "egp_id": "1741163713121x244049823776565150",
-  "level": "A1",
-  "super_category": "PRESENT",
-  "sub_category": "present continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form.",
-  "example_raw": "I am sending you some flowers, because you are not well. (Bengali, A1 BREAKTHROUGH, 2009)\n\nI am writing to tell you what I do every day at college. (Mandarin, ===NONE===, A1 BREAKTHROUGH, Pass, 2007)"
- },
- {
-  "egp_id": "1741163713121x303053781636601900",
-  "level": "A2",
-  "super_category": "PRESENT",
-  "sub_category": "present continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the negative form.",
-  "example_raw": "[talking about a computer] I\u2019m not using it any more. (A2 Turkish)\n\n\u2026the fridge isn't working. (Romanian, ===NONE===, A2 WAYSTAGE, Pass, 2009)\n\n\u2026 he's going to work at 5.00 am, so he's not eating anything ... (A2 WAYSTAGE; 2006; Polish; Pass)"
- },
- {
-  "egp_id": "1741163713121x475189487230063500",
-  "level": "A2",
-  "super_category": "PRESENT",
-  "sub_category": "present continuous",
-  "lexical_range": "2",
-  "guideword": "USE: EVENTS IN PROGRESS",
-  "can_do_statement": "Can use the present continuous with an increasing range of verbs to talk about situations and events in progress.",
-  "example_raw": "I am watching a swimming competition. (A2 Portuguese)\n\nI'm selling an English book. It's called \"English II\". (A2 Spanish - Latin American)\n\nIt's June and it's getting warmer. (A2 German)"
- },
- {
   "egp_id": "1741163713121x758287721695059000",
   "level": "A1",
   "super_category": "PRESENT",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_053.json`
   "guideword": "USE: TEMPORARY REPEATED ACTIONS",
   "can_do_statement": "Can use the present continuous to describe temporary actions which are repeated or regular.",
   "example_raw": "I'm doing a lot of great leisure activities. (B1 Catalan)\n\n[talking about an interactive internet game which is played over a period of time] I'm playing this exciting game called Diner Dash; it's about making a restaurant. (Indonesian, Indonesia, B1 THRESHOLD, Pass, 2010)\n\nI have to go to the doctor because I'm having some problems. (B1 Spanish - Latin American)"
+ },
+ {
+  "egp_id": "1741163713121x994056627950362600",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "1",
+  "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY",
+  "can_do_statement": "Can use the present continuous with a limited range of adverbs of indefinite frequency, often to talk about surprising or undesirable situations or events (especially with 'always').",
+  "example_raw": "I'm always dreaming about a job as a secretary. (A2, Polish) \n\nYou are always losing things. (Cuba; A2 WAYSTAGE; 2006; Spanish - Latin American; Pass)\n\nShe is always smiling. (Bulgarian, Bulgaria, A2 WAYSTAGE, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163713122x609663333417254100",
+  "level": "B1",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "3",
+  "guideword": "USE: TEMPORARY SITUATIONS",
+  "can_do_statement": "Can use the present continuous with a wide range of verbs to talk about temporary situations.",
+  "example_raw": "I'm enjoying a sunny day, much better than England. (B1 Chinese) \n\nNow, I'm in a hotel, here in the centre of Madrid, and it's raining a little bit. (B1 Portuguese)"
+ },
+ {
+  "egp_id": "1741163713122x846846152825808300",
+  "level": "B1",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "3",
+  "guideword": "USE: EVENTS IN PROGRESS",
+  "can_do_statement": "Can use the present continuous with a wide range of verbs to talk about situations and events in progress.",
+  "example_raw": "I\u2019m planning a picnic on Saturday in the park. (Serbian, Yugoslavia, B1 THRESHOLD, Pass, 2009)\n\nI\u2019m expecting my cousin to visit me. (Portuguese, Brazil, B1 THRESHOLD, Pass, 2004)\n\nI think I am falling in love. (Brazil; B1 THRESHOLD; 2002; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163713625x476438924071697100",
+  "level": "C2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS",
+  "can_do_statement": "Can use the present continuous with verbs that are not usually used in this form to make statements and requests sound less direct.",
+  "example_raw": "Considering the importance of the matter, I am asking for your financial support. (Greek, Greece, C2 MASTERY, Pass, 2001)\n\nI'm asking permission to be excused from work for at least three days. (Greek, ===NONE===, C2 MASTERY, Pass, 1993)\n\nIf we're wanting to make progress in prolonging the length of human lives, we equally have to be willing to spend time and make an effort... (Dutch, Netherlands, C2 MASTERY, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163713625x540058676609126000",
+  "level": "C2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "3",
+  "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY",
+  "can_do_statement": "Can use the present continuous with a wide range of adverbs of indefinite frequency, often to talk about surprising or undesirable situations or events.",
+  "example_raw": "\u2026 we are persistently asking ourselves questions about where we are from and why we are here. (C2, Russian)\n\nDuring life we are permanently learning and increasing our knowledge. (Spanish - Latin American, Argentina, C2 MASTERY, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163713625x675785619911793800",
+  "level": "C1",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: RHETORICAL QUESTIONS ",
+  "can_do_statement": "Can use question forms to ask rhetorical questions.",
+  "example_raw": "[writing about fashion] Are we becoming shallow? (C1 Czech)\n\nWhy is technology taking over our lives? (C1 Portuguese)\n\nWhy am I explaining all this? The only reason is that I want to show that young people are interested in sports. (C1 Spanish Latin American)"
+ },
+ {
+  "egp_id": "1741163713625x686455222331109500",
+  "level": "B2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY ",
+  "can_do_statement": "Can use the present continuous with an increasing range of adverbs of indefinite frequency, often to talk about surprising or undesirable situations or events.",
+  "example_raw": "\u2026 scientists don't really get together with top models \u2026 they are constantly studying and reading books, whereas the job of a top model is actually based on physical appearance. (B2 French)\n\n\u2026 you're continuously dealing with toxic substances and flammable liquids\u2026 (Spanish - European, Spain, B2 VANTAGE, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163713626x133661684035994100",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "2",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with an increasing range of regular and irregular verbs.",
+  "example_raw": "They are very important to me, because they bring me good luck. (Key English Test, A2,Bulgarian)\n\nI hope you can come next time. (Key English Test, A2,Portuguese)\n\n The journey takes about half an hour from Paris. (Key English Test, A2, French)"
+ },
+ {
+  "egp_id": "1741163713626x199664325289681020",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: REAL AND IMAGINED SITUATIONS AFTER 'IF'",
+  "can_do_statement": "Can use the present simple after 'if' to talk about real and imagined situations.",
+  "example_raw": "If you want some help, I will be free next week. (Key English Test, A2, French)\n\nIf you go with your parents, you will go walking or swimming, but if you go with friends, you will have more fun. (Key English Test, A2, German)\n\nDon't forget to wear colourful clothes because if you wear white clothes, you will get paint on them. (Key English Test, A2, Thai)\n\n[talking about a toothbrush] It is very important for me because if I don't have it, I can't clean my teeth. (Key English Test, A2, Thai)"
+ },
+ {
+  "egp_id": "1741163713626x335670389512142900",
+  "level": "A1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "1",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form with a limited range of regular and irregular verbs.",
+  "example_raw": "I don't like meat and fish. (Skills for life Elementary 1, A1, Kurdish)\n\nYou don\u2019t know the place. (Skills for life Elementary 1, A1, French)"
+ },
+ {
+  "egp_id": "1741163713626x414037782388433340",
+  "level": "A1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: HABITS AND GENERAL FACTS",
+  "can_do_statement": "Can use the present simple to talk about repeated events or habits, and general facts. ",
+  "example_raw": "I work in a supermarket. (Skills for life Elementary 1, A1, Russian)\n\nI like my place because it is quiet, the people are nice, it is near the town centre, not too far from the college and my flat is lovely. (Skills for life Elementary 1, A1, Kurdish)\n\nIt takes 25 minutes by car, but by bus it takes 1 hour \u2026 (Skills for life Elementary 1, A1, Nepali)\n\nI watch TV in the evening. I read books at night. (Skills for life Elementary 1, A1, Farsi)\n\nShe goes to work by bus. (Skills for life Elementary 1, A1, Tamil)"
  }
 ]
 ```

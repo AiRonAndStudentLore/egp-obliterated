@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_016.json`
 ```json
 [
  {
-  "egp_id": "1741163715816x805574954101757600",
-  "level": "C1",
-  "super_category": "DISCOURSE MARKERS",
-  "sub_category": "discourse markers in writing",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: TEXTUAL REFERENCE",
-  "can_do_statement": "Can use a range of phrases as discourse markers to point to other parts of a text. ",
-  "example_raw": "As mentioned above, it might be possible to negotiate better contracts for your company. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Swiss German; Pass)\n\nI hope this brief note has convinced you to start this club. As mentioned earlier, I have already asked for information. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Dutch; Pass)\n\nSo as shown above, I recommend TELECARS to be our car services supplier because it offers all we need. (China; B2 VANTAGE; 2002; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163715816x910085760581765400",
-  "level": "B2",
-  "super_category": "DISCOURSE MARKERS",
-  "sub_category": "discourse markers in writing",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: ORGANISING, OPENINGS AND CLOSINGS, FORMAL",
-  "can_do_statement": "Can use a range of phrases as discourse markers to open and close texts and point to conclusions, often in formal contexts. ",
-  "example_raw": "To begin with, I want to ensure that you are going to have a great time with us. (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nFor a start, we have lived with books for thousands of years while television is only half a century old. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nIn conclusion, if people in zoos look after the animals, it isn\u2019t cruel to keep an animal in zoo. (Spain; B2 VANTAGE; 1993; Catalan; Pass)\n\nTo sum up, I think that whether you use a car or a bicycle depends on several aspects: where you live, when you work, the weather, and also the kind of job you do. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nIn summary I would like to say that the majority of students is willing to help with cleaning, collecting the rubbish or even giving up their cars. (B2 VANTAGE; 2009; Polish; Pass)"
- },
- {
-  "egp_id": "1741163715820x150522391030215800",
-  "level": "B1",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: FRONTING, ADVERBS",
-  "can_do_statement": "Can use adverbs in the front position for focus.",
-  "example_raw": "That's my diary, the dearest thing I had. Here I wrote how I felt, what I did, who I met and all my problems. (Italy; B1 THRESHOLD; 2000; Italian; Pass)\n\nQuickly I opened the envelope, took out a white piece of paper and started to read. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nSuddenly, the door opened. (Brazil; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nOutside, it wasn't a sunny day any longer, it was raining a lot. (Portugal; B1 THRESHOLD; 2007; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163715820x418754553525479940",
-  "level": "B1",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'IT' + 'BE' ADJECTIVE + 'THAT' CLAUSE",
-  "can_do_statement": "Can use 'it' + 'be' + adjective + 'that-'clause for focus. ",
-  "example_raw": "It's great that you have got a new job! (Spain; B1 THRESHOLD; 2009; Spanish - European; Pass)\n\nIt's true that there are one or two programmes that are interesting or funny, but the rest... they're horrible! (Spain; B1 THRESHOLD; 2010; Spanish - European; Pass)\n\nIt\u2019s important that you are happy. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nIt is really sad that you have to move to a different area. (Czech Republic; B1 THRESHOLD; 2008; Czech; Pass)"
- },
- {
-  "egp_id": "1741163715820x505908632783048000",
-  "level": "A2",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: PREPOSITIONAL PHRASES, FRONTING ",
-  "can_do_statement": "Can use prepositional phrases in the front position for focus.",
-  "example_raw": "In the morning, I go to the beach. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nIn my country, the most popular food is Paella, which is a kind of rice with seafood, really tasty. (A2 WAYSTAGE; 2006; Portuguese; Pass)\n\nFrom your house, take the first turning on your left after the roundabout. (France; A2 WAYSTAGE; 2009; French; Pass)"
- },
- {
-  "egp_id": "1741163716064x592610604587924000",
-  "level": "B2",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'THE THING/ FACT/ POINT/ PROBLEM IS (THAT)'",
-  "can_do_statement": "Can use 'The thing, fact, point, problem, or reason + is (that)' for focus.",
-  "example_raw": "The reason is I like children, I have experience of looking after disabled people and I like to do things like volunteering. (B2 VANTAGE; 1993; Japanese; Pass)\n\nThe problem is I know myself, I am always late when I have to leave my house so I need a car to go faster. (Saudi Arabia; B2 VANTAGE; 1993; Arabic - Gulf; Pass)\n\nThe fact is that not all animals are able to deal with this. (Denmark; B2 VANTAGE; 1993; Danish; Pass)\n\nThe fact is science needs computers to increase knowledge and businesses need them like the air we breathe. (B2 VANTAGE; 1999; Catalan; Pass)\n\nIt is true that a lot of accidents are caused by cars. The point is that the car itself does not cause the accident. (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nThe thing is, Alison is an eleven-year-old girl who has been, together with her father, left behind by her mother when she was just three. (Brazil; B2 VANTAGE; 2005; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163716064x749646630905427700",
-  "level": "B2",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'THE REASON (THAT)', 'THE PLACE (WHICH)' + CLAUSE, SUBJECT",
-  "can_do_statement": "Can use 'The reason (that)', 'The place (which)' + clause as subject + 'be' for focus. \u25ba Relative clauses",
-  "example_raw": "The reason I am writing is to suggest a few things about our holidays. (Greece; B2 VANTAGE; 2008; Greek; Pass)\n\nThe reason that I never continued taking lessons is that my school-work became too heavy and the costs of lessons were too expensive for me as a student. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nThe place you need is called \"Academiuta\". (Italy; B2 VANTAGE; 2005; Italian; Pass)\n\nThe place we appreciated the most was the Cap Frehel, where nature is still wild and the birds feel at home. (Belgium; B2 VANTAGE; 1993; French; Pass)\n\nThe place which has impressed me most of all in my life is Abastumani. (Georgia (Republic of); B2 VANTAGE; 1997; Russian; Pass)."
- },
- {
-  "egp_id": "1741163716064x767849913238654200",
-  "level": "C1",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: FIXED EXPRESSIONS, FRONTING",
-  "can_do_statement": "Can use fixed expressions in the front position for focus.",
-  "example_raw": "At the end of the day everything is up to you! (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Greek; Fail)\n\nAll in all, the activity week was a nice experience for both students and teachers. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)\n\nAll things considered, I would recommend the third proposal as it seems to me that it covers most of the points the students have been complaining about. (Italy; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Italian; Pass)\n\nWhen it comes down to it, who does not like such a surprise? (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Portuguese; Pass)\n\nWhen you think about it, can we afford a flat in Central London and still have something left with a basic salary? (Croatia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Croatian; Pass)"
- },
- {
-  "egp_id": "1741163716065x120095405121205090",
-  "level": "C2",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'NOT A' + NOUN",
-  "can_do_statement": "Can use 'Not a' + noun with a passive verb or inverted auxiliary and subject for focus. ",
-  "example_raw": "Not a word was spoken by anyone throughout the journey. (Cyprus; C2 MASTERY; 2000; Greek; Pass)\n\nNot a scrap of remorse do they have. (Switzerland; C2 MASTERY; 1993; French; Pass)"
- },
- {
-  "egp_id": "1741163716065x166400508777969860",
-  "level": "C1",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'WHAT' CLEFT CLAUSE",
-  "can_do_statement": "Can use 'What' + noun or pronoun + verb phrase as subject + 'be', for focus.  ",
-  "example_raw": "What we need is a strong publicity campaign, directed at young people. (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)\n\nWhat everyone loved were the special effects and we were very impressed by the use of advanced technological innovations. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)\n\nWhat companies care about is money and football players help them to earn it. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Catalan; Pass)\n\nWhat tourists want is to see the most typical things in England, not a hamburger restaurant or a London musical from the back row in the gallery. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Spanish - European; Pass)\n\nWhat students learn are mostly facts and theories. (Korea, South; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Korean; Pass)\n\nWhat I found particularly fascinating about this story is that it is still exciting and thrilling, despite the plot being rather easy to follow. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)"
- },
- {
-  "egp_id": "1741163716065x303072824467764300",
-  "level": "C1",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: IMPERATIVES",
-  "can_do_statement": "Can use imperatives as pointing devices within texts for focus.",
-  "example_raw": "Note the disadvantages of this transfer. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Greek; Pass)\n\nNotice the difference in the salary. (Ecuador; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Spanish - Latin American; Pass\n\nSee the written instructions on the phone for complete instruction. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Fail)"
- },
- {
   "egp_id": "1741163716065x319522763957327500",
   "level": "C1",
   "super_category": "FOCUS",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_016.json`
   "guideword": "FORM/USE: 'WH-'CLEFT  CLAUSE",
   "can_do_statement": "Can use 'How', 'Why', or 'Where' cleft clauses as subject, for focus",
   "example_raw": "How we are brought up forms our character, our thinking and our attitude towards ourselves and towards everybody and everything around us. (Switzerland; C2 MASTERY; 1993; German; Fail)\n\nWhere he had gone to was a mystery. (Netherlands; C2 MASTERY; 1998; Dutch; Pass)\n\nHow they influenced my life is hard to tell. (Germany; C2 MASTERY; 1997; German; Pass)\n\nWhy I think my father is successful is because of his personality, he is very fair about everything,; for example if he sees two beautiful women walking down the street and you ask him which is the nicest of them, he couldn't tell even if one was plain ugly he couldn't. (Sweden; C2 MASTERY; 1993; Swedish; Pass)\n\n[talking about possessions] How people have got their objects is also important. (Sweden; C2 MASTERY; 2000; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163716067x147000311893029860",
+  "level": "C2",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IT' CLEFT",
+  "can_do_statement": "Can use 'It' + 'be' + noun + 'that' clause for focus.",
+  "example_raw": "It is Lily who decides to go to the seaside and it is also her who kills the turkey given by a lorry-driver. (France; C2 MASTERY; 1993; French; Pass)\n\nIt was Paul who stole the money. (Hong Kong; C2 MASTERY; 1997; Chinese; Pass)\n\nIt is Piggy who finds the conch and knows how to blow it. (Denmark; C2 MASTERY; 1993; Danish; Fail)\n\nIt is my mother who always plays the role of mediator. (Poland; C2 MASTERY; 1993; Polish; Pass)\n\nIt is this silence that gives me the impression of togetherness, for which no words are needed. (Netherlands; C2 MASTERY; 1997; Dutch; Pass)"
+ },
+ {
+  "egp_id": "1741163716067x243366578638317700",
+  "level": "C2",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MULTIPLE FIXED EXPRESSIONS",
+  "can_do_statement": "Can use more than one fixed expression in the front position for added focus.",
+  "example_raw": "But all of a sudden, out of nowhere a bunch of people came running towards him, yelling something he couldn't understand. (Switzerland; C2 MASTERY; 2000; Chinese; Pass)\n\nAll in all, taking everything into account, I would suggest that a leisure centre would be the most beneficial as it provides all the facilities necessary to attract and benefit a number of people in the community. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\nWhat is more, from my point of view happiness has nothing to do with big things but with small things such as day-to-day details. (Spain; C2 MASTERY; 1993; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163709234x399877343853970240",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE WITH 'WILL' ",
+  "can_do_statement": "Can use the affirmative form with 'will'.",
+  "example_raw": "I'll be waiting for you. (Portugal; A2 WAYSTAGE; 2009; Portuguese; Pass)\n\nWe will be starting at 12 o'clock this afternoon. (Malaysia; A2 WAYSTAGE; 2006; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163709234x555675180554027650",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with 'will' and 'shall'.",
+  "example_raw": "However, I shall be attending class the day after tomorrow and I shall cover the work I miss by copying it from John. (India; B1 THRESHOLD; 2006; Tamil; Pass)\n\nWe will be waiting for you at the River's Caf\u00e9 at 6.30. (Mexico; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163709234x671025735588754300",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: FUTURE ARRANGEMENTS",
+  "can_do_statement": "Can use the future continuous with 'will' to talk about an event or action in progress at a specified time in the future.",
+  "example_raw": "Tomorrow please come at 4.30 pm because I'll be working before. (France; A2 WAYSTAGE; 2009; French; Pass)\n\nTomorrow I'll be studying in the morning, so you can come at 2. (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163709234x709818430358317700",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE WITH 'WILL'",
+  "can_do_statement": "Can use the negative form with 'will' ('won\u2019t').",
+  "example_raw": "I would like you to know that I won't be attending your English class next week. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI won't be coming because my family and I are going on a tour of London. (Malaysia; B1 THRESHOLD; 2006; Malay; Pass)"
+ },
+ {
+  "egp_id": "1741163709235x267104607541658750",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS",
+  "can_do_statement": "Can use the future continuous with 'will' as a polite question form, in place of the present simple or future simple.  ",
+  "example_raw": "Will I be needing any money? (Switzerland; B2 VANTAGE; 2000; French; Pass)"
+ },
+ {
+  "egp_id": "1741163709235x495747867128213400",
+  "level": "C1",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: EXPECTATIONS WITH 'MIGHT' OR 'MAY'",
+  "can_do_statement": "Can use the future continuous with 'might' or 'may' to talk about an event or activity potentially in progress at a specified or understood time in the future.",
+  "example_raw": "As far as I'm concerned, we should definitely do some additional publicity, particularly for the new offerings which might be coming up. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Dutch; Pass)\n\nFor example, your boss may be calling at 10 pm asking you to prepare a report for next day's meeting. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2010; Chinese; )"
+ },
+ {
+  "egp_id": "1741163709235x737206541062207200",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS ",
+  "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'will'. ",
+  "example_raw": "Will they be holding any activities at night? (Brazil; B2 VANTAGE; 2008; Portuguese; Pass)\n\nWill I be needing any money? (Switzerland; B2 VANTAGE; 2000; French; Pass)\n\nWhat will you be doing in a few years if now you don't even try to do anything? (Poland; B2 VANTAGE; 1999; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163709235x749861660179369300",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'BE ABOUT TO'",
+  "can_do_statement": "Can use the present forms of 'be' + 'about to'.  ",
+  "example_raw": "You are not going to believe what I am about to tell you! (Chile; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n\nI'm in a hurry, my class is about to begin. (Yugoslavia; B2 VANTAGE; 2006; Serbian; Pass)\n\nThey are to offer the spectators a view of the variety and the beauty of the world we are surrounded by and which we are about to destroy. (Jordan; B2 VANTAGE; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163709236x496378598600284700",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: SCHEDULES",
+  "can_do_statement": "Can use 'be due to' and, more formally, 'be to' talk about things that are scheduled or expected. ",
+  "example_raw": "Our annual conference for HR managers is due to take place on 10 December 2010. (Austria; B2 VANTAGE; 2010; German; Pass)\n\nHowever, the demand for products is still estimated as \u2018normal\u2019 and is due to increase within the next 6 months. (Russia; B2 VANTAGE; 2009; Russian; Pass)\n\nI am sorry but we are to leave a bit earlier - at about 16.00. (Czech Republic; B2 VANTAGE; 2003; Czech; Pass)"
  }
 ]
 ```

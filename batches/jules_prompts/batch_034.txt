@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_034.json`
 ```json
 [
  {
-  "egp_id": "1741163711286x101954602280780900",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PAST NEGATIVE",
-  "can_do_statement": "Can use 'should have' + '-ed'.",
-  "example_raw": "I have an appointment. I know I shouldn't have taken it during school time but I had no other choice. (French, B1 THRESHOLD, Pass, 2006)"
- },
- {
-  "egp_id": "1741163711286x245382741783872320",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PAST AFFIRMATIVE",
-  "can_do_statement": "Can use 'should' have + '-ed'.",
-  "example_raw": "You should have been with us. (Italian, B1 THRESHOLD, Pass, 2002)\n\nI knew I should have written before. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163711286x540510273565590660",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "USE: SUGGESTIONS",
-  "can_do_statement": "Can use 'should' to make suggestions.",
-  "example_raw": "I think we should meet at 2 pm, and my mother will take us there so don't worry. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2008)\n\nI think you should meet me around 4 pm at my house. (Thai, A2 WAYSTAGE, Pass, 2008)\n\nYou should bring your guitar. (Italian, A2 WAYSTAGE, Pass, 2009)"
- },
- {
-  "egp_id": "1741163711286x857657935609748000",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: QUESTION TAGS",
-  "can_do_statement": "Can use the question tag form 'shouldn't' + pronoun to make suggestions and ask for opinions. ",
-  "example_raw": "When you come back, we should rent some movies, shouldn't we? (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI think I should write about the history of our company, shouldn't I? (Germany; B1 THRESHOLD; 2003; German; Pass)"
- },
- {
-  "egp_id": "1741163711287x155607228538747300",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "USE: LIKELIHOOD",
-  "can_do_statement": "Can use 'should' to talk about what is likely to happen.",
-  "example_raw": "[talking about an event] It should be a good day! (Russian; B1 THRESHOLD; Pass; 2009)\n\n\u2026the weather is still warm, so we should be able to visit the beaches and go sightseeing in the evenings. (Portuguese; B1 THRESHOLD; Pass; 2004)"
- },
- {
-  "egp_id": "1741163711287x214849958095665100",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "USE: IDEAL OR DESIRED SITUATIONS",
-  "can_do_statement": "Can use 'should' to talk about ideal or desired situations.",
-  "example_raw": "British people should eat more vegetables and fruit and avoid fast food! (Italian, B1 THRESHOLD, Pass, 2010)\n\nI think everyone should learn to cook, you never know when you need to cook. (Panjabi, B1 THRESHOLD, Pass, 2011)"
- },
- {
-  "egp_id": "1741163711287x279520438235405950",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "USE: THANKING",
-  "can_do_statement": "Can use 'you shouldn\u2019t have' (+ '-ed') in polite acceptance of a gift.",
-  "example_raw": "Thank you for the present you sent me, you shouldn't have! (===NONE===, B1 THRESHOLD, Pass, 2003)\n\nThank you for the money, you shouldn't have sent it. (Uruguay; B1 THRESHOLD; 2003; Spanish - Latin American; Pass"
- },
- {
-  "egp_id": "1741163711287x337411277365052160",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "FORM: ELLIPSIS ",
-  "can_do_statement": "Can use 'should' and 'shouldn't' without a following verb where the previous main verb is understood.",
-  "example_raw": "Well, have you ever checked your blood pressure? I think you should. (Italy; B2 VANTAGE; 1993; Swedish; Pass)\n\nJohn spent the rest of the day thinking about what he should do. in fact, he wanted to answer and meet her again, but he knew that he shouldn't. (Spain; B2 VANTAGE; 2004; Spanish - European; Fail)"
- },
- {
-  "egp_id": "1741163711287x768774727410203500",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "USE: NARRATIVE DEVICE",
-  "can_do_statement": "Can use 'you should have' + '-ed' to emphasise points in a story.",
-  "example_raw": "You should have heard the noise. (Spanish - Latin American, B1 THRESHOLD, Pass, 2002)\n\nYou should have seen my face, I was so happy. (German, B1 THRESHOLD, Pass, 1999)"
- },
- {
-  "egp_id": "1741163711287x879466057870175200",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "USE: REGRET",
-  "can_do_statement": "Can use 'should have' + '-ed' to talk about regrets or undesirable situations in the past.",
-  "example_raw": "You should have been there with me, I had a great time. (Chile; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\n\nI opened the envelope and read the letter. He had written that he was sorry and that he should not have done it. (French, B1 THRESHOLD, Pass, 2008)"
- },
- {
-  "egp_id": "1741163711291x330489296656484280",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "should",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'SHOULD BE' + '-ING'",
-  "can_do_statement": "Can use 'should be' + '-ing'.",
-  "example_raw": "Well, you should be bouncing up and down with joy (just kidding)! (Spain; B2 VANTAGE; 2004; Spanish - European; Pass)\n\nThese are the reasons that I believe we should be reading books instead of watching television in our free time and I believe many people believe the same thinks as I do. (Greece; B2 VANTAGE; 1993; Greek; Pass)"
- },
- {
   "egp_id": "1741163711291x489521855903887900",
   "level": "C1",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_034.json`
   "guideword": "FORM/USE: INVERSION",
   "can_do_statement": "Can use 'should' with an inverted subject to refer to possible situations, in formal contexts.",
   "example_raw": "Should you need any further information, don't hesitate to contact us. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)\n\nShould you withhold any important information or documentation, this could stop any payment to you. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; German; Pass)"
+ },
+ {
+  "egp_id": "1741163711292x266086958039415400",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "USE: NO LONGER TRUE",
+  "can_do_statement": "Can use 'used to' to talk about repeated actions or states in the past that are no longer true. ",
+  "example_raw": "When I was I child, I used to go to a small school and I enjoyed it very much. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\n\u2026and she used to come to my house and play computer games with me. (Hong Kong; B1 THRESHOLD; 2008; Chinese; Pass)\n\nI didn't use to laugh much but since the day we met, I'm always happy. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163711292x489347557953784260",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS",
+  "can_do_statement": "Can use 'used to' without a following verb where the previous main verb is understood. \u25ba ellipsis",
+  "example_raw": "She doesn't travel as much as she used to. (Argentina; B2 VANTAGE; 1999; Spanish - Latin American; Pass)\n\nI must admit that they did sound quite a lot better than they used to. (Denmark; B2 VANTAGE; 1999; Danish; Pass)"
+ },
+ {
+  "egp_id": "1741163711292x519356607079623360",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE|",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "I used to share my room with my brother. (Albania; B1 THRESHOLD; 2007; Albanian; Pass)\n\nWhen I was a little girl, we used to be together all the time. (Hungary; B1 THRESHOLD; 2004; Hungarian; Pass)"
+ },
+ {
+  "egp_id": "1741163711292x729451836972431900",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form. ",
+  "example_raw": "[talking about a change in eating habits] What did we use to eat? (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Dutch; Pass)"
+ },
+ {
+  "egp_id": "1741163711292x936509065215580800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative forms 'didn't use to' and 'didn't used to'. ",
+  "example_raw": "We didn't use to talk to each other. (Brazil; B1 THRESHOLD; 2009; Portuguese; Pass)\n\nBut this year I've met lots of new people that I didn't used to talk to, like Monica and Nina. (Brazil; B1 THRESHOLD; 2009; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163711295x478982689806013000",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'AS' + PRONOUN, NARRATIVE ",
+  "can_do_statement": "Can use 'as' + pronoun + 'used to' \u2026 to add background to a narrative, often to highlight something unusual. ",
+  "example_raw": "She had gone out for a walk in the woods as she used to do every Sunday, with her diary in her hand and a pen in her pocket. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nHe divorced his wife, old flabby Nellie as she used to call her, and proposed to her. (Germany; C2 MASTERY; 1993; German; Pass)\n\nShe married a well-off man, and ended up being a housewife, doing piecework for peanuts, as she used to say. (Portugal; C2 MASTERY; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163711296x829671541616373600",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "used to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'USED NOT TO'",
+  "can_do_statement": "Can use negative form 'used not to'",
+  "example_raw": "I used to play until late in the evening, I used not to do my homework and I did not excel at school. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nAs a teenager I used not to be very sociable, I had few friends and none of them felt close. (Poland; C2 MASTERY; 2003; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711296x325230052368145900",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "USE: PLANS AND INTENTIONS",
+  "can_do_statement": "Can use 'will' to ask about plans and intentions. ",
+  "example_raw": "Will you come by bus? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nWill you come with any friends? (Spain; A2 WAYSTAGE; 2009; Basque; Pass)"
+ },
+ {
+  "egp_id": "1741163711296x326455472693880200",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative forms. ",
+  "example_raw": "I will be at your house at 7.30 because I have an appointment before. (A1 BREAKTHROUGH; 2006; Russian; Pass)\n\nI'll come to see you tomorrow morning. (A1 BREAKTHROUGH; 2009; Nepali; Pass)"
+ },
+ {
+  "egp_id": "1741163711296x618996248976702100",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form.",
+  "example_raw": "Will you be at home? (France; A2 WAYSTAGE; 2005; French; Pass)\n\nI'm happy because I'll see you tomorrow, but what time will you be here? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n"
+ },
+ {
+  "egp_id": "1741163711296x650279021780509000",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative forms.",
+  "example_raw": "Don't worry, you won't need anything apart from some pencils and your art book. (Italy; A2 WAYSTAGE; 2006; Italian; Pass)\n\nI hope it will not be boring! (France; A2 WAYSTAGE; 2006; French; Pass)\n"
  }
 ]
 ```

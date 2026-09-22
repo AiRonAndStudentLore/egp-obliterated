@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_039.json`
 ```json
 [
  {
-  "egp_id": "1741163716070x944796112360125800",
-  "level": "B1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: ADVERBS",
-  "can_do_statement": "Can use adverbs 'ever', 'never', 'yet', 'still' in negative contexts.",
-  "example_raw": "Nobody will ever know who that man was. (Chile; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nI stayed there for two weeks and it never rained. (Argentina; B1 THRESHOLD; 1999; Spanish - Latin American; Pass)\n\nI haven't decided yet. (Japan; B1 THRESHOLD; 2001; Japanese; Pass)\n\nBut I still don't believe her. (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163716072x182229027169600770",
-  "level": "C1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'WHATSOEVER', EMPHASIS",
-  "can_do_statement": "Can use 'whatsoever' after a negative form for emphasis. ",
-  "example_raw": "This means that nothing shall change for the employees, there shall be no implication whatsoever for their rights stipulated in their employment contracts. (Czech Republic; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Czech; Pass)\n\nOrganising the entertainment would be rather fun, whilst waiting tables would be boring and we have no experience whatsoever. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163716072x190757617985932480",
-  "level": "C1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'NOT ONLY \u2026 (BUT) ALSO' WITH INVERSION",
-  "can_do_statement": "Can use auxiliary 'do' + inverted subject after 'not only', to give focus.",
-  "example_raw": "Not only was it in a wonderful location, with extraordinary views, but it was also very accessible and the shops were really near. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)\n\nNot only do they have the biggest turnover overall, they also managed to increase it constantly from 2000 to 2002. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; German; Pass)"
- },
- {
-  "egp_id": "1741163716072x449913250965678900",
-  "level": "C1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'NOT' + STANCE ADVERB, HEDGING",
-  "can_do_statement": "Can use 'not' + stance adverb, often  in a mid position, to soften the directness of a statement.",
-  "example_raw": "This is not necessarily the way the older generation would see it, though. (Slovenia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Slovene; Pass)\n\nBeing a passionate student of the English language, you do not necessarily need a teacher to guide you through the meanders of English. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Polish; Pass)\n\nI'm not sure what exactly they would expect us to do at the campsite, but organising the entertainment is not really my thing. (Austria; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; German; Pass)\n\nPersonally, I do not actually think that this relationship will change. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)"
- },
- {
-  "egp_id": "1741163716072x485073520726290800",
-  "level": "C1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'NONE', SUBSTITUTION",
-  "can_do_statement": "Can use negative pronoun 'none' to substitute for subject and object pronouns or noun phrases. \u25ba pronouns: substitution",
-  "example_raw": "In fact, there are none, but the hills that do exist can be dubbed mountains - just because there are none... (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Russian; Pass)\n\nConcerning your question about any special requirements of some students - I am glad that I am able to tell you that there are none this year. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; German; Pass)\n\nProblems when using English? None. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163716072x486471898998410700",
-  "level": "B2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'NEITHER OF', 'NONE OF' + PRONOUN",
-  "can_do_statement": "Can use negative forms 'neither of' and 'none of' + pronoun or noun phrase with the affirmative form of the verb. ",
-  "example_raw": "Neither of us is liable in this case. (Czech Republic; B2 VANTAGE; 2007; Slovak; Pass)\n\nMoreover, none of my friends are interested therefore there is no one I can talk to. (Japan; B2 VANTAGE; 1993; Japanese; Pass)\n\nWe even met a French group and as none of them spoke English, we stayed with them to translate what they were asked. (France; B2 VANTAGE; 1993; French; Pass)"
- },
- {
-  "egp_id": "1741163716072x615032056929655300",
-  "level": "B2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'NEITHER \u2026 NOR'",
-  "can_do_statement": "Can use 'neither \u2026 nor' to connect two words, phrases or clauses, often to give emphasis or focus.",
-  "example_raw": "Neither you nor I would like that. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nWe can neither eat nor drink during the lessons. (Poland; B2 VANTAGE; 2000; Polish; Pass)\n\nI have neither climbed nor surfed before, so that would be very exciting for me. (Sweden; B2 VANTAGE; 2000; Swedish; Pass)"
- },
- {
-  "egp_id": "1741163716072x678281983839554200",
-  "level": "C1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'NOT ALL', 'NOT EVERY'",
-  "can_do_statement": "Can use 'not with indefinite pronouns 'everyone' and 'everything' and determiners 'every', 'all'.",
-  "example_raw": "Not everyone likes sports or music. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)\n\nNot everything was as good as we expected. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Polish; Pass)\n\nNot all students, though, can attend the centre as it is not always open, and their lessons finish at 5 pm, the closing time of the centre. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)\n\nNot all of us have got the fighting spirit to visit the gym regularly, but many of us would like to have a healthy look. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Swedish; Pass)\n\nNot every cyclist is a danger to the public as most of them obey all rules and respect other road users. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Slovak; Pass)"
- },
- {
-  "egp_id": "1741163716072x770198940521685800",
-  "level": "C1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "USE: FORMAL",
-  "can_do_statement": "Can use '(very) few' meaning 'not many' to refer to people in formal written contexts, often reports or surveys. ",
-  "example_raw": "They were sent to Britain to improve their English but few had any real contact with the language. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Swedish; Pass)\n\nEnglish is the most spoken language nowadays and although most of the people can speak a bit of English, very few speak it in the right way. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Greek; Pass)\n\nThe Greeks have always been a tortured folk; everyone tried to conquer them, but few managed. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Greek; Pass)"
- },
- {
-  "egp_id": "1741163716072x944158847712108200",
-  "level": "B2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'NEVER', INVERTED FRONT POSITION, FOCUS",
-  "can_do_statement": "Can use 'never' in front position followed by an inverted subject (most commonly 'I') + main verb, to give focus. ",
-  "example_raw": "Never have I seen such a realistic and impressive film before. (Argentina; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\nNever had I thought that my parents would do this to me. (Netherlands; B2 VANTAGE; 1993; Dutch; Fail)"
- },
- {
-  "egp_id": "1741163716073x696199339681962600",
-  "level": "C2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'NOT A' + NOUN, EMPHASIS",
-  "can_do_statement": "Can use 'not a' + noun, often with a following  passive structure, for emphasis.",
-  "example_raw": "Not a single noise could be heard from inside of any of the rooms. (Argentina; C2 MASTERY; 2000; Spanish - Latin American; Pass)\n\nNot a long time passes before another Polish city, Warsaw, hosts a festival. (Poland; C2 MASTERY; 2003; Polish; Pass)\n\nNot a single member of the group would have imagined that the \"Luxury coach\" would break down and leave them stranded in the middle of nowhere. (Argentina; C2 MASTERY; 2001; Spanish - Latin American; Pass)"
- },
- {
   "egp_id": "1741163716291x581144268274536400",
   "level": "C2",
   "super_category": "NEGATION",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_039.json`
   "guideword": "FORM: ADJECTIVE + PLURAL NOUN",
   "can_do_statement": "Can form simple noun phrases by pre-modifying plural nouns with an adjective and no determiner. ",
   "example_raw": "I have new neighbours. (A1 BREAKTHROUGH; 2008; Gujarati; Pass)\n\nThey're nice people. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)\n\nThis place has nice shops. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nI like reading interesting books in the Library. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711539x336320676887564860",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DETERMINER + ADJECTIVE + NOUN",
+  "can_do_statement": "Can form simple noun phrases by pre-modifying singular and plural nouns with an adjective after a determiner. ",
+  "example_raw": "Martin is my best friend. (A1 BREAKTHROUGH; 2006; Slovak; Pass)\n\nWe have a big garden and a small swimming pool. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)\n\nHer favourite colours are blue and black. (A1 BREAKTHROUGH; 2006; Hungarian; Pass)"
+ },
+ {
+  "egp_id": "1741163711539x384428957229715900",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "1",
+  "guideword": "FORM: DETERMINER + NOUN",
+  "can_do_statement": "Can form simple noun phrases with a limited range of determiners + singular and plural nouns. \u25ba Nouns and noun phrases: functions",
+  "example_raw": "There is also a park near my house. (A1 BREAKTHROUGH; 2009; Pashto; Pass)\n\nMy husband is a teacher. (A1 BREAKTHROUGH; 2009; Korean; Pass)\n\nThat's why I like this place. (A1 BREAKTHROUGH; 2007; Urdu; Pass)\n\nI go to college every day. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711539x458750897089793800",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN + NOUN",
+  "can_do_statement": "Can form noun phrases by pre-modifying a limited range of nouns with another noun. ",
+  "example_raw": "Every Friday I go swimming and play computer games. (Poland; A1 BREAKTHROUGH; 2010; Polish; Pass)\n\nI am having a dinner party on Friday 25 December at 7 pm. (India; A1 BREAKTHROUGH; 2010; Panjabi; Pass)\n\nCan you come to my house on Friday evening? (Iran; A1 BREAKTHROUGH; 2010; Farsi; Pass)\n\nMy girlfriend likes vegetable pasta with tomato sauce, because she is vegetarian. (A1 BREAKTHROUGH; 2006; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711543x198151940455300030",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH RELATIVE CLAUSE AS POSTMODIFIER",
+  "can_do_statement": "Can post-modify noun phrases by using a non-defining relative clause. \u25ba Clauses: relative",
+  "example_raw": "She's in a volleyball team like me, but we're not in the same one. She was for the other team, which lost. (Switzerland; A2 WAYSTAGE; 2007; Swiss German; Pass)\n\nYou can always visit our Shopping Centre, which is one of the biggest in Brazil. (Brazil; A2 WAYSTAGE; 2001; Portuguese; Pass)\n"
+ },
+ {
+  "egp_id": "1741163711543x516239433928662500",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "2",
+  "guideword": "FORM: DETERMINER + NOUN",
+  "can_do_statement": "Can form simple noun phrases by pre-modifying nouns with an increasing range of determiners.",
+  "example_raw": "There are so many shops, you can play games, eat food like Chinese food. (China; A2 WAYSTAGE; 2001; Chinese; Pass)\n\nI had so much fun! (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nI spent too much money, five hundred euros, but I don\u2019t mind because they are beautiful! (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nI visited a lot of museums and I went shopping. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nAll of our classmates were there and some of my cousins too. (Malaysia; A2 WAYSTAGE; 2004; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163711543x777814761336798300",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DETERMINER + UNCOUNTABLE NOUN",
+  "can_do_statement": "Can form simple noun phrases with a limited range of determiners + uncountable nouns.",
+  "example_raw": "The food was delicious and the music was great. (Turkey; A2 WAYSTAGE; 1999; Turkish; Pass)\n\nThe weather was so cold. (Philippines; A2 WAYSTAGE; 2009; Chinese; Pass)\n\nI phoned for more information two days ago. (Italy; A2 WAYSTAGE; 2006; Italian; Pass)\n\n[talking about a book] It is very important because I need to do some homework in it. (India; A2 WAYSTAGE; 2005; Marathi; Pass)"
+ },
+ {
+  "egp_id": "1741163711543x798815849394851200",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "1",
+  "guideword": "FORM: NOUN PHRASES WITH ADJECTIVES",
+  "can_do_statement": "Can pre-modify noun phrases with a limited range of more than one adjective. ",
+  "example_raw": "I bought a beautiful pink skirt and a white top. (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nLysiane is taller than me and she has short black hair. (A2 WAYSTAGE; 2010; Portuguese; Pass)\n\nIt is a beautiful old city and there is the old wall around the city. (Latvia; A2 WAYSTAGE; 1999; Russian; Pass)\n\nI left my small white bag. (Argentina; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)\n\nDon't forget to wear old, comfortable clothes. (Peru; A2 WAYSTAGE; 2006; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163711544x121774905611857550",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPLEX NOUN PHRASES WITH ADVERBS + ADJECTIVES",
+  "can_do_statement": "Can form complex noun phrases with adverb + adjective + noun. ",
+  "example_raw": "It took us a very long time but it was a great fun! (Poland; B1 THRESHOLD; 2009; Polish; Pass)\n\nThey made really good friends. (Argentina; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163711544x322105234805026600",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN + PREPOSITIONAL PHRASES ",
+  "can_do_statement": "Can form complex noun phrases by using a prepositional phrase after the main noun in a noun phrase. ",
+  "example_raw": "It was a beautiful red dress with blue flowers on the back. (Andorra; B1 THRESHOLD; 2010; French; Pass)\n\nYesterday a TV company came to our school to make a film about Bavarian pupils. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI don't spend too much time in front of the television, I just watch it twice a week and on Sundays morning. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI received your letter and you asked me about the future of my town. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI have to travel to Montevideo to see my doctor because I'm having some problems with my health. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n"
+ },
+ {
+  "egp_id": "1741163711544x351321536679149760",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH RELATIVE CLAUSE AS COMPLEMENT",
+  "can_do_statement": "Can form complex noun phrases by using a defining relative clause as a complement to a noun phrase. \u25ba Clauses: relative",
+  "example_raw": "The mobile phone which I bought yesterday is brilliant. (Russia; A2 WAYSTAGE; 2007; Russian; Pass)\n\nThe person who gave me it was my father. (Portugal; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nThe last day when we can see the movie is Thursday. (Romania; A2 WAYSTAGE; 2003; Romanian; Pass)\n\nI want to invite you to a pop concert that is going to take place in the National Stadium. (Peru; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nThe music that I like is Rock & Roll. (Russia; A2 WAYSTAGE; 2005; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163711544x365357840588922800",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "2",
+  "guideword": "FORM: COMPLEX NOUN PHRASES WITH ADJECTIVES",
+  "can_do_statement": "Can form an increasing range of complex noun phrases with more than one adjective. ",
+  "example_raw": "The Northeast is so beautiful and it's famous because of its white sandy beaches and the coconut trees. (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)\n\nLast weekend I went to S\u00e3o Paulo to buy some winter clothes. I bought a white hooded jacket, a blue jumper, black gloves and a beautiful blue scarf. (Brazil; B1 THRESHOLD; 2010; Portuguese; Pass)\n\nInside there were three samples of a nasty purple liquid. (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nI know your company are offering an exciting new service in our area. (China; B1 THRESHOLD; 2007; Chinese; Pass)\n\nHe had beautiful green eyes, short, curly, red hair and he was wearing an elegant black suit with a red tie. (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nYou can walk along the streets and eat typical Spanish food in good restaurants. (Spain; B1 THRESHOLD; 2004; Spanish - European; Pass)"
  }
 ]
 ```

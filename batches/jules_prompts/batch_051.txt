@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_051.json`
 ```json
 [
  {
-  "egp_id": "1741163712747x851758421234194700",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "present perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: SINGLE CONTINUING EVENT",
-  "can_do_statement": "Can use the present perfect continuous to talk about a single activity or state that began in the past and is still continuing, often with 'for' or 'since'. ",
-  "example_raw": "I've been studying International business there for four years. (Algeria; B1 THRESHOLD; 2003; Arabic - Meghreb; Pass)\n\nI've been living here since last April and it seemed no problem during spring and summer. (Japan; B1 THRESHOLD; 2001; Japanese; Pass)\n\nSusan has been working in our company for 6 years as a Sales Representative. (Hong Kong; B2 VANTAGE; 2001; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163712747x885210955530291000",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "present perfect continuous",
-  "lexical_range": "1",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the negative form.",
-  "example_raw": "I hope that I have not been wasting your time and giving you too much trouble. (Malaysia; B2 VANTAGE; 1997; Chinese; Pass)\n\nHope you haven't been working too hard! (Japan; B2 VANTAGE; 2000; Japanese; Pass)\n\nThe heating system has not been working properly since your staff completed the work in my house. (Turkey; B2 VANTAGE; 2010; Turkish; Pass)"
- },
- {
-  "egp_id": "1741163712747x939400938846862500",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "present perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: RECENT PAST",
-  "can_do_statement": "Can use the present perfect continuous to focus on a finished activity in the recent past but where the effects or results are still important or relevant. ",
-  "example_raw": "They might be slippery when it has been snowing. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)"
- },
- {
-  "egp_id": "1741163712747x124721408738829090",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: WITH 'YET'",
-  "can_do_statement": "Can use the negative form with 'yet' to talk about events which are expected to be completed at some point in the future. ",
-  "example_raw": "[talking about a new mobile phone] I haven't seen it yet . (Cyprus; A2 WAYSTAGE; 2009; Greek; Pass)\n\n[talking about a book] It's very important because I haven't finished it yet. (Nepal; A2 WAYSTAGE; 2005; Nepali; Pass)\n\nI haven't seen this film yet. (Estonia; A2 WAYSTAGE; 2003; Estonian; Pass)"
- },
- {
-  "egp_id": "1741163712747x157745710696413300",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: TIME WITH 'FOR'",
-  "can_do_statement": "Can use the negative form with 'for' to talk about a past event or action which hasn't occurred again in the period of time up to now.",
-  "example_raw": "I haven't eaten Italian food for a long time. (Ecuador; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nI'm sorry I haven't written for so long. (Greece; A2 WAYSTAGE; 2009; Greek; Pass)\n\nI haven't seen you for ages. (Russia; A2 WAYSTAGE; 2004; Russian; Pass)"
- },
- {
-  "egp_id": "1741163712747x300382600384414560",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "1",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form 'have' + '-ed' with pronouns 'I' and 'we', and with a limited range of verbs.",
-  "example_raw": "I have seen the Eiffel Tower and many old buildings. (Turkey; A2 WAYSTAGE; 1999; Turkish; Pass)\n\nI like Japanese people and I've been to Japan more than three times. (China; A2 WAYSTAGE; 2002; Chinese; Pass)\n\nWe have seen the Tower of London, Big Ben, the Houses of the Parliament and of course Buckingham Palace. (France; A2 WAYSTAGE; 1999; French; Pass)"
- },
- {
-  "egp_id": "1741163712747x475008652441932600",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "1",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the negative form 'haven't' + '-ed' with 'I' with a limited range of verbs. ",
-  "example_raw": "I haven't eaten Italian food for a long time. (Ecuador; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nI haven't seen you for a long time. (A2 WAYSTAGE; 2008; Hungarian; Pass)"
- },
- {
-  "egp_id": "1741163712748x393349898324399200",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "1",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use the question form 'have you' + '-ed' with with a limited range of verbs.",
-  "example_raw": "Have you bought anything? (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nHi Jools, How have you been? (Japan; A2 WAYSTAGE; 2010; Japanese; Pass)\n\nWhere have you been? (Ecuador; A2 WAYSTAGE; 2010; Spanish - Latin American; Pass) \n"
- },
- {
-  "egp_id": "1741163713101x219481632919301660",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: WITH 'ALREADY'",
-  "can_do_statement": "Can use the present perfect simple with 'already' to emphasise that something is done, often before the expected time.  \u25ba adverbs",
-  "example_raw": "I've already planned the party, bought his present, and most important of all, I 've already told everyone. (Mexico; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n\nI have already bought a new arm-chair, yellow and comfortable. (Sweden; B1 THRESHOLD; 2001; Swedish; Pass)\n\nIn Spain lots of universities have already accepted this plan.. (B1 THRESHOLD; 2009; Spanish - Other; Pass)\n\nSo we decided to go to Farhang cinema tonight and we have already bought the tickets. (Iran; B1 THRESHOLD; 2004; Farsi; Pass)\n\nShe has already won three gold medals at international tournaments. (Italy; B1 THRESHOLD; 2003; Italian; Fail)"
- },
- {
-  "egp_id": "1741163713101x377184134338727900",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "2",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative forms with a range of pronouns and nouns and an increasing range of verbs.",
-  "example_raw": "I've left some clothes at the dry cleaner's 100 yards from my home, in Park Street. (B1 THRESHOLD; 2009; Mandarin; Pass)\n\nIt's been an amazing week for me. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nShe is from California, but she has just moved to Italy. (Italy; B1 THRESHOLD; 2002; Italian; Pass)\n\nOur company has signed deals with a few German companies. (India; B1 THRESHOLD; 2006; Panjabi; Pass)"
- },
- {
-  "egp_id": "1741163713101x437459773177046000",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "1",
-  "guideword": "FORM: WITH ADVERBS",
-  "can_do_statement": "Can use the present perfect simple with a limited range of adverbs in the normal mid position. ",
-  "example_raw": "I have never seen a competition like that before, and I love it. (Brazil; A2 WAYSTAGE; 2007; Portuguese; Pass)\n\nI have just seen your notice. (Malaysia; A2 WAYSTAGE; 2005; Chinese; Pass)"
- },
- {
   "egp_id": "1741163713101x488385456450781700",
   "level": "B1",
   "super_category": "PAST",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_051.json`
   "guideword": "USE: EXPERIENCES",
   "can_do_statement": "Can use the present perfect simple to talk about experiences up to now. ",
   "example_raw": "I've seen the British Museum. (Taiwan; A2 WAYSTAGE; 1999; Chinese; Pass)\n\nWe have visited the Coliseum and several museums. (Russia; A2 WAYSTAGE; 2009; Armenian; Pass)\n\nAfter the film, we should go to \"The Golden Pagoda\" because I've never been there. (Myanmar; A2 WAYSTAGE; 2003; Burmese; Pass)\n\nYou know I haven't been to France before. (A2 WAYSTAGE; 2008; Hungarian; Pass)"
+ },
+ {
+  "egp_id": "1741163713101x869805445646449900",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: RECENT PAST",
+  "can_do_statement": "Can use the present perfect simple to refer to a finished event or state in the recent past, that has a present relevance, often with 'just'.  \u25ba adverbs",
+  "example_raw": "My mother has broken her right leg. (Peru; B1 THRESHOLD; 2006; German; Pass)\n\nI've just received your mail. (France; B1 THRESHOLD; 2004; French; Pass)\n\nI've found a job for you. (Italy; B1 THRESHOLD; 2005; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163713101x942811642239743600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the present perfect simple with an increasing range of adverbs in the normal mid position. ",
+  "example_raw": "This is a famous seafood restaurant, you know, I've always loved seafood. (Mexico; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)\n\nHave you ever been to Gorgeousbi? (Korea, North; B1 THRESHOLD; 2005; Korean; Pass)"
+ },
+ {
+  "egp_id": "1741163713102x805096612277930600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: UNFINISHED ",
+  "can_do_statement": "Can use the present perfect simple to refer to a state or period of time which is unlimited or indefinite. ",
+  "example_raw": "In spite of bad weather forecasts on TV, it has been a sunny, warm weekend. (Spain; B1 THRESHOLD; 2003; Spanish - European; Pass)\n\nI've had a really nice week. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nIt is a great movie. It has won a lot of prizes so I think it will be good to see it at the cinema. (Iran; B1 THRESHOLD; 2004; Farsi; Pass)"
+ },
+ {
+  "egp_id": "1741163713111x354631070539948000",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "2",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form with an increasing range of verbs.",
+  "example_raw": "How has your family been? (Mexico; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n\n\nBut what have these animals done? (Netherlands; B2 VANTAGE; 1993; Dutch; Pass)\n\nIn 1970 people in the UK married in their early 20s, but nowadays they marry at the end of their 20s. But why has this changed? (B2 VANTAGE; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163713111x611310529067472800",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'STILL'",
+  "can_do_statement": "Can use the negative form of the present perfect simple with 'still' to emphasise that something that was expected to happen continues not to happen.  \u25ba adverbs",
+  "example_raw": "I still haven't read the role but when I read it, I was very excited and I accepted Mr Brown's offer. (Greece; B2 VANTAGE; 2002; Greek; Pass)\n\nYou asked me whether I bought a computer or a bicycle and I have to tell you that I still haven't decided. (Germany; B2 VANTAGE; 1997; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163713111x811420585366934300",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: WITH SUPERLATIVE ",
+  "can_do_statement": "Can use the present perfect simple with a superlative adjective to talk about a unique experience.  \u25ba adjectives: superlatives",
+  "example_raw": "This restaurant has the most delicious shrimps I have ever tasted. (Mexico; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)\n\nThat is the best game I've ever played. (Romania; B1 THRESHOLD; 2010; Hungarian; Pass)\n\nI've never been there before but my friend Pepo said that it is the biggest park she has ever seen. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nAt the top of that, you will see the most amazing view you have ever seen. (Japan; B1 THRESHOLD; 2004; Japanese; Pass)"
+ },
+ {
+  "egp_id": "1741163713111x834717044155053800",
+  "level": "C1",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "3",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the full negative forms with a wide range of verbs, often in formal contexts.",
+  "example_raw": "Thus, you have not fulfilled your task with due care, as you have stated in your letter. (Austria; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; German; Pass)\n\nSomehow, in my country education has not evolved, although it manages to maintain some advantages. (Yugoslavia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Serbian; Pass)"
+ },
+ {
+  "egp_id": "1741163713112x784244213132092200",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: NEWSWORTHY",
+  "can_do_statement": "Can use the present perfect simple to introduce news. ",
+  "example_raw": "A new shopping centre has opened in our town. (Russia; C2 MASTERY; 2005; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163713112x603850914179882600",
+  "level": "A1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PREPOSITION + NOUN PHRASE",
+  "can_do_statement": "Can form prepositional phrases with a preposition and a noun phrase. ",
+  "example_raw": "When I have free time, I go to the park with my dog. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nWe have lots of vegetables and fruit in the summer. (A1 BREAKTHROUGH; 2009; Slovak; Pass)\n\nWe sometimes meet friends or go to the Sports Center at the weekend. (A1 BREAKTHROUGH; 2006; Mandarin; Pass)"
+ },
+ {
+  "egp_id": "1741163713112x664516393932309100",
+  "level": "A2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'JUST' + PREPOSITION",
+  "can_do_statement": "Can use 'just' to modify prepositions. ",
+  "example_raw": "It's just near the cinema. (India; A2 WAYSTAGE; 2009; Hindi; Pass)\n\nSo you have to go along 3 blocks and turn on your left and just in front of you is the Cathedral and next to the Cathedral is the Zocalo. (Mexico; A2 WAYSTAGE; 2001; Spanish - Latin American; Pass)\n\nMy house is just after the library. (France; A2 WAYSTAGE; 2009; French; Pass)"
+ },
+ {
+  "egp_id": "1741163713112x806003192035927200",
+  "level": "A1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "1",
+  "guideword": "FORM: SIMPLE",
+  "can_do_statement": "Can use a limited range of simple (single-word) prepositions. ",
+  "example_raw": "I'm sending some flowers to you. (A1 BREAKTHROUGH; 2009; Romanian; Pass)\n\nHe works in Bognor Regis. (A1 Slovak)\n\nI can cook some food for you. (A1 BREAKTHROUGH; 2009; Bengali; Pass)\n\nI usually go shopping with her in Chester. (Bulgarian, A1 BREAKTHROUGH, Pass, 2006)\n\nCan you come on Saturday at five o'clock in the afternoon? (A1 Polish)\n\nI will come to your house on time. (A1 BREAKTHROUGH; 2006; Mandarin; Pass)"
  }
 ]
 ```

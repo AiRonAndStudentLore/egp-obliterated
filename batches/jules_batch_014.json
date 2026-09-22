@@ -1,0 +1,976 @@
+[
+ {
+  "egp_id": "1741163709012x123278635116746530",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MUCH' WITH UNCOUNTABLE NOUNS, NEGATIVE",
+  "can_do_statement": "Can use 'much' with uncountable nouns in negative contexts. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Quantifying uncountable entities in absence or low quantity.",
+   "pedagogical_hook": "Using 'not much' to describe a small amount of something you can't count.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?:n't|not)\\b(?:\\s+\\w+){0,4}\\s+much\\s+(?:money|time|water|food|milk|rice|bread|work|information|fun|sugar|salt|coffee|tea|juice|trouble|rain|snow|traffic|advice|help|homework)",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "not"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "much"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "money",
+       "time",
+       "water",
+       "food",
+       "milk",
+       "rice",
+       "bread",
+       "work",
+       "information",
+       "fun",
+       "sugar",
+       "salt",
+       "coffee",
+       "tea",
+       "juice",
+       "trouble",
+       "rain",
+       "snow",
+       "traffic",
+       "advice",
+       "help",
+       "homework"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We didn't have much money for the trip.",
+    "I haven't got much time to watch television."
+   ],
+   "negatives": [
+    "We had much money for the trip.",
+    "She hasn't seen many friends lately."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x230041547102954000",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH SINGULAR NOUNS",
+  "can_do_statement": "Can use a limited range of quantifying determiners with singular nouns ('a', 'every').\u25ba determiners: articles",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Singling out a specific countable entity or referring to all instances distributively.",
+   "pedagogical_hook": "Using 'a' for one thing or 'every' for all things of that type.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:a|every)\\s+(?:big|small|new|old|good|bad|nice|beautiful)?\\s*(?:kitchen|toilet|bedroom|bathroom|friend|family|year|day|book|car|house|dog|cat|man|woman|child|student|teacher|school|city|country|problem)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "a",
+       "every"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "kitchen",
+       "toilet",
+       "bedroom",
+       "bathroom",
+       "friend",
+       "family",
+       "year",
+       "day",
+       "book",
+       "car",
+       "house",
+       "dog",
+       "cat",
+       "man",
+       "woman",
+       "child",
+       "student",
+       "teacher",
+       "school",
+       "city",
+       "country",
+       "problem"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I go to college every day.",
+    "I have a big kitchen in my house."
+   ],
+   "negatives": [
+    "I go to college all days.",
+    "I have big kitchens in my house."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x344511888995459460",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH SINGULAR NOUNS ",
+  "can_do_statement": "Can use an increasing range of quantifying determiners with singular nouns ('each', 'an', 'one' and numbers). ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specifying exact quantities or individual components of a group.",
+   "pedagogical_hook": "Using 'each', 'an', 'one', or numbers to talk about single items.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:each|an|one|two|three|four|five|six|seven|eight|nine|ten)\\s+(?:blue|pink|yellow|extra|big|small|new|old)?\\s*(?:class|hour|t-shirt|shirt|ticket|apple|orange|egg|hour|idea|person|student|teacher|book|car|house)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "each",
+       "an",
+       "one",
+       "two",
+       "three",
+       "four",
+       "five",
+       "six",
+       "seven",
+       "eight",
+       "nine",
+       "ten"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "class",
+       "hour",
+       "t-shirt",
+       "shirt",
+       "ticket",
+       "apple",
+       "orange",
+       "egg",
+       "hour",
+       "idea",
+       "person",
+       "student",
+       "teacher",
+       "book",
+       "car",
+       "house"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Each class is about one hour long.",
+    "We have an extra ticket for the concert."
+   ],
+   "negatives": [
+    "All classes are long.",
+    "We have some extra tickets."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x385518589517292100",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH PLURAL AND UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use a range of quantifying determiners ('some', 'any', 'no', 'more', 'a lot of') with both plural nouns and uncountable nouns.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Expressing indefinite quantities for both countable and uncountable entities.",
+   "pedagogical_hook": "Using 'some', 'any', 'no', 'more', 'a lot of' for things you have many of, or can't count.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:some|any|no|more|a\\s+lot\\s+of)\\s+(?:water|clouds|time|work|details|clothes|fun|money|people|friends|food|books)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "a",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "some",
+       "any",
+       "no",
+       "more",
+       "lot",
+       "lots"
+      ]
+     }
+    },
+    {
+     "LOWER": "of",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "water",
+       "clouds",
+       "time",
+       "work",
+       "details",
+       "clothes",
+       "fun",
+       "money",
+       "people",
+       "friends",
+       "food",
+       "books"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think we should bring some water.",
+    "There were no clouds in the sky."
+   ],
+   "negatives": [
+    "I think we should bring a bottle.",
+    "There was not a cloud."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x416302896661777700",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH PLURAL NOUNS ",
+  "can_do_statement": "Can use an increasing range of quantifying determiners with plural nouns ('all', 'both', 'a few').",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Quantifying plural entities as totalities or small subsets.",
+   "pedagogical_hook": "Using 'all', 'both', or 'a few' to talk about multiple things.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:all|both|a\\s+few)\\s+(?:students|teams|things|friends|days|weeks|months|years|people|books|cars|houses)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "all",
+       "both",
+       "a"
+      ]
+     }
+    },
+    {
+     "LOWER": "few",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "students",
+       "teams",
+       "things",
+       "friends",
+       "days",
+       "weeks",
+       "months",
+       "years",
+       "people",
+       "books",
+       "cars",
+       "houses"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "This notice is for all students.",
+    "I'm just writing to tell you a few things."
+   ],
+   "negatives": [
+    "This notice is for every student.",
+    "I'm just writing to tell you one thing."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709230x682584219326611800",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MANY' WITH PLURAL NOUNS, NEGATIVE",
+  "can_do_statement": "Can use 'many' with plural nouns in negative contexts. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Expressing absence of a large quantity for countable entities.",
+   "pedagogical_hook": "Using 'not many' to say there are only a few of something.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?:n't|not)\\b(?:\\s+\\w+){0,4}\\s+many\\s+(?:tickets|clothes|friends|people|books|cars|places|days|things|times)",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "not"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "many"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "tickets",
+       "clothes",
+       "friends",
+       "people",
+       "books",
+       "cars",
+       "places",
+       "days",
+       "things",
+       "times"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "There aren't many tickets left.",
+    "I haven't got many winter clothes."
+   ],
+   "negatives": [
+    "There are many tickets.",
+    "I haven't got much time."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709230x890396805087210400",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'SO MANY' WITH PLURAL NOUNS",
+  "can_do_statement": "Can use 'so many' and 'too many' with plural nouns. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Emphasizing an excessively or surprisingly large quantity of countable entities.",
+   "pedagogical_hook": "Using 'so many' or 'too many' to exaggerate a lot of things.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:so|too)\\s+many\\s+(?:games|places|things|friends|people|times|books|days|years|cars|mistakes)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "so",
+       "too"
+      ]
+     }
+    },
+    {
+     "LOWER": "many"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "games",
+       "places",
+       "things",
+       "friends",
+       "people",
+       "times",
+       "books",
+       "days",
+       "years",
+       "cars",
+       "mistakes"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We played so many games together.",
+    "I know I bought too many things."
+   ],
+   "negatives": [
+    "We played many games.",
+    "I know I bought too much food."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x184772883851782600",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "3",
+  "guideword": "FORM: DETERMINER + 'OF' + DETERMINER ",
+  "can_do_statement": "Can use an increasing range of quantifying determiners + 'of' + determiner ('half of', 'enough of', 'none of',).\u25ba pronouns",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specifying a proportion of a definite subset.",
+   "pedagogical_hook": "Using 'half of', 'enough of', or 'none of' followed by 'the' or 'my'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:half|enough|none)\\s+of\\s+(?:the|my|your|his|her|our|their|this|that|these|those)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "half",
+       "enough",
+       "none"
+      ]
+     }
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their",
+       "this",
+       "that",
+       "these",
+       "those"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You should spend half of your holiday with parents.",
+    "None of the stores had it."
+   ],
+   "negatives": [
+    "You should spend half a holiday.",
+    "No stores had it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x384570160463784100",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH PLURAL AND UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use an increasing range of quantifying determiners with both plural nouns and uncountable nouns ('most', 'enough', 'plenty of', 'loads of').",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Expressing sufficiency, majority, or abundance for countable and uncountable entities.",
+   "pedagogical_hook": "Using 'most', 'enough', 'plenty of', or 'loads of'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:most|enough|plenty\\s+of|loads\\s+of)\\s+(?:people|credit|time|places|money|water|friends|food|books|fun)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "most",
+       "enough",
+       "plenty",
+       "loads"
+      ]
+     }
+    },
+    {
+     "LOWER": "of",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "people",
+       "credit",
+       "time",
+       "places",
+       "money",
+       "water",
+       "friends",
+       "food",
+       "books",
+       "fun"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am convinced that most people watch TV.",
+    "We will have plenty of time to buy tickets."
+   ],
+   "negatives": [
+    "I am convinced that many people watch TV.",
+    "We will have a lot of time to buy tickets."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x447456423959638800",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'SO MUCH', 'TOO MUCH' WITH UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use 'so much' and 'too much' with uncountable nouns.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Emphasizing an excessively or surprisingly large quantity of uncountable entities.",
+   "pedagogical_hook": "Using 'so much' or 'too much' to exaggerate a lot of something.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:so|too)\\s+much\\s+(?:work|noise|time|money|water|fun|trouble|food|traffic|attention)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "so",
+       "too"
+      ]
+     }
+    },
+    {
+     "LOWER": "much"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "work",
+       "noise",
+       "time",
+       "money",
+       "water",
+       "fun",
+       "trouble",
+       "food",
+       "traffic",
+       "attention"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I have so much work at the moment.",
+    "My neighbours are making too much noise."
+   ],
+   "negatives": [
+    "I have a lot of work.",
+    "My neighbours are making too many noises."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x599038386454310800",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MUCH' WITH UNCOUNTABLE NOUNS, INTERROGATIVE",
+  "can_do_statement": "Can use 'much' with uncountable nouns in interrogative contexts. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Inquiring about the quantity of uncountable entities.",
+   "pedagogical_hook": "Asking questions using 'much' with uncountable things.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:how\\s+)?much\\s+(?:television|tv|time|money|water|food|trouble|fun|work|traffic)\\b.*\\?",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "how",
+     "OP": "?"
+    },
+    {
+     "LOWER": "much"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "television",
+       "tv",
+       "time",
+       "money",
+       "water",
+       "food",
+       "trouble",
+       "fun",
+       "work",
+       "traffic"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "ORTH": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "How much television do you watch?",
+    "Do you have much time left?"
+   ],
+   "negatives": [
+    "I don't watch much television.",
+    "How many televisions do you have?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x782328236071253400",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH UNCOUNTABLE NOUNS ",
+  "can_do_statement": "Can use quantifying determiners with uncountable nouns, often in informal and/or spoken contexts ('a little', 'a bit of' and 'a little bit of').",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Expressing a small, indefinite quantity of uncountable entities in informal contexts.",
+   "pedagogical_hook": "Using 'a little', 'a bit of', or 'a little bit of'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\ba\\s+(?:little|bit\\s+of|little\\s+bit\\s+of)\\s+(?:time|tv|water|money|food|help|sugar|salt|milk|coffee)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "a"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "little",
+       "bit"
+      ]
+     }
+    },
+    {
+     "LOWER": "bit",
+     "OP": "?"
+    },
+    {
+     "LOWER": "of",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "time",
+       "tv",
+       "water",
+       "money",
+       "food",
+       "help",
+       "sugar",
+       "salt",
+       "milk",
+       "coffee"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We could spend a little time together.",
+    "I just watch a little bit of TV."
+   ],
+   "negatives": [
+    "We could spend some time together.",
+    "I watch a lot of TV."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x799263972459703900",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MANY' WITH PLURAL NOUNS, INTERROGATIVE",
+  "can_do_statement": "Can use 'many' with plural nouns in interrogative contexts. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Inquiring about the quantity of countable entities.",
+   "pedagogical_hook": "Asking questions using 'many' with plural things.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:how\\s+)?many\\s+(?:friends|channels|people|books|cars|days|years|places|times|things)\\b.*\\?",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "how",
+     "OP": "?"
+    },
+    {
+     "LOWER": "many"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "friends",
+       "channels",
+       "people",
+       "books",
+       "cars",
+       "days",
+       "years",
+       "places",
+       "times",
+       "things"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "ORTH": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Have you got many friends in England?",
+    "How many channels are there in Britain?"
+   ],
+   "negatives": [
+    "I don't have many friends.",
+    "How much money do you have?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x840776157772557800",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "2",
+  "guideword": "FORM: DETERMINER + 'OF' + DETERMINER",
+  "can_do_statement": "Can use a range of quantifying determiners + 'of' + determiner ('all of', 'some of', 'both of', 'many of', 'any of', number + 'of', 'each of'). \u25ba pronouns: quantity",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specifying a proportion of a definite subset.",
+   "pedagogical_hook": "Using 'all of', 'some of', 'both of', 'many of', 'any of', or numbers with 'of the' or 'of my'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:all|some|both|many|any|one|two|three|four|five|six|seven|eight|nine|ten|each)\\s+of\\s+(?:the|my|your|his|her|our|their|this|that|these|those)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "all",
+       "some",
+       "both",
+       "many",
+       "any",
+       "one",
+       "two",
+       "three",
+       "four",
+       "five",
+       "six",
+       "seven",
+       "eight",
+       "nine",
+       "ten",
+       "each"
+      ]
+     }
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their",
+       "this",
+       "that",
+       "these",
+       "those"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I spent all of my money!",
+    "Some of my friends gave me books."
+   ],
+   "negatives": [
+    "I spent all my money!",
+    "Some friends gave me books."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x973378158122198000",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH PLURAL NOUNS ",
+  "can_do_statement": "Can use a wide range of quantifying determiners with plural nouns ('several', 'millions of', 'a few of').",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Expressing larger or diverse quantities of countable entities.",
+   "pedagogical_hook": "Using 'several', 'millions of', or 'a few of'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:several|millions\\s+of|a\\s+few\\s+of)\\s+(?:days|dollars|students|people|years|times|places|things|books|friends)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "several",
+       "millions",
+       "a"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "of",
+       "few"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": "of",
+     "OP": "?"
+    },
+    {
+     "LOWER": "the",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "days",
+       "dollars",
+       "students",
+       "people",
+       "years",
+       "times",
+       "places",
+       "things",
+       "books",
+       "friends"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Several days ago we received a complaint.",
+    "They interviewed a few of the students."
+   ],
+   "negatives": [
+    "Many days ago we received a complaint.",
+    "They interviewed some students."
+   ]
+  }
+ }
+]

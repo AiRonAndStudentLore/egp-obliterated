@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_025.json`
 ```json
 [
  {
-  "egp_id": "1741163716292x917584988638321400",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "1",
-  "guideword": "USE: SUGGESTIONS",
-  "can_do_statement": "Can use 'could' with a limited range of verbs to make suggestions.",
-  "example_raw": "We could have dinner after that, if you want. (Egypt; A2 WAYSTAGE; 2003; Arabic - Egyptian; Pass)\n\nIf you want to visit an interesting place near Paris, you could go to Versailles. (France; A2 WAYSTAGE; 2001; French; Pass)\n\nWe could take the bus, or we could ask my parents to take us there. (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163716294x428246963703272000",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "N/A",
-  "guideword": "USE: PERMISSION",
-  "can_do_statement": "Can use 'could I' to seek permission.",
-  "example_raw": "I am in the basketball team of my school and tomorrow there is an important game. Could I take the class that I will miss on Saturday? (Spanish - Latin American, B1 THRESHOLD, Pass, 2006)\n\n\u2026my mother went to the shop and bought the game. She said: \"David, I have got something for you\" \u2026 I said, \u201cCould I play with it now, please?\u201d (Spanish - European, B1 THRESHOLD, Pass, 2010)"
- },
- {
-  "egp_id": "1741163716294x808126531664035200",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "N/A",
-  "guideword": "USE: POSSIBILITY",
-  "can_do_statement": "Can use 'could' to talk about possibility.",
-  "example_raw": "But believe me, it could be really fun to have a talkative person as your friend, he or she will give you good laugh at anytime! (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nCould this really happen? Could he really be there, in that dark caf\u00e9 \u2026? (Spanish - European, B1 THRESHOLD, Pass, 2009)"
- },
- {
-  "egp_id": "1741163716294x857600764651929500",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "2",
-  "guideword": "USE: SUGGESTIONS",
-  "can_do_statement": "Can use 'could' with an increasing range of verbs to make suggestions.",
-  "example_raw": "\u2026you could become a member of a gym. (Greek, B1 THRESHOLD, Pass, 2009)\n\nWe could meet in the nice cafe next to your house and have a coffee. (German, B1 THRESHOLD, Pass, 2008)\n\nI'm afraid that I need to change the time of our meeting. Could it be at 5.30 pm? (Spanish - Latin American, B1 THRESHOLD, Pass, 2008)"
- },
- {
-  "egp_id": "1741163716295x105998126908799500",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PAST",
-  "can_do_statement": "Can used 'could' have + '-ed'. ",
-  "example_raw": "In fact it could have been dangerous but it became funny and also an embarrassing moment in my life! (Switzerland; B2 VANTAGE; 1993; French; Pass)\n\nWhat could have happened? (Greece; B2 VANTAGE; 2006; Greek; Pass)\n\nI must confess that our teacher couldn't have picked anyone better to do it. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n"
- },
- {
-  "egp_id": "1741163716295x133200860687879170",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "N/A",
-  "guideword": "USE: CRITICISM",
-  "can_do_statement": "Can use 'could have' + '-ed' form to express disapproval or criticism.",
-  "example_raw": "Since your travel company chose a hotel that far from the city, I think that you could have arranged entertainment at the hotel. (Swedish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1998)\n\n\u2026 for the money they had paid, you could have given them a better service (hotel, restaurant and evening entertainment). (Polish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1993)"
- },
- {
-  "egp_id": "1741163716295x333431392231873200",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "N/A",
-  "guideword": "USE: PAST POSSIBILITY",
-  "can_do_statement": "Can used affirmative 'could' have + '-ed' to talk about past possibility. ",
-  "example_raw": "Alice was disappointed that her mother could have phoned her but she did not. (Japan; B2 VANTAGE; 2001; Japanese; Pass)\n\nI think that all these problems could have been avoided and that asking my money back is the best way of forgetting that evening. (Spain; B2 VANTAGE; 2000; Catalan; Pass)\n\nI was grateful to them because the ticket was so expensive that I couldn't have bought it. (Italy; B2 VANTAGE; 1993; Italian; Pass)"
- },
- {
-  "egp_id": "1741163716295x403332037991284800",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "N/A",
-  "guideword": "USE: REGRET",
-  "can_do_statement": "Can use 'could have' + '-ed' to talk about regrets.",
-  "example_raw": "I wish I could have stayed, especially to help the children. (Spanish - Latin American, B2 VANTAGE, Pass, 1993)\n\n[someone reflecting on their performance as part of a team at work] I could have listened more to my team members and learned from the experienced ones. (Spanish - Latin American, B2 VANTAGE, Pass, 2011)"
- },
- {
-  "egp_id": "1741163716295x431001332463613700",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "N/A",
-  "guideword": "USE: PAST SPECULATION",
-  "can_do_statement": "Can use 'could have' + '-ed' to speculate about the past.",
-  "example_raw": "I thought perhaps a thief could have entered my house. (Italian, B2 VANTAGE, Pass, 1993)\n\n\u2026 she could have ruined everything I had been preparing for almost four weeks. (Portuguese, B2 VANTAGE, Pass, 1993) \n\nIf he had mugged her, who could have saved her? (Italy; B2 VANTAGE; 1993; Italian; Pass)"
- },
- {
-  "egp_id": "1741163716295x544491590213676700",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "N/A",
-  "guideword": "USE: REPORTED SPEECH",
-  "can_do_statement": "Can use 'could' as the past form of 'can' in reported speech.",
-  "example_raw": "I told them I couldn't go because I didn't have money, I wasn't honest! (Spanish - European, B2 VANTAGE, Pass, 1999)\n\nThe woman said she could put me up if I wanted, and led me to a house nearby. (Chinese, B2 VANTAGE, Pass, 1999)"
- },
- {
-  "egp_id": "1741163716295x549939411550883300",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "could",
-  "lexical_range": "N/A",
-  "guideword": "USE: SPECULATION ",
-  "can_do_statement": "Can use 'couldn\u2019t have' + '-ed' to speculate about the past.",
-  "example_raw": "Imagine my dismay when I realised I hadn\u2019t brought back the notebook from the pub. Surely I couldn't have left it on my seat. (French, C2 MASTERY, Pass, 1993)\n\n[speculating about a lost diary] \u2026 her mother couldn't have hidden it there just like that. It just wasn't like her. She must have put it away there and then forgotten about it. (Polish, C2 MASTERY, Pass, 1993)"
- },
- {
   "egp_id": "1741163710395x413989918547746700",
   "level": "B2",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_025.json`
   "guideword": "FORM/USE: 'I DARE SAY'",
   "can_do_statement": "Can use the fixed expression 'I dare say' to say that something is probably true.",
   "example_raw": "I feel that I have a huge responsibility trying to choose only one option, but I dare say that the last option may be the best one. (Argentina; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Spanish - Latin American; Pass)\n\nI must express my concern about some facilities, like the student study centre and the canteen, which I dare say needs improvement. (Italy; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163710609x454833184411402000",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTION",
+  "can_do_statement": "Can use the question form. ",
+  "example_raw": "Dare we run the risk of even one child or adult turning to violent crime because they think it is ok? (Greece; 2010; English)"
+ },
+ {
+  "egp_id": "1741163710609x732138645679422100",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NEGATIVE WITH 'DIDN'T'",
+  "can_do_statement": "Can use the negative form 'didn't dare' + infinitive without 'to' to talk about not being brave enough to do something. ",
+  "example_raw": "She didn't dare think about him and the possibility that he would never come back. (Sweden; C2 MASTERY; 1993; Swedish; Pass)\n\nSince we didn't dare move our feet, we were slowly swaying to the left and to the right, backwards and forwards. (Turkey; C2 MASTERY; 2001; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163710609x838509246682484900",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'HOW DARE \u2026!'",
+  "can_do_statement": "Can use 'how dare \u2026 !' to express disapproval or offense about something",
+  "example_raw": "How dare people say that we don't practice sport! (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Catalan; Pass)\n\n\u2026 how dare you say that this event was a complete failure! (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710609x441961301901162560",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WILL BE ABLE TO' ",
+  "can_do_statement": "Can use 'will' + 'be able to' + infinitive to talk about possibility and ability. ",
+  "example_raw": "Will you be able to come this time? (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)\n\n[talking about contact lenses] Without them I will not be able to play football. (Spain; A2 WAYSTAGE; 2005; Spanish - European; Pass)\n\nIf you need a musical instrument, I can bring my guitar but unfortunately I won't be able to play it because I have never learned it. (France; A2 WAYSTAGE; 2005; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710609x529739416125193340",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MODAL WITH 'BE ABLE TO'",
+  "can_do_statement": "Can use a range of modal verbs + 'be able to' + infinitive.",
+  "example_raw": "After finishing school, you might be able to hang out with your friends. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nIf we could meet in Switzerland, we should be able to finish the project on the 20th June. (Switzerland; B1 THRESHOLD; 2003; Swiss German; Fail)\n\nI'd be able to take walks without even worrying about inhaling polluted air. (Malaysia; B1 THRESHOLD; 2010; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163710609x537948380593027840",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE ALLOWED TO', PERMISSION",
+  "can_do_statement": "Can use 'be allowed to' to talk about permission.",
+  "example_raw": "My mother went with me on this trip because I wasn't allowed to go by myself. (Uruguay; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)\n\nYou won't be allowed to do what you want and you won't enjoy yourself. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163710609x971845306195149300",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "1",
+  "guideword": "FORM: 'BE' EXPRESSIONS",
+  "can_do_statement": "Can use a limited range of expressions with 'be' + infinitive ('be allowed to', 'be supposed to', 'be able to') with present and past forms of 'be' and with modal 'will'. ",
+  "example_raw": "First of all, if you are allowed to go out of the building in your break, you should do it. (Cyprus; B1 THRESHOLD; 2009; Greek; Pass)\n\nPerhaps you will be allowed to go on holiday with your friends next year. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nThe film is supposed to start at 7.00 pm so we'd better meet at 6.30 pm. See you there! (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)\n\nI was supposed to be meeting my friend Laura but she didn't come. (France; B1 THRESHOLD; 2009; French; Pass)\n\nI am sorry but I  am not able to meet you next Tuesday. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nWe were able to choose the songs ourselves and so I liked them very much. (Germany; B1 THRESHOLD; 2001; German; Pass)"
+ },
+ {
+  "egp_id": "1741163710610x579533102478147800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE SUPPOSED TO', PAST EXPECTATION",
+  "can_do_statement": "Can use 'was supposed to', 'were supposed to' to refer to past or future arrangements which may not have happened or may change. ",
+  "example_raw": "I am really sorry, but I will have to make some changes to my trip. I was supposed to arrive on 11th June 2003, but I will arrive the next month. (Mexico; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\nIt was supposed to be on Tuesday at 1.00pm. (Brazil; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nWe were supposed to meet at noon with some friends, but they called her to ask if we could meet at the restaurant. (Mexico; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163710610x653060315541222000",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "3",
+  "guideword": "FORM: 'BE' EXPRESSIONS + INFINITIVE",
+  "can_do_statement": "Can use the full range of expressions with 'be' + infinitive ('be likely to', 'be due to', 'be meant to', 'be bound to', 'be sure to', 'be certain to', 'be obliged to') with present and past forms of 'be' and with modal 'will' .",
+  "example_raw": "People who read books are likely to be more knowledgeable. (Argentina; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\nI'm bound to feel nervous. (France; B2 VANTAGE; 2000; French; Pass)\n\nAccording to our new marketing strategy, we are sure to increase our turnover and our profit. (Austria; B2 VANTAGE; 2008; German; Pass)\n\n[talking about a new job] I am due to start on Monday 4 June. (Georgia (Republic of); B2 VANTAGE; 2007; Georgian; Fail)\n\nI would like to inform you that as of 1st of June all operational staff will be obliged to use identity cards. (Poland; B2 VANTAGE; 2006; Polish; Pass)\n\nSleepy and unwilling to take part of the conference, I was obliged to spend the evening listening to the soft voice of a man who was famous for his boring performances. (Italy; B2 VANTAGE; 1993; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163710610x811443426792687500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE ABLE TO', PAST",
+  "can_do_statement": "Can use 'was able to', 'were able to' to talk about facts in the past.",
+  "example_raw": "[about a bus journey] She was able to get a good seat and she unexpectedly got to school early. (Philippines; B1 THRESHOLD; 2009; Tagalog; Pass)\n\n\u2026 sales had increased recently because of the good performance of our staff so we were able to improve the quality of our products ... (Ecuador; B1 THRESHOLD; 2010; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163710611x171270541916320500",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "expressions with be",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE MEANT TO', IDEAL STATES",
+  "can_do_statement": "Can use 'be meant to' to talk about ideal states. ",
+  "example_raw": "Animals are meant to be free, and man should be very careful about interfering with nature. (Swedish, B2 VANTAGE, Pass, 1993)\n\nPrimary school is meant to be there so that you build all the basics of your education. (French, B2 VANTAGE, ===NONE===, 2011)"
  }
 ]
 ```

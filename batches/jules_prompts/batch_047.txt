@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_047.json`
 ```json
 [
  {
-  "egp_id": "1741163712327x699835533298048600",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "past continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: REPEATED EVENTS",
-  "can_do_statement": "Can use the past continuous to talk about ongoing repeated events in the past, often with 'always'.",
-  "example_raw": "Worst of all, in September it was always raining. (Portugal; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nHe was always talking about this prize but I never thought he would win it. (Sri Lanka; B1 THRESHOLD; 2004; Tamil; Pass)"
- },
- {
-  "egp_id": "1741163712327x913269929337566600",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: POLITENESS ",
-  "can_do_statement": "Can use the past continuous to make a request or suggestions more polite or less direct.",
-  "example_raw": "I was wondering if I could impose on you again for my next visit. (Chinese, B2 VANTAGE, Pass, 1999)\n\nI was thinking that you could wear your Marilyn Monroe dress as your fancy-dress costume. (===NONE===, B2 VANTAGE, Pass, 2003)\n\nI was thinking that you could come to my house and see the movie. (Spanish - Latin American, B2 VANTAGE, Pass, 2004)"
- },
- {
-  "egp_id": "1741163712328x422695616724010100",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect continuous",
-  "lexical_range": "1",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the negative form. ",
-  "example_raw": "Laura realised that she had not been studying very hard lately. (Malaysia; B2 VANTAGE; 1999; Chinese; Pass)\n\nI couldn't tell her about Mark because she hadn't been doing anything else but talking about him for the last three weeks. (Netherlands; B2 VANTAGE; 1993; Dutch; Pass)\n\nLast week, two of your employers came to solve the problems of my central heating system as it had not been working for two days. (Romania; B2 VANTAGE; 2010; Romanian; Pass)"
- },
- {
-  "egp_id": "1741163712328x572489570915366600",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "past perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: BACKGROUND EVENTS ",
-  "can_do_statement": "Can use the past perfect continuous talk about a background action or event which began before a point in the past and was still continuing up to a point in the past when the main event happened. ",
-  "example_raw": "I had been waiting for this letter for months, so I opened it immediately. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nOnce I had been watching TV for 6 hours when my Mum suddenly switched it off. (Russia; B1 THRESHOLD; 2007; Russian; Pass)\n"
- },
- {
-  "egp_id": "1741163712328x663782601864534800",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: BACKGROUND INFORMATION WITH TIME CONJUNCTION",
-  "can_do_statement": "Can use the past perfect continuous after a time conjunction to give background information.",
-  "example_raw": "After we had been sunbathing at the beach all day long, we went every evening to a cosy restaurant called \"The Barking Cat\", where we had a good meal and some wine. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nAfter I had been waiting for an hour, I decided to go through the gate and go in on foot. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n"
- },
- {
-  "egp_id": "1741163712328x669008360458158700",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "past perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form. ",
-  "example_raw": "I had been working on the project for over a year. (France; B1 THRESHOLD; 2004; French; Pass)\n\nWe had been waiting for hours. (Greece; B1 THRESHOLD; 2007; Greek; Pass)\n\nI didn't need so much, because I'd been saving money for a few months. (Spain; B1 THRESHOLD; 2010; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163712328x669982657855112700",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: BACKGROUND INFORMATION WITH RELATIVE CLAUSE",
-  "can_do_statement": "Can use the past perfect continuous in a relative clause to give background information.  \u25ba relative clauses",
-  "example_raw": "And there were two men who had been chasing the murderer to find out who the man is and rescue the girl.... (Korea, North; B2 VANTAGE; 2008; Korean; Pass)\n\nThe guide also tells some funny stories about an old lord, who had been living there in the 18th century. (Germany; B2 VANTAGE; 2001; German; Pass)\n\nAfter a few minutes the door was opened and the man who  had been following me came in. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163712328x701653383761448700",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "past perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: CONTINUING EVENTS IN THE PAST",
-  "can_do_statement": "Can use the past perfect continuous to talk about an action or event which began before a point in the past and was still continuing up to that point, often with 'for' or 'since', to give background information. ",
-  "example_raw": "I know it very well because we had been exchanging letters for a long time. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass) \n\nShe had been going there since she was ten years old. (Mexico; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\nHe began to think about his own thoughts while he was smoking a cigarette (he had been smoking since he was a child, since he was 12), when suddenly the curtain moved. (Italy; B1 THRESHOLD; 2004; Italian; Pass) "
- },
- {
-  "egp_id": "1741163712332x322280679825253100",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: RESULTS",
-  "can_do_statement": "Can use the past perfect continuous to talk about events which started before a time in the past and which finished, but where the effects or results were still important at a point in the past. ",
-  "example_raw": "Unfortunately it had been snowing for a long time and so I was unable to go out for a walk. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nWe had been working very hard all the morning so by that time, I was very tired. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163712332x793082629536507400",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH ADVERBS",
-  "can_do_statement": "Can use the past perfect continuous with adverbs in the normal mid position. ",
-  "example_raw": "I had been working hard at my job and I had really been looking forward to this holiday. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nWhen he died, he was a rich man, he had only been living ten months in the house he had built for fourteen years \u2026 (France; B2 VANTAGE; 1999; French; Fail)"
- },
- {
-  "egp_id": "1741163712332x868931903135236100",
-  "level": "C2",
-  "super_category": "PAST",
-  "sub_category": "past perfect continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use the question form. ",
-  "example_raw": "What had he been doing that morning? (France; C2 MASTERY; 1993; French; Pass)\n\nSo, why had she been waiting for so long a time? (France; C2 MASTERY; 1993; French; Fail)"
- },
- {
   "egp_id": "1741163712332x472235073902899300",
   "level": "B1",
   "super_category": "PAST",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_047.json`
   "guideword": "FORM/USE: AFTER 'IF' CLAUSES ",
   "can_do_statement": "Can use the past perfect simple in 'if'-clauses to talk about imagined situations in the past, often with regret. \u25ba 'if'-clauses",
   "example_raw": "If the weather had been better, we would have enjoyed it more. (Argentina; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\nIf you had gone there with me, you would have been happy. (Korea, South; B1 THRESHOLD; 1999; Korean; Pass)\n\nSo I decided to go back and look for them in the park: believe it or not I would have spent all night in the park, if it hadn't been closed since six o'clock! (Italian; Italy; B1 THRESHOLD; Pass; 2000) "
+ },
+ {
+  "egp_id": "1741163712333x181896863266680420",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'BECAUSE', EXPLANATIONS ",
+  "can_do_statement": "Can use the past perfect simple after 'because' to give explanatory information.",
+  "example_raw": "He was sleeping but I realised that this was because he had lost a lot of blood. (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nI was driving on to my parents' house because I had arranged to have dinner with them. (Portuguese; Portugal; B2 VANTAGE; Pass)"
+ },
+ {
+  "egp_id": "1741163712333x761860144866407300",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'IF ONLY' AND 'WISH', IMAGINED PAST",
+  "can_do_statement": "Can use the affirmative form after 'if only', and the affirmative and negative forms after 'wish' to talk about regret.",
+  "example_raw": "If only I had listened to my father! (Iran; B2 VANTAGE; 1993; Farsi; Pass)\n\nIf only I had met her before. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nI am sure, because at the end of the concert, I said to my friend \"I wish they had played a bit more\". (Turkey; B2 VANTAGE; 1997; Turkish; Pass)\n\nI wish I hadn't told Pat about my plans. (Poland; B2 VANTAGE; 2000; Polish; Pass)\n\nI wish I hadn't done that but now I can't do anything. (Greece; B2 VANTAGE; 1993; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163712333x963626763332635600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: TIME UP TO THEN",
+  "can_do_statement": "Can use the past perfect simple to talk about a time before another time in the past.",
+  "example_raw": "He then thought how stupid he had been. (Peru; B1; Spanish - Latin American; Pass)\n\nActually I'd arranged an appointment with my doctor before calling you. (B1; Arabic \u2013 Meghreb; Pass)"
+ },
+ {
+  "egp_id": "1741163712334x136453521650765640",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the past perfect simple with a wide range of adverbs (including 'finally', 'recently', 'simply') in the normal mid-position.  \u25ba adverbs",
+  "example_raw": "He had finally achieved his goal! (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nShe had suddenly woken up at that noise, but now was trying to persuade herself it was just a dream. (Italy; B2 VANTAGE; 1999; Italian; Pass)\n\nAnd had all the furniture and David's personal things been stolen by thieves or had they just simply disappeared? (Greece; B2 VANTAGE; 2006; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163712334x353325929078093700",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION WITH 'NO SOONER \u2026 THAN'",
+  "can_do_statement": "Can invert the subject and auxiliary verb with 'no sooner \u2026 than' to talk about something that happened immediately before something else, often in formal contexts.",
+  "example_raw": "\u2026 but no sooner had I gone to bed than someone broke the door down. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nBut, no sooner had I got there than my classmates informed me that I had done well in my physics exam. (Greek; Greece; B2 VANTAGE; 2002)"
+ },
+ {
+  "egp_id": "1741163712334x456379754309706560",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use question forms.",
+  "example_raw": "Had I made the same mistake twice? (B2; 1993; German; Pass)\n\n\u2026 the question was: Why had he done that? (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163712334x897130264998052400",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION WITH 'NEVER (BEFORE)'",
+  "can_do_statement": "Can invert the subject and auxiliary verb after 'never (before)' to talk about a unique event, often in formal contexts.",
+  "example_raw": "Never had I been in such a ridiculous situation! (South Africa; B2 VANTAGE; 1993; Italian; Pass)\n\nNever before had we seen such marvellous species of fish. (Poland; B2 VANTAGE; 2006; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163712334x957245027107264100",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS ",
+  "can_do_statement": "Can leave out the subject before the past perfect simple where it is understood from the previous clause.",
+  "example_raw": "But now she felt stronger and had lost her fear. (France; B2 VANTAGE; 1993; French)\n\nSimon was a very famous writer and had written ten best-sellers. (Greek; Greece; B2 VANTAGE; Pass; 2009)\n\nAll her friends from Chicago had come to visit her and had brought a huge chocolate cake with them. (Spain; B2 VANTAGE; 1993; Spanish - European)\n\nThey were cold and had gone numb. (Korea, South; B2 VANTAGE; 1999; Korean)"
+ },
+ {
+  "egp_id": "1741163712335x315912109814443500",
+  "level": "C1",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION, IMAGINED PAST",
+  "can_do_statement": "Can invert the subject and affirmative auxiliary verb to talk about imagined situations in the past, often with regret, in formal contexts. ",
+  "example_raw": "Had I known the tour would be so bad, I wouldn't have booked it. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; French; Pass)\n\nHad they been new people, travellers from other countries, I could have taken it, but all the customers were English! (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)\n\nSometimes I think that had I gone to Britain without this experience, my life would have been different. (Czech Republic; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Czech; Pass)"
+ },
+ {
+  "egp_id": "1741163712335x352820156836315650",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTS OF STATEMENTS",
+  "can_do_statement": "Can use the past perfect simple to report statements, where the main verb in the reporting clause is in the past simple.  \u25ba reported speech",
+  "example_raw": "[\u2026] one morning she was listening to the radio, when suddenly the announcer said that the police had arrested a man who had stolen five expensive and unique paintings. (Greece; B2 VANTAGE; 2006; Greek)\n\nShe tried to explain what had happened, but she couldn't. (Spain; B2 VANTAGE; 1999; Spanish - European) \n\nI looked at the address and I knew what had happened to my sister's postcard. (Hungary; B2 VANTAGE; 2002; Hungarian)"
+ },
+ {
+  "egp_id": "1741163712335x467440951326574700",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: CHANGE OF SITUATION",
+  "can_do_statement": "Can use the past perfect simple to talk about situations which changed. ",
+  "example_raw": "After the show we had planned to go to the theatre restaurant. But it was closed. (France; B2 VANTAGE; 2000; French; Pass)\n\nWe had planned to go to Switzerland, but unfortunately our car broke down. (Sweden; B2 VANTAGE; 1993; Swedish; Pass\n\nAt first she had wanted to make the first move but she wasn't quite convinced. (Poland; B2 VANTAGE; 2008; Polish; Pass)"
  }
 ]
 ```

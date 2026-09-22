@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_045.json`
 ```json
 [
  {
-  "egp_id": "1741163712049x737530014792900100",
-  "level": "B1",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "1",
-  "guideword": "FORM: WITH VERBS TAKING TWO OBJECTS.",
-  "can_do_statement": "Can use the past simple passive with a limited range of verbs needing two objects, putting the indirect object in subject position. ",
-  "example_raw": "So I was given a ticket for a train, running from Berlin to Munich. (Germany; B1 THRESHOLD; 2006; German; Pass)\n\nWe were lucky, because we were given another chance. (Yugoslavia; B1 THRESHOLD; 2006; Serbian; Pass)"
- },
- {
-  "egp_id": "1741163712049x855374993067916200",
-  "level": "B1",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PRESENT SIMPLE, NEGATIVE",
-  "can_do_statement": "Can use the present simple passive negative with a range of pronoun and noun subjects.",
-  "example_raw": "The story is about a girl, who is not accepted in her class. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI think we should replace the printer, because it prints very slowly and the sheets aren't printed properly. (Switzerland; B1 THRESHOLD; 2009; Swiss German; Pass)"
- },
- {
-  "egp_id": "1741163712049x932315866168376600",
-  "level": "B2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PAST CONTINUOUS AFFIRMATIVE. ",
-  "can_do_statement": "Can use the past continuous passive affirmative. ",
-  "example_raw": "However, to my disappointment, the restaurant was closed because it was being redecorated. (B2 Chinese)\n\nAfter they explained everything to him, he then knew he was being tricked by them and that this was supposed to be a special experience for him. (B2 Chinese) \n\nWe thought that as you lived there, we could go to your house and stay there while the car was being repaired. (B2 Basque)"
- },
- {
-  "egp_id": "1741163712050x914576942340939400",
-  "level": "B2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PAST SIMPLE NEGATIVE",
-  "can_do_statement": "Can use past simple passive negative. ",
-  "example_raw": "What is worse, the ticket price was not reduced despite the fact that I showed my student ID. (B2 Japanese)\n\nI had to go to the hospital because my back hurt so badly, and I wasn't allowed to work for two weeks. (B2 Hungarian)\n\nI was really disappointed because a lot of things were not done. (Turkey; B2 VANTAGE; 2000; Turkish; Pass)\n\nSome say that studying animals would be impossible, if they weren't kept in zoos \u2026 (B2 Italian)"
- },
- {
-  "egp_id": "1741163712050x954476408686193200",
-  "level": "B2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PAST PERFECT SIMPLE, NEGATIVE ",
-  "can_do_statement": "Can use the past perfect passive negative form.",
-  "example_raw": "[talking about a car] In fact, it hadn't been stolen, it had been taken by a man and his wife, because their car broke down and because she was about to have her baby \u2026 (B2 Portuguese)\n\nWe waited for ages because we had not been informed. (B2 Japanese)"
- },
- {
-  "egp_id": "1741163712051x281512629992666900",
-  "level": "B2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "2",
-  "guideword": "FORM: PRESENT CONTINUOUS, AFFIRMATIVE ",
-  "can_do_statement": "Can use the present continuous passive affirmative with an increasing range of verbs.",
-  "example_raw": "This year's topic is the online training for employees, which is being relaunched . (2786698_1; BECV; Germany; B2 VANTAGE; 2010; German; Pass)\nThe global temperature is rising, the ice is melting, the sea level increases and miles and miles of coast are being submerged. (B2 VANTAGE; 1993; Portuguese; Pass)\n\nThe first thing to be linked through computers was academic knowledge, then came commercial businesses, naturally, and now, people are being linked through billions of personal computers. (Korea, South; B2 VANTAGE; 1999; Korean; Pass)"
- },
- {
-  "egp_id": "1741163712051x779313477999546100",
-  "level": "B2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PRESENT CONTINUOUS, NEGATIVE",
-  "can_do_statement": "Can use the present continuous passive negative.",
-  "example_raw": "\u2026 students are not being educated equally. (Mongolia; B2 VANTAGE; 2008; Mongolian; Pass)\n\nTo conclude, in my opinion, it is important to keep as many languages as possible alive, so we can make sure that part of the human history is not being lost. (Brazil; B2 VANTAGE; 2011; Portuguese)\n\nFirstly, the fact of different kinds of animals are in a zoo, doesn't means that they aren't being treated right. (Brazil; B2 VANTAGE; 1993; Portuguese; Fail)"
- },
- {
-  "egp_id": "1741163712052x105324067307769550",
-  "level": "C1",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: NON-FINITE CLAUSES",
-  "can_do_statement": "Can use a passive non-finite '-ing' form as a subordinate clause or a noun clause to give explanatory background information.",
-  "example_raw": "Being born and raised in Mexico, I believe her to be this country's best representative to the world. (C1 Spanish - Latin American)\n\nBeing overworked and badly paid, Polish women are torn between their dreams and their real possibilities. (C1 Polish)\n\nBeing invited by your boss for an unexpected lunch makes you feel noticed. (C1 Portuguese)"
- },
- {
-  "egp_id": "1741163712052x291725965796862700",
-  "level": "B2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PRESENT PERFECT SIMPLE, AFFIRMATIVE ",
-  "can_do_statement": "Can use the present perfect passive affirmative form (often in the context of reporting).  \u25ba reported speech",
-  "example_raw": "I have been asked to write a report about an accident which happened to me last Saturday. (B2 Polish)\n\nI am writing to you to give you further information about the conference organization and about the arrangements which have been made for your group of students. (B2 Italian)"
- },
- {
-  "egp_id": "1741163712052x534602507801792400",
-  "level": "B2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "USE: SUMMARIES AND EVALUATIONS",
-  "can_do_statement": "Can use the passive with modal verbs to evaluate or summarise.",
-  "example_raw": "In conclusion, it can be seen that the bicycle is more suitable for those who are living in a little town or in the country. (B2 Italian)\n\nNext, I find that our streets are not very clean, another major problem, and I think something must be done about it. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163712052x640694659658228000",
-  "level": "B2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH VERBS TAKING TWO OBJECTS, , WITH PREPOSITIONAL PHRASE",
-  "can_do_statement": "Can use the passive with a range of tenses and verbs needing two objects (e.g. give, offer, sell) with the direct object in subject position and the indirect object in a prepositional phrase. ",
-  "example_raw": "Your name was given to me by a member of yours, Allan Westwood, whom I met last week. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nIf more training is given to staff, they will be interested in their work  and staff turnover will be reduced. (India; B2 VANTAGE; 2006; Tamil; Fail)\n\nUnfortunately an interview for a job in the New Palace Hotel has been offered to me at the same time as your class. (Spain; B2 VANTAGE; 2003; Spanish - European; Pass)\n"
- },
- {
   "egp_id": "1741163712052x759366241193606100",
   "level": "B2",
   "super_category": "PASSIVES",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_045.json`
   "guideword": "FORM: PRESENT PERFECT SIMPLE, NEGATIVE ",
   "can_do_statement": "Can use the present perfect passive negative form (often in the context of reporting). \u25ba reported speech",
   "example_raw": "\u2026the old-fashioned house which has not been used for twenty years is not a very attractive sight from our town either. (B2 Danish)\n\nThis happened two years ago, and the necklace hasn't been found yet \u2026 (B2 Spanish - European)"
+ },
+ {
+  "egp_id": "1741163712056x106461892688326740",
+  "level": "C1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PRESENT CONTINUOUS NEGATIVE",
+  "can_do_statement": "Can use the present continuous passive negative form to refer to ongoing situations in the present.",
+  "example_raw": "In my opinion, the store is not being promoted enough. (C1 Polish)\n\nWomen are not being seen as just inferior to men and incapable of working outside the home. (C1 Portuguese)\n\nFinally, I agree with the fact that mobile phones have helped the human species develop, but as long as they 're not being used in a sensible way, they're a destructive weapon against children's health. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163712056x185610578351898660",
+  "level": "C2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NON-FINITE PERFECT CLAUSES",
+  "can_do_statement": "Can use passive non-finite '-ing' perfect forms in subordinate clauses to give explanatory background information.",
+  "example_raw": "I myself, having been educated the hard way, would specifically insist on them getting the best possible school education. (C2 German)\n\nHaving been taught the rights and the wrongs, we had an idea about everything. (C2 Azerbaijani) \n\nNot having been given precise orders from the top, as usual he decided to work on his own initiative. (C2 Polish)\n"
+ },
+ {
+  "egp_id": "1741163712056x220763356502948540",
+  "level": "C2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NON-FINITE PERFECT COMPLEMENTS ",
+  "can_do_statement": "Can use non-finite '-ing' perfect forms of the passive as the complement of prepositions.",
+  "example_raw": "They are expected to give the couple expensive presents as a reward for having been invited. (C2 Spanish - Latin American)\n\nWe caught the bus as if we were escaping from Saigon, and with the sensation of having been rewarded with one of the funniest holiday evenings of our lives. (C2 Spanish - European)\n\nMiss Kenton has just been employed as a housekeeper when she knocks on Stevens' pantry door and comes in without having been bidden to do so, bringing a vase of flowers. (C2 Italian)"
+ },
+ {
+  "egp_id": "1741163712056x332718835608695200",
+  "level": "C1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: SUMMARISING, EVALUATING WITH 'IT'.",
+  "can_do_statement": "Can use the passive with 'it' as a dummy subject, to summarise or evaluate in discussions, usually in formal or academic writing.",
+  "example_raw": "To sum up, it can be concluded that this report has attempted to summarize the main points regarding the Spanish educational system. (C1  Spanish - European)\n\nIn addition, it has been found that some products were difficult to find. (C1 Swiss German)"
+ },
+ {
+  "egp_id": "1741163712056x976576319443112100",
+  "level": "C2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "PRESENT PERFECT CONTINUOUS COMMENT",
+  "can_do_statement": null,
+  "example_raw": null
+ },
+ {
+  "egp_id": "1741163712321x293020264590759800",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "I was waiting for you all Saturday evening. (Spanish - European, A2 WAYSTAGE, Pass, 2004) \n\n[talking about a holiday] I was swimming and sunbathing every day. (Russian, A2 WAYSTAGE, Pass, 2009)\n\nWe were dancing all evening. (Polish, A2 WAYSTAGE, Pass, 2004)"
+ },
+ {
+  "egp_id": "1741163712321x444348941700378800",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form.",
+  "example_raw": "Was my mother going to die? (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nI couldnt see anybody, then there he was, my hero, my favorite singer Bob Dylan saying my name, but was he calling me? (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nWhat were you doing? (Uzbekhistan (Republic of); B1 THRESHOLD; 2009; Russian; Pass)\n\n[talking about a dream] Everything was strange. Why was I following a green fox? (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712321x580479358300843000",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the past continuous with a limited range of adverbs in the normal mid position. ",
+  "example_raw": "I was just watching a football match. (Bengali, A2 WAYSTAGE, Pass, 2007)\n\n[talking about wanting to get a kitten] I was always dreaming about it. (Russian, A2 WAYSTAGE, Pass, 2004)"
+ },
+ {
+  "egp_id": "1741163712321x614372617735755500",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: BACKGROUND EVENTS",
+  "can_do_statement": "Can use the past continuous to show that an event was happening in the background to the main event.",
+  "example_raw": " Yesterday we were studying maths in your house, and I left my book on your bed. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2005)\n\nIt was raining when I arrived. (German, A2 WAYSTAGE, Pass, 2005)\n"
+ },
+ {
+  "egp_id": "1741163712321x623567407739942400",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the past continuous with an increasing range of adverbs in the normal mid position. ",
+  "example_raw": "He was still waiting at the traffic light. (Italian, B1 THRESHOLD, Pass, 2008)\n\nHe was actually acting like a ghost. (Chinese, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163712321x644327601969835100",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: EVENTS IN PROGRESS ",
+  "can_do_statement": "Can use the past continuous to talk about actions and states in progress around a particular time in the past.",
+  "example_raw": "I went to a soccer game, they were playing the last game to get the championship. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2007)\n\nIt was raining, but the concert was so good that I did not mind. (Uruguay; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)"
  }
 ]
 ```

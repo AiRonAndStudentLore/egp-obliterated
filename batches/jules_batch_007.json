@@ -1,0 +1,864 @@
+[
+  {
+    "egp_id": "1741163708343x892117738381544400",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE INTERROGATIVE",
+    "can_do_statement": "Can form negative interrogative clauses. ",
+    "example_raw": "Isn't it great? (Switzerland; A2 WAYSTAGE; 2004; German; Pass)\n\nDon't you like pizza? (Burmese, A2 WAYSTAGE)\n\n[Talking about a car] I bought one. Didn't I tell you? (Portuguese, A2 WAYSTAGE)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking confirmation or shared understanding.",
+      "pedagogical_hook": "Using negative forms in questions.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:isn't|aren't|wasn't|weren't|don't|doesn't|didn't|hasn't|haven't|hadn't|can't|couldn't|won't|wouldn't|shouldn't|mightn't|mustn't)\\b(?!.*!)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "do",
+              "have",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "IN": [
+              "the",
+              "a",
+              "an",
+              "this",
+              "that",
+              "these",
+              "those",
+              "my",
+              "your",
+              "his",
+              "her",
+              "its",
+              "our",
+              "their"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "POS": {
+            "NOT_IN": [
+              "PUNCT"
+            ]
+          }
+        },
+        {
+          "LOWER": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Isn't it a wonderful day?",
+        "Don't you want to come?"
+      ],
+      "negatives": [
+        "He isn't here right now.",
+        "Wouldn't it be wonderful!"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708343x903441921851317900",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "interrogatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE 'WH-' INTERROGATIVE ",
+    "can_do_statement": "Can form negative 'wh-' interrogative clauses.",
+    "example_raw": "Why don't we watch a film? (Sri Lanka; A2 WAYSTAGE; 2009; Tamil; Pass)\n\nWhy didn't you come with me? (Bulgaria; A2 WAYSTAGE; 2008; Bulgarian; Pass)\n\nWhy don't you ask Jennifer to go with you? (Uruguay; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nWhy couldn't you come? It was fun. (Malaysia; A2 WAYSTAGE; 2004; Chinese; Pass)",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Suggesting actions or asking for reasons.",
+      "pedagogical_hook": "Using WH-words with negative auxiliaries.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:why|what|who|where|when|how)\\s+(?:isn't|aren't|wasn't|weren't|don't|doesn't|didn't|hasn't|haven't|hadn't|can't|couldn't|won't|wouldn't|shouldn't|mightn't|mustn't)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "why",
+              "what",
+              "who",
+              "where",
+              "when",
+              "how"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "do",
+              "have",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Why don't we go to the park?",
+        "What couldn't you understand?"
+      ],
+      "negatives": [
+        "I don't know why he isn't here.",
+        "Tell me what didn't work."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708343x138205144325988400",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "phrases/exclamations",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'WHAT A PITY' + ('THAT') CLAUSE",
+    "can_do_statement": "Can use 'What a pity' + ('that') clause. ",
+    "example_raw": "What a pity that you didn't come. (Brazil; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nWhat a pity you lost the information about the new art class. (Cyprus; A2 WAYSTAGE; 2006; Greek; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing regret or disappointment over a situation.",
+      "pedagogical_hook": "Using 'what a pity' followed by a clause to express feelings.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwhat\\s+a\\s+pity\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "what"
+        },
+        {
+          "LOWER": "a"
+        },
+        {
+          "LOWER": "pity"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "What a pity that you couldn't make it.",
+        "What a pity it rained all day."
+      ],
+      "negatives": [
+        "It's a pity.",
+        "She felt pity for the poor dog."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708343x470186262730331460",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "phrases/exclamations",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'WHAT A \u2026!'",
+    "can_do_statement": "Can use 'What a' + noun phrase and 'What a' + noun phrase + clause.",
+    "example_raw": "What a brilliant idea. (France; A2 WAYSTAGE; 2003; French; Pass)\n\nWhat a nice present I have! (China; A2 WAYSTAGE; 2004; Chinese; Pass)\n\nWhat a great afternoon I had yesterday! (France; A2 WAYSTAGE; 2008; French; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing strong emotion or surprise about a noun.",
+      "pedagogical_hook": "Using 'what a' for exclamations.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bwhat\\s+a\\b(?!\\s+pity\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "what",
+          "DEP": {
+            "IN": [
+              "det",
+              "predet"
+            ]
+          }
+        },
+        {
+          "LOWER": "a"
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "NOT_IN": [
+              "pity"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "What a brilliant idea!",
+        "What a nice surprise."
+      ],
+      "negatives": [
+        "I don't know what a dog is.",
+        "What a pity you couldn't stay."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708344x316156631249672000",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "phrases/exclamations",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'HOW' + ADJECTIVE",
+    "can_do_statement": "Can use 'How' + adjective. ",
+    "example_raw": "How exciting! (China; B1 THRESHOLD; 2003; Chinese; Pass)\n\nHow terrible! (Bosnia-Herzegovina; B1 THRESHOLD; 2008; Serbian; Pass)\n\nHow amazing! This is my first flight in a hot-air balloon. (China; B1 THRESHOLD; 2003; Chinese; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing an intense emotional reaction to a situation.",
+      "pedagogical_hook": "Using 'how' with an adjective for exclamation.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhow\\s+[a-z]+!?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "how"
+        },
+        {
+          "POS": "ADJ",
+          "DEP": "ROOT"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "How wonderful!",
+        "How strange."
+      ],
+      "negatives": [
+        "How are you?",
+        "I don't know how fast he was going."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708562x194655656955947460",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "phrases/exclamations",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'HOW' + ADJECTIVE + CLAUSE",
+    "can_do_statement": "Can use 'How' + adjective + clause. ",
+    "example_raw": "How lucky you are to have visited that exhibition! (Switzerland; B1 THRESHOLD; 2007; French; Pass)\n\nHow lovely to get your letter. (Iran; B1 THRESHOLD; 2004; Farsi; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing feeling regarding an entire clause.",
+      "pedagogical_hook": "Using 'how' + adjective + clause.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhow\\s+[a-z]+\\s+(?:you|he|she|it|we|they|to|the|a|an)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "how"
+        },
+        {
+          "POS": "ADJ"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "PART",
+              "SCONJ"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "How lucky you are to have visited that exhibition!",
+        "How lovely to get your letter."
+      ],
+      "negatives": [
+        "How exciting!",
+        "How do you do that?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708563x360382864417081200",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "phrases/exclamations",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NEGATIVE INTERROGATIVE ",
+    "can_do_statement": "Can use the negative interrogative form of an auxiliary verb to express surprise or enthusiasm. ",
+    "example_raw": "Wouldn't it be wonderful! (Russian, B2 VANTAGE)\n\nDoesn't that sound excellent to you?! (Denmark; B2 VANTAGE; 1999; Danish; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Using a negative question format to express positive enthusiasm or surprise.",
+      "pedagogical_hook": "Exclamatory use of negative interrogative.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:isn't|aren't|wasn't|weren't|don't|doesn't|didn't|hasn't|haven't|hadn't|can't|couldn't|won't|wouldn't|shouldn't|mightn't|mustn't)\\b.*!",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "do",
+              "have",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "OP": "?",
+          "LOWER": {
+            "IN": [
+              "the",
+              "a",
+              "an",
+              "this",
+              "that",
+              "these",
+              "those",
+              "my",
+              "your",
+              "his",
+              "her",
+              "its",
+              "our",
+              "their"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "POS": {
+            "NOT_IN": [
+              "PUNCT"
+            ]
+          }
+        },
+        {
+          "LOWER": "!"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Wouldn't it be wonderful!",
+        "Doesn't that sound excellent to you?!"
+      ],
+      "negatives": [
+        "He isn't here.",
+        "Isn't it a wonderful day?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708563x629778718895767000",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "phrases/exclamations",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'HOW' + CLAUSE",
+    "can_do_statement": "Can use 'How' + clause. ",
+    "example_raw": "How I often longed to play with the other children or relax with a good book. (Germany; C2 MASTERY; 1993; German; Pass)\n\nHow I love the smell of home! (Brazil; C2 MASTERY; 1993; Portuguese; Pass)\n\nHow I long to be there again. (Netherlands; C2 MASTERY; 1998; Dutch; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Expressing deep feeling or reminiscence.",
+      "pedagogical_hook": "Using 'How' directly followed by a subject and verb.",
+      "agency_or_distance": "Agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhow\\s+(?:i|he|she|it|we|they|you)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "how",
+          "DEP": "advmod"
+        },
+        {
+          "DEP": "nsubj"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "How I love the smell of home!",
+        "How she wishes things were different."
+      ],
+      "negatives": [
+        "How are you?",
+        "How exciting!"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708563x872592345857643000",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "phrases/exclamations",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'HOW' + ADVERB + CLAUSE",
+    "can_do_statement": "Can use 'How' + adverb + clause. ",
+    "example_raw": "How differently we were brought up by our mother. (Germany; C2 MASTERY; 1993; German; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Emphasizing the manner of an action.",
+      "pedagogical_hook": "Using 'How' + adverb to start an exclamation.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bhow\\s+[a-z]+ly\\s+(?:i|he|she|it|we|they|you)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "how"
+        },
+        {
+          "POS": "ADV"
+        },
+        {
+          "DEP": "nsubj"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "How beautifully she sang.",
+        "How differently we were brought up."
+      ],
+      "negatives": [
+        "How I love that.",
+        "How exciting!"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708563x223728715353026530",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEFINING, SUBJECT, WITH 'WHO'",
+    "can_do_statement": "Can use a defining relative clause with 'who' as the subject.",
+    "example_raw": "It's about a girl who went to the war when she was 22 years old. (Mexico; A2 WAYSTAGE; 1999; Spanish - Latin American; Pass)\n\nI'd like a pen-friend who really likes music and reading. (China; A2 WAYSTAGE; 2002; Chinese; Pass)\n\nI can tell you that I agree with people who think that Stonehenge is magic place. (A2 WAYSTAGE; 2008; Polish; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Identifying a specific person within a group.",
+      "pedagogical_hook": "Using 'who' as the subject in a defining relative clause.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!,)\\s+who\\s+(?:[a-z]+\\s+){0,2}(?:is|are|was|were|has|have|had|will|would|can|could|shall|should|may|might|must|[a-z]+s|[a-z]+ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PRON"
+            ]
+          }
+        },
+        {
+          "LOWER": "who",
+          "DEP": "nsubj"
+        },
+        {
+          "POS": "ADV",
+          "OP": "*"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "DEP": "relcl"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I need a friend who really listens to me.",
+        "The man who is standing there is my brother."
+      ],
+      "negatives": [
+        "My brother, who is a doctor, lives in London.",
+        "I don't know who did it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708563x237474925872659840",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEFINING, SUBJECT, WITH 'WHICH'",
+    "can_do_statement": "Can use a defining relative clause with 'which' as the subject.",
+    "example_raw": "At the end of the game, the KASAS sang to Hagas a piece of music which makes me cry. Suzanna watched with me and she cried alot. (Brazil; A2 WAYSTAGE; 2007; Portuguese; Pass)\n\nYou should wear clothes which can get dirty. (Switzerland; A2 WAYSTAGE; 2006; Swiss German; Pass)\n\nI bought a t-shirt which has a picture of a car on it and I bought a shirt for my brother. (Turkey; A2 WAYSTAGE; 2008; Turkish; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Identifying a specific thing.",
+      "pedagogical_hook": "Using 'which' as the subject in a defining relative clause.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!,)\\s+which\\s+(?:[a-z]+\\s+){0,2}(?:is|are|was|were|has|have|had|will|would|can|could|shall|should|may|might|must|[a-z]+s|[a-z]+ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PRON"
+            ]
+          }
+        },
+        {
+          "LOWER": "which",
+          "DEP": "nsubj"
+        },
+        {
+          "POS": "ADV",
+          "OP": "*"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "DEP": "relcl"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I want a car which runs fast.",
+        "He read a book which changed his life."
+      ],
+      "negatives": [
+        "The house, which is red, is nice.",
+        "I don't know which to choose."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708563x534984544701562900",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEFINING, OBJECT, WITH 'THAT'",
+    "can_do_statement": "Can use a defining relative clause with 'that' as the object.",
+    "example_raw": "The team that I like is called 'The Monkeys', but Paty prefers 'The Walls'. (Uruguay; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)\n\nI bought some clothes that I will need for my trip to Greece. (Cyprus; A2 WAYSTAGE; 2008; Greek; Pass)\n\nPlease, wear clothes that you can get dirty; use old clothes, okay? (Brazil; A2 WAYSTAGE; 2006; Portuguese; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Providing more info about a noun by acting as the object of a relative clause.",
+      "pedagogical_hook": "Using 'that' as the object in a defining relative clause.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthat\\s+(?:I|you|he|she|we|they|[a-z]+)\\s+(?:will|can|could|should|would|might|may|[a-z]+)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PRON"
+            ]
+          }
+        },
+        {
+          "LOWER": "that",
+          "DEP": {
+            "IN": [
+              "dobj",
+              "pobj"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The team that I like won.",
+        "I bought clothes that I need."
+      ],
+      "negatives": [
+        "I know that he is here.",
+        "That is my car."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708563x609059917595893100",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NON-DEFINING, SUBJECT, WITH 'WHO'",
+    "can_do_statement": "Can use a non-defining relative clause with 'who' as the subject.",
+    "example_raw": "I watched it with my brother who was also interested in sports. (Malaysia; A2 WAYSTAGE; 2007; Chinese; Pass)\n\nIt's given by Jenny who is one of my best friends. (China; A2 WAYSTAGE; 2004; Chinese; Pass)\n\nI want my mobile before this afternoon because my parents who are in Japan will call me. (India; A2 WAYSTAGE; 2005; Tamil; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Adding extra, non-essential information about a person.",
+      "pedagogical_hook": "Using 'who' in a non-defining relative clause.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i),\\s*who\\s+(?:[a-z]+\\s+){0,2}(?:is|are|was|were|has|have|had|will|would|can|could|shall|should|may|might|must|[a-z]+s|[a-z]+ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": ","
+        },
+        {
+          "LOWER": "who"
+        },
+        {
+          "POS": "ADV",
+          "OP": "*"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "DEP": "relcl"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My brother, who is a doctor, lives in London.",
+        "I saw Mary, who was walking her dog."
+      ],
+      "negatives": [
+        "The man who is standing there is my brother.",
+        "I don't know who did it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708563x842654366263886400",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NON-DEFINING, SUBJECT, WITH 'WHICH'",
+    "can_do_statement": "Can use a non-defining relative clause with 'which' as the subject,.",
+    "example_raw": "I bought it in Peter's Mobile shop, which is near to my home. (Sri Lanka; A2 WAYSTAGE; 2007; Tamil; Pass)\n\nI've been to Cardiff which is the capital city of Wales. (Korea, South; A2 WAYSTAGE; 1999; Korean; Pass)\n\nI visited a museum and an exhibition which were really excellent. (India; A2 WAYSTAGE; 2009; Tamil; Pass)\n\nI bought two shirts, which cost \u00a320 and four sweatshirts, which were a little expensive. (KET; A2 WAYSTAGE; Pass; 2008)\n\nThe mobile phone is green, which is my favourite colour. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Adding extra, non-essential information about a thing.",
+      "pedagogical_hook": "Using 'which' in a non-defining relative clause.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i),\\s*which\\s+(?:[a-z]+\\s+){0,2}(?:is|are|was|were|has|have|had|will|would|can|could|shall|should|may|might|must|[a-z]+s|[a-z]+ed)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": ","
+        },
+        {
+          "LOWER": "which"
+        },
+        {
+          "POS": "ADV",
+          "OP": "*"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "DEP": "relcl"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My car, which is red, is very fast.",
+        "I read that book, which was very interesting."
+      ],
+      "negatives": [
+        "The car which I bought is red.",
+        "I don't know which to choose."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708564x475588905228959040",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEFINING, OBJECT, WITH 'WHICH'",
+    "can_do_statement": "Can use a defining relative clause with 'which' as the object.",
+    "example_raw": "I came to your house yesterday with the computer game which I borrowed from Mayank. (India; A2 WAYSTAGE; 2005; Hindi; Pass)\n\nThe coffee-cup which my good friend gave me is pretty. (China; A2 WAYSTAGE; 2004; Chinese; Pass)\n\nSorry, I can't do anything to help because I will try again to pass an exam which I failed last year. (France; A2 WAYSTAGE; 2005; French; Pass)\n\nThe colour which I prefer is pink, so we will use pink. (India; A2 WAYSTAGE; 2006; Bihari; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Identifying a specific thing as the object.",
+      "pedagogical_hook": "Using 'which' as the object in a defining relative clause.",
+      "agency_or_distance": "Distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)(?<!,)\\s+which\\s+(?:I|you|he|she|we|they|[a-z]+)\\s+(?:will|can|could|should|would|might|may|[a-z]+)\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PRON"
+            ]
+          }
+        },
+        {
+          "LOWER": "which",
+          "DEP": {
+            "IN": [
+              "dobj",
+              "pobj"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "PROPN",
+              "NOUN"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX",
+              "ADV",
+              "PART"
+            ]
+          },
+          "OP": "+"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The computer game which I borrowed is great.",
+        "The colour which I prefer is pink."
+      ],
+      "negatives": [
+        "The game, which I borrowed, is great.",
+        "I don't know which game you mean."
+      ]
+    }
+  }
+]

@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_033.json`
 ```json
 [
  {
-  "egp_id": "1741163711055x585919331905116800",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "ought",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the negative form 'ought not to'. ",
-  "example_raw": "Secondly, there ought not to be a division between rich and poor. (Netherlands; C2 MASTERY; 1999; Dutch; Pass)\n\nWe ought not to forget that in the last twenty years the food industry has increased the number of chemicals used in its products. (Uruguay; C2 MASTERY; 2006; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163711055x171614615026989500",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "shall",
-  "lexical_range": "N/A",
-  "guideword": "USE: OFFERS",
-  "can_do_statement": "Can use 'shall I' to make offers.",
-  "example_raw": "Shall I go and buy some cake and crackers? (Bulgarian, A2 WAYSTAGE, Pass, 2009)\n\nThe tickets cost \u20ac25. Shall I buy you one? (Spanish - European, A2 WAYSTAGE, Pass, 2010)"
- },
- {
-  "egp_id": "1741163711055x215173738549169900",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "shall",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form. ",
-  "example_raw": "We shall start tomorrow at 2 o'clock. (Marathi, A2 WAYSTAGE, Pass, 2006)\n\nI shall be free on Sunday at 6 o'clock in the evening. (Ukraine; A2 WAYSTAGE; 2005; Russian; Pass)"
- },
- {
-  "egp_id": "1741163711055x245124661514512830",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "shall",
-  "lexical_range": "N/A",
-  "guideword": "USE: SUGGESTIONS",
-  "can_do_statement": "Can use 'shall' with 'we' to make suggestions.",
-  "example_raw": "Tomorrow evening there is Laura Pausini's concert in Turin. Shall we go? (Italian, A2 WAYSTAGE, Pass, 2010)\n\nShall we go to a Korean restaurant after the film? (Korean, A2 WAYSTAGE, Pass, 2003)"
- },
- {
-  "egp_id": "1741163711055x654239307859430400",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "shall",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use the question form.",
-  "example_raw": "Shall we meet at half past 4 in front of my house? (Japanese, A2 WAYSTAGE, Pass, 2008)\n\nWhat time shall I come? And what shall I bring to the party? (Italian, A2 WAYSTAGE, Pass, 2009)"
- },
- {
-  "egp_id": "1741163711057x155202045665735940",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "shall",
-  "lexical_range": "N/A",
-  "guideword": "USE: COMMANDS AND INSTRUCTIONS ",
-  "can_do_statement": "Can use 'shall' to express commands in very formal contexts.",
-  "example_raw": "We therefore need to insist that the agreement is binding and that the contract shall be fulfilled. (Swiss German, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2007)"
- },
- {
-  "egp_id": "1741163711057x158399813598145700",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "shall",
-  "lexical_range": "N/A",
-  "guideword": "USE: AFTER 'IF' CLAUSES",
-  "can_do_statement": "Can use 'shall' in the main clause after an 'if-' clause  \u25ba conditionals",
-  "example_raw": "Nowadays people live longer than they did in the past, which is very nice and pleasant, but we must be careful because if things get out of hand, \u2026 we shall be doomed to live in complete chaos. (Portuguese, C2 MASTERY, Pass, 1993)\n\nI have to inform you that if we do not receive a reply this time we shall take the matter to court. (Poland; C2 MASTERY; 1993; Polish; Pass)"
- },
- {
-  "egp_id": "1741163711057x209644856293522680",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "shall",
-  "lexical_range": "N/A",
-  "guideword": "USE: PLANS AND INTENTIONS",
-  "can_do_statement": "Can use 'shall' to talk about plans and intentions, particularly in formal contexts.",
-  "example_raw": "I promise that I shall cover all the work and give it to you tomorrow. (Thai, B1 THRESHOLD, Pass, 2006)\n\nRemember that we shall meet inside the bar. (Russian, B1 THRESHOLD, Pass, 2008)\n\nI apologise for having to miss tomorrow's English class as my cousin's wedding will be taking place ... I shall be attending class the day after tomorrow. (Tamil, B1 THRESHOLD, Pass, 2006)"
- },
- {
-  "egp_id": "1741163711057x361262241051185400",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "shall",
-  "lexical_range": "N/A",
-  "guideword": "USE: PREDICTIONS",
-  "can_do_statement": "Can use 'shall' to make predictions.",
-  "example_raw": "As a result, our town shall have financial benefits, as people visiting the library will visit the city\u2019s shops for their needs. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\n\u2026 we shall probably have several years more to live. (France; C2 MASTERY; 1993; French; Pass)"
- },
- {
-  "egp_id": "1741163711057x774242678413627800",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "shall",
-  "lexical_range": "N/A",
-  "guideword": "USE: SEEKING ADVICE",
-  "can_do_statement": "Can use 'shall' to seek advice.",
-  "example_raw": "What shall I buy for her wedding? (Slovak, B1 THRESHOLD, Pass, 2004)\n\n[a student writing to a teacher] I am really sorry but I have to travel to Argentina for health reasons. What shall I do with next week's work? (Spanish - Latin American, B1 THRESHOLD, Pass, 2009)\n"
- },
- {
-  "egp_id": "1741163711057x995048909365883900",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "shall",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the negative form.",
-  "example_raw": "This way, students shall not die of boredom or feel that their stay was useless. (Japan; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Japanese; Pass)\n\nSecondly, supplier contracts shall not be omitted. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Russian; Pass)\n\nThis is, as I mentioned in my letter, only in the event I shall not be able to pick you up at the airport. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)"
- },
- {
   "egp_id": "1741163711057x166029897961398800",
   "level": "A2",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_033.json`
   "guideword": "USE: ADVICE",
   "can_do_statement": "Can use 'should' to give advice.",
   "example_raw": "It was only \u20ac70. It is pink. It looks very nice. My advice, you should buy this. (Turkish, A2 WAYSTAGE, Pass, 2007)\n\n\u2026on Monday, you will have to stay in this class for six hours so you should bring something to eat because you will be hungry. (French, A2 WAYSTAGE, Pass, 2006)\n\nYou should take some money, because the ticket costs \u00a34.00. (Italian, A2 WAYSTAGE, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163711286x101954602280780900",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST NEGATIVE",
+  "can_do_statement": "Can use 'should have' + '-ed'.",
+  "example_raw": "I have an appointment. I know I shouldn't have taken it during school time but I had no other choice. (French, B1 THRESHOLD, Pass, 2006)"
+ },
+ {
+  "egp_id": "1741163711286x245382741783872320",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST AFFIRMATIVE",
+  "can_do_statement": "Can use 'should' have + '-ed'.",
+  "example_raw": "You should have been with us. (Italian, B1 THRESHOLD, Pass, 2002)\n\nI knew I should have written before. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163711286x540510273565590660",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS",
+  "can_do_statement": "Can use 'should' to make suggestions.",
+  "example_raw": "I think we should meet at 2 pm, and my mother will take us there so don't worry. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2008)\n\nI think you should meet me around 4 pm at my house. (Thai, A2 WAYSTAGE, Pass, 2008)\n\nYou should bring your guitar. (Italian, A2 WAYSTAGE, Pass, 2009)"
+ },
+ {
+  "egp_id": "1741163711286x857657935609748000",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: QUESTION TAGS",
+  "can_do_statement": "Can use the question tag form 'shouldn't' + pronoun to make suggestions and ask for opinions. ",
+  "example_raw": "When you come back, we should rent some movies, shouldn't we? (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI think I should write about the history of our company, shouldn't I? (Germany; B1 THRESHOLD; 2003; German; Pass)"
+ },
+ {
+  "egp_id": "1741163711287x155607228538747300",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "USE: LIKELIHOOD",
+  "can_do_statement": "Can use 'should' to talk about what is likely to happen.",
+  "example_raw": "[talking about an event] It should be a good day! (Russian; B1 THRESHOLD; Pass; 2009)\n\n\u2026the weather is still warm, so we should be able to visit the beaches and go sightseeing in the evenings. (Portuguese; B1 THRESHOLD; Pass; 2004)"
+ },
+ {
+  "egp_id": "1741163711287x214849958095665100",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "USE: IDEAL OR DESIRED SITUATIONS",
+  "can_do_statement": "Can use 'should' to talk about ideal or desired situations.",
+  "example_raw": "British people should eat more vegetables and fruit and avoid fast food! (Italian, B1 THRESHOLD, Pass, 2010)\n\nI think everyone should learn to cook, you never know when you need to cook. (Panjabi, B1 THRESHOLD, Pass, 2011)"
+ },
+ {
+  "egp_id": "1741163711287x279520438235405950",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "USE: THANKING",
+  "can_do_statement": "Can use 'you shouldn\u2019t have' (+ '-ed') in polite acceptance of a gift.",
+  "example_raw": "Thank you for the present you sent me, you shouldn't have! (===NONE===, B1 THRESHOLD, Pass, 2003)\n\nThank you for the money, you shouldn't have sent it. (Uruguay; B1 THRESHOLD; 2003; Spanish - Latin American; Pass"
+ },
+ {
+  "egp_id": "1741163711287x337411277365052160",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS ",
+  "can_do_statement": "Can use 'should' and 'shouldn't' without a following verb where the previous main verb is understood.",
+  "example_raw": "Well, have you ever checked your blood pressure? I think you should. (Italy; B2 VANTAGE; 1993; Swedish; Pass)\n\nJohn spent the rest of the day thinking about what he should do. in fact, he wanted to answer and meet her again, but he knew that he shouldn't. (Spain; B2 VANTAGE; 2004; Spanish - European; Fail)"
+ },
+ {
+  "egp_id": "1741163711287x768774727410203500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "USE: NARRATIVE DEVICE",
+  "can_do_statement": "Can use 'you should have' + '-ed' to emphasise points in a story.",
+  "example_raw": "You should have heard the noise. (Spanish - Latin American, B1 THRESHOLD, Pass, 2002)\n\nYou should have seen my face, I was so happy. (German, B1 THRESHOLD, Pass, 1999)"
+ },
+ {
+  "egp_id": "1741163711287x879466057870175200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "USE: REGRET",
+  "can_do_statement": "Can use 'should have' + '-ed' to talk about regrets or undesirable situations in the past.",
+  "example_raw": "You should have been there with me, I had a great time. (Chile; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\n\nI opened the envelope and read the letter. He had written that he was sorry and that he should not have done it. (French, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163711291x330489296656484280",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "should",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'SHOULD BE' + '-ING'",
+  "can_do_statement": "Can use 'should be' + '-ing'.",
+  "example_raw": "Well, you should be bouncing up and down with joy (just kidding)! (Spain; B2 VANTAGE; 2004; Spanish - European; Pass)\n\nThese are the reasons that I believe we should be reading books instead of watching television in our free time and I believe many people believe the same thinks as I do. (Greece; B2 VANTAGE; 1993; Greek; Pass)"
  }
 ]
 ```

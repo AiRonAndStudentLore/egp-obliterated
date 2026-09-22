@@ -1,0 +1,748 @@
+[
+  {
+    "egp_id": "1741163706930x438424096883169660",
+    "level": "B2",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEGREE, MODIFYING PRONOUNS",
+    "can_do_statement": "Can use degree adverbs to modify pronouns. \u25ba pronouns",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Concept boundaries and set theory",
+      "pedagogical_hook": "Using degree to modify completeness of sets",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:absolutely|almost|virtually|nearly|practically|simply|just)\\s+(?:anything|nothing|everything|something|anyone|everyone|no\\s*one|nobody|everybody|anybody)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "absolutely",
+              "almost",
+              "virtually",
+              "nearly",
+              "practically",
+              "simply",
+              "just"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "anything",
+              "nothing",
+              "everything",
+              "something",
+              "anyone",
+              "everyone",
+              "nobody",
+              "everybody",
+              "anybody"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "You can buy absolutely anything you like.",
+        "She said almost nothing during the meeting."
+      ],
+      "negatives": [
+        "The dog is absolutely adorable.",
+        "Almost all the people left early."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706930x701398975743074600",
+    "level": "B2",
+    "super_category": "ADVERBS",
+    "sub_category": "adverbs as modifiers",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEGREE, MODIFYING NOUN PHRASES",
+    "can_do_statement": "Can use degree adverbs to modify noun phrases. \u25ba noun phrases",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Modifying entity bounds",
+      "pedagogical_hook": "Adverbs adjusting nominal precision",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:quite|rather|almost|such|what)\\s+(?:a|an)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "quite",
+              "rather",
+              "almost",
+              "such",
+              "what"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "a",
+              "an"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It would be quite a formal meeting.",
+        "After all, he is almost a human."
+      ],
+      "negatives": [
+        "I was quite tired.",
+        "She rather enjoys walking."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708149x199194532751942660",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: FINITE AFTER 'THAN'",
+    "can_do_statement": "Can use 'than' + a finite clause forming the second part of a comparison after a comparative adjective",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Comparing against a state of affairs",
+      "pedagogical_hook": "Comparing reality to expectations or facts",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\bthan\\s+(?:i|you|he|she|it|we|they|there|everyone|anyone|someone|nobody)[a-z']*\\s+(?:am|is|are|was|were|do|does|did|can|could|will|would|have|has|had)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "than"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "expl"
+            ]
+          }
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "do",
+              "have",
+              "can",
+              "will",
+              "would",
+              "could",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I wish our schools could become better than they are.",
+        "The room seems to be bigger than it is really."
+      ],
+      "negatives": [
+        "He is taller than his brother.",
+        "It costs more than ten dollars."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708149x267810391266564350",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "1",
+    "guideword": "FORM/USE: NON-FINITE AFTER 'THAN'",
+    "can_do_statement": "Can use 'than' + a limited range of non-finite clauses (with -ing), forming the second part of a comparison after a comparative adjective",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Action comparison",
+      "pedagogical_hook": "Comparing two activities directly",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "\\bthan\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "than"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBG",
+              "NN"
+            ]
+          },
+          "LOWER": {
+            "REGEX": ".*ing$"
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It's less complicated than going to a large school in a town.",
+        "It will be more fun than sitting at home."
+      ],
+      "negatives": [
+        "I have more money than the king.",
+        "He ran faster than he ever had before."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708149x584991035733899400",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'RATHER THAN' + PHRASE",
+    "can_do_statement": "Can use 'rather than' + noun phrase or prepositional phrase to stress one element in a comparison. ",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Preference or alternative selection",
+      "pedagogical_hook": "Expressing preference between two distinct entities",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "\\brather\\s+than\\s+(?:the|a|an|[a-z]+s\\b|to\\b|in\\b|on\\b|at\\b|for\\b|with\\b)",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "rather"
+        },
+        {
+          "LOWER": "than"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "going",
+              "doing",
+              "seeing",
+              "being",
+              "having"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Use the stairs rather than the lift.",
+        "Eat healthy foods rather than fatty foods."
+      ],
+      "negatives": [
+        "I would rather go home than stay here.",
+        "He decided to resign rather than face dismissal."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708149x664942128716233300",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'AS \u2026 AS'",
+    "can_do_statement": "Can use '(not) as' + adjective/adverb + 'as' to introduce a clause (often with a substitute auxiliary verb) to talk about two things being equal or unequal in some way.  ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Equality of state or degree",
+      "pedagogical_hook": "Equating attributes with actions",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\bas\\s+[a-z]+\\s+as\\s+(?:i|you|he|she|it|we|they)[a-z']*\\s+(?:can|could|do|does|did|am|is|are|was|were|have|has|had|expected|remember|like|want)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "as"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": "as"
+        },
+        {
+          "DEP": "nsubj"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "can",
+              "could",
+              "do",
+              "be",
+              "have",
+              "expect",
+              "remember",
+              "like",
+              "want"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I will try to cover the work as much as I can.",
+        "I'm not watching T.V. as often as I did."
+      ],
+      "negatives": [
+        "It is as cold as ice.",
+        "He is as tall as his father."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708149x720696896419150700",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'BE LIKE' + NOUN OR PRONOUN",
+    "can_do_statement": "Can use 'be' + 'like' + noun or pronoun. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Similitude",
+      "pedagogical_hook": "Comparing identity or form",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:am|is|are|was|were|be|been|'m|'s|'re)\\s+(?:not\\s+)?like\\s+(?:a|an|the|me|you|him|her|us|them|it|my|your|his|our|their|[A-Z][a-z]+)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "LOWER": "not",
+          "OP": "?"
+        },
+        {
+          "LOWER": "like"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "pobj",
+              "prep",
+              "det",
+              "poss",
+              "pronoun"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I like her because she is like me.",
+        "It's like a little train."
+      ],
+      "negatives": [
+        "I really like pizza.",
+        "Would you like a drink?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708150x419378332254151740",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'TOO' + 'TO'-INFINITIVE ",
+    "can_do_statement": "Can use 'too' + adjective + 'to'-infinitive.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Excess preventing capability",
+      "pedagogical_hook": "Excess attribute preventing an action",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "\\btoo\\s+[a-z]+\\s+to\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "too"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think you are too young to go on holiday by yourself.",
+        "He always told me that he was too busy to write a letter to me."
+      ],
+      "negatives": [
+        "I am going to the store too.",
+        "There are too many people here."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708150x563640914716471200",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'THE BEST (THAT)'",
+    "can_do_statement": "Can use 'the best (that)' followed by a clause with the present perfect to talk about something unique.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Ultimate subjective evaluation",
+      "pedagogical_hook": "Highest praise tied to experience",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\bthe\\s+best\\s+[a-z]+\\s+(?:that\\s+)?(?:i\\s+|you\\s+|we\\s+|they\\s+|he\\s+|she\\s+)?(?:have|'ve|has|'s)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "best"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": "that",
+          "OP": "?"
+        },
+        {
+          "DEP": "nsubj",
+          "OP": "?"
+        },
+        {
+          "LEMMA": "have"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It's the best place that I have ever seen.",
+        "Well, the best decision I've ever made was the decision to go to France."
+      ],
+      "negatives": [
+        "He is the best player on the team.",
+        "I think this is the best one."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708150x748318227253666600",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THE SAME' (+ NOUN) + 'AS' + PRONOUN OR NOUN",
+    "can_do_statement": "Can use 'the same' (+ noun) + 'as' + pronoun or noun. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Equivalence of properties",
+      "pedagogical_hook": "Stating identical properties between entities",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\bthe\\s+same(?:\\s+[a-z]+)?\\s+as\\s+(?:me|you|him|her|us|them|yours|mine|hers|his|ours|theirs|your|[a-z]+'s)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "same"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": "as"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "pobj",
+              "prep",
+              "poss"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I wasn't the only one in my class, there were many others at the same level as me.",
+        "You like the same things as your friends."
+      ],
+      "negatives": [
+        "I will do the same as I did before.",
+        "He arrived at the same time."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708151x227455487870367600",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THE SAME' (+ NOUN) + 'AS' + CLAUSE ",
+    "can_do_statement": "Can use 'the same' (+ noun) + 'as' + clause. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Equivalence of events or states",
+      "pedagogical_hook": "Equating current reality with past facts",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\bthe\\s+same(?:\\s+[a-z]+)?\\s+as\\s+(?:i|you|he|she|it|we|they|there)[a-z']*\\s+(?:did|remember|used|am|is|are|was|were|have|has|had|do|does)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "same"
+        },
+        {
+          "OP": "?"
+        },
+        {
+          "LOWER": "as"
+        },
+        {
+          "DEP": "nsubj"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Maybe I'll do the same thing as you did.",
+        "Some people say that friendship today is not the same as it used to be."
+      ],
+      "negatives": [
+        "We wear the same uniform as you.",
+        "I bought the same book as my brother."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708151x354364358587738300",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'SO' + ADJECTIVE + 'THAT' CLAUSE",
+    "can_do_statement": "Can use 'so' + adjective + 'that' clause. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Cause and effect through degree",
+      "pedagogical_hook": "Degree so extreme it triggers an event",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\bso\\s+[a-z]+\\s+that\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "so"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "that",
+              "much",
+              "many"
+            ]
+          }
+        },
+        {
+          "LOWER": "that"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I was so tired that I didn't have the strength to stand up.",
+        "I was so nervous that when the teacher talked to me, I shouted!"
+      ],
+      "negatives": [
+        "I did it so that you could be happy.",
+        "It is so cold today."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708151x444231442548491900",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: ADJECTIVE + 'ENOUGH' + 'TO'-INFINITIVE ",
+    "can_do_statement": "Can use 'enough' after adjectives followed by 'to'-infinitive.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "Sufficient attribute for action",
+      "pedagogical_hook": "Reaching a threshold for capability",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "\\b[a-z]+\\s+enough\\s+to\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "TAG": "JJ"
+        },
+        {
+          "LOWER": "enough"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "TAG": "VB"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Young people are not mature enough to decide by themselves.",
+        "I think I am responsible enough to handle this job."
+      ],
+      "negatives": [
+        "We have enough food to eat.",
+        "I didn't sleep enough to feel rested."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708151x483888706062789900",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: SENSE VERBS + 'AS IF' OR 'AS THOUGH' + FINITE CLAUSE",
+    "can_do_statement": "Can use verbs of the senses + 'as if' or 'as though' + finite clause. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Hypothetical reality through sensory perception",
+      "pedagogical_hook": "Projecting an unreal scenario based on feeling",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:feel|feels|felt|look|looks|looked|sound|sounds|sounded|smell|smells|smelled|taste|tastes|tasted)\\s+as\\s+(?:if|though)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "feel",
+              "look",
+              "sound",
+              "smell",
+              "taste"
+            ]
+          }
+        },
+        {
+          "LOWER": "as"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "if",
+              "though"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I was excited and I felt as if I was a bird.",
+        "I think I will have to buy an umbrella because it looks as if it'll rain."
+      ],
+      "negatives": [
+        "He acted as if he owned the place.",
+        "It seems as though they forgot about us."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708151x500725106089104700",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "comparatives",
+    "lexical_range": "N/A",
+    "guideword": "FORM: LINKING VERB + 'LIKE' OR 'SIMILAR TO'",
+    "can_do_statement": "Can use linking verbs + 'like' or 'similar to'.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Sensory similarity",
+      "pedagogical_hook": "Describing objects by their similarity to others",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:look|looks|looked|sound|sounds|sounded|smell|smells|smelled|feel|feels|felt|seem|seems|seemed)\\s+like\\b|\\bsimilar\\s+to\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "look",
+              "sound",
+              "smell",
+              "feel",
+              "seem",
+              "be"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "like",
+              "similar"
+            ]
+          }
+        },
+        {
+          "LOWER": "to",
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It smelled like roses.",
+        "Your story is similar to my last dream."
+      ],
+      "negatives": [
+        "I like roses very much.",
+        "They have similar tastes."
+      ]
+    }
+  }
+]

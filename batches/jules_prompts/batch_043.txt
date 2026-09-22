@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_043.json`
 ```json
 [
  {
-  "egp_id": "1741163711821x616876087798387200",
-  "level": "B2",
-  "super_category": "NOUNS",
-  "sub_category": "types",
-  "lexical_range": "2",
-  "guideword": "FORM'-ING' FORMS, SUBJECT",
-  "can_do_statement": "Can use the '-ing' form of verbs as nouns in subject position.  ",
-  "example_raw": "Working until midnight every evening is not reasonable. Working late is not the solution and it is even dangerous. (France; B2 VANTAGE; 1993; French; Pass)\n\nAlso, think about stress. Driving in a city is stressful. (Germany; B2 VANTAGE; 1993; German; Pass)\n\nFirst of all, Wicklow Mountains Centre is the perfect place for climbing. Climbing is our favourite hobby and, I think, we will have a good time. (Greece; B2 VANTAGE; 2007; Greek; Pass)\n\nMany people say that they just don't have time for thinking about their health. Living in today's world demands spending a lot of time working. (Poland; B2 VANTAGE; 1999; Polish; Pass)"
- },
- {
-  "egp_id": "1741163711821x861251815294192800",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "types",
-  "lexical_range": "2",
-  "guideword": "FORM: COMMON NOUNS",
-  "can_do_statement": "Can use an increasing range of common nouns. ",
-  "example_raw": "When you're swimming you exercise all of your body. (2649025_2; PET; Cyprus; B1 THRESHOLD; 2009; Greek; Pass)\n\nYou just have to send me your design and I'll do the rest. (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nMy heart was hurt and nobody will repair the damage. (Argentina; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n"
- },
- {
-  "egp_id": "1741163711822x210963616833492060",
-  "level": "A2",
-  "super_category": "NOUNS",
-  "sub_category": "uncountable",
-  "lexical_range": "1",
-  "guideword": "FORM: UNCOUNTABLE NOUNS",
-  "can_do_statement": "Can use a limited range of uncountable nouns. ",
-  "example_raw": "I listen to music, I watch TV and I talk to my friends. (Italy; A2 WAYSTAGE; 2000; Italian; Pass)\n\nThe weather there was cold. (Taiwan; A2 WAYSTAGE; 2009; Chinese; Pass)\n\nCome to my house at 4.30 pm so we have time to get ready. (Uruguay; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)\n\nI ate a lot of meat. (Mexico; A2 WAYSTAGE; 2004; Spanish - Latin American; Pass)\n\nDo you have any furniture in this room? (A2 WAYSTAGE; 2009; Polish; Fail)\n\nBring some money with you. (United States of America; A2 WAYSTAGE; 2009; Russian; Pass)"
- },
- {
-  "egp_id": "1741163711827x907347986663720800",
-  "level": "A2",
-  "super_category": "NOUNS",
-  "sub_category": "uncountable",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH 'THE' ",
-  "can_do_statement": "Can use uncountable nouns with 'the' to talk about something specific. ",
-  "example_raw": "The music is going to be loud, since it's rap. (Malaysia; A2 WAYSTAGE; 2009; French; Pass)\n\nThe weather was absolutely fine. (Russia; A2 WAYSTAGE; 2009; Russian; Pass)\n\nIf you can't find the information about the new art class after school, please call me. (Libya; A2 WAYSTAGE; 2006; Arabic - Meghreb; Pass)"
- },
- {
-  "egp_id": "1741163711828x163854860427175000",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "uncountable",
-  "lexical_range": "2",
-  "guideword": "FORM: WITH DETERMINERS, QUANTITY",
-  "can_do_statement": "Can use uncountable nouns with an increasing range of quantity words and phrases including 'much', 'a bit of', 'a little bit of', 'enough', 'further', 'plenty of', 'loads of'.  \u25ba  Determiners: quantity",
-  "example_raw": "I'm sure that your parents are looking forward to going with you to the beach, because they work a lot of hours during the year so they can't spend much time with you. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nI know you have sent me somebody to fix it but every time that it rains, at least a bit of water comes inside the house. (B1 THRESHOLD; 2007; Farsi; Pass)\n\nI hope this little bit of advice can help you! (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI prefer to buy only what I need because I don't have enough money. (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nSo I would like you to attend a meeting next week for further information. (China; B1 THRESHOLD; 2006; Chinese; Pass)\n\nMy Finance department is very busy, I have loads of work to finish. (India; B1 THRESHOLD; 2006; Bengali; Pass)"
- },
- {
-  "egp_id": "1741163711828x251823774434196220",
-  "level": "C1",
-  "super_category": "NOUNS",
-  "sub_category": "uncountable",
-  "lexical_range": "3",
-  "guideword": "FORM: UNCOUNTABLE NOUNS",
-  "can_do_statement": "Can use a wide range of uncountable nouns, particularly referring to abstract concepts. ",
-  "example_raw": "I appreciate that your company is concerned about safety and has installed safety belts in every coach but they do not help much when they are all broken. (Denmark; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Danish; Pass)\n\nAbove all, the administration is not very efficient. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; French; Pass)\n\nHe will go with another two members in his department who are likely to be the core workforce and who are eager to broaden their vision. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Chinese; Pass)\n\nThrough that we can develop more humanity, solidarity, tolerance and respect among people of different countries. (Italy; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Italian; Pass)"
- },
- {
-  "egp_id": "1741163711828x356216667164534850",
-  "level": "A2",
-  "super_category": "NOUNS",
-  "sub_category": "uncountable",
-  "lexical_range": "1",
-  "guideword": "FORM: WITH DETERMINERS, QUANTITY",
-  "can_do_statement": "Can use uncountable nouns with a limited range of quantity words and phrases including 'some', 'any', 'a lot of', 'more'. \u25ba Determiners: quantity",
-  "example_raw": "It's really important for me, because I need to do some homework. (Czech Republic; A2 WAYSTAGE; 2005; Czech; Pass)\n\nNow, I haven't got any money, but I am really happy! (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nWe have had a lot of fun. (Brazil; A2 WAYSTAGE; 2007; Portuguese; Pass)\n\nI'm going to find more information about the new art class. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163711828x527765417669890940",
-  "level": "A2",
-  "super_category": "NOUNS",
-  "sub_category": "uncountable",
-  "lexical_range": "N/A",
-  "guideword": "FORM: CONTAINERS, QUANTITY EXPRESSIONS",
-  "can_do_statement": "Can refer to an individual example or quantity of an uncountable noun using words for containers and countable items. ",
-  "example_raw": "We have to bring a bottle of water, trainers and a T-shirt or top. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)\n\nYou must bring with you two pencils, one rubber and a piece of paper. (Cyprus; A2 WAYSTAGE; 2006; Greek; Pass)\n\nI have a piece of news. (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nI can drink a cup of tea in a caf\u00e9. (Peru; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163711828x662115964014106400",
-  "level": "B2",
-  "super_category": "NOUNS",
-  "sub_category": "uncountable",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NO ARTICLE",
-  "can_do_statement": "Can use uncountable nouns without a definite article to refer to an abstract thing in general. ",
-  "example_raw": "Television is more attractive because it has moving images. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nMusic was her life, not only a hobby. (Spain; B2 VANTAGE; 1999; Catalan; Pass)\n\nLook at it this way, the more you work in school, the more you will achieve in your job. Education is important to prevent you from being a dog on a leash! (Germany; B2 VANTAGE; 2010; German; Pass)\n\nLanguage can be learned slowly and reflects the culture and tradition of the country. Language even plays an important role in the tourist industry. (Nepal; B2 VANTAGE; 2011; Nepali)"
- },
- {
-  "egp_id": "1741163711828x908159161146285200",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "uncountable",
-  "lexical_range": "2",
-  "guideword": "FORM: UNCOUNTABLE NOUNS",
-  "can_do_statement": "Can use an increasing range of uncountable nouns. ",
-  "example_raw": "I think the countryside is better than the town centre, people get on more easily with each other. (Italy; B1 THRESHOLD; 2008; Spanish - Other; Pass)\n\nWell, I love shopping for clothes because I love fashion. (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nI hope you can help me to find new accommodation as soon as is possible. (B1 THRESHOLD; 2007; Polish; Pass)\n\nFirstly, you can admire lovely architecture and visit a museum about our history. (France; B1 THRESHOLD; 2004; French; Pass)"
- },
- {
-  "egp_id": "1741163712056x895221609473611600",
-  "level": "B1",
-  "super_category": "PASSIVES",
-  "sub_category": "get and have",
-  "lexical_range": "1",
-  "guideword": "FORM: 'GET' + '-ED'",
-  "can_do_statement": "Can form the 'get'-passive with a range of forms of 'get' + past participles.",
-  "example_raw": "[talking about a mirror] I bought it because mine got broken, so I need it to see myself in it. (Mexico; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nYou should be careful while you are crossing or you will get hurt. (India; B1 THRESHOLD; 2010; Tamil; Pass)\n\nLast week my husband's car got stolen from our garage. (B1 THRESHOLD; 2007; Farsi; Pass)\n\nAs we have newly recruited staff, we want our staff to get trained effectively so that they can give their best to the Company. (India; B1 THRESHOLD; 2006; Gujarati; Fail)\n\nWe got paid well and I managed to save the most money for my studies. (Germany; B2 VANTAGE; 2004; German; Pass)"
- },
- {
   "egp_id": "1741163712057x241065069713333200",
   "level": "B2",
   "super_category": "PASSIVES",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_043.json`
   "guideword": "FORM/USE: 'GET' + OBJECT + 'TO'-INFINITIVE",
   "can_do_statement": "Can use 'get' + object + 'to'-infinitive to talk about causing someone to do something. ",
   "example_raw": "I would like to point at a few things about our small town, which I, as a citizen, have to explain to our friends, in order to get them to visit us more frequently. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nIt is a good way to get them to shop at this particular store. (Somalia; B2 VANTAGE; 2003; Somali; Pass)\n\nI do understand that it must be difficult to get these people to go to the festival. (Argentina; B2 VANTAGE; 2000; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712320x420977783135077200",
+  "level": "C1",
+  "super_category": "PASSIVES",
+  "sub_category": "get and have",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'GET' + OBJECT + '-ING'",
+  "can_do_statement": "Can use 'get' + object + '-ing' to talk about causing someone or something to do something.",
+  "example_raw": "First of all, I would like to underline the sheer boredom of these CDs, which got me yawning from the very first minute. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Spanish - European; Pass)\n\nI was very happy when I received your letter, although I must say that your dilemma got me thinking. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)\n\nAs soon as they realized there was no way to get the employees moving, they got excited and nervous. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; German; Pass)\n\nBut still both concerts were great as Elton John and \"Metallica\" really know how to get people moving, but in two completely different ways. (Denmark; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Danish; Pass)\n\n"
+ },
+ {
+  "egp_id": "1741163712321x355132007254578300",
+  "level": "C2",
+  "super_category": "PASSIVES",
+  "sub_category": "get and have",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'HAVE' + OBJECT + INFINITIVE",
+  "can_do_statement": "Can use 'have' + object + infinitive without 'to' to talk about asking or causing someone to do something, often in formal contexts.",
+  "example_raw": "In order to attract people and have them practise their English, we could point out the benefits and the possibilities one obtains, by acquiring a degree in this language ... (Greece; C2 MASTERY; 2010; Greek; at level)\n\nIn assessing the prospective student's linguistic skills it does not suffice to just have him fill out a multiple-choice-form (Hong Kong; C2 MASTERY; 1999; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163712047x184306606922612260",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'BY' IN A RELATIVE CLAUSE|",
+  "can_do_statement": "Can use the passive with 'by' in a relative clause, often to add more information.",
+  "example_raw": "I also like wearing clothes which are manufactured by famous brands. (India; B1 THRESHOLD; 2006; Tamil; Pass)\n\nIt's the highest mountain in U.A.E. Special roads were built for people to reach the top of the mountain, which was surrounded by houses. (United Arab Emirates; B1 THRESHOLD; 2003; Arabic - Gulf; Pass)"
+ },
+ {
+  "egp_id": "1741163712047x352927366474730100",
+  "level": "A2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST SIMPLE, AFFIRMATIVE",
+  "can_do_statement": "Can use the past simple passive affirmative after a singular subject. ",
+  "example_raw": "It was built in 1880. (China; A2 WAYSTAGE; 2001; Chinese; Pass)\n\nOn Saturday morning I was invited to a sports competition. (India; A2 WAYSTAGE; 2007; Tamil; Pass)"
+ },
+ {
+  "egp_id": "1741163712047x585480674416874600",
+  "level": "A2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT SIMPLE, AFFIRMATIVE",
+  "can_do_statement": "Can use the present simple passive affirmative with a singular subject.",
+  "example_raw": "The group is called \"playmo\". (France; A2 WAYSTAGE; 2005; French; Pass)\n\nI bought a T-shirt, it cost \u00a342 because it is made of cotton. (Argentina; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712047x673355343552202160",
+  "level": "A2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'BY' TO ADD INFORMATION",
+  "can_do_statement": "Can use the passive with 'by' to add information about something already known.",
+  "example_raw": "It was bought by my uncle. (China; A2 WAYSTAGE; 2004; Chinese; Pass)\n\nIt's made by Sony-Ericsson, I love it \u2026 (Italy; A2 WAYSTAGE; 2007; Italian; Pass)\n\n\u2026 it was written by an excellent author, Lev Tolstoy. (Russia; A2 WAYSTAGE; 2004; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163712048x136041892375174060",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT SIMPLE, AFFIRMATIVE ",
+  "can_do_statement": "Can use the present simple passive affirmative with a range of pronoun and noun subjects.",
+  "example_raw": "Our office is situated near the airport. (B1 Argentina ; Spanish - Latin American)\n\nThe walls are painted in a dark blue, and the floor is wood. (B1 Dutch) "
+ },
+ {
+  "egp_id": "1741163712048x581247857975133000",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST SIMPLE, AFFIRMATIVE",
+  "can_do_statement": "Can use the past simple passive affirmative with a range of pronoun and noun subjects both singular and plural.",
+  "example_raw": "It was written in a strange language that I tried to translate. (B1 Spanish - Latin American)\n\nNext day, I heard that my neighbour's car was stolen. (B1 Polish)\n\nThey filmed the flowers and trees, and some pupils were interviewed about their work in the garden, too. (B1 German)"
+ },
+ {
+  "egp_id": "1741163712048x766157093174026800",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "1",
+  "guideword": "FORM: PRESENT CONTINUOUS, AFFIRMATIVE ",
+  "can_do_statement": "Can use the present continuous passive affirmative with a limited range of verbs.",
+  "example_raw": "Did you know that the next Harry Potter movie is being filmed in my school? (Spain; B1 THRESHOLD; 2008; Catalan; Pass)\n\nWhy don't we stay at my house and visit Tokyo, where an interesting Japanese history exhibition is being held. (Japan; B1 THRESHOLD; 2004; Japanese; Pass)\n\nAs a result of that, Russia's economy is being followed by many experts. (Turkey; B1 THRESHOLD; 2008; Turkish; Pass)\n\nThey filmed a class where the clothes are being tested at the moment and they interviewed some people. (Germany; B1 THRESHOLD; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163712048x834192566226660200",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "1",
+  "guideword": "FORM: INFINITIVE ",
+  "can_do_statement": "Can use the passive infinitive after a limited number of forms including 'going to', 'have to', 'need to', 'want to'. ",
+  "example_raw": "It is going to be shown this Friday. (B1 PET Turkish)\n\nAfter that, they printed an authorisation, form which had to be signed by my parents because I'm not over eighteen. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nHe wants to be informed about sales development by the end of November 2001. (B1 Switzerland German)"
+ },
+ {
+  "egp_id": "1741163712049x217545267830854720",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "2",
+  "guideword": "FORM: INFINITIVE",
+  "can_do_statement": "Can use the passive infinitive affirmative and negative forms after an increasing range of main verbs, modal verbs, adjectives and nouns, in impersonal constructions. ",
+  "example_raw": "According to your advertisement, some training is supposed to be given. (B2 South Korean)\n\nMy composition was ready to be printed and I was searching for a piece of paper\u2026 (B2 Austria)\n\nI would prefer to sleep in a tent because I have never done it and I think it is an experience not to be missed, a very original adventure! (B2 French)\n\nThe reason that I took part in your research was to help youngsters not to be addicted to computer games \u2026  (B2 Greek)\n\nFor one, the future homes might not be built out of bricks at all! (Korea, South; B2 VANTAGE; 2000; Korean; Pass)"
  }
 ]
 ```

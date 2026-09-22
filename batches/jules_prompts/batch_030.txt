@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_030.json`
 ```json
 [
  {
-  "egp_id": "1741163710843x167923658280904700",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PAST, NEGATIVE",
-  "can_do_statement": "Can use 'might not have' + '-ed'. ",
-  "example_raw": "First of all, not 45 but only 35 stalls were promised, meaning the disappointment you mentioned might not have been as bad as you, or whoever gave you the information, thought it was. (Argentina; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163710843x267892712489931740",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "USE: POSSIBILITY IN THE PAST",
-  "can_do_statement": "Can use 'might not have' + '-ed' to talk about possibility with a past reference.",
-  "example_raw": "The survey, mentioned in the local newspaper yesterday, might not have asked an accurate sample of people. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Portuguese; Pass)\n\nEven though things might not have gone as you expected or as you would like them to have, we have to remind you we are dealing with charity here. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Dutch; Pass)"
- },
- {
-  "egp_id": "1741163710843x377860994738539200",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "USE: FOCUS",
-  "can_do_statement": "Can use 'might' in phrases, such as 'as you might know', 'have already heard', to focus the reader on shared knowledge.",
-  "example_raw": "As you might know, nobody came here until Wednesday afternoon. (Spanish - European, B2 VANTAGE, Pass, 2010)\n\nAs you might know, I've been very busy recently taking my exams. (Danish, B2 VANTAGE, Pass, 1999)\n\nAs you might have noticed, I broke your beautiful vase which was in the hall. (Portuguese, B2 VANTAGE, Pass, 1999)\n\nAs you might have already heard, there is a delay with the setting of the new computer system. (Austria; B2 VANTAGE; 2009; German; Pass)"
- },
- {
-  "egp_id": "1741163710843x613591932833607400",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS ",
-  "can_do_statement": "Can use the question form.",
-  "example_raw": "Could it be possible that your company sent me the wrong bill, or might it be the bill from the last person who lived in my house? (German, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2009)\n\nMight it not be a good idea to change the travel company you are working with next time? (Greek, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2004)"
- },
- {
-  "egp_id": "1741163710844x346277767826757440",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "USE: POLITE CRITICISM",
-  "can_do_statement": "Can use the question form to make polite criticisms and suggestions.",
-  "example_raw": "Last but not least, might it not be wise if you had more trips \u2026? (Greek, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2008)\n\nAlso might I suggest that we have more exiting publicity for the club? (Japanese, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1993)\n\nAs for the musicals running in London, might I suggest that you arrange for seats where one can both see and listen? (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)"
- },
- {
-  "egp_id": "1741163710844x406795981475466500",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "USE: CONSOLING OR JUSTIFYING",
-  "can_do_statement": "Can use 'might' followed by 'but' to console or justify. ",
-  "example_raw": "The argument that fashion reflects people's attitudes and behaviour might sound superficial, but on closer examination it turns out to be true. (Swiss German, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2004)\n\nThe idea of going to work-out to keep fit might be tedious sometimes but the majority of young people are interested in taking up an activity these days. (Turkish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1999)\n\nAll in all, it might not have been a huge success, but people enjoyed themselves. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Greek; Pass)\n\nYou might not have been able to \"change the world\" but maybe you have made a difference to one or two people. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Swedish; Pass)"
- },
- {
-  "egp_id": "1741163710844x664690208940296400",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "USE: EMPHASIS",
-  "can_do_statement": "Can use 'try as I might' for emphasis at the beginning of a sentence.",
-  "example_raw": "Try as I might, I was never able to persuade her to go for a walk. (Greek, C2 MASTERY, Pass, 1993)\n\nTry as I might, I cannot imagine a world without music. (Greek, C2 MASTERY, Pass, 2007)\n\nTry as I might, I can't see an explanation \u2026. (Poland; C2 MASTERY; 2003; Polish; Pass)"
- },
- {
-  "egp_id": "1741163710844x795406964176839600",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'MIGHT AS WELL'",
-  "can_do_statement": "Can use 'might as well', mostly to talk about or suggest what we think is the easiest or most logical course of action, often when we cannot see a better alternative. \u25ba 'may'",
-  "example_raw": "Living longer allows you to fulfil the different stages of your personal development, and if you reach the necessary maturity and integrity that corresponds to this stage of your life, you might as well make the best of these years. (Catalan, C2 MASTERY, Pass, 1993)\n\nWhat should be changed about travelling and spending one's holiday is that the people, in my opinion, should decide on what they want to do during their holidays: If they only want to have fun, they might as well stay at home. (Germany; C2 MASTERY; 1993; German; Pass)"
- },
- {
-  "egp_id": "1741163710844x267345296139498430",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "must",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE ",
-  "can_do_statement": "Can use the negative forms.",
-  "example_raw": "\u2026 you mustn't forget to buy some strawberry juice for us. (Portuguese, A2 WAYSTAGE)\n\nYou must not wear a white colour shirt, you can only wear a dark colour shirt. (Chinese, A2 WAYSTAGE)"
- },
- {
-  "egp_id": "1741163710844x422781473749080900",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "must",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE ",
-  "can_do_statement": "Can use the affirmative form. ",
-  "example_raw": "You must wear your sports shoes and you must also bring your racket! (Greek)\n\nI must be back at 10.15. (French)"
- },
- {
-  "egp_id": "1741163710845x102393047191083890",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "must",
-  "lexical_range": "N/A",
-  "guideword": "USE: INVITATIONS",
-  "can_do_statement": "Can use 'must' to make invitations.",
-  "example_raw": "You must come and stay in our house too. (Turkey; B1 THRESHOLD; 2007; Turkish; Pass)\n\nYou must come and see this restaurant! (Switzerland; B1 THRESHOLD; 2005; Swiss German; Pass)"
- },
- {
   "egp_id": "1741163710845x174924654487421900",
   "level": "B1",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_030.json`
   "guideword": "FORM: ELLIPSIS",
   "can_do_statement": "Can use 'must' with the following verb ellipted where the previous main verb is understood.    \u25ba ellipsis",
   "example_raw": "You must! It's amazing! (Italian, B1 THRESHOLD)\n\nTo sum it up, right now, I take care of her because I must! (French, B1 THRESHOLD)"
+ },
+ {
+  "egp_id": "1741163710845x798749370290314700",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+  "can_do_statement": "Can use 'must' to guess and deduce, most commonly with 'it must be', or 'you must be'.",
+  "example_raw": "Second, it must be boring for you to sit at a computer all day. (Turkish, B1 THRESHOLD)\n\n[talking about moving to another town] You must be so nervous. (Spanish - Latin American, B1 THRESHOLD)\n"
+ },
+ {
+  "egp_id": "1741163710846x395037418398339200",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form.",
+  "example_raw": "Is it possible to use the prize next year or must I cancel my trip to India? (Swedish, B2 VANTAGE)\n\nFinally, how much money must I bring with me? (French, B2 VANTAGE)"
+ },
+ {
+  "egp_id": "1741163710846x539626302372578500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "3",
+  "guideword": "USE: OBLIGATION AND NECESSITY",
+  "can_do_statement": "Can use 'must' (with a wide range of pronouns and nouns) to talk about obligation and necessity.",
+  "example_raw": "[talking about something the speaker has found] She took it and said we must go and find him. (Poland; B1 THRESHOLD; 2008; Polish; Pass)\n\nYour parents must learn to let you live your own life \u2026 (German, B1 THRESHOLD)"
+ },
+ {
+  "egp_id": "1741163710846x710310357514026400",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS",
+  "can_do_statement": "Can use 'must' to make strong, encouraging suggestions.",
+  "example_raw": "This club has been opened for just two weeks. I mean we must see it. (Czech, B1 THRESHOLD)\n\n[talking about a day out] We must do that again, don't you think?! (Spanish - Latin American, B1 THRESHOLD)\n\nRome is really fantastic and you must go there! (Italy; B1 THRESHOLD; 2004; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163710846x862002717036825300",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST AFFIRMATIVE",
+  "can_do_statement": "Can use 'must have' + '-ed'.",
+  "example_raw": "When I realized that he must have forgotten, I called him up. (Chinese, B2 VANTAGE)\n\nWe had lots of fun learning how to ski. It was pretty hard at the beginning. I must have fallen about fifty times. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n"
+ },
+ {
+  "egp_id": "1741163711029x414511959030775550",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: EMPHASIS ",
+  "can_do_statement": "Can use the fixed expression 'I must say' to give emphasis, usually about something positive. ",
+  "example_raw": "I must say that I'm most delighted to have you here with us, Mr. Saramago, and it's with enormous pleasure that my students will hear your words. (Portuguese, B2 VANTAGE)\n\nAs I like music a lot I went to as many concerts as possible, and I must say that they were superb. (Germany; B2  ; 2000; German; Pass)"
+ },
+ {
+  "egp_id": "1741163711029x470432432448934400",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'must' with an increasing range of adverbs (including 'all', 'never', 'strongly', 'first') in the normal mid position after the modal verb. \u25ba adverbs",
+  "example_raw": "To sum up, we must all act immediately because the existence of humanity may be in danger. (Greek, B2 VANTAGE)\n\nBut there is one, just one thing we must never forget: we have to be authentic. (Peru; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\n[talking about a guide book] In addition I must strongly recommend you add something about nightlife. (Russia; B2 VANTAGE; 2002; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163711029x580434283031923800",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS",
+  "can_do_statement": "Can use ellipted 'must have' + '-ed' without a subject. \u25ba ellipsis",
+  "example_raw": "[from a story] 'Must have fallen out of a car, or somfin'\" This was his next thought. (Polish, C2 MASTERY)"
+ },
+ {
+  "egp_id": "1741163711029x833971545638738200",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: OBLIGATION AND NECESSITY",
+  "can_do_statement": "Can use 'must' to ask about obligation and necessity.",
+  "example_raw": "Is it possible to use the prize next year or must I cancel my trip to India? (Swedish, B2 VANTAGE)\n\nFinally, how much money must I bring with me? (French, B2 VANTAGE)"
+ },
+ {
+  "egp_id": "1741163711029x868317160566453600",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+  "can_do_statement": "Can use the perfect form of 'must' to make deductions about the past.",
+  "example_raw": "Of course, India must have changed a lot since Jules Verne wrote his book, but I think that its charm remains. (French, B2 VANTAGE)\n\nI must have looked awful because she asked me whether I was all right. (Poland; B2 VANTAGE; 1993; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711029x881777172555198800",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: CONCESSIONS",
+  "can_do_statement": "Can use the fixed expression 'I must admit' or 'you must admit' to express concession.",
+  "example_raw": "On the other hand you must admit that not all ready-made meals taste really good and often they are not as healthy as fresh ones. (German, B2 VANTAGE)\n\nHowever, I must admit that I completely agree with Chris and consider the mountain road too daring to try. (Russia; B2  ; 1998; Russian; Pass)"
  }
 ]
 ```

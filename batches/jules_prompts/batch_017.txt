@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_017.json`
 ```json
 [
  {
-  "egp_id": "1741163716067x147000311893029860",
-  "level": "C2",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'IT' CLEFT",
-  "can_do_statement": "Can use 'It' + 'be' + noun + 'that' clause for focus.",
-  "example_raw": "It is Lily who decides to go to the seaside and it is also her who kills the turkey given by a lorry-driver. (France; C2 MASTERY; 1993; French; Pass)\n\nIt was Paul who stole the money. (Hong Kong; C2 MASTERY; 1997; Chinese; Pass)\n\nIt is Piggy who finds the conch and knows how to blow it. (Denmark; C2 MASTERY; 1993; Danish; Fail)\n\nIt is my mother who always plays the role of mediator. (Poland; C2 MASTERY; 1993; Polish; Pass)\n\nIt is this silence that gives me the impression of togetherness, for which no words are needed. (Netherlands; C2 MASTERY; 1997; Dutch; Pass)"
- },
- {
-  "egp_id": "1741163716067x243366578638317700",
-  "level": "C2",
-  "super_category": "FOCUS",
-  "sub_category": "focus",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: MULTIPLE FIXED EXPRESSIONS",
-  "can_do_statement": "Can use more than one fixed expression in the front position for added focus.",
-  "example_raw": "But all of a sudden, out of nowhere a bunch of people came running towards him, yelling something he couldn't understand. (Switzerland; C2 MASTERY; 2000; Chinese; Pass)\n\nAll in all, taking everything into account, I would suggest that a leisure centre would be the most beneficial as it provides all the facilities necessary to attract and benefit a number of people in the community. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\nWhat is more, from my point of view happiness has nothing to do with big things but with small things such as day-to-day details. (Spain; C2 MASTERY; 1993; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163709234x399877343853970240",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "future continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE WITH 'WILL' ",
-  "can_do_statement": "Can use the affirmative form with 'will'.",
-  "example_raw": "I'll be waiting for you. (Portugal; A2 WAYSTAGE; 2009; Portuguese; Pass)\n\nWe will be starting at 12 o'clock this afternoon. (Malaysia; A2 WAYSTAGE; 2006; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163709234x555675180554027650",
-  "level": "B1",
-  "super_category": "FUTURE",
-  "sub_category": "future continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form with 'will' and 'shall'.",
-  "example_raw": "However, I shall be attending class the day after tomorrow and I shall cover the work I miss by copying it from John. (India; B1 THRESHOLD; 2006; Tamil; Pass)\n\nWe will be waiting for you at the River's Caf\u00e9 at 6.30. (Mexico; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163709234x671025735588754300",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "future continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: FUTURE ARRANGEMENTS",
-  "can_do_statement": "Can use the future continuous with 'will' to talk about an event or action in progress at a specified time in the future.",
-  "example_raw": "Tomorrow please come at 4.30 pm because I'll be working before. (France; A2 WAYSTAGE; 2009; French; Pass)\n\nTomorrow I'll be studying in the morning, so you can come at 2. (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163709234x709818430358317700",
-  "level": "B1",
-  "super_category": "FUTURE",
-  "sub_category": "future continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE WITH 'WILL'",
-  "can_do_statement": "Can use the negative form with 'will' ('won\u2019t').",
-  "example_raw": "I would like you to know that I won't be attending your English class next week. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI won't be coming because my family and I are going on a tour of London. (Malaysia; B1 THRESHOLD; 2006; Malay; Pass)"
- },
- {
-  "egp_id": "1741163709235x267104607541658750",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: POLITENESS",
-  "can_do_statement": "Can use the future continuous with 'will' as a polite question form, in place of the present simple or future simple.  ",
-  "example_raw": "Will I be needing any money? (Switzerland; B2 VANTAGE; 2000; French; Pass)"
- },
- {
-  "egp_id": "1741163709235x495747867128213400",
-  "level": "C1",
-  "super_category": "FUTURE",
-  "sub_category": "future continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: EXPECTATIONS WITH 'MIGHT' OR 'MAY'",
-  "can_do_statement": "Can use the future continuous with 'might' or 'may' to talk about an event or activity potentially in progress at a specified or understood time in the future.",
-  "example_raw": "As far as I'm concerned, we should definitely do some additional publicity, particularly for the new offerings which might be coming up. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Dutch; Pass)\n\nFor example, your boss may be calling at 10 pm asking you to prepare a report for next day's meeting. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2010; Chinese; )"
- },
- {
-  "egp_id": "1741163709235x737206541062207200",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS ",
-  "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'will'. ",
-  "example_raw": "Will they be holding any activities at night? (Brazil; B2 VANTAGE; 2008; Portuguese; Pass)\n\nWill I be needing any money? (Switzerland; B2 VANTAGE; 2000; French; Pass)\n\nWhat will you be doing in a few years if now you don't even try to do anything? (Poland; B2 VANTAGE; 1999; Polish; Pass)"
- },
- {
-  "egp_id": "1741163709235x749861660179369300",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'BE ABOUT TO'",
-  "can_do_statement": "Can use the present forms of 'be' + 'about to'.  ",
-  "example_raw": "You are not going to believe what I am about to tell you! (Chile; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n\nI'm in a hurry, my class is about to begin. (Yugoslavia; B2 VANTAGE; 2006; Serbian; Pass)\n\nThey are to offer the spectators a view of the variety and the beauty of the world we are surrounded by and which we are about to destroy. (Jordan; B2 VANTAGE; 1993; German; Pass)"
- },
- {
-  "egp_id": "1741163709236x496378598600284700",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "future expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "USE: SCHEDULES",
-  "can_do_statement": "Can use 'be due to' and, more formally, 'be to' talk about things that are scheduled or expected. ",
-  "example_raw": "Our annual conference for HR managers is due to take place on 10 December 2010. (Austria; B2 VANTAGE; 2010; German; Pass)\n\nHowever, the demand for products is still estimated as \u2018normal\u2019 and is due to increase within the next 6 months. (Russia; B2 VANTAGE; 2009; Russian; Pass)\n\nI am sorry but we are to leave a bit earlier - at about 16.00. (Czech Republic; B2 VANTAGE; 2003; Czech; Pass)"
- },
- {
   "egp_id": "1741163709236x556509988634357200",
   "level": "B2",
   "super_category": "FUTURE",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_017.json`
   "guideword": "FORM: 'BE DUE TO'",
   "can_do_statement": "Can use the present form of 'be' + 'due to'. ",
   "example_raw": "I am afraid that July is the only appropriate month, because I am due to start work in August. (Turkey; B2 VANTAGE; 2000; Turkish; Pass)\n\nAs some of the members of our team are due to be present at a sales promotion programme next Friday, the marketing meeting once scheduled for next Friday is postponed to next Saturday. (China; B2 VANTAGE; 2008; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163709236x469443168054973600",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future in the past",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE GOING TO'",
+  "can_do_statement": "Can use the simple past form of 'be' + 'going to' to talk about the future from a point in the past. \u25ba 'be going to' ",
+  "example_raw": "She was going to return it but she saw something very strange, her number was on the screen. (Argentina; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nShe didn't know what was going to happen. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)\n\nWe were going to meet two days later in the square next to the centre. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163709240x412925570751819600",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future in the past",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'WOULD' ",
+  "can_do_statement": "Can use 'would' to talk about the future from a point in the past.\u25ba 'would'",
+  "example_raw": "I've just bought a new dress, and a beautiful black T-shirt. When I saw them, I thought they would be great for tonight's party. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)\n\n\u2026 we thought that the film would be horrible because of the title but when the film started, the story was beautiful and Mauricio and I liked it a lot. (Portuguese, B1 THRESHOLD, Pass, 2002)\n\nAs I saw the advert, I knew it would be a lovely birthday present. (B1 THRESHOLD; 2003; ; Pass)"
+ },
+ {
+  "egp_id": "1741163709241x319054215667245100",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future in the past",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE ON THE POINT OF'",
+  "can_do_statement": "Can use the simple past form of 'be' + 'on the point of' + '-ing' to talk about things that were expected to happen soon after a point in the past. ",
+  "example_raw": "In addition, when I was on the point of leaving the office, another phone rang. (Greece; B2 VANTAGE; 2002; Greek; Pass)\n\nIn fact he simulated his death to escape from the police, who were on the point of catching him fora penicillin racket. (Laos; B2 VANTAGE; 1993; Lao; Pass)"
+ },
+ {
+  "egp_id": "1741163709241x526855987091597630",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future in the past",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE ABOUT TO'",
+  "can_do_statement": "Can use the simple past form of 'be' + 'about to' (often with 'just') to talk about the immediate future from a point in the past. ",
+  "example_raw": "Two days before, I told him that our father was about to buy a brand new car. (France; B2 VANTAGE; 2000; French; Pass)\n\nWhen I was about to answer the question, I realised that it was not as easy as I had thought. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nDear Helen, Believe it or not, I was just about to write you a letter when I received yours. (Chile; B2 VANTAGE; 2005; Spanish - Latin American; Pass)\n\nJust as we were about to climb through the broken window, a policeman arrived on the scene. (Greece; B2 VANTAGE; 1993; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163709241x531655376865656240",
+  "level": "C2",
+  "super_category": "FUTURE",
+  "sub_category": "future in the past",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BE DUE TO' ",
+  "can_do_statement": "Can use the simple past form of 'be' + 'due to' to talk about scheduled events in the future from a point in the past. ",
+  "example_raw": "It was quite early in the morning, only 7.15 am, and my plane was due to leave in about 40 minutes. (Germany; C2 MASTERY; 1993; German; Pass)\n\nTen minutes after the time we were due to begin, she arrived. (Spain; C2 MASTERY; 1998; Catalan; Pass)\n\nWe have succeeded in persuading the local Council that the factory that was due to be built near the lake was dangerous. (Greece; C2 MASTERY; 1993; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163709241x116456418775643170",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": null,
+  "example_raw": null
+ },
+ {
+  "egp_id": "1741163709241x184726411236370240",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE ",
+  "can_do_statement": "Can use the affirmative form with 'will'.",
+  "example_raw": "This summer I will have been working for three years for my company \u2026 (Spain; B2 VANTAGE; 2008; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163709241x694975673678065400",
+  "level": "C2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: ASSUMPTIONS",
+  "can_do_statement": "Can use the future perfect continuous to make assumptions about the present.",
+  "example_raw": "I do not think that this aspect is really necessary because it is supposed that \u2026 you will have been studying very hard to occupy that job \u2026. (Argentina; C2 MASTERY; 2005; Spanish - Latin American; Fail)"
+ },
+ {
+  "egp_id": "1741163709241x823282465499844400",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: LOOKING BACK FROM A POINT IN THE FUTURE ",
+  "can_do_statement": "Can use the future perfect continuous to look back to the past from a point in the future and to emphasise the duration of an activity or event.",
+  "example_raw": "Now I am staying in Hastings in England and this month, I will have been studying English for seven months. (Korea, South; B2 VANTAGE; 1999; Korean; Fail)\nI think I could have a holiday just in July because I will have been working for my company for one year by the end of the June. (Turkey; B2 VANTAGE; 2000; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163709242x337416434344128840",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with 'will'. ",
+  "example_raw": "I'm sure I will have learned today's lesson by the next lesson. (Brazil; B2 VANTAGE; 2003; Portuguese; Pass)\n\nIt seems that the decorative role of clothes will have disappeared by the year 2050. (Kazakhstan; B2 VANTAGE; 2000; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163709242x695590620556235600",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "future perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE ",
+  "can_do_statement": "Can use the negative form with 'will'. ",
+  "example_raw": "I think that the best time for me to visit Scotland would be in July, because I will not have finished my university exams by June. (Greece; B2 VANTAGE; 2008; Greek; Pass)\n\n[talking about a cycling trip] Once we have finished, it we won't have done more than 40 km, and there are just another 10 to get to the Lakeside Inn. (Spain; B2 VANTAGE; 1998; Spanish - European; Pass)"
  }
 ]
 ```

@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_022.json`
 ```json
 [
  {
-  "egp_id": "1741163710385x500120926290810800",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "adjectives",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'IF'-CLAUSE + 'POSSIBLE', POLITENESS",
-  "can_do_statement": "Can use 'if-' clauses + 'possible', as a politeness strategy. ",
-  "example_raw": "If it is possible I would like to pay by credit card. (B1 THRESHOLD; 2003; ; Pass)\n\nIf possible, please re-deliver the same goods right now. (China; B1 THRESHOLD; 2002; Chinese; Pass)\n\nI'm not free at 6 so I'd change it to 9 if it's possible. (Libya; B1 THRESHOLD; 2008; Arabic - Meghreb; Pass)\n\nIf it's possible, could you send the cards to my office in London? (Sweden; B1 THRESHOLD; 2000; Swedish; Pass)\n\nI would prefer the 15th of July if it is possible. (Austria; B1 THRESHOLD; 2009; German; Pass)\n\nThe opening hours are quite convenient but, if possible, I would like the pool to open a bit earlier - at 8.30 am, for example. (Greece; B2 VANTAGE; 2004; Greek; Pass)"
- },
- {
-  "egp_id": "1741163710385x581159408154841040",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "adjectives",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'IT' + 'BE' + ADJECTIVE + INFINITIVE, HEDGING, EMPHASIS",
-  "can_do_statement": "Can use 'it' + 'be' + adjective + 'to' + infinitive, to make an assertion more or less direct. ",
-  "example_raw": "Our sales department staff are heavily involved in several international projects, so it is necessary to improve their foreign language skills. (Germany; B1 THRESHOLD; 2006; German; Pass)\n\nBut sometimes it's essential to do what your parents want you to do. (Georgia (Republic of); B1 THRESHOLD; 2008; Georgian; Pass)\n\nIn the centre of town it is possible to do more activities after school. (Italy; B1 THRESHOLD; 2008; German; Pass)\n\n[talking about a computer problem] It was impossible to install the system. (Ecuador; B2 VANTAGE; 2009; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163710385x692584626357576800",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "adjectives",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'BE' + 'SURE' + CLAUSE ",
-  "can_do_statement": "Can use 'I' + 'be' + 'sure' + clause.",
-  "example_raw": "I'm sure I can beat you at chess. (Malaysia; A2 WAYSTAGE; 2007; Malay; Pass)\n\nI am not sure what I want to do but I am sure we will find something to do. (Norway; A2 WAYSTAGE; 2003; Norwegian; Pass)\n\nI\u2019m sure that you will love it. (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163710385x880822948927010600",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "adjectives",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'IT' + 'BE' + ADJECTIVE + 'FOR' + OBJECT + INFINITIVE",
-  "can_do_statement": "Can use 'it' + 'be' + adjective + 'for' + object + 'to' + infinitive.",
-  "example_raw": "If you have to choose between two schools, I think it's important for you to know what they\u2019re like. (Peru; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nIt's impossible for me to meet with you at six o'clock. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nIt is important for everyone to attend this meeting. (Germany; B1 THRESHOLD; 1999; German; Pass)\n\n[talking about not missing class] It's essential for me to go because I think I can't study physics by myself. (Iran; B1 THRESHOLD; 2006; Farsi; Pass)"
- },
- {
-  "egp_id": "1741163710386x348002796343913640",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "adjectives",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'IT' + LINKING VERB + ADJECTIVES + CLAUSE",
-  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause. ",
-  "example_raw": "It seems clear to me that swimming is good for the whole body. (B2 VANTAGE; 1993; Swedish; Pass)\n\nIt is obvious that some people prefer reading books. (Poland; B2 VANTAGE; 2008; Polish; Pass)\n\nIt is possible that we can be educated by TV. (Japan; B2 VANTAGE; 2004; Japanese; Pass)\n\nIt seems obvious that it is not necessary. (Switzerland; B2 VANTAGE; 2008; French; Pass)"
- },
- {
-  "egp_id": "1741163710387x307020078437927360",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "adjectives",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'IT' + LINKING VERB + ADJECTIVES + CLAUSE, HEDGING",
-  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause to make an assertion less direct.",
-  "example_raw": "It does not seem possible that we can live without any private life. (Japan; B2 VANTAGE; 2000; Japanese; Pass)\n\nIt is likely that by reading books we will learn some new words and phrases so that we will be able to write better. (Poland; B2 VANTAGE; 2008; Polish; Pass)\n\nIt is possible that only one computer will do this. (Moldova (Republic of); B2 VANTAGE; 2000; Russian; Pass)"
- },
- {
-  "egp_id": "1741163710387x650967748684691500",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "adjectives",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'IT' + LINKING VERB + ADJECTIVES + ('THAT') CLAUSE, FOCUS",
-  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause as a focusing device.",
-  "example_raw": "It is clear that we can't live without computers today. (Russia; B2 VANTAGE; 1999; Russian; Pass)\n\nIt seems obvious that this oil comes from the gas station. (other; B2 VANTAGE; 2008; French; Pass)\n\nComputers became part of the human life style because they help us to make our lives easier, but it is clear that we should never depend on machines to handle our lives. (Mexico; B2 VANTAGE; 1999; Spanish - Latin American; Pass)\n\nDue to the introduction of a new staff appraisal form, it is crucial that you take part. (Switzerland; B2 VANTAGE; 2010; Swiss German; Pass)\n\nIt's obvious you can't ride forty kilometres twice a day, unless you're very sporty. (France; B2 VANTAGE; 1993; French; Pass)\n\nIt is essential that you know the advantages of our new product in order to sell this bag efficiently. (Germany; B2 VANTAGE; 2005; German; Pass)"
- },
- {
-  "egp_id": "1741163710387x670189134684302700",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "adjectives",
-  "lexical_range": "N/A",
-  "guideword": "FORM: SUBJECT + 'BE' + ADJECTIVE + 'TO' + INFINITIVE ",
-  "can_do_statement": "Can use pronoun or noun + 'be' + adjective + 'to' + (past) infinitive. ",
-  "example_raw": "They are unlikely to arrive on Friday. (India; B2 VANTAGE; 2008; Hindi; Pass)\n\nWe are sure to increase our turnover and at least our profit. (Austria; B2 VANTAGE; 2008; German; Pass)\n\nWhenever money is involved, some problems are likely to happen. (Spain; B2 VANTAGE; 2000; Spanish - European; Pass)\n\nIf you see a movie, it is likely to have been made with computers. (Switzerland; B2 VANTAGE; 1999; French; Pass)"
- },
- {
-  "egp_id": "1741163710388x558221911355252500",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "adjectives",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: MODIFYING ADJECTIVES, EMPHASIS",
-  "can_do_statement": "Can modify adjectives with adverbs, often for emphasis.",
-  "example_raw": "It is painfully obvious that it will rescue our city from the pollution and fumes that cars are producing. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Polish; Fail)\n\n[talking about stolen goods] It is highly unlikely that the goods can vanish from your warehouse without that being noticed. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Russian; Pass)"
- },
- {
-  "egp_id": "1741163710388x886068932656131300",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "adjectives",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: MODIFYING ADJECTIVES, HEDGING",
-  "can_do_statement": "Can modify adjectives with degree adverbs, often to make an assertion less direct.",
-  "example_raw": "If you want to come earlier or if there's a public transport strike (which is quite probable), you will have to take a taxi. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)\n\nIt is almost certain that we'll have fights in the future but we will probably overcome them. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)"
- },
- {
-  "egp_id": "1741163711535x514214856539001000",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "adverbs",
-  "lexical_range": "N/A",
-  "guideword": "FORM: CLAUSE POSITION",
-  "can_do_statement": "Can use adverbs of certainty and possibility ('maybe', 'perhaps'), before a clause or ellipted clause. \u25ba adverbs: position",
-  "example_raw": "I think I left my phone there, maybe in your kitchen. (Italy; A2 WAYSTAGE; 2005; Italian; Pass)\n\nMaybe we could visit that park you told me about or play at your house. (Mexico; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nI want to buy new trousers and, perhaps, a T-shirt. (Spain; A2 WAYSTAGE; 2001; Catalan; Pass)\n\nThere you can dance, eat, drink and meet new friends (or perhaps a girlfriend). (Brazil; A2 WAYSTAGE; 2010; Portuguese; Pass)\n\nPerhaps it's in the kitchen under the table. (Switzerland; A2 WAYSTAGE; 2005; Swiss German; Pass)"
- },
- {
   "egp_id": "1741163711535x744252869965837700",
   "level": "A2",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_022.json`
   "guideword": "FORM/USE: RESPONSE TOKENS",
   "can_do_statement": "Can use 'not necessarily' as a short response. ",
   "example_raw": "Presents. Strips, bows, paper-wrapping. Thinking of Christmas? Not necessarily. (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163711538x884306688947976100",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MODAL VERB + MODAL ADVERB, HEDGING OR EMPHASIS",
+  "can_do_statement": "Can use modal verb + modal adverb to modify an assertion, either through hedging or emphasis.",
+  "example_raw": "Next year you can surely go somewhere with your friends. (Portugal; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nYou should probably bring sun block, because it's going be hot, and some food of course. (Indonesia; B1 THRESHOLD; 2009; Indonesian; Pass)\n\nIn my opinion if you decided to go to a large school in the centre of town, you would certainly meet a lot of cool people and you'd probably find it great. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163711538x899852393729137200",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT NECESSARILY'",
+  "can_do_statement": "Can use 'not necessarily' to express a possible exception to a general perception, i.e. not in every case.",
+  "example_raw": "As a conclusion, I want to say that while what we wear doesn't necessarily define who we are, it does play a big part in it. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)\n\nThis is not necessarily the way the older generation would see it though. (Slovenia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Slovene; Pass) "
+ },
+ {
+  "egp_id": "1741163711538x973037262394288500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE, 'POSSIBLY', POLITENESS",
+  "can_do_statement": "Can use 'could' + subject + 'possibly' to make requests more polite.",
+  "example_raw": "Could I possibly see you at 3.30? (Thailand; B1 THRESHOLD; 2008; Thai; Pass)\n\nCould you possibly recommend what action should be taken? (China; B1 THRESHOLD; 2002; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163710388x206193011712334940",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form.",
+  "example_raw": "You can see a lot of special places in Wroclaw. (A1 BREAKTHROUGH, 2007, Polish)\n\nYou can make a quick snack, for example, a sandwich. (A1 BREAKTHROUGH, 2006, German)"
+ },
+ {
+  "egp_id": "1741163710388x273734335473510240",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTION ",
+  "can_do_statement": "Can use the affirmative question form.",
+  "example_raw": "Can you come for dinner Monday at 6.00 pm? (Arabic - Other, A1 BREAKTHROUGH, Pass, 2008)\n\nCan we go to the park on the Sunday? (Somali, A1 BREAKTHROUGH, Pass, 2011)"
+ },
+ {
+  "egp_id": "1741163710388x482560605581935800",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE ",
+  "can_do_statement": "Can use the negative forms.",
+  "example_raw": "I cannot come to see you. (A1 BREAKTHROUGH, 2009, Bengali)\n\nI'm very nervous and I can't say anything. (A1 BREAKTHROUGH Polish)"
+ },
+ {
+  "egp_id": "1741163710388x540901022788007400",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: OFFERS",
+  "can_do_statement": "Can use 'can' to make an offer. ",
+  "example_raw": "Can I help you? (A1 BREAKTHROUGH, 2009, Lithuanian)\n\nWhat can I do for you? (A1 BREAKTHROUGH, 2009, Turkish)\n\nHow can I help you? (A1 BREAKTHROUGH, 2009, Polish)\n\nIf you want, I can come to your house and I can help you with for example some housework on Sunday this weekend. (A1 BREAKTHROUGH; 2009; Czech; Pass)"
+ },
+ {
+  "egp_id": "1741163710388x882361395502946800",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: ABILITY",
+  "can_do_statement": "Can use 'can' to talk about ability to do something. ",
+  "example_raw": "I can cook. (A1 BREAKTHROUGH, 2009, Turkish)\n\nI can write English. (A1 BREAKTHROUGH, 2007, Thai)\n\n[talking about someone with a physical disability] He cannot go up stairs. (A1 BREAKTHROUGH, 2009, Urdu)\n\n[talking about reading in English] I can\u2019t read very well. (A1 BREAKTHROUGH, 2007, Polish)"
+ },
+ {
+  "egp_id": "1741163710391x392174672834575400",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: PERMISSION",
+  "can_do_statement": "Can use 'can' to give and refuse permission or talk about what is forbidden.",
+  "example_raw": "You can wear anything you want. (A2 WAYSTAGE, 2008, Spanish - Latin American)\n\nYou can\u2019t bring your mobile phone. (A2 WAYSTAGE, 2006, Spanish - European)\n\nYou cannot wear jeans or flip-flops. (A2 WAYSTAGE, 2008, Portuguese)"
+ },
+ {
+  "egp_id": "1741163710391x459074403345042000",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: REQUESTS",
+  "can_do_statement": "Can use 'can' to make a request.",
+  "example_raw": "Can you come on Sunday at seven o\u2019clock? (A1 BREAKTHROUGH, 2010, Arabic)\n\nCan you call me? (A1 BREAKTHROUGH, 2009, Lithuanian)"
+ },
+ {
+  "egp_id": "1741163710391x534949859885590850",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: POSSIBILITY",
+  "can_do_statement": "Can use 'can' to talk about possibility.",
+  "example_raw": "The shop is next to the post office. There you can find milk, juices and sweets but you can't buy meat. (A1 BREAKTHROUGH, 2008, Spanish - Other)\n\nI cannot see you today. (A1 BREAKTHROUGH, 2009, Farsi)\n\nI'm sorry I can't see you now because I am very busy at work. (A1 BREAKTHROUGH, 2009, Mandarin)"
  }
 ]
 ```

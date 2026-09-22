@@ -1,0 +1,95 @@
+{
+ "batch": "batches/jules_batch_002.json",
+ "cycles": 1,
+ "passed": 11,
+ "total": 15,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163706930x438424096883169660",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706930x701398975743074600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708149x199194532751942660",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708149x267810391266564350",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708149x584991035733899400",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'Eat healthy foods rather than fatty foods.'",
+    "spaCy FALSE-POSITIVE on negative: 'He decided to resign rather than face dismissal.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708149x664942128716233300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708149x720696896419150700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708150x419378332254151740",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708150x563640914716471200",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: \"Well, the best decision I've ever made was the decision to go to France.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708150x748318227253666600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708151x227455487870367600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708151x354364358587738300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708151x444231442548491900",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: \"I didn't sleep enough to feel rested.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708151x483888706062789900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708151x500725106089104700",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy FALSE-POSITIVE on negative: 'I like roses very much.'",
+    "spaCy FALSE-POSITIVE on negative: 'They have similar tastes.'"
+   ]
+  }
+ ]
+}

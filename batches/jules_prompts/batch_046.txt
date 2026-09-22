@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_046.json`
 ```json
 [
  {
-  "egp_id": "1741163712056x106461892688326740",
-  "level": "C1",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: PRESENT CONTINUOUS NEGATIVE",
-  "can_do_statement": "Can use the present continuous passive negative form to refer to ongoing situations in the present.",
-  "example_raw": "In my opinion, the store is not being promoted enough. (C1 Polish)\n\nWomen are not being seen as just inferior to men and incapable of working outside the home. (C1 Portuguese)\n\nFinally, I agree with the fact that mobile phones have helped the human species develop, but as long as they 're not being used in a sensible way, they're a destructive weapon against children's health. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)"
- },
- {
-  "egp_id": "1741163712056x185610578351898660",
-  "level": "C2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: NON-FINITE PERFECT CLAUSES",
-  "can_do_statement": "Can use passive non-finite '-ing' perfect forms in subordinate clauses to give explanatory background information.",
-  "example_raw": "I myself, having been educated the hard way, would specifically insist on them getting the best possible school education. (C2 German)\n\nHaving been taught the rights and the wrongs, we had an idea about everything. (C2 Azerbaijani) \n\nNot having been given precise orders from the top, as usual he decided to work on his own initiative. (C2 Polish)\n"
- },
- {
-  "egp_id": "1741163712056x220763356502948540",
-  "level": "C2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NON-FINITE PERFECT COMPLEMENTS ",
-  "can_do_statement": "Can use non-finite '-ing' perfect forms of the passive as the complement of prepositions.",
-  "example_raw": "They are expected to give the couple expensive presents as a reward for having been invited. (C2 Spanish - Latin American)\n\nWe caught the bus as if we were escaping from Saigon, and with the sensation of having been rewarded with one of the funniest holiday evenings of our lives. (C2 Spanish - European)\n\nMiss Kenton has just been employed as a housekeeper when she knocks on Stevens' pantry door and comes in without having been bidden to do so, bringing a vase of flowers. (C2 Italian)"
- },
- {
-  "egp_id": "1741163712056x332718835608695200",
-  "level": "C1",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: SUMMARISING, EVALUATING WITH 'IT'.",
-  "can_do_statement": "Can use the passive with 'it' as a dummy subject, to summarise or evaluate in discussions, usually in formal or academic writing.",
-  "example_raw": "To sum up, it can be concluded that this report has attempted to summarize the main points regarding the Spanish educational system. (C1  Spanish - European)\n\nIn addition, it has been found that some products were difficult to find. (C1 Swiss German)"
- },
- {
-  "egp_id": "1741163712056x976576319443112100",
-  "level": "C2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "PRESENT PERFECT CONTINUOUS COMMENT",
-  "can_do_statement": null,
-  "example_raw": null
- },
- {
-  "egp_id": "1741163712321x293020264590759800",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "past continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form. ",
-  "example_raw": "I was waiting for you all Saturday evening. (Spanish - European, A2 WAYSTAGE, Pass, 2004) \n\n[talking about a holiday] I was swimming and sunbathing every day. (Russian, A2 WAYSTAGE, Pass, 2009)\n\nWe were dancing all evening. (Polish, A2 WAYSTAGE, Pass, 2004)"
- },
- {
-  "egp_id": "1741163712321x444348941700378800",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "past continuous",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use the question form.",
-  "example_raw": "Was my mother going to die? (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nI couldnt see anybody, then there he was, my hero, my favorite singer Bob Dylan saying my name, but was he calling me? (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nWhat were you doing? (Uzbekhistan (Republic of); B1 THRESHOLD; 2009; Russian; Pass)\n\n[talking about a dream] Everything was strange. Why was I following a green fox? (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163712321x580479358300843000",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "past continuous",
-  "lexical_range": "1",
-  "guideword": "FORM: WITH ADVERBS",
-  "can_do_statement": "Can use the past continuous with a limited range of adverbs in the normal mid position. ",
-  "example_raw": "I was just watching a football match. (Bengali, A2 WAYSTAGE, Pass, 2007)\n\n[talking about wanting to get a kitten] I was always dreaming about it. (Russian, A2 WAYSTAGE, Pass, 2004)"
- },
- {
-  "egp_id": "1741163712321x614372617735755500",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "past continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: BACKGROUND EVENTS",
-  "can_do_statement": "Can use the past continuous to show that an event was happening in the background to the main event.",
-  "example_raw": " Yesterday we were studying maths in your house, and I left my book on your bed. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2005)\n\nIt was raining when I arrived. (German, A2 WAYSTAGE, Pass, 2005)\n"
- },
- {
-  "egp_id": "1741163712321x623567407739942400",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "past continuous",
-  "lexical_range": "2",
-  "guideword": "FORM: WITH ADVERBS",
-  "can_do_statement": "Can use the past continuous with an increasing range of adverbs in the normal mid position. ",
-  "example_raw": "He was still waiting at the traffic light. (Italian, B1 THRESHOLD, Pass, 2008)\n\nHe was actually acting like a ghost. (Chinese, B1 THRESHOLD, Pass, 2008)"
- },
- {
-  "egp_id": "1741163712321x644327601969835100",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "past continuous",
-  "lexical_range": "N/A",
-  "guideword": "USE: EVENTS IN PROGRESS ",
-  "can_do_statement": "Can use the past continuous to talk about actions and states in progress around a particular time in the past.",
-  "example_raw": "I went to a soccer game, they were playing the last game to get the championship. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2007)\n\nIt was raining, but the concert was so good that I did not mind. (Uruguay; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)"
- },
- {
   "egp_id": "1741163712321x656261946310561000",
   "level": "B1",
   "super_category": "PAST",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_046.json`
   "guideword": "FORM: WITH ADVERBS",
   "can_do_statement": "Can use the past continuous with a wide range of adverbs in the normal mid position.",
   "example_raw": "My younger brother was constantly bothering me. (Russian, B2 VANTAGE, Pass, 1997)\n\nOne day, as she was wistfully walking in the dusk of that day, she told herself she could either go on living her lonely life or make a huge effort to fit in. (French, B2 VANTAGE, Pass, 2005)"
+ },
+ {
+  "egp_id": "1741163712327x699835533298048600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPEATED EVENTS",
+  "can_do_statement": "Can use the past continuous to talk about ongoing repeated events in the past, often with 'always'.",
+  "example_raw": "Worst of all, in September it was always raining. (Portugal; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nHe was always talking about this prize but I never thought he would win it. (Sri Lanka; B1 THRESHOLD; 2004; Tamil; Pass)"
+ },
+ {
+  "egp_id": "1741163712327x913269929337566600",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS ",
+  "can_do_statement": "Can use the past continuous to make a request or suggestions more polite or less direct.",
+  "example_raw": "I was wondering if I could impose on you again for my next visit. (Chinese, B2 VANTAGE, Pass, 1999)\n\nI was thinking that you could wear your Marilyn Monroe dress as your fancy-dress costume. (===NONE===, B2 VANTAGE, Pass, 2003)\n\nI was thinking that you could come to my house and see the movie. (Spanish - Latin American, B2 VANTAGE, Pass, 2004)"
+ },
+ {
+  "egp_id": "1741163712328x422695616724010100",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "1",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form. ",
+  "example_raw": "Laura realised that she had not been studying very hard lately. (Malaysia; B2 VANTAGE; 1999; Chinese; Pass)\n\nI couldn't tell her about Mark because she hadn't been doing anything else but talking about him for the last three weeks. (Netherlands; B2 VANTAGE; 1993; Dutch; Pass)\n\nLast week, two of your employers came to solve the problems of my central heating system as it had not been working for two days. (Romania; B2 VANTAGE; 2010; Romanian; Pass)"
+ },
+ {
+  "egp_id": "1741163712328x572489570915366600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: BACKGROUND EVENTS ",
+  "can_do_statement": "Can use the past perfect continuous talk about a background action or event which began before a point in the past and was still continuing up to a point in the past when the main event happened. ",
+  "example_raw": "I had been waiting for this letter for months, so I opened it immediately. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nOnce I had been watching TV for 6 hours when my Mum suddenly switched it off. (Russia; B1 THRESHOLD; 2007; Russian; Pass)\n"
+ },
+ {
+  "egp_id": "1741163712328x663782601864534800",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: BACKGROUND INFORMATION WITH TIME CONJUNCTION",
+  "can_do_statement": "Can use the past perfect continuous after a time conjunction to give background information.",
+  "example_raw": "After we had been sunbathing at the beach all day long, we went every evening to a cosy restaurant called \"The Barking Cat\", where we had a good meal and some wine. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nAfter I had been waiting for an hour, I decided to go through the gate and go in on foot. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n"
+ },
+ {
+  "egp_id": "1741163712328x669008360458158700",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "I had been working on the project for over a year. (France; B1 THRESHOLD; 2004; French; Pass)\n\nWe had been waiting for hours. (Greece; B1 THRESHOLD; 2007; Greek; Pass)\n\nI didn't need so much, because I'd been saving money for a few months. (Spain; B1 THRESHOLD; 2010; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163712328x669982657855112700",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: BACKGROUND INFORMATION WITH RELATIVE CLAUSE",
+  "can_do_statement": "Can use the past perfect continuous in a relative clause to give background information.  \u25ba relative clauses",
+  "example_raw": "And there were two men who had been chasing the murderer to find out who the man is and rescue the girl.... (Korea, North; B2 VANTAGE; 2008; Korean; Pass)\n\nThe guide also tells some funny stories about an old lord, who had been living there in the 18th century. (Germany; B2 VANTAGE; 2001; German; Pass)\n\nAfter a few minutes the door was opened and the man who  had been following me came in. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163712328x701653383761448700",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: CONTINUING EVENTS IN THE PAST",
+  "can_do_statement": "Can use the past perfect continuous to talk about an action or event which began before a point in the past and was still continuing up to that point, often with 'for' or 'since', to give background information. ",
+  "example_raw": "I know it very well because we had been exchanging letters for a long time. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass) \n\nShe had been going there since she was ten years old. (Mexico; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\nHe began to think about his own thoughts while he was smoking a cigarette (he had been smoking since he was a child, since he was 12), when suddenly the curtain moved. (Italy; B1 THRESHOLD; 2004; Italian; Pass) "
+ },
+ {
+  "egp_id": "1741163712332x322280679825253100",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: RESULTS",
+  "can_do_statement": "Can use the past perfect continuous to talk about events which started before a time in the past and which finished, but where the effects or results were still important at a point in the past. ",
+  "example_raw": "Unfortunately it had been snowing for a long time and so I was unable to go out for a walk. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nWe had been working very hard all the morning so by that time, I was very tired. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163712332x793082629536507400",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the past perfect continuous with adverbs in the normal mid position. ",
+  "example_raw": "I had been working hard at my job and I had really been looking forward to this holiday. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nWhen he died, he was a rich man, he had only been living ten months in the house he had built for fourteen years \u2026 (France; B2 VANTAGE; 1999; French; Fail)"
+ },
+ {
+  "egp_id": "1741163712332x868931903135236100",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "past perfect continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form. ",
+  "example_raw": "What had he been doing that morning? (France; C2 MASTERY; 1993; French; Pass)\n\nSo, why had she been waiting for so long a time? (France; C2 MASTERY; 1993; French; Fail)"
  }
 ]
 ```

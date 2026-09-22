@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_037.json`
 ```json
 [
  {
-  "egp_id": "1741163711528x635492123385210640",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS WITH 'LIKE'",
-  "can_do_statement": "Can use the question form 'would you like'.",
-  "example_raw": "Sarah, would you like to play tennis this evening? (Portuguese, A2 WAYSTAGE, Pass, 2008)\n\nI'm going to a concert on Saturday. Would you like to go with me? (Croatian, A2 WAYSTAGE, Pass, 2009)\n\nI want to watch the film, would you like to come with me? (Arabic - Meghreb, A2 WAYSTAGE, Pass, 2003)"
- },
- {
-  "egp_id": "1741163711528x898984751471889600",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: AFTER 'IF' CLAUSES",
-  "can_do_statement": "Can use 'would' in the main clause of a conditional sentence to talk about an imagined situation, often in the context of advice or opinion-giving.",
-  "example_raw": "It's your decision but if I had the chance, I would go with my friends. (German, B1 THRESHOLD, Pass, 2008)\n\nIf you decided to go to the country school, you'd probably have more attention as a student. (Portuguese, B1 THRESHOLD, Pass, 2008)\n\nIf I were you, I would not watch TV all the time. (Chinese, B1 THRESHOLD, Pass, 2010)\n\nIf I were able to move, I wouldn't move because I think this street is perfect.  (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)"
- },
- {
-  "egp_id": "1741163711529x426495349233583900",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "USE: FUTURE IN THE PAST",
-  "can_do_statement": "Can use 'would' to talk about the future in the past.",
-  "example_raw": "I've just bought a new dress, and a beautiful black T-shirt. When I saw them, I thought they would be great for tonight's party. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)\n\n\u2026 we thought that the film would be horrible because of the title but when the film started, the story was beautiful and Mauricio and I liked it a lot. (Portuguese, B1 THRESHOLD, Pass, 2002)\n\nAnd she asked me if I would play the game with her against her cousin and her friend on Saturday. (Germany; B1 THRESHOLD; 2001; German; Pass)"
- },
- {
-  "egp_id": "1741163711529x535567954222940100",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "1",
-  "guideword": "FORM: WITH ADVERBS",
-  "can_do_statement": "Can use an limited range of adverbs with 'would', including 'really', 'probably', 'certainly', 'definitely'.\u25ba adverbs",
-  "example_raw": "I hope you will come soon, and I think that you would really enjoy it because is something different of what you are used to. (Peru; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n\nMore over in my opinion it would probably be the best idea to choose the biggest school ... (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nI would definitely choose to live by the sea side! (Malaysia; B1 THRESHOLD; 2010; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163711529x657615441693555600",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use question forms.",
-  "example_raw": "Would you let me know what you think? (French, B1 THRESHOLD, Pass, 2011)\n\nWould you please do me a favour? Could you go and collect the clothes for me? (Singhalese, B1 THRESHOLD, Pass, 2009)\n\nThink of the fun you will have with your friends, the whole day hanging around, playing sports, eating ice cream. Wouldn't that be wonderful? (Swiss German, B1 THRESHOLD, Pass, 2008)\n\nI think it would be fantastic, wouldn't it? (Italian, B1 THRESHOLD, Pass, 2008)"
- },
- {
-  "egp_id": "1741163711534x225764774682792860",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "USE: POLITE REQUESTS",
-  "can_do_statement": "Can use 'would' to make polite requests, often in the fixed expression 'would you mind'.",
-  "example_raw": "Would you tell me about your room in your next letter, please? (Chinese, B1 THRESHOLD, Pass, 2001)\n\nWould it be possible for you to meet me later that day, around 7? (German, B1 THRESHOLD, Pass, 2008)\n\nI had forgotten I have an appointment with my dentist at that time, so, would you mind if we met at 5 o'clock instead of meeting at 4 o'clock? (Spanish - Latin American, B1 THRESHOLD, Pass, 2008)\n\nWe are supposed to have a barbecue for lunch, would you mind bringing a salad? (Spanish - Latin American, B1 THRESHOLD, Pass, 2009)"
- },
- {
-  "egp_id": "1741163711534x311504042687477570",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "USE: HABITUAL PAST",
-  "can_do_statement": "Can use 'would' to talk about habitual actions and events in the past.",
-  "example_raw": "[talking about a job that the speaker did last year] In my opinion I worked very hard. I would spend a lot of hours at work. (Chinese, B2 VANTAGE, Pass, 2011)\n\n[from a story about pirates] At night they would go to the rocky seaside and light a fire in order to deceive the boats and let them crash on the rocks. (Portuguese, B2 VANTAGE, Pass, 1993)"
- },
- {
-  "egp_id": "1741163711534x454213530321553800",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "USE: INDIRECTNESS",
-  "can_do_statement": "Can use 'would' with verbs such as 'advise', 'imagine', 'recommend', 'say' to be less direct.",
-  "example_raw": "I'd advise you to go with your friends because I bet you'll have so much fun! (German, B1 THRESHOLD, Pass, 2008)\n\nIf you want my opinion, I'd recommend the countryside because I think that the city in my country is very noisy. (Spanish - Latin American, B1 THRESHOLD, Pass, 2004)\n\nFinally, I'd say that you should talk with your parents and your friends to decide. (French, B1 THRESHOLD, Pass, 2008)\n\nIf you have decided to move, I would say that it is better for you to choose the large school in the centre of the town. (German, B1 THRESHOLD, Pass, 2008)"
- },
- {
-  "egp_id": "1741163711534x485840810825062460",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "USE: IMAGINED SITUATIONS IN THE PAST",
-  "can_do_statement": "Can use 'would' to talk about imagined situations in the past. \u25ba conditionals",
-  "example_raw": "The next week I would have flown to Miami to meet George Clooney. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nIf I were in your shoes I would have chosen the school which is in the centre of town\u2026  (Iran; B1 THRESHOLD; 2008; Farsi; Pass)\n\nIf you hadn't helped me, I wouldn't have known how to do that homework project. (Italy; B1 THRESHOLD; 2010; Italian; Pass)\n\nIf I had gone with uncomfortable shoes, I wouldn't have danced all the time. (B1 THRESHOLD; 2008; Spanish - Other; Pass)"
- },
- {
-  "egp_id": "1741163711534x522343728787019200",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "USE: REPORTED SPEECH",
-  "can_do_statement": "Can use 'would' as the past form of 'will' in reported clauses.",
-  "example_raw": "She accepted the invitation and she said that she would come on the 21st of June. (Spanish - European, B1 THRESHOLD, Pass, 2008)\n\nI felt better when he said that he would be in Fenerbahce. (Turkish, B1 THRESHOLD, Pass, 2009)\n\nHe told me I would like it and he was right! (Italy; B1 THRESHOLD; 2003; Italian; Pass)"
- },
- {
-  "egp_id": "1741163711534x531065253308636860",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "USE: WILLINGNESS IN THE PAST",
-  "can_do_statement": "Can use the negative forms of 'would' to talk about willingness in the past.",
-  "example_raw": "We had to leave without you because the bus driver wouldn't wait. (===NONE===, B1 THRESHOLD, Pass, 2004)\n\n[talking about a guitar] It was all that I wanted in life but my parents would not allow me to buy it. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)"
- },
- {
   "egp_id": "1741163711534x798351647415961600",
   "level": "C1",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_037.json`
   "guideword": "FORM: MAIN VERB 'BE'",
   "can_do_statement": "Can form negative statements of main verb 'be', with contracted and uncontracted forms.",
   "example_raw": "My college is not very big. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nI know you are not well. (A1 BREAKTHROUGH; 2009; French; Pass)\n\nI'm not a good swimmer. (A1 BREAKTHROUGH; 2011; Romanian; Pass)\n\nThis place isn't big. (A1 BREAKTHROUGH; 2007; Lithuanian; Pass)"
+ },
+ {
+  "egp_id": "1741163716068x228640925138144930",
+  "level": "A2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRONOUNS ",
+  "can_do_statement": "Can use a limited range of determiners as pronouns and indefinite pronouns in negative contexts.  \u25ba Pronouns: quantity",
+  "example_raw": "I bought a shirt, because I haven't got any. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nAs regards close friends, I don't have many. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nCome at 5.00 pm. Don't bring anything. (Cyprus; A2 WAYSTAGE; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163716068x372734050861656100",
+  "level": "A2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MODAL VERBS",
+  "can_do_statement": "Can use negative forms of modal verbs. \u25ba modal verbs",
+  "example_raw": "I'm sorry I can't come to your wedding because I am very sick. (A2 WAYSTAGE; 2007; French; Pass)\n\nSorry but I won't be in town on Wednesday 17th. (A2 WAYSTAGE; 2007; Polish; Pass)\n\nYou shouldn't wear formal clothes. (Argentina; A2 WAYSTAGE; 2006; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163716068x445742738976088800",
+  "level": "A2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'DO', IMPERATIVES",
+  "can_do_statement": "Can form negative imperatives of main verbs with 'don\u2019t' + main verb. \u25ba Clauses: imperatives",
+  "example_raw": "Don't forget your electric guitar. (France; A2 WAYSTAGE; 2009; French; Pass)\n\nDon't be late. (India; A2 WAYSTAGE; 2009; Spanish - Other; )"
+ },
+ {
+  "egp_id": "1741163716068x574314163168649300",
+  "level": "A2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AUXILIARY VERBS 'BE', 'HAVE', PRESENT",
+  "can_do_statement": "Can form negative statements of main verbs in the present continuous and present perfect with 'be' and 'have' + 'not/n't'.  \u25ba present continuous \u25ba present perfect",
+  "example_raw": "The gas is not working. (A2 WAYSTAGE; 2009; Gujarati; Pass)\n\nThe window is broken and is not closing. (A2 WAYSTAGE; 2010; Portuguese; Pass)\n\nNow, I haven't got any money, but I am really happy! (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nI haven't tidied my room since I bought this mobile. (Italy; A2 WAYSTAGE; 2007; Italian; Pass)\n\nWe have not got hot water so the water is very cold. (A2 WAYSTAGE; 2009; Panjabi; Pass)"
+ },
+ {
+  "egp_id": "1741163716068x909588472060841300",
+  "level": "A1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MODAL VERB 'CAN'",
+  "can_do_statement": "Can use negative form 'can\u2019t'.",
+  "example_raw": "In winter, we can't go visiting because it is too cold. (A1 BREAKTHROUGH; 2011; Nepali; Pass)\n\nI can't find my CD. (A1 BREAKTHROUGH; 2008; Romanian; Pass)"
+ },
+ {
+  "egp_id": "1741163716068x977297843398490900",
+  "level": "A2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AUXILIARY VERB 'DO', PAST",
+  "can_do_statement": "Can form negative statements of main verbs in the past simple with 'didn\u2019t' + main verb. \u25ba past simple",
+  "example_raw": "It was very sad that you didn't come to my birthday party but it's ok. (India; A2 WAYSTAGE; 2004; Hindi; Pass)\n\nI didn't spend a lot of money: only \u00a3143. (Italy; A2 WAYSTAGE; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163716069x187136272892084450",
+  "level": "B1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AUXILIARY VERBS 'BE', 'HAVE', PAST",
+  "can_do_statement": "Can form negative statements of main verbs in the past continuous and past perfect with auxiliary verbs 'be' and 'have' + 'not/n't'. \u25ba past continuous \u25ba past perfect",
+  "example_raw": "It was raining for seventy two hours and it wasn't going to stop. (Ukraine; B1 THRESHOLD; 2008; Russian; Pass)\n\nI hadn't expected to receive a letter from her. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163716069x352116208624451400",
+  "level": "B1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use negative question forms in main clauses and question tags. \u25ba questions",
+  "example_raw": "Can't you go with your parents some time and with your friends later? (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nDon't you think it's fun? (Uruguay; B1 THRESHOLD; 2003; Pass)\n\nAren't you excited about it? (Uruguay; B1 THRESHOLD; 2003; Pass)\n\nYou're free on Saturday , aren't you? (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nI think it would be fantastic, wouldn't it? (Italy; B1 THRESHOLD; 2008; Italian; Pass) "
+ },
+ {
+  "egp_id": "1741163716069x679616735525116500",
+  "level": "B1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MENTAL PROCESS VERBS + CLAUSE",
+  "can_do_statement": "Can use the negative forms of mental process verbs ('I don\u2019t think', 'I don\u2019t believe') followed by a complement clause, where the negative form is in the mental process verb rather than the complement clause.",
+  "example_raw": "But I don't think it'll help you. (Kazakhstan; B1 THRESHOLD; 2009; Kazakh; Pass)\n\nI don't think I'll live here forever because I intend to move to Curitiba, a southern city of my country. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI don't believe that the suitcase will be returned to me. (Czech Republic; B1 THRESHOLD; 2006; Czech; Pass)"
+ },
+ {
+  "egp_id": "1741163716069x747151699334092500",
+  "level": "A2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DETERMINERS 'ANY', 'MUCH', 'MANY'",
+  "can_do_statement": "Can use determiners 'any', 'much' and 'many' with nouns in negative contexts. \u25ba Determiners: quantity",
+  "example_raw": "I bought them because I didn't have any shirts or hats. (Portugal; A2 WAYSTAGE; 2008; Portuguese; Pass)\n\nI have only spent \u00a325 because I haven't much money. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nI'm in Bilbao, and here I haven't got many things to do. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163716069x752024616613977200",
+  "level": "A2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DETERMINERS 'NO'",
+  "can_do_statement": "Can use determiner 'no' with nouns.  \u25ba Determiners: quantity",
+  "example_raw": "I bought these clothes because I need them for my new job, but now I have no money because they cost \u00a3250. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nI had no clothes to wear at John's party, so I went shopping yesterday. (Greece; A2 WAYSTAGE; 2008; Greek; Pass)"
  }
 ]
 ```

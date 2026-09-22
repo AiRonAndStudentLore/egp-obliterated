@@ -1,0 +1,830 @@
+[
+  {
+    "egp_id": "1741163715274x912538940118367500",
+    "level": "B1",
+    "super_category": "VERBS",
+    "sub_category": "phrasal-prepositional",
+    "lexical_range": "1",
+    "guideword": "FORM: VERB + PARTICLE + PREPOSITION + OBJECT",
+    "can_do_statement": "Can use a limited range of verbs + particle + preposition + noun or pronoun. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Spatial action chains mapping abstract state transitions",
+      "pedagogical_hook": "Think of the particle and preposition as directions the action takes.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:catch|get|keep|look|put|come)\\b(?:\\s+[a-z]+ly)?\\s+(?:up|on|away|out)\\s+(?:with|from|for|to)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "catch",
+              "get",
+              "keep",
+              "look",
+              "put",
+              "come"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "up",
+              "on",
+              "away",
+              "out"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "with",
+              "from",
+              "for",
+              "to"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I could catch up with the work I missed after school.",
+        "They get on with each other very well."
+      ],
+      "negatives": [
+        "I catch a ball when it is thrown.",
+        "Look at the big tree."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715275x268506157109972930",
+    "level": "C1",
+    "super_category": "VERBS",
+    "sub_category": "phrasal-prepositional",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PHRASAL-PREPOSITIONAL VERB, STRANDED PREPOSITION",
+    "can_do_statement": "Can use verb + particle + preposition, where the preposition is separated from its complement. ► Prepositions",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Deferred syntactic closure",
+      "pedagogical_hook": "Notice how the final preposition hangs at the end, waiting for context.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:come|look|put|catch|get)\\b(?:\\s+[a-z]+ly)?\\s+(?:up|out|on|away)\\s+(?:with|to|for|from)(?:\\s*[.,!?]|\\s*$)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "come",
+              "look",
+              "put",
+              "catch",
+              "get"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "up",
+              "out",
+              "on",
+              "away"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "with",
+              "to",
+              "for",
+              "from"
+            ]
+          }
+        },
+        {
+          "IS_PUNCT": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Anyway, let me tell you what ideas I came up with.",
+        "This is something you will have to look out for."
+      ],
+      "negatives": [
+        "I came up with a great idea yesterday.",
+        "I look out for him every day."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715275x957741138272661000",
+    "level": "C2",
+    "super_category": "VERBS",
+    "sub_category": "phrasal-prepositional",
+    "lexical_range": "N/A",
+    "guideword": "FORM: VERB + DIRECT OBJECT + PARTICLE + PREPOSITION + OBJECT",
+    "can_do_statement": "Can use a direct object with some prepositional verbs as well as an object of the preposition.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Transitive split across structural bounds",
+      "pedagogical_hook": "The object sits directly after the verb, splitting the verb from its particles.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:let|take|put|set|talk|get)\\b\\s+(?:us|me|him|her|them|it|you)\\s+(?:in|up|out|on)\\s+(?:on|with|to|for)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "let",
+              "take",
+              "put",
+              "set",
+              "talk",
+              "get"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "us",
+              "me",
+              "him",
+              "her",
+              "them",
+              "it",
+              "you"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "in",
+              "up",
+              "out",
+              "on"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "on",
+              "with",
+              "to",
+              "for"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They can trust us or let us in on a secret.",
+        "Please don't put me up to this task."
+      ],
+      "negatives": [
+        "Please let us in right now.",
+        "They decided to let us go."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715275x765416794436642000",
+    "level": "B2",
+    "super_category": "VERBS",
+    "sub_category": "prepositional",
+    "lexical_range": "N/A",
+    "guideword": "FORM: VERB + ADVERB + PREPOSITION",
+    "can_do_statement": "Can use an adverb between the verb and the preposition.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Adverbial disruption of verb-preposition unity",
+      "pedagogical_hook": "The adverb interrupts the verb and its attached preposition to emphasize manner.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:deal|look|listen|talk|think)\\b\\s+(?:carefully|properly|closely|directly|always|often)\\s+(?:with|at|to|about|for)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "deal",
+              "look",
+              "listen",
+              "talk",
+              "think"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "carefully",
+              "properly",
+              "closely",
+              "directly",
+              "always",
+              "often"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "with",
+              "at",
+              "to",
+              "about",
+              "for"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I want to learn how to deal properly with them.",
+        "I hope you will look carefully at the enclosed papers."
+      ],
+      "negatives": [
+        "I want to deal with them properly.",
+        "Look at the papers carefully before signing."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715275x850594612311856000",
+    "level": "B1",
+    "super_category": "VERBS",
+    "sub_category": "prepositional",
+    "lexical_range": "2",
+    "guideword": "FORM: VERB + PREPOSITION + OBJECT ",
+    "can_do_statement": "Can use an increasing range of prepositional verbs followed by noun or pronoun objects.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Directional verbs leading to target nouns",
+      "pedagogical_hook": "These verbs always need their partner preposition to point at the object.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:deal|belong|agree|concentrate|rely|depend|apologize|complain)\\b(?:\\s+[a-z]+ly)?\\s+(?:with|to|on|for|about)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "deal",
+              "belong",
+              "agree",
+              "concentrate",
+              "rely",
+              "depend",
+              "apologize",
+              "complain"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "with",
+              "to",
+              "on",
+              "for",
+              "about"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Our company needs to train some staff on how to deal with the complaints.",
+        "I completely agree with your proposal."
+      ],
+      "negatives": [
+        "We made a great deal today.",
+        "I will wait for you outside."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715275x913732212255741200",
+    "level": "A1",
+    "super_category": "VERBS",
+    "sub_category": "prepositional",
+    "lexical_range": "1",
+    "guideword": "FORM: VERB + PREPOSITION + OBJECT",
+    "can_do_statement": "Can use a limited range of prepositional verbs followed by noun or pronoun objects. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Basic action-target linkage",
+      "pedagogical_hook": "Verbs like 'listen' always take 'to' when indicating what is heard.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:listen|look|wait|ask)\\b(?:\\s+[a-z]+ly)?\\s+(?:to|after|for|about)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "listen",
+              "look",
+              "wait",
+              "ask"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "to",
+              "after",
+              "for",
+              "about"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I listen to music in the living room.",
+        "I can look after her if she needs."
+      ],
+      "negatives": [
+        "I can look around the house today.",
+        "They asked me a quick question."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715275x932225330988349400",
+    "level": "B2",
+    "super_category": "VERBS",
+    "sub_category": "prepositional",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PREPOSITIONAL VERB, STRANDED PREPOSITION",
+    "can_do_statement": "Can use verb + preposition, where the preposition is separated from its complement. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Dangling syntactic pointer",
+      "pedagogical_hook": "In English, the preposition can be left behind at the end of the clause.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:look|deal|listen|talk|think|wait)\\b(?:\\s+[a-z]+ly)?\\s+(?:at|with|to|about|for)(?:\\s*[.,!?]|\\s*$)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "look",
+              "deal",
+              "listen",
+              "talk",
+              "think",
+              "wait"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "at",
+              "with",
+              "to",
+              "about",
+              "for"
+            ]
+          }
+        },
+        {
+          "IS_PUNCT": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Our clothes have to be clean and nice to look at.",
+        "But there is one difficulty which we should deal with."
+      ],
+      "negatives": [
+        "Look at the beautiful painting on the wall.",
+        "Deal with the issue right now."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715607x526138276437947400",
+    "level": "A1",
+    "super_category": "VERBS",
+    "sub_category": "there is/are",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THERE IS'",
+    "can_do_statement": "Can use 'there is' + singular noun phrase as complement. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Existential assertion of singularity",
+      "pedagogical_hook": "'There is' introduces the existence of one thing.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:there\\s+is|there's)\\b\\s+(?:a|an|one|the)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "there"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "is",
+              "'s"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "a",
+              "an",
+              "one",
+              "the"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My home is nice, there is a nice garden.",
+        "In my home there's a kitchen."
+      ],
+      "negatives": [
+        "There are two bedrooms in my house.",
+        "There was a big library."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715607x671128268905876200",
+    "level": "A1",
+    "super_category": "VERBS",
+    "sub_category": "there is/are",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THERE ARE'",
+    "can_do_statement": "Can use 'there are' + plural noun phrase as complement.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Existential assertion of plurality",
+      "pedagogical_hook": "'There are' introduces the existence of multiple things.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthere\\s+are\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "there"
+        },
+        {
+          "LOWER": "are"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "There are two bathrooms in my apartment.",
+        "I think, in the park there are animals."
+      ],
+      "negatives": [
+        "There is a nice garden outside.",
+        "There were many people at the party."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715608x234716564632592830",
+    "level": "B1",
+    "super_category": "VERBS",
+    "sub_category": "there is/are",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THERE' + MODAL VERBS",
+    "can_do_statement": "Can use 'there' with a range of modal verbs + 'be' + complement.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Modal framing of existence",
+      "pedagogical_hook": "Using a modal with 'there' lets you talk about possible or future existence.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthere\\s+(?:will|would|can|could|shall|should|may|might|must)(?:\\s+not|n't)?\\s+be\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "there"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "will",
+              "would",
+              "can",
+              "could",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "not",
+              "n't"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LEMMA": "be"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "There will be flying cars and buses.",
+        "In the large school there might be a lot of people."
+      ],
+      "negatives": [
+        "There is a flying car outside.",
+        "Will there be any people?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715608x423925668920691600",
+    "level": "A2",
+    "super_category": "VERBS",
+    "sub_category": "there is/are",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THERE IS' + UNCOUNTABLE",
+    "can_do_statement": "Can use 'there is' + uncountable nouns as complement. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Existential assertion of mass",
+      "pedagogical_hook": "Uncountable nouns use singular 'there is'.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:there\\s+is|there's)\\s+(?:some\\s+)?(?:money|information|water|food|time|music|bread|milk|snow|rain)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "there"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "is",
+              "'s"
+            ]
+          }
+        },
+        {
+          "LOWER": "some",
+          "OP": "?"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "money",
+              "information",
+              "water",
+              "food",
+              "time",
+              "music",
+              "bread",
+              "milk",
+              "snow",
+              "rain"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I need it because there is some money in it.",
+        "There is some information about the new art class."
+      ],
+      "negatives": [
+        "There is a dog sleeping on the floor.",
+        "There's a lot of people here."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715608x437514984752567900",
+    "level": "B2",
+    "super_category": "VERBS",
+    "sub_category": "there is/are",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THERE' + VERBS WITH MODAL MEANING",
+    "can_do_statement": "Can use 'there' with other verbs with modal meaning + 'be' + complement.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Periphrastic modal framing of existence",
+      "pedagogical_hook": "These verbs express necessity or future expectation of existence.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthere\\s+(?:has|have|had|needs|need|is|are|was|were)\\s+(?:to|going\\s+to)\\s+be\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "there"
+        },
+        {
+          "LEMMA": {
+            "IN": [
+              "have",
+              "need",
+              "be"
+            ]
+          }
+        },
+        {
+          "LOWER": "going",
+          "OP": "?"
+        },
+        {
+          "LOWER": "to"
+        },
+        {
+          "LOWER": "be"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I figured out that there had to be matches somewhere.",
+        "There is going to be a theatre performance."
+      ],
+      "negatives": [
+        "There will be a great show tomorrow.",
+        "There are matches somewhere in the cabin."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715608x515455874028492200",
+    "level": "A2",
+    "super_category": "VERBS",
+    "sub_category": "there is/are",
+    "lexical_range": "N/A",
+    "guideword": "FORM: 'THERE IS/ARE' + A LOT OF ",
+    "can_do_statement": "Can use both 'there is' and 'there are' + 'a lot of' + plural noun. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Existential assertion of abundance",
+      "pedagogical_hook": "Use 'a lot of' to state there is a large quantity of something.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:there\\s+(?:is|are)|there's)\\s+a\\s+lot\\s+of\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "there"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "is",
+              "'s",
+              "are"
+            ]
+          }
+        },
+        {
+          "LOWER": "a"
+        },
+        {
+          "LOWER": "lot"
+        },
+        {
+          "LOWER": "of"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "There's a lot of people there.",
+        "You can go to the town centre because there are a lot of shops."
+      ],
+      "negatives": [
+        "There are many people standing around.",
+        "There is one person who can help."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715608x998353966000377700",
+    "level": "B1",
+    "super_category": "VERBS",
+    "sub_category": "there is/are",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE",
+    "can_do_statement": "Can use 'There' + 'be' + 'n’t' with countable and uncountable nouns. ",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Existential negation",
+      "pedagogical_hook": "Negating the 'be' verb shows something does not exist.",
+      "agency_or_distance": "distance"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\bthere\\s+(?:is|are|was|were)n't\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "there"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "is",
+              "are",
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "There isn't any noise right now.",
+        "There weren't any people on the bus she took."
+      ],
+      "negatives": [
+        "They aren't here right now.",
+        "We weren't there when it happened."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715288x262148040901666750",
+    "level": "A1",
+    "super_category": "VERBS",
+    "sub_category": "types",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AUXILIARY VERB 'BE' ",
+    "can_do_statement": "Can use auxiliary verb 'be'. ►  present continuous",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "In-progress temporal anchoring",
+      "pedagogical_hook": "The 'be' verb helps mark the action as happening right now.",
+      "agency_or_distance": "agency"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+[a-z]+ing\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "am",
+              "is",
+              "are",
+              "'m",
+              "'s",
+              "'re"
+            ]
+          }
+        },
+        {
+          "TAG": "VBG"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I am writing to tell you what I do every day.",
+        "We are going to the park."
+      ],
+      "negatives": [
+        "I am a good student.",
+        "They are happy today."
+      ]
+    }
+  }
+]

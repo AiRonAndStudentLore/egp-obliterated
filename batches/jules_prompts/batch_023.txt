@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_023.json`
 ```json
 [
  {
-  "egp_id": "1741163711538x884306688947976100",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "adverbs",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: MODAL VERB + MODAL ADVERB, HEDGING OR EMPHASIS",
-  "can_do_statement": "Can use modal verb + modal adverb to modify an assertion, either through hedging or emphasis.",
-  "example_raw": "Next year you can surely go somewhere with your friends. (Portugal; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nYou should probably bring sun block, because it's going be hot, and some food of course. (Indonesia; B1 THRESHOLD; 2009; Indonesian; Pass)\n\nIn my opinion if you decided to go to a large school in the centre of town, you would certainly meet a lot of cool people and you'd probably find it great. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
- },
- {
-  "egp_id": "1741163711538x899852393729137200",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "adverbs",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'NOT NECESSARILY'",
-  "can_do_statement": "Can use 'not necessarily' to express a possible exception to a general perception, i.e. not in every case.",
-  "example_raw": "As a conclusion, I want to say that while what we wear doesn't necessarily define who we are, it does play a big part in it. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)\n\nThis is not necessarily the way the older generation would see it though. (Slovenia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Slovene; Pass) "
- },
- {
-  "egp_id": "1741163711538x973037262394288500",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "adverbs",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE, 'POSSIBLY', POLITENESS",
-  "can_do_statement": "Can use 'could' + subject + 'possibly' to make requests more polite.",
-  "example_raw": "Could I possibly see you at 3.30? (Thailand; B1 THRESHOLD; 2008; Thai; Pass)\n\nCould you possibly recommend what action should be taken? (China; B1 THRESHOLD; 2002; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163710388x206193011712334940",
-  "level": "A1",
-  "super_category": "MODALITY",
-  "sub_category": "can",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form.",
-  "example_raw": "You can see a lot of special places in Wroclaw. (A1 BREAKTHROUGH, 2007, Polish)\n\nYou can make a quick snack, for example, a sandwich. (A1 BREAKTHROUGH, 2006, German)"
- },
- {
-  "egp_id": "1741163710388x273734335473510240",
-  "level": "A1",
-  "super_category": "MODALITY",
-  "sub_category": "can",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTION ",
-  "can_do_statement": "Can use the affirmative question form.",
-  "example_raw": "Can you come for dinner Monday at 6.00 pm? (Arabic - Other, A1 BREAKTHROUGH, Pass, 2008)\n\nCan we go to the park on the Sunday? (Somali, A1 BREAKTHROUGH, Pass, 2011)"
- },
- {
-  "egp_id": "1741163710388x482560605581935800",
-  "level": "A1",
-  "super_category": "MODALITY",
-  "sub_category": "can",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE ",
-  "can_do_statement": "Can use the negative forms.",
-  "example_raw": "I cannot come to see you. (A1 BREAKTHROUGH, 2009, Bengali)\n\nI'm very nervous and I can't say anything. (A1 BREAKTHROUGH Polish)"
- },
- {
-  "egp_id": "1741163710388x540901022788007400",
-  "level": "A1",
-  "super_category": "MODALITY",
-  "sub_category": "can",
-  "lexical_range": "N/A",
-  "guideword": "USE: OFFERS",
-  "can_do_statement": "Can use 'can' to make an offer. ",
-  "example_raw": "Can I help you? (A1 BREAKTHROUGH, 2009, Lithuanian)\n\nWhat can I do for you? (A1 BREAKTHROUGH, 2009, Turkish)\n\nHow can I help you? (A1 BREAKTHROUGH, 2009, Polish)\n\nIf you want, I can come to your house and I can help you with for example some housework on Sunday this weekend. (A1 BREAKTHROUGH; 2009; Czech; Pass)"
- },
- {
-  "egp_id": "1741163710388x882361395502946800",
-  "level": "A1",
-  "super_category": "MODALITY",
-  "sub_category": "can",
-  "lexical_range": "N/A",
-  "guideword": "USE: ABILITY",
-  "can_do_statement": "Can use 'can' to talk about ability to do something. ",
-  "example_raw": "I can cook. (A1 BREAKTHROUGH, 2009, Turkish)\n\nI can write English. (A1 BREAKTHROUGH, 2007, Thai)\n\n[talking about someone with a physical disability] He cannot go up stairs. (A1 BREAKTHROUGH, 2009, Urdu)\n\n[talking about reading in English] I can\u2019t read very well. (A1 BREAKTHROUGH, 2007, Polish)"
- },
- {
-  "egp_id": "1741163710391x392174672834575400",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "can",
-  "lexical_range": "N/A",
-  "guideword": "USE: PERMISSION",
-  "can_do_statement": "Can use 'can' to give and refuse permission or talk about what is forbidden.",
-  "example_raw": "You can wear anything you want. (A2 WAYSTAGE, 2008, Spanish - Latin American)\n\nYou can\u2019t bring your mobile phone. (A2 WAYSTAGE, 2006, Spanish - European)\n\nYou cannot wear jeans or flip-flops. (A2 WAYSTAGE, 2008, Portuguese)"
- },
- {
-  "egp_id": "1741163710391x459074403345042000",
-  "level": "A1",
-  "super_category": "MODALITY",
-  "sub_category": "can",
-  "lexical_range": "N/A",
-  "guideword": "USE: REQUESTS",
-  "can_do_statement": "Can use 'can' to make a request.",
-  "example_raw": "Can you come on Sunday at seven o\u2019clock? (A1 BREAKTHROUGH, 2010, Arabic)\n\nCan you call me? (A1 BREAKTHROUGH, 2009, Lithuanian)"
- },
- {
-  "egp_id": "1741163710391x534949859885590850",
-  "level": "A1",
-  "super_category": "MODALITY",
-  "sub_category": "can",
-  "lexical_range": "N/A",
-  "guideword": "USE: POSSIBILITY",
-  "can_do_statement": "Can use 'can' to talk about possibility.",
-  "example_raw": "The shop is next to the post office. There you can find milk, juices and sweets but you can't buy meat. (A1 BREAKTHROUGH, 2008, Spanish - Other)\n\nI cannot see you today. (A1 BREAKTHROUGH, 2009, Farsi)\n\nI'm sorry I can't see you now because I am very busy at work. (A1 BREAKTHROUGH, 2009, Mandarin)"
- },
- {
   "egp_id": "1741163710391x572079242941361300",
   "level": "B1",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_023.json`
   "guideword": "USE: SURPRISE",
   "can_do_statement": "Can use 'can you believe' to express surprise.",
   "example_raw": "They invented a robot which plays football, can you believe this? (B1 THRESHOLD, 2008, Portuguese)\n\nIt cost me \u00a350! Can you believe that! It was expensive but worth it! (B1 THRESHOLD, 2009, Tagalog)"
+ },
+ {
+  "egp_id": "1741163710393x306065725753619460",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'can' with an increasing range of adverbs (including 'easily', 'hardly', 'now', 'probably', 'sometimes', 'still') in the normal mid position after the modal verb or after the subject in questions.  \u25ba adverbs",
+  "example_raw": "In case you need them , I can easily provide references. (Brazil; B2 VANTAGE; 1998; Portuguese; Pass)\n\nOn the other hand you can hardly imagine an evening when you are sitting in your armchair, the tea is on the table and you are reading your favourite novel on a computer screen. (Czech Republic; B2 VANTAGE; 2006; Czech; Pass)\n\nAs you read her book, you can probably imagine what kind of personality she has got, and after finishing it, you will be more cheerful than before. (Japan; B2 VANTAGE; 1993; Japanese; Pass)"
+ },
+ {
+  "egp_id": "1741163710393x435738862107397440",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: GENERAL TRUTHS AND TENDENCIES",
+  "can_do_statement": "Can use 'can' to talk about general truths and tendencies.",
+  "example_raw": "\u2026some young people can feel bored when they have to walk a lot and look at [\u2026] very old things. (Polish, B2 VANTAGE, Pass, 1999)\n\nToo much work can cause \"stress\" and heart problems. (Portuguese, B2 VANTAGE, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163710393x749410106828691000",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: GUESSES AND PREDICTIONS",
+  "can_do_statement": "Can use the negative forms of 'can't' and 'cannot' to guess, predict and deduce.",
+  "example_raw": "You look very pale and you can\u2019t be feeling well. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nI think that it can\u2019t be true. (Uruguay; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\n[talking about someone suspected of being a criminal] He can't be; he is too young. (Chile; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n\nIt cannot be any good for these animals to be taken away from their natural surroundings. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163710394x181194799335548060",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use a wide range of adverbs with 'can' in the normal mid position after the modal verb). \u25ba adverbs",
+  "example_raw": "Only those who live with their relatives can fully understand how essential is the role of your parents, sisters, aunts... (Yugoslavia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Serbian; Pass)\n\nMiss Sylvia Ann Powers is a good friend of mine for over six years, so I can honestly say that I know her personality fairly well. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163710394x261510254385375330",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPROACHES AND APPEALS",
+  "can_do_statement": "Can use negative forms of 'can' to make reproaches or appeals.",
+  "example_raw": "You can\u2019t forget your friends. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\n\u2026he can't go on behaving like this. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nPlease, listen, you can't go on studying so hard. (Spain; B2 VANTAGE; 1993; Catalan; Pass)\n\nYou have to realise that you cannot work all the time: your body needs some rest. (B2 VANTAGE; 1993; ; Pass)\n\nCan't you see how exhausted you are? (France; B2 VANTAGE; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710394x264223806244499500",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: REFLECTIONS",
+  "can_do_statement": "Can use 'how can' to reflect, through rhetorical questions. ",
+  "example_raw": "And how can we improve if we are not allowed to make mistakes, evaluate our experiences in a new light and try again? (Netherlands; C2 MASTERY; 1998; Dutch; Pass) \n\nBut how can each of us stay fit in this world of stress and fast food restaurants? (Greek, C2 MASTERY, Pass, 2005)"
+ },
+ {
+  "egp_id": "1741163710394x510073809645116300",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "USE: EMPHASIS",
+  "can_do_statement": "Can use expressions with 'can' or 'can\u2019t' to give focus or add emphasis, such as 'as you can see', 'I can't say', 'I can tell you that', 'as you can imagine', 'I can say that', 'I can assure you that'. ",
+  "example_raw": "So, as you can see, there are no serious consequences for us, so far. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)\n\nI can't say I was very impressed with the level and the way the classes were given. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Catalan; Pass)\n\nAbout my country, I can tell you that we went through a great number of wars in the last century\u2026 (Argentina; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163710394x568523559828543400",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PASSIVE ",
+  "can_do_statement": "Can use 'can' in passive reporting clauses in a more formal impersonal style (e.g. for reports and academic contexts), such as 'It can be said that', 'It can be argued (that)', 'It can be concluded that', 'It can be considered'.\u25ba passives",
+  "example_raw": "It can be argued, looking at the figures, that the company should consider withdrawing from the heater market. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Spanish - European; Pass)\n\nTaking everything into account, it can be concluded that the current training course is very useful for our company. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Russian; Pass)\n\nAs for marriage and relationships, it can be said that women who have a job, nowadays, do not quit it after marriage. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163710394x606520841619965400",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "can",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PAST NEGATIVE, DEDUCTIONS",
+  "can_do_statement": "Can use 'can't' or 'cannot have' + '-ed' to make deductions.",
+  "example_raw": "I live with my partner and we can't have used so much electricity. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Polish; Pass)\n\n\u2026it cannot have been such a disappointment. (Swedish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2000)\n\nThe air-conditioning cannot have been working properly as the coach was too cold. (Danish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1998)"
+ },
+ {
+  "egp_id": "1741163716292x104838329159449020",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: REQUESTS",
+  "can_do_statement": "Can use 'could' to make requests.",
+  "example_raw": "Could you help me to paint my bedroom? (Portuguese, A2 WAYSTAGE, Pass, 2006)\n\nI left my umbrella in your house yesterday. \u2026 Could you bring it to school tomorrow, please? (Czech, A2 WAYSTAGE, Pass, 2005)"
+ },
+ {
+  "egp_id": "1741163716292x214601835879246080",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: ABILITY",
+  "can_do_statement": "Can use the negative form of 'could' to talk about inability. ",
+  "example_raw": "[talking about the key to an office] I couldn't work without it. (Germany; A2 WAYSTAGE; 2005; German; Pass)\n\nI couldn't buy the T-shirt because it was too expensive, but the other things were very nice and quite cheap, so I bought them. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)"
  }
 ]
 ```

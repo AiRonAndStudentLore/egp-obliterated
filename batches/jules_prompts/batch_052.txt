@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_052.json`
 ```json
 [
  {
-  "egp_id": "1741163713101x869805445646449900",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: RECENT PAST",
-  "can_do_statement": "Can use the present perfect simple to refer to a finished event or state in the recent past, that has a present relevance, often with 'just'.  \u25ba adverbs",
-  "example_raw": "My mother has broken her right leg. (Peru; B1 THRESHOLD; 2006; German; Pass)\n\nI've just received your mail. (France; B1 THRESHOLD; 2004; French; Pass)\n\nI've found a job for you. (Italy; B1 THRESHOLD; 2005; Italian; Pass)"
- },
- {
-  "egp_id": "1741163713101x942811642239743600",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "2",
-  "guideword": "FORM: WITH ADVERBS",
-  "can_do_statement": "Can use the present perfect simple with an increasing range of adverbs in the normal mid position. ",
-  "example_raw": "This is a famous seafood restaurant, you know, I've always loved seafood. (Mexico; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)\n\nHave you ever been to Gorgeousbi? (Korea, North; B1 THRESHOLD; 2005; Korean; Pass)"
- },
- {
-  "egp_id": "1741163713102x805096612277930600",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: UNFINISHED ",
-  "can_do_statement": "Can use the present perfect simple to refer to a state or period of time which is unlimited or indefinite. ",
-  "example_raw": "In spite of bad weather forecasts on TV, it has been a sunny, warm weekend. (Spain; B1 THRESHOLD; 2003; Spanish - European; Pass)\n\nI've had a really nice week. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nIt is a great movie. It has won a lot of prizes so I think it will be good to see it at the cinema. (Iran; B1 THRESHOLD; 2004; Farsi; Pass)"
- },
- {
-  "egp_id": "1741163713111x354631070539948000",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "2",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use the question form with an increasing range of verbs.",
-  "example_raw": "How has your family been? (Mexico; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n\n\nBut what have these animals done? (Netherlands; B2 VANTAGE; 1993; Dutch; Pass)\n\nIn 1970 people in the UK married in their early 20s, but nowadays they marry at the end of their 20s. But why has this changed? (B2 VANTAGE; 2008; German; Pass)"
- },
- {
-  "egp_id": "1741163713111x611310529067472800",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: WITH 'STILL'",
-  "can_do_statement": "Can use the negative form of the present perfect simple with 'still' to emphasise that something that was expected to happen continues not to happen.  \u25ba adverbs",
-  "example_raw": "I still haven't read the role but when I read it, I was very excited and I accepted Mr Brown's offer. (Greece; B2 VANTAGE; 2002; Greek; Pass)\n\nYou asked me whether I bought a computer or a bicycle and I have to tell you that I still haven't decided. (Germany; B2 VANTAGE; 1997; Swedish; Pass)"
- },
- {
-  "egp_id": "1741163713111x811420585366934300",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: WITH SUPERLATIVE ",
-  "can_do_statement": "Can use the present perfect simple with a superlative adjective to talk about a unique experience.  \u25ba adjectives: superlatives",
-  "example_raw": "This restaurant has the most delicious shrimps I have ever tasted. (Mexico; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)\n\nThat is the best game I've ever played. (Romania; B1 THRESHOLD; 2010; Hungarian; Pass)\n\nI've never been there before but my friend Pepo said that it is the biggest park she has ever seen. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nAt the top of that, you will see the most amazing view you have ever seen. (Japan; B1 THRESHOLD; 2004; Japanese; Pass)"
- },
- {
-  "egp_id": "1741163713111x834717044155053800",
-  "level": "C1",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "3",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the full negative forms with a wide range of verbs, often in formal contexts.",
-  "example_raw": "Thus, you have not fulfilled your task with due care, as you have stated in your letter. (Austria; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; German; Pass)\n\nSomehow, in my country education has not evolved, although it manages to maintain some advantages. (Yugoslavia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Serbian; Pass)"
- },
- {
-  "egp_id": "1741163713112x784244213132092200",
-  "level": "C2",
-  "super_category": "PAST",
-  "sub_category": "present perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: NEWSWORTHY",
-  "can_do_statement": "Can use the present perfect simple to introduce news. ",
-  "example_raw": "A new shopping centre has opened in our town. (Russia; C2 MASTERY; 2005; Russian; Pass)"
- },
- {
-  "egp_id": "1741163713112x603850914179882600",
-  "level": "A1",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PREPOSITION + NOUN PHRASE",
-  "can_do_statement": "Can form prepositional phrases with a preposition and a noun phrase. ",
-  "example_raw": "When I have free time, I go to the park with my dog. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nWe have lots of vegetables and fruit in the summer. (A1 BREAKTHROUGH; 2009; Slovak; Pass)\n\nWe sometimes meet friends or go to the Sports Center at the weekend. (A1 BREAKTHROUGH; 2006; Mandarin; Pass)"
- },
- {
-  "egp_id": "1741163713112x664516393932309100",
-  "level": "A2",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'JUST' + PREPOSITION",
-  "can_do_statement": "Can use 'just' to modify prepositions. ",
-  "example_raw": "It's just near the cinema. (India; A2 WAYSTAGE; 2009; Hindi; Pass)\n\nSo you have to go along 3 blocks and turn on your left and just in front of you is the Cathedral and next to the Cathedral is the Zocalo. (Mexico; A2 WAYSTAGE; 2001; Spanish - Latin American; Pass)\n\nMy house is just after the library. (France; A2 WAYSTAGE; 2009; French; Pass)"
- },
- {
-  "egp_id": "1741163713112x806003192035927200",
-  "level": "A1",
-  "super_category": "PREPOSITIONS",
-  "sub_category": "prepostions",
-  "lexical_range": "1",
-  "guideword": "FORM: SIMPLE",
-  "can_do_statement": "Can use a limited range of simple (single-word) prepositions. ",
-  "example_raw": "I'm sending some flowers to you. (A1 BREAKTHROUGH; 2009; Romanian; Pass)\n\nHe works in Bognor Regis. (A1 Slovak)\n\nI can cook some food for you. (A1 BREAKTHROUGH; 2009; Bengali; Pass)\n\nI usually go shopping with her in Chester. (Bulgarian, A1 BREAKTHROUGH, Pass, 2006)\n\nCan you come on Saturday at five o'clock in the afternoon? (A1 Polish)\n\nI will come to your house on time. (A1 BREAKTHROUGH; 2006; Mandarin; Pass)"
- },
- {
   "egp_id": "1741163713112x864243593656802700",
   "level": "A2",
   "super_category": "PREPOSITIONS",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_052.json`
   "guideword": "FORM: STRANDING",
   "can_do_statement": "Can end a 'wh-' question with a preposition, where the preposition is stranded from its complement. ",
   "example_raw": "Who are you going with? (Philippines; A2 WAYSTAGE; 2009; Tagalog; Pass)\n\nSo what are you waiting for? (Hong Kong; A2 WAYSTAGE; 1999; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163713116x221586221050488420",
+  "level": "B1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "3",
+  "guideword": "FORM: SIMPLE",
+  "can_do_statement": "Can use a wide range of simple (single word) prepositions.",
+  "example_raw": "If it is raining, the rain enters through the holes in the roof and makes the house wet. (B1 Fulani)\n\nTo my surprise, there was a charming beach along the cycle route. (B1 Chinese)\n\nDon't forget to meet me at the theme park beside the main entrance. (B1 Albanian)\n\nIn the middle of the room there is a big bed between two windows and above the bed there is a beautiful painting. (B1 Swedish)\n\nI think Bremen won't change that much within the next 20 years. (B1 German)\n\nI hate shopping via the internet. (B1 Arabic \u2013 Meghreb)"
+ },
+ {
+  "egp_id": "1741163713116x353458240035020350",
+  "level": "B1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: STRANDING",
+  "can_do_statement": "Can end a reported question clause and a relative clause with a preposition, where the preposition is stranded from its complement. \u25ba Clauses: relative",
+  "example_raw": "So this is the best festival I been to. (B1 THRESHOLD; 2008; Albanian; Pass)\n\nPlease give him all the information he asks for. (Switzerland; B1 THRESHOLD; 2005; German; Pass)\n\nEverybody should see which company I work for. (other; B1 THRESHOLD; 2004; Others; Pass)"
+ },
+ {
+  "egp_id": "1741163713116x636100257659625700",
+  "level": "B2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: FORMAL",
+  "can_do_statement": "Can use less frequent simple prepositions, often in a more formal, literary or business context.",
+  "example_raw": "Suddenly the lights went out and a kind of silent screaming was heard throughout the whole dark room. (B2 German)\n\nSo why don\u2019t you act upon my advice? (B2 Brazilian)\n\nI took bus number 19 from Angel tube station toward Battersea Park. (B2 Italian)\n\nIn Tottenham, transport is easy, buses are frequent, unlike other areas. (B2 Thai)\n\nA survey was carried out amongst the students and teachers. (Turkey; B2 VANTAGE; 2001; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163713116x646932110230855600",
+  "level": "B1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "2",
+  "guideword": "FORM: COMPLEX",
+  "can_do_statement": "Can use an increasing range of complex prepositions.",
+  "example_raw": "My parents weren't happy when they heard that I wanted to go to Croatia with my friends instead of flying to the USA. (B1 German)\n\nThe company chose my school thanks to the excellent results of the students. (B1 French)\n\nIt was saying that some company can find me a job in the UK and I can earn up to \u00a3 1000 per month. (Poland; B1 THRESHOLD; 2004; Polish; Pass)\n\n[talking about a watch] I was going out of the shop when I noticed that I had lost it. (B1 Italian)\n\nI would like to apologise because, due to a dental appointment, I will not be able to participate in the English class tomorrow. (B1 French)\n\nThe best place to stay is a hotel a bit outside of the city. (B1 Swiss German)"
+ },
+ {
+  "egp_id": "1741163713116x701061838010980100",
+  "level": "C1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: FORMAL",
+  "can_do_statement": "Can use less frequent complex prepositions, often in a more formal, literary or business context.",
+  "example_raw": "It's unbelievable that this civilization that lived a long time ago could be so ahead of their time. (C1 Brazilian Portuguese)\n\nI think that the next area to develop will be the car industry, which will develop cars that are going to work by solar energy, on account of the levels of pollution in big cities. (C1 Spanish Latin American)"
+ },
+ {
+  "egp_id": "1741163713116x829257725032760800",
+  "level": "B1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'ADVERB' + PREPOSITION",
+  "can_do_statement": "Can use adverbs of degree to modify prepositions and prepositional phrases. ",
+  "example_raw": "It's quite near my house so I can go there easily. (Italy; B1 THRESHOLD; 2003; Italian; Pass)\n\nWhen I was trying to reach the only frame of light I could see in the woods, something moved right behind me. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI'm going to put it right in front of the window, so I have enough light. (Germany; B1 THRESHOLD; 2009; German; Pass)\n\nI felt I was flying and it was really like a dream. (Iran; B1 THRESHOLD; 2003; Farsi; Pass)\n\nBut anyway it's enjoyable to shop for clothes  especially with a group of friends. (Iran; B1 THRESHOLD; 2006; Farsi; Pass)"
+ },
+ {
+  "egp_id": "1741163713116x878693855125900300",
+  "level": "B2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PREPOSITION + 'WH-'WORD",
+  "can_do_statement": "Can use preposition + relative pronoun as complement, to avoid preposition stranding, often in formal contexts. \u25ba Clauses: relative",
+  "example_raw": "According to your advertisement in a language magazine, you have a vacancy in which I am very interested. (Switzerland; B2 VANTAGE; 1998; German; Pass)\n\nI hope that you can help me by answering some questions about the club of which you are the secretary. (Germany; B2 VANTAGE; 1993; Dutch; Pass)\n\nIn my opinion children need someone to whom they can talk. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163713116x968587932066165600",
+  "level": "B2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "3",
+  "guideword": "FORM: COMPLEX",
+  "can_do_statement": "Can use a wide range of complex prepositions.",
+  "example_raw": "She did not say very much except for \"oh\" and \"yes, yes\" every once in a while. (B2 Dutch)\n\n[talking about animals in zoos] And it gives them the possibility of gradually gaining knowledge about other living creatures apart from humans. (B2 Polish)\n\n[giving suggestions on how to make the reception area of a school more attractive] It is based on my personal opinions in addition to a sample of 500 people who are students and staff at the school, and also visitors. (B2 French)\n\nNow, as for the camping, I admit that I'm not a great fan of it. (B2 Greek)\n\nI hope that, in spite of some small problems, people liked the festival and we will be able to attend it next year. (B2 Russian)"
+ },
+ {
+  "egp_id": "1741163713121x244049823776565150",
+  "level": "A1",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form.",
+  "example_raw": "I am sending you some flowers, because you are not well. (Bengali, A1 BREAKTHROUGH, 2009)\n\nI am writing to tell you what I do every day at college. (Mandarin, ===NONE===, A1 BREAKTHROUGH, Pass, 2007)"
+ },
+ {
+  "egp_id": "1741163713121x303053781636601900",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form.",
+  "example_raw": "[talking about a computer] I\u2019m not using it any more. (A2 Turkish)\n\n\u2026the fridge isn't working. (Romanian, ===NONE===, A2 WAYSTAGE, Pass, 2009)\n\n\u2026 he's going to work at 5.00 am, so he's not eating anything ... (A2 WAYSTAGE; 2006; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163713121x475189487230063500",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "2",
+  "guideword": "USE: EVENTS IN PROGRESS",
+  "can_do_statement": "Can use the present continuous with an increasing range of verbs to talk about situations and events in progress.",
+  "example_raw": "I am watching a swimming competition. (A2 Portuguese)\n\nI'm selling an English book. It's called \"English II\". (A2 Spanish - Latin American)\n\nIt's June and it's getting warmer. (A2 German)"
  }
 ]
 ```

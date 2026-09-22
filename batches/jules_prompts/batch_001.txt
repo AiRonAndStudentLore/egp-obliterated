@@ -77,26 +77,6 @@ Create ONE file: `batches/jules_batch_001.json`
   "example_raw": "My relatives gave me presents but the computer game was the best. (Turkey; A2 WAYSTAGE; 2004; Turkish; Pass)\n\nBut Mark's present was the most beautiful! (Russia; A2 WAYSTAGE; 2004; Russian; Pass)"
  },
  {
-  "egp_id": "1741163706535x223084822137106460",
-  "level": "B1",
-  "super_category": "ADJECTIVES",
-  "sub_category": "superlatives",
-  "lexical_range": "2",
-  "guideword": "FORM/USE: COMPLEX NOUN PHRASES",
-  "can_do_statement": "Can form an increasing range of complex noun phrases with a superlative adjective + prepositional phrase, to talk about something unique. \u25ba noun phrases",
-  "example_raw": "Yesterday was the most exciting day of my life! (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nWell, exercise is undoubtedly the most important thing in our lives for our health. (Cyprus; B1 THRESHOLD; 2009; Greek; Pass)"
- },
- {
-  "egp_id": "1741163706536x624064805889871500",
-  "level": "B2",
-  "super_category": "ADJECTIVES",
-  "sub_category": "superlatives",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: WITH 'BY FAR'",
-  "can_do_statement": "Can use the premodifer 'by far' to make a superlative adjective stronger.",
-  "example_raw": "As you know, I've already visited almost fifty forests all over the world but I think this one is by far the most beautiful of all. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\nWhen I was a child, Christmas morning was by far the most exciting and happiest moment. (Japan; B2 VANTAGE; 1993; Japanese; Pass)"
- },
- {
   "egp_id": "1741163706536x720681284938151700",
   "level": "B2",
   "super_category": "ADJECTIVES",
@@ -107,114 +87,134 @@ Create ONE file: `batches/jules_batch_001.json`
   "example_raw": "There have been so many embarrassing moments in my life. It's very difficult to pick the most embarrassing. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nI'm not quite sure if I agree that the car is the greatest danger to human life today, but it sure is one of the greatest. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nThat period of my life was one of the worst . (Singapore; B2 VANTAGE; 2000; Chinese; Pass)"
  },
  {
-  "egp_id": "1741163706536x755639946438128300",
-  "level": "B2",
-  "super_category": "ADJECTIVES",
-  "sub_category": "superlatives",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH NOUN AND 'TO-' INFINITIVE",
-  "can_do_statement": "Can use superlative adjectives before a noun + 'to'-infinitive. \u25ba clauses: comparative",
-  "example_raw": "To be honest, I think that, to be in competition with other markets, we need to be updated and the easiest way to do it is to use computers. (Italy; B2 VANTAGE; 1999; Italian; Pass)\n\nFor those people who don't work and can't afford a car, a bicycle is perhaps the cheapest way to travel in the city. (Spain; B2 VANTAGE; 1993; Catalan; Pass)"
- },
- {
-  "egp_id": "1741163706536x778879290830950100",
-  "level": "B1",
-  "super_category": "ADJECTIVES",
-  "sub_category": "superlatives",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'ONE OF THE' ",
-  "can_do_statement": "Can use 'one of the' before a superlative adjective, followed by a plural noun. \u25ba noun phrases",
-  "example_raw": "It was one of the best days of my life. (Colombia; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI recommend that you should go to Akihabara, which is one of the most famous places in Tokyo. (Japan; B1 THRESHOLD; 2004; Japanese; Pass)"
- },
- {
-  "egp_id": "1741163706537x905537267921213700",
-  "level": "C1",
-  "super_category": "ADJECTIVES",
-  "sub_category": "superlatives",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: WITH POSTMODFIER AND NOUN",
-  "can_do_statement": "Can use a postmodifier to make the superlative stronger, in the structure superlative + noun + postmodifier ('possible', 'ever', 'by far'). ",
-  "example_raw": "\u2026 we want to present ourselves in the best way possible. (Yugoslavia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Serbian; Pass)\n\n\u2026this cleansing gel will definitely produce good results in the shortest time possible. (Malaysia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Chinese; Pass)\n\nAchieving health by using her common sense and having fun while doing it is probably her greatest performance ever and, if elected, she could share that with the world. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Swedish; Pass)"
- },
- {
-  "egp_id": "1741163708146x334549718630644100",
-  "level": "B1",
-  "super_category": "ADVERBS",
-  "sub_category": "adverb phrases - form",
-  "lexical_range": "2",
-  "guideword": "FORM: ADVERB + ADVERB",
-  "can_do_statement": "Can modify an increasing range of adverbs with other adverbs.\u25ba adverbs and adverb phrases: types and meanings",
-  "example_raw": "We get along quite well. (Belgium; B1 THRESHOLD; 2003; French; Pass)\n\nIt will be really big and at first you will feel lonely, but there are so many people, you can find new friends really fast. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nMy style is almost always the same: light blue jeans, with a shirt and my old brown boots. (Switzerland; B1 THRESHOLD; 2006; French; Pass)\n\nThe pizza is just too good. (India; B1 THRESHOLD; 2005; Assamese; Pass)\n\n[about a film] It came out just yesterday. (Poland; B1 THRESHOLD; 2004; Polish; Pass)"
- },
- {
-  "egp_id": "1741163708146x551167324571377540",
+  "egp_id": "1741163706728x100067556201106640",
   "level": "A1",
   "super_category": "ADVERBS",
-  "sub_category": "adverb phrases - form",
+  "sub_category": "adverbs as modifiers",
   "lexical_range": "N/A",
-  "guideword": "FORM: 'VERY' + ADVERB",
-  "can_do_statement": "Can modify adverbs of time and degree with 'very'. ",
-  "example_raw": "I hope you will be fine very soon. (A1 BREAKTHROUGH; 2009; Urdu; Pass)\n\nI like my job very much. (A1 BREAKTHROUGH; 2007; Mandarin; Pass)"
+  "guideword": "FORM: 'VERY' + ADJECTIVES",
+  "can_do_statement": "Can use 'very' to modify common gradable adjectives.",
+  "example_raw": "My home is very nice. (A1 BREAKTHROUGH; 2009; Italian; Pass)\n\nMy teacher is very good. (A1 BREAKTHROUGH; 2007; Gujarati; Pass)"
  },
  {
-  "egp_id": "1741163708146x666253614436465000",
+  "egp_id": "1741163706728x261151446832563970",
   "level": "A2",
   "super_category": "ADVERBS",
-  "sub_category": "adverb phrases - form",
-  "lexical_range": "1",
-  "guideword": "FORM: ADVERB + ADVERB",
-  "can_do_statement": "Can modify a limited range of adverbs of time, degree, and manner with other adverbs.",
-  "example_raw": "I love it so much. (Malaysia; A2 WAYSTAGE; 2008; Chinese; Pass)\n\nI don't eat it very often, usually on Saturday. (Venezuela; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nI really need it right now because I'm waiting for a call from a department store. (Malaysia; A2 WAYSTAGE; 2005; Tamil; Pass)\n\n[talking about running shoes] I usually run twice a week and I like them because they weigh only 120 grams, and I can run very fast. (Italy; A2 WAYSTAGE; 2004; Italian; Pass)\n\nI hope to fix the problem very quickly. (A2 WAYSTAGE; 2010; Arabic - Other; Pass)"
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: TIME  and SEQUENCING, MODIFYING CLAUSES",
+  "can_do_statement": "Can use time and sequencing adverbs to modify clauses and sentences. ",
+  "example_raw": "Yesterday I went shopping and bought some clothes. (Russia; A2 WAYSTAGE; 2008; Russian; Pass)\n\nFirst we had dinner in my house and after we went to the pub. (Brazil; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nI just heard about your accident. (A2 WAYSTAGE; 2008; Panjabi; Pass)\n\nI often eat it at weekends. (Philippines; A2 WAYSTAGE; 2009; Tagalog; Pass)"
  },
  {
-  "egp_id": "1741163708147x101320810869052430",
+  "egp_id": "1741163706728x459747949486635000",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "2",
+  "guideword": "FORM: MANNER, MODIFYING VERBS  ",
+  "can_do_statement": "Can use an increasing range of manner adverbs to modify verbs.",
+  "example_raw": "You have to choose carefully. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nMy smile slowly disappeared as I finished my reading. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nShe looked at me seriously and said \"Can you sing a song right now?\u201d (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x670021003351025900",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "1",
+  "guideword": "FORM: MANNER, MODIFYING VERBS",
+  "can_do_statement": "Can use a limited range of manner adverbs to modify verbs.",
+  "example_raw": "I really liked it because all the candidates were professional and swam very fast. (Argentina; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)\n\nI learned to use my phone very quickly and easily. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x698576615346089300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "1",
+  "guideword": "FORM: DEGREE, MODIFYING ADVERBS",
+  "can_do_statement": "Can use a limited range of degree adverbs to modify adverbs. \u25ba adverb phrases: form",
+  "example_raw": "We left really early on a Friday morning. (Brazil; B1 THRESHOLD; 2003; Portuguese; Pass)\n\nSo I couldn't wait and I opened it very carefully. (India; B1 THRESHOLD; 2009; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x743541438966270800",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'VERY' + TIME ADVERBS ",
+  "can_do_statement": "Can use 'very' to modify time adverbs. \u25ba adverb phrases",
+  "example_raw": "I hope you get well very soon. (A1 BREAKTHROUGH; 2009; Bengali; Pass)\n\nI don't like it at college when I have a lesson very early. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x827649422602473600",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PLACE, COMPLEMENT",
+  "can_do_statement": "Can use place adverbs ('here', 'there') as complements of verbs. ",
+  "example_raw": "I am happy here because people are very nice. (A1 BREAKTHROUGH; 2007; Hindi; Pass)\n\nI hope you will be there. (A1 BREAKTHROUGH; 2011; Portuguese; Pass)\n\nYou must go there. (A1 BREAKTHROUGH; 2008; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x889779704010106100",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "2",
+  "guideword": "FORM/USE: MODIFYING CLAUSES, STANCE",
+  "can_do_statement": "Can use adverbs to modify clauses and sentences to indicate stance or attitude. ",
+  "example_raw": "But, obviously, you prefer going with your friends because you will have a better time. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nLuckily, I arrived in time. (Czech Republic; B1 THRESHOLD; 2006; Czech; Pass)\n\nI think you should walk with a friend, otherwise it could be boring. (Spain; B1 THRESHOLD; 2009; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x956633908640879100",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DEGREE, MODIFYING ADJECTIVES",
+  "can_do_statement": "Can use a range of degree adverbs to modify common gradable adjectives. ",
+  "example_raw": "I'm so happy because you can come! (France; A2 WAYSTAGE; 2009; French; Pass)\n\n[referring to a lost book] It's really important for me, because I need to do some homework. (Czech Republic; A2 WAYSTAGE; 2005; Czech; Pass)\n\nBut it is too expensive. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163706728x987923532840156800",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DEGREE and TIME, MODIFYING VERBS",
+  "can_do_statement": "Can use degree and time adverbs to modify verbs.",
+  "example_raw": "I really like Japanese music. (A1 BREAKTHROUGH; 2008; Chinese; Pass)\n\nI like my college very much. (A1 BREAKTHROUGH; 2007; Polish; Fail)\n\nI always go to the park with my children. We sometimes go to the shopping centre. (A1 BREAKTHROUGH; 2010; Arabic - Other; Pass)"
+ },
+ {
+  "egp_id": "1741163706930x186899124179832800",
   "level": "C1",
   "super_category": "ADVERBS",
-  "sub_category": "adverb phrases - form",
+  "sub_category": "adverbs as modifiers",
   "lexical_range": "N/A",
-  "guideword": "FORM/USE: ADVERB + 'ENOUGH'",
-  "can_do_statement": "Can post-modify adverbs with 'enough to intensify'.",
-  "example_raw": "Surprisingly enough, Meal's management was very responsive. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Dutch; Pass)\n\nSadly enough, I wasn't able to find any job proposals for us myself, so I'll just have to speculate on the results of your work. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Russian; Pass)\n\nLuckily enough, we have a garden where we can cook over an open fire, and as the temperatures in June are rather enjoyable here in Sweden, it actually works. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)"
+  "guideword": "FORM: DEGREE, MODIFYING COMPARATIVES",
+  "can_do_statement": "Can use degree adverbs ('slightly', 'a bit', 'much') to modify comparatives.",
+  "example_raw": "My Spanish is slightly more fluent than my English, because I lived in Spain longer than in England. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Russian; Fail)\n\nIt will be a bit more expensive than the bus but it's safer and quicker. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; French; Pass)\n\nDespite all the controversies between these two generations, the grandchildren shouldn't forget that their grandparents are much more experienced. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)"
  },
  {
-  "egp_id": "1741163708147x186984874753463500",
+  "egp_id": "1741163706930x228413817377030900",
   "level": "B2",
   "super_category": "ADVERBS",
-  "sub_category": "adverb phrases - form",
+  "sub_category": "adverbs as modifiers",
   "lexical_range": "N/A",
-  "guideword": "FORM: COMPARATIVE",
-  "can_do_statement": "Can modify an adverb with a comparative structure. ",
-  "example_raw": "Obviously, you can get to work by car quicker and more comfortably than by bicycle. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nFurthermore, you have to repair your car much more often than your bicycle - so it's quite probable that you are going to spend plenty of time in the garage. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nThe computer system is such a quick system that we can search and analyse information much more quickly than before. (China; B2 VANTAGE; 1999; Chinese; Pass)\n\nIf we could get 2 million euros to invest in the new product \"Stop 'n' run\", profits will rise even more sharply than they did last year. (Switzerland; B2 VANTAGE; 2008; Swiss German; Pass)"
+  "guideword": "FORM: DEGREE, MODIFYING DETERMINERS",
+  "can_do_statement": "Can use degree adverbs ('almost', 'very') to modify determiners. \u25ba determiners",
+  "example_raw": "Today, thanks to the Internet, I can work at home almost all the time, which is far more relaxing and less boring. (Spain; B2 VANTAGE; 2000; Catalan; Pass)\n\nThere are probably very few of us who have never been to a zoo. (Poland; B2 VANTAGE; 1993; Polish; Pass)"
  },
  {
-  "egp_id": "1741163708147x650959713788834800",
+  "egp_id": "1741163706930x408715502774479550",
   "level": "C1",
   "super_category": "ADVERBS",
-  "sub_category": "adverb phrases - form",
-  "lexical_range": "3",
-  "guideword": "FORM: ADVERB + ADVERB",
-  "can_do_statement": "Can modify a wide range of adverbs with other adverbs. ",
-  "example_raw": "Even the beautiful, attractive cover and the extra Audio CD aren\u2019t enough to justify the slightly higher price, especially because the value of this game will drop extremely rapidly. (Luxembourg; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Greek; Pass)\n\nFirstly, we should get some TV airtime, to catch the attention of a large number of people effectively and achieve a substantial market penetration relatively quickly. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; German; Pass)"
- },
- {
-  "egp_id": "1741163708149x543465587723424900",
-  "level": "C1",
-  "super_category": "ADVERBS",
-  "sub_category": "adverb phrases - form",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: ADVERBS + PREPOSITIONAL PHRASES, HIGHLIGHT",
-  "can_do_statement": "Can post-modify adverbs with a complex prepositional phrase complement, to highlight information. ",
-  "example_raw": "Luckily for you, I kept notes on everything we did, so I proudly present to you the top 4 of our course-days. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)\n\nUnfortunately for some of them, the \"holiday of their dreams\" turned out to be rather nightmarish. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; German; Pass)\n\nEspecially in the period of 1999-2001, it shot up from 5 points to 7 points. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Chinese; Pass)\n\nProbably in the next ten or more years, the engineering profession will be as much respected as it used to be twenty years ago. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Russian; Pass)"
- },
- {
-  "egp_id": "1741163708149x973970498543633300",
-  "level": "C2",
-  "super_category": "ADVERBS",
-  "sub_category": "adverb phrases - form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PRE- AND POST-MODIFIED ADVERBS",
-  "can_do_statement": "Can form adverb phrases with modifiers before, and complements after, adverbs. ",
-  "example_raw": "Many politicians and owners of big enterprises have been able for a long time to work almost exclusively for their own interests. (C2 MASTERY; 1993; ; Pass)\n\nIt was so completely in harmony with the sun, the sea, the sand, the summer, I decided instantly that was the kind of thing I would like to keep and collect. (Greece; C2 MASTERY; 2002; Greek; Pass)"
+  "sub_category": "adverbs as modifiers",
+  "lexical_range": "2",
+  "guideword": "FORM: DEGREE, MODIFYING ADVERBS",
+  "can_do_statement": "Can use an increasing range of degree adverbs to modify a range of adverb types. \u25ba adjectives \u25ba adverb phrases: form",
+  "example_raw": "The attitude of young people today towards keeping fit and healthy has almost completely changed.  (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; German; Pass)\n\nMoreover, making use of some techniques I practised in the How to Negotiate classes is something which happens to me quite frequently. (Italy; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Romanian; Pass)\n\nThe mobile market is growing incredibly fast in Britain and your company is leading this process. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Portuguese; Pass)\n\nRecently, the charity organised a fun-raising day, which went  reasonably well . (Thailand; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Thai; Pass)"
  }
 ]
 ```

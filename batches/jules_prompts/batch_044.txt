@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_044.json`
 ```json
 [
  {
-  "egp_id": "1741163712320x420977783135077200",
-  "level": "C1",
-  "super_category": "PASSIVES",
-  "sub_category": "get and have",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'GET' + OBJECT + '-ING'",
-  "can_do_statement": "Can use 'get' + object + '-ing' to talk about causing someone or something to do something.",
-  "example_raw": "First of all, I would like to underline the sheer boredom of these CDs, which got me yawning from the very first minute. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Spanish - European; Pass)\n\nI was very happy when I received your letter, although I must say that your dilemma got me thinking. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)\n\nAs soon as they realized there was no way to get the employees moving, they got excited and nervous. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; German; Pass)\n\nBut still both concerts were great as Elton John and \"Metallica\" really know how to get people moving, but in two completely different ways. (Denmark; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Danish; Pass)\n\n"
- },
- {
-  "egp_id": "1741163712321x355132007254578300",
-  "level": "C2",
-  "super_category": "PASSIVES",
-  "sub_category": "get and have",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'HAVE' + OBJECT + INFINITIVE",
-  "can_do_statement": "Can use 'have' + object + infinitive without 'to' to talk about asking or causing someone to do something, often in formal contexts.",
-  "example_raw": "In order to attract people and have them practise their English, we could point out the benefits and the possibilities one obtains, by acquiring a degree in this language ... (Greece; C2 MASTERY; 2010; Greek; at level)\n\nIn assessing the prospective student's linguistic skills it does not suffice to just have him fill out a multiple-choice-form (Hong Kong; C2 MASTERY; 1999; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163712047x184306606922612260",
-  "level": "B1",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: WITH 'BY' IN A RELATIVE CLAUSE|",
-  "can_do_statement": "Can use the passive with 'by' in a relative clause, often to add more information.",
-  "example_raw": "I also like wearing clothes which are manufactured by famous brands. (India; B1 THRESHOLD; 2006; Tamil; Pass)\n\nIt's the highest mountain in U.A.E. Special roads were built for people to reach the top of the mountain, which was surrounded by houses. (United Arab Emirates; B1 THRESHOLD; 2003; Arabic - Gulf; Pass)"
- },
- {
-  "egp_id": "1741163712047x352927366474730100",
-  "level": "A2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PAST SIMPLE, AFFIRMATIVE",
-  "can_do_statement": "Can use the past simple passive affirmative after a singular subject. ",
-  "example_raw": "It was built in 1880. (China; A2 WAYSTAGE; 2001; Chinese; Pass)\n\nOn Saturday morning I was invited to a sports competition. (India; A2 WAYSTAGE; 2007; Tamil; Pass)"
- },
- {
-  "egp_id": "1741163712047x585480674416874600",
-  "level": "A2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PRESENT SIMPLE, AFFIRMATIVE",
-  "can_do_statement": "Can use the present simple passive affirmative with a singular subject.",
-  "example_raw": "The group is called \"playmo\". (France; A2 WAYSTAGE; 2005; French; Pass)\n\nI bought a T-shirt, it cost \u00a342 because it is made of cotton. (Argentina; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163712047x673355343552202160",
-  "level": "A2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: WITH 'BY' TO ADD INFORMATION",
-  "can_do_statement": "Can use the passive with 'by' to add information about something already known.",
-  "example_raw": "It was bought by my uncle. (China; A2 WAYSTAGE; 2004; Chinese; Pass)\n\nIt's made by Sony-Ericsson, I love it \u2026 (Italy; A2 WAYSTAGE; 2007; Italian; Pass)\n\n\u2026 it was written by an excellent author, Lev Tolstoy. (Russia; A2 WAYSTAGE; 2004; Russian; Pass)"
- },
- {
-  "egp_id": "1741163712048x136041892375174060",
-  "level": "B1",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PRESENT SIMPLE, AFFIRMATIVE ",
-  "can_do_statement": "Can use the present simple passive affirmative with a range of pronoun and noun subjects.",
-  "example_raw": "Our office is situated near the airport. (B1 Argentina ; Spanish - Latin American)\n\nThe walls are painted in a dark blue, and the floor is wood. (B1 Dutch) "
- },
- {
-  "egp_id": "1741163712048x581247857975133000",
-  "level": "B1",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PAST SIMPLE, AFFIRMATIVE",
-  "can_do_statement": "Can use the past simple passive affirmative with a range of pronoun and noun subjects both singular and plural.",
-  "example_raw": "It was written in a strange language that I tried to translate. (B1 Spanish - Latin American)\n\nNext day, I heard that my neighbour's car was stolen. (B1 Polish)\n\nThey filmed the flowers and trees, and some pupils were interviewed about their work in the garden, too. (B1 German)"
- },
- {
-  "egp_id": "1741163712048x766157093174026800",
-  "level": "B1",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "1",
-  "guideword": "FORM: PRESENT CONTINUOUS, AFFIRMATIVE ",
-  "can_do_statement": "Can use the present continuous passive affirmative with a limited range of verbs.",
-  "example_raw": "Did you know that the next Harry Potter movie is being filmed in my school? (Spain; B1 THRESHOLD; 2008; Catalan; Pass)\n\nWhy don't we stay at my house and visit Tokyo, where an interesting Japanese history exhibition is being held. (Japan; B1 THRESHOLD; 2004; Japanese; Pass)\n\nAs a result of that, Russia's economy is being followed by many experts. (Turkey; B1 THRESHOLD; 2008; Turkish; Pass)\n\nThey filmed a class where the clothes are being tested at the moment and they interviewed some people. (Germany; B1 THRESHOLD; 2008; German; Pass)"
- },
- {
-  "egp_id": "1741163712048x834192566226660200",
-  "level": "B1",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "1",
-  "guideword": "FORM: INFINITIVE ",
-  "can_do_statement": "Can use the passive infinitive after a limited number of forms including 'going to', 'have to', 'need to', 'want to'. ",
-  "example_raw": "It is going to be shown this Friday. (B1 PET Turkish)\n\nAfter that, they printed an authorisation, form which had to be signed by my parents because I'm not over eighteen. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nHe wants to be informed about sales development by the end of November 2001. (B1 Switzerland German)"
- },
- {
-  "egp_id": "1741163712049x217545267830854720",
-  "level": "B2",
-  "super_category": "PASSIVES",
-  "sub_category": "passives: form",
-  "lexical_range": "2",
-  "guideword": "FORM: INFINITIVE",
-  "can_do_statement": "Can use the passive infinitive affirmative and negative forms after an increasing range of main verbs, modal verbs, adjectives and nouns, in impersonal constructions. ",
-  "example_raw": "According to your advertisement, some training is supposed to be given. (B2 South Korean)\n\nMy composition was ready to be printed and I was searching for a piece of paper\u2026 (B2 Austria)\n\nI would prefer to sleep in a tent because I have never done it and I think it is an experience not to be missed, a very original adventure! (B2 French)\n\nThe reason that I took part in your research was to help youngsters not to be addicted to computer games \u2026  (B2 Greek)\n\nFor one, the future homes might not be built out of bricks at all! (Korea, South; B2 VANTAGE; 2000; Korean; Pass)"
- },
- {
   "egp_id": "1741163712049x264322572450322000",
   "level": "B1",
   "super_category": "PASSIVES",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_044.json`
   "guideword": "USE: GIVING FOCUS WITH 'BY'",
   "can_do_statement": "Can use the passive with 'by' to give focus.",
   "example_raw": "My school was chosen by the TV company because it is one of the newest in town. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163712049x737530014792900100",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH VERBS TAKING TWO OBJECTS.",
+  "can_do_statement": "Can use the past simple passive with a limited range of verbs needing two objects, putting the indirect object in subject position. ",
+  "example_raw": "So I was given a ticket for a train, running from Berlin to Munich. (Germany; B1 THRESHOLD; 2006; German; Pass)\n\nWe were lucky, because we were given another chance. (Yugoslavia; B1 THRESHOLD; 2006; Serbian; Pass)"
+ },
+ {
+  "egp_id": "1741163712049x855374993067916200",
+  "level": "B1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT SIMPLE, NEGATIVE",
+  "can_do_statement": "Can use the present simple passive negative with a range of pronoun and noun subjects.",
+  "example_raw": "The story is about a girl, who is not accepted in her class. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI think we should replace the printer, because it prints very slowly and the sheets aren't printed properly. (Switzerland; B1 THRESHOLD; 2009; Swiss German; Pass)"
+ },
+ {
+  "egp_id": "1741163712049x932315866168376600",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST CONTINUOUS AFFIRMATIVE. ",
+  "can_do_statement": "Can use the past continuous passive affirmative. ",
+  "example_raw": "However, to my disappointment, the restaurant was closed because it was being redecorated. (B2 Chinese)\n\nAfter they explained everything to him, he then knew he was being tricked by them and that this was supposed to be a special experience for him. (B2 Chinese) \n\nWe thought that as you lived there, we could go to your house and stay there while the car was being repaired. (B2 Basque)"
+ },
+ {
+  "egp_id": "1741163712050x914576942340939400",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST SIMPLE NEGATIVE",
+  "can_do_statement": "Can use past simple passive negative. ",
+  "example_raw": "What is worse, the ticket price was not reduced despite the fact that I showed my student ID. (B2 Japanese)\n\nI had to go to the hospital because my back hurt so badly, and I wasn't allowed to work for two weeks. (B2 Hungarian)\n\nI was really disappointed because a lot of things were not done. (Turkey; B2 VANTAGE; 2000; Turkish; Pass)\n\nSome say that studying animals would be impossible, if they weren't kept in zoos \u2026 (B2 Italian)"
+ },
+ {
+  "egp_id": "1741163712050x954476408686193200",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST PERFECT SIMPLE, NEGATIVE ",
+  "can_do_statement": "Can use the past perfect passive negative form.",
+  "example_raw": "[talking about a car] In fact, it hadn't been stolen, it had been taken by a man and his wife, because their car broke down and because she was about to have her baby \u2026 (B2 Portuguese)\n\nWe waited for ages because we had not been informed. (B2 Japanese)"
+ },
+ {
+  "egp_id": "1741163712051x281512629992666900",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "2",
+  "guideword": "FORM: PRESENT CONTINUOUS, AFFIRMATIVE ",
+  "can_do_statement": "Can use the present continuous passive affirmative with an increasing range of verbs.",
+  "example_raw": "This year's topic is the online training for employees, which is being relaunched . (2786698_1; BECV; Germany; B2 VANTAGE; 2010; German; Pass)\nThe global temperature is rising, the ice is melting, the sea level increases and miles and miles of coast are being submerged. (B2 VANTAGE; 1993; Portuguese; Pass)\n\nThe first thing to be linked through computers was academic knowledge, then came commercial businesses, naturally, and now, people are being linked through billions of personal computers. (Korea, South; B2 VANTAGE; 1999; Korean; Pass)"
+ },
+ {
+  "egp_id": "1741163712051x779313477999546100",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT CONTINUOUS, NEGATIVE",
+  "can_do_statement": "Can use the present continuous passive negative.",
+  "example_raw": "\u2026 students are not being educated equally. (Mongolia; B2 VANTAGE; 2008; Mongolian; Pass)\n\nTo conclude, in my opinion, it is important to keep as many languages as possible alive, so we can make sure that part of the human history is not being lost. (Brazil; B2 VANTAGE; 2011; Portuguese)\n\nFirstly, the fact of different kinds of animals are in a zoo, doesn't means that they aren't being treated right. (Brazil; B2 VANTAGE; 1993; Portuguese; Fail)"
+ },
+ {
+  "egp_id": "1741163712052x105324067307769550",
+  "level": "C1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NON-FINITE CLAUSES",
+  "can_do_statement": "Can use a passive non-finite '-ing' form as a subordinate clause or a noun clause to give explanatory background information.",
+  "example_raw": "Being born and raised in Mexico, I believe her to be this country's best representative to the world. (C1 Spanish - Latin American)\n\nBeing overworked and badly paid, Polish women are torn between their dreams and their real possibilities. (C1 Polish)\n\nBeing invited by your boss for an unexpected lunch makes you feel noticed. (C1 Portuguese)"
+ },
+ {
+  "egp_id": "1741163712052x291725965796862700",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT PERFECT SIMPLE, AFFIRMATIVE ",
+  "can_do_statement": "Can use the present perfect passive affirmative form (often in the context of reporting).  \u25ba reported speech",
+  "example_raw": "I have been asked to write a report about an accident which happened to me last Saturday. (B2 Polish)\n\nI am writing to you to give you further information about the conference organization and about the arrangements which have been made for your group of students. (B2 Italian)"
+ },
+ {
+  "egp_id": "1741163712052x534602507801792400",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUMMARIES AND EVALUATIONS",
+  "can_do_statement": "Can use the passive with modal verbs to evaluate or summarise.",
+  "example_raw": "In conclusion, it can be seen that the bicycle is more suitable for those who are living in a little town or in the country. (B2 Italian)\n\nNext, I find that our streets are not very clean, another major problem, and I think something must be done about it. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163712052x640694659658228000",
+  "level": "B2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH VERBS TAKING TWO OBJECTS, , WITH PREPOSITIONAL PHRASE",
+  "can_do_statement": "Can use the passive with a range of tenses and verbs needing two objects (e.g. give, offer, sell) with the direct object in subject position and the indirect object in a prepositional phrase. ",
+  "example_raw": "Your name was given to me by a member of yours, Allan Westwood, whom I met last week. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nIf more training is given to staff, they will be interested in their work  and staff turnover will be reduced. (India; B2 VANTAGE; 2006; Tamil; Fail)\n\nUnfortunately an interview for a job in the New Palace Hotel has been offered to me at the same time as your class. (Spain; B2 VANTAGE; 2003; Spanish - European; Pass)\n"
  }
 ]
 ```

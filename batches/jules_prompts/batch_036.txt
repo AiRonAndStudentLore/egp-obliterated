@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_036.json`
 ```json
 [
  {
-  "egp_id": "1741163711299x337236996148793340",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "will",
-  "lexical_range": "N/A",
-  "guideword": "USE: FIXED PLANS",
-  "can_do_statement": "Can use 'will' to talk about fixed plans in the future, often with timetabled times or dates.",
-  "example_raw": "Mr Miller, the Sales Director, will visit us next Thursday. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nI'm sorry, but I won't be able to attend your class tomorrow \u2026. (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163711299x562241618213371140",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "will",
-  "lexical_range": "N/A",
-  "guideword": "USE: HABITUAL AND TYPICAL",
-  "can_do_statement": "Can use 'will' to talk about something which is typical or habitual. ",
-  "example_raw": "The abundance of ingredients required in any recipe will result normally in a spicy but nutritious dish, a dish that will usually contain some kind of sauce made of hot pepper, tomatoes, garlic and onion, some kind of meat and also some vegetables. (Mexico; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Spanish - Latin American; Pass)\n\nShe will often knock on the door to see you. (Japan; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Japanese; Fail)\n\nGo to lots of beautiful places that you won't usually be able to go to with a car, such as riversides. (Hong Kong; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163711299x818480809453484800",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "will",
-  "lexical_range": "N/A",
-  "guideword": "USE: WILLFULNESS OR DISAPPROVAL",
-  "can_do_statement": "Can use 'will' to talk about general behaviour, often disapprovingly.",
-  "example_raw": "Indeed no one can imagine what children will do! (France; C2 MASTERY; 1993; French; Pass)"
- },
- {
-  "egp_id": "1741163711299x946557867550668000",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "will",
-  "lexical_range": "N/A",
-  "guideword": "USE: PREDICTIONS",
-  "can_do_statement": "Can use 'will' to make predictions.\u25ba question tags",
-  "example_raw": "I think that in 20 years' time it will be bigger than it is, because my town is growing very fast. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nAll your life, you'll be able to look at your parents, but as soon as you finish your school, it'll be harder to meet your old friends. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nBut you're right, without much sport practice you'll soon put on weight, won't you? (Russia; B1 THRESHOLD; 2009; Russian; Pass)"
- },
- {
-  "egp_id": "1741163711299x956666388048580000",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "will",
-  "lexical_range": "3",
-  "guideword": "USE: REQUESTS",
-  "can_do_statement": "Can use 'will' (particularly 'Will you please') to make requests and commands in a wide range of contexts.",
-  "example_raw": "Will you please send me his name, address and telephone number. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nWill you please inform me about the exact payment. (Netherlands; B2 VANTAGE; 1998; Dutch; Pass)\n\nWill you pay attention! (Hungary; B2 VANTAGE; 2005; Hungarian; Pass)"
- },
- {
-  "egp_id": "1741163711300x363892315600628400",
-  "level": "A1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "USE: INVITATIONS WITH 'LIKE'",
-  "can_do_statement": "Can use 'would like to invite' to make invitations.",
-  "example_raw": "I would like to invite you to dinner in my house on Saturday at 7 30 pm. (A1 BREAKTHROUGH; 2010; Others; Pass)\n\nDear Neighbours, I would like to invite you to my home for dinner. (A1 BREAKTHROUGH; 2008; Arabic - Other; Pass)"
- },
- {
-  "egp_id": "1741163711300x444537304178034940",
-  "level": "A1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE WITH 'LIKE'",
-  "can_do_statement": "Can use the affirmative form with 'like'. ",
-  "example_raw": "I'd like to invite you to dinner. (Farsi, A1 BREAKTHROUGH, Pass, 2008)\n\nI would like to eat some Spanish food. (Italian, A1 BREAKTHROUGH, Pass, 2006)"
- },
- {
-  "egp_id": "1741163711300x569087712695511000",
-  "level": "A1",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "USE: WISHES AND PREFERENCES WITH 'LIKE'",
-  "can_do_statement": "Can use 'would like' to talk about wishes and preferences.",
-  "example_raw": "If possible, I'd like to come to see you on Tuesday afternoon. (A1 BREAKTHROUGH; 2009; French; Pass)\n\nI would like to eat chicken, potatoes and some vegetables. (A1 BREAKTHROUGH; 2006; Nepali; Pass)"
- },
- {
-  "egp_id": "1741163711300x575118039725408060",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the negative forms.",
-  "example_raw": "[talking about clothes] You wouldn't believe how much they cost! (Chinese, A2 WAYSTAGE, Pass, 2008)\n\nI think we would not need much money. (India; A2 WAYSTAGE; 2010; Panjabi; )"
- },
- {
-  "egp_id": "1741163711300x794671062336923500",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form.",
-  "example_raw": "I'd love to have a pen-friend in Japan. (China; A2 WAYSTAGE; 2002; Chinese; Pass) \n\n[talking about what day to go to the cinema] I would prefer Sunday afternoon. (Chinese, A2 WAYSTAGE, Pass, 2003)"
- },
- {
-  "egp_id": "1741163711528x190407588241565220",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "would",
-  "lexical_range": "N/A",
-  "guideword": "USE: WISHES AND PREFERENCES ",
-  "can_do_statement": "Can use 'would' with a wide range of verbs to talk about wishes and preferences.",
-  "example_raw": "I would prefer to go on Sunday, because on Sunday I have no school. (Malaysia; A2 WAYSTAGE; 2003; Chinese; Pass)\n\n[talking about going to see a film] I'd prefer to see it tomorrow. (Uruguay; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nBring your new CD! I'd love to hear it! (Cyprus; A2 WAYSTAGE; 2009; Greek; Pass)"
- },
- {
   "egp_id": "1741163711528x214459269683046980",
   "level": "A2",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_036.json`
   "guideword": "USE: IMAGINED SITUATIONS",
   "can_do_statement": "Can use 'would' to talk about imagined situations.",
   "example_raw": "I was thinking of painting my bedroom blue. It would look awesome. (Bengali, A2 WAYSTAGE, Pass, 2006)\n\nIt would be fun there. (Taiwan; A2 WAYSTAGE; 2010; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163711528x635492123385210640",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS WITH 'LIKE'",
+  "can_do_statement": "Can use the question form 'would you like'.",
+  "example_raw": "Sarah, would you like to play tennis this evening? (Portuguese, A2 WAYSTAGE, Pass, 2008)\n\nI'm going to a concert on Saturday. Would you like to go with me? (Croatian, A2 WAYSTAGE, Pass, 2009)\n\nI want to watch the film, would you like to come with me? (Arabic - Meghreb, A2 WAYSTAGE, Pass, 2003)"
+ },
+ {
+  "egp_id": "1741163711528x898984751471889600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'IF' CLAUSES",
+  "can_do_statement": "Can use 'would' in the main clause of a conditional sentence to talk about an imagined situation, often in the context of advice or opinion-giving.",
+  "example_raw": "It's your decision but if I had the chance, I would go with my friends. (German, B1 THRESHOLD, Pass, 2008)\n\nIf you decided to go to the country school, you'd probably have more attention as a student. (Portuguese, B1 THRESHOLD, Pass, 2008)\n\nIf I were you, I would not watch TV all the time. (Chinese, B1 THRESHOLD, Pass, 2010)\n\nIf I were able to move, I wouldn't move because I think this street is perfect.  (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163711529x426495349233583900",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: FUTURE IN THE PAST",
+  "can_do_statement": "Can use 'would' to talk about the future in the past.",
+  "example_raw": "I've just bought a new dress, and a beautiful black T-shirt. When I saw them, I thought they would be great for tonight's party. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)\n\n\u2026 we thought that the film would be horrible because of the title but when the film started, the story was beautiful and Mauricio and I liked it a lot. (Portuguese, B1 THRESHOLD, Pass, 2002)\n\nAnd she asked me if I would play the game with her against her cousin and her friend on Saturday. (Germany; B1 THRESHOLD; 2001; German; Pass)"
+ },
+ {
+  "egp_id": "1741163711529x535567954222940100",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use an limited range of adverbs with 'would', including 'really', 'probably', 'certainly', 'definitely'.\u25ba adverbs",
+  "example_raw": "I hope you will come soon, and I think that you would really enjoy it because is something different of what you are used to. (Peru; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n\nMore over in my opinion it would probably be the best idea to choose the biggest school ... (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nI would definitely choose to live by the sea side! (Malaysia; B1 THRESHOLD; 2010; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163711529x657615441693555600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use question forms.",
+  "example_raw": "Would you let me know what you think? (French, B1 THRESHOLD, Pass, 2011)\n\nWould you please do me a favour? Could you go and collect the clothes for me? (Singhalese, B1 THRESHOLD, Pass, 2009)\n\nThink of the fun you will have with your friends, the whole day hanging around, playing sports, eating ice cream. Wouldn't that be wonderful? (Swiss German, B1 THRESHOLD, Pass, 2008)\n\nI think it would be fantastic, wouldn't it? (Italian, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163711534x225764774682792860",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITE REQUESTS",
+  "can_do_statement": "Can use 'would' to make polite requests, often in the fixed expression 'would you mind'.",
+  "example_raw": "Would you tell me about your room in your next letter, please? (Chinese, B1 THRESHOLD, Pass, 2001)\n\nWould it be possible for you to meet me later that day, around 7? (German, B1 THRESHOLD, Pass, 2008)\n\nI had forgotten I have an appointment with my dentist at that time, so, would you mind if we met at 5 o'clock instead of meeting at 4 o'clock? (Spanish - Latin American, B1 THRESHOLD, Pass, 2008)\n\nWe are supposed to have a barbecue for lunch, would you mind bringing a salad? (Spanish - Latin American, B1 THRESHOLD, Pass, 2009)"
+ },
+ {
+  "egp_id": "1741163711534x311504042687477570",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: HABITUAL PAST",
+  "can_do_statement": "Can use 'would' to talk about habitual actions and events in the past.",
+  "example_raw": "[talking about a job that the speaker did last year] In my opinion I worked very hard. I would spend a lot of hours at work. (Chinese, B2 VANTAGE, Pass, 2011)\n\n[from a story about pirates] At night they would go to the rocky seaside and light a fire in order to deceive the boats and let them crash on the rocks. (Portuguese, B2 VANTAGE, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163711534x454213530321553800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: INDIRECTNESS",
+  "can_do_statement": "Can use 'would' with verbs such as 'advise', 'imagine', 'recommend', 'say' to be less direct.",
+  "example_raw": "I'd advise you to go with your friends because I bet you'll have so much fun! (German, B1 THRESHOLD, Pass, 2008)\n\nIf you want my opinion, I'd recommend the countryside because I think that the city in my country is very noisy. (Spanish - Latin American, B1 THRESHOLD, Pass, 2004)\n\nFinally, I'd say that you should talk with your parents and your friends to decide. (French, B1 THRESHOLD, Pass, 2008)\n\nIf you have decided to move, I would say that it is better for you to choose the large school in the centre of the town. (German, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163711534x485840810825062460",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: IMAGINED SITUATIONS IN THE PAST",
+  "can_do_statement": "Can use 'would' to talk about imagined situations in the past. \u25ba conditionals",
+  "example_raw": "The next week I would have flown to Miami to meet George Clooney. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nIf I were in your shoes I would have chosen the school which is in the centre of town\u2026  (Iran; B1 THRESHOLD; 2008; Farsi; Pass)\n\nIf you hadn't helped me, I wouldn't have known how to do that homework project. (Italy; B1 THRESHOLD; 2010; Italian; Pass)\n\nIf I had gone with uncomfortable shoes, I wouldn't have danced all the time. (B1 THRESHOLD; 2008; Spanish - Other; Pass)"
+ },
+ {
+  "egp_id": "1741163711534x522343728787019200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTED SPEECH",
+  "can_do_statement": "Can use 'would' as the past form of 'will' in reported clauses.",
+  "example_raw": "She accepted the invitation and she said that she would come on the 21st of June. (Spanish - European, B1 THRESHOLD, Pass, 2008)\n\nI felt better when he said that he would be in Fenerbahce. (Turkish, B1 THRESHOLD, Pass, 2009)\n\nHe told me I would like it and he was right! (Italy; B1 THRESHOLD; 2003; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163711534x531065253308636860",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: WILLINGNESS IN THE PAST",
+  "can_do_statement": "Can use the negative forms of 'would' to talk about willingness in the past.",
+  "example_raw": "We had to leave without you because the bus driver wouldn't wait. (===NONE===, B1 THRESHOLD, Pass, 2004)\n\n[talking about a guitar] It was all that I wanted in life but my parents would not allow me to buy it. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)"
  }
 ]
 ```

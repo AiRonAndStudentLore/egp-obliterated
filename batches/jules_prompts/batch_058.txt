@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_058.json`
 ```json
 [
  {
-  "egp_id": "1741163714317x657607295889508100",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE + 'ANYTHING'",
-  "can_do_statement": "Can use 'anything' after a negative verb form. ",
-  "example_raw": "You don't have to bring anything. (Italy; A2 WAYSTAGE; 2006; Italian; Pass)\n\nWhen I want to eat something in the night, I can't find anything because it is too dark. (A2 WAYSTAGE; 2009; Polish; Pass)"
- },
- {
-  "egp_id": "1741163714317x868674191941517700",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH 'ELSE'",
-  "can_do_statement": "Can use indefinite pronouns with 'else'.",
-  "example_raw": "Have you got something else to do on Saturday or can you come with me? (Italy; A2 WAYSTAGE; 2010; Italian; Pass)\n\nWe have to bring some paints, but nothing else. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)\n\nIf you need anything else, you'll find it in the classroom. (Lebanon; A2 WAYSTAGE; 2006; Arabic - Levant; Pass)\n\nI'm going to a rock concert on Saturday, but I have three tickets for two people (me and my brother) and I am looking for someone else to go with me, so, would you like to go? (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163714317x913697265372224600",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: WITH 'TO' INFINITIVE, SPECIFYING",
-  "can_do_statement": "Can modify 'something' or 'anything' with 'to' infinitive, to make it more specific.",
-  "example_raw": "Please, bring something to drink. (Italy; A2 WAYSTAGE; 2009; Italian; Pass)\n\nBring some sweets and something to wear if you get cold. (France; A2 WAYSTAGE; 2009; French; Pass)\n\nI had to buy them because I didn't have anything to wear on my holidays. (Cyprus; A2 WAYSTAGE; 2008; Greek; Pass)"
- },
- {
-  "egp_id": "1741163714318x692180587563757700",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "3",
-  "guideword": "FORM: OBJECT OR COMPLEMENT",
-  "can_do_statement": "Can use a wide range of indefinite pronouns as objects or complements. ",
-  "example_raw": "I often watch TV, because my computer is broken and I have nothing to do. (Georgia (Republic of); B1 THRESHOLD; 2007; Georgian; Pass)\n\n\u2026 there was nothing on the wall. (India; B1 THRESHOLD; 2009; Gujarati; Pass)\n\nIt's a tennis club and the people there were all strangers for me, I didn't know anyone. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nWhen I arrived at his house there wasn't anyone there. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nHe went everywhere in the world! (Italy; B1 THRESHOLD; 2009; Italian; Pass)"
- },
- {
-  "egp_id": "1741163714318x723007439946632600",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "2",
-  "guideword": "FORM: SUBJECT",
-  "can_do_statement": "Can use an increasing range of indefinite pronouns ('something', 'nobody') as subjects, with a singular verb. ",
-  "example_raw": "I was so confused that I thought something was happening. (Argentina; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nUnfortunately something has happened with the airplane's schedule, so I won't be able to arrive at 1.15 pm, as we agreed. (Peru; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nSo I tried to call for help, but nobody answered. (Czech Republic; B1 THRESHOLD; 2009; Czech; Pass)"
- },
- {
-  "egp_id": "1741163714319x138758397083681870",
-  "level": "B2",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: WITH RELATIVE CLAUSES, FOCUS",
-  "can_do_statement": "Can use indefinite pronouns with a relative clause to form complex noun phrases, to give focus.",
-  "example_raw": "Something that I like very much is the idea of the classes. (Greece; B2 VANTAGE; 2004; Greek; Pass)\n\nSomething extra, which is not really pleasant, is their behavior. (B2 VANTAGE; 2006; Polish; Pass)\n\nSomething really good about it is that it'd give us some work experience, which we don't have right now. (Uruguay; B2 VANTAGE; 2004; Spanish - Latin American; Pass)\n\nEverything that I believed changed and without any help I managed to write perfectly, according to my teacher. (Greece; B2 VANTAGE; 2002; Greek; Pass)\n\nEveryone who can use a computer can use the new products. (China; B2 VANTAGE; 2008; Chinese; Fail)"
- },
- {
-  "egp_id": "1741163714319x415686089243547200",
-  "level": "C1",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'ANYTHING', ELLIPSIS",
-  "can_do_statement": "Can use 'anything' in an ellipted clause, ('if there is anything \u2026'). ",
-  "example_raw": "Anything else you need, ask Sarah. (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)\n\nAnything you need in connection with my report, please don't hesitate to contact me. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Spanish - European; Pass)\n\nAnything you want to ask me, feel free to do so. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)"
- },
- {
-  "egp_id": "1741163714319x819857917369870600",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: PREMODIFIERS, INTENSIFYING",
-  "can_do_statement": "Can use premodifiers with indefinite pronouns, often to intensify. ",
-  "example_raw": "You can find absolutely anything, whatever you need. (Kazakhstan; B1 THRESHOLD; 2008; Kazakh; Pass)\n\nI like to wear a T-shirt with jeans almost everywhere I go. (Brazil; B1 THRESHOLD; 2006; Portuguese; Pass)\n\nNearly everyone I know sits at a computer all day. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)"
- },
- {
-  "egp_id": "1741163714319x832568399007343700",
-  "level": "C1",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'ANYTHING', FOCUS ",
-  "can_do_statement": "Can use 'anything' with post-modifiers to form complex noun phrases as subjects with a singular verb, to give focus. ",
-  "example_raw": "Anything else can be attached too if needed. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Chinese; Pass)\n\nAnything to show how happy you are for them will do. (Korea, South; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Korean; Pass)\n\nAnything that puts you in contact with the English language is important. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass) "
- },
- {
-  "egp_id": "1741163714319x927217125425351800",
-  "level": "B2",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "3",
-  "guideword": "FORM: SUBJECT",
-  "can_do_statement": "Can use the full range of indefinite pronouns as subjects, with a singular verb. ",
-  "example_raw": "But, nowadays nothing is free, so you have to pay for everything. (Hungary; B2 VANTAGE; 2002; Hungarian; Pass)\n\nHer parents had told her everything weeks ago; she had cried and argued, but nothing could change her parents\u2019 opinion. (Germany; B2 VANTAGE; 2008; German; Pass)\n\nYes it was Christmas, that's why everybody tried to smile. (Switzerland; B2 VANTAGE; 1993; French; Pass)\n\nEverywhere is green and clean. (Turkey; B2 VANTAGE; 2003; Turkish; Pass)\n\nWhen we came back home, everywhere was very untidy. (Poland; B2 VANTAGE; 1993; Polish; Fail)\n\nI searched my car to see if anything was missing. (Greece; B2 VANTAGE; 2002; Greek; Pass)"
- },
- {
-  "egp_id": "1741163714319x940429972413785400",
-  "level": "B2",
-  "super_category": "PRONOUNS",
-  "sub_category": "indefinite - thing, -one, -body etc",
-  "lexical_range": "N/A",
-  "guideword": "USE: VAGUE EXPRESSIONS",
-  "can_do_statement": "Can use indefinite pronouns in vague expressions to refer to things in a non-specific way. ",
-  "example_raw": "Is it worth having a nervous breakdown or anything like that? (Portuguese, B2 VANTAGE, Pass, 1993 )\n\nMy personal idea to help the environment is to try to plant more trees around the college, for example, in the zone behind the college or somewhere else. (B2 VANTAGE; 2009; Spanish - Other; Pass)"
- },
- {
   "egp_id": "1741163713636x789319610613430500",
   "level": "A2",
   "super_category": "PRONOUNS",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_058.json`
   "guideword": "FORM: + 'OF YOURS' ",
   "can_do_statement": "Can use the possessive pronoun 'yours' after noun + 'of'.",
   "example_raw": "Maybe you can take a friend of yours with you there. (Preliminary English Test; B1; German)\n\nI think that it's a very good idea of yours to come to the UK. (Skills for Life (Entry 3); Spanish)\n\nYou can ask some friends of yours to join you. (Preliminary English Test; B1; Greek)"
+ },
+ {
+  "egp_id": "1741163713638x152872542688260900",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'OURS' AS OBJECT",
+  "can_do_statement": "Can use the possessive pronoun 'ours' with singular and plural reference, in object positions, and complement positions after 'be' and after prepositions.",
+  "example_raw": "Can we rent windsurf boards or should we bring ours with us? (First Certificate in English; B2; Turkish)\n\n[talking about characters in a book] \u2026 when we read about them we think that we are the characters and we live their stories as if they were ours. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nAldous Huxley was able to create a new world which is not so different from ours. (First Certificate in English; B2; Spanish \u2013European)\n\n This road shouldn't be allowed in the middle of a small town like ours. (First Certificate in English; B2; Polish)"
+ },
+ {
+  "egp_id": "1741163713638x185275902393746900",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPARATIVE CLAUSES WITH 'OURS', 'HERS'",
+  "can_do_statement": "Can use the possessive pronouns 'hers' and 'ours' in comparative clauses.",
+  "example_raw": "I told my mother that your Spanish omelette is better than hers. (First Certificate in English; B2; Spanish \u2013 European) \n\nLots of changes which may occur during the next fifty years can make us fear that our sons' and grandsons' lives will not be as happy as ours. (Switzerland; B2 VANTAGE; 2002; French; Pass)"
+ },
+ {
+  "egp_id": "1741163713638x218168046477418500",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: +  'OF OURS'",
+  "can_do_statement": "Can use the possessive pronoun 'ours' after noun + 'of'.",
+  "example_raw": "Finally we went to Venice where we met some friends of ours and spent with them the rest of the holiday. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nThe credit crunch is heavily affecting this region, therefore all retail sales have fallen and many competitors of ours are decreasing their sales too. (Italy; B2 VANTAGE; 2009; Italian; Pass)\n\nPaul, a classmate of ours, will be the D.J. and we are thinking of listening to rock music, since Mr. Brown likes it. (Greece; B2 VANTAGE; 2000; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163713638x836792370741996700",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'OURS' AS SUBJECT ",
+  "can_do_statement": "Can use the possessive pronoun 'ours', with singular and plural reference, in subject position. ",
+  "example_raw": "Ours is the only store in this locality which opens at 7.00 am. (Business English Certificate (Vantage); B2; Tamil) \n\nOurs is a retail company with 5 outlets, dealing in furnishings. (India; B2 VANTAGE; 2006; Hindi; Pass)\n\nIn order to persuade them, we would like to show comparisons between our products and the ones from other companies to demonstrate that ours are more effective and efficient. (Uruguay; B2 VANTAGE; 2006; Spanish - Latin American; Fail)\n"
+ },
+ {
+  "egp_id": "1741163713638x866856905336536400",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'HERS' AS OBJECT",
+  "can_do_statement": "Can use the possessive pronoun 'hers', with singular reference, in object positions, and complement positions after 'be' and after prepositions.",
+  "example_raw": "At the entrance, the security guard asked for my identity card. Pat gave hers. (First Certificate in English; B2; French)\n\nShe didn't remember leaving it there, it wasn't even hers, which is what frightened her the most. (Peru; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\nBut when she gave this suitcase a good look, she realised that it wasn't hers. (Netherlands; B2 VANTAGE; 2008; Dutch; Pass)\n\nShe saw him on a train running parallel to hers. (First Certificate in English; B2; German)"
+ },
+ {
+  "egp_id": "1741163713638x869888127836414100",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPARATIVE CLAUSES WITH 'MINE', 'YOURS'",
+  "can_do_statement": "Can use the possessive pronouns 'mine' and 'yours', with singular reference, in comparative clauses after '(not) as \u2026 as'.",
+  "example_raw": "Hope you have a friend as good as mine! (Preliminary English Test for Schools; Malaysia; B1 THRESHOLD; 2009; Chinese; Pass)\n\nMy bedroom is not as big as yours but it is lovely. (Preliminary English Test; Cyprus; B1 THRESHOLD; 2001; Turkish; Pass)\n\nMy town isn't very big, so I think it won't grow as fast as yours. (Preliminary English Test; Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI hope [\u2026] my English becomes as good as yours. (Preliminary English Test; Iran; B1 THRESHOLD; 2002; Farsi; Pass)"
+ },
+ {
+  "egp_id": "1741163713638x947110035097887900",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "General comment",
+  "can_do_statement": null,
+  "example_raw": "  "
+ },
+ {
+  "egp_id": "1741163713638x992181446700698200",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'YOURS' AS SUBJECT",
+  "can_do_statement": "Can use the possessive pronoun 'yours', with singular reference, in subject position.",
+  "example_raw": "We bought it because yours is very old and sometimes stops working. (Uruguay; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)\n\nI really needed some extra information, and yours was very useful. (Spain; B1 THRESHOLD; 2010; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163713861x328259304388360100",
+  "level": "C1",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'OURS' AS SUBJECT ",
+  "can_do_statement": "Can use the possessive pronoun 'ours', in subject position. ",
+  "example_raw": "I hope that other councils will consider improving the cyclists' cycling conditions as ours did. (Skills for Life; L2; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Arabic - Other; Fail)\n\nYes, of course there are much larger gardens in this area, but ours is more than four times as big as the one we had in Holland. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Dutch; Pass)\n\nWhat is more, the manager organises excursions to London. Ours was breathtaking. We visited unbelievably interesting museums\u2026 (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163713861x378989306596738050",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'THAT \u2026 OF'",
+  "can_do_statement": "Can use 'that \u2026 of' + possessive pronouns to express an attitude about someone or something, often in humorous or sarcastic contexts. ",
+  "example_raw": "I could just imagine it, meeting her at her house, her mother asking me to take care of her between puffs of smoke and coughing fits in that hoarse voice of hers. (Certificate of Proficiency in English; C2; Portuguese)\n\nI kept silent when I was introduced to that new girlfriend of his. (Certificate of Proficiency in English; C2; Portuguese)\n\nYou can park that precious jeep of yours. (Certificate of Proficiency in English; C2; Polish)\n\nI've been looking all over for that bright great-nephew of mine. (Certificate of Proficiency in English; C2; Spanish \u2013 Latin American)"
+ },
+ {
+  "egp_id": "1741163713861x561082941367103500",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "possessive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THEIRS' AS OBJECT ",
+  "can_do_statement": "Can use the possessive pronoun 'theirs', with singular and plural reference, in object positions, and complement positions after 'be' and after prepositions. ",
+  "example_raw": "I could show them the traditional things of our country and learn theirs. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nShe told him that this baby was theirs. (Germany; B2 VANTAGE; 1997; Turkish; Pass)\n\nRed Stone are a very big group, you know that I'm a great fan of theirs. (Greece; B2 VANTAGE; 2002; Greek; Fail)\n\nI realise that it can be a very interesting experience and I can also improve my foreign language as well as theirs. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)"
  }
 ]
 ```

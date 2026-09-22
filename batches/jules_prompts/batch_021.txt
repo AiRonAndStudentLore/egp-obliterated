@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_021.json`
 ```json
 [
  {
-  "egp_id": "1741163709472x799988979606151400",
-  "level": "B1",
-  "super_category": "FUTURE",
-  "sub_category": "future with be going to",
-  "lexical_range": "N/A",
-  "guideword": "USE: PLANS IN THE PAST",
-  "can_do_statement": "Can use the past form of 'be going to' (often followed by 'but') to talk about a plan, sometimes one that may have changed.  ",
-  "example_raw": "We were going to get married two months ago but we broke up and I really didn't know why. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nWe were going to have a cup of coffee on Tuesday morning, do you remember? (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
- },
- {
-  "egp_id": "1741163709473x242654561345864160",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "present continuous for future use",
-  "lexical_range": "1",
-  "guideword": "USE: FUTURE ARRANGEMENTS",
-  "can_do_statement": "Can use the present continuous with a limited range of verbs to talk about future arrangements.",
-  "example_raw": "I'm working this Saturday and Sunday morning. (Spanish - European, A2 WAYSTAGE, Pass, 2009)\n\nWe are having the meal at 7pm. (A2 Polish)\n\nThey are going back on 20th July. (A2 Ukrainian)"
- },
- {
-  "egp_id": "1741163709473x284037098314951170",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "present continuous for future use",
-  "lexical_range": "1",
-  "guideword": "USE: QUESTIONS ABOUT THE FUTURE",
-  "can_do_statement": "Can use the present continuous with a limited range of verbs to ask about future plans.",
-  "example_raw": "[talking about a Rolling Stones concert] Are you coming? (Swiss German, A2 WAYSTAGE, Pass, 2010)\n\n[talking about a party] It starts at 6. When are you coming? (A2 Turkish)\n\n[asking about holidays] Where are you going? (A2 Tagalog)"
- },
- {
-  "egp_id": "1741163709473x494283441514848260",
-  "level": "B1",
-  "super_category": "FUTURE",
-  "sub_category": "present continuous for future use",
-  "lexical_range": "2",
-  "guideword": "USE: FUTURE ARRANGEMENTS",
-  "can_do_statement": "Can use the present continuous with an increasing range of verbs to talk about future arrangements.",
-  "example_raw": "I\u2019m attending my grandmother\u2019s funeral tomorrow. (B1 Malay)\n\nWe\u2019re expecting a child very soon. (B1 Chinese)\n\nThe movie is starting at 8 o\u2019clock. (B1 Czech)"
- },
- {
-  "egp_id": "1741163709473x902891256431768200",
-  "level": "B1",
-  "super_category": "FUTURE",
-  "sub_category": "present continuous for future use",
-  "lexical_range": "2",
-  "guideword": "USE: QUESTIONS ABOUT THE FUTURE",
-  "can_do_statement": "Can use the present continuous with an increasing range of verbs to ask about future plans.",
-  "example_raw": "Are you visiting my country on your next holiday? (B1 Korean)\n\nWhy are you moving to a different area? (B1 Arabic Levant)"
- },
- {
-  "egp_id": "1741163709473x972778365312376400",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "present continuous for future use",
-  "lexical_range": "3",
-  "guideword": "USE: FUTURE ARRANGEMENTS",
-  "can_do_statement": "Can use the present continuous with a wide range of verbs to talk about future arrangements.",
-  "example_raw": "We\u2019re throwing a party for fun on 5th January. (B2 French)\n\nShe is joining the course on Friday. (B2 Dutch)"
- },
- {
-  "egp_id": "1741163709666x931279969752233300",
-  "level": "B2",
-  "super_category": "FUTURE",
-  "sub_category": "present continuous for future use",
-  "lexical_range": "3",
-  "guideword": "USE: QUESTIONS ABOUT THE FUTURE",
-  "can_do_statement": "Can use the present continuous with a wide range of common verbs to ask about future plans.",
-  "example_raw": "So are you planning to visit Japan then? (B2 Japan) \n\nWhen is the festival starting and when is it finishing? (Czech, B2 VANTAGE, Pass, 2008)\n\nWhat kind of seminar materials are you providing? (German, B2 VANTAGE, Pass, 2000)"
- },
- {
-  "egp_id": "1741163709666x240355824465352520",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "present simple for future use",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH 'WHEN'",
-  "can_do_statement": "Can use the present simple with 'when' to refer to the future. ",
-  "example_raw": "I'll tell you more when I meet you. (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)\n\nCan you, please, call me when you find it? (Brazil; A2 WAYSTAGE; 2005; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163709666x476412061092230640",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "present simple for future use",
-  "lexical_range": "N/A",
-  "guideword": "USE: TIMETABLES AND PLANS",
-  "can_do_statement": "Can use the present simple to talk about timetabled events in the future.",
-  "example_raw": "[Talking about a film] It begins on 8 o'clock in the evening. (Switzerland; A2 WAYSTAGE; 2009; Swiss German; Pass)\n\nThe class is on Monday.  It starts at 6:00 pm and finishes at 7:00 pm. (Cuba; A2 WAYSTAGE; 2006; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163709666x869572460282350800",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "present simple for future use",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'HOPE'",
-  "can_do_statement": "Can use the present simple with 'I hope' to talk about hopes and wishes for the future.",
-  "example_raw": "I hope you enjoy your holiday too. (A2, Chinese)\n\nI hope you come to visit me soon. (A2, Spanish \u2013 Latin American)"
- },
- {
-  "egp_id": "1741163710384x781429758496606800",
-  "level": "B1",
-  "super_category": "FUTURE",
-  "sub_category": "present simple for future use",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH 'AS SOON AS'",
-  "can_do_statement": "Can use the present simple with 'as soon as' to refer to the future. ",
-  "example_raw": "I'm planning to move as soon as I finish college because job opportunities in my area aren't good. (B1 Portuguese)\n\nI will let you know as soon as I get the exact date. (Colombia; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
- },
- {
   "egp_id": "1741163710384x991044369751703600",
   "level": "C1",
   "super_category": "FUTURE",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_021.json`
   "guideword": "FORM: 'IT' + 'BE' + 'IMPORTANT' + CLAUSE ",
   "can_do_statement": "Can use 'it' + 'be' + 'important' + ('that') clause. ",
   "example_raw": "It's important that you take breaks and don't work all the time. (Germany; B1 THRESHOLD; 2009; German; Pass)\n\nIt's important that you eat healthy food. (Mexico; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI think it's important that you analyze each point to decide what to do. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163710385x500120926290810800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF'-CLAUSE + 'POSSIBLE', POLITENESS",
+  "can_do_statement": "Can use 'if-' clauses + 'possible', as a politeness strategy. ",
+  "example_raw": "If it is possible I would like to pay by credit card. (B1 THRESHOLD; 2003; ; Pass)\n\nIf possible, please re-deliver the same goods right now. (China; B1 THRESHOLD; 2002; Chinese; Pass)\n\nI'm not free at 6 so I'd change it to 9 if it's possible. (Libya; B1 THRESHOLD; 2008; Arabic - Meghreb; Pass)\n\nIf it's possible, could you send the cards to my office in London? (Sweden; B1 THRESHOLD; 2000; Swedish; Pass)\n\nI would prefer the 15th of July if it is possible. (Austria; B1 THRESHOLD; 2009; German; Pass)\n\nThe opening hours are quite convenient but, if possible, I would like the pool to open a bit earlier - at 8.30 am, for example. (Greece; B2 VANTAGE; 2004; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163710385x581159408154841040",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IT' + 'BE' + ADJECTIVE + INFINITIVE, HEDGING, EMPHASIS",
+  "can_do_statement": "Can use 'it' + 'be' + adjective + 'to' + infinitive, to make an assertion more or less direct. ",
+  "example_raw": "Our sales department staff are heavily involved in several international projects, so it is necessary to improve their foreign language skills. (Germany; B1 THRESHOLD; 2006; German; Pass)\n\nBut sometimes it's essential to do what your parents want you to do. (Georgia (Republic of); B1 THRESHOLD; 2008; Georgian; Pass)\n\nIn the centre of town it is possible to do more activities after school. (Italy; B1 THRESHOLD; 2008; German; Pass)\n\n[talking about a computer problem] It was impossible to install the system. (Ecuador; B2 VANTAGE; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163710385x692584626357576800",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'BE' + 'SURE' + CLAUSE ",
+  "can_do_statement": "Can use 'I' + 'be' + 'sure' + clause.",
+  "example_raw": "I'm sure I can beat you at chess. (Malaysia; A2 WAYSTAGE; 2007; Malay; Pass)\n\nI am not sure what I want to do but I am sure we will find something to do. (Norway; A2 WAYSTAGE; 2003; Norwegian; Pass)\n\nI\u2019m sure that you will love it. (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163710385x880822948927010600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'IT' + 'BE' + ADJECTIVE + 'FOR' + OBJECT + INFINITIVE",
+  "can_do_statement": "Can use 'it' + 'be' + adjective + 'for' + object + 'to' + infinitive.",
+  "example_raw": "If you have to choose between two schools, I think it's important for you to know what they\u2019re like. (Peru; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nIt's impossible for me to meet with you at six o'clock. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nIt is important for everyone to attend this meeting. (Germany; B1 THRESHOLD; 1999; German; Pass)\n\n[talking about not missing class] It's essential for me to go because I think I can't study physics by myself. (Iran; B1 THRESHOLD; 2006; Farsi; Pass)"
+ },
+ {
+  "egp_id": "1741163710386x348002796343913640",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'IT' + LINKING VERB + ADJECTIVES + CLAUSE",
+  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause. ",
+  "example_raw": "It seems clear to me that swimming is good for the whole body. (B2 VANTAGE; 1993; Swedish; Pass)\n\nIt is obvious that some people prefer reading books. (Poland; B2 VANTAGE; 2008; Polish; Pass)\n\nIt is possible that we can be educated by TV. (Japan; B2 VANTAGE; 2004; Japanese; Pass)\n\nIt seems obvious that it is not necessary. (Switzerland; B2 VANTAGE; 2008; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710387x307020078437927360",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IT' + LINKING VERB + ADJECTIVES + CLAUSE, HEDGING",
+  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause to make an assertion less direct.",
+  "example_raw": "It does not seem possible that we can live without any private life. (Japan; B2 VANTAGE; 2000; Japanese; Pass)\n\nIt is likely that by reading books we will learn some new words and phrases so that we will be able to write better. (Poland; B2 VANTAGE; 2008; Polish; Pass)\n\nIt is possible that only one computer will do this. (Moldova (Republic of); B2 VANTAGE; 2000; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163710387x650967748684691500",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IT' + LINKING VERB + ADJECTIVES + ('THAT') CLAUSE, FOCUS",
+  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause as a focusing device.",
+  "example_raw": "It is clear that we can't live without computers today. (Russia; B2 VANTAGE; 1999; Russian; Pass)\n\nIt seems obvious that this oil comes from the gas station. (other; B2 VANTAGE; 2008; French; Pass)\n\nComputers became part of the human life style because they help us to make our lives easier, but it is clear that we should never depend on machines to handle our lives. (Mexico; B2 VANTAGE; 1999; Spanish - Latin American; Pass)\n\nDue to the introduction of a new staff appraisal form, it is crucial that you take part. (Switzerland; B2 VANTAGE; 2010; Swiss German; Pass)\n\nIt's obvious you can't ride forty kilometres twice a day, unless you're very sporty. (France; B2 VANTAGE; 1993; French; Pass)\n\nIt is essential that you know the advantages of our new product in order to sell this bag efficiently. (Germany; B2 VANTAGE; 2005; German; Pass)"
+ },
+ {
+  "egp_id": "1741163710387x670189134684302700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: SUBJECT + 'BE' + ADJECTIVE + 'TO' + INFINITIVE ",
+  "can_do_statement": "Can use pronoun or noun + 'be' + adjective + 'to' + (past) infinitive. ",
+  "example_raw": "They are unlikely to arrive on Friday. (India; B2 VANTAGE; 2008; Hindi; Pass)\n\nWe are sure to increase our turnover and at least our profit. (Austria; B2 VANTAGE; 2008; German; Pass)\n\nWhenever money is involved, some problems are likely to happen. (Spain; B2 VANTAGE; 2000; Spanish - European; Pass)\n\nIf you see a movie, it is likely to have been made with computers. (Switzerland; B2 VANTAGE; 1999; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710388x558221911355252500",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MODIFYING ADJECTIVES, EMPHASIS",
+  "can_do_statement": "Can modify adjectives with adverbs, often for emphasis.",
+  "example_raw": "It is painfully obvious that it will rescue our city from the pollution and fumes that cars are producing. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Polish; Fail)\n\n[talking about stolen goods] It is highly unlikely that the goods can vanish from your warehouse without that being noticed. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163710388x886068932656131300",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MODIFYING ADJECTIVES, HEDGING",
+  "can_do_statement": "Can modify adjectives with degree adverbs, often to make an assertion less direct.",
+  "example_raw": "If you want to come earlier or if there's a public transport strike (which is quite probable), you will have to take a taxi. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)\n\nIt is almost certain that we'll have fights in the future but we will probably overcome them. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163711535x514214856539001000",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM: CLAUSE POSITION",
+  "can_do_statement": "Can use adverbs of certainty and possibility ('maybe', 'perhaps'), before a clause or ellipted clause. \u25ba adverbs: position",
+  "example_raw": "I think I left my phone there, maybe in your kitchen. (Italy; A2 WAYSTAGE; 2005; Italian; Pass)\n\nMaybe we could visit that park you told me about or play at your house. (Mexico; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nI want to buy new trousers and, perhaps, a T-shirt. (Spain; A2 WAYSTAGE; 2001; Catalan; Pass)\n\nThere you can dance, eat, drink and meet new friends (or perhaps a girlfriend). (Brazil; A2 WAYSTAGE; 2010; Portuguese; Pass)\n\nPerhaps it's in the kitchen under the table. (Switzerland; A2 WAYSTAGE; 2005; Swiss German; Pass)"
  }
 ]
 ```

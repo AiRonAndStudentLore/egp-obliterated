@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_019.json`
 ```json
 [
  {
-  "egp_id": "1741163709453x816599367616623800",
-  "level": "C1",
-  "super_category": "FUTURE",
-  "sub_category": "future perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: POLITENESS",
-  "can_do_statement": "Can use the future perfect simple with 'will' as a politeness strategy, often in formal contexts.",
-  "example_raw": "[from a formal letter] I hope I will have reassured you. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; French; Pass)"
- },
- {
-  "egp_id": "1741163709453x838199776198091500",
-  "level": "A1",
-  "super_category": "FUTURE",
-  "sub_category": "future simple (with will and shall)",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE 'WILL'",
-  "can_do_statement": "Can use the affirmative forms 'will' and ''ll'. ",
-  "example_raw": "I will see you soon. (A1 BREAKTHROUGH; 2009; Urdu; Pass)\n I'll come at 7 o'clock. (A1 BREAKTHROUGH; 2006; Others; Pass)"
- },
- {
-  "egp_id": "1741163709453x862696596004533200",
-  "level": "A1",
-  "super_category": "FUTURE",
-  "sub_category": "future simple (with will and shall)",
-  "lexical_range": "N/A",
-  "guideword": "USE: PLANS AND INTENTIONS WITH 'WILL'",
-  "can_do_statement": "Can use 'will' and ''ll' to talk about plans and intentions. ",
-  "example_raw": "I will try to come to see you tomorrow. (A1 BREAKTHROUGH; 2009; Romanian; Pass)\n\nI'll bring a football ball with me. (A1 BREAKTHROUGH; 2011; Bulgarian; Pass)"
- },
- {
-  "egp_id": "1741163709454x624344823309990100",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "future simple (with will and shall)",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE 'WILL'",
-  "can_do_statement": "Can use the negative forms 'will not' and 'won't'.",
-  "example_raw": "Without them I will not be able to play football. (Spain; A2 WAYSTAGE; 2005; Spanish - European; Pass)\n\nCan you come at 7 o'clock? I won't be at home before.  (Italy; A2 WAYSTAGE; 2009; Italian; Pass)"
- },
- {
-  "egp_id": "1741163709454x714636092733784700",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "future simple (with will and shall)",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS ",
-  "can_do_statement": "Can use the question forms of 'will' and 'shall'.",
-  "example_raw": "Will you come? (Russia; A2 WAYSTAGE; 2006; Russian; Pass)\n\nAnd what shall I bring to the party? (Italy; A2 WAYSTAGE; 2009; Italian; Pass)"
- },
- {
-  "egp_id": "1741163709454x725724780708232700",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "future simple (with will and shall)",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE 'SHALL'",
-  "can_do_statement": "Can use the affirmative form 'shall' with 'I' and 'we'. ",
-  "example_raw": "I shall come with you. (India; A2 WAYSTAGE; 2003; Hindi; Pass)\n\nWe shall take a bus to the sports centre. (Hindi, A2 WAYSTAGE, Pass, 2008)\n\nWe shall go together next year! (Brazil; A2 WAYSTAGE; 2007; Portuguese; Pass))"
- },
- {
-  "egp_id": "1741163709461x334143938995607360",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "future simple (with will and shall)",
-  "lexical_range": "N/A",
-  "guideword": "USE: OFFERS WITH 'SHALL'",
-  "can_do_statement": "Can use 'shall I' to make offers.",
-  "example_raw": "Shall I wait for you? (Mexico; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nShall I buy you one? (Spanish - European, A2 WAYSTAGE, Pass, 2010)"
- },
- {
-  "egp_id": "1741163709461x479205549406747100",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "future simple (with will and shall)",
-  "lexical_range": "N/A",
-  "guideword": "USE: REQUESTS WITH 'WILL'",
-  "can_do_statement": "Can use 'will' to make requests.",
-  "example_raw": "Will you come tomorrow at 6.35 pm to my house? (Italy; A2 WAYSTAGE; 2009; Italian; Pass)\n\n[talking about a parcel] Will you send it for me? (Sri Lanka; A2 WAYSTAGE; 2005; Tamil; Pass)"
- },
- {
-  "egp_id": "1741163709461x970222053180020700",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "future simple (with will and shall)",
-  "lexical_range": "N/A",
-  "guideword": "USE: PLANS AND  INTENTIONS WITH 'WILL'",
-  "can_do_statement": "Can use 'will' to ask about plans and intentions. ",
-  "example_raw": "Will you have a mobile phone? (France; A2 WAYSTAGE; 2007; French; Pass)\n\nWill you come by train? (Switzerland; A2 WAYSTAGE; 2009; Spanish - Other; Pass)"
- },
- {
-  "egp_id": "1741163709462x251946416286091620",
-  "level": "A2",
-  "super_category": "FUTURE",
-  "sub_category": "future simple (with will and shall)",
-  "lexical_range": "N/A",
-  "guideword": "USE: SUGGESTIONS WITH 'SHALL'",
-  "can_do_statement": "Can use 'shall we' to make suggestions.",
-  "example_raw": "Shall we go to my friend's house to get it? (Brazil; A2 WAYSTAGE; 2005; Portuguese; Pass)\n\nShall we go there together? (Kazakhstan; A2 WAYSTAGE; 2009; Kazakh; Pass)"
- },
- {
-  "egp_id": "1741163709462x426193932554453060",
-  "level": "B1",
-  "super_category": "FUTURE",
-  "sub_category": "future simple (with will and shall)",
-  "lexical_range": "N/A",
-  "guideword": "USE:IMMEDIATE PLANS WITH 'SHALL'",
-  "can_do_statement": "Can use 'shall' with 'I' and 'we' to talk about plans and intentions.",
-  "example_raw": "I promise that I shall cover all the work and give it to you tomorrow. (Thai, B1 THRESHOLD, Pass, 2006)\n\nAfter that, I shall go to the beach. (Yugoslavia; B1 THRESHOLD; 2001; Serbian; Pass)\n\nWe shall have a meeting regarding this next week. (India; B1 THRESHOLD; 2006; Telugu; Pass)"
- },
- {
   "egp_id": "1741163709462x479959298523018100",
   "level": "B1",
   "super_category": "FUTURE",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_019.json`
   "guideword": "USE: FIXED PLANS WITH 'WILL'",
   "can_do_statement": "Can use 'will' to talk about fixed plans, often with timetabled times and dates.",
   "example_raw": "The work will start at 8 a.m. and finish at 2 p.m. The new schedule starts on 1 June. (Russia; B1 THRESHOLD; 2007; Russian; Pass)\nI won't be able to get there at the time we agreed. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163709462x817785568593135600",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: WILLINGNESS WITH 'WILL'",
+  "can_do_statement": "Can use 'will' to express willingness. ",
+  "example_raw": "My mother will drive us there. (Malaysia; A2 WAYSTAGE; 2008; Malay; Pass)\n\n\u2026 and my elder sister will help us too. (Bangladesh; A2 WAYSTAGE; 2006; Bengali; Pass)"
+ },
+ {
+  "egp_id": "1741163709469x456116392447661900",
+  "level": "C2",
+  "super_category": "FUTURE",
+  "sub_category": "future simple (with will and shall)",
+  "lexical_range": "N/A",
+  "guideword": "USE: PREDICTIONS WITH 'SHALL'",
+  "can_do_statement": "Can use 'shall' to make predictions, usually in formal contexts.",
+  "example_raw": "Once more I invite you wholeheartedly to stay at my place and I hope we shall meet in November. (Poland; C2 MASTERY; 1998; Polish; Pass)\n\n\u2026 we shall probably have several years more to live. (France; C2 MASTERY; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163709469x118274875968644050",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "USE: INTENTIONS",
+  "can_do_statement": "Can use the affirmative and question forms of 'be going to' talk about plans and intentions. ",
+  "example_raw": "I'm going to use pink paint. (Brazil; A2 WAYSTAGE; 2006; Portuguese; Pass)\n\nMy mum is going to take us by car. (Uruguay; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)\n\nWhat time are you going to come? And what are you going to bring?  (Turkey; A2 WAYSTAGE; 2009; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163709469x290402051352341950",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form. ",
+  "example_raw": "What are you going to wear? (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nWhat colour paint are we going to use? (India; A2 WAYSTAGE; 2006; Hindi; Pass)\n\nAre you going to come tomorrow evening? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163709469x773626805908608900",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form.  ",
+  "example_raw": "[about some new jeans] I 'm going to wear them on holiday. (Turkey; A2 WAYSTAGE; 2008; Turkish; Pass)\n\nIt is going to start at half past four. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)\n\n[about the weather] It's going to be hot. (Taiwan; A2 WAYSTAGE; 2008; Chinese; Pass)\n\nWe are going to take a taxi to get to the sports centre. (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x248062943650194430",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form. ",
+  "example_raw": " I am not going to go to school tomorrow. (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nAlso you can do whatever you want because there is not going to be an adult there to stop you. (Cyprus; B1 THRESHOLD; 2008; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x281157442643926720",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST",
+  "can_do_statement": "Can use the past form of 'be' + 'going to'. \u25ba future in the past",
+  "example_raw": "When we realized it was going to be an extremely hot day, we took water. (Argentina; B1 THRESHOLD; 2003; Spanish - Latin American; Pass)\n\nWe were going to meet at 11.30 am but instead we will meet now at 2.30 pm at the same place. (India; B1 THRESHOLD; 2008; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x450747971941201300",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'be' + 'going to' with a limited range of adverbs, after the auxiliary be form, in the normal mid position. ",
+  "example_raw": "I know that I 'm never going to forget this moment. (Spain; B1 THRESHOLD; 2008; Catalan; Pass)\n\nAlthough we are really happy with your new and, maybe, better job, we are really going to miss you. (Uruguay; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x858774598557581800",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "USE: INTENTIONS",
+  "can_do_statement": "Can use the negative form of 'be going to' to talk about plans and intentions.",
+  "example_raw": "I 'm not going to be able to meet you next Tuesday, because I have to go to the dentist at 5.30. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nI'm sure I'm not going to live in Kutn\u00e1 Hora forever. (Czech Republic; B1 THRESHOLD; 2007; Czech; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x871163716353014800",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "USE: FUTURE IN THE PAST ",
+  "can_do_statement": "Can use the past form of 'be going to' to refer to the future from a point in the past. \u25ba future in the past",
+  "example_raw": "She didn't know what was going to happen. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)\n\nWe were going to meet two days later in the square next to the centre. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163709470x917723267803535400",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "1",
+  "guideword": "USE: PREDICTIONS WITH 'BE' ",
+  "can_do_statement": "Can use 'be going to' with 'be' to make predictions. ",
+  "example_raw": "I think this Saturday is going to be a nice day. (Mexico; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nIt's going to be fantastic. (Peru; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)\n\nIt is going to be great fun. (India; A2 WAYSTAGE; 2009; Tamil; Pass)\n\nYou should wear comfortable clothes because you are going to be hot. (Peru; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)"
  }
 ]
 ```

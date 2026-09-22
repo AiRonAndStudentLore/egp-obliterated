@@ -63,3 +63,15 @@
 - **2026-09-22 10:01** [build] Dual-track build: (1) Jules track — repo created AiRonAndStudentLore/egp-obliterated (private, pushed cc0b388), API key verified working (14 sources visible incl By-Student), jules_spawn_wave.py ready (71 batches x 15 rows, dry-run OK, BLOCKED on web UI repo connect). (2) Training track — corpus: 31,372 real learner sentences from 12 students, 24,645 labeled (78.6%) by 150 rules, 129 can-dos fire on real speech, 21 never-fire (all niche politeness/rare forms); DocBins 19,284/2,449/2,912 (dev=Eliana, test=Leidy+Linda held-out); textcat_multilabel training RUNNING on CPU (PID 3861264)
 - **2026-09-22 10:31** [build] build_batch.py completed jules_batch_001.json: 13/15 passed after 1 cycle(s)
 - **2026-09-22 10:31** [build] build_batch.py jules_batch_001.json: 13/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 10:40** [build] build_batch.py completed jules_batch_002.json: 11/15 passed after 1 cycle(s)
+- **2026-09-22 10:40** [build] build_batch.py jules_batch_002.json: 11/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 10:50** [build] build_batch.py completed jules_batch_007.json: 4/15 passed after 1 cycle(s)
+- **2026-09-22 10:50** [build] build_batch.py jules_batch_007.json: 4/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 10:50** [build] build_batch.py completed jules_batch_009.json: 5/15 passed after 1 cycle(s)
+- **2026-09-22 10:50** [build] build_batch.py jules_batch_009.json: 5/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 10:50** [build] build_batch.py completed jules_batch_013.json: 15/15 passed after 1 cycle(s)
+- **2026-09-22 10:50** [build] build_batch.py jules_batch_013.json: 15/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 10:51** [build] build_batch.py completed jules_batch_014.json: 13/15 passed after 1 cycle(s)
+- **2026-09-22 10:51** [build] build_batch.py jules_batch_014.json: 13/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-22 10:51** [build] build_batch.py completed jules_batch_070.json: 14/15 passed after 1 cycle(s)
+- **2026-09-22 10:51** [build] build_batch.py jules_batch_070.json: 14/15 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows

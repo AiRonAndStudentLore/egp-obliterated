@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_056.json`
 ```json
 [
  {
-  "egp_id": "1741163713636x966355033057875000",
-  "level": "C1",
-  "super_category": "PRESENT",
-  "sub_category": "present simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: NEGATIVE QUESTIONS, OPINION",
-  "can_do_statement": "Can use the negative question form to check opinions.",
-  "example_raw": "Doesn\u2019t it sound fascinating? (Certificate in Advanced English, C1, Korean)\n\nDon't we all like presents? (Certificate in Advanced English, C1, Dutch)\n\nDon't you think that fashion always looks funny if it is not the fashion of today? (Certificate in Advanced English, C1, Russian)"
- },
- {
-  "egp_id": "1741163713875x975509971933302300",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "demonstratives",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'THIS'",
-  "can_do_statement": "Can use 'this' as a pronoun with singular reference.",
-  "example_raw": "This is a very interesting place. (A2 WAYSTAGE; 2008; Panjabi; Pass)\n\nI'm very happy about this. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)"
- },
- {
-  "egp_id": "1741163713876x134748917057494480",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "demonstratives",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'THIS', ALREADY MENTIONED ",
-  "can_do_statement": "Can use 'this' as a pronoun to refer back to single things or groups of plural things which have already been mentioned. ",
-  "example_raw": "Thank you for this. (France; A2 WAYSTAGE; 2004; French; Pass)\n\nI went shopping yesterday at Yalerias;. I bought three green T-shirts, a pair of sneakers and some socks. You might ask, why did I buy all this? (Mexico; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163713876x434828220378989060",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "demonstratives",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'THIS' POINTING ",
-  "can_do_statement": "Can use 'this' as a pronoun to point to or identify single things or entities which are about to follow and have immediate relevance.",
-  "example_raw": "This is my number: 0754 567 78 51. (A2 WAYSTAGE; 2009; Turkish; Pass)\n\nThis is the information about the new art class: the class is on Fridays, and it starts at 4 pm and finishes at 6 pm. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass) "
- },
- {
-  "egp_id": "1741163714098x206083399771320740",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "demonstratives",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'THAT', ALREADY MENTIONED",
-  "can_do_statement": "Can use 'that' as a pronoun to refer back to something which has already been mentioned. ",
-  "example_raw": "You know that blue is my favourite colour, so we are going to use that. (India; A2 WAYSTAGE; 2006; Tamil; Pass)\n\nIt has got a camera, and I like that. (Spain; A2 WAYSTAGE; 2007; Catalan; Pass)\n\nThey look really nice on me, that's why I bought them. (France; A2 WAYSTAGE; 2008; French; Pass)\n\nPlease try to come after 4.30 because I won't be there before that. (Sri Lanka; A2 WAYSTAGE; 2009; Singhalese; Pass)"
- },
- {
-  "egp_id": "1741163714098x430400984906472960",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "demonstratives",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: RESPONSE TOKENS WITH 'THAT'S'",
-  "can_do_statement": "Can use 'that's' + adjective to respond to something. ",
-  "example_raw": "That's great! (Switzerland; A2 WAYSTAGE; 2008; Swiss German; Pass)\n\nThat's a pity! (Argentina; A2 WAYSTAGE; 2004; Spanish - Latin American; Pass)\n\nThat's a good idea! (France; A2 WAYSTAGE; 2005; French; Pass)"
- },
- {
-  "egp_id": "1741163714098x499091268404870700",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "demonstratives",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'THAT'",
-  "can_do_statement": "Can use 'that' as a pronoun with singular reference.",
-  "example_raw": "That was amazing. (Peru; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)\n\nAfter that, we can go and drink a cup of coffee and eat a piece of cake. (Mexico; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163714098x563109573846865860",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "demonstratives",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'THIS', NOW",
-  "can_do_statement": "Can use 'this' as a pronoun to refer to something that is happening now. ",
-  "example_raw": "This is the best holiday I have ever had! (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass) \n\nThis is just a short note to ask you if you want to go with me to the ReggaRton's concert. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163714099x265234166901190180",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "demonstratives",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'THIS', ALREADY MENTIONED",
-  "can_do_statement": "Can use 'this' as a pronoun to refer back to whole clauses or sentences, especially to highlight or continue an important topic. ",
-  "example_raw": "To stay fit I'm eating lots of fruit and vegetables, but meat and fish, too. I think you should do this, too, if you haven't done it in the past. (Germany; B1 THRESHOLD; 2009; German; Pass)\n\nPeople usually don't care about the cost. Because of this, weddings are more amazing. (Spain; B1 THRESHOLD; 2006; Spanish - European; Pass)\n\nMy room seems to be very cold and very unfriendly. I think flowers and pictures change this. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nOur department currently has a lot of work to do, because there are so many conferences to arrange, and it needs a person to be in charge of this. (China; B1 THRESHOLD; 2006; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163714099x270527763674231580",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "demonstratives",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'THOSE'",
-  "can_do_statement": "Can use 'those' as a pronoun with plural reference.  \u25ba  noun phrases",
-  "example_raw": "Most of my clothes are lemon, green or orange, those are my favourite colours! (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nWell, those are my ideas but you are the ones that are coming, and maybe you don't like the countryside. (Argentina; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163714099x322833948123137900",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "demonstratives",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'THOSE', ALREADY MENTIONED",
-  "can_do_statement": "Can use 'those' as a pronoun to refer to things which have already been mentioned.  \u25ba  noun phrases",
-  "example_raw": "Those are the things I like the most about her. (Chile; B1 THRESHOLD; 2009; Spanish - Latin American; Pass) \n\nI don't really think I'd move, but if I had to, I would love to live in a city like Paris or Rome. I'm very keen on cities like those. (Brazil; B1 THRESHOLD; 2010; Portuguese; Pass)"
- },
- {
   "egp_id": "1741163714099x349717141784129860",
   "level": "A2",
   "super_category": "PRONOUNS",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_056.json`
   "guideword": "FORM/USE: 'THIS ONE', 'THAT ONE' SUBSTITUTION",
   "can_do_statement": "Can use 'this one', 'that one' as a substitute for countable singular nouns that have previously been mentioned. ",
   "example_raw": "I don't usually wear dresses but I had to buy this one because I am going to be in a singing competition. (Thailand; B1 THRESHOLD; 2006; Thai; Pass) \n\n[talking about a film] I have chosen that one because of my father and brother, they also like it. (Spain; B1 THRESHOLD; 2006; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163714100x832020859880195100",
+  "level": "B1     ",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MODIFYING",
+  "can_do_statement": "Can use quantifying determiners + 'of' with demonstrative pronouns  \u25ba determiners: demonstrative",
+  "example_raw": "If you can't, you must choose one of these. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nAnd we have to go to Sydney to see all of that. (Spain; B1 THRESHOLD; 2001; Spanish - European; Pass)\n\nThere are a lot of programmes in my country, but only some of these are interesting. (France; B1 THRESHOLD; 2010; French; Pass) "
+ },
+ {
+  "egp_id": "1741163714101x204016393074029760",
+  "level": "C1",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THAT OF', 'THOSE OF'",
+  "can_do_statement": "Can use 'that of' and 'those of' as a possessive form, in formal and professional contexts. ",
+  "example_raw": "It is widely known that the Russian educational system differs dramatically from that of the European, Asian or American countries. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Russian; Pass) \n\nThe strength of our product is that it fits the customers' demands - especially those of middle-aged single consumers. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; German; Pass)\n\nTherefore, I urge you to publish this letter and reconsider your opinions, which clearly do not reflect those of the general population. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163714101x483581657596987140",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THOSE', SUBSTITUTION ",
+  "can_do_statement": "Can use 'those' as a substitute, followed by a relative clause or '-ed' or '-ing'. ",
+  "example_raw": "Moreover, for those who are not interested in sports and who prefer shopping, it would be a good idea to prevent cars and especially lorries from running in the center of the town. (France; B2 VANTAGE; 1993; French; Pass)\n\nIn my opinion students should be forced to study all of the subjects, not only those which are enjoyable. (Polish, B2 VANTAGE, Pass, 2008)\n\n[talking about buildings]  Those that can be rebuilt wouldn't be demolished. (Spain; B2 VANTAGE; 1993; Catalan; Pass)\n\nThe opening hours of the store came in for a lot of praise, with 87% of those surveyed ranking it as good. (India; B2 VANTAGE; 2003; Tamil; Pass)\n\nAll those attending are requested to be on time. (Urdu, B2 VANTAGE, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163714101x765546723658128100",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THESE ONES', 'THOSE ONES' SUBSTITUTION",
+  "can_do_statement": "Can use 'these ones', 'those ones' as a substitute for plural countable nouns that have previously been mentioned.",
+  "example_raw": "This is only the beginning; there are a lot of things that should be done, but let's just start with these ones. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nI have got several of those ones. (Hungary; B2 VANTAGE; 1993; Hungarian; Pass)"
+ },
+ {
+  "egp_id": "1741163714319x193965760925490560",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "generic use",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'ONE', GENERAL, FORMAL",
+  "can_do_statement": "Can use 'one' to refer to people in general, in formal contexts. ",
+  "example_raw": "The television, I think, is like a box where one can find anything: rubbish and good things. (Italian, B1 THRESHOLD, Pass, 2007) \n\nOne more reason I like Singapore is that one sees cats everywhere.(Tulu, 2010)"
+ },
+ {
+  "egp_id": "1741163714319x695175885408785500",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "generic use",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'YOU', GENERAL",
+  "can_do_statement": "Can use 'you' to refer to people in general. ",
+  "example_raw": "My new mobile phone can do lots of things! You can play games, you can take pictures. (Turkish, A2 WAYSTAGE, Pass, 2007)\n\nLet's say if you want to travel to China, you need to learn a little Chinese. (Nepali, 2011)"
+ },
+ {
+  "egp_id": "1741163714320x570187312160225660",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "generic use",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'WE', 'US', GENERAL",
+  "can_do_statement": "Can use 'we' and 'us' to refer to people in general.",
+  "example_raw": "These days the car is everywhere, we can see cars all over the world. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nIn this film we can see the life of a female teenager \u2026 in South-Africa. (Switzerland; B2 VANTAGE; 1999; German; Pass)\n\nWe all know that being a writer is difficult; either we know how to write or we don't. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nSome of us find it very useful, whereas others still have difficulty in accepting technology as a valuable thing for everyone. (Poland; B2 VANTAGE; 2001; Polish; Pass)\n\n[talking about zoos giving us a chance to see many exotic animals] Zoos give us different opportunities to do that and so to understand nature. (Germany; B2 VANTAGE; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163714321x943493236628559500",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "generic use",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: GENDER NEUTRAL",
+  "can_do_statement": "Can use 'they/them' to refer back to indefinite pronouns when we do not know the number or gender.",
+  "example_raw": "If someone is watching a film that they don't like they can always choose another channel to watch to. (Portugal; B2 VANTAGE; 1993; Portuguese; Fail)\n \nIf anyone wishes to make any presentation they can contact Mr. Hari, Events Department. (India; B2 VANTAGE; 2010; Tamil; Pass)\n \nIf a student wants to make music there is no point teaching them science, but to be a good musician I think general knowledge is important as well . (Turkey; B2 VANTAGE; 2008; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163715024x612825975757156400",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "generic use",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: GENDER NEUTRAL",
+  "can_do_statement": "Can use 'he/she', 'he' or 'she' or 'they' to refer back to gender neutral singular nouns or indefinite pronouns when we are not sure of the gender.",
+  "example_raw": "If a child had free time, he/she would play on his/her own and not with other children. (Greece; B2 VANTAGE; 2006; Greek; Pass)\n\nFurthermore, if somebody wants to be a journalist, he or she has to have an enormous knowledge of the world and people, because sometimes they must act like psychologists in order to obtain pieces of information. (Poland; B2 VANTAGE; 2005; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163714316x327680895714844900",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "2",
+  "guideword": "FORM: OBJECT OR COMPLEMENT",
+  "can_do_statement": "Can use an increasing range of indefinite pronouns as objects or complements of prepositions. ",
+  "example_raw": "[talking about a phone] I need it because I have to call someone. (Brazil; A2 WAYSTAGE; 2005; Portuguese; Pass)\n\nI invited everyone in the school but some people didn't come \u2026 (Brazil; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nI have borrowed it from somebody. (India; A2 WAYSTAGE; 2005; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163714316x468029054820445100",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "indefinite - thing, -one, -body etc",
+  "lexical_range": "1",
+  "guideword": "FORM: OBJECT",
+  "can_do_statement": "Can use a limited range of indefinite pronouns as objects. ",
+  "example_raw": "I like doing everything at College because I love my college \u2026 (A1 BREAKTHROUGH; 2007; Arabic - Other; Pass)\n\nI like to eat everything. (A1 BREAKTHROUGH; 2006; Polish; Pass)\n\nI can clean your house and cook something for you. (A1 BREAKTHROUGH; 2009; Portuguese; Pass)\n\nIf you need anything, please let me know. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)"
  }
 ]
 ```

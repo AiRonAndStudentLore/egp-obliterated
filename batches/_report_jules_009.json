@@ -1,0 +1,118 @@
+{
+ "batch": "batches/jules_batch_009.json",
+ "cycles": 1,
+ "passed": 5,
+ "total": 15,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163708567x363468807312569340",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708567x510473221734893950",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'I asked her if she wanted tea, but she declined.'",
+    "spaCy FALSE-POSITIVE on negative: 'I asked her if she wanted tea, but she declined.'",
+    "regex FALSE-POSITIVE on negative: 'I am not sure if it will work.'",
+    "spaCy FALSE-POSITIVE on negative: 'I am not sure if it will work.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708567x890527430865632800",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'I want to go to the park.'",
+    "regex FALSE-POSITIVE on negative: 'She gave the book to him.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708567x901227389993147800",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: \"I don't know when he will arrive.\"",
+    "spaCy FALSE-POSITIVE on negative: \"I don't know when he will arrive.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708567x913678567426078300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708569x268710231555063360",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708569x385656258064060800",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Provided the weather is fine, you could go swimming.'",
+    "regex FALSE-POSITIVE on negative: 'I was provided with a new laptop for work.'",
+    "regex FALSE-POSITIVE on negative: 'He provided that information yesterday.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708569x527540071099035200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708570x262059735785698850",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708570x297785508495203460",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Were they to be paid a sufficient sum, they would agree.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708570x301704306507399700",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Compared to the campsite job this one has its advantages.'",
+    "spaCy MISSED positive: 'Based on the assessment above, I recommend some actions.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708570x407214749191681340",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'Although she was committed to her job, she quit.'",
+    "regex FALSE-POSITIVE on negative: 'Though he is tired, he continues.'"
+   ]
+  },
+  {
+   "egp_id": "1741163708570x600858468058892400",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Should you need any further assistance, contact me.'",
+    "spaCy MISSED positive: 'Had we known that before, we could have taken more money.'",
+    "regex FALSE-POSITIVE on negative: 'Should we leave now?'",
+    "regex FALSE-POSITIVE on negative: 'Had they already left when you arrived?'"
+   ]
+  },
+  {
+   "egp_id": "1741163708570x758271347243594900",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: \"Not having accepted his wife's death, the father is left alone.\""
+   ]
+  },
+  {
+   "egp_id": "1741163708570x985060556560681900",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'Running is good for you.'",
+    "regex FALSE-POSITIVE on negative: 'Swimming makes me hungry.'"
+   ]
+  }
+ ]
+}

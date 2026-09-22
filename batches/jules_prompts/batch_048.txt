@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_048.json`
 ```json
 [
  {
-  "egp_id": "1741163712333x181896863266680420",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: AFTER 'BECAUSE', EXPLANATIONS ",
-  "can_do_statement": "Can use the past perfect simple after 'because' to give explanatory information.",
-  "example_raw": "He was sleeping but I realised that this was because he had lost a lot of blood. (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nI was driving on to my parents' house because I had arranged to have dinner with them. (Portuguese; Portugal; B2 VANTAGE; Pass)"
- },
- {
-  "egp_id": "1741163712333x761860144866407300",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: AFTER 'IF ONLY' AND 'WISH', IMAGINED PAST",
-  "can_do_statement": "Can use the affirmative form after 'if only', and the affirmative and negative forms after 'wish' to talk about regret.",
-  "example_raw": "If only I had listened to my father! (Iran; B2 VANTAGE; 1993; Farsi; Pass)\n\nIf only I had met her before. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nI am sure, because at the end of the concert, I said to my friend \"I wish they had played a bit more\". (Turkey; B2 VANTAGE; 1997; Turkish; Pass)\n\nI wish I hadn't told Pat about my plans. (Poland; B2 VANTAGE; 2000; Polish; Pass)\n\nI wish I hadn't done that but now I can't do anything. (Greece; B2 VANTAGE; 1993; Greek; Pass)"
- },
- {
-  "egp_id": "1741163712333x963626763332635600",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: TIME UP TO THEN",
-  "can_do_statement": "Can use the past perfect simple to talk about a time before another time in the past.",
-  "example_raw": "He then thought how stupid he had been. (Peru; B1; Spanish - Latin American; Pass)\n\nActually I'd arranged an appointment with my doctor before calling you. (B1; Arabic \u2013 Meghreb; Pass)"
- },
- {
-  "egp_id": "1741163712334x136453521650765640",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "3",
-  "guideword": "FORM: WITH ADVERBS",
-  "can_do_statement": "Can use the past perfect simple with a wide range of adverbs (including 'finally', 'recently', 'simply') in the normal mid-position.  \u25ba adverbs",
-  "example_raw": "He had finally achieved his goal! (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nShe had suddenly woken up at that noise, but now was trying to persuade herself it was just a dream. (Italy; B2 VANTAGE; 1999; Italian; Pass)\n\nAnd had all the furniture and David's personal things been stolen by thieves or had they just simply disappeared? (Greece; B2 VANTAGE; 2006; Greek; Pass)"
- },
- {
-  "egp_id": "1741163712334x353325929078093700",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: INVERSION WITH 'NO SOONER \u2026 THAN'",
-  "can_do_statement": "Can invert the subject and auxiliary verb with 'no sooner \u2026 than' to talk about something that happened immediately before something else, often in formal contexts.",
-  "example_raw": "\u2026 but no sooner had I gone to bed than someone broke the door down. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nBut, no sooner had I got there than my classmates informed me that I had done well in my physics exam. (Greek; Greece; B2 VANTAGE; 2002)"
- },
- {
-  "egp_id": "1741163712334x456379754309706560",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use question forms.",
-  "example_raw": "Had I made the same mistake twice? (B2; 1993; German; Pass)\n\n\u2026 the question was: Why had he done that? (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163712334x897130264998052400",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: INVERSION WITH 'NEVER (BEFORE)'",
-  "can_do_statement": "Can invert the subject and auxiliary verb after 'never (before)' to talk about a unique event, often in formal contexts.",
-  "example_raw": "Never had I been in such a ridiculous situation! (South Africa; B2 VANTAGE; 1993; Italian; Pass)\n\nNever before had we seen such marvellous species of fish. (Poland; B2 VANTAGE; 2006; Polish; Pass)"
- },
- {
-  "egp_id": "1741163712334x957245027107264100",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM: ELLIPSIS ",
-  "can_do_statement": "Can leave out the subject before the past perfect simple where it is understood from the previous clause.",
-  "example_raw": "But now she felt stronger and had lost her fear. (France; B2 VANTAGE; 1993; French)\n\nSimon was a very famous writer and had written ten best-sellers. (Greek; Greece; B2 VANTAGE; Pass; 2009)\n\nAll her friends from Chicago had come to visit her and had brought a huge chocolate cake with them. (Spain; B2 VANTAGE; 1993; Spanish - European)\n\nThey were cold and had gone numb. (Korea, South; B2 VANTAGE; 1999; Korean)"
- },
- {
-  "egp_id": "1741163712335x315912109814443500",
-  "level": "C1",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: INVERSION, IMAGINED PAST",
-  "can_do_statement": "Can invert the subject and affirmative auxiliary verb to talk about imagined situations in the past, often with regret, in formal contexts. ",
-  "example_raw": "Had I known the tour would be so bad, I wouldn't have booked it. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; French; Pass)\n\nHad they been new people, travellers from other countries, I could have taken it, but all the customers were English! (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)\n\nSometimes I think that had I gone to Britain without this experience, my life would have been different. (Czech Republic; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Czech; Pass)"
- },
- {
-  "egp_id": "1741163712335x352820156836315650",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: REPORTS OF STATEMENTS",
-  "can_do_statement": "Can use the past perfect simple to report statements, where the main verb in the reporting clause is in the past simple.  \u25ba reported speech",
-  "example_raw": "[\u2026] one morning she was listening to the radio, when suddenly the announcer said that the police had arrested a man who had stolen five expensive and unique paintings. (Greece; B2 VANTAGE; 2006; Greek)\n\nShe tried to explain what had happened, but she couldn't. (Spain; B2 VANTAGE; 1999; Spanish - European) \n\nI looked at the address and I knew what had happened to my sister's postcard. (Hungary; B2 VANTAGE; 2002; Hungarian)"
- },
- {
-  "egp_id": "1741163712335x467440951326574700",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: CHANGE OF SITUATION",
-  "can_do_statement": "Can use the past perfect simple to talk about situations which changed. ",
-  "example_raw": "After the show we had planned to go to the theatre restaurant. But it was closed. (France; B2 VANTAGE; 2000; French; Pass)\n\nWe had planned to go to Switzerland, but unfortunately our car broke down. (Sweden; B2 VANTAGE; 1993; Swedish; Pass\n\nAt first she had wanted to make the first move but she wasn't quite convinced. (Poland; B2 VANTAGE; 2008; Polish; Pass)"
- },
- {
   "egp_id": "1741163712335x576982604394435300",
   "level": "B2",
   "super_category": "PAST",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_048.json`
   "guideword": "FORM/USE: AFTER 'IF ONLY', IMAGINED PAST",
   "can_do_statement": "Can use the negative form after 'if only' to express regret. ",
   "example_raw": "If only she had not changed, if only I had helped her, maybe we would still be best friends and I would not be sitting here, writing about her! (Portugal; C2 MASTERY; 1993; Portuguese; Pass)\n\nIf only I hadn't been that rude! (Greece; C2 MASTERY; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163712739x551343528482470600",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INVERSION WITH 'HARDLY \u2026WHEN'",
+  "can_do_statement": "Can invert the subject and affirmative auxiliary verb with 'hardly \u2026 when' to talk about something that happened immediately before something else, in formal contexts.",
+  "example_raw": "Hardly had she spoken these words when it dawned on the musician that life could not continue like that. (Spain; C2 MASTERY; 1998; Spanish - European; Pass)\n\nHardly had he taken them from the counter when the monster vanished again. (Spain; C2 MASTERY; 2000; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163712739x218459335733744320",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "2",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with an increasing range of verbs.",
+  "example_raw": "I forgot to tell you some details about tomorrow evening. (Turkey; A2 WAYSTAGE; 2009; Turkish; Pass)\n\nI spent about \u00a335 on all those clothes. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\n[talking about a football game] I liked it very much because my favourite team won, it was great. (Peru; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712739x248735900919531140",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "1",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'you' with a limited range of verbs.",
+  "example_raw": "Did you buy something yesterday? (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\n[talking about a lost phone] Did you find it? (Albania; A2 WAYSTAGE; 2005; Albanian; Pass)\n\nAnd when did you go shopping last? (Russia; A2 WAYSTAGE; 2008; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163712739x256584265013129380",
+  "level": "A1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "1",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with a limited range of regular and irregular verbs.",
+  "example_raw": "Every day at college I went to class at 9 am. (A1 BREAKTHROUGH; 2007; Portuguese; Pass)\n\nI met her about ten years ago. (A1 BREAKTHROUGH; 2006; Others; Pass)\n\nMy grandmother lived in a village and I often went there. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163712739x802711964566174800",
+  "level": "A1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: EVERYDAY EVENTS AND STATES",
+  "can_do_statement": "Can use the past simple to talk about everyday events or states.",
+  "example_raw": "The people were very polite. (A1, French)\n\nEvery time I went to Hendon Park, I saw so many people there. (A1, Polish)\n\nI liked this place very much. (A1, French)"
+ },
+ {
+  "egp_id": "1741163712739x998605611367738000",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "1",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form with a limited range of regular and irregular verbs.",
+  "example_raw": "The player from China did not look very happy though. (Malaysia; A2 WAYSTAGE; 2007; Chinese; Pass)\n\nYou did not keep your promise. (Bangladesh; A2 WAYSTAGE; 2004; Bengali; Pass)\n\nI didn't tell you that my house is opposite the new cinema. (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nThey didn't cost much ... (India; A2 WAYSTAGE; 2008; Panjabi; Pass)\n\nI was surprised because the heating didn't work. (Poland; A2 WAYSTAGE; 2010; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163712740x655374430632900200",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "3",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with a wide range of verbs.",
+  "example_raw": "I convinced some of my friends to come with me even if they don't like rap music. (Italy; B1 THRESHOLD; 2006; Italian; Pass)\n\nPreviously I faced many failures but I never gave up. (India; B1 THRESHOLD; 2010; Malayalam; Pass)\n\nThe cameraman filmed us during a lesson and later, walking to the playground. (Spain; B1 THRESHOLD; 2008; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163712740x766192438162604200",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH 'WHEN'",
+  "can_do_statement": "Can use 'when' + past simple in subordinate clauses.",
+  "example_raw": "When I arrived, the weather was horrible. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\n[talking about a missing phone] I think I left it in the kitchen when I fell on the slippery floor. (Mexico; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712741x138382859022856420",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "2",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use 'yes/no', 'wh-', tag and negative question forms with an increasing range of verbs.",
+  "example_raw": "Are you still looking for a job or did you succeed in finding one? (France; B2 VANTAGE; 1993; French; Pass)\n\nWhen did you last see your wife and your children? (Germany; B2 VANTAGE; 1993; German; Pass)\n\nIt was great to have met you, and we certainly had a terrific time together, didn't we? (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nDidn't you tell me that you had to go to Orleans today? (B2 VANTAGE; 1993; French; Pass)\n\nWhy didn't you say something about it? (Argentina; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n"
+ },
+ {
+  "egp_id": "1741163712741x166541162399188380",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "2",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form with an increasing range of verbs.",
+  "example_raw": "I didn't realise I had lost the ring till I was at home. (Italy; B1 THRESHOLD; 2000; Italian; Pass)\n\nI didn't trust him. (Spain; B1 THRESHOLD; 2006; Spanish - European; Pass)\n\n[talking about a spare television] \u2026 we had one in the garage that we did not use. (Mexico; B1 THRESHOLD; 2001; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163712741x169127699349836300",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: HABITUAL STATES OR ACTIONS",
+  "can_do_statement": "Can use the past simple to talk about habitual states or actions.",
+  "example_raw": "\u2026 he always seemed so confident to me! (Brazil; B1 THRESHOLD; 2002; Portuguese; Pass)\n\n\u2026 we always talked during the class. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
  }
 ]
 ```

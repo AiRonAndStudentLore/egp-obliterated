@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_027.json`
 ```json
 [
  {
-  "egp_id": "1741163710611x575620351539563000",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'BE BOUND TO', CERTAINTY",
-  "can_do_statement": "Can use 'be' (+ modifier) 'bound to' to talk about something certain or inevitable.",
-  "example_raw": "I assure you that it is bound to be popular with different clients, especially young people and white-collar workers. (China; B2 VANTAGE; 2008; Chinese; Pass)\n\nIt is hardly possible to catch a cold when travelling by car in rain which is almost bound to happen while riding a bicycle. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nTo sum up, where many people get together, problems are bound to arise. (Denmark; B2 VANTAGE; 2000; Danish; Pass)"
- },
- {
-  "egp_id": "1741163710611x641365217086004500",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'BE' + ADJECTIVE + 'THAT'",
-  "can_do_statement": "Can use 'be' + 'obvious/sure/likely/certain' followed by a 'that'-clause.",
-  "example_raw": "It is about 1000 years old, so I am sure that you will find it fascinating to see it. (Japan; B2 VANTAGE; 2001; Japanese; Pass)\n\nIt was obvious that I would be late to work. (Greece; B2 VANTAGE; 2002; Greek; Pass)\n\nIt is likely that by reading books we will learn some new words and phrases so that we will be able to write better. (Poland; B2 VANTAGE; 2008; Polish; Pass)\n\nIt is certain that our state-of-the-art LCD will be well received and make great profits. (China; B2 VANTAGE; 2008; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163710611x851664498917631400",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'BE SUPPOSED TO', OBLIGATION, EXPECTATION",
-  "can_do_statement": "Can use 'be supposed to' to talk about expectation or obligation. ",
-  "example_raw": "However, the show is only on the 14th of March, the same day we are supposed to go to a Science Museum. (Brazil; B2 VANTAGE; 2000; Portuguese; Pass)\n\nOur travels are supposed to provide us with pleasure, knowledge and new experiences. (B2 VANTAGE; 1993; Polish; Pass)\n\nI have bought some disks but I don't know what I am supposed to do with them. (Spain; B2 VANTAGE; 1997; Spanish - European; Pass)\n\nI was supposed to explain to them what they had to do. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n"
- },
- {
-  "egp_id": "1741163710612x402995334969845200",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: IMPERATIVE",
-  "can_do_statement": "Can use the imperative form 'be sure to', to express obligation. ",
-  "example_raw": "If you cannot attend, be sure to inform me in advance. (Chinese, B2 VANTAGE, Pass, 2008)\n\nBe sure to contact me for any further information. (Russia; B2 VANTAGE; 2008; Russian; Pass)"
- },
- {
-  "egp_id": "1741163710612x901003785079941200",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'BE SURE/CERTAIN TO'",
-  "can_do_statement": "Can use 'be sure to', 'be certain to' to talk about certainty. ",
-  "example_raw": "A person that will act in that way is sure to be successful. (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nFurthermore, by bicycle, you don't spend your time in traffic-jams and you are sure to arrive at work on time. (France; B2 VANTAGE; 1993; French; Pass)\n\nThe market for this product is not yet fully developed, but we are certain to attract more and more people, especially students. (China; B2 VANTAGE; 2008; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163710613x108457117806470160",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'BE FORCED TO', OBLIGATION",
-  "can_do_statement": "Can use 'be forced to' to talk about an unnamed obligation, where the circumstances are beyond the control of the speaker/writer. ",
-  "example_raw": "I don't like to be forced to do something that I don't want to do. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nDue to decreasing sales over the last months, we are forced to cut the budget. (German, B2 VANTAGE, Pass, 2006)"
- },
- {
-  "egp_id": "1741163710613x174694583388425250",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: HEDGING",
-  "can_do_statement": "Can use 'be' + 'not' + adjective + 'that-' clause to make an assertion less direct.",
-  "example_raw": "[talking about a town near a dump where people cannot open their windows] I am not certain that they have got used to it. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; French; Pass)\n\n[talking about distractions while studying] It's not likely that you'll make progress. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Fail)\n\nAs you can see, I'm really in favour of this plan but I'm not sure that the council has anticipated everything. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; French; Pass) "
- },
- {
-  "egp_id": "1741163710613x336970391866066940",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'BE SET TO', ASSERTION",
-  "can_do_statement": "Can use 'be set to' to talk about strong assertion about the future, especially in institutional contexts. ",
-  "example_raw": "The turnover of our company is set to increase dramatically after the establishment of the e-shop, which itself requires little investment. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Chinese; Pass)\n\nThe population of children is set to plummet to 11.5% and that of working people also to 46.2% in 2050. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2011; English; )"
- },
- {
-  "egp_id": "1741163710613x411995420006495200",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use 'be' + 'not' + adjective + 'to' + infinitive.",
-  "example_raw": "The country's population is not likely to increase fast enough. (France; C2 MASTERY; 1993; French; Pass)\n\n[talking about relatives] You are not obliged to invite them over. (Greece; C2 MASTERY; 1993; Greek; Pass)\n\n[talking about tourism] Its positive effects are not certain to outweigh the negative ones. (Switzerland; C2 MASTERY; 1993; German; Pass)"
- },
- {
-  "egp_id": "1741163710613x796455236335726800",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'BE OBLIGED TO', OBLIGATION",
-  "can_do_statement": "Can use 'be obliged to' to talk about an external obligation, especially in institutional contexts. ",
-  "example_raw": "The Sales Representatives are obliged to participate. (Switzerland; B2 VANTAGE; 2005; German; Pass)\n\nBy January 2 everybody is obliged to have a parking permit when using the company car park. (German, B2 VANTAGE, Pass, 2001)\n\nThey were obliged to give up their house. (France; B2 VANTAGE; 1993; French; Pass)"
- },
- {
-  "egp_id": "1741163710614x791981949538591400",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "expressions with be",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'BE' + ADJECTIVE + 'NOT' + 'TO'",
-  "can_do_statement": "Can use 'be' + adjective + 'not' + 'to' + infinitive for emphasis.",
-  "example_raw": "People should be obliged not to have more than a very small number of children otherwise they will be punished. (Greece; C2 MASTERY; 1993; Greek; Pass)\n\nNow without her knowledge, I know everything about her and she is bound not to conceal the truth! (France; C2 MASTERY; 1993; French; Fail)\n\nIndeed, whatever path parents choose, they are almost certain not to do a good job. (France; C2 MASTERY; 1993; French; Fail)\n\nBe sure not to miss the alligator steak. (C2 MASTERY; 1993; Swedish; Pass)"
- },
- {
   "egp_id": "1741163710614x141232985119578830",
   "level": "A2",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_027.json`
   "guideword": "USE: OBLIGATION",
   "can_do_statement": "Can use 'have (got) to' to talk about obligations.",
   "example_raw": "The concert starts at midnight but we have to go before then because we have got to buy our tickets. (Spanish - European, A2 WAYSTAGE, Pass, 2010)\n\nYou have to bring your swimming costume. (Spanish - European, A2 WAYSTAGE, Pass, 2009)"
+ },
+ {
+  "egp_id": "1741163710618x128533111434523170",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "USE: OBLIGATION",
+  "can_do_statement": "Can use present and past forms of 'have to' + '-ed' to talk about obligations in the past. ",
+  "example_raw": "Nowadays, one has to have finished at least senior high school for any employer to consider hiring you. (Greek, C2 MASTERY, Pass, 2005)\n\nThe State Universities have a higher level of education than Public Universities, but usually to get into a State University you had to have been studying in a public school. (B1 THRESHOLD; 2009; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163710618x284270552774544600",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+  "can_do_statement": "Can use a range of present and past forms of 'have (got) to' to talk about deductions and conclusions.  \u25ba must  \u25ba had to",
+  "example_raw": "[talking about a castle on a small island] It's got to be incredible to see a castle emerging from the sea. (Spanish - European, C2 MASTERY, Pass, 2001)\n\n[wondering why his mother has suddenly decided to come to his house] There had to be something else since she was definitely not the kind of person who drops by without asking. (Portuguese, C2 MASTERY, Pass, 1993)\n\nYes, I was sure, it had to have been Peter. (Spain; C2 MASTERY; 1993; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163710618x426930291367799940",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'I HAVE TO ADMIT'",
+  "can_do_statement": "Can use the fixed expression 'I have to admit' for emphasis. ",
+  "example_raw": "I have to admit that I watch a lot of TV, specially movies and soap operas, I love them. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)\n\nI have to admit that it is a very difficult choice. (Italian, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163710618x485640295433244400",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INFINITIVE ",
+  "can_do_statement": "Can use 'have to' as an infinitive form.",
+  "example_raw": "I am going to have to buy new curtains. (Spanish - Latin American, B1 THRESHOLD, Pass, 2001)\n\nI'm sorry to have to change the time of our meeting next Tuesday. (Spanish - Latin American, B1 THRESHOLD, Pass, 2008)\n\nI'd hate to have to choose between family and friends. (Spanish - Latin American, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163710618x543611533546182200",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST",
+  "can_do_statement": "Can use 'have to have' + '-ed'. ",
+  "example_raw": "[talking about urban versus rural life] In order to have an objective view on which lifestyle tends to be more problematic, you certainly have to have lived at each setting for a rather extensive time period. (Greek, C2 MASTERY, Pass, 2001)\n\nThey stop at the most famous places, which you \"have to have seen\", jump down and take photographs, always chatting with each other. (Switzerland; C2 MASTERY; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163710618x970201243309381400",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "have (got) to",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTION",
+  "can_do_statement": "Can use 'you (have) got to' to make a strong suggestion.",
+  "example_raw": "If you think you have seen almost everything in this world, you've got to see this museum. (Spanish - European, B2 VANTAGE, Pass, 1998)\n\n[talking about a famous actor] You have to see at least one of her films \u2026 I think if you haven't seen her films, you haven't lived at all! (Spanish - Other, B2 VANTAGE, Pass, 2006)\n\nYou have to relax. You should try to live. You don't know what's going on around you. (Switzerland; B2 VANTAGE; 1993; German; Pass)\n\nThe main thing to remember is that there many possibilities but you have to try to find them and not just say: \"I want to work and earn money\". (Switzerland; B2 VANTAGE; 2000; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710618x224118747511191650",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "[talking about clothes] So I may need them. (India; A2 WAYSTAGE; 2008; Gujarati; Pass)\n\nI think it may be dirty. (Thailand; A2 WAYSTAGE; 2006; Thai; Pass)"
+ },
+ {
+  "egp_id": "1741163710619x228781001251689540",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "USE: POSSIBILITY",
+  "can_do_statement": "Can use 'may' to talk about weak possibility referring to the present and the future. ",
+  "example_raw": "[talking about an important document] It may be in our room inside my bag. (Assamese, A2 WAYSTAGE)\n\n\u2026 bring some money with you. We may need it. (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)\n\n[talking about buying clothes for the summer] And the weather may be hot. (France; A2 WAYSTAGE; 2008; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710619x432353527473768900",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS ",
+  "can_do_statement": "Can use 'may' with a limited range of adverbs (most commonly 'also') in the normal mid-position after the modal verb. \u25ba adverbs",
+  "example_raw": "I may also ask you for another favour.... (India; B1 THRESHOLD; 2005; Hindi; Fail)\n\nWhy don't you try going to the gym before work? It may also help you release stress? (Mexico; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163710619x872875552573129100",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form.",
+  "example_raw": "I knew I may not meet him again. (Thailand; B1 THRESHOLD; 2008; Thai; Pass)\n\nI realise that may not be the best way of resolving your problem. (Poland; B1 THRESHOLD; 2008; Polish; Pass) \n\nThey may not even have internet in the countryside! (Brazil; B1 THRESHOLD; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163710839x443299354624711040",
+  "level": "B1 ",
+  "super_category": "MODALITY",
+  "sub_category": "may",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form with 'I'. ",
+  "example_raw": "May I give you a short presentation on 17th December? (China; B1 THRESHOLD; 2002; Chinese; Pass)\n\nMay I ask you about my accommodation? (Germany; B1 THRESHOLD; 2005; German; Pass)\n\nMay I ask you if our company will receive the usual 10% discount? (Italian, B1 THRESHOLD, Pass, 2001)\n"
  }
 ]
 ```

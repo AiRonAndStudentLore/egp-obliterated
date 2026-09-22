@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_049.json`
 ```json
 [
  {
-  "egp_id": "1741163712739x551343528482470600",
-  "level": "C2",
-  "super_category": "PAST",
-  "sub_category": "past perfect simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM: INVERSION WITH 'HARDLY \u2026WHEN'",
-  "can_do_statement": "Can invert the subject and affirmative auxiliary verb with 'hardly \u2026 when' to talk about something that happened immediately before something else, in formal contexts.",
-  "example_raw": "Hardly had she spoken these words when it dawned on the musician that life could not continue like that. (Spain; C2 MASTERY; 1998; Spanish - European; Pass)\n\nHardly had he taken them from the counter when the monster vanished again. (Spain; C2 MASTERY; 2000; Catalan; Pass)"
- },
- {
-  "egp_id": "1741163712739x218459335733744320",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "past simple",
-  "lexical_range": "2",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form with an increasing range of verbs.",
-  "example_raw": "I forgot to tell you some details about tomorrow evening. (Turkey; A2 WAYSTAGE; 2009; Turkish; Pass)\n\nI spent about \u00a335 on all those clothes. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\n[talking about a football game] I liked it very much because my favourite team won, it was great. (Peru; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163712739x248735900919531140",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "past simple",
-  "lexical_range": "1",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'you' with a limited range of verbs.",
-  "example_raw": "Did you buy something yesterday? (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\n[talking about a lost phone] Did you find it? (Albania; A2 WAYSTAGE; 2005; Albanian; Pass)\n\nAnd when did you go shopping last? (Russia; A2 WAYSTAGE; 2008; Russian; Pass)"
- },
- {
-  "egp_id": "1741163712739x256584265013129380",
-  "level": "A1",
-  "super_category": "PAST",
-  "sub_category": "past simple",
-  "lexical_range": "1",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form with a limited range of regular and irregular verbs.",
-  "example_raw": "Every day at college I went to class at 9 am. (A1 BREAKTHROUGH; 2007; Portuguese; Pass)\n\nI met her about ten years ago. (A1 BREAKTHROUGH; 2006; Others; Pass)\n\nMy grandmother lived in a village and I often went there. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
- },
- {
-  "egp_id": "1741163712739x802711964566174800",
-  "level": "A1",
-  "super_category": "PAST",
-  "sub_category": "past simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: EVERYDAY EVENTS AND STATES",
-  "can_do_statement": "Can use the past simple to talk about everyday events or states.",
-  "example_raw": "The people were very polite. (A1, French)\n\nEvery time I went to Hendon Park, I saw so many people there. (A1, Polish)\n\nI liked this place very much. (A1, French)"
- },
- {
-  "egp_id": "1741163712739x998605611367738000",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "past simple",
-  "lexical_range": "1",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the negative form with a limited range of regular and irregular verbs.",
-  "example_raw": "The player from China did not look very happy though. (Malaysia; A2 WAYSTAGE; 2007; Chinese; Pass)\n\nYou did not keep your promise. (Bangladesh; A2 WAYSTAGE; 2004; Bengali; Pass)\n\nI didn't tell you that my house is opposite the new cinema. (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nThey didn't cost much ... (India; A2 WAYSTAGE; 2008; Panjabi; Pass)\n\nI was surprised because the heating didn't work. (Poland; A2 WAYSTAGE; 2010; Polish; Pass)"
- },
- {
-  "egp_id": "1741163712740x655374430632900200",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "past simple",
-  "lexical_range": "3",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form with a wide range of verbs.",
-  "example_raw": "I convinced some of my friends to come with me even if they don't like rap music. (Italy; B1 THRESHOLD; 2006; Italian; Pass)\n\nPreviously I faced many failures but I never gave up. (India; B1 THRESHOLD; 2010; Malayalam; Pass)\n\nThe cameraman filmed us during a lesson and later, walking to the playground. (Spain; B1 THRESHOLD; 2008; Catalan; Pass)"
- },
- {
-  "egp_id": "1741163712740x766192438162604200",
-  "level": "A2",
-  "super_category": "PAST",
-  "sub_category": "past simple",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH 'WHEN'",
-  "can_do_statement": "Can use 'when' + past simple in subordinate clauses.",
-  "example_raw": "When I arrived, the weather was horrible. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\n[talking about a missing phone] I think I left it in the kitchen when I fell on the slippery floor. (Mexico; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163712741x138382859022856420",
-  "level": "B2",
-  "super_category": "PAST",
-  "sub_category": "past simple",
-  "lexical_range": "2",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use 'yes/no', 'wh-', tag and negative question forms with an increasing range of verbs.",
-  "example_raw": "Are you still looking for a job or did you succeed in finding one? (France; B2 VANTAGE; 1993; French; Pass)\n\nWhen did you last see your wife and your children? (Germany; B2 VANTAGE; 1993; German; Pass)\n\nIt was great to have met you, and we certainly had a terrific time together, didn't we? (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nDidn't you tell me that you had to go to Orleans today? (B2 VANTAGE; 1993; French; Pass)\n\nWhy didn't you say something about it? (Argentina; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n"
- },
- {
-  "egp_id": "1741163712741x166541162399188380",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "past simple",
-  "lexical_range": "2",
-  "guideword": "FORM: NEGATIVE",
-  "can_do_statement": "Can use the negative form with an increasing range of verbs.",
-  "example_raw": "I didn't realise I had lost the ring till I was at home. (Italy; B1 THRESHOLD; 2000; Italian; Pass)\n\nI didn't trust him. (Spain; B1 THRESHOLD; 2006; Spanish - European; Pass)\n\n[talking about a spare television] \u2026 we had one in the garage that we did not use. (Mexico; B1 THRESHOLD; 2001; Swedish; Pass)"
- },
- {
-  "egp_id": "1741163712741x169127699349836300",
-  "level": "B1",
-  "super_category": "PAST",
-  "sub_category": "past simple",
-  "lexical_range": "N/A",
-  "guideword": "USE: HABITUAL STATES OR ACTIONS",
-  "can_do_statement": "Can use the past simple to talk about habitual states or actions.",
-  "example_raw": "\u2026 he always seemed so confident to me! (Brazil; B1 THRESHOLD; 2002; Portuguese; Pass)\n\n\u2026 we always talked during the class. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
- },
- {
   "egp_id": "1741163712741x374005051648893500",
   "level": "B2",
   "super_category": "PAST",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_049.json`
   "guideword": "USE: REGRET",
   "can_do_statement": "Can use the past simple with 'wish (that)' to express regret that things are not different.",
   "example_raw": "I wish that you were here, cycling with us. (B1, Portuguese)\n\nI wish you were here with me. I wish we were together. (B1, French)\n\nI wish weekends lasted five days. (B1, Polish)"
+ },
+ {
+  "egp_id": "1741163712741x766030441271033700",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: IMAGINED SITUATIONS AFTER 'IF'",
+  "can_do_statement": "Can use the past simple after 'if' to talk about the possible result of an imagined situation in the present or future.",
+  "example_raw": "It would be better if you spent some time in the fresh air with your friends or walking in a park. (B1, Russian) \n\nIf you wanted to do some outdoor activities, we could go fishing or even walking through the green fields.(B1, Arabic \u2013 Egyptian)"
+ },
+ {
+  "egp_id": "1741163712741x938657596941798800",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH TIME ADJUNCTS",
+  "can_do_statement": "Can use a range of time adjuncts with the past simple.",
+  "example_raw": "I also worked as a helper on a summer camp for primary schoolchildren in Canada last summer. (B2, Japanese)\n\nI can remember one which happened to me last year, during the Christmas holiday. (B2, Italian)\n\nHe worked hard for quite a long time to earn the money he needed. (B2, Greek)"
+ },
+ {
+  "egp_id": "1741163712741x973372936620190600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "1",
+  "guideword": "FORM: QUESTIONS  ",
+  "can_do_statement": "Can use 'yes/no', 'wh-', tag and negative question forms with a limited range of verbs.",
+  "example_raw": "Did you receive my present? (B1 THRESHOLD; 2003; Pass)\n\nHow did you spend your weekend? (Uzbekhistan (Republic of); B1 THRESHOLD; 2009; Russian; Pass)\n\nWhy didn't he call me? (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)\n\nWe arranged to meet each other next Tuesday at 11 o'clock, didn't we? (Russia; B1 THRESHOLD; 2008; Russian; Pass)\n\nDidn't you spend your last holiday with them as well? (Korea, North; B1 THRESHOLD; 2008; Korean; Pass)"
+ },
+ {
+  "egp_id": "1741163712743x203885413206849950",
+  "level": "C1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INVERSION WITH 'NOT ONLY \u2026 BUT ALSO'",
+  "can_do_statement": "Can use the inverted form of the past simple with auxiliary 'do', in the phrase 'not only \u2026 but also'.",
+  "example_raw": "The companies I found at the trade fair were very varied. Not only did I find high-technology companies, but also shoemakers, advertisement companies and plane manufacturers to name but a few. (United Kingdom; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Dutch; Pass)\n\nNot only didn't we travel 5000 miles in 30 days, as you had advertised, but also we stayed 8 days in just one place, which had nothing interesting to see except a church. (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)\n\nNot only didn't I learn any new grammar but also I couldn't enrich my vocabulary. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; German; Pass)"
+ },
+ {
+  "egp_id": "1741163712743x210897861318798620",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS: 'I WONDERED' AND 'I WANTED'",
+  "can_do_statement": "Can use the past simple with 'I wondered' and 'I wanted' as politeness structures, when making polite requests and thanking.",
+  "example_raw": "So, I wondered if you could introduce me to somebody who knows how to use a camera, so that I will be able to record my trip for you. (B2, Greek)\n\nI wanted to know if the rooms are single or double, if they have showers and if there is room service. \u2026 Secondly, I also wanted to know if there is a gym in the hotel \u2026  (B2, Spanish - European)\n\nFirst of all, I wanted to thank you for giving me the first prize in your competition. (B2, Spanish \u2013 Latin American)"
+ },
+ {
+  "egp_id": "1741163712743x286039195636331720",
+  "level": "C1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: FOR EMPHASIS, WITH 'DID'",
+  "can_do_statement": "Can use the past simple with 'did' for emphasis.",
+  "example_raw": "We did reach the target figure and we have sent about 85 percent of the money to the hospital. (C1, Portuguese)\n\n[in a letter defending the organisation of an event] We did have 34 games and one stall with beverages and snacks. (C1, Chinese)\n\nIt is true that it did rain during the day but it was not a \"sudden downpour\",  as you wrote. It was more a small shower \u2026  (C1, Swedish) "
+ },
+ {
+  "egp_id": "1741163712743x298607385595879740",
+  "level": "C1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "3",
+  "guideword": "FORM: QUESTIONS ",
+  "can_do_statement": "Can use 'yes/no', 'wh-', tag and negative question forms with a wide range of verbs.  \u25ba Questions",
+  "example_raw": "Did you spot the fact that what is expected from us in Tall Trees Campsite is to help in organising the entertainment? (Sri Lanka; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Singhalese; Pass)\n\nHow did it turn out then? (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)\n\nI told you about Peter and Mary, didn't I? (Serbian, C1)\n\nDidn't we all dream of being famous once in our lives? (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; German; Pass)\n"
+ },
+ {
+  "egp_id": "1741163712743x467903740487451800",
+  "level": "C1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: COMPLEX ORDERING OF PAST EVENTS",
+  "can_do_statement": "Can use the past simple to order sequences of events in the past in a complex way.",
+  "example_raw": "Following advice from a friend, I purchased the English version of your product, only to find out its quality did not match the promises made in your advertisement. (C1, Spanish - European)\n\nAfter having discussed this subject with the other member, we came up with the following decisions. First of all \u2026  (C1, Greek)"
+ },
+ {
+  "egp_id": "1741163712743x809106963202299400",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS AFTER 'IF'",
+  "can_do_statement": "Can use the past simple after 'if' as a politeness structure, especially in letters and emails.",
+  "example_raw": "I think it would be very helpful if I told you my own case. (B2, Spanish \u2013 European)\n\nIt would be great if you sent me a free copy of the next edition of The Student Tourist Guidebook. (B2, Korean)\n\nI would be grateful if you gave me this job. (B2, Greek)"
+ },
+ {
+  "egp_id": "1741163712744x852310054287561700",
+  "level": "C1",
+  "super_category": "PAST",
+  "sub_category": "past simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS: 'I THOUGHT'",
+  "can_do_statement": "Can use the past simple 'I thought' as a politeness structure to sound less direct.",
+  "example_raw": "I understand you are quite concerned about the matter and I thought it would be a good idea to let you know what is really going on. (C1, Spanish \u2013 Latin American)\n\nThe reason why I'm writing to you is that I thought you might be interested in writing about a special dish from your country for the international cookbook. (C1, Czech)"
+ },
+ {
+  "egp_id": "1741163712744x140719828534094260",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect continuous",
+  "lexical_range": "1",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form with a limited range of verbs. ",
+  "example_raw": "Have you been thinking about it a lot?! (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nWhat have you been doing? (China; B1 THRESHOLD; 2003; Chinese; Pass)\n\n[talking about musical instruments] \u2026 how long have you been playing them? (Bangladesh; B1 THRESHOLD; 2010; Bengali; Pass)"
  }
 ]
 ```

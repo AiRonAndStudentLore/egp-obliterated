@@ -1162,6 +1162,356 @@
   }
  },
  {
+  "egp_id": "1741163709005x427091401714639400",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: WITH NOUNS",
+  "can_do_statement": "Can use possessive determiners 'my', 'your', 'his', 'her' and 'our' before nouns. \u25ba noun phrases \u25ba possessive pronouns",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(my|your|his|her|our)\\s+(?:[a-z]+\\s+){0,2}[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "my",
+       "your",
+       "his",
+       "her",
+       "our"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ",
+     "OP": "*"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I live with my family.",
+    "She lost her favorite book."
+   ],
+   "negatives": [
+    "He is looking at me.",
+    "I saw them yesterday."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x117638123076284200",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: WITH PLURAL NOUNS ",
+  "can_do_statement": "Can use a limited range of quantifying determiners with plural nouns ('some', 'lots of', 'a lot of' and numbers).",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(some|lots\\s+of|a\\s+lot\\s+of|two|three|four|five|six|seven|eight|nine|ten|many)\\s+[a-z]+s\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "some",
+       "lots",
+       "lot",
+       "two",
+       "three",
+       "four",
+       "five",
+       "many"
+      ]
+     }
+    },
+    {
+     "LOWER": "of",
+     "OP": "?"
+    },
+    {
+     "POS": "NOUN",
+     "TAG": "NNS"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Near my home there are some shops.",
+    "My house has got three rooms."
+   ],
+   "negatives": [
+    "I have a lot of water.",
+    "There is some trouble here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x230041547102954000",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: WITH SINGULAR NOUNS",
+  "can_do_statement": "Can use a limited range of quantifying determiners with singular nouns ('a', 'every').\u25ba determiners: articles",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Singling out a specific countable entity or referring to all instances distributively.",
+   "pedagogical_hook": "Using 'a' for one thing or 'every' for all things of that type.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:a|every)\\s+(?:big|small|new|old|good|bad|nice|beautiful)?\\s*(?:kitchen|toilet|bedroom|bathroom|friend|family|year|day|book|car|house|dog|cat|man|woman|child|student|teacher|school|city|country|problem)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "a",
+       "every"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "kitchen",
+       "toilet",
+       "bedroom",
+       "bathroom",
+       "friend",
+       "family",
+       "year",
+       "day",
+       "book",
+       "car",
+       "house",
+       "dog",
+       "cat",
+       "man",
+       "woman",
+       "child",
+       "student",
+       "teacher",
+       "school",
+       "city",
+       "country",
+       "problem"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I go to college every day.",
+    "I have a big kitchen in my house."
+   ],
+   "negatives": [
+    "I go to college all days.",
+    "I have big kitchens in my house."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715275x913732212255741200",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "prepositional",
+  "guideword": "FORM: VERB + PREPOSITION + OBJECT",
+  "can_do_statement": "Can use a limited range of prepositional verbs followed by noun or pronoun objects. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Basic action-target linkage",
+   "pedagogical_hook": "Verbs like 'listen' always take 'to' when indicating what is heard.",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:listen|look|wait|ask)\\b(?:\\s+[a-z]+ly)?\\s+(?:to|after|for|about)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "listen",
+       "look",
+       "wait",
+       "ask"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "to",
+       "after",
+       "for",
+       "about"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I listen to music in the living room.",
+    "I can look after her if she needs."
+   ],
+   "negatives": [
+    "I can look around the house today.",
+    "They asked me a quick question."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715288x262148040901666750",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "types",
+  "guideword": "FORM: AUXILIARY VERB 'BE' ",
+  "can_do_statement": "Can use auxiliary verb 'be'. \u25ba  present continuous",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "In-progress temporal anchoring",
+   "pedagogical_hook": "The 'be' verb helps mark the action as happening right now.",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:am|is|are|'m|'s|'re)\\s+[a-z]+ing\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "am",
+       "is",
+       "are",
+       "'m",
+       "'s",
+       "'re"
+      ]
+     }
+    },
+    {
+     "TAG": "VBG"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am writing to tell you what I do every day.",
+    "We are going to the park."
+   ],
+   "negatives": [
+    "I am a good student.",
+    "They are happy today."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715607x526138276437947400",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "there is/are",
+  "guideword": "FORM: 'THERE IS'",
+  "can_do_statement": "Can use 'there is' + singular noun phrase as complement. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Existential assertion of singularity",
+   "pedagogical_hook": "'There is' introduces the existence of one thing.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:there\\s+is|there's)\\b\\s+(?:a|an|one|the)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "there"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "is",
+       "'s"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "a",
+       "an",
+       "one",
+       "the"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "My home is nice, there is a nice garden.",
+    "In my home there's a kitchen."
+   ],
+   "negatives": [
+    "There are two bedrooms in my house.",
+    "There was a big library."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715607x671128268905876200",
+  "level": "A1",
+  "super_category": "VERBS",
+  "sub_category": "there is/are",
+  "guideword": "FORM: 'THERE ARE'",
+  "can_do_statement": "Can use 'there are' + plural noun phrase as complement.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Existential assertion of plurality",
+   "pedagogical_hook": "'There are' introduces the existence of multiple things.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bthere\\s+are\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "there"
+    },
+    {
+     "LOWER": "are"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "There are two bathrooms in my apartment.",
+    "I think, in the park there are animals."
+   ],
+   "negatives": [
+    "There is a nice garden outside.",
+    "There were many people at the party."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163706316x198445876411383900",
   "level": "A2",
   "super_category": "ADJECTIVES",
@@ -3268,6 +3618,56 @@
   }
  },
  {
+  "egp_id": "1741163708149x720696896419150700",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "guideword": "FORM: 'BE LIKE' + NOUN OR PRONOUN",
+  "can_do_statement": "Can use 'be' + 'like' + noun or pronoun. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Similitude",
+   "pedagogical_hook": "Comparing identity or form",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:am|is|are|was|were|be|been|'m|'s|'re)\\s+(?:not\\s+)?like\\s+(?:a|an|the|me|you|him|her|us|them|it|my|your|his|our|their|[A-Z][a-z]+)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": "like"
+    },
+    {
+     "DEP": {
+      "IN": [
+       "pobj",
+       "prep",
+       "det",
+       "poss",
+       "pronoun"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I like her because she is like me.",
+    "It's like a little train."
+   ],
+   "negatives": [
+    "I really like pizza.",
+    "Would you like a drink?"
+   ]
+  }
+ },
+ {
   "egp_id": "1741163708330x197590942940390140",
   "level": "A2",
   "super_category": "CLAUSES",
@@ -3543,6 +3943,146 @@
    "negatives": [
     "Take care of the garden for me.",
     "I will call you back later."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708343x138205144325988400",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "phrases/exclamations",
+  "guideword": "FORM: 'WHAT A PITY' + ('THAT') CLAUSE",
+  "can_do_statement": "Can use 'What a pity' + ('that') clause. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing regret or disappointment over a situation.",
+   "pedagogical_hook": "Using 'what a pity' followed by a clause to express feelings.",
+   "agency_or_distance": "Distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bwhat\\s+a\\s+pity\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "what"
+    },
+    {
+     "LOWER": "a"
+    },
+    {
+     "LOWER": "pity"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "What a pity that you couldn't make it.",
+    "What a pity it rained all day."
+   ],
+   "negatives": [
+    "It's a pity.",
+    "She felt pity for the poor dog."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708563x237474925872659840",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "guideword": "FORM: DEFINING, SUBJECT, WITH 'WHICH'",
+  "can_do_statement": "Can use a defining relative clause with 'which' as the subject.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identifying a specific thing.",
+   "pedagogical_hook": "Using 'which' as the subject in a defining relative clause.",
+   "agency_or_distance": "Distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?<!,)\\s+which\\s+(?:[a-z]+\\s+){0,2}(?:is|are|was|were|has|have|had|will|would|can|could|shall|should|may|might|must|[a-z]+s|[a-z]+ed)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PRON"
+      ]
+     }
+    },
+    {
+     "LOWER": "which",
+     "DEP": "nsubj"
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     },
+     "DEP": "relcl"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I want a car which runs fast.",
+    "He read a book which changed his life."
+   ],
+   "negatives": [
+    "The house, which is red, is nice.",
+    "I don't know which to choose."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708563x842654366263886400",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "guideword": "FORM: NON-DEFINING, SUBJECT, WITH 'WHICH'",
+  "can_do_statement": "Can use a non-defining relative clause with 'which' as the subject,.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Adding extra, non-essential information about a thing.",
+   "pedagogical_hook": "Using 'which' in a non-defining relative clause.",
+   "agency_or_distance": "Distance"
+  },
+  "detection": {
+   "regex_triage": "(?i),\\s*which\\s+(?:[a-z]+\\s+){0,2}(?:is|are|was|were|has|have|had|will|would|can|could|shall|should|may|might|must|[a-z]+s|[a-z]+ed)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": ","
+    },
+    {
+     "LOWER": "which"
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     },
+     "DEP": "relcl"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "My car, which is red, is very fast.",
+    "I read that book, which was very interesting."
+   ],
+   "negatives": [
+    "The car which I bought is red.",
+    "I don't know which to choose."
    ]
   }
  },
@@ -4100,6 +4640,637 @@
    "negatives": [
     "I bought these clothes.",
     "I like these colours."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709005x222434593719802460",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: SINGULAR NOUN +''S'",
+  "can_do_statement": "Can use ''s' after singular or proper nouns to indicate possession.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?!(it|he|she|that|there|what|who)\\b)[a-z]+'s\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "LOWER": "'s"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I found my sister's jacket.",
+    "We are going to Linda's party."
+   ],
+   "negatives": [
+    "It's raining outside today.",
+    "He's running very fast."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709005x516384222350658750",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: WITH QUANTIFYING DETERMINERS + 'OF' ",
+  "can_do_statement": "Can use quantifying determiners + possessive determiners + 'of' + noun. \u25ba noun phrases",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(all|some|many|most|none|both|any|much|each|several|few)\\s+of\\s+(my|your|his|her|its|our|their)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "all",
+       "some",
+       "many",
+       "most",
+       "none",
+       "both",
+       "any",
+       "much",
+       "each",
+       "several",
+       "few"
+      ]
+     }
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "my",
+       "your",
+       "his",
+       "her",
+       "its",
+       "our",
+       "their"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "All of my friends were there.",
+    "Bring some of your DVDs."
+   ],
+   "negatives": [
+    "Some friends were there.",
+    "I saw all the cars."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x123278635116746530",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: 'MUCH' WITH UNCOUNTABLE NOUNS, NEGATIVE",
+  "can_do_statement": "Can use 'much' with uncountable nouns in negative contexts. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Quantifying uncountable entities in absence or low quantity.",
+   "pedagogical_hook": "Using 'not much' to describe a small amount of something you can't count.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "(?:n't|not)\\b(?:\\s+\\w+){0,4}\\s+much\\s+(?:money|time|water|food|milk|rice|bread|work|information|fun|sugar|salt|coffee|tea|juice|trouble|rain|snow|traffic|advice|help|homework)",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "not"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "much"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "money",
+       "time",
+       "water",
+       "food",
+       "milk",
+       "rice",
+       "bread",
+       "work",
+       "information",
+       "fun",
+       "sugar",
+       "salt",
+       "coffee",
+       "tea",
+       "juice",
+       "trouble",
+       "rain",
+       "snow",
+       "traffic",
+       "advice",
+       "help",
+       "homework"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We didn't have much money for the trip.",
+    "I haven't got much time to watch television."
+   ],
+   "negatives": [
+    "We had much money for the trip.",
+    "She hasn't seen many friends lately."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x344511888995459460",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: WITH SINGULAR NOUNS ",
+  "can_do_statement": "Can use an increasing range of quantifying determiners with singular nouns ('each', 'an', 'one' and numbers). ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specifying exact quantities or individual components of a group.",
+   "pedagogical_hook": "Using 'each', 'an', 'one', or numbers to talk about single items.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:each|an|one|two|three|four|five|six|seven|eight|nine|ten)\\s+(?:blue|pink|yellow|extra|big|small|new|old)?\\s*(?:class|hour|t-shirt|shirt|ticket|apple|orange|egg|hour|idea|person|student|teacher|book|car|house)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "each",
+       "an",
+       "one",
+       "two",
+       "three",
+       "four",
+       "five",
+       "six",
+       "seven",
+       "eight",
+       "nine",
+       "ten"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "class",
+       "hour",
+       "t-shirt",
+       "shirt",
+       "ticket",
+       "apple",
+       "orange",
+       "egg",
+       "hour",
+       "idea",
+       "person",
+       "student",
+       "teacher",
+       "book",
+       "car",
+       "house"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Each class is about one hour long.",
+    "We have an extra ticket for the concert."
+   ],
+   "negatives": [
+    "All classes are long.",
+    "We have some extra tickets."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x385518589517292100",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: WITH PLURAL AND UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use a range of quantifying determiners ('some', 'any', 'no', 'more', 'a lot of') with both plural nouns and uncountable nouns.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Expressing indefinite quantities for both countable and uncountable entities.",
+   "pedagogical_hook": "Using 'some', 'any', 'no', 'more', 'a lot of' for things you have many of, or can't count.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:some|any|no|more|a\\s+lot\\s+of)\\s+(?:water|clouds|time|work|details|clothes|fun|money|people|friends|food|books)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "a",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "some",
+       "any",
+       "no",
+       "more",
+       "lot",
+       "lots"
+      ]
+     }
+    },
+    {
+     "LOWER": "of",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "water",
+       "clouds",
+       "time",
+       "work",
+       "details",
+       "clothes",
+       "fun",
+       "money",
+       "people",
+       "friends",
+       "food",
+       "books"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think we should bring some water.",
+    "There were no clouds in the sky."
+   ],
+   "negatives": [
+    "I think we should bring a bottle.",
+    "There was not a cloud."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x416302896661777700",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: WITH PLURAL NOUNS ",
+  "can_do_statement": "Can use an increasing range of quantifying determiners with plural nouns ('all', 'both', 'a few').",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Quantifying plural entities as totalities or small subsets.",
+   "pedagogical_hook": "Using 'all', 'both', or 'a few' to talk about multiple things.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:all|both|a\\s+few)\\s+(?:students|teams|things|friends|days|weeks|months|years|people|books|cars|houses)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "all",
+       "both",
+       "a"
+      ]
+     }
+    },
+    {
+     "LOWER": "few",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "students",
+       "teams",
+       "things",
+       "friends",
+       "days",
+       "weeks",
+       "months",
+       "years",
+       "people",
+       "books",
+       "cars",
+       "houses"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "This notice is for all students.",
+    "I'm just writing to tell you a few things."
+   ],
+   "negatives": [
+    "This notice is for every student.",
+    "I'm just writing to tell you one thing."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709230x890396805087210400",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: 'SO MANY' WITH PLURAL NOUNS",
+  "can_do_statement": "Can use 'so many' and 'too many' with plural nouns. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Emphasizing an excessively or surprisingly large quantity of countable entities.",
+   "pedagogical_hook": "Using 'so many' or 'too many' to exaggerate a lot of things.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:so|too)\\s+many\\s+(?:games|places|things|friends|people|times|books|days|years|cars|mistakes)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "so",
+       "too"
+      ]
+     }
+    },
+    {
+     "LOWER": "many"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "games",
+       "places",
+       "things",
+       "friends",
+       "people",
+       "times",
+       "books",
+       "days",
+       "years",
+       "cars",
+       "mistakes"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We played so many games together.",
+    "I know I bought too many things."
+   ],
+   "negatives": [
+    "We played many games.",
+    "I know I bought too much food."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x840776157772557800",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: DETERMINER + 'OF' + DETERMINER",
+  "can_do_statement": "Can use a range of quantifying determiners + 'of' + determiner ('all of', 'some of', 'both of', 'many of', 'any of', number + 'of', 'each of'). \u25ba pronouns: quantity",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specifying a proportion of a definite subset.",
+   "pedagogical_hook": "Using 'all of', 'some of', 'both of', 'many of', 'any of', or numbers with 'of the' or 'of my'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:all|some|both|many|any|one|two|three|four|five|six|seven|eight|nine|ten|each)\\s+of\\s+(?:the|my|your|his|her|our|their|this|that|these|those)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "all",
+       "some",
+       "both",
+       "many",
+       "any",
+       "one",
+       "two",
+       "three",
+       "four",
+       "five",
+       "six",
+       "seven",
+       "eight",
+       "nine",
+       "ten",
+       "each"
+      ]
+     }
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their",
+       "this",
+       "that",
+       "these",
+       "those"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I spent all of my money!",
+    "Some of my friends gave me books."
+   ],
+   "negatives": [
+    "I spent all my money!",
+    "Some friends gave me books."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715608x423925668920691600",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "there is/are",
+  "guideword": "FORM: 'THERE IS' + UNCOUNTABLE",
+  "can_do_statement": "Can use 'there is' + uncountable nouns as complement. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Existential assertion of mass",
+   "pedagogical_hook": "Uncountable nouns use singular 'there is'.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:there\\s+is|there's)\\s+(?:some\\s+)?(?:money|information|water|food|time|music|bread|milk|snow|rain)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "there"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "is",
+       "'s"
+      ]
+     }
+    },
+    {
+     "LOWER": "some",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "money",
+       "information",
+       "water",
+       "food",
+       "time",
+       "music",
+       "bread",
+       "milk",
+       "snow",
+       "rain"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I need it because there is some money in it.",
+    "There is some information about the new art class."
+   ],
+   "negatives": [
+    "There is a dog sleeping on the floor.",
+    "There's a lot of people here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715608x515455874028492200",
+  "level": "A2",
+  "super_category": "VERBS",
+  "sub_category": "there is/are",
+  "guideword": "FORM: 'THERE IS/ARE' + A LOT OF ",
+  "can_do_statement": "Can use both 'there is' and 'there are' + 'a lot of' + plural noun. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Existential assertion of abundance",
+   "pedagogical_hook": "Use 'a lot of' to state there is a large quantity of something.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:there\\s+(?:is|are)|there's)\\s+a\\s+lot\\s+of\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "there"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "is",
+       "'s",
+       "are"
+      ]
+     }
+    },
+    {
+     "LOWER": "a"
+    },
+    {
+     "LOWER": "lot"
+    },
+    {
+     "LOWER": "of"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "There's a lot of people there.",
+    "You can go to the town centre because there are a lot of shops."
+   ],
+   "negatives": [
+    "There are many people standing around.",
+    "There is one person who can help."
    ]
   }
  },
@@ -5786,6 +6957,348 @@
   }
  },
  {
+  "egp_id": "1741163708149x199194532751942660",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "guideword": "FORM: FINITE AFTER 'THAN'",
+  "can_do_statement": "Can use 'than' + a finite clause forming the second part of a comparison after a comparative adjective",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Comparing against a state of affairs",
+   "pedagogical_hook": "Comparing reality to expectations or facts",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "\\bthan\\s+(?:i|you|he|she|it|we|they|there|everyone|anyone|someone|nobody)[a-z']*\\s+(?:am|is|are|was|were|do|does|did|can|could|will|would|have|has|had)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "than"
+    },
+    {
+     "DEP": {
+      "IN": [
+       "nsubj",
+       "expl"
+      ]
+     }
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "be",
+       "do",
+       "have",
+       "can",
+       "will",
+       "would",
+       "could",
+       "should",
+       "may",
+       "might",
+       "must"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I wish our schools could become better than they are.",
+    "The room seems to be bigger than it is really."
+   ],
+   "negatives": [
+    "He is taller than his brother.",
+    "It costs more than ten dollars."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708149x267810391266564350",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: NON-FINITE AFTER 'THAN'",
+  "can_do_statement": "Can use 'than' + a limited range of non-finite clauses (with -ing), forming the second part of a comparison after a comparative adjective",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Action comparison",
+   "pedagogical_hook": "Comparing two activities directly",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "\\bthan\\s+[a-z]+ing\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "than"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "VBG",
+       "NN"
+      ]
+     },
+     "LOWER": {
+      "REGEX": ".*ing$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's less complicated than going to a large school in a town.",
+    "It will be more fun than sitting at home."
+   ],
+   "negatives": [
+    "I have more money than the king.",
+    "He ran faster than he ever had before."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708149x664942128716233300",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: 'AS \u2026 AS'",
+  "can_do_statement": "Can use '(not) as' + adjective/adverb + 'as' to introduce a clause (often with a substitute auxiliary verb) to talk about two things being equal or unequal in some way.  ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Equality of state or degree",
+   "pedagogical_hook": "Equating attributes with actions",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "\\bas\\s+[a-z]+\\s+as\\s+(?:i|you|he|she|it|we|they)[a-z']*\\s+(?:can|could|do|does|did|am|is|are|was|were|have|has|had|expected|remember|like|want)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "as"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "as"
+    },
+    {
+     "DEP": "nsubj"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "can",
+       "could",
+       "do",
+       "be",
+       "have",
+       "expect",
+       "remember",
+       "like",
+       "want"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I will try to cover the work as much as I can.",
+    "I'm not watching T.V. as often as I did."
+   ],
+   "negatives": [
+    "It is as cold as ice.",
+    "He is as tall as his father."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708150x419378332254151740",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "guideword": "FORM: 'TOO' + 'TO'-INFINITIVE ",
+  "can_do_statement": "Can use 'too' + adjective + 'to'-infinitive.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Excess preventing capability",
+   "pedagogical_hook": "Excess attribute preventing an action",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "\\btoo\\s+[a-z]+\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "too"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "TAG": "VB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think you are too young to go on holiday by yourself.",
+    "He always told me that he was too busy to write a letter to me."
+   ],
+   "negatives": [
+    "I am going to the store too.",
+    "There are too many people here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708150x748318227253666600",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "guideword": "FORM: 'THE SAME' (+ NOUN) + 'AS' + PRONOUN OR NOUN",
+  "can_do_statement": "Can use 'the same' (+ noun) + 'as' + pronoun or noun. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Equivalence of properties",
+   "pedagogical_hook": "Stating identical properties between entities",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "\\bthe\\s+same(?:\\s+[a-z]+)?\\s+as\\s+(?:me|you|him|her|us|them|yours|mine|hers|his|ours|theirs|your|[a-z]+'s)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "same"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "as"
+    },
+    {
+     "DEP": {
+      "IN": [
+       "pobj",
+       "prep",
+       "poss"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I wasn't the only one in my class, there were many others at the same level as me.",
+    "You like the same things as your friends."
+   ],
+   "negatives": [
+    "I will do the same as I did before.",
+    "He arrived at the same time."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708151x354364358587738300",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "guideword": "FORM: 'SO' + ADJECTIVE + 'THAT' CLAUSE",
+  "can_do_statement": "Can use 'so' + adjective + 'that' clause. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Cause and effect through degree",
+   "pedagogical_hook": "Degree so extreme it triggers an event",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "\\bso\\s+[a-z]+\\s+that\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "so"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "that",
+       "much",
+       "many"
+      ]
+     }
+    },
+    {
+     "LOWER": "that"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was so tired that I didn't have the strength to stand up.",
+    "I was so nervous that when the teacher talked to me, I shouted!"
+   ],
+   "negatives": [
+    "I did it so that you could be happy.",
+    "It is so cold today."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708151x483888706062789900",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "guideword": "FORM: SENSE VERBS + 'AS IF' OR 'AS THOUGH' + FINITE CLAUSE",
+  "can_do_statement": "Can use verbs of the senses + 'as if' or 'as though' + finite clause. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Hypothetical reality through sensory perception",
+   "pedagogical_hook": "Projecting an unreal scenario based on feeling",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:feel|feels|felt|look|looks|looked|sound|sounds|sounded|smell|smells|smelled|taste|tastes|tasted)\\s+as\\s+(?:if|though)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "feel",
+       "look",
+       "sound",
+       "smell",
+       "taste"
+      ]
+     }
+    },
+    {
+     "LOWER": "as"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "if",
+       "though"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was excited and I felt as if I was a bird.",
+    "I think I will have to buy an umbrella because it looks as if it'll rain."
+   ],
+   "negatives": [
+    "He acted as if he owned the place.",
+    "It seems as though they forgot about us."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163708332x482855077867024000",
   "level": "B1",
   "super_category": "CLAUSES",
@@ -5925,6 +7438,154 @@
   }
  },
  {
+  "egp_id": "1741163708567x363468807312569340",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "guideword": "FORM/USE: REASON",
+  "can_do_statement": "Can use a finite subordinate clause with conjunctions to introduce reasons, after a main clause. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Establishing a causal relationship between events",
+   "pedagogical_hook": "Giving reasons with 'as' or 'since'",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:^|[,;]\\s*|\\s)\\b(?:as|since|because)\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){0,3}(?:am|is|are|was|were|have|has|had|do|does|did|will|would|can|could|shall|should|may|might|must|[a-z]+s|[a-z]+ed|be)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "as",
+       "since",
+       "because"
+      ]
+     },
+     "DEP": "mark"
+    },
+    {
+     "DEP": {
+      "IN": [
+       "nsubj",
+       "nsubjpass",
+       "expl"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I prefer to stay home, as I have got another appointment.",
+    "We will have to cancel the trip since it is raining heavily."
+   ],
+   "negatives": [
+    "I have been living here since 2010.",
+    "She works as a manager in the new company."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708567x913678567426078300",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "guideword": "FORM/USE: PURPOSE, RESULT",
+  "can_do_statement": "Can use a finite subordinate clause with conjunctions ('so (that), in order that') to introduce purpose and result, after a main clause.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Expressing purpose or intended result",
+   "pedagogical_hook": "Purpose clauses with so that / in order that",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:so(?:\\s+that)?|in\\s+order\\s+that)\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){1,3}(?:can|could|may|might|will|would)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "so",
+       "order"
+      ]
+     }
+    },
+    {
+     "LOWER": "that",
+     "OP": "?"
+    },
+    {
+     "DEP": {
+      "IN": [
+       "nsubj",
+       "nsubjpass",
+       "expl"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Please give me some extra exercises so that I can cover the work.",
+    "Bring your camera in order that we can take photos."
+   ],
+   "negatives": [
+    "I was so tired that I fell asleep immediately.",
+    "He ordered that the doors be closed."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708569x527540071099035200",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "guideword": "FORM/USE: NON-FINITE WITH '-ING'",
+  "can_do_statement": "Can use a non-finite subordinate clause with 'before' and 'after' + '-ing', before or after a main clause, to refer to time. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Linking an action in time to a progressive action",
+   "pedagogical_hook": "Before/After + -ing",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:before|after)\\s+(?:(?:not|never)\\s+)?[a-z]+ing\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "before",
+       "after"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "never"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "TAG": "VBG",
+     "DEP": "pcomp"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I read them in the evening before going to bed.",
+    "We can relax after working hard at school."
+   ],
+   "negatives": [
+    "I saw him before the morning meeting.",
+    "She arrived after the moving truck."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163709001x357162301198213700",
   "level": "B1",
   "super_category": "DETERMINERS",
@@ -6003,6 +7664,671 @@
    "negatives": [
     "I will receive your letter tomorrow morning.",
     "It will happen next summer."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709006x384215267940110500",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: IRREGULAR PLURAL NOUN + ''S'",
+  "can_do_statement": "Can use ''s' after irregular plural nouns to indicate possession.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(people|children|men|women|mice|teeth|geese)'s\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "people",
+       "children",
+       "men",
+       "women",
+       "mice",
+       "teeth",
+       "geese"
+      ]
+     }
+    },
+    {
+     "LOWER": "'s"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "They attract people's attention.",
+    "It is far from the children's school."
+   ],
+   "negatives": [
+    "The people are waiting.",
+    "The dog's bone is buried here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709006x638132110056680000",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: 'THEIR'",
+  "can_do_statement": "Can use possessive determiner 'their'. \u25ba noun phrases \u25ba possessive pronouns",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\btheir\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "their"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "They returned to their car.",
+    "I couldn't see their faces."
+   ],
+   "negatives": [
+    "There is a problem.",
+    "They are coming over."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x184772883851782600",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: DETERMINER + 'OF' + DETERMINER ",
+  "can_do_statement": "Can use an increasing range of quantifying determiners + 'of' + determiner ('half of', 'enough of', 'none of',).\u25ba pronouns",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Specifying a proportion of a definite subset.",
+   "pedagogical_hook": "Using 'half of', 'enough of', or 'none of' followed by 'the' or 'my'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:half|enough|none)\\s+of\\s+(?:the|my|your|his|her|our|their|this|that|these|those)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "half",
+       "enough",
+       "none"
+      ]
+     }
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their",
+       "this",
+       "that",
+       "these",
+       "those"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You should spend half of your holiday with parents.",
+    "None of the stores had it."
+   ],
+   "negatives": [
+    "You should spend half a holiday.",
+    "No stores had it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x384570160463784100",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: WITH PLURAL AND UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use an increasing range of quantifying determiners with both plural nouns and uncountable nouns ('most', 'enough', 'plenty of', 'loads of').",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Expressing sufficiency, majority, or abundance for countable and uncountable entities.",
+   "pedagogical_hook": "Using 'most', 'enough', 'plenty of', or 'loads of'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:most|enough|plenty\\s+of|loads\\s+of)\\s+(?:people|credit|time|places|money|water|friends|food|books|fun)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "most",
+       "enough",
+       "plenty",
+       "loads"
+      ]
+     }
+    },
+    {
+     "LOWER": "of",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "people",
+       "credit",
+       "time",
+       "places",
+       "money",
+       "water",
+       "friends",
+       "food",
+       "books",
+       "fun"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am convinced that most people watch TV.",
+    "We will have plenty of time to buy tickets."
+   ],
+   "negatives": [
+    "I am convinced that many people watch TV.",
+    "We will have a lot of time to buy tickets."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x447456423959638800",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: 'SO MUCH', 'TOO MUCH' WITH UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use 'so much' and 'too much' with uncountable nouns.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Emphasizing an excessively or surprisingly large quantity of uncountable entities.",
+   "pedagogical_hook": "Using 'so much' or 'too much' to exaggerate a lot of something.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:so|too)\\s+much\\s+(?:work|noise|time|money|water|fun|trouble|food|traffic|attention)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "so",
+       "too"
+      ]
+     }
+    },
+    {
+     "LOWER": "much"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "work",
+       "noise",
+       "time",
+       "money",
+       "water",
+       "fun",
+       "trouble",
+       "food",
+       "traffic",
+       "attention"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I have so much work at the moment.",
+    "My neighbours are making too much noise."
+   ],
+   "negatives": [
+    "I have a lot of work.",
+    "My neighbours are making too many noises."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x599038386454310800",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: 'MUCH' WITH UNCOUNTABLE NOUNS, INTERROGATIVE",
+  "can_do_statement": "Can use 'much' with uncountable nouns in interrogative contexts. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Inquiring about the quantity of uncountable entities.",
+   "pedagogical_hook": "Asking questions using 'much' with uncountable things.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:how\\s+)?much\\s+(?:television|tv|time|money|water|food|trouble|fun|work|traffic)\\b.*\\?",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "how",
+     "OP": "?"
+    },
+    {
+     "LOWER": "much"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "television",
+       "tv",
+       "time",
+       "money",
+       "water",
+       "food",
+       "trouble",
+       "fun",
+       "work",
+       "traffic"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "ORTH": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "How much television do you watch?",
+    "Do you have much time left?"
+   ],
+   "negatives": [
+    "I don't watch much television.",
+    "How many televisions do you have?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x782328236071253400",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM/USE: WITH UNCOUNTABLE NOUNS ",
+  "can_do_statement": "Can use quantifying determiners with uncountable nouns, often in informal and/or spoken contexts ('a little', 'a bit of' and 'a little bit of').",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Expressing a small, indefinite quantity of uncountable entities in informal contexts.",
+   "pedagogical_hook": "Using 'a little', 'a bit of', or 'a little bit of'.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\ba\\s+(?:little|bit\\s+of|little\\s+bit\\s+of)\\s+(?:time|tv|water|money|food|help|sugar|salt|milk|coffee)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "a"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "little",
+       "bit"
+      ]
+     }
+    },
+    {
+     "LOWER": "bit",
+     "OP": "?"
+    },
+    {
+     "LOWER": "of",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "time",
+       "tv",
+       "water",
+       "money",
+       "food",
+       "help",
+       "sugar",
+       "salt",
+       "milk",
+       "coffee"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We could spend a little time together.",
+    "I just watch a little bit of TV."
+   ],
+   "negatives": [
+    "We could spend some time together.",
+    "I watch a lot of TV."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709231x799263972459703900",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "guideword": "FORM: 'MANY' WITH PLURAL NOUNS, INTERROGATIVE",
+  "can_do_statement": "Can use 'many' with plural nouns in interrogative contexts. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Inquiring about the quantity of countable entities.",
+   "pedagogical_hook": "Asking questions using 'many' with plural things.",
+   "agency_or_distance": "N/A"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:how\\s+)?many\\s+(?:friends|channels|people|books|cars|days|years|places|times|things)\\b.*\\?",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "how",
+     "OP": "?"
+    },
+    {
+     "LOWER": "many"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "friends",
+       "channels",
+       "people",
+       "books",
+       "cars",
+       "days",
+       "years",
+       "places",
+       "times",
+       "things"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "ORTH": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Have you got many friends in England?",
+    "How many channels are there in Britain?"
+   ],
+   "negatives": [
+    "I don't have many friends.",
+    "How much money do you have?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715274x912538940118367500",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "phrasal-prepositional",
+  "guideword": "FORM: VERB + PARTICLE + PREPOSITION + OBJECT",
+  "can_do_statement": "Can use a limited range of verbs + particle + preposition + noun or pronoun. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Spatial action chains mapping abstract state transitions",
+   "pedagogical_hook": "Think of the particle and preposition as directions the action takes.",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:catch|get|keep|look|put|come)\\b(?:\\s+[a-z]+ly)?\\s+(?:up|on|away|out)\\s+(?:with|from|for|to)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "catch",
+       "get",
+       "keep",
+       "look",
+       "put",
+       "come"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "up",
+       "on",
+       "away",
+       "out"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "with",
+       "from",
+       "for",
+       "to"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I could catch up with the work I missed after school.",
+    "They get on with each other very well."
+   ],
+   "negatives": [
+    "I catch a ball when it is thrown.",
+    "Look at the big tree."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715275x850594612311856000",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "prepositional",
+  "guideword": "FORM: VERB + PREPOSITION + OBJECT ",
+  "can_do_statement": "Can use an increasing range of prepositional verbs followed by noun or pronoun objects.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Directional verbs leading to target nouns",
+   "pedagogical_hook": "These verbs always need their partner preposition to point at the object.",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:deal|belong|agree|concentrate|rely|depend|apologize|complain)\\b(?:\\s+[a-z]+ly)?\\s+(?:with|to|on|for|about)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "deal",
+       "belong",
+       "agree",
+       "concentrate",
+       "rely",
+       "depend",
+       "apologize",
+       "complain"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "with",
+       "to",
+       "on",
+       "for",
+       "about"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Our company needs to train some staff on how to deal with the complaints.",
+    "I completely agree with your proposal."
+   ],
+   "negatives": [
+    "We made a great deal today.",
+    "I will wait for you outside."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715608x234716564632592830",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "there is/are",
+  "guideword": "FORM: 'THERE' + MODAL VERBS",
+  "can_do_statement": "Can use 'there' with a range of modal verbs + 'be' + complement.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Modal framing of existence",
+   "pedagogical_hook": "Using a modal with 'there' lets you talk about possible or future existence.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bthere\\s+(?:will|would|can|could|shall|should|may|might|must)(?:\\s+not|n't)?\\s+be\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "there"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "will",
+       "would",
+       "can",
+       "could",
+       "shall",
+       "should",
+       "may",
+       "might",
+       "must"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "not",
+       "n't"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LEMMA": "be"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "There will be flying cars and buses.",
+    "In the large school there might be a lot of people."
+   ],
+   "negatives": [
+    "There is a flying car outside.",
+    "Will there be any people?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715608x998353966000377700",
+  "level": "B1",
+  "super_category": "VERBS",
+  "sub_category": "there is/are",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use 'There' + 'be' + 'n\u2019t' with countable and uncountable nouns. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Existential negation",
+   "pedagogical_hook": "Negating the 'be' verb shows something does not exist.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bthere\\s+(?:is|are|was|were)n't\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "there"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "is",
+       "are",
+       "was",
+       "were"
+      ]
+     }
+    },
+    {
+     "LOWER": "n't"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "There isn't any noise right now.",
+    "There weren't any people on the bus she took."
+   ],
+   "negatives": [
+    "They aren't here right now.",
+    "We weren't there when it happened."
    ]
   }
  },
@@ -6658,6 +8984,111 @@
   }
  },
  {
+  "egp_id": "1741163706930x438424096883169660",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "guideword": "FORM: DEGREE, MODIFYING PRONOUNS",
+  "can_do_statement": "Can use degree adverbs to modify pronouns. \u25ba pronouns",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Concept boundaries and set theory",
+   "pedagogical_hook": "Using degree to modify completeness of sets",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:absolutely|almost|virtually|nearly|practically|simply|just)\\s+(?:anything|nothing|everything|something|anyone|everyone|no\\s*one|nobody|everybody|anybody)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "absolutely",
+       "almost",
+       "virtually",
+       "nearly",
+       "practically",
+       "simply",
+       "just"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "anything",
+       "nothing",
+       "everything",
+       "something",
+       "anyone",
+       "everyone",
+       "nobody",
+       "everybody",
+       "anybody"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You can buy absolutely anything you like.",
+    "She said almost nothing during the meeting."
+   ],
+   "negatives": [
+    "The dog is absolutely adorable.",
+    "Almost all the people left early."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706930x701398975743074600",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs as modifiers",
+  "guideword": "FORM: DEGREE, MODIFYING NOUN PHRASES",
+  "can_do_statement": "Can use degree adverbs to modify noun phrases. \u25ba noun phrases",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Modifying entity bounds",
+   "pedagogical_hook": "Adverbs adjusting nominal precision",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:quite|rather|almost|such|what)\\s+(?:a|an)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "quite",
+       "rather",
+       "almost",
+       "such",
+       "what"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "a",
+       "an"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It would be quite a formal meeting.",
+    "After all, he is almost a human."
+   ],
+   "negatives": [
+    "I was quite tired.",
+    "She rather enjoys walking."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163708146x347057405549150660",
   "level": "B2",
   "super_category": "ADVERBS",
@@ -6784,6 +9215,50 @@
   }
  },
  {
+  "egp_id": "1741163708151x227455487870367600",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "guideword": "FORM: 'THE SAME' (+ NOUN) + 'AS' + CLAUSE ",
+  "can_do_statement": "Can use 'the same' (+ noun) + 'as' + clause. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Equivalence of events or states",
+   "pedagogical_hook": "Equating current reality with past facts",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "\\bthe\\s+same(?:\\s+[a-z]+)?\\s+as\\s+(?:i|you|he|she|it|we|they|there)[a-z']*\\s+(?:did|remember|used|am|is|are|was|were|have|has|had|do|does)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "same"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "as"
+    },
+    {
+     "DEP": "nsubj"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Maybe I'll do the same thing as you did.",
+    "Some people say that friendship today is not the same as it used to be."
+   ],
+   "negatives": [
+    "We wear the same uniform as you.",
+    "I bought the same book as my brother."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163708332x403656410301087360",
   "level": "B2",
   "super_category": "CLAUSES",
@@ -6871,6 +9346,409 @@
    "negatives": [
     "We do not accept cash.",
     "I do not understand."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708569x268710231555063360",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "guideword": "FORM/USE: NON-FINITE WITH '-ING'",
+  "can_do_statement": "Can use a non-finite subordinate clause with 'after' + 'having/being' + '-ed' form, before a main clause, to refer to past time. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Sequencing past events with perfect participle",
+   "pedagogical_hook": "After having done...",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bafter\\s+(?:having|being)\\s+[a-z]+(?:ed|en)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "after"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "having",
+       "being"
+      ]
+     }
+    },
+    {
+     "TAG": "VBN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "After having worked for many hours, you'll be tired.",
+    "After being given the pass, you can take pictures."
+   ],
+   "negatives": [
+    "After working all day, I went home.",
+    "He arrived after having a big dinner."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709006x299781618592868100",
+  "level": "B2",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: OF + NOUN PHRASE ''S'",
+  "can_do_statement": "Can use ''s' after a noun phrase with of to indicate possession.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bof\\s+(?:my|your|his|her|our|their)\\s+[a-z]+'s\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "LOWER": "'s"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He is a friend of my father's.",
+    "I heard a story of your brother's."
+   ],
+   "negatives": [
+    "He is a friend of my father.",
+    "My father's friend is here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709006x327871317577952200",
+  "level": "B2",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: PLURAL NOUN + 'S''",
+  "can_do_statement": "Can use 's'' after plural nouns to indicate possession.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b[a-z]+s'\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "TAG": {
+      "IN": [
+       "NNS",
+       "NNPS"
+      ]
+     }
+    },
+    {
+     "TEXT": "'"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We stayed at my parents' house.",
+    "I want to study animals' behaviour."
+   ],
+   "negatives": [
+    "The cat's toy is missing.",
+    "It's a beautiful day."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709006x393418761234294800",
+  "level": "B2",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "USE: GENERIC 'THEIR'",
+  "can_do_statement": "Can use 'their' before nouns to refer to a generic body or group of people expressed as a singular subject. \u25ba generic pronouns",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(everyone|everybody|someone|somebody|anyone|anybody|nobody|person|customer)\\s+(?:[a-z]+\\s+){0,4}their\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "everyone",
+       "everybody",
+       "someone",
+       "somebody",
+       "anyone",
+       "anybody",
+       "nobody",
+       "person",
+       "customer"
+      ]
+     }
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "their"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Everyone has their own opinion.",
+    "Every customer wants their product fast."
+   ],
+   "negatives": [
+    "Their car is parked outside.",
+    "Everyone knows he is right."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709006x759727598856757100",
+  "level": "B2",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: 'ITS'  ",
+  "can_do_statement": "Can use possessive determiner 'its' before nouns to refer to a singular inanimate subject or object. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bits\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "its"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "ADJ"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It has its own screen.",
+    "Verona is great with its buildings."
+   ],
+   "negatives": [
+    "It's a huge screen.",
+    "I love its."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715275x765416794436642000",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "prepositional",
+  "guideword": "FORM: VERB + ADVERB + PREPOSITION",
+  "can_do_statement": "Can use an adverb between the verb and the preposition.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Adverbial disruption of verb-preposition unity",
+   "pedagogical_hook": "The adverb interrupts the verb and its attached preposition to emphasize manner.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:deal|look|listen|talk|think)\\b\\s+(?:carefully|properly|closely|directly|always|often)\\s+(?:with|at|to|about|for)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "deal",
+       "look",
+       "listen",
+       "talk",
+       "think"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "carefully",
+       "properly",
+       "closely",
+       "directly",
+       "always",
+       "often"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "with",
+       "at",
+       "to",
+       "about",
+       "for"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I want to learn how to deal properly with them.",
+    "I hope you will look carefully at the enclosed papers."
+   ],
+   "negatives": [
+    "I want to deal with them properly.",
+    "Look at the papers carefully before signing."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715275x932225330988349400",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "prepositional",
+  "guideword": "FORM: PREPOSITIONAL VERB, STRANDED PREPOSITION",
+  "can_do_statement": "Can use verb + preposition, where the preposition is separated from its complement. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Dangling syntactic pointer",
+   "pedagogical_hook": "In English, the preposition can be left behind at the end of the clause.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:look|deal|listen|talk|think|wait)\\b(?:\\s+[a-z]+ly)?\\s+(?:at|with|to|about|for)(?:\\s*[.,!?]|\\s*$)",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "look",
+       "deal",
+       "listen",
+       "talk",
+       "think",
+       "wait"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "at",
+       "with",
+       "to",
+       "about",
+       "for"
+      ]
+     }
+    },
+    {
+     "IS_PUNCT": true
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Our clothes have to be clean and nice to look at.",
+    "But there is one difficulty which we should deal with."
+   ],
+   "negatives": [
+    "Look at the beautiful painting on the wall.",
+    "Deal with the issue right now."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715608x437514984752567900",
+  "level": "B2",
+  "super_category": "VERBS",
+  "sub_category": "there is/are",
+  "guideword": "FORM: 'THERE' + VERBS WITH MODAL MEANING",
+  "can_do_statement": "Can use 'there' with other verbs with modal meaning + 'be' + complement.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Periphrastic modal framing of existence",
+   "pedagogical_hook": "These verbs express necessity or future expectation of existence.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bthere\\s+(?:has|have|had|needs|need|is|are|was|were)\\s+(?:to|going\\s+to)\\s+be\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "there"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "have",
+       "need",
+       "be"
+      ]
+     }
+    },
+    {
+     "LOWER": "going",
+     "OP": "?"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "LOWER": "be"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I figured out that there had to be matches somewhere.",
+    "There is going to be a theatre performance."
+   ],
+   "negatives": [
+    "There will be a great show tomorrow.",
+    "There are matches somewhere in the cabin."
    ]
   }
  },
@@ -7738,6 +10616,95 @@
   }
  },
  {
+  "egp_id": "1741163708570x262059735785698850",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "guideword": "FORM: NON-FINITE AFTER 'IF'",
+  "can_do_statement": "Can use non-finite clauses after 'if'. .\u25ba 'clauses: conditionals'",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Abbreviating conditional states",
+   "pedagogical_hook": "if + VBN or VBG",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bif\\s+(?:not\\s+)?[a-z]+(?:ed|en|ing)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "if"
+    },
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "VBN",
+       "VBG"
+      ]
+     },
+     "DEP": "advcl"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Please do not hesitate to ask for further assistance if needed.",
+    "There are some suggestions that, if taken, could improve the school."
+   ],
+   "negatives": [
+    "If you need anything, let me know.",
+    "I don't know if he is coming."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709011x121675845924224210",
+  "level": "C1",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: 'ONE'S'",
+  "can_do_statement": "Can use 'one's' to indicate possession, referring to people in general. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bone's\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "one"
+    },
+    {
+     "LOWER": "'s"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN",
+       "ADJ"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Tourism can affect one's life.",
+    "It depends on one's ability to communicate."
+   ],
+   "negatives": [
+    "One is enough for me.",
+    "He's the only one."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163706322x308841091964953600",
   "level": "C2",
   "super_category": "ADJECTIVES",
@@ -8431,6 +11398,54 @@
   }
  },
  {
+  "egp_id": "1741163708563x629778718895767000",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "phrases/exclamations",
+  "guideword": "FORM: 'HOW' + CLAUSE",
+  "can_do_statement": "Can use 'How' + clause. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Expressing deep feeling or reminiscence.",
+   "pedagogical_hook": "Using 'How' directly followed by a subject and verb.",
+   "agency_or_distance": "Agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bhow\\s+(?:i|he|she|it|we|they|you)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "how",
+     "DEP": "advmod"
+    },
+    {
+     "DEP": "nsubj"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "How I love the smell of home!",
+    "How she wishes things were different."
+   ],
+   "negatives": [
+    "How are you?",
+    "How exciting!"
+   ]
+  }
+ },
+ {
   "egp_id": "1741163709001x295581166797130900",
   "level": "C2",
   "super_category": "DETERMINERS",
@@ -8499,6 +11514,270 @@
    "negatives": [
     "That flame was bright.",
     "An old man made a marionette."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709005x786738476096090000",
+  "level": "C2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: EMOTIONAL DISTANCE",
+  "can_do_statement": "Can use 'that' and 'those' to convey emotional distance, often to express disapproval.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Distancing oneself from a concept or behaviour.",
+   "pedagogical_hook": "Using 'that' or 'those' for emotional distance or disapproval.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(that|those)\\s+(sort\\s+of|kind\\s+of|type\\s+of|so-called)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "that",
+       "those"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "sort",
+       "kind",
+       "type",
+       "so"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "of",
+       "-"
+      ]
+     }
+    },
+    {
+     "LOWER": "called",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I would never accept that sort of treatment.",
+    "Why do we listen to those so-called heroes?"
+   ],
+   "negatives": [
+    "I have that sort in my collection already.",
+    "Those are my friends."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709011x101004395816580500",
+  "level": "C2",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: SINGULAR NOUN ENDING IN 'S' + APOSTROPHE",
+  "can_do_statement": "Can use an apostrophe after singular nouns ending in 's', to indicate possession.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(series|species|boss|class|bus|gas|glass|dress|thomas|james|charles|chris|jesus)'\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "REGEX": "^.*s$"
+     },
+     "TAG": {
+      "IN": [
+       "NN",
+       "NNP"
+      ]
+     }
+    },
+    {
+     "TEXT": "'"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We must keep the series' aspects the same.",
+    "I drove James' car to the store."
+   ],
+   "negatives": [
+    "My parents' house is nearby.",
+    "The dog's bowl is empty."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x469636454463137700",
+  "level": "C2",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: ''S + 'S'",
+  "can_do_statement": "Can use two possessive ''s' constructions in the same noun phrase. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b[a-z]+'s\\s+[a-z]+'s\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "'s"
+    },
+    {
+     "POS": "ADJ",
+     "OP": "*"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "LOWER": "'s"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "They were in Ann's mother's albums.",
+    "We went to Emily's grandmother's house."
+   ],
+   "negatives": [
+    "Ann's mother is nice.",
+    "The cat's toy is under the dog's bed."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709012x498407182012378100",
+  "level": "C2",
+  "super_category": "DETERMINERS",
+  "sub_category": "possessives",
+  "guideword": "FORM: ''S' WITH ELLIPTED NOUN",
+  "can_do_statement": "Can use ''s' without a following noun when the noun has already been mentioned or is obvious in the context. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Mapping possession, quantification, or specific reference to an entity.",
+   "pedagogical_hook": "Identifying the scope or owner of a noun phrase.",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b[a-z]+'s(?=\\s*[.,;!?]|$)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "'s"
+    },
+    {
+     "POS": {
+      "NOT_IN": [
+       "NOUN",
+       "PROPN",
+       "ADJ"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Olivia's experiences are probably the narrator's.",
+    "The empty account was my friend's."
+   ],
+   "negatives": [
+    "My friend's car is empty.",
+    "Olivia's experience was fun."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163715275x957741138272661000",
+  "level": "C2",
+  "super_category": "VERBS",
+  "sub_category": "phrasal-prepositional",
+  "guideword": "FORM: VERB + DIRECT OBJECT + PARTICLE + PREPOSITION + OBJECT",
+  "can_do_statement": "Can use a direct object with some prepositional verbs as well as an object of the preposition.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Transitive split across structural bounds",
+   "pedagogical_hook": "The object sits directly after the verb, splitting the verb from its particles.",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:let|take|put|set|talk|get)\\b\\s+(?:us|me|him|her|them|it|you)\\s+(?:in|up|out|on)\\s+(?:on|with|to|for)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "let",
+       "take",
+       "put",
+       "set",
+       "talk",
+       "get"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "us",
+       "me",
+       "him",
+       "her",
+       "them",
+       "it",
+       "you"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "in",
+       "up",
+       "out",
+       "on"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "on",
+       "with",
+       "to",
+       "for"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "They can trust us or let us in on a secret.",
+    "Please don't put me up to this task."
+   ],
+   "negatives": [
+    "Please let us in right now.",
+    "They decided to let us go."
    ]
   }
  }

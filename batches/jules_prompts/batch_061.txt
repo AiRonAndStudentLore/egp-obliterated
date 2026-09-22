@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_061.json`
 ```json
 [
  {
-  "egp_id": "1741163715025x801370095944183200",
-  "level": "C1",
-  "super_category": "PRONOUNS",
-  "sub_category": "reciprocal",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'EACH \u2026' + 'THE OTHER(S)', AS COMPLEMENT",
-  "can_do_statement": "Can use 'each' (+ noun or pronoun) as subject followed by 'the other(s)' a complement of a preposition, to refer to two related things. \u25ba pronouns: quantity",
-  "example_raw": "Each person could be a help to the other. (Sri Lanka; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Tamil; Pass)\n\nThey all seem to mean exactly the same but if you study them more carefully, you realize that each of them differs from the others in tiny details that can be relevant. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Spanish - European; Pass)\n\nGenerally speaking, each individual is different from the others. (Vietnam; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2011; Urdu;)"
- },
- {
-  "egp_id": "1741163715025x810006712006467000",
-  "level": "B2",
-  "super_category": "PRONOUNS",
-  "sub_category": "reciprocal",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'ONE ANOTHER', FORMAL",
-  "can_do_statement": "Can use 'one another' as the object of a verb or complement of a preposition to talk about the mutual behaviour of two or more people, often in formal contexts. ",
-  "example_raw": "I also thought to create a studying space where students, staff and visitors can meet one another. (Italy; B2 VANTAGE; 1999; Italian; Pass)\n\nSince we last saw one another many things have happened, but I must admit I have never enjoyed myself again the way I did when I was with you. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nPerhaps it will help me understand what my two dogs say to one another. (Portugal; B2 VANTAGE; 2008; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163715026x505796493500260540",
-  "level": "C2",
-  "super_category": "PRONOUNS",
-  "sub_category": "reciprocal",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'EACH \u2026 THE OTHER(S)', AS OBJECT",
-  "can_do_statement": "Can use 'each' (+ noun or pronoun) as subject followed by 'the other(s)' as object , to refer to two related things. \u25ba pronouns: quantity",
-  "example_raw": "Each of them admires the other's intelligence. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nAs regards other aspects of my upbringing my parents taught me the importance of having all the family together, each one helping the others, each one loving the others. (Italy; C2 MASTERY; 1993; Italian; Pass)"
- },
- {
-  "egp_id": "1741163713862x154445028287858000",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "reflexive",
-  "lexical_range": "1",
-  "guideword": "FORM: SAME SUBJECT AND OBJECT.",
-  "can_do_statement": "Can use a limited range of singular reflexive pronouns ('myself', 'yourself') with a limited range of verbs ('enjoy', 'buy') to refer to actions where the subject and object of the verb are the same.",
-  "example_raw": "I enjoyed myself so much. (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)\n\nI bought myself a yellow T-shirt with nothing on it. (Germany; A2 WAYSTAGE; 2008; German; Pass)\n\nI hope you'll enjoy yourself . (Italy; A2 WAYSTAGE; 2001; Italian; Pass)"
- },
- {
-  "egp_id": "1741163713862x630910430482545900",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "reflexive",
-  "lexical_range": "2",
-  "guideword": "FORM: SAME SUBJECT AND OBJECT, SINGULAR ",
-  "can_do_statement": "Can use an increasing range of singular reflexive pronouns with an increasing range of verbs to refer to actions where the subject and object of the verb are the same.",
-  "example_raw": "I decided to talk to him and introduce myself. (Preliminary English Test; B1; Turkish)\n\nFirst you should ask yourself if you have enough money for the journey. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nLisa told herself to be strong and hoped everything would be alright. (Preliminary English Test for Schools; B1; Vietnamese)\n\nI was really surprised when I read the e-mail. It was from someone who calls himself  the black shadow. (Chile; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163713862x808025709875744000",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "reflexive",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'BY' + SINGULAR ",
-  "can_do_statement": "Can use the singular reflexive pronouns 'myself', 'yourself', 'himself' and 'herself' with 'by' to mean alone, without any help.",
-  "example_raw": "I will ask my friends from the class and I will study by myself. (Preliminary English Test; B1; Czech)\n\nYou can do some exercise by yourself. (Preliminary English Test; B1;Turkish)\n\nHe tried to open it by himself. (Preliminary English Test; B1; Spanish \u2013 Latin American)\n\nShe decided to find him by herself. (Preliminary English Test; B1; Arabic \u2013 Meghreb)"
- },
- {
-  "egp_id": "1741163713863x119857807264091460",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "reflexive",
-  "lexical_range": "N/A",
-  "guideword": "FORM: SINGULAR, AFTER PREPOSITIONS",
-  "can_do_statement": "Can use the singular reflexive pronouns 'myself', 'yourself', 'himself' and 'herself' after prepositions where the object of the preposition is the same as the subject of the verb.",
-  "example_raw": "He told me about himself and how he started playing the guitar. (Preliminary English Test; B1; Catalan)\n\nNow she was very proud of herself. (Preliminary English Test; B1; Spanish \u2013Latin American)"
- },
- {
-  "egp_id": "1741163713863x283697850044881920",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "reflexive",
-  "lexical_range": "N/A",
-  "guideword": "USE: SINGULAR, FOR EMPHASIS",
-  "can_do_statement": "Can use the singular reflexive pronouns 'myself', 'yourself', 'himself' and 'herself' for emphasis.",
-  "example_raw": "The best solution will be if you decide yourself what to do. (Preliminary English Test; B1; Polish)\n\nI think it was the director himself who guided the actress through our wonderful school gardens to film the opening scene there. (Preliminary English Test; B1; German)\n\nThe food was delicious, especially the cake, which Sandra had cooked herself. (Preliminary English Test; B1; Russian) "
- },
- {
-  "egp_id": "1741163713863x705171809781664600",
-  "level": "B2",
-  "super_category": "PRONOUNS",
-  "sub_category": "reflexive",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'BY' + PLURAL ",
-  "can_do_statement": "Can use plural reflexive pronouns with 'by' to mean alone, without any help.",
-  "example_raw": "A friend of mine and I are planning to spend a short holiday by ourselves. (First Certificate in English; B2; Chinese)\n\nThere are many things to say, but I think that you will find these by yourselves. (First Certificate in English; B2; Greek)\n\nThen suddenly, the lights started clicking on and off, the windows opened by themselves. (First Certificate in English; B2; Greek)\n"
- },
- {
-  "egp_id": "1741163713864x114619505443246400",
-  "level": "B2",
-  "super_category": "PRONOUNS",
-  "sub_category": "reflexive",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'YOURSELVES', FOR POLITENESS ",
-  "can_do_statement": "Can use the plural reflexive pronoun 'yourselves' for politeness.",
-  "example_raw": "Dear Sir/Madam, I am writing to you in response to the advertisement published by yourselves in \"the Traveller\" regarding The Trip of a Lifetime. (First Certificate in English; B2; Portuguese)\n\nThe question you asked droves me back to my early life. My childhood. Like yourselves I am also living in a busy town, in a busy street. But when I was a little kid I was with my grand parents in Kandy. (Sri Lanka; B1 THRESHOLD; 2010; Singhalese; Pass)\n\nAlso, it is a great opportunity to improve my sailing skills as training will be provided by yourselves. (Brazil; B2 VANTAGE; 2001; Portuguese; Pass\u00a0\u00a0)"
- },
- {
-  "egp_id": "1741163713864x227611017911317760",
-  "level": "B2",
-  "super_category": "PRONOUNS",
-  "sub_category": "reflexive",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'ITSELF', FOR EMPHASIS ",
-  "can_do_statement": "Can use the singular pronoun 'itself' for emphasis.",
-  "example_raw": "In my opinion, the main characters do not have to be liked by readers but the story itself must be good and interesting to be successful. (First Certificate in English; B2; Swiss German)\n\nThe building itself looks splendid and beautiful. (Thailand; B2 VANTAGE; 2001; Thai; Pass)"
- },
- {
   "egp_id": "1741163713864x333646306844270800",
   "level": "B2",
   "super_category": "PRONOUNS",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_061.json`
   "guideword": "FORM: 'BY ITSELF'",
   "can_do_statement": "Can use the reflexive pronoun 'itself' with 'by' to mean alone or without any help.",
   "example_raw": "If an animal is kept by itself , with no one to keep it company, it will get lonely and very sad. (First Certificate in English; B2; Danish)\n\nSuddenly, the window opened by itself and the room filled with cold air. (First Certificate in English; B2; Greek)"
+ },
+ {
+  "egp_id": "1741163713864x981685154549874200",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'IN ITSELF', INTENSIFYING ",
+  "can_do_statement": "Can use the fixed expression 'in itself' as an intensifier .",
+  "example_raw": "I would also spend much more quality time with my family as a whole, which is quite important in itself. (First Certificate in English; B2; Spanish _ Latin American)\n\nThe architecture in itself is beautiful, but the garden is very wonderful, too. (Philippines; B2 VANTAGE; 1993; Japanese; Pass)\n\nTo begin with, a car, in my opinion, can't be harmful in itself. The trouble is that, nowadays, very fast cars are put on the market and we never know if they are going to be driven by wise people or, instead, by crazy or dreadful drivers. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163713867x574702813002478900",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "N/A",
+  "guideword": "USE: DISCOURSE MARKERS",
+  "can_do_statement": "Can use 'as for myself' as a discourse marker to introduce or focus on a personal opinion. ",
+  "example_raw": "As for myself, as you can clearly see from my account of this musical event, music still means an awful lot to me, and most probably allways will. (Belgium; C2 MASTERY; 2001; Dutch; Pass)\n\n As for myself I like taking responsibilities. (Russia; C2 MASTERY; 1999; Russian; Pass)\n\n As for myself, I grew up during the \"internet era\", the years when it was spreading to average peoples homes and therefore I can still remember life without it. (Sweden; C2 MASTERY; 2005; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163713867x150062658595893500",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) QUESTIONS WITH 'BE'",
+  "can_do_statement": "Can use the pronouns 'you' and 'it' after 'be' in question forms.",
+  "example_raw": "Hi, Mrs. Bishop. How are you? (Skills for Life (Entry 1); ; A1 BREAKTHROUGH; 2009; Tagalog; Pass)\n\nIs it OK? (Skills for Life (Entry 1); ; A1 BREAKTHROUGH; 2009; Romanian; Pass)"
+ },
+ {
+  "egp_id": "1741163713867x281198469131771500",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "2",
+  "guideword": "FORM: (OBJECT) 'IT'",
+  "can_do_statement": "Can use the pronoun 'it' as a direct object to refer to an object or situation already referred to.",
+  "example_raw": "The maths is boring and I don't like it. (Skills for Life (Entry 1); A1; Portuguese)\n\nIf you can't find it, call me. (Skills for Life (Entry 1); A1; Turkish)\n\nDo you like it too? (Skills for Life (Entry 1); A1; German)"
+ },
+ {
+  "egp_id": "1741163713867x530274295544571840",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (OBJECT) WITH PREPOSITION ",
+  "can_do_statement": "Can use the object pronouns 'me', 'you', 'him', 'her', 'it', 'us' and 'them' in the object position after prepositions. ",
+  "example_raw": "I really like to learn new words. It's very important for me. (Skills for Life (Entry 1); A1; Polish)\n\nSometimes I go with her. (Skills for Life (Entry 1); A1; Polish)\n\nCan you bring some music so we can listen to it. (Skills for Life (Entry 1); A1; no L1 specified)\n\nI spend my free time with them. (Skills for Life (Entry 1); A1; Lithuanian)"
+ },
+ {
+  "egp_id": "1741163713867x609205291409504700",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) QUESTIONS",
+  "can_do_statement": "Can use the pronouns 'I', 'you', 'we' and 'they' after an auxiliary or modal verb in question forms.",
+  "example_raw": "Can I help you? (Skills for Life (Entry 1); A1; Arabic \u2013 other)\n\nWhat do you think about that? (Skills for Life (Entry 1); A1; French)\n\nCan we have a chat? (Skills for Life (Entry 1); A1; Russian)"
+ },
+ {
+  "egp_id": "1741163713867x710371035379195900",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "2",
+  "guideword": "FORM: (OBJECT) 'ME', 'YOU', 'HER', 'HIM', 'US', 'THEM' ",
+  "can_do_statement": "Can use the pronouns 'me', 'you', 'him', 'her', 'us' and 'them' in the direct object position after a transitive verb.",
+  "example_raw": "I'm very happy that you want to see me. (Skills for Life (Entry 1); A1; German)\n\nI can see her on Saturday at 8 pm. (Skills for Life (Entry 1); A1; Arabic)\n\nIt protects us from rain, wind and sun. (Skills for Life (Entry 1); A1; Portuguese)\n\nYou will find a lot of different shops \u2026 I hope you'll like them. (Skills for Life (Entry 1); A1; Russian)"
+ },
+ {
+  "egp_id": "1741163713867x970460151516622800",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "3",
+  "guideword": "FORM: (SUBJECT) 'IT' FOR FIRST PERSON",
+  "can_do_statement": "Can use the pronoun 'it' before 'be' to refer to a first person speaker or writer.",
+  "example_raw": "Hello Mrs Bishop. It's Clarisse (Skills for Life (Entry 1); A1; French)\n\nDear Cris, it's me, Paarth. (India; A2 WAYSTAGE; 2009; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163713868x463659211645272000",
+  "level": "A1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) STATEMENTS",
+  "can_do_statement": "Can use the pronouns 'I', 'you', 'he', 'she', 'it', 'we' and 'they' in the subject position before a verb in statements.",
+  "example_raw": "In my free time I go shopping and I like swimming. (Skills for Life (Entry 1); A1; Polish)\n\nIf you want, you can go inside. (Skills for Life (Entry 1); A1; Hindi)\n\nHe prefers chess. (Skills for Life (Entry 1); A1; Singhalese)\n\nMy friend's name is Julissa, she is from Ecuador and she lives near my home. (Skills for Life (Entry 1); A1; Spanish)\n\nI like my home because it is a beautiful home. It has a big garden and a good sitting room. (Skills for Life (Entry 1); A1; Pashto)\n\nI like my front garden because it's very nice and warm. (Skills for Life (Entry 1); A1; Czech)\n\nThey're nice people. (Skills for Life (Entry 1); A1; Arabic) "
+ },
+ {
+  "egp_id": "1741163713868x569801658869344200",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) ELLIPSIS AFTER 'HOPE'",
+  "can_do_statement": "Can leave out the subject pronoun with 'hope'. \u25ba ellipsis",
+  "example_raw": "Hope to see you soon. (Key English Test ; A2; Turkish)\n\nHi! How are you? Hope you are fine. (India; A2 WAYSTAGE; 2006; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163713868x798436542527262600",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) EMPTY 'IT'",
+  "can_do_statement": "Can use 'it' as an empty subject when there is nothing else to put in subject position, particularly with weather or time. ",
+  "example_raw": "It's warm and windy. (Key English Test for Schools; A2; Vietnamese)\n\nNow it 's 3 pm. (B1 THRESHOLD; 2004; Pass)"
  }
 ]
 ```

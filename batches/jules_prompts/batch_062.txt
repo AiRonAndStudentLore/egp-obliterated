@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_062.json`
 ```json
 [
  {
-  "egp_id": "1741163713864x981685154549874200",
-  "level": "B2",
-  "super_category": "PRONOUNS",
-  "sub_category": "reflexive",
-  "lexical_range": "N/A",
-  "guideword": "USE: 'IN ITSELF', INTENSIFYING ",
-  "can_do_statement": "Can use the fixed expression 'in itself' as an intensifier .",
-  "example_raw": "I would also spend much more quality time with my family as a whole, which is quite important in itself. (First Certificate in English; B2; Spanish _ Latin American)\n\nThe architecture in itself is beautiful, but the garden is very wonderful, too. (Philippines; B2 VANTAGE; 1993; Japanese; Pass)\n\nTo begin with, a car, in my opinion, can't be harmful in itself. The trouble is that, nowadays, very fast cars are put on the market and we never know if they are going to be driven by wise people or, instead, by crazy or dreadful drivers. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163713867x574702813002478900",
-  "level": "C2",
-  "super_category": "PRONOUNS",
-  "sub_category": "reflexive",
-  "lexical_range": "N/A",
-  "guideword": "USE: DISCOURSE MARKERS",
-  "can_do_statement": "Can use 'as for myself' as a discourse marker to introduce or focus on a personal opinion. ",
-  "example_raw": "As for myself, as you can clearly see from my account of this musical event, music still means an awful lot to me, and most probably allways will. (Belgium; C2 MASTERY; 2001; Dutch; Pass)\n\n As for myself I like taking responsibilities. (Russia; C2 MASTERY; 1999; Russian; Pass)\n\n As for myself, I grew up during the \"internet era\", the years when it was spreading to average peoples homes and therefore I can still remember life without it. (Sweden; C2 MASTERY; 2005; Swedish; Pass)"
- },
- {
-  "egp_id": "1741163713867x150062658595893500",
-  "level": "A1",
-  "super_category": "PRONOUNS",
-  "sub_category": "subject/ object",
-  "lexical_range": "N/A",
-  "guideword": "FORM: (SUBJECT) QUESTIONS WITH 'BE'",
-  "can_do_statement": "Can use the pronouns 'you' and 'it' after 'be' in question forms.",
-  "example_raw": "Hi, Mrs. Bishop. How are you? (Skills for Life (Entry 1); ; A1 BREAKTHROUGH; 2009; Tagalog; Pass)\n\nIs it OK? (Skills for Life (Entry 1); ; A1 BREAKTHROUGH; 2009; Romanian; Pass)"
- },
- {
-  "egp_id": "1741163713867x281198469131771500",
-  "level": "A1",
-  "super_category": "PRONOUNS",
-  "sub_category": "subject/ object",
-  "lexical_range": "2",
-  "guideword": "FORM: (OBJECT) 'IT'",
-  "can_do_statement": "Can use the pronoun 'it' as a direct object to refer to an object or situation already referred to.",
-  "example_raw": "The maths is boring and I don't like it. (Skills for Life (Entry 1); A1; Portuguese)\n\nIf you can't find it, call me. (Skills for Life (Entry 1); A1; Turkish)\n\nDo you like it too? (Skills for Life (Entry 1); A1; German)"
- },
- {
-  "egp_id": "1741163713867x530274295544571840",
-  "level": "A1",
-  "super_category": "PRONOUNS",
-  "sub_category": "subject/ object",
-  "lexical_range": "N/A",
-  "guideword": "FORM: (OBJECT) WITH PREPOSITION ",
-  "can_do_statement": "Can use the object pronouns 'me', 'you', 'him', 'her', 'it', 'us' and 'them' in the object position after prepositions. ",
-  "example_raw": "I really like to learn new words. It's very important for me. (Skills for Life (Entry 1); A1; Polish)\n\nSometimes I go with her. (Skills for Life (Entry 1); A1; Polish)\n\nCan you bring some music so we can listen to it. (Skills for Life (Entry 1); A1; no L1 specified)\n\nI spend my free time with them. (Skills for Life (Entry 1); A1; Lithuanian)"
- },
- {
-  "egp_id": "1741163713867x609205291409504700",
-  "level": "A1",
-  "super_category": "PRONOUNS",
-  "sub_category": "subject/ object",
-  "lexical_range": "N/A",
-  "guideword": "FORM: (SUBJECT) QUESTIONS",
-  "can_do_statement": "Can use the pronouns 'I', 'you', 'we' and 'they' after an auxiliary or modal verb in question forms.",
-  "example_raw": "Can I help you? (Skills for Life (Entry 1); A1; Arabic \u2013 other)\n\nWhat do you think about that? (Skills for Life (Entry 1); A1; French)\n\nCan we have a chat? (Skills for Life (Entry 1); A1; Russian)"
- },
- {
-  "egp_id": "1741163713867x710371035379195900",
-  "level": "A1",
-  "super_category": "PRONOUNS",
-  "sub_category": "subject/ object",
-  "lexical_range": "2",
-  "guideword": "FORM: (OBJECT) 'ME', 'YOU', 'HER', 'HIM', 'US', 'THEM' ",
-  "can_do_statement": "Can use the pronouns 'me', 'you', 'him', 'her', 'us' and 'them' in the direct object position after a transitive verb.",
-  "example_raw": "I'm very happy that you want to see me. (Skills for Life (Entry 1); A1; German)\n\nI can see her on Saturday at 8 pm. (Skills for Life (Entry 1); A1; Arabic)\n\nIt protects us from rain, wind and sun. (Skills for Life (Entry 1); A1; Portuguese)\n\nYou will find a lot of different shops \u2026 I hope you'll like them. (Skills for Life (Entry 1); A1; Russian)"
- },
- {
-  "egp_id": "1741163713867x970460151516622800",
-  "level": "A1",
-  "super_category": "PRONOUNS",
-  "sub_category": "subject/ object",
-  "lexical_range": "3",
-  "guideword": "FORM: (SUBJECT) 'IT' FOR FIRST PERSON",
-  "can_do_statement": "Can use the pronoun 'it' before 'be' to refer to a first person speaker or writer.",
-  "example_raw": "Hello Mrs Bishop. It's Clarisse (Skills for Life (Entry 1); A1; French)\n\nDear Cris, it's me, Paarth. (India; A2 WAYSTAGE; 2009; Hindi; Pass)"
- },
- {
-  "egp_id": "1741163713868x463659211645272000",
-  "level": "A1",
-  "super_category": "PRONOUNS",
-  "sub_category": "subject/ object",
-  "lexical_range": "N/A",
-  "guideword": "FORM: (SUBJECT) STATEMENTS",
-  "can_do_statement": "Can use the pronouns 'I', 'you', 'he', 'she', 'it', 'we' and 'they' in the subject position before a verb in statements.",
-  "example_raw": "In my free time I go shopping and I like swimming. (Skills for Life (Entry 1); A1; Polish)\n\nIf you want, you can go inside. (Skills for Life (Entry 1); A1; Hindi)\n\nHe prefers chess. (Skills for Life (Entry 1); A1; Singhalese)\n\nMy friend's name is Julissa, she is from Ecuador and she lives near my home. (Skills for Life (Entry 1); A1; Spanish)\n\nI like my home because it is a beautiful home. It has a big garden and a good sitting room. (Skills for Life (Entry 1); A1; Pashto)\n\nI like my front garden because it's very nice and warm. (Skills for Life (Entry 1); A1; Czech)\n\nThey're nice people. (Skills for Life (Entry 1); A1; Arabic) "
- },
- {
-  "egp_id": "1741163713868x569801658869344200",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "subject/ object",
-  "lexical_range": "N/A",
-  "guideword": "FORM: (SUBJECT) ELLIPSIS AFTER 'HOPE'",
-  "can_do_statement": "Can leave out the subject pronoun with 'hope'. \u25ba ellipsis",
-  "example_raw": "Hope to see you soon. (Key English Test ; A2; Turkish)\n\nHi! How are you? Hope you are fine. (India; A2 WAYSTAGE; 2006; Hindi; Pass)"
- },
- {
-  "egp_id": "1741163713868x798436542527262600",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "subject/ object",
-  "lexical_range": "N/A",
-  "guideword": "FORM: (SUBJECT) EMPTY 'IT'",
-  "can_do_statement": "Can use 'it' as an empty subject when there is nothing else to put in subject position, particularly with weather or time. ",
-  "example_raw": "It's warm and windy. (Key English Test for Schools; A2; Vietnamese)\n\nNow it 's 3 pm. (B1 THRESHOLD; 2004; Pass)"
- },
- {
   "egp_id": "1741163713875x174658833629234300",
   "level": "B2",
   "super_category": "PRONOUNS",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_062.json`
   "guideword": "FORM: (SUBJECT) EMPTY 'IT'",
   "can_do_statement": "Can use dummy 'it' with 'appears', 'feels', 'looks' and 'seems'.",
   "example_raw": "When you watch a film, it seems to be that you are inside it, and you are a character in it. (First Certificate in English; B2; Spanish - Latin American)\n\n\u2026 your company has carried out a full investigation on the matter and it appears that the disappearance was not the result of criminal activity. (Portugal; B2 VANTAGE; 2008); \n\nIt appears that there was an error with the older computer system. (Tahiti; B2 VANTAGE; 2009; French; Fail)"
+ },
+ {
+  "egp_id": "1741163713875x793481865058558700",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "1",
+  "guideword": "FORM: (SUBJECT) USING 'IT' TO INTRODUCE",
+  "can_do_statement": "Can use dummy 'it' as a subject to introduce something the speaker or writer is going to refer to.",
+  "example_raw": "It is best to spend your time in the countryside. (Preliminary English Test ; B1; Chinese)\n\nIt's boring to be at home when you have a lot of free time. (Preliminary English Test for Schools; B1; Turkish)\n\nIt's normal that your parents want you to go with them. (Preliminary English Test; B1; Spanish)"
+ },
+ {
+  "egp_id": "1741163713875x822556848048788000",
+  "level": "C1",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: (SUBJECT) 'IT' + PASSIVE ",
+  "can_do_statement": "Can use 'it' with the passive voice where the subject is unknown or unimportant, often in formal contexts. \u25ba passives",
+  "example_raw": "It was considered to be the most important thing to supply every computer with Internet and E-mail access (Certificate in Advanced English; C1; German)\n\nIt is hoped that this report will help the club to improve and meet the needs of the whole school. (Certificate in Advanced English; C1; Greek)\n\nFirstly it was highlighted that so many people take advantage of the park, but our survey clearly contradicts this view. (Certificate in Advanced English; Argentina; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163713875x914428795342302700",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "subject/ object",
+  "lexical_range": "N/A",
+  "guideword": "FORM: (SUBJECT) CLEFT CONSTRUCTIONS WITH 'IT'",
+  "can_do_statement": "Can form a cleft construction beginning with 'it' to emphasise the subject of the main clause. \u25ba clauses",
+  "example_raw": "It was my father who took all this away from me. (Certificate of Proficiency in English; C2; Greek)"
+ },
+ {
+  "egp_id": "1741163714104x984668926241232300",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'ONE'",
+  "can_do_statement": "Can use 'one' as a pronoun to substitute for singular countable nouns which have already been mentioned or are obvious from the context. ",
+  "example_raw": "[talking about a phone] I chose the black one with the numbers in orange. (Spain; A2 WAYSTAGE; 2007; Spanish - European; Pass)\n\nI bought a new pullover, because my old one is too small. (Romania; A2 WAYSTAGE; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163714109x164825312440932680",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: POSTMODIFYING, SPECIFYING",
+  "can_do_statement": "Can use 'the one' and 'the' + pre-modifier + 'one' with a complement, to refer to something specific.",
+  "example_raw": "My house is No.8 and it's the one with silver gates. (Malaysia; A2 WAYSTAGE; 2009; Chinese; Pass)\n\nAll my friends gave me a present but the one I liked best was John's. (Portugal; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nDo you remember the one that we saw last week? (Mexico; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)\n\nI bought a jacket because the other one that I had was too small, and a t-shirt to use in the summer. (Portugal; A2 WAYSTAGE; 2008; Portuguese; Pass)\n\nMy house is the first one on the left. (Cyprus; A2 WAYSTAGE; 2009; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163714109x196422108517507740",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRE-MODIFYING",
+  "can_do_statement": "Can use determiners + premodifers + 'one'. ",
+  "example_raw": "I like my present very much because I needed a new one. (Netherlands; A2 WAYSTAGE; 2004; Flemish; Pass)\n\nI love blue so I bought the blue one. (Turkey; A2 WAYSTAGE; 2007; Turkish; Pass)\n\nIt is easy to use and it is smaller than the old one. (Spain; A2 WAYSTAGE; 2007; Spanish - European; Pass)\n\nIt's better than the other one. (Spain; A2 WAYSTAGE; 2007; Spanish - European; Pass)\n\nI have lots of presents, but my favourite one is a CD, Michael gave it to me. (Mexico; A2 WAYSTAGE; 2004; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163714109x541528043515127500",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THIS ONE', 'THAT ONE'",
+  "can_do_statement": "Can use 'this one', 'that one' to refer to a singular countable noun.  \u25ba  pronouns: demonstratives",
+  "example_raw": "I met many old friends there, because I was in another judo club before this one and my friends and I left the old one to join the 1.JCF, because we heard that this one is the best in the whole of Frankfurt. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nI'm thinking about buying a new desk because this one is very old. (Spain; B1 THRESHOLD; 2001; Spanish - European; Pass)\n\nI choose that one, because it is a very good and quiet place. (Argentina; B1 THRESHOLD; 2000; Spanish - Latin American; Pass)\n\nThis is the only part of \"Harry Potter\" movies which I don't have, and it's my favourite, so I'm going to buy that one. (Yugoslavia; B1 THRESHOLD; 2006; Serbian; Pass)"
+ },
+ {
+  "egp_id": "1741163714109x956909866320716900",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'WHICH ONE'",
+  "can_do_statement": "Can use 'one' after 'which' in indirect questions to refer to one of two or more options. ",
+  "example_raw": "If you ask me which one I would choose, I would first go camping and then to Disneyland in Paris. (Ukraine; B1 THRESHOLD; 2008; Polish; Pass)\n\nFirst of all, you should think of all the advantages and disadvantages of each option and if you want, you can write them on a piece of paper. This way you see which one is the best. (Portugal; B1 THRESHOLD; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163714110x132568523130677460",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'ONES'",
+  "can_do_statement": "Can use 'ones' as a pronoun to substitute for plural nouns which have already been mentioned or are obvious from the context. ",
+  "example_raw": "My pillows are getting old and I need new ones. (Brazil; B1 THRESHOLD; 2001; Portuguese; Pass)\n\nTo tell the truth, I prefer large schools to small ones. (Russia; B1 THRESHOLD; 2008; Russian; Pass)\n\nWe also need new armchairs, because a lot of the old ones are broken. (Germany; B1 THRESHOLD; 2009; German; Pass)"
+ },
+ {
+  "egp_id": "1741163714110x318658885213508350",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THESE ONES', 'THOSE ONES'",
+  "can_do_statement": "Can use 'these ones', 'those ones' as a substitute for plural countable nouns which have already been mentioned or are obvious from the context.",
+  "example_raw": "This is only the beginning; there are a lot of things that should be done, but let's just start with these ones. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nBeside those ones, there's also an equal number of individuals who get crippled for life. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass"
+ },
+ {
+  "egp_id": "1741163714110x530097687650274750",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "substitution, one, ones, none",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PREMODIFIER + 'ONES', GENERAL REFERENCE ",
+  "can_do_statement": "Can use premodifiers with 'ones', to refer to something in general. ",
+  "example_raw": "Our computers are out-dated and slow. I think we should replace them with new ones. (Switzerland; B1 THRESHOLD; 2009; Swiss German; Pass)\n\nLarge schools are usually better than small ones, because they offer more interesting activities. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
  }
 ]
 ```

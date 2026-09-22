@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_040.json`
 ```json
 [
  {
-  "egp_id": "1741163711539x336320676887564860",
-  "level": "A1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: DETERMINER + ADJECTIVE + NOUN",
-  "can_do_statement": "Can form simple noun phrases by pre-modifying singular and plural nouns with an adjective after a determiner. ",
-  "example_raw": "Martin is my best friend. (A1 BREAKTHROUGH; 2006; Slovak; Pass)\n\nWe have a big garden and a small swimming pool. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)\n\nHer favourite colours are blue and black. (A1 BREAKTHROUGH; 2006; Hungarian; Pass)"
- },
- {
-  "egp_id": "1741163711539x384428957229715900",
-  "level": "A1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "1",
-  "guideword": "FORM: DETERMINER + NOUN",
-  "can_do_statement": "Can form simple noun phrases with a limited range of determiners + singular and plural nouns. \u25ba Nouns and noun phrases: functions",
-  "example_raw": "There is also a park near my house. (A1 BREAKTHROUGH; 2009; Pashto; Pass)\n\nMy husband is a teacher. (A1 BREAKTHROUGH; 2009; Korean; Pass)\n\nThat's why I like this place. (A1 BREAKTHROUGH; 2007; Urdu; Pass)\n\nI go to college every day. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
- },
- {
-  "egp_id": "1741163711539x458750897089793800",
-  "level": "A1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NOUN + NOUN",
-  "can_do_statement": "Can form noun phrases by pre-modifying a limited range of nouns with another noun. ",
-  "example_raw": "Every Friday I go swimming and play computer games. (Poland; A1 BREAKTHROUGH; 2010; Polish; Pass)\n\nI am having a dinner party on Friday 25 December at 7 pm. (India; A1 BREAKTHROUGH; 2010; Panjabi; Pass)\n\nCan you come to my house on Friday evening? (Iran; A1 BREAKTHROUGH; 2010; Farsi; Pass)\n\nMy girlfriend likes vegetable pasta with tomato sauce, because she is vegetarian. (A1 BREAKTHROUGH; 2006; Polish; Pass)"
- },
- {
-  "egp_id": "1741163711543x198151940455300030",
-  "level": "A2",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH RELATIVE CLAUSE AS POSTMODIFIER",
-  "can_do_statement": "Can post-modify noun phrases by using a non-defining relative clause. \u25ba Clauses: relative",
-  "example_raw": "She's in a volleyball team like me, but we're not in the same one. She was for the other team, which lost. (Switzerland; A2 WAYSTAGE; 2007; Swiss German; Pass)\n\nYou can always visit our Shopping Centre, which is one of the biggest in Brazil. (Brazil; A2 WAYSTAGE; 2001; Portuguese; Pass)\n"
- },
- {
-  "egp_id": "1741163711543x516239433928662500",
-  "level": "A2",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "2",
-  "guideword": "FORM: DETERMINER + NOUN",
-  "can_do_statement": "Can form simple noun phrases by pre-modifying nouns with an increasing range of determiners.",
-  "example_raw": "There are so many shops, you can play games, eat food like Chinese food. (China; A2 WAYSTAGE; 2001; Chinese; Pass)\n\nI had so much fun! (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nI spent too much money, five hundred euros, but I don\u2019t mind because they are beautiful! (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nI visited a lot of museums and I went shopping. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nAll of our classmates were there and some of my cousins too. (Malaysia; A2 WAYSTAGE; 2004; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163711543x777814761336798300",
-  "level": "A2",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: DETERMINER + UNCOUNTABLE NOUN",
-  "can_do_statement": "Can form simple noun phrases with a limited range of determiners + uncountable nouns.",
-  "example_raw": "The food was delicious and the music was great. (Turkey; A2 WAYSTAGE; 1999; Turkish; Pass)\n\nThe weather was so cold. (Philippines; A2 WAYSTAGE; 2009; Chinese; Pass)\n\nI phoned for more information two days ago. (Italy; A2 WAYSTAGE; 2006; Italian; Pass)\n\n[talking about a book] It is very important because I need to do some homework in it. (India; A2 WAYSTAGE; 2005; Marathi; Pass)"
- },
- {
-  "egp_id": "1741163711543x798815849394851200",
-  "level": "A2",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "1",
-  "guideword": "FORM: NOUN PHRASES WITH ADJECTIVES",
-  "can_do_statement": "Can pre-modify noun phrases with a limited range of more than one adjective. ",
-  "example_raw": "I bought a beautiful pink skirt and a white top. (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nLysiane is taller than me and she has short black hair. (A2 WAYSTAGE; 2010; Portuguese; Pass)\n\nIt is a beautiful old city and there is the old wall around the city. (Latvia; A2 WAYSTAGE; 1999; Russian; Pass)\n\nI left my small white bag. (Argentina; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)\n\nDon't forget to wear old, comfortable clothes. (Peru; A2 WAYSTAGE; 2006; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163711544x121774905611857550",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: COMPLEX NOUN PHRASES WITH ADVERBS + ADJECTIVES",
-  "can_do_statement": "Can form complex noun phrases with adverb + adjective + noun. ",
-  "example_raw": "It took us a very long time but it was a great fun! (Poland; B1 THRESHOLD; 2009; Polish; Pass)\n\nThey made really good friends. (Argentina; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163711544x322105234805026600",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NOUN + PREPOSITIONAL PHRASES ",
-  "can_do_statement": "Can form complex noun phrases by using a prepositional phrase after the main noun in a noun phrase. ",
-  "example_raw": "It was a beautiful red dress with blue flowers on the back. (Andorra; B1 THRESHOLD; 2010; French; Pass)\n\nYesterday a TV company came to our school to make a film about Bavarian pupils. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI don't spend too much time in front of the television, I just watch it twice a week and on Sundays morning. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI received your letter and you asked me about the future of my town. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI have to travel to Montevideo to see my doctor because I'm having some problems with my health. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n"
- },
- {
-  "egp_id": "1741163711544x351321536679149760",
-  "level": "A2",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: WITH RELATIVE CLAUSE AS COMPLEMENT",
-  "can_do_statement": "Can form complex noun phrases by using a defining relative clause as a complement to a noun phrase. \u25ba Clauses: relative",
-  "example_raw": "The mobile phone which I bought yesterday is brilliant. (Russia; A2 WAYSTAGE; 2007; Russian; Pass)\n\nThe person who gave me it was my father. (Portugal; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nThe last day when we can see the movie is Thursday. (Romania; A2 WAYSTAGE; 2003; Romanian; Pass)\n\nI want to invite you to a pop concert that is going to take place in the National Stadium. (Peru; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nThe music that I like is Rock & Roll. (Russia; A2 WAYSTAGE; 2005; Russian; Pass)"
- },
- {
-  "egp_id": "1741163711544x365357840588922800",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "2",
-  "guideword": "FORM: COMPLEX NOUN PHRASES WITH ADJECTIVES",
-  "can_do_statement": "Can form an increasing range of complex noun phrases with more than one adjective. ",
-  "example_raw": "The Northeast is so beautiful and it's famous because of its white sandy beaches and the coconut trees. (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)\n\nLast weekend I went to S\u00e3o Paulo to buy some winter clothes. I bought a white hooded jacket, a blue jumper, black gloves and a beautiful blue scarf. (Brazil; B1 THRESHOLD; 2010; Portuguese; Pass)\n\nInside there were three samples of a nasty purple liquid. (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nI know your company are offering an exciting new service in our area. (China; B1 THRESHOLD; 2007; Chinese; Pass)\n\nHe had beautiful green eyes, short, curly, red hair and he was wearing an elegant black suit with a red tie. (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nYou can walk along the streets and eat typical Spanish food in good restaurants. (Spain; B1 THRESHOLD; 2004; Spanish - European; Pass)"
- },
- {
   "egp_id": "1741163711544x688186986093687800",
   "level": "A2",
   "super_category": "NOUNS",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_040.json`
   "guideword": "FORM/USE: POSSESSIVE '\u2018S' WITHOUT NOUN ",
   "can_do_statement": "Can omit the noun after possessive '\u2019s' to talk about a place which is familiar to the speaker and listener.",
   "example_raw": "Last week I left my clothes at the dry cleaner's and I can't collect them. (B1 THRESHOLD; 2009; Polish; Pass)\n\nI have to go to the dentist\u2019s. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nI'll be picking you up at eight o'clock near the McDonald's, OK? (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)\n\nI'm going to be absent from the English class next week, because I am going to the doctor's. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nIt's next to your grandma's. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x165510163769483600",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN PHRASE, NOUN PHRASE ",
+  "can_do_statement": "Can put two noun phrases together (in apposition) to refer to the same person or thing, usually separated by commas.",
+  "example_raw": "Mr Miller, the Sales Director, will visit us next Thursday. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nYesterday my boyfriend and I decided to go on a cycling holiday to visit some places in the country near Eboli, the town where we live. (Italy; B1 THRESHOLD; 2003; Italian; Pass)\n\nShe has come with me and two more friends, Peter and Gorha. (Spain; B1 THRESHOLD; 2003; Spanish - European; Pass)\n\nI spoke with her and she looks really happy, although a little sad because her best friend, Alison, did not pass the exam. (Spain; B1 THRESHOLD; 2004; Spanish - European; Pass)\n\nA new employee, Mary Watts, has just joined our company. (China; B1 THRESHOLD; 2002; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x331407196629243300",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE THING \u2026'",
+  "can_do_statement": "Can use the noun phrase 'The thing' in front position, with a clause complement, to give focus to something. ",
+  "example_raw": "The thing I enjoyed most about it was a new computer game. (Georgia (Republic of); B1 THRESHOLD; 2007; Georgian; Pass)\n\nThe thing I prefer there is the swimming-pool, because I have met someone there. (France; B1 THRESHOLD; 2003; French; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x374275189138046900",
+  "level": "B2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: POSSESSION WITH PLURAL NOUNS  + '",
+  "can_do_statement": "Can form noun phrases with plural nouns + ' + noun.",
+  "example_raw": "He had promised that he would go to his grandparents' house this afternoon. (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nOur company is a digital company with 15 years' experience. (China; B2 VANTAGE; 2008; Chinese; Pass)\n\nIt is essential to introduce special offers to get customers' attention. (India; B2 VANTAGE; 2009; Telugu; Fail)"
+ },
+ {
+  "egp_id": "1741163711814x437092792361470460",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPLEX NOUN PHRASE WITH POSSESSIVE '\u2018S' + NOUN",
+  "can_do_statement": "Can form complex noun phrases with noun phrase + 'of' + noun phrase + possessive determiner ''s' + noun phrase.",
+  "example_raw": "I ran to the street and I saw the window of my neighbour's car was broken. (B1 THRESHOLD; 2007; Portuguese; Pass)\n\nThe subject of my boss's talk will be IT skills. (Spain; B1 THRESHOLD; 2002; Spanish - European; Pass)\n\nMy friend Ronald had been chosen to play the role of James Bond's son! (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nMy best friend is called Sindi and we met at my brother's birthday. She is the sister of my brother's girlfriend so he invited her as well. (Bulgaria; B1 THRESHOLD; 2010; Bulgarian; Pass)\n\nThe delivery date should be the day of my friend's birthday. (B1 THRESHOLD; 2003; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x441874051766755000",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INDEFINITE PRONOUNS ",
+  "can_do_statement": "Can form noun phrases with an indefinite pronoun + adjective or clause. ",
+  "example_raw": "We see each other every day and do something different every day. (B1 THRESHOLD; 2004; ; Pass)\n\nYou could bring something to drink. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Fail)\n\nBut then there is nothing special to eat. (Germany; B1 THRESHOLD; 2006; German; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x584379635897277300",
+  "level": "B2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN + 'OF' + POSSESSIVE DETERMINER + NOUN ",
+  "can_do_statement": "Can form noun phrases with noun + 'of' + possessive determiner + noun + '\u2018s', particularly with 'friend' or 'friends'.",
+  "example_raw": "Actually, I know a great one and they can make a little discount for us because the owner is a friend of my father's. (Albania; B2 VANTAGE; 2009; Albanian; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x656223282475406200",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: FRIEND + 'OF' + POSSESSIVE DETERMINER + NOUN ",
+  "can_do_statement": "Can form noun phrases with 'a friend of' or 'friends of' + possessive determiner + noun.",
+  "example_raw": "He is a friend of my husband. (Japan; B1 THRESHOLD; 1999; Japanese; Pass)\n\nI just thought they were friends of my neighbour who were going to visit him. (B1 THRESHOLD; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x813874619445620100",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN + 'OF' + POSSESSIVE PRONOUN ",
+  "can_do_statement": "Can form noun phrases with noun + 'of' + possessive pronouns. ",
+  "example_raw": "\u2026 we always did everything together and couldn't stop laughing as she told me many funny stories and I told her lots of silly mistakes of mine. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nA colleague of mine has told me about a Swiss hotel in London. (Switzerland; B1 THRESHOLD; 2004; Swiss German; Fail)\n\nI was looking for something special to do for my last week off and some schoolmates of mine invited me to join the cycling holiday. (Italy; B1 THRESHOLD; 2003; Italian; Pass)\n\nI'm a fan of his, he is my favorite singer. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)\n\nI want this dream of mine to come true. (India; B1 THRESHOLD; 2010; Panjabi; Pass)"
+ },
+ {
+  "egp_id": "1741163711815x924964675967763700",
+  "level": "B2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: POSTMODIFYING WITH ADJECTIVE PHRASE",
+  "can_do_statement": "Can form complex noun phrases by using adjective phrases as postmodifiers to give more information about the noun.",
+  "example_raw": "Besides, we could leave one day in the morning and go by boat to a small and exotic island full of different and exotic species of birds that we could observe and photograph. (Turkey; B2 VANTAGE; 1993; Portuguese; Pass)\n\nEmily Br\u00f6nte succeeded in writing a romantic, psychological and tragic story, beautifully set in these mysterious moors. (Netherlands; B2 VANTAGE; 2001; Dutch; Pass)"
+ },
+ {
+  "egp_id": "1741163711816x244460653529919870",
+  "level": "C1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN PHRASE WITH POSSESSIVE 'S WITHOUT NOUN",
+  "can_do_statement": "Can form complex noun phrases with noun phrase + 'of' + noun phrase + possessive determiner ''s', omitting the noun where it is previously mentioned. ",
+  "example_raw": "Our after-sales team now is perceived as faster, more qualified, friendlier and more efficient than our competitors\u2019. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2004; Chinese; Pass)\n\nYou cannot have peace and quiet in your own home, as your hour of peacefulness might considerably differ from your neighbours\u2019. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Greek; Pass)\n\nI think it would be better to include a student's view of the college, not only a teacher's. (Romania; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Romanian; Pass)"
+ },
+ {
+  "egp_id": "1741163711816x290378137277149250",
+  "level": "B2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPLEX NOUN PHRASES WITH ADJECTIVES COMBINED WITH 'BUT'",
+  "can_do_statement": "Can form an increasing range of complex noun phrases with more than one adjective combined with 'but'. ",
+  "example_raw": "I am very lucky, because I was born in a small but beautiful city called Neuva Helvecia. (Uruguay; B2 VANTAGE; 2003; Spanish - Latin American; Pass)\n\n\nAs a result, in order to find out which is the most important, you need to ask yourself a simple but tricky question that no man would like to be asked. (Greece; B2 VANTAGE; 2008; Greek; Pass)\n\nThe smoke in the air had a strong but good smell. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\nI will be on business in London to sign a contract with a new but significant customer at that time. (China; B2 VANTAGE; 2002; Chinese; Pass)"
  }
 ]
 ```

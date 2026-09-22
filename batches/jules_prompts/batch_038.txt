@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_038.json`
 ```json
 [
  {
-  "egp_id": "1741163716068x228640925138144930",
-  "level": "A2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: PRONOUNS ",
-  "can_do_statement": "Can use a limited range of determiners as pronouns and indefinite pronouns in negative contexts.  \u25ba Pronouns: quantity",
-  "example_raw": "I bought a shirt, because I haven't got any. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nAs regards close friends, I don't have many. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nCome at 5.00 pm. Don't bring anything. (Cyprus; A2 WAYSTAGE; 2009; Greek; Pass)"
- },
- {
-  "egp_id": "1741163716068x372734050861656100",
-  "level": "A2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: MODAL VERBS",
-  "can_do_statement": "Can use negative forms of modal verbs. \u25ba modal verbs",
-  "example_raw": "I'm sorry I can't come to your wedding because I am very sick. (A2 WAYSTAGE; 2007; French; Pass)\n\nSorry but I won't be in town on Wednesday 17th. (A2 WAYSTAGE; 2007; Polish; Pass)\n\nYou shouldn't wear formal clothes. (Argentina; A2 WAYSTAGE; 2006; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163716068x445742738976088800",
-  "level": "A2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'DO', IMPERATIVES",
-  "can_do_statement": "Can form negative imperatives of main verbs with 'don\u2019t' + main verb. \u25ba Clauses: imperatives",
-  "example_raw": "Don't forget your electric guitar. (France; A2 WAYSTAGE; 2009; French; Pass)\n\nDon't be late. (India; A2 WAYSTAGE; 2009; Spanish - Other; )"
- },
- {
-  "egp_id": "1741163716068x574314163168649300",
-  "level": "A2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AUXILIARY VERBS 'BE', 'HAVE', PRESENT",
-  "can_do_statement": "Can form negative statements of main verbs in the present continuous and present perfect with 'be' and 'have' + 'not/n't'.  \u25ba present continuous \u25ba present perfect",
-  "example_raw": "The gas is not working. (A2 WAYSTAGE; 2009; Gujarati; Pass)\n\nThe window is broken and is not closing. (A2 WAYSTAGE; 2010; Portuguese; Pass)\n\nNow, I haven't got any money, but I am really happy! (Italy; A2 WAYSTAGE; 2008; Italian; Pass)\n\nI haven't tidied my room since I bought this mobile. (Italy; A2 WAYSTAGE; 2007; Italian; Pass)\n\nWe have not got hot water so the water is very cold. (A2 WAYSTAGE; 2009; Panjabi; Pass)"
- },
- {
-  "egp_id": "1741163716068x909588472060841300",
-  "level": "A1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: MODAL VERB 'CAN'",
-  "can_do_statement": "Can use negative form 'can\u2019t'.",
-  "example_raw": "In winter, we can't go visiting because it is too cold. (A1 BREAKTHROUGH; 2011; Nepali; Pass)\n\nI can't find my CD. (A1 BREAKTHROUGH; 2008; Romanian; Pass)"
- },
- {
-  "egp_id": "1741163716068x977297843398490900",
-  "level": "A2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AUXILIARY VERB 'DO', PAST",
-  "can_do_statement": "Can form negative statements of main verbs in the past simple with 'didn\u2019t' + main verb. \u25ba past simple",
-  "example_raw": "It was very sad that you didn't come to my birthday party but it's ok. (India; A2 WAYSTAGE; 2004; Hindi; Pass)\n\nI didn't spend a lot of money: only \u00a3143. (Italy; A2 WAYSTAGE; 2008; Italian; Pass)"
- },
- {
-  "egp_id": "1741163716069x187136272892084450",
-  "level": "B1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AUXILIARY VERBS 'BE', 'HAVE', PAST",
-  "can_do_statement": "Can form negative statements of main verbs in the past continuous and past perfect with auxiliary verbs 'be' and 'have' + 'not/n't'. \u25ba past continuous \u25ba past perfect",
-  "example_raw": "It was raining for seventy two hours and it wasn't going to stop. (Ukraine; B1 THRESHOLD; 2008; Russian; Pass)\n\nI hadn't expected to receive a letter from her. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
- },
- {
-  "egp_id": "1741163716069x352116208624451400",
-  "level": "B1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: QUESTIONS",
-  "can_do_statement": "Can use negative question forms in main clauses and question tags. \u25ba questions",
-  "example_raw": "Can't you go with your parents some time and with your friends later? (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nDon't you think it's fun? (Uruguay; B1 THRESHOLD; 2003; Pass)\n\nAren't you excited about it? (Uruguay; B1 THRESHOLD; 2003; Pass)\n\nYou're free on Saturday , aren't you? (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nI think it would be fantastic, wouldn't it? (Italy; B1 THRESHOLD; 2008; Italian; Pass) "
- },
- {
-  "egp_id": "1741163716069x679616735525116500",
-  "level": "B1",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: MENTAL PROCESS VERBS + CLAUSE",
-  "can_do_statement": "Can use the negative forms of mental process verbs ('I don\u2019t think', 'I don\u2019t believe') followed by a complement clause, where the negative form is in the mental process verb rather than the complement clause.",
-  "example_raw": "But I don't think it'll help you. (Kazakhstan; B1 THRESHOLD; 2009; Kazakh; Pass)\n\nI don't think I'll live here forever because I intend to move to Curitiba, a southern city of my country. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nI don't believe that the suitcase will be returned to me. (Czech Republic; B1 THRESHOLD; 2006; Czech; Pass)"
- },
- {
-  "egp_id": "1741163716069x747151699334092500",
-  "level": "A2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: DETERMINERS 'ANY', 'MUCH', 'MANY'",
-  "can_do_statement": "Can use determiners 'any', 'much' and 'many' with nouns in negative contexts. \u25ba Determiners: quantity",
-  "example_raw": "I bought them because I didn't have any shirts or hats. (Portugal; A2 WAYSTAGE; 2008; Portuguese; Pass)\n\nI have only spent \u00a325 because I haven't much money. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nI'm in Bilbao, and here I haven't got many things to do. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163716069x752024616613977200",
-  "level": "A2",
-  "super_category": "NEGATION",
-  "sub_category": "negation",
-  "lexical_range": "N/A",
-  "guideword": "FORM: DETERMINERS 'NO'",
-  "can_do_statement": "Can use determiner 'no' with nouns.  \u25ba Determiners: quantity",
-  "example_raw": "I bought these clothes because I need them for my new job, but now I have no money because they cost \u00a3250. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nI had no clothes to wear at John's party, so I went shopping yesterday. (Greece; A2 WAYSTAGE; 2008; Greek; Pass)"
- },
- {
   "egp_id": "1741163716070x300369742852513600",
   "level": "B1",
   "super_category": "NEGATION",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_038.json`
   "guideword": "FORM: PRONOUNS",
   "can_do_statement": "Can use an increasing range of indefinite pronouns in negative contexts. ",
   "example_raw": "I said I had nothing, but he didn't believe me. (Argentina; B1 THRESHOLD; 2007; Spanish - Latin American; Pass)\n\nI haven't seen anything yet. (Georgia (Republic of); B1 THRESHOLD; 2007; Georgian; Pass)\n\nI didn't tell anyone about this story at first. (Thailand; B1 THRESHOLD; 2009; Thai; Pass)"
+ },
+ {
+  "egp_id": "1741163716070x944796112360125800",
+  "level": "B1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ADVERBS",
+  "can_do_statement": "Can use adverbs 'ever', 'never', 'yet', 'still' in negative contexts.",
+  "example_raw": "Nobody will ever know who that man was. (Chile; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nI stayed there for two weeks and it never rained. (Argentina; B1 THRESHOLD; 1999; Spanish - Latin American; Pass)\n\nI haven't decided yet. (Japan; B1 THRESHOLD; 2001; Japanese; Pass)\n\nBut I still don't believe her. (Brazil; B1 THRESHOLD; 2004; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163716072x182229027169600770",
+  "level": "C1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WHATSOEVER', EMPHASIS",
+  "can_do_statement": "Can use 'whatsoever' after a negative form for emphasis. ",
+  "example_raw": "This means that nothing shall change for the employees, there shall be no implication whatsoever for their rights stipulated in their employment contracts. (Czech Republic; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Czech; Pass)\n\nOrganising the entertainment would be rather fun, whilst waiting tables would be boring and we have no experience whatsoever. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163716072x190757617985932480",
+  "level": "C1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT ONLY \u2026 (BUT) ALSO' WITH INVERSION",
+  "can_do_statement": "Can use auxiliary 'do' + inverted subject after 'not only', to give focus.",
+  "example_raw": "Not only was it in a wonderful location, with extraordinary views, but it was also very accessible and the shops were really near. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)\n\nNot only do they have the biggest turnover overall, they also managed to increase it constantly from 2000 to 2002. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; German; Pass)"
+ },
+ {
+  "egp_id": "1741163716072x449913250965678900",
+  "level": "C1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT' + STANCE ADVERB, HEDGING",
+  "can_do_statement": "Can use 'not' + stance adverb, often  in a mid position, to soften the directness of a statement.",
+  "example_raw": "This is not necessarily the way the older generation would see it, though. (Slovenia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Slovene; Pass)\n\nBeing a passionate student of the English language, you do not necessarily need a teacher to guide you through the meanders of English. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Polish; Pass)\n\nI'm not sure what exactly they would expect us to do at the campsite, but organising the entertainment is not really my thing. (Austria; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; German; Pass)\n\nPersonally, I do not actually think that this relationship will change. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163716072x485073520726290800",
+  "level": "C1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'NONE', SUBSTITUTION",
+  "can_do_statement": "Can use negative pronoun 'none' to substitute for subject and object pronouns or noun phrases. \u25ba pronouns: substitution",
+  "example_raw": "In fact, there are none, but the hills that do exist can be dubbed mountains - just because there are none... (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Russian; Pass)\n\nConcerning your question about any special requirements of some students - I am glad that I am able to tell you that there are none this year. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; German; Pass)\n\nProblems when using English? None. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163716072x486471898998410700",
+  "level": "B2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'NEITHER OF', 'NONE OF' + PRONOUN",
+  "can_do_statement": "Can use negative forms 'neither of' and 'none of' + pronoun or noun phrase with the affirmative form of the verb. ",
+  "example_raw": "Neither of us is liable in this case. (Czech Republic; B2 VANTAGE; 2007; Slovak; Pass)\n\nMoreover, none of my friends are interested therefore there is no one I can talk to. (Japan; B2 VANTAGE; 1993; Japanese; Pass)\n\nWe even met a French group and as none of them spoke English, we stayed with them to translate what they were asked. (France; B2 VANTAGE; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163716072x615032056929655300",
+  "level": "B2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NEITHER \u2026 NOR'",
+  "can_do_statement": "Can use 'neither \u2026 nor' to connect two words, phrases or clauses, often to give emphasis or focus.",
+  "example_raw": "Neither you nor I would like that. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nWe can neither eat nor drink during the lessons. (Poland; B2 VANTAGE; 2000; Polish; Pass)\n\nI have neither climbed nor surfed before, so that would be very exciting for me. (Sweden; B2 VANTAGE; 2000; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163716072x678281983839554200",
+  "level": "C1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'NOT ALL', 'NOT EVERY'",
+  "can_do_statement": "Can use 'not with indefinite pronouns 'everyone' and 'everything' and determiners 'every', 'all'.",
+  "example_raw": "Not everyone likes sports or music. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)\n\nNot everything was as good as we expected. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Polish; Pass)\n\nNot all students, though, can attend the centre as it is not always open, and their lessons finish at 5 pm, the closing time of the centre. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)\n\nNot all of us have got the fighting spirit to visit the gym regularly, but many of us would like to have a healthy look. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Swedish; Pass)\n\nNot every cyclist is a danger to the public as most of them obey all rules and respect other road users. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Slovak; Pass)"
+ },
+ {
+  "egp_id": "1741163716072x770198940521685800",
+  "level": "C1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "USE: FORMAL",
+  "can_do_statement": "Can use '(very) few' meaning 'not many' to refer to people in formal written contexts, often reports or surveys. ",
+  "example_raw": "They were sent to Britain to improve their English but few had any real contact with the language. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Swedish; Pass)\n\nEnglish is the most spoken language nowadays and although most of the people can speak a bit of English, very few speak it in the right way. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Greek; Pass)\n\nThe Greeks have always been a tortured folk; everyone tried to conquer them, but few managed. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163716072x944158847712108200",
+  "level": "B2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NEVER', INVERTED FRONT POSITION, FOCUS",
+  "can_do_statement": "Can use 'never' in front position followed by an inverted subject (most commonly 'I') + main verb, to give focus. ",
+  "example_raw": "Never have I seen such a realistic and impressive film before. (Argentina; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\nNever had I thought that my parents would do this to me. (Netherlands; B2 VANTAGE; 1993; Dutch; Fail)"
+ },
+ {
+  "egp_id": "1741163716073x696199339681962600",
+  "level": "C2",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT A' + NOUN, EMPHASIS",
+  "can_do_statement": "Can use 'not a' + noun, often with a following  passive structure, for emphasis.",
+  "example_raw": "Not a single noise could be heard from inside of any of the rooms. (Argentina; C2 MASTERY; 2000; Spanish - Latin American; Pass)\n\nNot a long time passes before another Polish city, Warsaw, hosts a festival. (Poland; C2 MASTERY; 2003; Polish; Pass)\n\nNot a single member of the group would have imagined that the \"Luxury coach\" would break down and leave them stranded in the middle of nowhere. (Argentina; C2 MASTERY; 2001; Spanish - Latin American; Pass)"
  }
 ]
 ```

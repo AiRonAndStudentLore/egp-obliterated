@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_029.json`
 ```json
 [
  {
-  "egp_id": "1741163710840x532362863135737100",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "may",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: PAST AFFIRMATIVE",
-  "can_do_statement": "Can use 'may have' + '-ed' to talk about possibility in the past.",
-  "example_raw": "I think that he may have forgiven me for that accident \u2026 ! (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nAs you may have noticed, there has been a delay setting up the new computer system. (Austria; B2 VANTAGE; 2009; German; Pass) \n\n[talking about buying something online] Another disadvantage is that you may have received the wrong size or colour. (Greece; B2 VANTAGE; 2006; Greek; Pass)\n\nNow, you may have seen your beautiful blue vase is not in your room any more; I broke it \u2026! (Switzerland; B2 VANTAGE; 1999; French; Pass)"
- },
- {
-  "egp_id": "1741163710840x547885966746675300",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "may",
-  "lexical_range": "N/A",
-  "guideword": "USE: POLITE REQUEST",
-  "can_do_statement": "Can use 'may I' to make a polite request for permission.",
-  "example_raw": "Sir, may I come in? (Taiwan; B2 VANTAGE; 2001; Thai; Pass) \n\nMay I ask you if your special offer will be still available in September? (France; B2 VANTAGE; 1997; French; Pass)\n\nMay I speak to Miss Wright, please? (Slovakia; B2 VANTAGE; 2002; Hungarian; Pass)\n\n"
- },
- {
-  "egp_id": "1741163710840x730541799606596100",
-  "level": "C1",
-  "super_category": "MODALITY",
-  "sub_category": "may",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'MAY WELL'",
-  "can_do_statement": "Can use 'may well' to give emphasis to something unexpected.",
-  "example_raw": "I think they may well come to an agreement on these payment problems. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)\n\nIn general a week's work experience is a good way for a high school student to get familiar with the world of work. It may well be that after leaving school they become our employees. (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)"
- },
- {
-  "egp_id": "1741163710840x911616768286395600",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "may",
-  "lexical_range": "N/A",
-  "guideword": "USE: FOCUSING",
-  "can_do_statement": "Can use 'may' in phrases such as as 'you may know', or 'as you may have' + '-ed' to focus the reader on shared knowledge.",
-  "example_raw": "I usually take more than one book because, as you may know, it takes many hours to get there. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nAs you may have heard, I am going to change to the engineering department. (Switzerland; B2 VANTAGE; 2007; Swiss German; Pass)\n\nAs you may have understood, the best opportunity to take photos will be during the performance, but you might also find backstage photos intresting. (Greece; B2 VANTAGE; 2009; Greek; Pass)\n"
- },
- {
-  "egp_id": "1741163710840x998342327190675100",
-  "level": "B2",
-  "super_category": "MODALITY",
-  "sub_category": "may",
-  "lexical_range": "N/A",
-  "guideword": "USE: OPINION",
-  "can_do_statement": "Can use 'may \u2026 but' to express an unexpected point of view. ",
-  "example_raw": "This may surprise you but I've managed to lose some weight, which I'm proud of. (Poland; B2 VANTAGE; 2003; Polish; Pass)\n\n[talking about cleaning musical instruments] You may think that it is quite boring but it is not. (Malaysia; B2 VANTAGE; 2002; Malay; Pass)"
- },
- {
-  "egp_id": "1741163710841x403556143145239230",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "may",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'MAY AS WELL'",
-  "can_do_statement": "Can use 'may as well' to talk about what we think is the easiest or most logical course of action, often when we cannot see a better alternative or when it will not spoil the situation if you do that thing. \u25ba might",
-  "example_raw": "A few minutes later, she began hesitantly: \"After all, you may as well know\u2026\u201d (France; C2 MASTERY; 1993; French; Pass)\n\nI may as well see the other things. (Turkey; B2 VANTAGE; 2003; Turkish; Pass) "
- },
- {
-  "egp_id": "1741163710841x706837420800042400",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "may",
-  "lexical_range": "N/A",
-  "guideword": "USE: HEDGING",
-  "can_do_statement": "Can use 'it may be' + '-ed' that as a hedging device when drawing conclusions and summarising, particularly in academic contexts. ",
-  "example_raw": "On balance, it may be concluded that although international sports competitions do involve such factors as serious and physical strain and commercial gain, their ultimate aim remains unchanged - namely, to find out in a fair way who deserves the title of the winner. (Russia; C2 MASTERY; 2003; Russian; Pass)\n\nIt may be argued that a child's academic success is crucial to his or her future. (Argentina; C2 MASTERY; 2001; Spanish - Latin American; Pass)\n\nIt may be argued that the career span of an athlete is quite short and therefore money earned is well deserved. (Greece; C2 MASTERY; 2009; Greek; Pass)"
- },
- {
-  "egp_id": "1741163710841x848786099914337500",
-  "level": "C2",
-  "super_category": "MODALITY",
-  "sub_category": "may",
-  "lexical_range": "N/A",
-  "guideword": "USE: CONCESSION",
-  "can_do_statement": "Can use 'may' in a subordinate clause expressing concession with 'however', 'whatever', 'whoever' \u2026 + 'it or this may be or seem'.",
-  "example_raw": "But honestly, I am sure that the price of the watch also contributes its part, however small it may be, to my love of it. (Switzerland; C2 MASTERY; 2000; German; Pass)\n\nNowadays, however useful it may seem, travel has proved to be pointless as far as broadening the mind is concerned. (France; C2 MASTERY; 1993; French; Pass)\n\nThe most important thing is that people enjoy what they are doing whatever it may be and wherever it takes place. (Netherlands; C2 MASTERY; 2000; Dutch; Pass)\n\nNowadays, one of the main goals of people in society is to achieve success, in whatever field it may be. (France; C2 MASTERY; 1993; French; Pass)"
- },
- {
-  "egp_id": "1741163710842x165685210295420480",
-  "level": "A2",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "FORM: AFFIRMATIVE",
-  "can_do_statement": "Can use the affirmative form. ",
-  "example_raw": "The weather might be hot and sunny. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2009)\n\nI think it might be in your bedroom. (Portuguese, A2 WAYSTAGE, Pass, 2005)"
- },
- {
-  "egp_id": "1741163710842x176865262675485200",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "USE: SUGGESTIONS",
-  "can_do_statement": "Can use 'might' to make polite suggestions and give advice.",
-  "example_raw": "The park is a great place for picnic. It has lots of trees, a beautiful view and fresh air. You might need to bring some food and drink. (Turkish, B1 THRESHOLD, Pass, 2009)\n\nI really don't know what you should do, but I think that you might talk with your parents. (Italian, B1 THRESHOLD, Pass, 2008)"
- },
- {
-  "egp_id": "1741163710842x255780476758331600",
-  "level": "B1",
-  "super_category": "MODALITY",
-  "sub_category": "might",
-  "lexical_range": "N/A",
-  "guideword": "USE: POSSIBILITY IN THE PAST",
-  "can_do_statement": "Can use 'might have' + '-ed' to talk about possibility with a past reference.",
-  "example_raw": "Many things might have led to these changes. (B2 VANTAGE; 2007; German; Pass)\n\nI thought that a burglar might have broken into our house. (Turkey; B2 VANTAGE; 2001; Turkish; Pass)"
- },
- {
   "egp_id": "1741163710842x294632080213531140",
   "level": "B1",
   "super_category": "MODALITY",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_029.json`
   "guideword": "FORM: NEGATIVE",
   "can_do_statement": "Can use the negative form.",
   "example_raw": "I like to wear a shirt and pants. It might not be very fashionable, it might look simple, but that's the way I like it. (Thai, B1 THRESHOLD, Pass, 2006)\n\nI think that people watch too much TV these days and in a way this mightn't be such a good thing. (Albanian, B1 THRESHOLD, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163710843x167923658280904700",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST, NEGATIVE",
+  "can_do_statement": "Can use 'might not have' + '-ed'. ",
+  "example_raw": "First of all, not 45 but only 35 stalls were promised, meaning the disappointment you mentioned might not have been as bad as you, or whoever gave you the information, thought it was. (Argentina; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163710843x267892712489931740",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: POSSIBILITY IN THE PAST",
+  "can_do_statement": "Can use 'might not have' + '-ed' to talk about possibility with a past reference.",
+  "example_raw": "The survey, mentioned in the local newspaper yesterday, might not have asked an accurate sample of people. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Portuguese; Pass)\n\nEven though things might not have gone as you expected or as you would like them to have, we have to remind you we are dealing with charity here. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Dutch; Pass)"
+ },
+ {
+  "egp_id": "1741163710843x377860994738539200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: FOCUS",
+  "can_do_statement": "Can use 'might' in phrases, such as 'as you might know', 'have already heard', to focus the reader on shared knowledge.",
+  "example_raw": "As you might know, nobody came here until Wednesday afternoon. (Spanish - European, B2 VANTAGE, Pass, 2010)\n\nAs you might know, I've been very busy recently taking my exams. (Danish, B2 VANTAGE, Pass, 1999)\n\nAs you might have noticed, I broke your beautiful vase which was in the hall. (Portuguese, B2 VANTAGE, Pass, 1999)\n\nAs you might have already heard, there is a delay with the setting of the new computer system. (Austria; B2 VANTAGE; 2009; German; Pass)"
+ },
+ {
+  "egp_id": "1741163710843x613591932833607400",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS ",
+  "can_do_statement": "Can use the question form.",
+  "example_raw": "Could it be possible that your company sent me the wrong bill, or might it be the bill from the last person who lived in my house? (German, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2009)\n\nMight it not be a good idea to change the travel company you are working with next time? (Greek, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2004)"
+ },
+ {
+  "egp_id": "1741163710844x346277767826757440",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITE CRITICISM",
+  "can_do_statement": "Can use the question form to make polite criticisms and suggestions.",
+  "example_raw": "Last but not least, might it not be wise if you had more trips \u2026? (Greek, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2008)\n\nAlso might I suggest that we have more exiting publicity for the club? (Japanese, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1993)\n\nAs for the musicals running in London, might I suggest that you arrange for seats where one can both see and listen? (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163710844x406795981475466500",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: CONSOLING OR JUSTIFYING",
+  "can_do_statement": "Can use 'might' followed by 'but' to console or justify. ",
+  "example_raw": "The argument that fashion reflects people's attitudes and behaviour might sound superficial, but on closer examination it turns out to be true. (Swiss German, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2004)\n\nThe idea of going to work-out to keep fit might be tedious sometimes but the majority of young people are interested in taking up an activity these days. (Turkish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1999)\n\nAll in all, it might not have been a huge success, but people enjoyed themselves. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Greek; Pass)\n\nYou might not have been able to \"change the world\" but maybe you have made a difference to one or two people. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163710844x664690208940296400",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "USE: EMPHASIS",
+  "can_do_statement": "Can use 'try as I might' for emphasis at the beginning of a sentence.",
+  "example_raw": "Try as I might, I was never able to persuade her to go for a walk. (Greek, C2 MASTERY, Pass, 1993)\n\nTry as I might, I cannot imagine a world without music. (Greek, C2 MASTERY, Pass, 2007)\n\nTry as I might, I can't see an explanation \u2026. (Poland; C2 MASTERY; 2003; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163710844x795406964176839600",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "might",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MIGHT AS WELL'",
+  "can_do_statement": "Can use 'might as well', mostly to talk about or suggest what we think is the easiest or most logical course of action, often when we cannot see a better alternative. \u25ba 'may'",
+  "example_raw": "Living longer allows you to fulfil the different stages of your personal development, and if you reach the necessary maturity and integrity that corresponds to this stage of your life, you might as well make the best of these years. (Catalan, C2 MASTERY, Pass, 1993)\n\nWhat should be changed about travelling and spending one's holiday is that the people, in my opinion, should decide on what they want to do during their holidays: If they only want to have fun, they might as well stay at home. (Germany; C2 MASTERY; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163710844x267345296139498430",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE ",
+  "can_do_statement": "Can use the negative forms.",
+  "example_raw": "\u2026 you mustn't forget to buy some strawberry juice for us. (Portuguese, A2 WAYSTAGE)\n\nYou must not wear a white colour shirt, you can only wear a dark colour shirt. (Chinese, A2 WAYSTAGE)"
+ },
+ {
+  "egp_id": "1741163710844x422781473749080900",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE ",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "You must wear your sports shoes and you must also bring your racket! (Greek)\n\nI must be back at 10.15. (French)"
+ },
+ {
+  "egp_id": "1741163710845x102393047191083890",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: INVITATIONS",
+  "can_do_statement": "Can use 'must' to make invitations.",
+  "example_raw": "You must come and stay in our house too. (Turkey; B1 THRESHOLD; 2007; Turkish; Pass)\n\nYou must come and see this restaurant! (Switzerland; B1 THRESHOLD; 2005; Swiss German; Pass)"
  }
 ]
 ```

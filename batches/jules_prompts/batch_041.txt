@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_041.json`
 ```json
 [
  {
-  "egp_id": "1741163711814x165510163769483600",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NOUN PHRASE, NOUN PHRASE ",
-  "can_do_statement": "Can put two noun phrases together (in apposition) to refer to the same person or thing, usually separated by commas.",
-  "example_raw": "Mr Miller, the Sales Director, will visit us next Thursday. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nYesterday my boyfriend and I decided to go on a cycling holiday to visit some places in the country near Eboli, the town where we live. (Italy; B1 THRESHOLD; 2003; Italian; Pass)\n\nShe has come with me and two more friends, Peter and Gorha. (Spain; B1 THRESHOLD; 2003; Spanish - European; Pass)\n\nI spoke with her and she looks really happy, although a little sad because her best friend, Alison, did not pass the exam. (Spain; B1 THRESHOLD; 2004; Spanish - European; Pass)\n\nA new employee, Mary Watts, has just joined our company. (China; B1 THRESHOLD; 2002; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163711814x331407196629243300",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM/USE: 'THE THING \u2026'",
-  "can_do_statement": "Can use the noun phrase 'The thing' in front position, with a clause complement, to give focus to something. ",
-  "example_raw": "The thing I enjoyed most about it was a new computer game. (Georgia (Republic of); B1 THRESHOLD; 2007; Georgian; Pass)\n\nThe thing I prefer there is the swimming-pool, because I have met someone there. (France; B1 THRESHOLD; 2003; French; Pass)"
- },
- {
-  "egp_id": "1741163711814x374275189138046900",
-  "level": "B2",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: POSSESSION WITH PLURAL NOUNS  + '",
-  "can_do_statement": "Can form noun phrases with plural nouns + ' + noun.",
-  "example_raw": "He had promised that he would go to his grandparents' house this afternoon. (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nOur company is a digital company with 15 years' experience. (China; B2 VANTAGE; 2008; Chinese; Pass)\n\nIt is essential to introduce special offers to get customers' attention. (India; B2 VANTAGE; 2009; Telugu; Fail)"
- },
- {
-  "egp_id": "1741163711814x437092792361470460",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: COMPLEX NOUN PHRASE WITH POSSESSIVE '\u2018S' + NOUN",
-  "can_do_statement": "Can form complex noun phrases with noun phrase + 'of' + noun phrase + possessive determiner ''s' + noun phrase.",
-  "example_raw": "I ran to the street and I saw the window of my neighbour's car was broken. (B1 THRESHOLD; 2007; Portuguese; Pass)\n\nThe subject of my boss's talk will be IT skills. (Spain; B1 THRESHOLD; 2002; Spanish - European; Pass)\n\nMy friend Ronald had been chosen to play the role of James Bond's son! (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nMy best friend is called Sindi and we met at my brother's birthday. She is the sister of my brother's girlfriend so he invited her as well. (Bulgaria; B1 THRESHOLD; 2010; Bulgarian; Pass)\n\nThe delivery date should be the day of my friend's birthday. (B1 THRESHOLD; 2003; Pass)"
- },
- {
-  "egp_id": "1741163711814x441874051766755000",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: INDEFINITE PRONOUNS ",
-  "can_do_statement": "Can form noun phrases with an indefinite pronoun + adjective or clause. ",
-  "example_raw": "We see each other every day and do something different every day. (B1 THRESHOLD; 2004; ; Pass)\n\nYou could bring something to drink. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Fail)\n\nBut then there is nothing special to eat. (Germany; B1 THRESHOLD; 2006; German; Pass)"
- },
- {
-  "egp_id": "1741163711814x584379635897277300",
-  "level": "B2",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NOUN + 'OF' + POSSESSIVE DETERMINER + NOUN ",
-  "can_do_statement": "Can form noun phrases with noun + 'of' + possessive determiner + noun + '\u2018s', particularly with 'friend' or 'friends'.",
-  "example_raw": "Actually, I know a great one and they can make a little discount for us because the owner is a friend of my father's. (Albania; B2 VANTAGE; 2009; Albanian; Pass)"
- },
- {
-  "egp_id": "1741163711814x656223282475406200",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: FRIEND + 'OF' + POSSESSIVE DETERMINER + NOUN ",
-  "can_do_statement": "Can form noun phrases with 'a friend of' or 'friends of' + possessive determiner + noun.",
-  "example_raw": "He is a friend of my husband. (Japan; B1 THRESHOLD; 1999; Japanese; Pass)\n\nI just thought they were friends of my neighbour who were going to visit him. (B1 THRESHOLD; 2007; Polish; Pass)"
- },
- {
-  "egp_id": "1741163711814x813874619445620100",
-  "level": "B1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NOUN + 'OF' + POSSESSIVE PRONOUN ",
-  "can_do_statement": "Can form noun phrases with noun + 'of' + possessive pronouns. ",
-  "example_raw": "\u2026 we always did everything together and couldn't stop laughing as she told me many funny stories and I told her lots of silly mistakes of mine. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nA colleague of mine has told me about a Swiss hotel in London. (Switzerland; B1 THRESHOLD; 2004; Swiss German; Fail)\n\nI was looking for something special to do for my last week off and some schoolmates of mine invited me to join the cycling holiday. (Italy; B1 THRESHOLD; 2003; Italian; Pass)\n\nI'm a fan of his, he is my favorite singer. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)\n\nI want this dream of mine to come true. (India; B1 THRESHOLD; 2010; Panjabi; Pass)"
- },
- {
-  "egp_id": "1741163711815x924964675967763700",
-  "level": "B2",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: POSTMODIFYING WITH ADJECTIVE PHRASE",
-  "can_do_statement": "Can form complex noun phrases by using adjective phrases as postmodifiers to give more information about the noun.",
-  "example_raw": "Besides, we could leave one day in the morning and go by boat to a small and exotic island full of different and exotic species of birds that we could observe and photograph. (Turkey; B2 VANTAGE; 1993; Portuguese; Pass)\n\nEmily Br\u00f6nte succeeded in writing a romantic, psychological and tragic story, beautifully set in these mysterious moors. (Netherlands; B2 VANTAGE; 2001; Dutch; Pass)"
- },
- {
-  "egp_id": "1741163711816x244460653529919870",
-  "level": "C1",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: NOUN PHRASE WITH POSSESSIVE 'S WITHOUT NOUN",
-  "can_do_statement": "Can form complex noun phrases with noun phrase + 'of' + noun phrase + possessive determiner ''s', omitting the noun where it is previously mentioned. ",
-  "example_raw": "Our after-sales team now is perceived as faster, more qualified, friendlier and more efficient than our competitors\u2019. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2004; Chinese; Pass)\n\nYou cannot have peace and quiet in your own home, as your hour of peacefulness might considerably differ from your neighbours\u2019. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Greek; Pass)\n\nI think it would be better to include a student's view of the college, not only a teacher's. (Romania; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Romanian; Pass)"
- },
- {
-  "egp_id": "1741163711816x290378137277149250",
-  "level": "B2",
-  "super_category": "NOUNS",
-  "sub_category": "noun phrases",
-  "lexical_range": "N/A",
-  "guideword": "FORM: COMPLEX NOUN PHRASES WITH ADJECTIVES COMBINED WITH 'BUT'",
-  "can_do_statement": "Can form an increasing range of complex noun phrases with more than one adjective combined with 'but'. ",
-  "example_raw": "I am very lucky, because I was born in a small but beautiful city called Neuva Helvecia. (Uruguay; B2 VANTAGE; 2003; Spanish - Latin American; Pass)\n\n\nAs a result, in order to find out which is the most important, you need to ask yourself a simple but tricky question that no man would like to be asked. (Greece; B2 VANTAGE; 2008; Greek; Pass)\n\nThe smoke in the air had a strong but good smell. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\nI will be on business in London to sign a contract with a new but significant customer at that time. (China; B2 VANTAGE; 2002; Chinese; Pass)"
- },
- {
   "egp_id": "1741163711816x514151092323317250",
   "level": "C1",
   "super_category": "NOUNS",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_041.json`
   "guideword": "FORM: AS SUBJECTS ",
   "can_do_statement": "Can use nouns and noun phrases as subjects of the clause. ",
   "example_raw": "His name is Stanislav. (Singhalese, A1 BREAKTHROUGH)\n\nMy friends are from Poland, Hungary, Libya, and Morocco. (Slovak, A1 BREAKTHROUGH)"
+ },
+ {
+  "egp_id": "1741163711829x722500780296901000",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases - grammatical functions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AS COMPLEMENT OF PREPOSITIONS",
+  "can_do_statement": "Can use nouns and noun phrases as complements of prepositions in prepositional phrases. ",
+  "example_raw": "I invite you and your family to come to my house for dinner. (Portuguese, A1 BREAKTHROUGH)\n\nI like everything in my house. (Tamil, A1 BREAKTHROUGH)"
+ },
+ {
+  "egp_id": "1741163711829x787492176446619900",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases - grammatical functions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AS OBJECTS",
+  "can_do_statement": "Can use nouns and noun phrases as objects of the clause. ",
+  "example_raw": "I love my house. (Thai, A1 BREAKTHROUGH)\n\nWhen I have time, I visit my family. (Portuguese, A1 BREAKTHROUGH)"
+ },
+ {
+  "egp_id": "1741163712047x121249829588899070",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases - grammatical functions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AS ADJUNCTS",
+  "can_do_statement": "Can use nouns and noun phrases as adjuncts in some time expressions. ",
+  "example_raw": "But if not, then I will see you tomorrow morning. (A1 BREAKTHROUGH; 2009; Tamil; Pass)\n\nI can go to see her tomorrow because I am going to a job interview today. (A1 BREAKTHROUGH; 2009; Panjabi; Pass)\n\nI will write to you again next week. (A1 BREAKTHROUGH; 2007; Spanish - Other; Pass)"
+ },
+ {
+  "egp_id": "1741163712047x409239658002596100",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases - grammatical functions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AS COMPLEMENT OF 'BE'",
+  "can_do_statement": "Can use nouns and noun phrases as complements of the verb 'be'. ",
+  "example_raw": "There is a big garden. (A1 BREAKTHROUGH; 2009; Urdu; Pass)\n\nHi Rie, It's Mohamad. (A1 BREAKTHROUGH; 2006; Kurdish; Pass)\n\nHe is a student in B6 College. (A1 BREAKTHROUGH; 2006; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163711821x273496650762721440",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "plural",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PLURAL '-IES'",
+  "can_do_statement": "Can form plurals of countable nouns ending in a consonant plus '-y', by changing the 'y' to 'I' and adding '-es'.",
+  "example_raw": "I have a lot of hobbies. (China; A2 WAYSTAGE; 2002; Chinese; Pass)\n\nThere were lots of activities to do. (Russia; A2 WAYSTAGE; 2009; Russian; Pass)\n\nI bought some jeans and costumes because I have a lot of parties this month. (Cyprus; A2 WAYSTAGE; 2008; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163711821x709984584357153900",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "plural",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PLURAL '-ES'",
+  "can_do_statement": "Can form plurals by adding '-es' to countable nouns ending in '-o', '-ch', '-s', '-sh', '-x' or '-z'.",
+  "example_raw": "The art classes after school are on Tuesdays. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)\n\nThen I bought five different dresses. (France; A2 WAYSTAGE; 2008; French; Pass)\n\nYou have to bring your pencil, oil paint, some paint brushes, and the teacher will give you a palette. (Thailand; A2 WAYSTAGE; 2006; Thai; Pass)\n\nUsually it is meat and potatoes or special dishes. (A2 WAYSTAGE; 2006; Pashto; Pass)\n\nBring some sandwiches and drinks. (Portugal; A2 WAYSTAGE; 2009; Portuguese; Pass)\n\nA box of Dairy milk and 2 boxes of pens. (India; A2 WAYSTAGE; 2004; Hindi; Pass)\n\nWe have to bring paintbrushes of different sizes \u2026 (Thailand; A2 WAYSTAGE; 2006; Thai; Pass)"
+ },
+ {
+  "egp_id": "1741163711821x759916598484829700",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "plural",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PLURAL '-S'",
+  "can_do_statement": "Can form plurals by adding '-s' to common countable nouns. ",
+  "example_raw": "We play computer games. (A1 BREAKTHROUGH; 2011; Polish; Pass)\n\nYou have to walk just 5 minutes down the road. (A1 BREAKTHROUGH; 2008; Russian; Pass)\n\nMy favourite season is  summer, because it's very hot and there are a lot of flowers and nice trees. (A1 BREAKTHROUGH; 2011; Hungarian; Pass)"
+ },
+ {
+  "egp_id": "1741163711822x118139496998018510",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "plural",
+  "lexical_range": "N/A",
+  "guideword": "FORM: IRREGULAR PLURAL NOUNS",
+  "can_do_statement": "Can form some irregular plural nouns.",
+  "example_raw": "It was a sale and I bought some clothes for my children. (A2 WAYSTAGE; 2008; Somali; Pass)\n\nI ate fish and seafood, it was delicious. (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)\n\nShe has black eyes, a beautiful round face and nice teeth. (India; A2 WAYSTAGE; 2010; Tamil; Pass)\n\nThe floor in the kitchen has many holes and I think there are mice. (A2 WAYSTAGE; 2009; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711822x203546791000559070",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "plural",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COLLECTIVE NOUNS",
+  "can_do_statement": "Can use collective nouns, usually with a singular verb, but also with a plural verb depending on whether the noun is perceived as a single group or collection of individuals.",
+  "example_raw": "The staff is friendly and polite with guests and there are many sports activities. (Italy; B1 THRESHOLD; 2001; Italian; Pass)\n\nAfter the spring break the whole staff have to start work at 7.15 am. (Switzerland; B1 THRESHOLD; 2007; Swiss German; Pass)\n\nA TV company has decided to make a film in my high school because it's a normal secondary school. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nThe crew were very interested in what the new school looked like and they were amazed at the colours we used to paint it. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nOur company is interested in your company's services. (China; B1 THRESHOLD; 2006; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163711822x913552415415866000",
+  "level": "A2",
+  "super_category": "NOUNS",
+  "sub_category": "plural",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUNS ONLY USED IN THE PLURAL",
+  "can_do_statement": "Can use nouns that only have a plural form, with plural agreement. ",
+  "example_raw": "I bought them because I feel comfortable when I am wearing these clothes. (Malaysia; A2 WAYSTAGE; 2008; Malay; Pass)\n\nThe clothes are very cheap in this shop. (Spain; A2 WAYSTAGE; 2008; Catalan; Pass)\n\nThe jeans were expensive, but the other things were very cheap. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nPlease wear some shorts and a shirt. (Switzerland; A2 WAYSTAGE; 2008; Swiss German; Pass)\n\nI left my glasses in your house last night. I need them, because I can't see anything. (Czech Republic; A2 WAYSTAGE; 2005; Czech; Pass)"
+ },
+ {
+  "egp_id": "1741163711816x743806450459332500",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "types",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PROPER NOUNS",
+  "can_do_statement": "Can use proper nouns with a capital letter to refer to specific people, places, days and things. ",
+  "example_raw": "I want to see you on Saturday and Sunday. (A1 BREAKTHROUGH; 2009; Portuguese; Pass)\n\nIn Leicester I live in an area called Hamilton. (A1 BREAKTHROUGH; 2009; Gujarati; Pass)\n\nThis place is Gloscat College in Gloucester. (A1 BREAKTHROUGH; 2007; Tigrinya; Pass)\n\nMy friend is called Monika , she comes from Poland. (A1 BREAKTHROUGH; 2006; Polish; Pass)"
  }
 ]
 ```

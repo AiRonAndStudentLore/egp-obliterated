@@ -67,116 +67,6 @@ Create ONE file: `batches/jules_batch_060.json`
 ```json
 [
  {
-  "egp_id": "1741163714101x488500072179551360",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "1",
-  "guideword": "FORM: WITH 'OF' + OBJECT PRONOUN",
-  "can_do_statement": "Can use a limited range of pronouns ('all', 'both') with 'of' followed by an object pronoun, to refer to quantity.",
-  "example_raw": "There are a lot of functions but I don't know how to use all of them. (France; A2 WAYSTAGE; 2007; French; Pass)\n\nIt was a brilliant party, and all of our school friends were there. All of them asked about you and they wanted to see you. (Iran; A2 WAYSTAGE; 2004; Farsi; Pass)\n\nMy uncle took all of us to the Eiffel Tower. (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)\n\nI've booked two tickets for both of us, so I hope you'll come. (Malaysia; A2 WAYSTAGE; 2009; Chinese; Pass)\n\nThe tickets cost \u00a35 but I can pay for both of them. (France; A2 WAYSTAGE; 2010; French; Pass)"
- },
- {
-  "egp_id": "1741163714101x546971866696104300",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'SOME' AND 'ANY' ",
-  "can_do_statement": "Can use pronouns 'some' and 'any', to refer to quantity.",
-  "example_raw": "[talking about items of clothing] Some were cheap but some were expensive. (Mexico; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)\n\nIt lasts for 2 hours and we need to bring some erasers because they don't have any. (Greece; A2 WAYSTAGE; 2006; Greek; Pass)"
- },
- {
-  "egp_id": "1741163714101x846237165736940500",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'SOME' AS SUBJECT AND OBJECT",
-  "can_do_statement": "Can use 'some' as a subject and object to refer back to a plural or uncountable noun. ",
-  "example_raw": "I saw a lot of people on the beach, some were playing football and some were sunbathing. (A2 WAYSTAGE; 2011; Somali; Pass \n\nSo, I think we will need more meat for the barbeque; if possible, you could bring some. (A2 WAYSTAGE; 2006; Portuguese; Pass)\n\nI can bring CDs if you need some. (France; A2 WAYSTAGE; 2005; French; Pass)"
- },
- {
-  "egp_id": "1741163714101x893441250598985700",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "N/A",
-  "guideword": "FORM: SUBJECT AND OBJECT PRONOUNS, 'BOTH', 'A FEW', 'ANOTHER'",
-  "can_do_statement": "Can use 'both', 'a few', 'another' as subject and object pronouns. ",
-  "example_raw": "[talking about two types of exercise] Both are going to keep you fit. (Greece; B1 THRESHOLD; 2009; Greek; Pass)\n\nBoth are very good films. (Argentina; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n\nAbout going to the city or to the countryside, I think you'll enjoy both. (Argentina; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n\nI am happy to select a few. (India; B1 THRESHOLD; 2006; Malayalam; Pass)\n\nWell, in my country there are lots of programmes but only a few are interesting. (Spain; B1 THRESHOLD; 2010; Spanish - European; Pass)\n\nMoving from an area to another is not very simple, but there isn't a problem without a solution. (Lebanon; B1 THRESHOLD; 2008; Arabic - Levant; Pass)"
- },
- {
-  "egp_id": "1741163714101x959635487764691700",
-  "level": "A2",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'ANY' AS OBJECT",
-  "can_do_statement": "Can use 'any' as an object in a negative clause to refer back to a plural or uncountable noun. ",
-  "example_raw": "Bring some good CDs. I don't have any. (France; A2 WAYSTAGE; 2009; French; Pass)\n\nCan you bring orange juice please? I don't have any. (Portugal; A2 WAYSTAGE; 2009; Portuguese; Pass\n\n[talking about taking presents to a party] Did you take any? (Iran; A2 WAYSTAGE; 2004; Farsi; Fail)"
- },
- {
-  "egp_id": "1741163714103x345009813374196540",
-  "level": "B2",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "N/A",
-  "guideword": "FORM: SUBJECT AND OBJECT PRONOUNS, 'EACH', 'SEVERAL', 'NEITHER', 'ENOUGH'",
-  "can_do_statement": "Can use pronouns 'each', 'either', 'enough', 'neither', 'several' as subject and object pronouns. ",
-  "example_raw": "As you could guess, each has a very unique style. (Korea, South; B2 VANTAGE; 1997; Korean; Pass)\n\nI would like to enquire if there will be one group or several depending on level of students? (Russia; B2 VANTAGE; 1998; Russian; Pass)\n\nConsidering my abilities, there are several that I think you should consider. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass) \n\nComparing the two firms, both of them go some way towards fulfilling our needs, but neither covers all. (China; B2 VANTAGE; 2002; Chinese; Pass)\n\n[talking about toilets] They are very clean and there are enough so you don't have to wait. (Netherlands; B2 VANTAGE; 2003; Dutch; Pass)"
- },
- {
-  "egp_id": "1741163714103x415443728158977150",
-  "level": "B2",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "3",
-  "guideword": "FORM: WITH 'OF' + OBJECT PRONOUN",
-  "can_do_statement": "Can use a wide range of pronouns ('neither', 'either', 'none') with 'of' followed by an object pronoun.",
-  "example_raw": "Stella and her boyfriend, ... lived with Chuck at the same house, but neither of them knew that Chuck had passed a very complicated exam to be a spy for the United States. (Spain; B2 VANTAGE; 2008; Spanish - European; Pass)\n\nNeither of us could forsee any possible rise or fall in the price of wheat. (Russia; B2 VANTAGE; 2007; Russian; Pass)\n\nHow about spending the last couple of days doing some activities like skiing, horse riding and rafting. If you are interested in either of them, have a go. (Japan; B2 VANTAGE; 1993; Japanese; Pass)\n\nWe didn't know what they wanted. and none of us spoke any Italian. (Poland; B2 VANTAGE; 1993; Polish; Pass)"
- },
- {
-  "egp_id": "1741163714103x652021308668362900",
-  "level": "B1",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "2",
-  "guideword": "FORM: WITH 'OF' + OBJECT PRONOUN",
-  "can_do_statement": "Can use an increasing range of pronouns ('some', 'a few', 'any', 'each') with 'of' followed by an object pronoun. ",
-  "example_raw": "Of course some of them are closer than others but I love them all. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI have shot many photos with my new digital camera and I will send some of them by e-mail for you. (Brazil; B1 THRESHOLD; 2003; Portuguese; Pass)\n\nChildren my age are playing too long with their computers.... But only a few of them. (Germany; B1 THRESHOLD; 2010; German; Pass)\n\nSo travelling is not at all a problem for any of us. (India; B1 THRESHOLD; 2010; Malayalam; Pass)\n\nPlease ensure each of them has a computer, and they can practise for at least half an hour after class. (China; B1 THRESHOLD; 2006; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163714103x860661498438757200",
-  "level": "C1",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "N/A",
-  "guideword": "FORM: 'NONE', SUBSTITUTION",
-  "can_do_statement": "Can use pronouns 'none' to substitute for subject and object pronouns. \u25ba  pronouns: substitution",
-  "example_raw": "As for disadvantages, in fact, I see none. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Russian; Pass)\n\nAs for social life organized by the school, there was none . (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; French; Pass)\n\nThe costs saved without external consultants would be higher than the costs for this course . Opportunity costs: None. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; German; Pass)\n\nI started learning the language when I was seven. Problems when using English? None. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Spanish - European; Pass)"
- },
- {
-  "egp_id": "1741163714103x889764706504247800",
-  "level": "C1",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "N/A",
-  "guideword": "USE: FORMAL ",
-  "can_do_statement": "Can use 'few', 'many', 'most', 'others' to refer to people in formal written contexts, often reports or surveys. ",
-  "example_raw": "Few people stop to think about what they are really doing, and few are motivated to work at all. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Swedish; Pass)\n\nFew denied that it was one of the most thrilling and fascinating activities we tried the whole week. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)\n\nMany express their satisfaction and claim to have acquired a great number of new skills. (Bulgaria; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Bulgarian; Pass)\n\nMany say that extreme sports attract only those who are addicted to adrenaline or those who have nothing to lose. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)\n\nSome of the students have a few comments. Most were concerned with the planning of the timetable and I hope there may be some changes this year. (Hong Kong; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Chinese; Pass)"
- },
- {
-  "egp_id": "1741163714104x276089744133384700",
-  "level": "C1",
-  "super_category": "PRONOUNS",
-  "sub_category": "quantity",
-  "lexical_range": "N/A",
-  "guideword": "FORM: RELATIVE PRONOUNS",
-  "can_do_statement": "Can use 'some of', 'many of' to modify relative pronouns in a relative clause. ",
-  "example_raw": "The people of his time were amazed every time they saw his new inventions, some of which were enormous. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Greek; Pass)\n\nBy and large, how we eat is influenced by several factors, some of which have nothing to do with your nationality. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Spanish - European; Pass)\n\nI am aware that you have a different view on young people's preferences, but I hope this event could give you an opportunity to see some other aspects of young people, some of whom are very active in sports in our club. (Korea, South; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Korean; Pass)\n\nToday we continue this tradition by organising lectures and exhibitions, generally open to the public, many of which deal with Hamburg-specific issues. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; German; Pass)"
- },
- {
   "egp_id": "1741163714104x293283723619803800",
   "level": "C1",
   "super_category": "PRONOUNS",
@@ -215,6 +105,116 @@ Create ONE file: `batches/jules_batch_060.json`
   "guideword": "FORM: 'EACH OTHER'",
   "can_do_statement": "Can use 'each other' as the object of a verb or complement of a preposition to talk about the mutual behaviour of two or more people.",
   "example_raw": "We go to the same school so we see each other every day. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)\n\nFirst, we had to introduce each other by saying where we come from, which kind of job we are doing here, why we want to learn English. (France; B1 THRESHOLD; 2002; French; Pass)\n\nHe said the coach is really nice and that the first players get on well with each other. (France; B1 THRESHOLD; 2003; French; Pass)\n\nWe didn't use to talk to each other, but one day we started to talk and I discovered she was extremely friendly and nice. (Brazil; B1 THRESHOLD; 2009; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163715025x801370095944183200",
+  "level": "C1",
+  "super_category": "PRONOUNS",
+  "sub_category": "reciprocal",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'EACH \u2026' + 'THE OTHER(S)', AS COMPLEMENT",
+  "can_do_statement": "Can use 'each' (+ noun or pronoun) as subject followed by 'the other(s)' a complement of a preposition, to refer to two related things. \u25ba pronouns: quantity",
+  "example_raw": "Each person could be a help to the other. (Sri Lanka; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Tamil; Pass)\n\nThey all seem to mean exactly the same but if you study them more carefully, you realize that each of them differs from the others in tiny details that can be relevant. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Spanish - European; Pass)\n\nGenerally speaking, each individual is different from the others. (Vietnam; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2011; Urdu;)"
+ },
+ {
+  "egp_id": "1741163715025x810006712006467000",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "reciprocal",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'ONE ANOTHER', FORMAL",
+  "can_do_statement": "Can use 'one another' as the object of a verb or complement of a preposition to talk about the mutual behaviour of two or more people, often in formal contexts. ",
+  "example_raw": "I also thought to create a studying space where students, staff and visitors can meet one another. (Italy; B2 VANTAGE; 1999; Italian; Pass)\n\nSince we last saw one another many things have happened, but I must admit I have never enjoyed myself again the way I did when I was with you. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nPerhaps it will help me understand what my two dogs say to one another. (Portugal; B2 VANTAGE; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163715026x505796493500260540",
+  "level": "C2",
+  "super_category": "PRONOUNS",
+  "sub_category": "reciprocal",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'EACH \u2026 THE OTHER(S)', AS OBJECT",
+  "can_do_statement": "Can use 'each' (+ noun or pronoun) as subject followed by 'the other(s)' as object , to refer to two related things. \u25ba pronouns: quantity",
+  "example_raw": "Each of them admires the other's intelligence. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nAs regards other aspects of my upbringing my parents taught me the importance of having all the family together, each one helping the others, each one loving the others. (Italy; C2 MASTERY; 1993; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163713862x154445028287858000",
+  "level": "A2",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "1",
+  "guideword": "FORM: SAME SUBJECT AND OBJECT.",
+  "can_do_statement": "Can use a limited range of singular reflexive pronouns ('myself', 'yourself') with a limited range of verbs ('enjoy', 'buy') to refer to actions where the subject and object of the verb are the same.",
+  "example_raw": "I enjoyed myself so much. (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)\n\nI bought myself a yellow T-shirt with nothing on it. (Germany; A2 WAYSTAGE; 2008; German; Pass)\n\nI hope you'll enjoy yourself . (Italy; A2 WAYSTAGE; 2001; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163713862x630910430482545900",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "2",
+  "guideword": "FORM: SAME SUBJECT AND OBJECT, SINGULAR ",
+  "can_do_statement": "Can use an increasing range of singular reflexive pronouns with an increasing range of verbs to refer to actions where the subject and object of the verb are the same.",
+  "example_raw": "I decided to talk to him and introduce myself. (Preliminary English Test; B1; Turkish)\n\nFirst you should ask yourself if you have enough money for the journey. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nLisa told herself to be strong and hoped everything would be alright. (Preliminary English Test for Schools; B1; Vietnamese)\n\nI was really surprised when I read the e-mail. It was from someone who calls himself  the black shadow. (Chile; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163713862x808025709875744000",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'BY' + SINGULAR ",
+  "can_do_statement": "Can use the singular reflexive pronouns 'myself', 'yourself', 'himself' and 'herself' with 'by' to mean alone, without any help.",
+  "example_raw": "I will ask my friends from the class and I will study by myself. (Preliminary English Test; B1; Czech)\n\nYou can do some exercise by yourself. (Preliminary English Test; B1;Turkish)\n\nHe tried to open it by himself. (Preliminary English Test; B1; Spanish \u2013 Latin American)\n\nShe decided to find him by herself. (Preliminary English Test; B1; Arabic \u2013 Meghreb)"
+ },
+ {
+  "egp_id": "1741163713863x119857807264091460",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "N/A",
+  "guideword": "FORM: SINGULAR, AFTER PREPOSITIONS",
+  "can_do_statement": "Can use the singular reflexive pronouns 'myself', 'yourself', 'himself' and 'herself' after prepositions where the object of the preposition is the same as the subject of the verb.",
+  "example_raw": "He told me about himself and how he started playing the guitar. (Preliminary English Test; B1; Catalan)\n\nNow she was very proud of herself. (Preliminary English Test; B1; Spanish \u2013Latin American)"
+ },
+ {
+  "egp_id": "1741163713863x283697850044881920",
+  "level": "B1",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "N/A",
+  "guideword": "USE: SINGULAR, FOR EMPHASIS",
+  "can_do_statement": "Can use the singular reflexive pronouns 'myself', 'yourself', 'himself' and 'herself' for emphasis.",
+  "example_raw": "The best solution will be if you decide yourself what to do. (Preliminary English Test; B1; Polish)\n\nI think it was the director himself who guided the actress through our wonderful school gardens to film the opening scene there. (Preliminary English Test; B1; German)\n\nThe food was delicious, especially the cake, which Sandra had cooked herself. (Preliminary English Test; B1; Russian) "
+ },
+ {
+  "egp_id": "1741163713863x705171809781664600",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'BY' + PLURAL ",
+  "can_do_statement": "Can use plural reflexive pronouns with 'by' to mean alone, without any help.",
+  "example_raw": "A friend of mine and I are planning to spend a short holiday by ourselves. (First Certificate in English; B2; Chinese)\n\nThere are many things to say, but I think that you will find these by yourselves. (First Certificate in English; B2; Greek)\n\nThen suddenly, the lights started clicking on and off, the windows opened by themselves. (First Certificate in English; B2; Greek)\n"
+ },
+ {
+  "egp_id": "1741163713864x114619505443246400",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'YOURSELVES', FOR POLITENESS ",
+  "can_do_statement": "Can use the plural reflexive pronoun 'yourselves' for politeness.",
+  "example_raw": "Dear Sir/Madam, I am writing to you in response to the advertisement published by yourselves in \"the Traveller\" regarding The Trip of a Lifetime. (First Certificate in English; B2; Portuguese)\n\nThe question you asked droves me back to my early life. My childhood. Like yourselves I am also living in a busy town, in a busy street. But when I was a little kid I was with my grand parents in Kandy. (Sri Lanka; B1 THRESHOLD; 2010; Singhalese; Pass)\n\nAlso, it is a great opportunity to improve my sailing skills as training will be provided by yourselves. (Brazil; B2 VANTAGE; 2001; Portuguese; Pass\u00a0\u00a0)"
+ },
+ {
+  "egp_id": "1741163713864x227611017911317760",
+  "level": "B2",
+  "super_category": "PRONOUNS",
+  "sub_category": "reflexive",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'ITSELF', FOR EMPHASIS ",
+  "can_do_statement": "Can use the singular pronoun 'itself' for emphasis.",
+  "example_raw": "In my opinion, the main characters do not have to be liked by readers but the story itself must be good and interesting to be successful. (First Certificate in English; B2; Swiss German)\n\nThe building itself looks splendid and beautiful. (Thailand; B2 VANTAGE; 2001; Thai; Pass)"
  }
 ]
 ```
