@@ -1,0 +1,92 @@
+{
+ "batch": "batches/jules_batch_001.json",
+ "cycles": 1,
+ "passed": 13,
+ "total": 15,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163706534x938846205163626000",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy FALSE-POSITIVE on negative: 'The best computer game is this one.'",
+    "regex FALSE-POSITIVE on negative: 'He is the most beautiful person I know.'",
+    "spaCy FALSE-POSITIVE on negative: 'He is the most beautiful person I know.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706535x223084822137106460",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706536x624064805889871500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706536x720681284938151700",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy FALSE-POSITIVE on negative: 'He is the greatest player.'",
+    "spaCy FALSE-POSITIVE on negative: 'One of the best movies is this one.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706536x755639946438128300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706536x778879290830950100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706537x905537267921213700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708146x334549718630644100",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708146x551167324571377540",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708146x666253614436465000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708147x101320810869052430",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708147x186984874753463500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708147x650959713788834800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708149x543465587723424900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708149x973970498543633300",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

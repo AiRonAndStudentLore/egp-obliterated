@@ -880,6 +880,48 @@
   }
  },
  {
+  "egp_id": "1741163708146x551167324571377540",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverb phrases - form",
+  "guideword": "FORM: 'VERY' + ADVERB",
+  "can_do_statement": "Can modify adverbs of time and degree with 'very'. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Scaling temporal or degree adverbs to high intensity",
+   "pedagogical_hook": "Modifying simple adverbs of time and degree with 'very'",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bvery\\s+(?:soon|much|well|often)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "very"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "soon",
+       "much",
+       "well",
+       "often"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I hope you will be fine very soon.",
+    "I like my job very much."
+   ],
+   "negatives": [
+    "It is very good.",
+    "He is very tall."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163708998x446294161060833700",
   "level": "A1",
   "super_category": "DETERMINERS",
@@ -3176,6 +3218,56 @@
   }
  },
  {
+  "egp_id": "1741163708146x666253614436465000",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverb phrases - form",
+  "guideword": "FORM: ADVERB + ADVERB",
+  "can_do_statement": "Can modify a limited range of adverbs of time, degree, and manner with other adverbs.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Refining the temporal or manner frame of an action",
+   "pedagogical_hook": "Combining basic adverbs for precise time or degree",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:so|very|right|only)\\s+(?:much|often|now|fast|quickly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "so",
+       "very",
+       "right",
+       "only"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "much",
+       "often",
+       "now",
+       "fast",
+       "quickly"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I love it so much.",
+    "I really need it right now."
+   ],
+   "negatives": [
+    "It is so big.",
+    "I am right here."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163708330x197590942940390140",
   "level": "A2",
   "super_category": "CLAUSES",
@@ -4882,6 +4974,71 @@
   }
  },
  {
+  "egp_id": "1741163706535x223084822137106460",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: COMPLEX NOUN PHRASES",
+  "can_do_statement": "Can form an increasing range of complex noun phrases with a superlative adjective + prepositional phrase, to talk about something unique. \u25ba noun phrases",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Situating a superlative within a defined scope or domain via prepositions",
+   "pedagogical_hook": "Forming complex superlative noun phrases for precise uniqueness",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bthe(?:\\s+[a-z]+ly)?\\s+(?:most\\s+[a-z]+|[a-z]+est)\\s+[a-z]+\\s+(?:in|of|for|on|at|by|with)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "most",
+     "OP": "?"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJS",
+       "JJ"
+      ]
+     }
+    },
+    {
+     "TAG": {
+      "IN": [
+       "NN",
+       "NNS"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "in",
+       "of",
+       "for",
+       "on",
+       "at",
+       "by",
+       "with"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Yesterday was the most exciting day of my life!",
+    "Exercise is undoubtedly the most important thing in our lives."
+   ],
+   "negatives": [
+    "It is the best.",
+    "It was a very exciting day of my life."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163706535x731530310128982300",
   "level": "B1",
   "super_category": "ADJECTIVES",
@@ -5002,6 +5159,56 @@
    "negatives": [
     "It's the best meal in the city.",
     "That was the best movie we saw."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x778879290830950100",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: 'ONE OF THE' ",
+  "can_do_statement": "Can use 'one of the' before a superlative adjective, followed by a plural noun. \u25ba noun phrases",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Positioning an entity within a top-tier group rather than as an absolute singular",
+   "pedagogical_hook": "Using 'one of the' for inclusive superlatives",
+   "agency_or_distance": "distance"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bone\\s+of\\s+the(?:\\s+[a-z]+ly)?\\s+(?:most\\b|[a-z]+est\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "one"
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "most",
+     "OP": "?"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJS",
+       "JJ"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was one of the best days of my life.",
+    "Akihabara is one of the most famous places in Tokyo."
+   ],
+   "negatives": [
+    "It is the best day.",
+    "I have one of the tickets."
    ]
   }
  },
@@ -5518,6 +5725,63 @@
    "negatives": [
     "I went to the bank yesterday.",
     "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708146x334549718630644100",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverb phrases - form",
+  "guideword": "FORM: ADVERB + ADVERB",
+  "can_do_statement": "Can modify an increasing range of adverbs with other adverbs.\u25ba adverbs and adverb phrases: types and meanings",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Modulating the intensity or precision of adverbs",
+   "pedagogical_hook": "Using adverbs to modify other adverbs for greater nuance",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:quite|really|almost|so|just|too|very)\\s+(?:well|lonely|fast|always|often|quickly|much|yesterday|big)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "quite",
+       "really",
+       "almost",
+       "so",
+       "just",
+       "too",
+       "very"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "well",
+       "lonely",
+       "fast",
+       "always",
+       "often",
+       "quickly",
+       "much",
+       "yesterday",
+       "big"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We get along quite well.",
+    "It came out just yesterday."
+   ],
+   "negatives": [
+    "We get along well.",
+    "It came out yesterday."
    ]
   }
  },
@@ -6188,6 +6452,114 @@
   }
  },
  {
+  "egp_id": "1741163706536x624064805889871500",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: WITH 'BY FAR'",
+  "can_do_statement": "Can use the premodifer 'by far' to make a superlative adjective stronger.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Amplifying the certainty and degree of a superlative claim",
+   "pedagogical_hook": "Using 'by far' to strongly emphasize a superlative",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bby\\s+far(?:\\s+[a-z]+ly)?\\s+the\\s+(?:most\\b|[a-z]+est\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "by"
+    },
+    {
+     "LOWER": "far"
+    },
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "most",
+     "OP": "?"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJS",
+       "JJ"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "This one is by far the most beautiful of all.",
+    "Christmas morning was by far the most exciting and happiest moment."
+   ],
+   "negatives": [
+    "It is the most beautiful.",
+    "He went by far too quickly."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x755639946438128300",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH NOUN AND 'TO-' INFINITIVE",
+  "can_do_statement": "Can use superlative adjectives before a noun + 'to'-infinitive. \u25ba clauses: comparative",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Prescribing the optimal action or entity for a purpose",
+   "pedagogical_hook": "Combining superlatives with infinitives to give strong recommendations",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bthe(?:\\s+[a-z]+ly)?\\s+(?:most\\s+[a-z]+|[a-z]+est)\\s+[a-z]+\\s+to\\s+[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "most",
+     "OP": "?"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJS",
+       "JJ"
+      ]
+     }
+    },
+    {
+     "TAG": {
+      "IN": [
+       "NN",
+       "NNS"
+      ]
+     }
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "TAG": "VB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The easiest way to do it is to use computers.",
+    "A bicycle is perhaps the cheapest way to travel in the city."
+   ],
+   "negatives": [
+    "It is the easiest way.",
+    "He wants the best to win."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163706726x470804791633165250",
   "level": "B2",
   "super_category": "ADVERBS",
@@ -6352,6 +6724,62 @@
    "negatives": [
     "I never have seen such a realistic film.",
     "I never go there."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708147x186984874753463500",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverb phrases - form",
+  "guideword": "FORM: COMPARATIVE",
+  "can_do_statement": "Can modify an adverb with a comparative structure. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Comparing the manner or frequency of actions dynamically",
+   "pedagogical_hook": "Using comparative structures to modify adverbs",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:much|even)\\s+more\\s+[a-z]+ly\\b|\\b[a-z]+er\\s+and\\s+more\\s+[a-z]+ly\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "much",
+       "even"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+er$"
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": "and",
+     "OP": "?"
+    },
+    {
+     "LOWER": "more"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ly$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Profits will rise even more sharply than last year.",
+    "We can search information much more quickly than before."
+   ],
+   "negatives": [
+    "He is much more interesting.",
+    "It is even more beautiful."
    ]
   }
  },
@@ -6715,6 +7143,72 @@
   }
  },
  {
+  "egp_id": "1741163706537x905537267921213700",
+  "level": "C1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: WITH POSTMODFIER AND NOUN",
+  "can_do_statement": "Can use a postmodifier to make the superlative stronger, in the structure superlative + noun + postmodifier ('possible', 'ever', 'by far'). ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Maximizing the superlative scope to all available possibilities or time",
+   "pedagogical_hook": "Adding postmodifiers like 'possible' or 'ever' to strengthen superlatives",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:the\\s+)?(?:most\\s+[a-z]+|[a-z]+est)\\s+[a-z]+\\s+(?:possible|ever|by\\s+far)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the",
+     "OP": "?"
+    },
+    {
+     "LOWER": "most",
+     "OP": "?"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJS",
+       "JJ"
+      ]
+     }
+    },
+    {
+     "TAG": {
+      "IN": [
+       "NN",
+       "NNS"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "possible",
+       "ever",
+       "by"
+      ]
+     }
+    },
+    {
+     "LOWER": "far",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We want to present ourselves in the best way possible.",
+    "That is her greatest performance ever."
+   ],
+   "negatives": [
+    "It is the best way.",
+    "It was her greatest performance in history."
+   ]
+  }
+ },
+ {
   "egp_id": "1741163706726x104951219517093630",
   "level": "C1",
   "super_category": "ADVERBS",
@@ -6853,6 +7347,141 @@
    "negatives": [
     "I went to the cinema yesterday.",
     "She left her book here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708147x101320810869052430",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverb phrases - form",
+  "guideword": "FORM/USE: ADVERB + 'ENOUGH'",
+  "can_do_statement": "Can post-modify adverbs with 'enough to intensify'.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Evaluating situations as sufficiently surprising or notable",
+   "pedagogical_hook": "Post-modifying adverbs with 'enough' to express attitude",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b[a-z]+ly\\s+enough\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ly$"
+     }
+    },
+    {
+     "LOWER": "enough"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Surprisingly enough, management was very responsive.",
+    "Sadly enough, I wasn't able to find a job."
+   ],
+   "negatives": [
+    "He is tall enough.",
+    "I have enough money."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708147x650959713788834800",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverb phrases - form",
+  "guideword": "FORM: ADVERB + ADVERB",
+  "can_do_statement": "Can modify a wide range of adverbs with other adverbs. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Fine-tuning adverbial meaning with high-register modifiers",
+   "pedagogical_hook": "Modifying adverbs extensively for precise academic or professional tone",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:extremely|relatively|slightly|highly|perfectly|fairly|somewhat|rather)\\s+[a-z]+ly\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "extremely",
+       "relatively",
+       "slightly",
+       "highly",
+       "perfectly",
+       "fairly",
+       "somewhat",
+       "rather"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ly$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The value will drop extremely rapidly.",
+    "We can achieve market penetration relatively quickly."
+   ],
+   "negatives": [
+    "It is extremely good.",
+    "It was relatively cheap."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708149x543465587723424900",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverb phrases - form",
+  "guideword": "FORM/USE: ADVERBS + PREPOSITIONAL PHRASES, HIGHLIGHT",
+  "can_do_statement": "Can post-modify adverbs with a complex prepositional phrase complement, to highlight information. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Highlighting the scope of an evaluative adverb using prepositional frames",
+   "pedagogical_hook": "Using prepositional phrases after adverbs to target specific information",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:Luckily|Unfortunately|Especially|Probably)\\s+(?:for|in|on|with|at)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "luckily",
+       "unfortunately",
+       "especially",
+       "probably"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "for",
+       "in",
+       "on",
+       "with",
+       "at"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Luckily for you, I kept notes.",
+    "Unfortunately for some of them, it was nightmarish."
+   ],
+   "negatives": [
+    "Luckily, I kept notes for you.",
+    "Unfortunately, it was bad for them."
    ]
   }
  },
@@ -7645,6 +8274,60 @@
    "negatives": [
     "I hardly ever go there.",
     "Hardly anything happened that afternoon."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708149x973970498543633300",
+  "level": "C2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverb phrases - form",
+  "guideword": "FORM: PRE- AND POST-MODIFIED ADVERBS",
+  "can_do_statement": "Can form adverb phrases with modifiers before, and complements after, adverbs. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Enveloping adverbs in pre- and post-modifiers for absolute precision",
+   "pedagogical_hook": "Forming complex adverb phrases with both preceding and following modifiers",
+   "agency_or_distance": "agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:almost|so|very|quite)\\s+[a-z]+ly\\s+(?:for|in|with|on)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "almost",
+       "so",
+       "very",
+       "quite"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^[a-z]+ly$"
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "for",
+       "in",
+       "with",
+       "on"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "To work almost exclusively for their own interests.",
+    "It was so completely in harmony with the sun."
+   ],
+   "negatives": [
+    "To work exclusively for their own interests.",
+    "It was completely in harmony with the sun."
    ]
   }
  },
