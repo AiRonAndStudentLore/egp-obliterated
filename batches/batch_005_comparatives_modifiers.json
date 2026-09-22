@@ -1,0 +1,503 @@
+[
+ {
+  "can_do_statement": "Can use 'and' to repeat a comparative adjective to indicate change over time, usually after 'become' or 'get'.  \u25ba adjectives: comparatives",
+  "detection": {
+   "regex_triage": "\\b([a-z]+)\\s+and\\s+\\1\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "smaller",
+       "longer",
+       "worse",
+       "hotter",
+       "colder",
+       "bigger"
+      ]
+     }
+    },
+    {
+     "LOWER": "and"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "smaller",
+       "longer",
+       "worse",
+       "hotter",
+       "colder",
+       "bigger"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706324x315119491769305400",
+  "guideword": "FORM/USE: WITH 'AND'",
+  "level": "B1",
+  "ontology": {
+   "agency_or_distance": "temporal drift of a property",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "same scale intensifying over time",
+   "pedagogical_hook": "the change keeps changing"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "He is tall and strong.",
+    "The team is bigger and stronger than last year."
+   ],
+   "positives": [
+    "I saw everything become smaller and smaller.",
+    "Nowadays television is getting worse and worse."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use '(so) much' to modify and intensify comparative adjectives used predicatively after a verb, usually 'be'. ",
+  "detection": {
+   "regex_triage": "\\b(?:so\\s+)?much\\s+(better|bigger|easier|worse|cheaper|older|hotter|nicer)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "much"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "better",
+       "bigger",
+       "easier",
+       "worse",
+       "cheaper",
+       "older",
+       "hotter",
+       "nicer"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706324x454596359825248060",
+  "guideword": "FORM/USE: WITH '(SO) MUCH' ",
+  "level": "B1",
+  "ontology": {
+   "agency_or_distance": "intensified scale gap",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "much stretches the distance between two scale points",
+   "pedagogical_hook": "widen the gap"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "I have much money.",
+    "There was much more time last year."
+   ],
+   "positives": [
+    "The teacher in the new class is much better than the last one.",
+    "The house is so much bigger than the previous one."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'a (little) bit' to modify comparative adjectives used predicatively after a verb, usually 'be'.",
+  "detection": {
+   "regex_triage": "\\ba\\s+(?:little\\s+)?bit\\s+(smaller|older|bigger|better|cheaper|younger|hotter|easier)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "a"
+    },
+    {
+     "LOWER": "little",
+     "OP": "?"
+    },
+    {
+     "LOWER": "bit"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "smaller",
+       "older",
+       "bigger",
+       "better",
+       "cheaper",
+       "younger",
+       "hotter",
+       "easier"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706324x779144564678598700",
+  "guideword": "FORM/USE: WITH 'A (LITTLE) BIT' ",
+  "level": "B1",
+  "ontology": {
+   "agency_or_distance": "hedged scale gap",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "a bit narrows the distance between scale points",
+   "pedagogical_hook": "shrink the gap politely"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "It is smaller.",
+    "He is a big brother to me."
+   ],
+   "positives": [
+    "He's a bit smaller than me, dark hair.",
+    "She's a little bit older than me."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use a comparative adjective with 'than' to compare two nouns or noun phrases.\u25ba comparative clauses",
+  "detection": {
+   "regex_triage": "\\b(?:(?:bigger|smaller|older|younger|better|worse|cheaper|taller|hotter|easier|nicer|larger|faster)\\s+than|more\\s+[a-z]+\\s+than)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "bigger",
+       "smaller",
+       "older",
+       "younger",
+       "better",
+       "worse",
+       "cheaper",
+       "taller",
+       "hotter",
+       "easier",
+       "nicer",
+       "larger",
+       "faster"
+      ]
+     }
+    },
+    {
+     "LOWER": "than"
+    }
+   ]
+  },
+  "egp_id": "1741163706324x902426433063664400",
+  "guideword": "FORM: WITH 'THAN'",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "explicit two-entity comparison",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "than names the rival scale point",
+   "pedagogical_hook": "name the rival"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "Other than that, it was fine.",
+    "We would rather stay home tonight."
+   ],
+   "positives": [
+    "It's smaller than my old phone.",
+    "The weather in Thailand was hotter than in Vietnam."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'slightly' to modify comparative adjectives to a small degree.",
+  "detection": {
+   "regex_triage": "\\bslightly\\s+(?:more\\s+)?(cheaper|better|smaller|bigger|older|hotter|easier|larger|worse)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "slightly"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "cheaper",
+       "better",
+       "smaller",
+       "bigger",
+       "older",
+       "hotter",
+       "easier",
+       "larger",
+       "worse"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706325x326230068251719000",
+  "guideword": "FORM/USE: WITH 'SLIGHTLY'",
+  "level": "B2",
+  "ontology": {
+   "agency_or_distance": "minimal scale offset",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "slightly nudges one point a hair above the other",
+   "pedagogical_hook": "a hair above"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "She was slightly tired.",
+    "He speaks slightly fast."
+   ],
+   "positives": [
+    "The price of a second-hand one was slightly cheaper.",
+    "The food of restaurant A is slightly better than that of B."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'no' / 'not any' with comparative adjectives to limit the scale of comparison. \u25ba comparative clauses",
+  "detection": {
+   "regex_triage": "\\b(?:no|not\\s+any)\\s+(higher|happier|better|worse|bigger|older|cheaper)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "no",
+       "not"
+      ]
+     }
+    },
+    {
+     "LOWER": "any",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "higher",
+       "happier",
+       "better",
+       "worse",
+       "bigger",
+       "older",
+       "cheaper"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706325x499920484410304700",
+  "guideword": "FORM/USE: WITH 'NO' OR 'NOT ANY' ",
+  "level": "C2",
+  "ontology": {
+   "agency_or_distance": "scale ceiling",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "no caps the scale at zero difference",
+   "pedagogical_hook": "deny the gap entirely"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "He is not happy.",
+    "It is no good."
+   ],
+   "positives": [
+    "I will probably find the water to be no higher than my thighs.",
+    "They are not any happier than you were."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'even' to modify and intensify comparative adjectives used predicatively after a verb, usually 'be' and 'get'.",
+  "detection": {
+   "regex_triage": "\\beven\\s+(?:more\\s+)?(better|bigger|hotter|older|cheaper|smaller|worse|easier)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "even"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "better",
+       "bigger",
+       "hotter",
+       "older",
+       "cheaper",
+       "smaller",
+       "worse",
+       "easier"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706325x626199986587842000",
+  "guideword": "FORM/USE: WITH 'EVEN'",
+  "level": "B1",
+  "ontology": {
+   "agency_or_distance": "escalated scale gap",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "even pushes an already high point higher",
+   "pedagogical_hook": "climb one rung more"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "Even children can do it.",
+    "She didn't even try."
+   ],
+   "positives": [
+    "Part two was even better!",
+    "My smile got even bigger."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'a lot' to modify and intensify comparative adjectives used predicatively after a verb, usually 'be'. ",
+  "detection": {
+   "regex_triage": "\\ba\\s+lot\\s+(?:more\\s+)?(cheaper|easier|better|bigger|older|smaller|hotter|worse)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "a"
+    },
+    {
+     "LOWER": "lot"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "cheaper",
+       "easier",
+       "better",
+       "bigger",
+       "older",
+       "smaller",
+       "hotter",
+       "worse"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706325x685158058775323900",
+  "guideword": "FORM/USE: WITH 'A LOT' ",
+  "level": "B2",
+  "ontology": {
+   "agency_or_distance": "large scale gap",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "a lot blows the distance wide open",
+   "pedagogical_hook": "blow the gap open"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "I have a lot of work.",
+    "We laughed a lot."
+   ],
+   "positives": [
+    "A bike is a lot cheaper than a car.",
+    "Don't you think it would be a lot easier for you?"
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'not that much' to modify comparative adjectives to a small degree. \u25ba comparative clauses",
+  "detection": {
+   "regex_triage": "\\bnot\\s+that\\s+much\\s+(older|better|worse|bigger|cheaper|more)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "not"
+    },
+    {
+     "LOWER": "that"
+    },
+    {
+     "LOWER": "much"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "older",
+       "better",
+       "worse",
+       "bigger",
+       "cheaper",
+       "more"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706325x710438084625442200",
+  "guideword": "FORM/USE: WITH 'NOT THAT MUCH'",
+  "level": "C2",
+  "ontology": {
+   "agency_or_distance": "downplayed scale gap",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "not that much shrinks the distance under scrutiny",
+   "pedagogical_hook": "understate the gap"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "I don't have that much money.",
+    "It is much better."
+   ],
+   "positives": [
+    "She is not that much older than I am.",
+    "The trip was not that much worse than driving."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'much' to modify and intensify comparative adjectives used attributively before countable and uncountable nouns. ",
+  "detection": {
+   "regex_triage": "\\b(?:a\\s+)?much\\s+(better|cheaper|fresher|bigger|older|nicer|larger|easier)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "much"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "better",
+       "cheaper",
+       "fresher",
+       "bigger",
+       "older",
+       "nicer",
+       "larger",
+       "easier"
+      ]
+     }
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "egp_id": "1741163706325x835618955438298200",
+  "guideword": "FORM/USE: WITH 'MUCH' + NOUN",
+  "level": "B2",
+  "ontology": {
+   "agency_or_distance": "intensified attributive ranking",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "much + comparative welds a ranked label onto the noun",
+   "pedagogical_hook": "rank the noun harder"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "It is much better.",
+    "I have much more time."
+   ],
+   "positives": [
+    "It is a much better investment than the bicycle.",
+    "What about a much cheaper hotel like the Plaza?"
+   ]
+  }
+ }
+]

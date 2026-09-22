@@ -1,0 +1,161 @@
+[
+  {
+    "egp_id": "PRESENT_CONTINUOUS",
+    "name": "Present Continuous",
+    "pattern": [
+      {
+        "pos": "AUX",
+        "morph": {
+          "HAS": "Tense=Pres"
+        },
+        "lemma": {
+          "IN": [
+            "be",
+            "am",
+            "is",
+            "are",
+            "'m",
+            "'s",
+            "'re"
+          ]
+        }
+      },
+      {
+        "pos": "ADV",
+        "OP": "*"
+      },
+      {
+        "pos": {
+          "IN": [
+            "VERB",
+            "AUX"
+          ]
+        },
+        "morph": {
+          "HAS": "Aspect=Prog"
+        }
+      }
+    ]
+  },
+  {
+    "egp_id": "PRESENT_PERFECT_SIMPLE",
+    "name": "Present Perfect Simple",
+    "pattern": [
+      {
+        "pos": "AUX",
+        "morph": {
+          "HAS": "Tense=Pres"
+        },
+        "lemma": {
+          "IN": [
+            "have",
+            "has",
+            "'ve",
+            "'s"
+          ]
+        }
+      },
+      {
+        "pos": "ADV",
+        "OP": "*"
+      },
+      {
+        "pos": {
+          "IN": [
+            "VERB",
+            "AUX"
+          ]
+        },
+        "morph": {
+          "HAS": "VerbForm=Part"
+        }
+      }
+    ]
+  },
+  {
+    "egp_id": "PAST_CONTINUOUS",
+    "name": "Past Continuous",
+    "pattern": [
+      {
+        "pos": "AUX",
+        "morph": {
+          "HAS": "Tense=Past"
+        },
+        "lemma": {
+          "IN": [
+            "was",
+            "were"
+          ]
+        }
+      },
+      {
+        "pos": "ADV",
+        "OP": "*"
+      },
+      {
+        "pos": {
+          "IN": [
+            "VERB",
+            "AUX"
+          ]
+        },
+        "morph": {
+          "HAS": "Aspect=Prog"
+        }
+      }
+    ]
+  },
+  {
+    "egp_id": "FUTURE_WITH_WILL",
+    "name": "Future with Will",
+    "pattern": [
+      {
+        "lemma": "will"
+      },
+      {
+        "pos": "ADV",
+        "OP": "*"
+      },
+      {
+        "pos": {
+          "IN": [
+            "VERB",
+            "AUX"
+          ]
+        },
+        "morph": {
+          "HAS": "VerbForm=Inf"
+        }
+      }
+    ]
+  },
+  {
+    "egp_id": "MODALS_ABILITY_PERMISSION",
+    "name": "Modals of Ability & Permission",
+    "pattern": [
+      {
+        "lemma": {
+          "IN": [
+            "can",
+            "could"
+          ]
+        }
+      },
+      {
+        "pos": "ADV",
+        "OP": "*"
+      },
+      {
+        "pos": {
+          "IN": [
+            "VERB",
+            "AUX"
+          ]
+        },
+        "morph": {
+          "HAS": "VerbForm=Inf"
+        }
+      }
+    ]
+  }
+]

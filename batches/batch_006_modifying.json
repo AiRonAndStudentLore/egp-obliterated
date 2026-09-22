@@ -1,0 +1,464 @@
+[
+ {
+  "can_do_statement": "Can use 'too' with common gradable adjectives. ",
+  "detection": {
+   "regex_triage": "\\btoo\\s+(expensive|small|big|old|young|hot|cold|difficult|busy|late)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "too"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "egp_id": "1741163706326x319165365934681800",
+  "guideword": "FORM: WITH 'TOO'",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "excess degree",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "the scale tips past the usable point",
+   "pedagogical_hook": "over the limit"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "It took two hours to finish.",
+    "She has two younger brothers."
+   ],
+   "positives": [
+    "They aren't too expensive.",
+    "The other one that I had was too small."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can form adjective phrases with a very limited range of adjectives + a prepositional phrase. ",
+  "detection": {
+   "regex_triage": "\\b(good|full|ready|late|absent|different)\\s+(for|of|with|from)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "good",
+       "full",
+       "ready",
+       "late",
+       "absent",
+       "different"
+      ]
+     }
+    },
+    {
+     "TAG": "IN"
+    }
+   ]
+  },
+  "egp_id": "1741163706326x556212736467496000",
+  "guideword": "FORM: WITH PREPOSITIONAL PHRASE",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "anchored attribute",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "the attribute points at a location or target",
+   "pedagogical_hook": "point the adjective"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "The goods were shipped.",
+    "He is a good man at heart."
+   ],
+   "positives": [
+    "I think swimming is good for my body.",
+    "The house was full of people."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'too' + adjective + prepositional phrase",
+  "detection": {
+   "regex_triage": "\\btoo\\s+(small|big|old|young|hot|cold|difficult|busy|late|short|long|tight)\\s+for\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "too"
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "for"
+    }
+   ]
+  },
+  "egp_id": "1741163706326x804713615141726700",
+  "guideword": "FORM: WITH 'TOO' + PREPOSITIONAL PHRASE",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "excess degree with target",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "excess measured against a person or thing",
+   "pedagogical_hook": "too much, for whom?"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "The gift was too small.",
+    "That box is small for a reason."
+   ],
+   "positives": [
+    "Most of my clothes were too small for me.",
+    "The shoes were too tight for her feet."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'very' with a limited range of common gradable adjectives. ",
+  "detection": {
+   "regex_triage": "\\bvery\\s+(nice|friendly|quiet|good|big|small|happy|hot|cold|difficult|important)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "very"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "egp_id": "1741163706326x912859360099482800",
+  "guideword": "FORM: WITH 'VERY' ",
+  "level": "A1",
+  "ontology": {
+   "agency_or_distance": "high degree",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "very pushes the attribute up the scale",
+   "pedagogical_hook": "turn it up"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "I like it very much.",
+    "Thank you very much for your help."
+   ],
+   "positives": [
+    "I like Croydon because it's very quiet and very nice.",
+    "My neighbours are very friendly."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use adverbs of degree ('really', 'so', 'quite') with an increasing range of common gradable adjectives.",
+  "detection": {
+   "regex_triage": "\\b(really|so|quite)\\s+(hot|happy|expensive|nice|good|big|small|cold|difficult|friendly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "really",
+       "so",
+       "quite"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "egp_id": "1741163706326x982625360706106900",
+  "guideword": "FORM: WITH DEGREE ADVERBS",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "tuned degree",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "really, so, quite set different volume levels",
+   "pedagogical_hook": "pick the volume"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "So, what did he say about the plan?",
+    "I quite like jazz music."
+   ],
+   "positives": [
+    "It was sunny and really hot every day!",
+    "They are quite expensive."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'too' before adjectives followed by 'to'-infinitive.",
+  "detection": {
+   "regex_triage": "\\btoo\\s+(busy|old|young|small|big|tired|sick|late|difficult|expensive)\\s+to\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "too"
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "TAG": "TO"
+    }
+   ]
+  },
+  "egp_id": "1741163706327x129851131046565090",
+  "guideword": "FORM: WITH 'TOO' + 'TO'-INFINITIVE ",
+  "level": "B1",
+  "ontology": {
+   "agency_or_distance": "blocked action from excess",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "excess degree slams the door on the action",
+   "pedagogical_hook": "too much, so it can't happen"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "He is too busy for hobbies.",
+    "It is too old."
+   ],
+   "positives": [
+    "He was too busy to write a letter to me.",
+    "The machine is too old to work well."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'enough' to modify adjectives. ",
+  "detection": {
+   "regex_triage": "\\b(big|good|old|young|strong|fast|tall|warm|safe|clear)\\s+enough\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "enough"
+    }
+   ]
+  },
+  "egp_id": "1741163706327x526332173403099460",
+  "guideword": "FORM: WITH 'ENOUGH' ",
+  "level": "B1",
+  "ontology": {
+   "agency_or_distance": "sufficient degree",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "the attribute reaches the threshold",
+   "pedagogical_hook": "past the line"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "We have enough money for the trip.",
+    "There is enough space here."
+   ],
+   "positives": [
+    "My room is big enough, there is a lot of space.",
+    "We don't think our English is good enough."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use adjective phrases attributively, before a noun.",
+  "detection": {
+   "regex_triage": "\\b(?:very|really|quite|so)\\s+(important|good|nice|big|small|difficult|friendly|expensive)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADV"
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "egp_id": "1741163706327x603148419284069700",
+  "guideword": "FORM: ADJECTIVE PHRASE + NOUN",
+  "level": "B1",
+  "ontology": {
+   "agency_or_distance": "front-loaded attribute",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "intensifier plus adjective packed before the noun",
+   "pedagogical_hook": "stack it before the noun"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "She sings really well.",
+    "The meeting is very important."
+   ],
+   "positives": [
+    "I have a very important meeting at 10.15 am.",
+    "She's also a really good friend."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can form adjective phrases with 'quite a' + adjective.",
+  "detection": {
+   "regex_triage": "\\bquite\\s+a\\s+(long|difficult|good|big|nice|strange|cold|busy)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "quite"
+    },
+    {
+     "LOWER": "a"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "egp_id": "1741163706327x605844387241896800",
+  "guideword": "FORM: WITH 'QUITE A'",
+  "level": "B1",
+  "ontology": {
+   "agency_or_distance": "notable degree",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "quite a lifts the whole noun phrase a notch",
+   "pedagogical_hook": "quite a step up"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "The answer is quite clear.",
+    "She was quite happy alone."
+   ],
+   "positives": [
+    "I have been thinking about it for quite a long time.",
+    "This is quite a difficult situation you have."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use 'enough' after adjectives followed by 'to'-infinitive ",
+  "detection": {
+   "regex_triage": "\\b(lucky|mature|old|young|big|good|strong|brave|rich)\\s+enough\\s+to\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "enough"
+    },
+    {
+     "TAG": "TO"
+    }
+   ]
+  },
+  "egp_id": "1741163706327x637591254482696300",
+  "guideword": "FORM: WITH 'ENOUGH' + 'TO'-INFINITIVE ",
+  "level": "B2",
+  "ontology": {
+   "agency_or_distance": "unlocked action from sufficiency",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "the threshold reached opens the action",
+   "pedagogical_hook": "enough, so it can happen"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "I was lucky to be there.",
+    "She has enough money to travel.",
+    "He is too young to drive."
+   ],
+   "positives": [
+    "I was lucky enough to take part in it last November.",
+    "Young people are not mature enough to decide by themselves."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can form adjective phrases with 'rather a' + adjective, often in formal contexts. ",
+  "detection": {
+   "regex_triage": "\\brather\\s+a\\s+(simple|poor|long|difficult|strange|formal|nice|big)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "rather"
+    },
+    {
+     "LOWER": "a"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "egp_id": "1741163706530x505400471831386240",
+  "guideword": "FORM: WITH 'RATHER A' ",
+  "level": "B2",
+  "ontology": {
+   "agency_or_distance": "understated judgement",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "rather a marks measured, formal assessment",
+   "pedagogical_hook": "formal understatement"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "I would rather stay at home.",
+    "It is rather cold outside."
+   ],
+   "positives": [
+    "Films tend to be rather a simple art.",
+    "I must confess that I'm rather a poor player."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use adjectives in 'as \u2026 as' and 'so \u2026 that' in comparative structures. \u25ba comparative clauses",
+  "detection": {
+   "regex_triage": "\\bas\\s+(large|big|good|small|strong|many|much|high|long)\\s+a\\b|\\bso\\s+(strong|big|good|large|deep|high|loud|bright)\\s+a\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "as",
+       "so"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "a"
+    }
+   ]
+  },
+  "egp_id": "1741163706530x588030046772396400",
+  "guideword": "FORM: COMPARISON ",
+  "level": "C2",
+  "ontology": {
+   "agency_or_distance": "equative and resultative scaling",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "as/so inserts the adjective between scale and article",
+   "pedagogical_hook": "adjective splits as and a"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "He is as tall as his brother.",
+    "It was so big that we laughed."
+   ],
+   "positives": [
+    "Our debates do not draw as large a number of students as the guest appearances.",
+    "He had so strong a shock that he never spoke of it."
+   ]
+  }
+ }
+]

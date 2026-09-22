@@ -1,0 +1,953 @@
+[
+ {
+  "egp_id": "1741163708998x292634198326936960",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THIS' WITH UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use 'this' with uncountable nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular, or uncountable entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'this' specific item or substance.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:information|food|music|advice|help|water|milk|rice|bread|money|time|fun|work|research|knowledge|news|progress|equipment|furniture|homework|luggage|traffic|imagination|patience|intelligence|love|happiness|anger|courage|freedom|experience|evidence|data|behaviour|behavior|information)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this",
+     "DEP": "det"
+    },
+    {
+     "OP": "?",
+     "POS": "ADJ"
+    },
+    {
+     "OP": "?",
+     "POS": "ADV"
+    },
+    {
+     "DEP": {
+      "IN": [
+       "pobj",
+       "attr",
+       "dobj",
+       "nsubj"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I found this information in a book.",
+    "My mother told me that this food is healthy."
+   ],
+   "negatives": [
+    "I went home yesterday.",
+    "She opened the door."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708998x446294161060833700",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', POINTING",
+  "can_do_statement": "Can use 'this' in a limited range of contexts to refer to places from the speaker's or writer's point of view. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'this' specific place or thing.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:area|college|place)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "area",
+       "college",
+       "place"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I want to let you know about this area.",
+    "I like this place because there are many cultures."
+   ],
+   "negatives": [
+    "That area is nice.",
+    "These places are beautiful."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708998x669595367530949600",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', FUTURE",
+  "can_do_statement": "Can use 'this' with time and date words to refer to 'the one that's coming'. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Identification of future temporal points or periods.",
+   "pedagogical_hook": "Referring to 'this' upcoming event or time.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:summer|winter|spring|autumn|week(?:end)?|month|year|monday|tuesday|wednesday|thursday|friday|saturday|sunday|season|holiday|evening|morning|afternoon|night)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "morning",
+       "afternoon",
+       "evening",
+       "night",
+       "day",
+       "week",
+       "weekend",
+       "month",
+       "summer",
+       "winter",
+       "spring",
+       "autumn",
+       "year",
+       "monday",
+       "tuesday",
+       "wednesday",
+       "thursday",
+       "friday",
+       "saturday",
+       "sunday",
+       "january",
+       "february",
+       "march",
+       "april",
+       "may",
+       "june",
+       "july",
+       "august",
+       "september",
+       "october",
+       "november",
+       "december",
+       "season",
+       "holiday"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "This summer I want to go on holiday.",
+    "I have a good plan for this weekend."
+   ],
+   "negatives": [
+    "Last summer was great.",
+    "I will go next weekend."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708998x842376822392022500",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THIS' WITH SINGULAR NOUNS",
+  "can_do_statement": "Can use 'this' with singular nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'this' specific item.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:place|house|car|book|kitchen|room|guy|girl|person|man|woman|child|restaurant|hotel|book|film|movie|story|tree|flower|dog|cat|card|letter|paper|pen|pencil|table|chair|window|door|street|road|town|city|country|river|mountain|problem|issue|question|situation|idea|plan|reason|way|method|moment|day|week|month|year|saturday|sunday|monday|tuesday|wednesday|thursday|friday|summer|winter|morning|afternoon|evening)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "place",
+       "house",
+       "car",
+       "book",
+       "kitchen",
+       "room",
+       "guy",
+       "girl",
+       "person",
+       "man",
+       "woman",
+       "child",
+       "restaurant",
+       "hotel",
+       "film",
+       "movie",
+       "story",
+       "tree",
+       "flower",
+       "dog",
+       "cat",
+       "card",
+       "letter",
+       "paper",
+       "pen",
+       "table",
+       "chair",
+       "window",
+       "door",
+       "street",
+       "road",
+       "town",
+       "city",
+       "country",
+       "river",
+       "mountain",
+       "problem",
+       "issue",
+       "question",
+       "situation",
+       "idea",
+       "plan",
+       "reason",
+       "way",
+       "method",
+       "moment",
+       "saturday",
+       "sunday",
+       "monday",
+       "tuesday",
+       "wednesday",
+       "thursday",
+       "friday",
+       "summer",
+       "winter",
+       "morning",
+       "afternoon",
+       "evening",
+       "number"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I like this place because it is very nice.",
+    "If you like, then we can go this Saturday."
+   ],
+   "negatives": [
+    "I like that place.",
+    "I like these places."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708999x197534813538877700",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THAT'",
+  "can_do_statement": "Can use 'that' with singular nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular entities at a distance.",
+   "pedagogical_hook": "Referring to 'that' specific item.",
+   "agency_or_distance": "Distal"
+  },
+  "detection": {
+   "regex_triage": "\\bthat\\s+\\w+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "that",
+     "DEP": "det"
+    },
+    {
+     "OP": "?",
+     "POS": "ADJ"
+    },
+    {
+     "OP": "?",
+     "POS": "ADV"
+    },
+    {
+     "DEP": {
+      "IN": [
+       "pobj",
+       "attr",
+       "dobj",
+       "nsubj"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I also want to see that film.",
+    "I know we have that course in our college."
+   ],
+   "negatives": [
+    "I also want to see this film.",
+    "I know we have these courses."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708999x261975847515960600",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THAT', POINTING",
+  "can_do_statement": "Can use 'that' to talk about or point to things which are further away in time and space from the speaker or writer",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular entities at a distance.",
+   "pedagogical_hook": "Pointing to 'that' specific item or place.",
+   "agency_or_distance": "Distal"
+  },
+  "detection": {
+   "regex_triage": "\\bthat\\s+(?:letter|number|book|page|chapter|paragraph|line|sentence|word|term|name|address|email|phone|message|note|report|article|study|item|object|piece|place|location|building|tree|dog|cat|car|house|day|building|tree|moment|person|time)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "that"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "letter",
+       "number",
+       "book",
+       "page",
+       "chapter",
+       "paragraph",
+       "line",
+       "sentence",
+       "word",
+       "term",
+       "name",
+       "address",
+       "email",
+       "phone",
+       "message",
+       "note",
+       "report",
+       "article",
+       "study",
+       "item",
+       "object",
+       "piece",
+       "place",
+       "location",
+       "building",
+       "tree",
+       "dog",
+       "cat",
+       "car",
+       "house",
+       "day",
+       "moment",
+       "person",
+       "time",
+       "year",
+       "week",
+       "month"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Look at that building over there.",
+    "I remember that day clearly."
+   ],
+   "negatives": [
+    "Look at this building.",
+    "I remember this day."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708999x278889696769958800",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'this' to refer to something with immediate relevance which has already been mentioned. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Referencing previously mentioned entities with immediate relevance.",
+   "pedagogical_hook": "Referring back to 'this' specific thing just discussed.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:problem|dress|house)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "problem",
+       "dress",
+       "house"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We discussed the issue. Let's focus on this problem.",
+    "She bought a dress. The colour of this dress is beautiful."
+   ],
+   "negatives": [
+    "That problem is difficult.",
+    "I like those dresses."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708999x391920867296142300",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS' POINTING|",
+  "can_do_statement": "Can use 'this' in an increasing range of contexts to refer to places and things from the speaker's or writer's point of view. \u25ba noun phrases \u25ba pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'this' specific item or place.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:letter|number|book)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "letter",
+       "number",
+       "book"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am writing this letter to you.",
+    "You can contact me on this number."
+   ],
+   "negatives": [
+    "I am writing a letter.",
+    "You can contact me on that number."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708999x454483670604331600",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: POINTING",
+  "can_do_statement": "Can use 'this' in an increasing range of contexts to refer to places and things from the speaker's or writer's point of view. \u25ba noun phrases \u25ba pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'this' specific item or place.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:letter|number|book)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "letter",
+       "number",
+       "book",
+       "page",
+       "paragraph",
+       "line",
+       "sentence",
+       "word",
+       "name",
+       "address",
+       "email",
+       "phone",
+       "message",
+       "note",
+       "report",
+       "item",
+       "place"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am writing this letter to tell you about my present.",
+    "You can contact me by calling me this number."
+   ],
+   "negatives": [
+    "I am writing a letter.",
+    "You can contact me on that number."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709000x205393325500403900",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THESE' ",
+  "can_do_statement": "Can use 'these' with plural nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, plural entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'these' specific items.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthese\\s+\\w+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "these",
+     "DEP": "det"
+    },
+    {
+     "OP": "?",
+     "POS": "ADJ"
+    },
+    {
+     "OP": "?",
+     "POS": "ADV"
+    },
+    {
+     "DEP": {
+      "IN": [
+       "pobj",
+       "attr",
+       "dobj",
+       "nsubj"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I bought these clothes because they weren't expensive.",
+    "I bought these things because they were perfect."
+   ],
+   "negatives": [
+    "I bought that dress.",
+    "I bought those things."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709000x616509910518399400",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THAT', ALREADY MENTIONED ",
+  "can_do_statement": "Can use 'that' to refer to something which has already been mentioned. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Referencing previously mentioned entities at a distance.",
+   "pedagogical_hook": "Referring back to 'that' specific thing previously mentioned.",
+   "agency_or_distance": "Distal"
+  },
+  "detection": {
+   "regex_triage": "\\bthat\\s+(?:shop|course|colour)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "that"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "shop",
+       "course",
+       "colour"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "You should go that shop.",
+    "I want to study that course."
+   ],
+   "negatives": [
+    "You should go this shop.",
+    "I want to study this course."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709001x134549933548144820",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THESE' POINTING||",
+  "can_do_statement": "Can use 'these' to refer to places and things from the speaker's or writer's point of view. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, plural entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'these' specific items or places.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthese\\s+\\w+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "these",
+     "DEP": "det"
+    },
+    {
+     "OP": "?",
+     "POS": "ADJ"
+    },
+    {
+     "OP": "?",
+     "POS": "ADV"
+    },
+    {
+     "DEP": {
+      "IN": [
+       "pobj",
+       "attr",
+       "dobj",
+       "nsubj"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I like these restaurants in the city.",
+    "These books are very interesting."
+   ],
+   "negatives": [
+    "I like those restaurants.",
+    "Those books are very interesting."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709001x282973056498701860",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THOSE', ALREADY MENTIONED ",
+  "can_do_statement": "Can use 'those' to refer to things which have already been mentioned. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Referencing previously mentioned entities at a distance.",
+   "pedagogical_hook": "Referring back to 'those' specific things previously mentioned.",
+   "agency_or_distance": "Distal"
+  },
+  "detection": {
+   "regex_triage": "\\bthose\\s+(?:clothes|colours)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "those"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "clothes",
+       "colours"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I bought those clothes because I'm going to Japan.",
+    "It is black and pink, I like those colours very much."
+   ],
+   "negatives": [
+    "I bought these clothes.",
+    "I like these colours."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709001x295581166797130900",
+  "level": "C2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', IN NARRATIVES",
+  "can_do_statement": "Can use 'this' with nouns and noun phrases in a narrative to create a sense of immediacy.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Creating narrative immediacy through reference to specific entities.",
+   "pedagogical_hook": "Bringing the listener into the story with 'this' character or event.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:flame|man|girl|boy|woman|person|place|thing|guy|story|tale|world|place|idea|feeling|moment|day|time|age|era|matter|problem|tragedy|drama|scene|moment)\\b|\\bthis\\s+[a-z]+\\s+(?:flame|man|girl|boy|woman|person|place|thing|guy|story|tale|world|feeling|moment|day|time|age|era|matter|problem|tragedy|drama|scene)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "flame",
+       "man",
+       "girl",
+       "boy",
+       "woman",
+       "person",
+       "place",
+       "thing",
+       "guy",
+       "story",
+       "tale",
+       "world",
+       "idea",
+       "feeling",
+       "moment",
+       "day",
+       "time",
+       "age",
+       "era",
+       "matter",
+       "problem",
+       "tragedy",
+       "drama",
+       "scene"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "There's this flame of passion between them.",
+    "There was this old man who made a marionette."
+   ],
+   "negatives": [
+    "That flame was bright.",
+    "An old man made a marionette."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709001x357162301198213700",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', PAST ",
+  "can_do_statement": "Can use 'this' with time and date words to refer to the past. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Identification of past temporal points or periods.",
+   "pedagogical_hook": "Referring to 'this' past event or time.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:morning|afternoon|evening|night|day|week|month|year|summer|winter|spring|autumn|season)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET",
+       "ADV"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "morning",
+       "afternoon",
+       "evening",
+       "night",
+       "day",
+       "week",
+       "weekend",
+       "month",
+       "summer",
+       "winter",
+       "spring",
+       "autumn",
+       "year",
+       "monday",
+       "tuesday",
+       "wednesday",
+       "thursday",
+       "friday",
+       "saturday",
+       "sunday",
+       "january",
+       "february",
+       "march",
+       "april",
+       "may",
+       "june",
+       "july",
+       "august",
+       "september",
+       "october",
+       "november",
+       "december",
+       "season",
+       "holiday"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I received your letter this morning.",
+    "It happened this summer."
+   ],
+   "negatives": [
+    "I will receive your letter tomorrow morning.",
+    "It will happen next summer."
+   ]
+  }
+ }
+]

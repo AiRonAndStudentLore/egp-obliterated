@@ -1,0 +1,30 @@
+{
+ "batch": "batches/batch_012_adverbs_leftovers.json",
+ "cycles": 1,
+ "passed": 4,
+ "total": 4,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163706726x104951219517093630",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706726x276724228986273700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706726x546695627596920800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706726x756650384090509300",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

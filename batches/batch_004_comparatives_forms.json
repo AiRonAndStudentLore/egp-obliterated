@@ -1,0 +1,328 @@
+[
+ {
+  "can_do_statement": "Can form comparative adjectives with adjectives of two syllables ending in '-y' by changing the 'y' to an 'i' and adding '-er'.",
+  "detection": {
+   "regex_triage": "\\b(easier|happier|earlier|prettier|friendlier|heavier|funnier)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "easier",
+       "happier",
+       "earlier",
+       "prettier",
+       "friendlier",
+       "heavier",
+       "funnier"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706322x751352545258591200",
+  "guideword": "FORM: + -IER",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "degree measurement on a scale",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "y-roots shift spelling on the comparison scale",
+   "pedagogical_hook": "y becomes i on the ladder"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "He is taller and stronger than before.",
+    "It was better than the first one."
+   ],
+   "positives": [
+    "It is small and easier to use than other phones.",
+    "The students were happier and there were lots of stories."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use comparative adjectives attributively, before nouns. ",
+  "detection": {
+   "regex_triage": "\\b(?:younger|older|better|bigger|taller)\\s+(?!than\\b|as\\b|me\\b|you\\b|him\\b|her\\b|it\\b|them\\b|us\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "younger",
+       "older",
+       "better",
+       "bigger",
+       "taller"
+      ]
+     }
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "egp_id": "1741163706322x848626639383521500",
+  "guideword": "FORM: BEFORE NOUNS",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "attributive scale placement",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "comparison glued to the noun it ranks",
+   "pedagogical_hook": "the ranked noun"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "He is taller than me.",
+    "It is better."
+   ],
+   "positives": [
+    "I watched a cricket match with my younger brother.",
+    "I want to get a better job in the city."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can form comparative adjectives from adjectives of one syllable by adding '-er'.",
+  "detection": {
+   "regex_triage": "\\b(older|younger|cheaper|smaller|taller|faster|quieter)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "older",
+       "younger",
+       "cheaper",
+       "smaller",
+       "taller",
+       "faster",
+       "quieter"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706322x927287636901346100",
+  "guideword": "FORM: + -ER",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "degree measurement on a scale",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "one-syllable roots take the bare -er suffix",
+   "pedagogical_hook": "short word, add er"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "It is nicer than mine.",
+    "This one is better."
+   ],
+   "positives": [
+    "I played computer games with my older brother.",
+    "The shirt was cheaper than the trousers."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can form a range of comparative adjective phrases using 'more' + longer adjectives (usually three or more syllables). ",
+  "detection": {
+   "regex_triage": "\\bmore\\s+(careful|expensive|comfortable|difficult|important|interesting|beautiful|crowded|popular)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "more"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "egp_id": "1741163706323x178559274412128260",
+  "guideword": "FORM: WITH 'MORE'",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "periphrastic degree marking",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "long roots outsource comparison to 'more'",
+   "pedagogical_hook": "long word? let more do the work"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "I need more money.",
+    "She speaks more slowly."
+   ],
+   "positives": [
+    "I think you must be more careful.",
+    "It was more expensive than the other clothes."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can form comparative adjectives with adjectives of one syllable ending in 'e', by adding '-r'.",
+  "detection": {
+   "regex_triage": "\\b(nicer|safer|later|wider|larger|closer|finer)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "nicer",
+       "safer",
+       "later",
+       "wider",
+       "larger",
+       "closer",
+       "finer"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706323x497245620249982200",
+  "guideword": "FORM: ENDING IN '-E' + '-R' ",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "degree measurement on a scale",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "silent e stays, r attaches directly",
+   "pedagogical_hook": "e already there, just add r"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "He is older than me.",
+    "It is bigger."
+   ],
+   "positives": [
+    "I think it will be nicer.",
+    "It is safer to come by aeroplane."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use comparative adjectives as a complement of 'be'.",
+  "detection": {
+   "regex_triage": "\\b(?:is|are|was|were|be|'s)\\s+(?:more\\s+)?(?:better|worse|easier|bigger|hotter)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "better",
+       "worse",
+       "easier",
+       "bigger",
+       "hotter"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706323x542852974077958640",
+  "guideword": "FORM: COMPLEMENT OF 'BE' ",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "predicative scale assignment",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "be hands the subject its position on the scale",
+   "pedagogical_hook": "be + the scale point"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "She is a teacher.",
+    "He was working late."
+   ],
+   "positives": [
+    "It would be better if you came after 4.30.",
+    "You can come by bus, it's easier."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can form irregular comparative adjectives.",
+  "detection": {
+   "regex_triage": "\\b(better|worse|further|farther)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "better",
+       "worse",
+       "further",
+       "farther"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706323x574260000317600400",
+  "guideword": "FORM: IRREGULAR",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "suppletive degree marking",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "root swaps entirely on the scale",
+   "pedagogical_hook": "the word jumps the ladder"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "She runs faster than me.",
+    "It is easier now."
+   ],
+   "positives": [
+    "What colour do you think is better?",
+    "For further information, contact us."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can form comparative adjectives with adjectives of one syllable with a short vowel, by doubling the final consonant and adding '-er'",
+  "detection": {
+   "regex_triage": "\\b(bigger|hotter|thinner|fatter|sadder)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "bigger",
+       "hotter",
+       "thinner",
+       "fatter",
+       "sadder"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706323x891241573237936400",
+  "guideword": "FORM: DOUBLE CONSONANT + '-ER'",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "degree measurement on a scale",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "short vowel locks the consonant before -er",
+   "pedagogical_hook": "double it, then er"
+  },
+  "sub_category": "comparatives",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "This shirt is cheaper than that one.",
+    "It is nicer now."
+   ],
+   "positives": [
+    "I prefer my room because it is bigger.",
+    "The weather is getting hotter."
+   ]
+  }
+ }
+]

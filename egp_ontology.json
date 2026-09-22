@@ -1,0 +1,119 @@
+{
+  "domains": {
+    "TEMPORAL_ASPECT": {
+      "name": "Temporal Anchoring & Aspectual Geometry",
+      "description": "How events, states, and completed actions relate to speech time and reference points (Reichenbach logic).",
+      "categories": [
+        {
+          "pattern": "Present perfect",
+          "super_category": "PRESENT",
+          "mental_model": "OPEN_CONTINUUM_CURRENT_RELEVANCE",
+          "reichenbach": "E < R=S",
+          "pedagogical_hook": "The Rope of Experience — past action tethered directly to who you are in the present."
+        },
+        {
+          "pattern": "Past perfect",
+          "super_category": "PAST",
+          "mental_model": "RETROSPECTIVE_CHECKPOINT",
+          "reichenbach": "E < R < S",
+          "pedagogical_hook": "Flashback Marker — setting a hard milestone in the past before another past event occurred."
+        },
+        {
+          "pattern": "Past simple",
+          "super_category": "PAST",
+          "mental_model": "CLOSED_TEMPORAL_CONTAINER",
+          "reichenbach": "E=R < S",
+          "pedagogical_hook": "Finished Chapter — an event locked into a completed container of past time."
+        },
+        {
+          "pattern": "Continuous / Progressive aspect",
+          "super_category": "PRESENT",
+          "mental_model": "INTERNAL_EVENT_WITNESS",
+          "reichenbach": "R within E",
+          "pedagogical_hook": "Inside the Movie — viewing the action as unfolding from within rather than as a closed box."
+        }
+      ]
+    },
+    "EPISTEMIC_STANCE": {
+      "name": "Epistemic Stance & Psychological Distance",
+      "description": "How speakers signal certainty, doubt, hypothetical reality, and social hedging.",
+      "categories": [
+        {
+          "pattern": "Second conditional",
+          "super_category": "CLAUSES",
+          "mental_model": "HYPOTHETICAL_DISTAL_REALITY",
+          "distance": "REMOTE",
+          "pedagogical_hook": "Parallel Universe — shifting tense backward to signal distance from current reality."
+        },
+        {
+          "pattern": "Third conditional",
+          "super_category": "CLAUSES",
+          "mental_model": "COUNTERFACTUAL_RETROSPECTION",
+          "distance": "CLOSED_COUNTERFACTUAL",
+          "pedagogical_hook": "Alternate Past — exploring consequences that never actually took place."
+        },
+        {
+          "pattern": "Modal verbs of probability",
+          "super_category": "MODALITY",
+          "mental_model": "EVIDENTIAL_HEDGING",
+          "distance": "VARIABLE",
+          "pedagogical_hook": "Social Dimmer Switch — adjusting certainty from absolute commitment (must) to gentle possibility (might)."
+        }
+      ]
+    },
+    "DEONTIC_FORCE": {
+      "name": "Deontic Force & Agency",
+      "description": "How speakers negotiate obligation, permission, social hierarchy, and action control.",
+      "categories": [
+        {
+          "pattern": "Modal verbs of obligation",
+          "super_category": "MODALITY",
+          "mental_model": "EXTRINSIC_COMPULSION",
+          "agency": "DIRECTED",
+          "pedagogical_hook": "Rule vs. Authority — distinguishing internal desire (want to) from external compulsion (have to / must)."
+        },
+        {
+          "pattern": "Imperatives",
+          "super_category": "VERBS",
+          "mental_model": "DIRECT_ACTION_CONTROL",
+          "agency": "EXPLICIT_DIRECT",
+          "pedagogical_hook": "Direct Steering — seizing immediate control of the action without modal softening."
+        },
+        {
+          "pattern": "Passives",
+          "super_category": "PASSIVES",
+          "mental_model": "OBJECT_CENTRIC_DEFOCUSING",
+          "agency": "SUPPRESSED",
+          "pedagogical_hook": "The Neutral Lens — placing focus on the product, outcome, or status rather than who did it."
+        }
+      ]
+    },
+    "ENTITY_TOPOLOGY": {
+      "name": "Entity Topology & Discourse Cohesion",
+      "description": "How entities are introduced, tracked, replaced, and arranged in spatial/mental space.",
+      "categories": [
+        {
+          "pattern": "There is / There are",
+          "super_category": "PRONOUNS",
+          "mental_model": "EXISTENTIAL_INTRODUCTION",
+          "scope": "SCENE_SETTING",
+          "pedagogical_hook": "Spotlight Introduction — placing a new character or object onto the empty conversational stage."
+        },
+        {
+          "pattern": "One / ones to replace nouns",
+          "super_category": "PRONOUNS",
+          "mental_model": "ANAPHORIC_SUBSTITUTION",
+          "scope": "DISCOURSE_COHESION",
+          "pedagogical_hook": "Ghost Anchor — pointing back to a known entity without exhausting the listener with repetition."
+        },
+        {
+          "pattern": "Cleft sentences / Focus fronting",
+          "super_category": "FOCUS",
+          "mental_model": "PROMINENCE_ISOLATION",
+          "scope": "EMPHASIS",
+          "pedagogical_hook": "The Laser Pointer — isolating one specific element ('What we really need is...') for contrast."
+        }
+      ]
+    }
+  }
+}

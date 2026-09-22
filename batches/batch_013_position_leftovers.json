@@ -1,0 +1,216 @@
+[
+ {
+  "egp_id": "1741163706938x822778794256699800",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: FRONT POSITION",
+  "can_do_statement": "Can use an increasing range of adverbs in front position.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "CLAUSE_HEAD_PLACEMENT_WIDE",
+   "pedagogical_hook": "However / Furthermore / Moreover / Actually — slot a wider set of adverbials at the clause head",
+   "agency_or_distance": "speaker opens the clause with a wider set of framing adverbials"
+  },
+  "detection": {
+   "regex_triage": "^(?:sometimes|often|always|usually|maybe|perhaps|today|tomorrow|yesterday|now|then|here|there|however|furthermore|moreover|additionally|actually|unfortunately|luckily)\\b",
+   "spacy_token_pattern": [
+    { "IS_SENT_START": true, "LOWER": { "IN": ["sometimes", "often", "always", "usually", "maybe", "perhaps", "today", "tomorrow", "yesterday", "now", "then", "here", "there", "however", "furthermore", "moreover", "additionally", "actually", "unfortunately", "luckily"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "However I can study only on Monday, Tuesday and Wednesday.",
+    "Furthermore, the cost is much lower this year."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706938x862543767286873900",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: PLACE, END POSITION",
+  "can_do_statement": "Can use place adverbs in the usual end position.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "FINAL_LOCATIVE_ANCHOR",
+   "pedagogical_hook": "verb + here/there/nearby/abroad/away/upstairs/downstairs — anchor the place at the clause tail",
+   "agency_or_distance": "speaker locates entities at the end of the clause"
+  },
+  "detection": {
+   "regex_triage": "(?:[a-z]+)\\s+(?:here|there|nearby|abroad|upstairs|downstairs|away|inside|outside)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["here", "there", "nearby", "abroad", "upstairs", "downstairs", "away", "inside", "outside"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I have many friends there.",
+    "My parents live there."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She opened the door."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706939x328491474615097540",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: DEGREE, END POSITION",
+  "can_do_statement": "Can use degree adverbs in end position.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "FINAL_DEGREE_AMPLIFICATION",
+   "pedagogical_hook": "verb + a lot / so much / very much — push the degree to the clause tail",
+   "agency_or_distance": "speaker amplifies degree at the end of the clause"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:a\\s+lot|a\\s+little|so\\s+much|quite\\s+a\\s+bit|too\\s+much|very\\s+much|enormously)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["lot", "little", "much", "enormously"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I miss you a lot.",
+    "I am looking forward to seeing you so much!"
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708145x367529311426601600",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: SENTENCE ADVERB, FRONT POSITION",
+  "can_do_statement": "Can use evaluative, viewpoint and sequencing adverbs outside the clause, in front position, as a cohesive device to link to a previous statement.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "DISCOURSE_HEAD_HOOK",
+   "pedagogical_hook": "Actually / However / Fortunately / Interestingly / In addition — fronted adverbs as cohesion hooks",
+   "agency_or_distance": "speaker head-loads a discourse link into the next clause"
+  },
+  "detection": {
+   "regex_triage": "^(?:actually|however|fortunately|unfortunately|interestingly|surprisingly|clearly|obviously|honestly|frankly|naturally|in\\s+addition|furthermore|moreover|as\\s+a\\s+result|consequently)\\b",
+   "spacy_token_pattern": [
+    { "IS_SENT_START": true, "LOWER": { "IN": ["actually", "however", "fortunately", "unfortunately", "interestingly", "surprisingly", "clearly", "obviously", "honestly", "frankly", "naturally", "furthermore", "moreover", "consequently", "result", "addition"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Actually I want you to decide what colour my room should be.",
+    "Fortunately, the train was on time that morning."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708146x257734591646491700",
+  "level": "C2",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM/USE: MID POSITION, DISTANCING",
+  "can_do_statement": "Can use adverbs in mid position, to distance the writer from what they are saying.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "EPISTEMIC_DISTANCING_MID",
+   "pedagogical_hook": "allegedly / supposedly / reportedly / theoretically / arguably / presumably — slot distancing adverbs medially",
+   "agency_or_distance": "speaker maximum-distance from the proposition mid-clause"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:allegedly|supposedly|reportedly|theoretically|arguably|presumably|seemingly|apparently|technically|reportedly|practically)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["allegedly", "supposedly", "reportedly", "theoretically", "arguably", "presumably", "seemingly", "apparently", "technically", "practically"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Piggy himself theoretically has all the necessary character traits.",
+    "The witness reportedly saw the suspect run toward the station."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708146x347057405549150660",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM/USE: FRONT POSITION, INVERSION WITH 'NEVER'",
+  "can_do_statement": "Can use 'never' in front position followed by an inverted subject (most commonly 'I') + main verb, to give focus.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "INVERTED_FOCUS_TRIGGER",
+   "pedagogical_hook": "Never + aux + I/you/we/they + verb — flip the clause around 'never' for dramatic focus",
+   "agency_or_distance": "speaker front-loads 'never' and rearranges the clause for emphasis"
+  },
+  "detection": {
+   "regex_triage": "\\b[Nn]ever\\s+(?:have|had|has|is|are|was|were|did|do|does|can|could|will|would|may|might|should|must)\\s+(?:I|you|he|she|we|they|it|one)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": "never" },
+    { "LOWER": { "IN": ["have", "had", "has", "is", "are", "was", "were", "did", "do", "does", "can", "could", "will", "would", "may", "might", "should", "must"] } },
+    { "LOWER": { "IN": ["i", "you", "he", "she", "we", "they", "it", "one"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Never have I seen such a realistic and impressive film before.",
+    "Never had I thought that would happen."
+   ],
+   "negatives": [
+    "I never have seen such a realistic film.",
+    "I never go there."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708146x422722508652768400",
+  "level": "C2",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM/USE: FRONT POSITION, INVERSION, WITH 'HARDLY'",
+  "can_do_statement": "Can use 'hardly' in front position followed by an inverted subject and verb, to give focus.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "INVERTED_FOCUS_TRIGGER_HARDLY",
+   "pedagogical_hook": "Hardly + aux + subject + verb — flip the clause around 'hardly' for dramatic foregrounding",
+   "agency_or_distance": "speaker front-loads 'hardly' and rearranges the clause for emphasis"
+  },
+  "detection": {
+   "regex_triage": "\\b[Hh]ardly\\s+(?:have|had|has|is|are|was|were|did|do|does|can|could|will|would|may|might|should|must)\\s+(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": "hardly" },
+    { "LOWER": { "IN": ["have", "had", "has", "is", "are", "was", "were", "did", "do", "does", "can", "could", "will", "would", "may", "might", "should", "must"] } },
+    { "LOWER": { "IN": ["he", "she", "they", "we", "i", "you", "it", "the", "a", "an"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Hardly had he reached his front door when he heard the phone ringing.",
+    "Hardly had she finished her complaints when the bell rang."
+   ],
+   "negatives": [
+    "I hardly ever go there.",
+    "Hardly anything happened that afternoon."
+   ]
+  }
+ }
+]

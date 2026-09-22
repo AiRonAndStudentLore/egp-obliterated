@@ -1,0 +1,164 @@
+[
+  {
+    "egp_id": "1741163708331x150409111220634050",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "imperatives",
+    "guideword": "USE: INSTRUCTIONS",
+    "can_do_statement": "Can use the imperative to give instructions.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "DIRECT_ACTION_CONTROL",
+      "pedagogical_hook": "Route Script — issuing sequenced commands that walk the listener through a procedure or a journey.",
+      "agency_or_distance": "SEQUENTIAL_DIRECT"
+    },
+    "detection": {
+      "regex_triage": "^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\b(Take|Wear|Bring|Walk|Go|Turn|Change|Call)\\b(?:\\s+[a-z0-9'-]+){0,8}\\s+(and\\s+then|then|to\\s+the)\\b(?:\\s+[a-z0-9'-]+){0,6}[.!]?$",
+      "spacy_token_pattern": [
+        { "LOWER": { "IN": ["take", "wear", "bring", "walk", "go", "turn", "change", "call"] }, "IS_SENT_START": true },
+        { "LOWER": { "NOT_IN": ["then"] }, "OP": "*" },
+        { "LOWER": "then" }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Take a taxi to the station then call me.",
+        "Walk a little bit more and then change to line 8."
+      ],
+      "negatives": [
+        "He then changed his mind and took a taxi.",
+        "I will take a taxi to the airport tomorrow."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708331x357890058176217500",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "imperatives",
+    "guideword": "USE: EMPHASISING AN INSTRUCTION",
+    "can_do_statement": "Can use negative imperative after an instruction, for emphasis.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "DIRECT_ACTION_CONTROL",
+      "pedagogical_hook": "Second Nail — driving the warning home after the instruction has already landed.",
+      "agency_or_distance": "EMPHATIC_REINFORCEMENT"
+    },
+    "detection": {
+      "regex_triage": "^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\bDon't\\s+(?:forget|be\\s+late|worry|panic|hesitate|give\\s+up|miss\\s+it|tell\\s+anyone)\\b",
+      "spacy_token_pattern": [
+        { "LOWER": "do", "IS_SENT_START": true },
+        { "LOWER": "n't" },
+        { "LOWER": { "IN": ["forget", "be", "worry", "panic", "hesitate"] } }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Don't forget!",
+        "Don't be late!"
+      ],
+      "negatives": [
+        "I won't forget your birthday.",
+        "Don't you forget it!"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708331x925040480671095300",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "imperatives",
+    "guideword": "USE: CLOSINGS",
+    "can_do_statement": "Can use the imperative to give instructions, often at the end of a letter or when saying goodbye to someone.",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "DISCOURSE_COHESION",
+      "pedagogical_hook": "Channel Keep-Alive — closing the letter with an action-token that holds the connection open.",
+      "agency_or_distance": "RELATIONAL_RITUAL"
+    },
+    "detection": {
+      "regex_triage": "^(?:Write|Email|Phone|Text|Call)\\s+(?:or\\s+(?:email|phone)\\s+)?(?:me|to\\s+me|me\\s+soon|me\\s+back|to\\s+me\\s+soon|soon|back)\\s*[.!]?$",
+      "spacy_token_pattern": [
+        { "LOWER": { "IN": ["write", "email", "phone", "text", "call"] }, "IS_SENT_START": true },
+        { "LOWER": "to", "OP": "?" },
+        { "LOWER": { "IN": ["me", "soon", "back"] } }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Write to me soon.",
+        "Call me back."
+      ],
+      "negatives": [
+        "Take care of the garden for me.",
+        "I will call you back later."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708335x133935596064802990",
+    "level": "C2",
+    "super_category": "CLAUSES",
+    "sub_category": "imperatives",
+    "guideword": "FORM/USE: 'LET' + THIRD PERSON PRONOUN, DEVOLVING RESPONSIBILITY",
+    "can_do_statement": "Can use an imperative clause with 'let' + 'him/her/them' + base form of a main verb, to devolve responsibility.",
+    "ontology": {
+      "domain": "DEONTIC_FORCE",
+      "mental_model": "DIRECT_ACTION_CONTROL",
+      "pedagogical_hook": "Hands Off — withdrawing control entirely and ceding the outcome to another agent.",
+      "agency_or_distance": "RELEASED"
+    },
+    "detection": {
+      "regex_triage": "^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\bLet\\s+(?:him|her|them|it)\\s+(?:(?:just\\s+)?be\\b|live\\b|find\\s+their\\s+own|decide\\s+for\\s+themselves|do\\s+it\\s+themselves)",
+      "spacy_token_pattern": [
+        { "LOWER": "let", "IS_SENT_START": true },
+        { "LOWER": { "IN": ["him", "her", "them", "it"] } },
+        { "LOWER": { "IN": ["be", "live", "find"] } }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Let them be.",
+        "Let them find their own food."
+      ],
+      "negatives": [
+        "Let them have more free time.",
+        "Let him decide what to do."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708335x472053466237699840",
+    "level": "C1",
+    "super_category": "CLAUSES",
+    "sub_category": "imperatives",
+    "guideword": "FORM/USE: IMPERATIVE + 'AND' CONDITIONAL",
+    "can_do_statement": "Can use imperatives to introduce a condition followed by 'and' to introduce a consequence of the condition.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "HYPOTHETICAL_DISTAL_REALITY",
+      "pedagogical_hook": "Price Tag — hanging an automatic consequence off an order: do X, and Y follows.",
+      "agency_or_distance": "CONDITIONAL_THREAT"
+    },
+    "detection": {
+      "regex_triage": "^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\b(?:Don't\\s+|Never\\s+)?[A-Z][a-z]+\\b(?:\\s+[a-z0-9'-]+){0,5}\\s+and\\s+(?:you|I|we|they)\\b(?:'ll|'re|'d|\\s+will|\\s+wo)\\b",
+      "spacy_token_pattern": [
+        { "LOWER": { "IN": ["do", "go", "see", "touch", "try", "say", "ask", "tell", "drop", "miss", "work", "study", "hurry", "come", "show", "buy", "mention", "breathe"] }, "IS_SENT_START": true },
+        { "LOWER": { "NOT_IN": ["and"] }, "OP": "*" },
+        { "LOWER": "and" },
+        { "LOWER": { "IN": ["you", "i", "we", "they"] } },
+        { "LOWER": { "IN": ["'ll", "will", "'re", "'d", "wo"] } }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "See one of them and you'll want to see them all.",
+        "Do that again and I'll call the police."
+      ],
+      "negatives": [
+        "Go and get some milk.",
+        "Try the cake and tell me what you think."
+      ]
+    }
+  }
+]

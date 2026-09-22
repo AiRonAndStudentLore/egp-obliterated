@@ -1,0 +1,45 @@
+{
+ "batch": "batches/batch_013_position_leftovers.json",
+ "cycles": 1,
+ "passed": 7,
+ "total": 7,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163706938x822778794256699800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706938x862543767286873900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706939x328491474615097540",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708145x367529311426601600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708146x257734591646491700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708146x347057405549150660",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163708146x422722508652768400",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

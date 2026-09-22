@@ -1,0 +1,122 @@
+[
+ {
+  "egp_id": "1741163706726x104951219517093630",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use a wide range of adverbs to indicate degrees of certainty.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "WIDE_CERTAINTY_GRADIENT",
+   "pedagogical_hook": "undoubtedly / undeniably / certainly / definitely / surely / presumably — high end of the certainty dial",
+   "agency_or_distance": "speaker marks the proposition as settled"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:undoubtedly|undeniably|certainly|definitely|surely|presumably|indubitably|unquestionably|without\\s+doubt|doubtless)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["undoubtedly", "undeniably", "certainly", "definitely", "surely", "presumably", "indubitably", "unquestionably", "doubtless"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was undoubtedly an unforgettable experience.",
+    "Television programmes are undeniably a powerful influence."
+   ],
+   "negatives": [
+    "I went home and rested.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x276724228986273700",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use an increasing range of adverbs ('completely', 'obviously', 'clearly', 'actually', 'luckily', 'honestly') to indicate an attitude or viewpoint.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "STANCE_INTENSIFIER",
+   "pedagogical_hook": "completely / obviously / clearly / actually / luckily / honestly — dial the speaker's stance up or down",
+   "agency_or_distance": "speaker takes explicit ownership of the stance"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:completely|obviously|clearly|actually|luckily|honestly|frankly|personally|naturally|basically)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["completely", "obviously", "clearly", "actually", "luckily", "honestly", "frankly", "personally", "naturally", "basically"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am completely sure of my answer.",
+    "It is obviously much more fun to go on vacation than stay at home."
+   ],
+   "negatives": [
+    "I went home and rested.",
+    "She opened the door."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x546695627596920800",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use a wide range of stance adverbs (simply, truly, surely, apparently, naturally, surprisingly, inevitably) to indicate an attitude or viewpoint.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "REFINED_STANCE",
+   "pedagogical_hook": "simply / truly / surely / apparently / naturally / surprisingly / inevitably — finer-grained stance markers",
+   "agency_or_distance": "speaker marks nuanced distance from the proposition"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:simply|truly|surely|apparently|naturally|surprisingly|inevitably|undoubtedly|admittedly|evidently|presumably|reportedly|obviously|undoubtably)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["simply", "truly", "surely", "apparently", "naturally", "surprisingly", "inevitably", "undoubtedly", "admittedly", "evidently", "presumably", "reportedly", "obviously", "undoubtably"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Obviously everybody has the right to be on a strike.",
+    "We can't truly blame ourselves for the outcome."
+   ],
+   "negatives": [
+    "I went home and rested.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x756650384090509300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use an increasing range of adverbs to indicate degrees of certainty.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "CERTAINTY_GRADIENT_B1",
+   "pedagogical_hook": "probably / possibly / certainly / definitely / surely / presumably — calibrate certainty at finer resolution",
+   "agency_or_distance": "speaker calibrates commitment to the proposition"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:probably|possibly|certainly|definitely|surely|presumably|likely|maybe|perhaps)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["probably", "possibly", "certainly", "definitely", "surely", "presumably", "likely", "maybe", "perhaps"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "And it will probably be on TV next month!",
+    "If I were you I'd certainly choose not to go."
+   ],
+   "negatives": [
+    "I went to the bank yesterday.",
+    "She finished her homework."
+   ]
+  }
+ }
+]

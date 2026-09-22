@@ -1,0 +1,59 @@
+{
+ "batch": "batches/batch_003_adverbs_postfix.json",
+ "cycles": 1,
+ "passed": 0,
+ "total": 5,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163706724x559298050081440640",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'Actually, I think we should reschedule the meeting.'",
+    "spaCy MISSED positive: 'Actually, I think we should reschedule the meeting.'",
+    "spaCy MISSED positive: 'Unfortunately, the flight was delayed by three hours.'",
+    "regex FALSE-POSITIVE on negative: 'The word unfortunately appears in this dictionary definition.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706724x630956425733939100",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'We went upstairs to see the view.'",
+    "spaCy MISSED positive: \"There's a caf\u00e9 nearby, do you want to grab coffee?\"",
+    "regex FALSE-POSITIVE on negative: 'I near missed the bus this morning.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706724x695725338489926300",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'There was a little boy sitting in the corner.'",
+    "spaCy FALSE-POSITIVE on negative: 'There was a little boy sitting in the corner.'",
+    "regex FALSE-POSITIVE on negative: 'I have a bit of sugar if you need it.'",
+    "spaCy FALSE-POSITIVE on negative: 'I have a bit of sugar if you need it.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706724x733988029465825200",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'Maybe is my middle name.'",
+    "spaCy FALSE-POSITIVE on negative: 'Maybe is my middle name.'",
+    "regex FALSE-POSITIVE on negative: 'We perhaps went to different schools.'",
+    "spaCy FALSE-POSITIVE on negative: 'We perhaps went to different schools.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706724x815759544206507300",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'The therefore symbol is used in mathematics.'",
+    "spaCy FALSE-POSITIVE on negative: 'The therefore symbol is used in mathematics.'",
+    "regex FALSE-POSITIVE on negative: 'She otherwise agreed with the proposal.'",
+    "spaCy FALSE-POSITIVE on negative: 'She otherwise agreed with the proposal.'"
+   ]
+  }
+ ]
+}

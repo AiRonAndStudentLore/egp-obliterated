@@ -1,0 +1,103 @@
+{
+ "batch": "batches/batch_014_superlatives_leftovers.json",
+ "cycles": 1,
+ "passed": 5,
+ "total": 13,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163706534x938846205163626000",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: \"It's the biggest room in the house.\"",
+    "spaCy FALSE-POSITIVE on negative: \"It's the biggest room in the house.\"",
+    "regex FALSE-POSITIVE on negative: 'I always try to do my best.'",
+    "spaCy FALSE-POSITIVE on negative: 'I always try to do my best.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706535x223084822137106460",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'It is the most expensive dress in the shop.'",
+    "spaCy MISSED positive: 'It is the most expensive dress in the shop.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706535x505331707885398460",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706535x731530310128982300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706536x316287892573927200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706536x513193449618973840",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706536x624064805889871500",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: 'She is by far the most experienced teacher here.'",
+    "spaCy MISSED positive: 'She is by far the most experienced teacher here.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706536x720681284938151700",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: \"She's one of the most talented singers in the country.\"",
+    "spaCy MISSED positive: \"She's one of the most talented singers in the country.\""
+   ]
+  },
+  {
+   "egp_id": "1741163706536x755639946438128300",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: \"It's the most expensive place to stay in town.\"",
+    "spaCy MISSED positive: \"It's the most expensive place to stay in town.\""
+   ]
+  },
+  {
+   "egp_id": "1741163706536x778879290830950100",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: \"She's one of the most famous singers in the country.\""
+   ]
+  },
+  {
+   "egp_id": "1741163706536x792145891738564900",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'It has the latest technology.'",
+    "spaCy FALSE-POSITIVE on negative: 'It has the latest technology.'",
+    "regex FALSE-POSITIVE on negative: 'He is the oldest in our family.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706537x792815461768504600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706537x905537267921213700",
+   "verdict": "test_failures",
+   "failures": [
+    "regex MISSED positive: \"It's the best Italian restaurant I have ever eaten at.\"",
+    "spaCy MISSED positive: \"It's the best Italian restaurant I have ever eaten at.\"",
+    "regex MISSED positive: 'That was the most expensive car the family owned.'",
+    "spaCy MISSED positive: 'That was the most expensive car the family owned.'"
+   ]
+  }
+ ]
+}

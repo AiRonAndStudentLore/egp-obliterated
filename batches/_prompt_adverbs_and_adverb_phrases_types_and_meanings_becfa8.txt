@@ -1,0 +1,290 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+---
+
+INPUT DATA (16 entries — use these exact egp_ids):
+
+[
+ {
+  "egp_id": "1741163706724x559298050081440640",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "1",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use a limited range of adverbs ('actually', 'unfortunately', 'of course', 'I\u2019m sorry') to indicate an attitude or viewpoint. ",
+  "examples": [
+   "It's very nice that you're going to help me to paint my bedroom. Actually I want you to decide what colour that my room should be. (Thai, A2 WAYSTAGE, Pass, 2006)",
+   "Unfortunately, my team lost. (Others, A2 WAYSTAGE, Pass, 2004)",
+   "[talking about a watch] It costs \u20ac450 and of course it is black. You know black is my favorite color. (Turkish, A2 WAYSTAGE, Pass, 2007)",
+   "I'm sorry you can't find it. (Greek, A2 WAYSTAGE, Pass, 2006)"
+  ]
+ },
+ {
+  "egp_id": "1741163706724x630956425733939100",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: PLACE",
+  "can_do_statement": "Can use an increasing range of adverbs and adverb phrases ('near', 'far away', 'upstairs', 'downstairs') to indicate place. ",
+  "examples": [
+   "You can't go far away because I don't think your parents want to pay for it. (Netherlands; B1 THRESHOLD; 2008; Dutch; Pass)",
+   "He went downstairs. (Iran; B1 THRESHOLD; 2004; Farsi; Pass)",
+   "After the film we went to a shop nearby for lunch and after that we went to a park and played all sorts of games. (Sri Lanka; B1 THRESHOLD; 2002; Singhalese; Pass)"
+  ]
+ },
+ {
+  "egp_id": "1741163706724x690607862239565700",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "N/A",
+  "guideword": "USE: DEGREE, 'REALLY REALLY'",
+  "can_do_statement": "Can use 'really really' with verbs and adjectives for emphasis. ",
+  "examples": [
+   "Oh, I really really like her very friendly and lovely smile. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)",
+   "I am not keen on football so, I think it is really really borring. (France; B1 THRESHOLD; 2010; French; Pass)"
+  ]
+ },
+ {
+  "egp_id": "1741163706724x695725338489926300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: DEGREE WITH VERBS",
+  "can_do_statement": "Can use an increasing range of degree adverbs ('a little', 'a bit') with verbs to indicate degree or intensity. \u25ba determiners",
+  "examples": [
+   "When I came to England, one year ago, I didn't know any English word, now I'm very happy because I don't speak very well but I can understand and speak a little. (Sri Lanka; B1 THRESHOLD; 2002; Mongolian; Pass) ",
+   "I suggest you to take a little break of about one minute between hours and walk to relax a bit. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)",
+   "I go to bed and I read just a little bit. (Italy; B1 THRESHOLD; 2005; Italian; Pass)"
+  ]
+ },
+ {
+  "egp_id": "1741163706724x733988029465825200",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "1",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use a limited range of adverbs ('maybe', 'perhaps') to indicate degrees of certainty. ",
+  "examples": [
+   "Or maybe we can walk to there, because it's not far from my house. (China; A2 WAYSTAGE; 2008; Chinese; Pass)",
+   "Perhaps I left it in your living room. (Czech Republic; A2 WAYSTAGE; 2005; Czech; Pass)"
+  ]
+ },
+ {
+  "egp_id": "1741163706724x815759544206507300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: LINKING",
+  "can_do_statement": "Can use an increasing range of adverbs ('therefore', 'furthermore', 'otherwise') to show a relationship between two clauses or sentences. ",
+  "examples": [
+   "You don't like city's with a lot of people. Therefore I suggest you go to a small school in the countryside, near your new home. (Switzerland; B1 THRESHOLD; 2008; French; Pass)",
+   "I decided to join these classes because I have to improve my reading, writing and speaking in English. Furthermore I want to write my thesis in an English-speaking country next year. (Austria; B1 THRESHOLD; 2002; German; Pass).",
+   "Please let me know if you can collect it otherwise I will ask my other Turkish friend. (B1 THRESHOLD; 2009; Turkish; Pass)"
+  ]
+ },
+ {
+  "egp_id": "1741163706725x265810821276633920",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: FOCUS",
+  "can_do_statement": "Can use an increasing range of focusing adverbs ('particularly', 'especially') to point to or highlight something. \u25ba adverbs: position ",
+  "examples": [
+   "I usually read in my free time but particularly in the evenings before I go to the bed. (Italy; B1 THRESHOLD; 2005; Italian; Pass)",
+   "As you know I love dolphins and all programmes about Nature and Wild life, especially the Discovery Channel. (Czech Republic; B1 THRESHOLD; 2007; Czech; Pass)"
+  ]
+ },
+ {
+  "egp_id": "1741163706725x621289960987123600",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: ORGANISING ",
+  "can_do_statement": "Can use adverbs as discourse markers to organise text.  \u25ba  adverbs: position \u25ba  Discourse markers",
+  "examples": [
+   "Firstly, I advise you to visit both schools. (Libya; B1 THRESHOLD; 2008; Amharic; Pass)",
+   "Firstly, we need a good expert to run the course. ",
+   "Secondly, good materials are needed. (China; B1 THRESHOLD; 2006; Chinese; Pass)",
+   "What's more, this topic is very useful, it could offer so many professional suggestions . Finally , in my opinion, this topic is very interesting. (China; B1 THRESHOLD; 2008; Chinese; Fail)",
+   "My boss' talk will be about the advantages and drawbacks which overseas sells bring  . Actually , he is very interested in this subject because our company is trying to expand and sell abroad. (Spain; B1 THRESHOLD; 2002; Spanish - European; Fail)"
+  ]
+ },
+ {
+  "egp_id": "1741163706726x104951219517093630",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "3",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use a wide range of adverbs to indicate degrees of certainty. ",
+  "examples": [
+   "It was undoubtedly an unforgettable experience. (Portuguese, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1993)",
+   "Television programms are undeniably a way of keeping ourselves well-informed and open to a special knowledge of every aspect of our lives. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Polish; Pass)",
+   "I bought a skirt, a pair of jeans and a white dress, because I absolutely need new clothes for your party! (Italy; A2 WAYSTAGE; 2008; Italian; Pass)"
+  ]
+ },
+ {
+  "egp_id": "1741163706726x276724228986273700",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use an increasing range of adverbs ('completely', 'obviously', 'clearly', 'actually', 'luckily', 'honestly', 'sadly', 'basically', 'obviously', 'hopefully') to indicate an attitude or viewpoint.",
+  "examples": [
+   "I am completely sure. (Spanish - European, B1 THRESHOLD, Pass, 2009)",
+   "It's obviously much more fun to go on vacation with your friends, but your parents will be sad and worry about you all the time you're gone. (German, B1 THRESHOLD, Pass, 2008)",
+   "I am clearly a fashion victim and it's not a fault. (French, B1 THRESHOLD, Pass, 2006)",
+   "Actually she's my best friend I met her this year when the school started. (Turkish B1 THRESHOLD, Pass, 2009)",
+   "Luckily my cousin is now recovering of his illness and all my family is really happy. (B1 THRESHOLD, Pass, 2003)",
+   "I don't watch a lot of TV, sadly I don't have time. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)",
+   "Surely it depends where your family goes, and where you are going to go with your friends! (Italian, B1 THRESHOLD, Pass, 2008)"
+  ]
+ },
+ {
+  "egp_id": "1741163706726x470804791633165250",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "3",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use a wide range of manner adverbs to modify how something happpens.",
+  "examples": [
+   "She realises that he is a very dangerous man and that she should take his warning seriously. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)",
+   "Today I read the notice \"Volunteers needed urgently \" and I would like to be one. (B2 VANTAGE; 2007; German; Pass)",
+   "As our parking space has been used illegally by the public, we will change our parking system. (Japan; B2 VANTAGE; 2000; Japanese; Fail)"
+  ]
+ },
+ {
+  "egp_id": "1741163706726x546695627596920800",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "3",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use a wide range of stance adverbs (simply, truly, surely, apparently, naturally, surprisingly, inevitably, literally, exceptionally, frankly, clearly, amazingly, wisely, admittedly) to indicate an attitude or viewpoint, often in clause initial position.",
+  "examples": [
+   "Obviously everybody has the right to be on a strike. (Spanish - Other, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1993)",
+   "We can't truly blame ourselves for this unlucky beginning. (Greek, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2000)",
+   "Apparently someone made a mistake writing the details I gave over the phone. (Polish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2009)",
+   "Naturally , I inclined towards the second option. (Romanian, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2008)",
+   "Luckily for me, I stayed with a kind and helpful host family but they lived four miles from the school. (Swedish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1993)"
+  ]
+ },
+ {
+  "egp_id": "1741163706726x660123674531105900",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "3",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use a wide range of adverbs and adverb phrases to refer to the timing of an event. ",
+  "examples": [
+   "I look forward hearing from you shortly and I thank you in advance. (Spain; B2 VANTAGE; 1998; Catalan; Pass)",
+   "It sounded like a muffled laugh, and she instantly recognised it as her mother's. (Slovenia; B2 VANTAGE; 2008; Slovene; Pass) ",
+   "It isn't the job you will do permanently . (Greece; B2 VANTAGE; 2001; Greek; Pass)",
+   "You know it's very difficult to decide what to buy if you need both things simultaneously. (Russia; B2 VANTAGE; 1997; Russian; Pass)",
+   "The trend that has appeared rather recently and is very common among young people nowadays is named \"casual chique\". (Greece; C2 MASTERY; 2009; Greek; Pass)"
+  ]
+ },
+ {
+  "egp_id": "1741163706726x756237515197119700",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "3",
+  "guideword": "USE: DEGREE, WITH ADJECTIVES",
+  "can_do_statement": "Can use a wide range of adverbs with adjectives to express degree or intensity.",
+  "examples": [
+   "It deals with the friendship between two completely different men. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; German; Pass)",
+   "It is extremely important that the project is finished before September. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Greek; Pass)",
+   "The last thing I would like to mention is that you have lost a single passenger's luggage three times, which is totally unacceptable. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Swedish; Pass)"
+  ]
+ },
+ {
+  "egp_id": "1741163706726x756650384090509300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use an increasing range of adverbs to indicate degrees of certainty. ",
+  "examples": [
+   "[talking about a film] And it will probably be on TV next month! (Russia; B1 THRESHOLD; 2008; Russian; Pass)",
+   "If I were you I'd certainly choose not to go with your parents. (Italy; B1 THRESHOLD; 2008; Italian; Pass)",
+   "I will definitely give you the bicycle by 5.30 pm or latest by 5.45 pm. (India; B1 THRESHOLD; 2005; Hindi; Pass)"
+  ]
+ },
+ {
+  "egp_id": "1741163706726x984406879710985100",
+  "level": "C2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "N/A",
+  "guideword": "USE: DISTANCING",
+  "can_do_statement": "Can use adverbs mid clause, to distance the writer from what they are saying. ",
+  "examples": [
+   "He came out from school at the age of 16, and joined the \"Universidad xxx\" - the best one in Chile, supposedly - to study Economics (Spanish - Latin American, C2 MASTERY, Pass, 1993)",
+   "The author of the letter apparently has no experience of being a parent in our times. (Polish, C2 MASTERY, Pass, 200)",
+   "He was quite nice to me, surprisingly and he told him that he would do his best but that the music was not too loud. (France; C2 MASTERY; 1997; French; Pass)"
+  ]
+ }
+]
+
+---
+
+REMINDER: Return a JSON array of detector objects ONLY. No commentary, no Markdown fences, no intro/outro text. Use only the egp_ids above.

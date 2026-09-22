@@ -1,0 +1,469 @@
+[
+ {
+  "egp_id": "1741163706530x479020650602328450",
+  "level": "A1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM: ATTRIBUTIVE (WITH NOUNS)",
+  "can_do_statement": "Can use a limited range of adjectives attributively, before a noun.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "ATTRIBUTIVE_PLACEMENT",
+   "pedagogical_hook": "determiner + adjective + noun — slot the adjective before its noun as a foreground modifier",
+   "agency_or_distance": "speaker foregrounds a property directly on the entity"
+  },
+  "detection": {
+   "regex_triage": "(?:\\b(?:a|an|the|my|your|his|her|our|their|this|that|these|those|some|any)\\s+)(?:big|small|new|old|good|bad|nice|beautiful|happy|sad|hot|cold|red|blue|green|black|white|pretty|ugly|tall|short|long|little|young|important|interesting|expensive|cheap|nice|hard|easy|difficult|long)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["a", "an", "the", "my", "your", "his", "her", "our", "their", "this", "that", "these", "those", "some", "any"] } },
+    { "LOWER": { "IN": ["big", "small", "new", "old", "good", "bad", "nice", "beautiful", "happy", "sad", "hot", "cold", "red", "blue", "green", "black", "white", "pretty", "ugly", "tall", "short", "long", "little", "young", "important", "interesting", "expensive", "cheap", "hard", "easy", "difficult"] } },
+    { "LOWER": { "IN": ["house", "houses", "car", "cars", "room", "rooms", "book", "books", "dog", "dogs", "cat", "cats", "garden", "pool", "swimming", "friend", "friends", "neighbour", "kitchen", "table", "chair", "door", "window", "wall", "floor", "name", "home", "school", "city", "film", "films", "movie", "movies", "story", "tree", "trees"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We have a big garden and a small swimming pool.",
+    "My name is Bogdan. I am your new neighbour."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She left her book here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x433078299562880800",
+  "level": "C1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM: PAST PARTICIPLE AS ADJECTIVE",
+  "can_do_statement": "Can use the '–ed' form of a verb as an adjective, after a noun.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "REDUCED_CLAUSE_BECOMES_MODIFIER",
+   "pedagogical_hook": "noun + past-participle — distill a full relative clause into a compact modifier",
+   "agency_or_distance": "speaker compresses the relational structure into a property word"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:[a-z]+(?:s|ves)?)\\s+(?:[a-z]+\\s+)?(?:shown|seen|discussed|introduced|written|chosen|required|considered|accepted|approved|published|received|recorded|presented|suggested|supported|broken|completed|covered|created|developed|selected|reviewed|addressed|adopted|classified|confirmed|defined|derived|divided|illustrated|implemented|observed|organized|produced|protected|related|replaced|reserved|separated)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["films", "movies", "books", "items", "problems", "questions", "issues", "points", "plans", "products", "reports", "results", "tests", "topics", "sections", "chapters", "pages", "parts", "students", "men", "women", "children", "cars", "houses", "rooms", "tables", "doors", "windows", "walls", "floors", "film", "book", "problem", "issue", "point", "plan", "product", "report", "result", "test", "topic", "section", "chapter", "page", "part", "student", "car", "house", "room", "table", "door", "window", "wall", "floor"] } },
+    { "LOWER": { "IN": ["shown", "seen", "discussed", "introduced", "written", "chosen", "required", "considered", "accepted", "approved", "published", "received", "recorded", "presented", "suggested", "supported", "broken", "completed", "covered", "created", "developed", "selected", "reviewed", "addressed", "adopted", "classified", "confirmed", "defined", "derived", "divided", "illustrated", "implemented", "observed", "organized", "produced", "protected", "related", "replaced", "reserved", "separated"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "After each film shown, the lights came up and there was applause.",
+    "The problems discussed at the meeting were resolved the next day."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x467634628716204740",
+  "level": "C2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM/USE: DEGREE ADJECTIVES BEFORE NOUNS",
+  "can_do_statement": "Can use an increasing range of adjectives before a noun to express intensity.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "INTENSIFIED_PROPERTY_NAMING",
+   "pedagogical_hook": "intensifier + adjective + noun — push the quality word to the upper extreme before the entity",
+   "agency_or_distance": "speaker escalates a quality to its extreme"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:absolute|utter|complete|total|deep|deepest|uttermost|extreme|the\\s+very|the\\s+major|the\\s+main|the\\s+central|the\\s+key|the\\s+only|the\\s+real|the\\s+biggest|the\\s+greatest)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["absolute", "utter", "complete", "total", "deep", "deepest", "extreme", "major", "main", "central", "key"] } },
+    { "LOWER": { "IN": ["problem", "problems", "issue", "issues", "concern", "concerns", "question", "questions", "failure", "failure", "success", "achievement", "success", "respect", "truth", "disaster", "shock", "embarrassment", "nonsense", "liar"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The major problem concerns the exam.",
+    "It was a complete disaster for the team."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She left her book here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x500431022156884600",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM: WITH 'MAKE' AS OBJECT COMPLEMENT",
+  "can_do_statement": "Can use adjectives as object complement after 'make'.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "RESULT_STATE_NAMING",
+   "pedagogical_hook": "make + object + adjective — name the result state of the action on the entity",
+   "agency_or_distance": "speaker attributes the resulting state to a caused entity"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:makes?|made)\\s+(?:[a-z]+\\s+){1,2}(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["make", "makes", "made"] } },
+    { "LOWER": { "IN": ["me", "you", "him", "her", "it", "us", "them"] }, "OP": "?" },
+    { "LOWER": { "IN": ["the", "a", "an"] }, "OP": "?" },
+    { "LOWER": { "IN": ["room", "rooms", "kitchen", "garden", "house", "houses", "car", "cars", "meal", "meals", "food", "dish", "dishes", "presentation", "report", "reports", "plan", "plans"] }, "OP": "?" },
+    { "LOWER": { "IN": ["happy", "sad", "angry", "tired", "hungry", "rich", "famous", "strong", "weak", "sick", "well", "ill", "clear", "easy", "hard", "difficult", "popular", "late", "early", "beautiful", "interesting", "wonderful", "clean", "dirty", "quiet", "loud"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "That makes me angry!",
+    "She made the room beautiful with fresh flowers."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x558604773953381500",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM: ATTRIBUTIVE ONLY, TIME ADJECTIVES",
+  "can_do_statement": "Can use the adjectives 'present', 'future', 'former' before a noun.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "TIME_QUALIFIER_ATTRIBUTIVE",
+   "pedagogical_hook": "present / future / former + noun — mark an entity with its temporal qualifier attributively",
+   "agency_or_distance": "speaker slots an entity into its temporal slot"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:the|my|your|his|her|our|their|this|that)?\\s*(?:present|future|former)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["the", "my", "your", "his", "her", "our", "their", "this", "that"] }, "OP": "?" },
+    { "LOWER": { "IN": ["present", "future", "former"] } },
+    { "LOWER": { "IN": ["situation", "location", "position", "president", "manager", "director", "owner", "employee", "wife", "husband", "boyfriend", "girlfriend", "colleague", "boss", "king", "queen", "government", "system", "company"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think we are very concerned about the present situation.",
+    "She is a former colleague of mine from the old office."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x588070893184955400",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM: WITH PRONOUN",
+  "can_do_statement": "Can use an adjective or adjective phrase after pronouns like 'something', 'nothing', 'somewhere', 'nowhere'.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "INDETERMINATE_PLACEMENT",
+   "pedagogical_hook": "something / nothing + adjective — leave the referent vague and color it",
+   "agency_or_distance": "speaker keeps the referent indeterminate while coloring it"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:something|nothing|everything|anything|somewhere|nowhere|everywhere|anywhere)\\s+(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["something", "nothing", "everything", "anything", "someone", "anyone", "everyone", "somewhere", "nowhere", "everywhere", "anywhere"] } },
+    { "LOWER": { "IN": ["special", "nice", "good", "bad", "terrible", "wonderful", "amazing", "interesting", "boring", "different", "new", "old", "important", "difficult", "easy", "strange", "funny", "weird", "sweet", "cold", "hot"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I want to cook something special for dinner tonight.",
+    "But something terrible happened that morning."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She left her book here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x965878541986587600",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM/USE: DEGREE ADJECTIVES BEFORE NOUNS",
+  "can_do_statement": "Can use a limited range of degree adjectives ('real', 'absolute', 'complete') before a noun to express intensity.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "DEGREE_INTENSIFIER_NAMING",
+   "pedagogical_hook": "real / absolute / complete + noun — name the entity at the upper extreme of its scale",
+   "agency_or_distance": "speaker escalates the noun to its extreme"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:real|absolute|complete|total|utter|perfect|true)\\s+(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["real", "absolute", "complete", "total", "utter", "perfect", "true"] } },
+    { "LOWER": { "IN": ["problem", "problems", "issue", "issues", "mess", "disaster", "success", "achievement", "disappointment", "embarrassment", "shame", "tragedy", "nonsense", "waste", "secret", "gift", "pleasure", "joy"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "This is a real problem and our town is becoming dangerous.",
+    "It was an absolute disaster for the team."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She left her book here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706930x279245648285079580",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: FRONT POSITION",
+  "can_do_statement": "Can use a limited range of adverbs in front position.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "CLAUSE_HEAD_PLACEMENT",
+   "pedagogical_hook": "Sometimes / Often / Yesterday / Tomorrow — slot the adverb at the head of the clause",
+   "agency_or_distance": "speaker opens the clause with a framing adverb"
+  },
+  "detection": {
+   "regex_triage": "^(?:sometimes|often|always|usually|maybe|perhaps|today|tomorrow|yesterday|now|then|here|there)\\b",
+   "spacy_token_pattern": [
+    { "IS_SENT_START": true, "LOWER": { "IN": ["sometimes", "often", "always", "usually", "maybe", "perhaps", "today", "tomorrow", "yesterday", "now", "then", "here", "there"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Sometimes I go to the beach.",
+    "Tomorrow I will see her at the airport."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706930x543760633232157630",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: DEGREE, BEFORE ADJECTIVES",
+  "can_do_statement": "Can use a limited range of degree adverbs before an adjective.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "DEGREE_PRE_ADJACENT",
+   "pedagogical_hook": "very / really / quite + adjective — slot the intensifier just before the adjective",
+   "agency_or_distance": "speaker intensifies the adjective from a zero position"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:very|really|quite|so|too|extremely|fairly|rather|pretty|really)\\s+(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["very", "really", "quite", "so", "too", "extremely", "fairly", "rather", "pretty"] } },
+    { "LOWER": { "IN": ["light", "comfortable", "good", "bad", "nice", "happy", "sad", "easy", "difficult", "expensive", "cheap", "tall", "short", "big", "small", "old", "young", "slow", "fast", "hard", "soft", "bright", "dark"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "My home is very light and very comfortable.",
+    "I have a really good friend, her name is Dylma."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She left her book here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706930x543836854317855550",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: FREQUENCY, MID POSITION",
+  "can_do_statement": "Can use frequency adverbs in the usual mid position, between the subject and the main verb.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "MEDIAL_FREQUENCY_SLOT",
+   "pedagogical_hook": "subject + always/usually/often/sometimes + verb — slot the adverb between subject and verb",
+   "agency_or_distance": "speaker marks the verb's frequency medially"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:always|usually|often|sometimes|never|hardly|rarely|seldom|frequently)\\s+(?:[a-z]+(?:s|es)?)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["always", "usually", "often", "sometimes", "never", "hardly", "rarely", "seldom", "frequently"] } },
+    { "LOWER": { "IN": ["go", "goes", "went", "eat", "eats", "ate", "drink", "drinks", "drank", "sleep", "sleeps", "slept", "work", "works", "worked", "listen", "listens", "listened", "watch", "watches", "watched", "clean", "cleans", "cleaned", "read", "reads", "play", "plays", "played", "talk", "talks", "talked", "speak", "speaks", "spoke", "come", "comes", "came", "see", "sees", "saw", "feel", "feels", "felt", "live", "lives", "lived"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I always listen to music in my free time.",
+    "She often goes to the park with her dog."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She left her book here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706931x652422120447256700",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: 'REALLY,'  MID POSITION",
+  "can_do_statement": "Can use 'really' in the usual mid-position, between the subject and the main verb.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "MID_INTENSIFIER_SLOT",
+   "pedagogical_hook": "subject + really + verb — slot the intensifier between subject and main verb",
+   "agency_or_distance": "speaker amplifies the verb mid-clause"
+  },
+  "detection": {
+   "regex_triage": "\\breally\\s+(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": "really" },
+    { "LOWER": { "IN": ["love", "loves", "loved", "like", "likes", "liked", "enjoy", "enjoys", "enjoyed", "want", "wants", "wanted", "need", "needs", "needed", "hope", "hopes", "hoped", "think", "thinks", "thought", "believe", "believes", "believed"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I really love walking in the park.",
+    "I really like my kitchen because it is big."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She left her book here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706931x922201162401665300",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: TIME, END POSITION",
+  "can_do_statement": "Can use time adverbs in the usual end position.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "FINAL_TIME_ANCHOR",
+   "pedagogical_hook": "verb + yesterday/today/tomorrow/soon/now/just/already — anchor the time at the clause tail",
+   "agency_or_distance": "speaker places the time at the end of the clause"
+  },
+  "detection": {
+   "regex_triage": "(?:[a-z]+)\\s+(?:yesterday|today|tomorrow|soon|now|just|already|tonight|tonite|then)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["yesterday", "today", "tomorrow", "soon", "now", "just", "already", "tonight", "then"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I hope to see you soon.",
+    "She went to the park yesterday."
+   ],
+   "negatives": [
+    "I went to the bank.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706938x110983930774695800",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: END POSITION, MANNER",
+  "can_do_statement": "Can use manner adverbs in the usual end position.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "FINAL_MANNER_QUALIFICATION",
+   "pedagogical_hook": "verb + well/quickly/slowly/loudly — slot the manner adverb at the clause tail",
+   "agency_or_distance": "speaker describes how the action was performed at the end"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:well|quickly|slowly|loudly|quietly|carefully|fast|hard|softly|gently|politely|properly|nicely)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["well", "quickly", "slowly", "loudly", "quietly", "carefully", "fast", "hard", "softly", "gently", "politely", "properly", "nicely"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Please answer me quickly because there are only eleven tickets.",
+    "She drives carefully on icy roads."
+   ],
+   "negatives": [
+    "I went to the bank.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706938x493393825408503100",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: MID POSITION",
+  "can_do_statement": "Can use adverbs in mid position between the subject and the main verb and after modal verbs, auxiliary verbs and the verb 'to be'.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "MEDIAL_ADVERB_SLOT",
+   "pedagogical_hook": "subject + can/will/be + adverb + main verb — slot the adverb after aux/modal/be",
+   "agency_or_distance": "speaker places the adverb in the medial slot"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:can|could|will|would|may|might|must|should|am|is|are|was|were|have|has|had|do|does|did)\\s+(?:always|usually|often|sometimes|never|really|probably|just|never|already)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["can", "could", "will", "would", "may", "might", "must", "should", "am", "is", "are", "was", "were", "have", "has", "had", "do", "does", "did"] } },
+    { "LOWER": { "IN": ["always", "usually", "often", "sometimes", "never", "really", "probably", "just", "already"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I have always loved reading novels.",
+    "She is probably going to arrive late."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She left her book here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706938x785040001160448100",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: DEGREE, BEFORE ADJECTIVES",
+  "can_do_statement": "Can use an increasing range of degree adverbs before an adjective.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "DEGREE_PRE_ADJACENT_WIDE",
+   "pedagogical_hook": "so / quite / too + adjective — turn the adjective to a non-default intensity",
+   "agency_or_distance": "speaker modulates the adjective's intensity"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:so|quite|too|rather|fairly|extremely|pretty|really)\\s+(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["so", "quite", "too", "rather", "fairly", "extremely", "pretty", "really"] } },
+    { "LOWER": { "IN": ["glad", "happy", "sad", "expensive", "cheap", "big", "small", "good", "bad", "nice", "easy", "difficult", "tired", "late", "early", "fast", "slow", "hot", "cold"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I'm so glad you are coming.",
+    "They are quite expensive."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She left her book here."
+   ]
+  }
+ }
+]

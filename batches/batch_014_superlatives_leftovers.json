@@ -1,0 +1,702 @@
+[
+ {
+  "egp_id": "1741163706534x938846205163626000",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: ELLIPSIS, WITH 'THE'",
+  "can_do_statement": "Can use 'the' with a limited range of superlative adjectives without a following noun, when the meaning is clear from the context.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "HEAD_MEMBER_NAMING",
+   "pedagogical_hook": "the + superlative alone \u2014 name the top member without listing the noun",
+   "agency_or_distance": "speaker picks the top member alone when context supplies the rest"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:the|my|your|his|her|our|their)\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest|latest|nearest)(?:[a-z]+est|best|worst|most)\\s+[a-z]+(?!\\s+(?:noun|room|house|kitchen|place|time|way|moment|thing|part|year|day|month))",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's the biggest and oldest museum in the country.",
+    "Of all the dishes, this was the best."
+   ],
+   "negatives": [
+    "It's the biggest room in the house.",
+    "I always try to do my best."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706535x223084822137106460",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: COMPLEX NOUN PHRASES",
+  "can_do_statement": "Can form an increasing range of complex noun phrases with a superlative adjective + prepositional phrase.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "UNIQUE_MEMBER_NAMING_WIDE",
+   "pedagogical_hook": "superlative + noun + of/in/for \u2014 identify the one unique member across contexts",
+   "agency_or_distance": "speaker highlights the unique member against a wider context"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:the|my|your|his|her|our|their)\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)(?:[a-z]+est|best|worst|most)\\s+(?:[a-z]+\\s+){0,4}(?:of|in|for)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "most"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN",
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "of",
+       "in",
+       "for"
+      ]
+     },
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is the most expensive dress in the shop.",
+    "She was the youngest member of the team."
+   ],
+   "negatives": [
+    "It's just the best.",
+    "The room was the biggest."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706535x505331707885398460",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH 'THE MOST'",
+  "can_do_statement": "Can form superlative adjective phrases using 'the most', with longer adjectives of two or more syllables.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "TWO_SYLLABLE_STAMP",
+   "pedagogical_hook": "the most + adjective \u2014 stamp a multi-syllable adjective as rank-one",
+   "agency_or_distance": "speaker grades two-plus-syllable adjectives to the top"
+  },
+  "detection": {
+   "regex_triage": "\\bthe\\s+most\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "most"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "That was the most delicious meal I have ever eaten.",
+    "This is the most interesting book in the library."
+   ],
+   "negatives": [
+    "Most people like chocolate.",
+    "I am most grateful for your help."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706535x731530310128982300",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: 'THE BEST' WITH NOUN AND PRESENT PERFECT",
+  "can_do_statement": "Can use 'the best' before a noun + present perfect to talk about a unique experience.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "UNIQUE_EXPERIENCE_REICHENBACH",
+   "pedagogical_hook": "the best + noun + have ever + past participle \u2014 name a unique experience up to speech time",
+   "agency_or_distance": "speaker locates the unique experience at the open-ended present"
+  },
+  "detection": {
+   "regex_triage": "\\bthe\\s+best\\s+[a-z]+\\s+(?:I|we|you|they|he|she|it|[a-z]+)\\s+(?:have|has|have)\\s+(?:never|ever|once|just|already|just)\\s*(?:[a-z]+ed|[a-z]+en)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "best"
+    },
+    {
+     "POS": "NOUN"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "i",
+       "you",
+       "we",
+       "they",
+       "he",
+       "she",
+       "it"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "have",
+       "has"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's the best meal I have ever eaten.",
+    "That was the best trip we have ever taken."
+   ],
+   "negatives": [
+    "It was the best meal yesterday.",
+    "The best thing about her is her honesty."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x316287892573927200",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: 'THE BEST' WITH NOUN AND 'TO-' INFINITIVE",
+  "can_do_statement": "Can use 'the best' before a noun + 'to'-infinitive.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "TOP_CONTEXT_FOR_INFINITIVE",
+   "pedagogical_hook": "the best + noun + to + verb \u2014 name the top context for an action",
+   "agency_or_distance": "speaker positions an action as the top-of-its-kind purpose"
+  },
+  "detection": {
+   "regex_triage": "\\bthe\\s+best\\s+(?:[a-z]+|place|time|way|thing|part|reason|moment)\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "best"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "place",
+       "time",
+       "way",
+       "thing",
+       "part",
+       "reason",
+       "moment",
+       "method",
+       "moment",
+       "opportunity",
+       "chance",
+       "option"
+      ]
+     }
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's the best time to visit the city.",
+    "That's the best way to learn English."
+   ],
+   "negatives": [
+    "It's the best meal in the city.",
+    "That was the best movie we saw."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x513193449618973840",
+  "level": "C1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: WITH NOUN AND POSTMODFIER",
+  "can_do_statement": "Can use a postmodifier to make the superlative stronger in the structure superlative + postmodifier.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "POSTMODIFIED_TIER",
+   "pedagogical_hook": "the + superlative + noun + that/who/which/I/you/we \u2014 annotate the top member with a clause",
+   "agency_or_distance": "speaker appends a clause to sharpen the superlative target"
+  },
+  "detection": {
+   "regex_triage": "\\bthe\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)(?:[a-z]+est|best|worst|most)\\s+[a-z]+\\s+(?:that|which|who|whose)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "DET"
+      ]
+     }
+    },
+    {
+     "POS": "NOUN"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "that",
+       "which",
+       "who",
+       "whose"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was the worst decision that the committee made all year.",
+    "She's the brightest student who has ever attended this school."
+   ],
+   "negatives": [
+    "It was the biggest room.",
+    "She was the youngest member."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x624064805889871500",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: WITH 'BY FAR'",
+  "can_do_statement": "Can use the premodifer 'by far' to make a superlative adjective stronger.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "AMPLIFIED_TIER",
+   "pedagogical_hook": "by far + the + superlative \u2014 push the top rank past the runner-up",
+   "agency_or_distance": "speaker leaves no doubt about the top rank"
+  },
+  "detection": {
+   "regex_triage": "\\bby\\s+far\\s+(?:the|my|your|his|her|our|their)\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)(?:[a-z]+est|best|worst|most)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "by"
+    },
+    {
+     "LOWER": "far"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "most",
+       "best",
+       "worst"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's by far the best restaurant in town.",
+    "She is by far the most experienced teacher here."
+   ],
+   "negatives": [
+    "It's the best restaurant in town.",
+    "She is the most experienced teacher."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x720681284938151700",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: ELLIPSIS, WITH 'THE'",
+  "can_do_statement": "Can use '(one of) the' with an increasing range of superlative adjectives without a following noun.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "ONE_OF_THE_TIER",
+   "pedagogical_hook": "one of the + superlative \u2014 name a single elite member of a tier",
+   "agency_or_distance": "speaker flags one member of the top tier"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:one\\s+of\\s+the)\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)(?:[a-z]+est|best|worst|most)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "one"
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": "the"
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's one of the best restaurants in the area.",
+    "She's one of the most talented singers in the country."
+   ],
+   "negatives": [
+    "It's the best restaurant in town.",
+    "She is the most talented singer."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x755639946438128300",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH NOUN AND 'TO-' INFINITIVE",
+  "can_do_statement": "Can use superlative adjectives before a noun + 'to'-infinitive.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "SUPERLATIVE_TO_INFINITIVE",
+   "pedagogical_hook": "superlative + noun + to + verb \u2014 anchor an action in the top rank of contexts",
+   "agency_or_distance": "speaker positions an action at the top of its purpose"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:the|my|your|his|her|our|their)\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)(?:[a-z]+est|best|worst|most)\\s+[a-z]+\\s+to\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN"
+    },
+    {
+     "LOWER": "to"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's the most expensive place to stay in town.",
+    "That's the cheapest way to travel abroad."
+   ],
+   "negatives": [
+    "It's the best restaurant in town.",
+    "That's the cheapest meal."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x778879290830950100",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: 'ONE OF THE'",
+  "can_do_statement": "Can use 'one of the' before a superlative adjective, followed by a plural noun.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "ONE_OF_THE_PLURAL",
+   "pedagogical_hook": "one of the + superlative + plural noun \u2014 pick one elite member of a tier",
+   "agency_or_distance": "speaker selects a single top-tier member"
+  },
+  "detection": {
+   "regex_triage": "\\bone\\s+of\\s+the\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)(?:[a-z]+est|best|worst|most\\s+[a-z]+)\\s+[a-z]+s\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "one"
+    },
+    {
+     "LOWER": "of"
+    },
+    {
+     "LOWER": "the"
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's one of the best restaurants in town.",
+    "She's one of the most famous singers in the country."
+   ],
+   "negatives": [
+    "It's the best restaurant.",
+    "She is the most famous singer."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x792145891738564900",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH DETERMINERS",
+  "can_do_statement": "Can form noun phrases with a range of determiners before a superlative adjective.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "DETERMINED_SUPERLATIVE_NP",
+   "pedagogical_hook": "determiner + superlative + noun \u2014 slot any determiner before the rank",
+   "agency_or_distance": "speaker frames the top rank against any context"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:the|my|your|his|her|our|their|this|that|these|those|some|any|each|every)\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)(?:[a-z]+est|best|worst|most)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their",
+       "this",
+       "that",
+       "these",
+       "those",
+       "some",
+       "any",
+       "each",
+       "every"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I bought these clothes for my youngest brother.",
+    "Please wear your oldest clothes."
+   ],
+   "negatives": [
+    "I went home and rested.",
+    "She finished her homework."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706537x792815461768504600",
+  "level": "C2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: 'SLIGHTEST', 'FAINTEST'",
+  "can_do_statement": "Can use 'the slightest', 'the faintest' with a specific range of nouns to express the least amount.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "MARGINAL_TIER",
+   "pedagogical_hook": "the slightest / the faintest + noun \u2014 name the tiniest margin of a thing",
+   "agency_or_distance": "speaker pinpoints the bare-minimum tier"
+  },
+  "detection": {
+   "regex_triage": "\\bthe\\s+(?:slightest|faintest|smallest|tiniest)\\s+(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "slightest",
+       "faintest",
+       "smallest",
+       "tiniest",
+       "littlest"
+      ]
+     }
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I don't have the slightest idea what you mean.",
+    "There wasn't the faintest trace of evidence."
+   ],
+   "negatives": [
+    "I have a slight idea.",
+    "There is a faint trace of light."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706537x905537267921213700",
+  "level": "C1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: WITH POSTMODFIER AND NOUN",
+  "can_do_statement": "Can use a postmodifier to make the superlative stronger, in the structure superlative + noun + postmodifier.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "POSTMODIFIED_TIER_NP",
+   "pedagogical_hook": "superlative + noun + that/which/who \u2014 annotate the top-tier entity with a follow-up clause",
+   "agency_or_distance": "speaker embeds a relative clause to sharpen the superlative entity"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:the|my|your|his|her|our|their)\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)(?:[a-z]+est|best|worst|most)\\s+[a-z]+\\s+(?:[a-z]+)\\s+(?:that|which|who|whose)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "ADJ",
+       "VERB",
+       "PART"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "that",
+       "which",
+       "who",
+       "whose"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's the best Italian restaurant I have ever eaten at.",
+    "That was the most expensive car the family owned."
+   ],
+   "negatives": [
+    "It's the best restaurant.",
+    "It was the most expensive car."
+   ]
+  }
+ }
+]

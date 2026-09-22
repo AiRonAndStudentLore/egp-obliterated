@@ -1,0 +1,54 @@
+{
+ "batch": "batches/batch_002_adverbs_and_adverb_phrases_types_and_meanings.json",
+ "cycles": 1,
+ "passed": 0,
+ "total": 5,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163706724x559298050081440640",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'Actually, I think the meeting went really well.'",
+    "spaCy MISSED positive: \"Unfortunately, I won't be able to make it tomorrow.\"",
+    "regex FALSE-POSITIVE on negative: \"The actual price was higher than expected. [surface 'actual' but not stance adverb]\"",
+    "regex FALSE-POSITIVE on negative: \"I'm sorry about your loss. [fixed expression, not functioning as stance adverbial]\""
+   ]
+  },
+  {
+   "egp_id": "1741163706724x630956425733939100",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'He went downstairs to check on the kids.'",
+    "spaCy MISSED positive: \"There's a nice cafe nearby if you want coffee.\"",
+    "regex FALSE-POSITIVE on negative: \"I don't think it's far enough away to be safe. [nearby/away functioning differently]\"",
+    "regex FALSE-POSITIVE on negative: 'She lives near the park. [prepositional phrase, not adverbial place marker]'"
+   ]
+  },
+  {
+   "egp_id": "1741163706724x695725338489926300",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'I can speak a little English now.'",
+    "spaCy MISSED positive: 'Could you move a bit closer, please?'",
+    "regex FALSE-POSITIVE on negative: 'I ate a little cake. [noun modifier, not verb degree modifier]'",
+    "regex FALSE-POSITIVE on negative: 'He was a bit worried about the test. [adjective modifier, not verb modifier]'"
+   ]
+  },
+  {
+   "egp_id": "1741163706724x733988029465825200",
+   "verdict": "registry_error",
+   "failures": [
+    "Matcher.add rejected pattern: Invalid token patterns for matcher rule '1741163706724x733988029465825200'\n\nPattern 0:\n- [pattern -> 0 -> OP -> str-enum[TokenPatternOperatorSimple]] Input should be '+', '*', '?' or '!'\n- [pattern -> 0 -> OP -> constrained-str] String should match pattern '^(\\{\\d+\\}|\\{\\d+,\\d*\\}|\\{\\d*,\\d+\\})$'\n"
+   ]
+  },
+  {
+   "egp_id": "1741163706724x815759544206507300",
+   "verdict": "registry_error",
+   "failures": [
+    "Matcher.add rejected pattern: Invalid token patterns for matcher rule '1741163706724x815759544206507300'\n\nPattern 0:\n- [pattern -> 0 -> OP -> str-enum[TokenPatternOperatorSimple]] Input should be '+', '*', '?' or '!'\n- [pattern -> 0 -> OP -> constrained-str] String should match pattern '^(\\{\\d+\\}|\\{\\d+,\\d*\\}|\\{\\d*,\\d+\\})$'\n"
+   ]
+  }
+ ]
+}

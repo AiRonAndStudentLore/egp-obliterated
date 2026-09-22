@@ -1,0 +1,462 @@
+[
+ {
+  "egp_id": "1741163706537x909158263292138100",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use 'soon' in the phrases 'See you soon' and 'Get well soon', as a signing-off device.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "DISCOURSE_CLOSING_ANCHOR",
+   "pedagogical_hook": "see you / get well + soon — closes the conversation with a forward-pointing adverb",
+   "agency_or_distance": "speaker hands the hearer a near-future expectation as a parting signal"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:see\\s+you|get\\s+well)\\s+soon\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["see", "get"] } },
+    { "LOWER": { "IN": ["you", "well"] } },
+    { "LOWER": "soon" }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "See you soon.",
+    "Get well soon."
+   ],
+   "negatives": [
+    "I will come back soon after lunch.",
+    "She'll visit her mother soon."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706721x821677696151876900",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: PLACE",
+  "can_do_statement": "Can use a limited range of adverbs ('here', 'there') to indicate place.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "LOCATIVE_STAGING",
+   "pedagogical_hook": "here / there — point to a place on the conversational stage",
+   "agency_or_distance": "speaker deictically anchors an entity in shared space"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:here|there)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["here", "there"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "My girlfriend is here with me.",
+    "I was born there and I lived there over twenty years."
+   ],
+   "negatives": [
+    "I was born in Spain.",
+    "She went home alone."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x170602944998903700",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE WITH VERBS",
+  "can_do_statement": "Can use a limited range of adverbs and adverb phrases ('so much', 'a lot') with verbs to indicate degree or intensity.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "INTENSITY_VOCALISATION",
+   "pedagogical_hook": "so much / a lot — amplify the verb to maximum volume",
+   "agency_or_distance": "speaker cranks the speaker-level of feeling or action"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:so\\s+much|a\\s+lot)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["so", "a"] } },
+    { "LOWER": { "IN": ["much", "lot"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am looking forward to seeing you so much!",
+    "We listened to music and we danced a lot too."
+   ],
+   "negatives": [
+    "He is so kind to me.",
+    "I love you more than anything."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x425107176833770200",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE WITH VERBS",
+  "can_do_statement": "Can use 'really' and 'very much' with verbs expressing preference ('like', 'love'), for emphasis.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "AMPLIFIED_PREFERENCE",
+   "pedagogical_hook": "really / very much + like/love — turn the dial past the standard setting",
+   "agency_or_distance": "speaker marks the affective state as more than ordinary"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:really|very\\s+much)\\s+(?:like|love|enjoy|prefer|hate|adore)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["really", "very"] } },
+    { "LOWER": "much", "OP": "?" },
+    { "LOWER": { "IN": ["like", "love", "enjoy", "prefer", "hate", "adore"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I really like theatre and classical music.",
+    "I really love my space!"
+   ],
+   "negatives": [
+    "I would like to go home.",
+    "She likes him a lot."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x446923325299920960",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: LINKING",
+  "can_do_statement": "Can use a limited range of adverbs ('also', 'so', 'however') to show a relationship between two clauses or sentences.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "DISCOURSE_COUPLING",
+   "pedagogical_hook": "also / so / however — wire two ideas into one discourse",
+   "agency_or_distance": "speaker binds clauses into a relationship of addition, result, or contrast"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:also|however|So|so)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["also", "so", "however"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I also bought some t-shirts.",
+    "I don't like green, so I decided to use blue."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "He is taller than me."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x502415631169033540",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: 'VERY' WITH ADJECTIVES",
+  "can_do_statement": "Can use 'very' to make adjectives stronger.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "DEGREE_AMPLIFIER",
+   "pedagogical_hook": "very + adjective — push the adjective past its default setting",
+   "agency_or_distance": "speaker escalates the force of a quality word"
+  },
+  "detection": {
+   "regex_triage": "\\bvery\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    { "LOWER": "very" },
+    { "POS": "ADJ" }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He's a very good man.",
+    "I'm very happy in my home."
+   ],
+   "negatives": [
+    "I went there yesterday.",
+    "She left her book here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x604132732561016200",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: FREQUENCY",
+  "can_do_statement": "Can use a limited range of adverbs ('always', 'sometimes') to talk about frequency.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "FREQUENCY_INDEXICAL",
+   "pedagogical_hook": "always / sometimes — place the event on a frequency dial",
+   "agency_or_distance": "speaker locates the event on the spectrum from never-to-always"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:always|sometimes)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["always", "sometimes"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I like Dorchester's people, they are always very friendly and polite.",
+    "I always see Safora because she lives near my home."
+   ],
+   "negatives": [
+    "I see her often.",
+    "We go there frequently."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x642517242671444100",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use a limited range of adverbs ('yesterday', 'just', 'now', 'already') to refer to the timing of an event.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "DEICTIC_TIME_ANCHOR",
+   "pedagogical_hook": "yesterday / just / now / already — pin the event to a point on the speech-time line",
+   "agency_or_distance": "speaker anchors the event relative to S"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:yesterday|just|now|already)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["yesterday", "just", "now", "already"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Yesterday I went shopping.",
+    "I've just seen your mail."
+   ],
+   "negatives": [
+    "I went home and rested.",
+    "She came over later."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x801643981135109000",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use a limited range of manner adverbs and adverb phrases to modify how something happens.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "MANNER_QUALIFICATION",
+   "pedagogical_hook": "well / straight / slowly — describe HOW the action is performed",
+   "agency_or_distance": "speaker sculpts the texture of the verb's action"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:well|straight|slowly|quickly|loudly|quietly|carefully|badly|softly|gently|politely|nicely|kindly|properly)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["well", "straight", "slowly", "quickly", "loudly", "quietly", "carefully", "badly", "softly", "gently", "politely", "nicely", "kindly", "properly"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Both the players played well.",
+    "You must go straight, then turn left."
+   ],
+   "negatives": [
+    "I feel great today.",
+    "She went home and rested."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x916354910575195800",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: FREQUENCY",
+  "can_do_statement": "Can use an increasing range of adverbs ('usually', 'often', 'never', 'weekly') to talk about frequency.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "FREQUENCY_GRADIENT",
+   "pedagogical_hook": "usually / often / never / weekly — finer-grained frequency markers",
+   "agency_or_distance": "speaker positions the event on a denser frequency scale"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:usually|often|never|weekly|daily|monthly|yearly|hourly|annually|rarely|seldom|frequently|occasionally)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["usually", "often", "never", "weekly", "daily", "monthly", "yearly", "hourly", "rarely", "seldom", "frequently", "occasionally"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "People usually try to eat their breakfast between 7 and 9 am.",
+    "I have to pay weekly or monthly?"
+   ],
+   "negatives": [
+    "I went there recently.",
+    "She spoke to her mother."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x982743824597498400",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE, WITH ADJECTIVES",
+  "can_do_statement": "Can use a limited range of degree adverbs ('so', 'quite', 'too') to modify adjectives.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "DEGREE_CALIBRATION",
+   "pedagogical_hook": "so / quite / too + adjective — turn the adjective up or down",
+   "agency_or_distance": "speaker sets the adjective's intensity on a non-default position"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:so|quite|too)\\s+(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["so", "quite", "too"] } },
+    { "LOWER": { "IN": ["beautiful", "expensive", "good", "bad", "big", "small", "nice", "happy", "sad", "easy", "difficult", "tired", "late", "early", "fast", "slow", "hot", "cold", "important", "interesting", "helpful", "lovely", "wonderful", "terrible", "awful", "amazing", "beautiful", "handsome", "pretty", "ugly", "simple", "complicated", "boring", "exciting", "tasty", "delicious", "horrible", "fantastic", "brilliant"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's so beautiful.",
+    "It was quite expensive, it cost one hundred pounds."
+   ],
+   "negatives": [
+    "I went there, not here.",
+    "He came over later."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706723x300249420014393500",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: FOCUS",
+  "can_do_statement": "Can use a limited range of adverbs ('only', 'just') to focus on or point to something.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "FOCUS_NARROWING",
+   "pedagogical_hook": "only / just — spotlight a single element, dimming the rest",
+   "agency_or_distance": "speaker isolates one referent from a presumed larger set"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:only|just)\\s+\\S+",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["only", "just"] } },
+    { "LOWER": { "IN": ["two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "one", "twenty", "thirty", "fifty", "hundred", "thousand", "hours", "hour", "days", "day", "weeks", "week", "months", "month", "years", "year", "minutes", "minute", "seconds", "second", "times", "time", "way", "thing", "thing", "person", "people", "chance", "choices", "choice", "pounds", "euros", "dollars", "moment", "minutes"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It's only two hours.",
+    "I have only one chance."
+   ],
+   "negatives": [
+    "I went home and rested.",
+    "She plays football."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x172374615365169500",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: SEQUENCING",
+  "can_do_statement": "Can use a limited range of adverbs and adverb phrases ('first', 'then', 'after that') to order segments of discourse.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "DISCOURSE_LINEARISATION",
+   "pedagogical_hook": "first / then / after that — map the events onto a timeline",
+   "agency_or_distance": "speaker arranges discourse events in chronological order"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:first|then|after\\s+that)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["first", "then"] } },
+    { "LOWER": "after", "OP": "?" },
+    { "LOWER": "that", "OP": "?" }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "First we had a dinner, then we went to a disco.",
+    "Add the eggs, then stir for two minutes."
+   ],
+   "negatives": [
+    "I went home and rested.",
+    "She played football."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x189286353411288960",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use an increasing range of adverbs to refer to the timing of an event.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "DENSE_TIME_INDEXICAL",
+   "pedagogical_hook": "recently / immediately / eventually / finally — finer time-pointers",
+   "agency_or_distance": "speaker pinpoints the event on a more granular S-anchored line"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:recently|immediately|eventually|finally|suddenly|currently|lately|nowadays|presently|shortly)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["recently", "immediately", "eventually", "finally", "suddenly", "currently", "lately", "nowadays", "presently", "shortly"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I went to the cinema with a new friend recently.",
+    "I immediately called her to see if everything was OK."
+   ],
+   "negatives": [
+    "I went to the cinema yesterday.",
+    "She spoke to her mother."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x414008667308469300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use an increasing range of manner adverbs and adverb phrases to modify how something happens.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "DENSE_MANNER_QUALIFICATION",
+   "pedagogical_hook": "carefully / gradually / properly — wider texture palette for the verb's HOW",
+   "agency_or_distance": "speaker expands the texture vocabulary of the action"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:carefully|slowly|quickly|gently|softly|smoothly|gradually|seriously|properly|fully|entirely|completely|deeply|highly|widely|badly|terribly|beautifully|easily|freely|brightly|calmly|cleverly|eagerly|firmly|gladly|gracefully|patiently|proudly|rapidly|safely|sincerely|tightly|warmly|willingly)\\b",
+   "spacy_token_pattern": [
+    { "LOWER": { "IN": ["carefully", "slowly", "quickly", "gently", "softly", "smoothly", "gradually", "seriously", "properly", "fully", "entirely", "completely", "deeply", "highly", "widely", "badly", "terribly", "beautifully", "easily", "freely", "brightly", "calmly", "cleverly", "eagerly", "firmly", "gladly", "gracefully", "patiently", "proudly", "rapidly", "safely", "sincerely", "tightly", "warmly", "willingly"] } }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The teacher spoke slowly to the class.",
+    "He drove carefully through the storm."
+   ],
+   "negatives": [
+    "She sang at the party last night.",
+    "He drives his car to work."
+   ]
+  }
+ }
+]

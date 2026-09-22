@@ -1,0 +1,232 @@
+[
+ {
+  "egp_id": "1741163706724x559298050081440640",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use a limited range of adverbs ('actually', 'unfortunately', 'of course', 'I'm sorry') to indicate an attitude or viewpoint.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Stance adverbs function as epistemic comment markers that signal the speaker's evaluative or affective stance toward the proposition, allowing the speaker to distance, qualify, or emphasize their position.",
+   "pedagogical_hook": "Stance adverbs as 'speaker commentary' \u2014 teaching learners to signal their attitude (agreement, sympathy, emphasis) through fronted or mid-position adverbs like actually, unfortunately, of course, I'm sorry.",
+   "agency_or_distance": "speaker_distance"
+  },
+  "detection": {
+   "regex_triage": "\\b(actual\\w*|unfortunat\\w*|of course|I'm sorry)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "REGEX": "^(actual|actually)$"
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^(unfortunate|unfortunately)$"
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^of$"
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^course$"
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^(i'?m|i am)$"
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^sorry$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Actually, I think the meeting went really well.",
+    "Unfortunately, I won't be able to make it tomorrow."
+   ],
+   "negatives": [
+    "The actual price was higher than expected. [surface 'actual' but not stance adverb]",
+    "I'm sorry about your loss. [fixed expression, not functioning as stance adverbial]"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x630956425733939100",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: PLACE",
+  "can_do_statement": "Can use an increasing range of adverbs and adverb phrases ('near', 'far away', 'upstairs', 'downstairs') to indicate place.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Place adverbs encode spatial configurations between entities and reference points, functioning as deictic or relational markers that structure the spatial mental model of the discourse context.",
+   "pedagogical_hook": "Place adverbs as spatial anchors \u2014 teaching learners to locate entities and actions in physical or conceptual space using directional and locative adverbs like near, far away, upstairs, downstairs, nearby.",
+   "agency_or_distance": "entity_proximity"
+  },
+  "detection": {
+   "regex_triage": "\\b(near|far away|upstairs|downstairs|nearby)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "REGEX": "^(near|nearby)$"
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^far$"
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^away$"
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^(upstairs|downstairs)$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He went downstairs to check on the kids.",
+    "There's a nice cafe nearby if you want coffee."
+   ],
+   "negatives": [
+    "I don't think it's far enough away to be safe. [nearby/away functioning differently]",
+    "She lives near the park. [prepositional phrase, not adverbial place marker]"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x695725338489926300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE WITH VERBS",
+  "can_do_statement": "Can use an increasing range of degree adverbs ('a little', 'a bit') with verbs to indicate degree or intensity.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Degree adverbs scalar-modify verbal predicates, allowing speakers to calibrate the intensity or extent of an action, functioning as hedges or amplifiers within the event model.",
+   "pedagogical_hook": "Degree adverbs as verbal modulators \u2014 teaching learners to soften (a little, a bit) or strengthen (very, really) verbal intensity, particularly useful for expressing ability, frequency, and manner.",
+   "agency_or_distance": "intensity_calibration"
+  },
+  "detection": {
+   "regex_triage": "\\b(a little|a bit|just a little bit)\\b.*\\b\\w+\\b|\\b\\w+\\b.*\\b(a little|a bit|just a little bit)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "REGEX": "^a$"
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^(little|bit)$"
+     }
+    },
+    {
+     "LOWER": {
+      "REGEX": "^just$"
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "REGEX": "^bit$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I can speak a little English now.",
+    "Could you move a bit closer, please?"
+   ],
+   "negatives": [
+    "I ate a little cake. [noun modifier, not verb degree modifier]",
+    "He was a bit worried about the test. [adjective modifier, not verb modifier]"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x733988029465825200",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use a limited range of adverbs ('maybe', 'perhaps') to indicate degrees of certainty.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Epistemic stance adverbs signal the speaker's degree of commitment to the truth of a proposition, functioning as hedging devices that calibrate certainty and introduce uncertainty into the discourse model.",
+   "pedagogical_hook": "Epistemic adverbs as certainty markers \u2014 teaching early learners to qualify assertions using maybe and perhaps, helping them express possibility and uncertainty before mastering more complex modal structures.",
+   "agency_or_distance": "speaker_uncertainty"
+  },
+  "detection": {
+   "regex_triage": "\\b(maybe|perhaps)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "REGEX": "^(maybe|perhaps)$"
+     },
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Maybe we should try a different restaurant tonight.",
+    "Perhaps she's running late because of the traffic."
+   ],
+   "negatives": [
+    "The maybe list on the table is for you. [maybe as noun, different POS]",
+    "Perhapsly, I think we should go. [pseudoword/spelling variant]"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x815759544206507300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: LINKING",
+  "can_do_statement": "Can use an increasing range of adverbs ('therefore', 'furthermore', 'otherwise') to show a relationship between two clauses or sentences.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Linking adverbs function as discourse connectives that signal logical, additive, or contrastive relationships between clauses, establishing causal chains, elaborations, or conditional warnings in the argumentative structure.",
+   "pedagogical_hook": "Linking adverbs as discourse glue \u2014 teaching B1 learners to create cohesive arguments using therefore (conclusion), furthermore (addition), otherwise (warning/condition), and similar connectives to relate ideas across sentences.",
+   "agency_or_distance": "logical_relationship"
+  },
+  "detection": {
+   "regex_triage": "\\b(therefore|furthermore|otherwise|additionally|consequently)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "REGEX": "^(therefore|furthermore|otherwise|additionally|consequently)$"
+     },
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We missed the train. Therefore, we arrived an hour late.",
+    "The course is affordable. Furthermore, it offers flexible scheduling."
+   ],
+   "negatives": [
+    "I therefore decided to leave early. [therefore as adjective/determiner, archaic usage]",
+    "Otherwise, you should check the weather first. [adverbial but only one clause, relationship unclear]"
+   ]
+  }
+ }
+]

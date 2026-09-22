@@ -1,0 +1,346 @@
+[
+ {
+  "can_do_statement": "Can use a limited range of adjectives ('main', 'only') that limit the noun that they go before.",
+  "detection": {
+   "regex_triage": "\\b(?:the|my|your|his|her|its|their)\\s+(main|only|first|last|same)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "its",
+       "their"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "main",
+       "only",
+       "first",
+       "last",
+       "same"
+      ]
+     }
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "egp_id": "1741163706530x116599041764892110",
+  "guideword": "FORM/USE: LIMITING ADJECTIVES",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "noun restriction",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "limiter fences the noun down to one",
+   "pedagogical_hook": "fence the noun"
+  },
+  "sub_category": "position",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "He is only a child.",
+    "You only get one chance."
+   ],
+   "positives": [
+    "The main reason is that I am practising the language.",
+    "The only thing that I didn't like was the weather."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use an increasing range of adjectives predicatively, after 'be'.",
+  "detection": {
+   "regex_triage": "\\b(?:i am|you are|he is|she is|it is|we are|they are|i was|you were|he was|she was|it was|we were|they were)\\s+(free|friendly|happy|tired|ready|busy|kind|lovely|beautiful|nice)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "egp_id": "1741163706530x375500171012226750",
+  "guideword": "FORM: PREDICATIVE, WITH 'BE'",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "predicative attribute",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "be hands the attribute to the subject",
+   "pedagogical_hook": "say it after be"
+  },
+  "sub_category": "position",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "I am a doctor.",
+    "She is my sister.",
+    "He was working all night."
+   ],
+   "positives": [
+    "Yes, I am free on Monday morning.",
+    "I love her because she is friendly."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use a limited range of adjectives attributively, before a noun. \u25ba noun phrases",
+  "detection": {
+   "regex_triage": "\\b(?:a|an|the|my|your|his|her|its|their|our)\\s+(big|small|nice|new|old|good|beautiful)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "DET"
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "egp_id": "1741163706530x479020650602328450",
+  "guideword": "FORM: ATTRIBUTIVE (WITH NOUNS)",
+  "level": "A1",
+  "ontology": {
+   "agency_or_distance": "pre-nominal attribute",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "adjective sits inside the noun phrase",
+   "pedagogical_hook": "adjective inside the box"
+  },
+  "sub_category": "position",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "The garden is big.",
+    "My uncle is very old."
+   ],
+   "positives": [
+    "We have a big garden and a small swimming pool.",
+    "I am your new neighbour."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can modify gradable adjectives with extreme adverbs of degree ('absolutely', 'extremely', 'incredibly', 'totally') to intensify their meaning. ",
+  "detection": {
+   "regex_triage": "\\b(absolutely|extremely|incredibly|totally)\\s+(sure|difficult|fast|new|important|different|amazing|impossible|clear|huge)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "absolutely",
+       "extremely",
+       "incredibly",
+       "totally"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "egp_id": "1741163706530x601825192696361100",
+  "guideword": "FORM: WITH EXTREME ADVERBS",
+  "level": "C1",
+  "ontology": {
+   "agency_or_distance": "maximal intensity",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "extreme adverbs slam the scale to its end",
+   "pedagogical_hook": "slam the top of the scale"
+  },
+  "sub_category": "modifying",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "I am very sure about it.",
+    "It is quite difficult, I suppose."
+   ],
+   "positives": [
+    "I am absolutely sure that it will attract even more attention.",
+    "It is extremely difficult to imagine how workers lived."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use a limited range of adjectives predicatively, after 'be'.",
+  "detection": {
+   "regex_triage": "\\b(?:is|are|am|was|were)\\s+(big|lovely|nice|beautiful|small|old|new|clean|warm|cold)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "egp_id": "1741163706530x753542801715210100",
+  "guideword": "FORM: PREDICATIVE, WITH 'BE'",
+  "level": "A1",
+  "ontology": {
+   "agency_or_distance": "predicative attribute, basic",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "basic attribute delivery after be",
+   "pedagogical_hook": "be then the word"
+  },
+  "sub_category": "position",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "My bedroom is a mess.",
+    "This place is the best.",
+    "She was singing loudly."
+   ],
+   "positives": [
+    "My bedroom is big.",
+    "This place is lovely."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use adjectives with the prefix a- ('asleep', 'awake', 'alive', 'alone') predicatively only, after linking verbs. ",
+  "detection": {
+   "regex_triage": "\\b(?:is|are|am|was|were|be|been|feel|felt|seem|seemed|look|looked)\\s+(?:very\\s+|almost\\s+|still\\s+)?(asleep|awake|alive|alone|afraid|ashamed|aware)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "be",
+       "feel",
+       "seem",
+       "look"
+      ]
+     }
+    },
+    {
+     "OP": "?",
+     "POS": "ADV"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "asleep",
+       "awake",
+       "alive",
+       "alone",
+       "afraid",
+       "ashamed",
+       "aware"
+      ]
+     }
+    }
+   ]
+  },
+  "egp_id": "1741163706531x159426464126049660",
+  "guideword": "FORM: ADJECTIVES WITH PREFIX 'A-'",
+  "level": "B1",
+  "ontology": {
+   "agency_or_distance": "state-only attribute",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "a- adjectives are states, never glued before nouns",
+   "pedagogical_hook": "a- words stay after the verb"
+  },
+  "sub_category": "position",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "I live alone in a small flat.",
+    "The alive topic was on the news.",
+    "It was an awful dream."
+   ],
+   "positives": [
+    "I was very nervous because I was alone at the bus station.",
+    "My father was still alive."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use an increasing range of adjectives attributively, before a noun.\n\u25ba noun phrases",
+  "detection": {
+   "regex_triage": "\\b(?:the|a|an|his|her|its|their|my|your)\\s+(?:main|complicated|long|dark|short|fair|curly|famous|young|old)\\s+(?:(?:dark|fair|curly)\\s+)?[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ"
+    },
+    {
+     "OP": "?",
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "egp_id": "1741163706531x204931412158476450",
+  "guideword": "FORM: ATTRIBUTIVE (WITH NOUNS)",
+  "level": "B1",
+  "ontology": {
+   "agency_or_distance": "expanded pre-nominal stack",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "several attributes stack inside the noun phrase",
+   "pedagogical_hook": "stack them in order"
+  },
+  "sub_category": "position",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "The character is main to the plot.",
+    "Her hair is long and dark."
+   ],
+   "positives": [
+    "The main character in the programme is a journalist.",
+    "He had long dark hair and a short fair beard."
+   ]
+  }
+ },
+ {
+  "can_do_statement": "Can use a limited range of adjectives predicatively, after linking verbs 'look' and 'feel'.",
+  "detection": {
+   "regex_triage": "\\b(?:looks|looked|feel|feels|felt)\\s+(perfect|comfortable|tired|happy|sad|nice|great|strange|cold|warm)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "look",
+       "feel"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "egp_id": "1741163706531x328919787799353700",
+  "guideword": "FORM: PREDICATIVE, WITH LINKING VERBS",
+  "level": "A2",
+  "ontology": {
+   "agency_or_distance": "perceived attribute",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "look and feel pipe the attribute through the senses",
+   "pedagogical_hook": "sense it, then say it"
+  },
+  "sub_category": "position",
+  "super_category": "ADJECTIVES",
+  "unit_tests": {
+   "negatives": [
+    "He looks at the picture.",
+    "I feel the heat of the sun."
+   ],
+   "positives": [
+    "It is black and it looks perfect.",
+    "I feel comfortable when I am wearing these clothes."
+   ]
+  }
+ }
+]

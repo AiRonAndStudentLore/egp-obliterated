@@ -1,0 +1,594 @@
+[
+ {
+  "egp_id": "1741163706724x559298050081440640",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "1",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use a limited range of adverbs ('actually', 'unfortunately', 'of course', 'I\u2019m sorry') to indicate an attitude or viewpoint.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Stance adverbs as speaker-comment insertions that frame the main proposition with an attitudinal overlay, operating at clause-initial or clause-final position.",
+   "pedagogical_hook": "Stance adverb as commentary that stands apart from the core proposition but modifies the speaker's relationship to it \u2014 often expressing sympathy (I\u2019m sorry), qualification (actually), or social politeness (of course).",
+   "agency_or_distance": "SENDER_HIGH \u2014 the adverb signals the speaker's direct evaluative stance toward the proposition."
+  },
+  "detection": {
+   "regex_triage": "(?:^(?:actually|unfortunately)\\s*[,;]?\\s*|\\bof\\s+course[,;]?\\s*|I(?:'m|\\s+am)\\s+sorry[,;]?\\s*)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:actually|unfortunately)$"
+     }
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "regex": "^(?:of|course)$"
+     }
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "in": [
+       "sorry",
+       "course"
+      ]
+     }
+    },
+    {
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Actually I think that's a great idea.",
+    "Unfortunately the meeting has been cancelled."
+   ],
+   "negatives": [
+    "Of course not, I disagree completely.",
+    "I'm sorry for what I did yesterday, it was wrong."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x630956425733939100",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: PLACE",
+  "can_do_statement": "Can use an increasing range of adverbs and adverb phrases ('near', 'far away', 'upstairs', 'downstairs') to indicate place.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Place adverbs orient the listener spatially by anchoring the referent to a location relative to a landmark or deictic center, creating a topological map of the discourse world.",
+   "pedagogical_hook": "Place adverb as spatial anchor \u2014 it answers 'where?' without requiring a full prepositional phrase, compressing location into a single lexical item.",
+   "agency_or_distance": "SPATIAL_PROXIMITY \u2014 the adverb codes physical distance or directional orientation."
+  },
+  "detection": {
+   "regex_triage": "(?:upstairs|downstairs|(?:far\\s+)?away|near(?:by)?)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:upstairs|downstairs|near|away)$"
+     }
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "regex": "^(?:far|by)$"
+     }
+    },
+    {
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He went downstairs to find his coat.",
+    "The shop nearby sells great coffee."
+   ],
+   "negatives": [
+    "Far away from here is the airport.",
+    "She painted near the window carefully."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x690607862239565700",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "N/A",
+  "guideword": "USE: DEGREE, 'REALLY REALLY'",
+  "can_do_statement": "Can use 'really really' with verbs and adjectives for emphasis.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Adverb doubling signals intensification through repetition, creating a cumulative emphatic effect that amplifies the degree adverb's semantic contribution.",
+   "pedagogical_hook": "Double 'really' as emphatic intensifier \u2014 the learner exploits English adverb morphology by repetition to convey heightened intensity, a productive strategy even at intermediate levels.",
+   "agency_or_distance": "SENDER_HIGH \u2014 the doubled form reflects the speaker's strong personal commitment to the proposition."
+  },
+  "detection": {
+   "regex_triage": "\\breally\\s+(?:(?:very\\s+)?[a-z]+ly\\s+)?really\\s+(?:[a-z]+(?:ly)?|very\\s+(?:[a-z]+(?:ly)?))\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "really"
+    },
+    {
+     "LOWER": "really"
+    },
+    {},
+    {
+     "OP": "?"
+    },
+    {}
+   ],
+   "spacy_token_pattern_adjective": [
+    {
+     "LOWER": "really"
+    },
+    {
+     "LOWER": "really"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I really really like her smile.",
+    "It was really really boring."
+   ],
+   "negatives": [
+    "I really like it and I really mean it.",
+    "Really, really, is that true?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x695725338489926300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: DEGREE WITH VERBS",
+  "can_do_statement": "Can use an increasing range of degree adverbs ('a little', 'a bit') with verbs to indicate degree or intensity. \u25ba determiners",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Degree adverbs with verbs function as scalar modifiers that attenuate or amplify the verb's action along an intensity continuum, operating on the event's manner rather than its truth conditions.",
+   "pedagogical_hook": "Degree adverb as scalar attenuator with verbs \u2014 'a little' and 'a bit' hedge the verb's action, signaling partial or gradual engagement rather than full commitment.",
+   "agency_or_distance": "SENDER_MEDIUM \u2014 the adverb tempers the assertion with epistemic caution."
+  },
+  "detection": {
+   "regex_triage": "(?:a\\s+little|a\\s+bit|a\\s+little\\s+bit)\\s+(?!(?:bit|much|more|less|long)\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "a",
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I can speak English a little.",
+    "Let me rest a bit before we continue."
+   ],
+   "negatives": [
+    "I have a little bit of sugar in my tea.",
+    "A bit much, don't you think?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x733988029465825200",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "1",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use a limited range of adverbs ('maybe', 'perhaps') to indicate degrees of certainty.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Epistemic adverbs mark the speaker's degree of commitment to the proposition's truth, functioning as hedge operators that downgrade or soften certainty claims.",
+   "pedagogical_hook": "Epistemic hedge as certainty attenuator \u2014 'maybe' and 'perhaps' signal that the proposition is one possibility among alternatives, reducing the speaker's epistemic burden.",
+   "agency_or_distance": "SENDER_LOW \u2014 the adverb signals reduced epistemic commitment."
+  },
+  "detection": {
+   "regex_triage": "\\b(?:maybe|perhaps)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:maybe|perhaps)$"
+     },
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Maybe we should try a different approach.",
+    "Perhaps she forgot to call."
+   ],
+   "negatives": [
+    "Maybe I am, maybe I'm not \u2014 it's hard to say.",
+    "She played perhaps the best match of her career."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x815759544206507300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: LINKING",
+  "can_do_statement": "Can use an increasing range of adverbs ('therefore', 'furthermore', 'otherwise') to show a relationship between two clauses or sentences.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Linking adverbs function as inter-clausal operators that signal logical or argumentative relations (consequence, addition, contrast) between propositions, guiding the listener through the discourse structure.",
+   "pedagogical_hook": "Linking adverb as discourse glue \u2014 it signals the semantic relationship between two clauses rather than modifying within a single clause, functioning as a connective at clause boundary.",
+   "agency_or_distance": "ARGUMENTATIVE_DISTANCE \u2014 the adverb operates at the propositional level, relating two distinct claims."
+  },
+  "detection": {
+   "regex_triage": "\\b(?:therefore|furthermore|otherwise)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:therefore|furthermore|otherwise)$"
+     },
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Therefore, I recommend the second option.",
+    "Furthermore, the cost is much lower."
+   ],
+   "negatives": [
+    "I didn't know otherwise.",
+    "Furthermore along the road there was a sign."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706725x265810821276633920",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: FOCUS",
+  "can_do_statement": "Can use an increasing range of focusing adverbs ('particularly', 'especially') to point to or highlight something. \u25ba adverbs: position",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Focusing adverbs selectively highlight a constituent within the proposition, signaling that the highlighted element is the most relevant, typical, or noteworthy instance of a broader set.",
+   "pedagogical_hook": "Focusing adverb as spotlight \u2014 it draws attention to a specific constituent and signals that it exemplifies or exceptionalizes the broader claim.",
+   "agency_or_distance": "SENDER_HIGH \u2014 the adverb intensifies focus on a particular element of the proposition."
+  },
+  "detection": {
+   "regex_triage": "\\b(?:particularly|especially)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:particularly|especially)$"
+     },
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I enjoy reading, particularly in the evenings.",
+    "I love dolphins, especially the spotted ones."
+   ],
+   "negatives": [
+    "Particularly that one was my favorite, though.",
+    "Especially if you're interested in art, visit the museum."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706725x621289960987123600",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: ORGANISING ",
+  "can_do_statement": "Can use adverbs as discourse markers to organise text.  \u25ba  adverbs: position \u25ba  Discourse markers",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Discourse marker adverbs sequence and structure the text by signaling the order, addition, or conclusion of arguments, functioning as rhetorical signposts that guide the reader through the discourse.",
+   "pedagogical_hook": "Discourse marker as text organiser \u2014 words like 'firstly' and 'finally' signal structural positions in an argument sequence, functioning as procedural markers rather than content modifiers.",
+   "agency_or_distance": "METADISCOURSE \u2014 the adverb operates above the propositional level, organizing the discourse itself."
+  },
+  "detection": {
+   "regex_triage": "\\b(?:firstly|secondly|thirdly|finally|what's\\s+more|also)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:firstly|secondly|finally|what's)$"
+     }
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "more"
+    },
+    {
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Firstly, we need to review the budget.",
+    "Secondly, consider the long-term implications."
+   ],
+   "negatives": [
+    "I firstly met her in Paris.",
+    "Finally, the last bus leaves at midnight."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x104951219517093630",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "3",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use a wide range of adverbs to indicate degrees of certainty.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "High-certainty adverbs at C1 level function as epistemic amplifiers that express near-definitive commitment, often with a modal flavor that carries rhetorical force beyond mere confidence.",
+   "pedagogical_hook": "Certainty adverb as epistemic amplifier \u2014 forms like 'undoubtedly' and 'undeniably' express near-maximal epistemic commitment, often used in argumentation to foreclose alternative interpretations.",
+   "agency_or_distance": "SENDER_ABSOLUTE \u2014 the adverb signals near-total epistemic commitment."
+  },
+  "detection": {
+   "regex_triage": "\\b(?:undoubtedly|undeniably|absolutely)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:undoubtedly|undeniably|absolutely)$"
+     },
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was undoubtedly an unforgettable experience.",
+    "The evidence is undeniably compelling."
+   ],
+   "negatives": [
+    "I absolutely love this song.",
+    "She undeniably is the best player, or is she?"
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x276724228986273700",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use an increasing range of adverbs ('completely', 'obviously', 'clearly', 'actually', 'luckily', 'honestly', 'sadly', 'basically', 'obviously', 'hopefully') to indicate an attitude or viewpoint.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "B1 stance adverbs represent an expanded toolkit for expressing evaluative, emotional, and epistemic commentary on propositions, now including evaluative judgment (completely, obviously) and emotional coloring (sadly, luckily).",
+   "pedagogical_hook": "Expanded stance adverb as evaluative toolkit \u2014 the learner moves beyond sympathy expressions to include logical evaluation (obviously, clearly) and emotional coloring (sadly, luckily), marking their subjective relationship to the proposition.",
+   "agency_or_distance": "SENDER_HIGH \u2014 the adverb signals the speaker's strong evaluative or emotional stance."
+  },
+  "detection": {
+   "regex_triage": "\\b(?:completely|obviously|clearly|actually|luckily|honestly|sadly|basically|surely|hopefully)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:completely|obviously|clearly|actually|luckily|honestly|sadly|basically|surely|hopefully)$"
+     },
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Obviously it's the best solution available.",
+    "I am completely sure about this decision."
+   ],
+   "negatives": [
+    "Obviously, the problem is obvious to everyone here.",
+    "She is actually a doctor, actually."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x470804791633165250",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "3",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use a wide range of manner adverbs to modify how something happpens.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Manner adverbs describe the way or style in which an action is performed, adding procedural detail about the event's execution without altering its temporal structure.",
+   "pedagogical_hook": "Manner adverb as event descriptor \u2014 it answers 'how?' by specifying the way or method of the action, adding detail about the event's execution.",
+   "agency_or_distance": "EVENT_INTERNAL \u2014 the adverb describes the internal properties of the event itself."
+  },
+  "detection": {
+   "regex_triage": "\\b[a-z]+(?:ly)\\s+(?:verbally|seriously|carefully|quickly|slowly)\\b",
+   "spacy_token_pattern": [
+    {
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She carefully reviewed all the documents.",
+    "He seriously considered the offer."
+   ],
+   "negatives": [
+    "The meeting will seriously affect our plans.",
+    "She quickly ran, quickly."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x546695627596920800",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "3",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use a wide range of stance adverbs (simply, truly, surely, apparently, naturally, surprisingly, inevitably, literally, exceptionally, frankly, clearly, amazingly, wisely, admittedly) to indicate an attitude or viewpoint, often in clause initial position.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "C1 stance adverbs include a wide repertoire of high-precision evaluative markers that convey surprise, inevitability, frankness, and epistemic distance, reflecting sophisticated rhetorical awareness.",
+   "pedagogical_hook": "C1 stance as rhetorical precision tool \u2014 sophisticated adverbs like 'inevitably,' 'admittedly,' and 'surprisingly' signal complex evaluative positioning and the speaker's nuanced stance management.",
+   "agency_or_distance": "SENDER_SOPHISTICATED \u2014 the adverb signals high-level stance management with rhetorical sophistication."
+  },
+  "detection": {
+   "regex_triage": "\\b(?:simply|truly|surely|apparently|naturally|surprisingly|inevitably|literally|exceptionally|frankly|clearly|amazingly|wisely|admittedly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:simply|truly|surely|apparently|naturally|surprisingly|inevitably|literally|exceptionally|frankly|clearly|amazingly|wisely|admittedly)$"
+     },
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Surely not everyone agrees with that view.",
+    "Surprisingly, the project was completed on time."
+   ],
+   "negatives": [
+    "Simply said, it was a disaster.",
+    "Truly, truly, I have no idea."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x660123674531105900",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "3",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use a wide range of adverbs and adverb phrases to refer to the timing of an event.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Time adverbs locate events on the temporal axis, specifying whether they occur before (shortly), simultaneously (instantly), or over an extended duration (permanently, simultaneously).",
+   "pedagogical_hook": "Time adverb as temporal anchor \u2014 it situates the event on the timeline, answering 'when?' or 'how long?' with precision, often interacting with tense morphology.",
+   "agency_or_distance": "TEMPORAL_PROXIMITY \u2014 the adverb codes the event's temporal relationship to the speech moment or reference point."
+  },
+  "detection": {
+   "regex_triage": "\\b(?:shortly|instantly|permanently|simultaneously)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:shortly|instantly|permanently|simultaneously|recently|nowadays)$"
+     },
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I will reply shortly after receiving your email.",
+    "She instantly recognised the voice."
+   ],
+   "negatives": [
+    "I recently have recently been very busy.",
+    "Instantly is not the word you're looking for."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x756237515197119700",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "3",
+  "guideword": "USE: DEGREE, WITH ADJECTIVES",
+  "can_do_statement": "Can use a wide range of adverbs with adjectives to express degree or intensity.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Degree adverbs with adjectives function as scalar intensifiers that move the adjective along a degree continuum, often creating absolute or extreme endpoints (extremely, totally).",
+   "pedagogical_hook": "Degree adverb as scalar intensifier with adjectives \u2014 the learner manipulates the intensity of the adjective, creating strong evaluative effects (extremely important, totally unacceptable).",
+   "agency_or_distance": "SENDER_HIGH \u2014 the adverb amplifies the evaluative force of the adjective."
+  },
+  "detection": {
+   "regex_triage": "\\b(?:completely|extremely|totally|highly|deeply|utterly|absolutely)\\s+(?!\\b(?:much|more|less|long|bit)\\b)[a-z]+(?:(?:ised|ized|able|ible|ous|ful|less|al)\\b|(?:ed|en|ing)\\b|[a-z]{3,})(?![\\s\\S]*\\b(?:to|for|with|from|at|on|in|by|of|that|when|then|now|soon)\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:completely|extremely|totally|highly|absolutely|utterly)$"
+     }
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is extremely important to finish on time.",
+    "This is totally unacceptable behavior."
+   ],
+   "negatives": [
+    "Extremely much more than expected.",
+    "Totally very good, but still needs work."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x756650384090509300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use an increasing range of adverbs to indicate degrees of certainty.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "B1 certainty adverbs occupy a mid-range on the epistemic commitment scale, with 'probably' expressing moderate uncertainty and 'certainly'/'definitely' expressing stronger confidence without reaching absolute certainty.",
+   "pedagogical_hook": "B1 certainty as epistemic gradient \u2014 'probably' signals possibility, 'certainly' and 'definitely' signal high confidence, allowing the learner to calibrate their epistemic commitment.",
+   "agency_or_distance": "SENDER_MEDIUM_TO_HIGH \u2014 the adverb calibrates the speaker's epistemic commitment between possibility and strong confidence."
+  },
+  "detection": {
+   "regex_triage": "\\b(?:probably|certainly|definitely)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "regex": "^(?:probably|certainly|definitely)$"
+     },
+     "OP": "1"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It will probably be on TV next month.",
+    "I will definitely arrive by five."
+   ],
+   "negatives": [
+    "Probably is my favorite word in this context.",
+    "Definitely the best I've ever had, probably."
+   ]
+  }
+ }
+]

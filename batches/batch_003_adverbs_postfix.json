@@ -1,0 +1,224 @@
+[
+ {
+  "egp_id": "1741163706724x559298050081440640",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use a limited range of adverbs ('actually', 'unfortunately', 'of course', 'I'm sorry') to indicate an attitude or viewpoint.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Speaker's evaluative positioning toward propositional content, signaling attitude or emotional stance rather than temporal grounding.",
+   "pedagogical_hook": "Stance adverbs function as speaker markers\u2014compare: 'It's raining.' vs 'Unfortunately, it's raining.' The adverb signals how the speaker feels about the fact, not about time.",
+   "agency_or_distance": "speaker_distance"
+  },
+  "detection": {
+   "regex_triage": "\\b(actual\\ ly|unfortunately|of course|i['\u2019]m sorry)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "actually",
+       "unfortunately"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "course"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "sorry"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Actually, I think we should reschedule the meeting.",
+    "Unfortunately, the flight was delayed by three hours."
+   ],
+   "negatives": [
+    "Actually is the name of my favorite TV show.",
+    "The word unfortunately appears in this dictionary definition."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x630956425733939100",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: PLACE",
+  "can_do_statement": "Can use an increasing range of adverbs and adverb phrases ('near', 'far away', 'upstairs', 'downstairs') to indicate place.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Spatial orientation marker indicating static or relative location of an entity within a perceived scene layout.",
+   "pedagogical_hook": "Place adverbs anchor referents spatially\u2014'He went upstairs' vs 'He went quickly.' The adverb answers 'where?' not 'how?' or 'when?'",
+   "agency_or_distance": "spatial_proximity"
+  },
+  "detection": {
+   "regex_triage": "\\b(near|far away|upstairs|downstairs|nearby)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "near",
+       "upstairs",
+       "downstairs",
+       "nearby"
+      ]
+     }
+    },
+    {
+     "LOWER": "far"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We went upstairs to see the view.",
+    "There's a caf\u00e9 nearby, do you want to grab coffee?"
+   ],
+   "negatives": [
+    "I near missed the bus this morning.",
+    "He was wearing a far-away expression."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x695725338489926300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE WITH VERBS",
+  "can_do_statement": "Can use an increasing range of degree adverbs ('a little', 'a bit') with verbs to indicate degree or intensity.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Scalar intensity modifier that attenuates or amplifies verb action along a gradable continuum, often conveying hedging or softening.",
+   "pedagogical_hook": "Degree adverbs with verbs adjust intensity\u2014'I like it' vs 'I like it a little.' The phrase modifies how much, not when or where the action occurs.",
+   "agency_or_distance": "scalar_intensity"
+  },
+  "detection": {
+   "regex_triage": "\\b(a little|a bit|just a little|just a bit)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "just"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "a"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "little",
+       "bit"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I can speak a little French after the course.",
+    "Could you walk a bit slower, please?"
+   ],
+   "negatives": [
+    "There was a little boy sitting in the corner.",
+    "I have a bit of sugar if you need it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x733988029465825200",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use a limited range of adverbs ('maybe', 'perhaps') to indicate degrees of certainty.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Epistemic modality marker expressing speaker uncertainty or probabilistic assessment of proposition truth-value.",
+   "pedagogical_hook": "Certainty adverbs signal how sure the speaker is\u2014'She's at home.' vs 'Perhaps she's at home.' The adverb grades the confidence, not the fact itself.",
+   "agency_or_distance": "epistemic_distance"
+  },
+  "detection": {
+   "regex_triage": "\\b(maybe|perhaps)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "maybe",
+       "perhaps"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Maybe we should try a different approach.",
+    "Perhaps she's running late this morning."
+   ],
+   "negatives": [
+    "Maybe is my middle name.",
+    "We perhaps went to different schools."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x815759544206507300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: LINKING",
+  "can_do_statement": "Can use an increasing range of adverbs ('therefore', 'furthermore', 'otherwise') to show a relationship between two clauses or sentences.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Discourse connective marker establishing logical or sequential relationships (consequence, addition, condition) between propositions across clause boundaries.",
+   "pedagogical_hook": "Linking adverbs function as sentence connectors\u2014'It's raining. Therefore, we cancelled.' The adverb creates coherence by signaling cause-effect or addition.",
+   "agency_or_distance": "logical_sequencing"
+  },
+  "detection": {
+   "regex_triage": "\\b(therefore|furthermore|otherwise)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "therefore",
+       "furthermore",
+       "otherwise"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The roads were icy. Therefore, the school closed early.",
+    "I studied hard. Furthermore, I practiced every day."
+   ],
+   "negatives": [
+    "The therefore symbol is used in mathematics.",
+    "She otherwise agreed with the proposal."
+   ]
+  }
+ }
+]
