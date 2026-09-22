@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_054.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163713121x994056627950362600",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "1",
+  "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY",
+  "can_do_statement": "Can use the present continuous with a limited range of adverbs of indefinite frequency, often to talk about surprising or undesirable situations or events (especially with 'always').",
+  "example_raw": "I'm always dreaming about a job as a secretary. (A2, Polish) \n\nYou are always losing things. (Cuba; A2 WAYSTAGE; 2006; Spanish - Latin American; Pass)\n\nShe is always smiling. (Bulgarian, Bulgaria, A2 WAYSTAGE, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163713122x609663333417254100",
+  "level": "B1",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "3",
+  "guideword": "USE: TEMPORARY SITUATIONS",
+  "can_do_statement": "Can use the present continuous with a wide range of verbs to talk about temporary situations.",
+  "example_raw": "I'm enjoying a sunny day, much better than England. (B1 Chinese) \n\nNow, I'm in a hotel, here in the centre of Madrid, and it's raining a little bit. (B1 Portuguese)"
+ },
+ {
+  "egp_id": "1741163713122x846846152825808300",
+  "level": "B1",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "3",
+  "guideword": "USE: EVENTS IN PROGRESS",
+  "can_do_statement": "Can use the present continuous with a wide range of verbs to talk about situations and events in progress.",
+  "example_raw": "I\u2019m planning a picnic on Saturday in the park. (Serbian, Yugoslavia, B1 THRESHOLD, Pass, 2009)\n\nI\u2019m expecting my cousin to visit me. (Portuguese, Brazil, B1 THRESHOLD, Pass, 2004)\n\nI think I am falling in love. (Brazil; B1 THRESHOLD; 2002; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163713625x476438924071697100",
+  "level": "C2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITENESS",
+  "can_do_statement": "Can use the present continuous with verbs that are not usually used in this form to make statements and requests sound less direct.",
+  "example_raw": "Considering the importance of the matter, I am asking for your financial support. (Greek, Greece, C2 MASTERY, Pass, 2001)\n\nI'm asking permission to be excused from work for at least three days. (Greek, ===NONE===, C2 MASTERY, Pass, 1993)\n\nIf we're wanting to make progress in prolonging the length of human lives, we equally have to be willing to spend time and make an effort... (Dutch, Netherlands, C2 MASTERY, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163713625x540058676609126000",
+  "level": "C2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "3",
+  "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY",
+  "can_do_statement": "Can use the present continuous with a wide range of adverbs of indefinite frequency, often to talk about surprising or undesirable situations or events.",
+  "example_raw": "\u2026 we are persistently asking ourselves questions about where we are from and why we are here. (C2, Russian)\n\nDuring life we are permanently learning and increasing our knowledge. (Spanish - Latin American, Argentina, C2 MASTERY, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163713625x675785619911793800",
+  "level": "C1",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: RHETORICAL QUESTIONS ",
+  "can_do_statement": "Can use question forms to ask rhetorical questions.",
+  "example_raw": "[writing about fashion] Are we becoming shallow? (C1 Czech)\n\nWhy is technology taking over our lives? (C1 Portuguese)\n\nWhy am I explaining all this? The only reason is that I want to show that young people are interested in sports. (C1 Spanish Latin American)"
+ },
+ {
+  "egp_id": "1741163713625x686455222331109500",
+  "level": "B2",
+  "super_category": "PRESENT",
+  "sub_category": "present continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY ",
+  "can_do_statement": "Can use the present continuous with an increasing range of adverbs of indefinite frequency, often to talk about surprising or undesirable situations or events.",
+  "example_raw": "\u2026 scientists don't really get together with top models \u2026 they are constantly studying and reading books, whereas the job of a top model is actually based on physical appearance. (B2 French)\n\n\u2026 you're continuously dealing with toxic substances and flammable liquids\u2026 (Spanish - European, Spain, B2 VANTAGE, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163713626x133661684035994100",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "2",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with an increasing range of regular and irregular verbs.",
+  "example_raw": "They are very important to me, because they bring me good luck. (Key English Test, A2,Bulgarian)\n\nI hope you can come next time. (Key English Test, A2,Portuguese)\n\n The journey takes about half an hour from Paris. (Key English Test, A2, French)"
+ },
+ {
+  "egp_id": "1741163713626x199664325289681020",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: REAL AND IMAGINED SITUATIONS AFTER 'IF'",
+  "can_do_statement": "Can use the present simple after 'if' to talk about real and imagined situations.",
+  "example_raw": "If you want some help, I will be free next week. (Key English Test, A2, French)\n\nIf you go with your parents, you will go walking or swimming, but if you go with friends, you will have more fun. (Key English Test, A2, German)\n\nDon't forget to wear colourful clothes because if you wear white clothes, you will get paint on them. (Key English Test, A2, Thai)\n\n[talking about a toothbrush] It is very important for me because if I don't have it, I can't clean my teeth. (Key English Test, A2, Thai)"
+ },
+ {
+  "egp_id": "1741163713626x335670389512142900",
+  "level": "A1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "1",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form with a limited range of regular and irregular verbs.",
+  "example_raw": "I don't like meat and fish. (Skills for life Elementary 1, A1, Kurdish)\n\nYou don\u2019t know the place. (Skills for life Elementary 1, A1, French)"
+ },
+ {
+  "egp_id": "1741163713626x414037782388433340",
+  "level": "A1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: HABITS AND GENERAL FACTS",
+  "can_do_statement": "Can use the present simple to talk about repeated events or habits, and general facts. ",
+  "example_raw": "I work in a supermarket. (Skills for life Elementary 1, A1, Russian)\n\nI like my place because it is quiet, the people are nice, it is near the town centre, not too far from the college and my flat is lovely. (Skills for life Elementary 1, A1, Kurdish)\n\nIt takes 25 minutes by car, but by bus it takes 1 hour \u2026 (Skills for life Elementary 1, A1, Nepali)\n\nI watch TV in the evening. I read books at night. (Skills for life Elementary 1, A1, Farsi)\n\nShe goes to work by bus. (Skills for life Elementary 1, A1, Tamil)"
+ },
+ {
+  "egp_id": "1741163713626x486355013779909760",
+  "level": "A1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "1",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form with a limited range of regular and irregular verbs.",
+  "example_raw": "Every day at college I learn new words and new things. (Skills for life Elementary 1, A1, Polish)\n\nI am your new neighbour. (Skills for life Elementary 1, A1, Panjabi)\n\nShe plays tennis and she likes going to the swimming pool. (Skills for life Elementary 1, A1, French)"
+ },
+ {
+  "egp_id": "1741163713626x606524312014730500",
+  "level": "A1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH 'REALLY'",
+  "can_do_statement": "Can use the present simple with the adverb 'really' as an intensifier. \u25ba adverbs",
+  "example_raw": "I really like my kitchen, because it is big and new and it makes my cooking easy. (Skills for life Elementary 1; A1, Somali)\n\nI really want to see you. (Skills for life Elementary 1, A1, Polish)"
+ },
+ {
+  "egp_id": "1741163713633x233890848639745730",
+  "level": "B1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NEGATIVE TAG QUESTIONS",
+  "can_do_statement": "Can use 'don't you think' or 'don't you agree' to look for agreement or an opinion.",
+  "example_raw": "It's a bit strange, don't you think? (Preliminary English Test, B1, Spanish \u2013 Latin American)\n\nI think it\u2019s the best way, don\u2019t you agree? (Preliminary English Test, B1, Portuguese)\n\nThe surprise will be even bigger if I wait. Don't you think so? (Preliminary English Test, B1, German)"
+ },
+ {
+  "egp_id": "1741163713633x370718520406196900",
+  "level": "B1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with a wide range of subjects.",
+  "example_raw": "Does your brother go with your parents? (Preliminary English Test, B1, German)\n\nWhich programmes do we like to watch? (B1 Farsi)\n\nWhere do they want to spend their holidays? (Preliminary English Test, B1, German)\n\nHow does he know my name? (Preliminary English Test, B1, Spanish \u2013 Latin American)"
+ }
+]
+```

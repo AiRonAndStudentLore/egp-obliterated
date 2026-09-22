@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_008.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163708564x509910132136988540",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NON-DEFINING, OBJECT, WITH 'WHICH'",
+  "can_do_statement": "Can use a non-defining relative clause with 'which' as the object.",
+  "example_raw": "The best of all was a marble statue which my aunt gave me. (Bangladesh; A2 WAYSTAGE; 2004; Bengali; Pass)\n\nThanks for your letter which I received a few days ago. (Greece; A2 WAYSTAGE; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708565x122254210106770510",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE' + NOUN + 'WHO/THAT', FOCUS",
+  "can_do_statement": "Can use defining relative clauses, 'the person who/that, the thing that, the (only) one who/that' as a focusing device. ",
+  "example_raw": "The thing that was great is that the weather was really warm and it didn't rain. (France; B1 THRESHOLD; 2003; French; Pass)\n\nThe thing that I love most is going to the shops. (Peru; B1 THRESHOLD; 2001; Spanish - Latin American; Pass)\n\nThe person who sat next to me was her. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nThe person who called me was my best friend. (Spain; B1 THRESHOLD; 2006; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163708565x251895365489699360",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH 'WHERE', PLACE",
+  "can_do_statement": "Can use defining relative clauses with 'where' to define nouns referring to place.",
+  "example_raw": "The city where I live is very nice and extremely charming. (B1 THRESHOLD; 2003; ; Pass)\n\nBut if they are going to a place where you go every year you should go with your friends, you will have more fun. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nWe went to the area where I used to live when I was a child near the Highlands. (Czech Republic; B1 THRESHOLD; 2003; Czech; Pass)>"
+ },
+ {
+  "egp_id": "1741163708565x386440393591908900",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WHEN', FOCUS",
+  "can_do_statement": "Can use defining relative clauses with 'when' to define nouns relating to time. ",
+  "example_raw": "The day when he had to go back to Korea, I could not stop myself crying. (Korea, South; B1 THRESHOLD; 1999; Korean; Pass)\n\nI really remember the day when I lost my suitcase in the airport. (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nI was in the class at the time when they made the movie, so you will be able to see me on TV. (Poland; B1 THRESHOLD; 2008; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163708565x566817072036876350",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NON-DEFINING, OBJECT, WITH 'WHO'",
+  "can_do_statement": "Can use a non-defining relative clause with 'who' as the object.",
+  "example_raw": "What I liked most was the friend I made there, a green-eyed chubby boy, who I played with till dinner time, when I had to go home. (Brazil; B1 THRESHOLD; 2003; Portuguese; Pass)\n\nShe turned around and, she couldn't believe it, it was an old classmate Tom, who she hadn't seen for ages! (Germany; B1 THRESHOLD; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163708565x817408966754863900",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DEFINING, WITHOUT PRONOUN",
+  "can_do_statement": "Can use a defining relative clause, without a relative pronoun.",
+  "example_raw": "My friends said the clothes I wore were very old, and they didn't like them. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nAll my friends gave me a present but the one I liked best was John's. (Portugal; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nHere I have the information you want. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)\n\n[talking about video calls] You can see the person you are calling LIVE!!! (Cyprus; A2 WAYSTAGE; 2007; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708565x846306043223088400",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRONOUN + PREPOSITION",
+  "can_do_statement": "Can use defining relative clauses and non-defining relative clauses ending in a preposition, with 'who/which/that' as the complement of the preposition.",
+  "example_raw": "Thank you very much for having provided us with valuable information about your finance services, which we are greatly interested in. (China; B2 VANTAGE; 2008; Chinese; Pass)\n\nI would like to do some painting, which I am quite good at. (Switzerland; B2 VANTAGE; 2000; French; Pass)\n\nThey have three wonderful children who I love to play with. (Sweden; B2 VANTAGE; 1998; Swedish; Pass)\n\nHe was involved in a case that he had nothing to do with! (Greece; B2 VANTAGE; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708565x846617399720543500",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE REASON WHY', FOCUS",
+  "can_do_statement": "Can use defining relative clauses with 'why' after 'reason', to give an explanation and for focus. ",
+  "example_raw": "The reason why I love it is that it's quite original because it's about a woman who can see ghosts. (Spain; B1 THRESHOLD; 2007; Spanish - European; Pass)\n\nThis is the reason why we are changing our working hours. (Germany; B1 THRESHOLD; 2007; German; Pass)\n\nThis is the main reason why it is so famous and popular as well. (B1 THRESHOLD; 2006; French; Pass)"
+ },
+ {
+  "egp_id": "1741163708565x862760497502034200",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: DEFINING, OBJECT, WITH 'WHO/THAT'",
+  "can_do_statement": "Can use a defining relative clause with 'who' or 'that' as the object.",
+  "example_raw": "My friends are the people who I love most. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nThey filmed two actors who I don't really know arguing and kissing after it. (Spain; B1 THRESHOLD; 2008; Catalan; Pass)\n\nIt was Sarah, a girl who I met in Spain on my holiday last year. (Switzerland; B1 THRESHOLD; 2006; Swiss German; Pass) \n\nWe are going with my friends Paolo and Ontorio, the guys who you met yesterday. (Italy; B1 THRESHOLD; 2004; Italian; Pass)\n\nSo I sent a letter to the school and they have sent me the details of the people that I'm going to stay with. (Japan; B1 THRESHOLD; 2003; Japanese; Pass)"
+ },
+ {
+  "egp_id": "1741163708565x901437004568881900",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH 'WHOSE NAME'",
+  "can_do_statement": "Can use defining and non-defining relative clauses with 'whose name'.",
+  "example_raw": "We have a new employee whose name is Mary Watts. (Spain; B1 THRESHOLD; 2002; Spanish - European; Pass)\n\nIt was a very famous football player, whose name was known all over the world. (Russia; B1 THRESHOLD; 2009; Russian; Pass)\n\nI have many friends but I'll tell you about my best friend, whose name is Nicos. (Greece; B1 THRESHOLD; 2009; Greek; Pass)\n\nHe has got a friend whose name is Robert. (Germany; B1 THRESHOLD; 2001; German; Pass\n\nThe man whose name I can't remember, wrote a serious looking message. (Switzerland; B1 THRESHOLD; 2004; Swiss German; Pass)"
+ },
+ {
+  "egp_id": "1741163708566x933173646960638000",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NON-DEFINING, WITH 'WHOSE'",
+  "can_do_statement": "Can use non-defining relative clauses with 'whose', to give additional information. ",
+  "example_raw": "And I was initially employed to be an entrance assistant, whose job was to keep the queue under control as well as keeping the area clean. (China; B2 VANTAGE; 2000; Chinese; Pass)\n\nI was at the concert when I met a friend of mine whose job is to organise shows like that. (Italy; B2 VANTAGE; 2000; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163708567x103888477209590050",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: DEFINING, WITH 'WHOSE'",
+  "can_do_statement": "Can use defining relative clauses with 'whose', to give more information about relationship.",
+  "example_raw": "I visited several primary schools in Canberra and had opportunities to teach not only Australian children but also Vietnamese children whose parents immigrated to Australia. (Japan; B2 VANTAGE; 1993; Japanese; Pass)\n\nMary is a young lady whose parents had died and she had nobody else but an aunt to live with. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163708567x429681014975256600",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "relative",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: SENTENCE, EVALUATIVE",
+  "can_do_statement": "Can use a relative clause to refer to a whole clause or sentence, often to express an opinion or evaluation or give a reason. ",
+  "example_raw": "It is now possible to send a letter and receive an answer within ten minutes, which is a good thing if you want to buy a house, a car etc. (Denmark; B2 VANTAGE; 1999; Danish; Pass)\n\nIn addition, zoological gardens allow us to get to know the lifestyles of some animals better, which is very important from the point of view of their protection. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nI have also visited the dance shows and the art exhibitions, as well as the talks by writers, which were all really brilliant. (Switzerland; B2 VANTAGE; 2000; French; Pass)"
+ },
+ {
+  "egp_id": "1741163708567x143784828552863340",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: CONTRAST",
+  "can_do_statement": "Can use a finite subordinate clause with conjunctions ('even though, (al)though, while if') to introduce contrast, before or after a main clause. ",
+  "example_raw": "You should come with your sister even though you would rather be alone. (France; B1 THRESHOLD; 2009; French; Pass)\n\nEven though I am currently quite busy, I will be very glad to take part in the Conference dinner. (Italy; B1 THRESHOLD; 1999; Italian; Pass)\n\nAlthough he was famous, I didn't like him. (Chile; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nThough we are not studying at the same school now, we always keep in touch. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nThe main actor is my favorite actor, although I can't remember his name. (Taiwan; B1 THRESHOLD; 2002; Chinese; Pass)\n\nI think going on holiday with your parents won't be very much fun, while if you go with your friends you will enjoy yourself much more. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163708567x184494536538858620",
+  "level": "A1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'BECAUSE', REASONS",
+  "can_do_statement": "Can use a finite subordinate clause with 'because', after a main clause, to introduce reasons. ",
+  "example_raw": "I love her because she is friendly. (A1 BREAKTHROUGH; 2006; Bengali; Pass)\n\nI like my television because it is big and modern. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)"
+ }
+]
+```

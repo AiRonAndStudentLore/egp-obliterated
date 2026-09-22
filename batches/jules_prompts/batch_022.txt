@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_022.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163710385x500120926290810800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF'-CLAUSE + 'POSSIBLE', POLITENESS",
+  "can_do_statement": "Can use 'if-' clauses + 'possible', as a politeness strategy. ",
+  "example_raw": "If it is possible I would like to pay by credit card. (B1 THRESHOLD; 2003; ; Pass)\n\nIf possible, please re-deliver the same goods right now. (China; B1 THRESHOLD; 2002; Chinese; Pass)\n\nI'm not free at 6 so I'd change it to 9 if it's possible. (Libya; B1 THRESHOLD; 2008; Arabic - Meghreb; Pass)\n\nIf it's possible, could you send the cards to my office in London? (Sweden; B1 THRESHOLD; 2000; Swedish; Pass)\n\nI would prefer the 15th of July if it is possible. (Austria; B1 THRESHOLD; 2009; German; Pass)\n\nThe opening hours are quite convenient but, if possible, I would like the pool to open a bit earlier - at 8.30 am, for example. (Greece; B2 VANTAGE; 2004; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163710385x581159408154841040",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IT' + 'BE' + ADJECTIVE + INFINITIVE, HEDGING, EMPHASIS",
+  "can_do_statement": "Can use 'it' + 'be' + adjective + 'to' + infinitive, to make an assertion more or less direct. ",
+  "example_raw": "Our sales department staff are heavily involved in several international projects, so it is necessary to improve their foreign language skills. (Germany; B1 THRESHOLD; 2006; German; Pass)\n\nBut sometimes it's essential to do what your parents want you to do. (Georgia (Republic of); B1 THRESHOLD; 2008; Georgian; Pass)\n\nIn the centre of town it is possible to do more activities after school. (Italy; B1 THRESHOLD; 2008; German; Pass)\n\n[talking about a computer problem] It was impossible to install the system. (Ecuador; B2 VANTAGE; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163710385x692584626357576800",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'BE' + 'SURE' + CLAUSE ",
+  "can_do_statement": "Can use 'I' + 'be' + 'sure' + clause.",
+  "example_raw": "I'm sure I can beat you at chess. (Malaysia; A2 WAYSTAGE; 2007; Malay; Pass)\n\nI am not sure what I want to do but I am sure we will find something to do. (Norway; A2 WAYSTAGE; 2003; Norwegian; Pass)\n\nI\u2019m sure that you will love it. (Brazil; A2 WAYSTAGE; 2009; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163710385x880822948927010600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'IT' + 'BE' + ADJECTIVE + 'FOR' + OBJECT + INFINITIVE",
+  "can_do_statement": "Can use 'it' + 'be' + adjective + 'for' + object + 'to' + infinitive.",
+  "example_raw": "If you have to choose between two schools, I think it's important for you to know what they\u2019re like. (Peru; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nIt's impossible for me to meet with you at six o'clock. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nIt is important for everyone to attend this meeting. (Germany; B1 THRESHOLD; 1999; German; Pass)\n\n[talking about not missing class] It's essential for me to go because I think I can't study physics by myself. (Iran; B1 THRESHOLD; 2006; Farsi; Pass)"
+ },
+ {
+  "egp_id": "1741163710386x348002796343913640",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'IT' + LINKING VERB + ADJECTIVES + CLAUSE",
+  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause. ",
+  "example_raw": "It seems clear to me that swimming is good for the whole body. (B2 VANTAGE; 1993; Swedish; Pass)\n\nIt is obvious that some people prefer reading books. (Poland; B2 VANTAGE; 2008; Polish; Pass)\n\nIt is possible that we can be educated by TV. (Japan; B2 VANTAGE; 2004; Japanese; Pass)\n\nIt seems obvious that it is not necessary. (Switzerland; B2 VANTAGE; 2008; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710387x307020078437927360",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IT' + LINKING VERB + ADJECTIVES + CLAUSE, HEDGING",
+  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause to make an assertion less direct.",
+  "example_raw": "It does not seem possible that we can live without any private life. (Japan; B2 VANTAGE; 2000; Japanese; Pass)\n\nIt is likely that by reading books we will learn some new words and phrases so that we will be able to write better. (Poland; B2 VANTAGE; 2008; Polish; Pass)\n\nIt is possible that only one computer will do this. (Moldova (Republic of); B2 VANTAGE; 2000; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163710387x650967748684691500",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IT' + LINKING VERB + ADJECTIVES + ('THAT') CLAUSE, FOCUS",
+  "can_do_statement": "Can use 'it' + linking verb + adjective + ('that') clause as a focusing device.",
+  "example_raw": "It is clear that we can't live without computers today. (Russia; B2 VANTAGE; 1999; Russian; Pass)\n\nIt seems obvious that this oil comes from the gas station. (other; B2 VANTAGE; 2008; French; Pass)\n\nComputers became part of the human life style because they help us to make our lives easier, but it is clear that we should never depend on machines to handle our lives. (Mexico; B2 VANTAGE; 1999; Spanish - Latin American; Pass)\n\nDue to the introduction of a new staff appraisal form, it is crucial that you take part. (Switzerland; B2 VANTAGE; 2010; Swiss German; Pass)\n\nIt's obvious you can't ride forty kilometres twice a day, unless you're very sporty. (France; B2 VANTAGE; 1993; French; Pass)\n\nIt is essential that you know the advantages of our new product in order to sell this bag efficiently. (Germany; B2 VANTAGE; 2005; German; Pass)"
+ },
+ {
+  "egp_id": "1741163710387x670189134684302700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: SUBJECT + 'BE' + ADJECTIVE + 'TO' + INFINITIVE ",
+  "can_do_statement": "Can use pronoun or noun + 'be' + adjective + 'to' + (past) infinitive. ",
+  "example_raw": "They are unlikely to arrive on Friday. (India; B2 VANTAGE; 2008; Hindi; Pass)\n\nWe are sure to increase our turnover and at least our profit. (Austria; B2 VANTAGE; 2008; German; Pass)\n\nWhenever money is involved, some problems are likely to happen. (Spain; B2 VANTAGE; 2000; Spanish - European; Pass)\n\nIf you see a movie, it is likely to have been made with computers. (Switzerland; B2 VANTAGE; 1999; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710388x558221911355252500",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MODIFYING ADJECTIVES, EMPHASIS",
+  "can_do_statement": "Can modify adjectives with adverbs, often for emphasis.",
+  "example_raw": "It is painfully obvious that it will rescue our city from the pollution and fumes that cars are producing. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Polish; Fail)\n\n[talking about stolen goods] It is highly unlikely that the goods can vanish from your warehouse without that being noticed. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163710388x886068932656131300",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MODIFYING ADJECTIVES, HEDGING",
+  "can_do_statement": "Can modify adjectives with degree adverbs, often to make an assertion less direct.",
+  "example_raw": "If you want to come earlier or if there's a public transport strike (which is quite probable), you will have to take a taxi. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)\n\nIt is almost certain that we'll have fights in the future but we will probably overcome them. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163711535x514214856539001000",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM: CLAUSE POSITION",
+  "can_do_statement": "Can use adverbs of certainty and possibility ('maybe', 'perhaps'), before a clause or ellipted clause. \u25ba adverbs: position",
+  "example_raw": "I think I left my phone there, maybe in your kitchen. (Italy; A2 WAYSTAGE; 2005; Italian; Pass)\n\nMaybe we could visit that park you told me about or play at your house. (Mexico; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nI want to buy new trousers and, perhaps, a T-shirt. (Spain; A2 WAYSTAGE; 2001; Catalan; Pass)\n\nThere you can dance, eat, drink and meet new friends (or perhaps a girlfriend). (Brazil; A2 WAYSTAGE; 2010; Portuguese; Pass)\n\nPerhaps it's in the kitchen under the table. (Switzerland; A2 WAYSTAGE; 2005; Swiss German; Pass)"
+ },
+ {
+  "egp_id": "1741163711535x744252869965837700",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MID POSITION, HEDGING OR EMPHASIS",
+  "can_do_statement": "Can use adverbs in mid position or after main verb 'be', to modify an assertion, either through hedging or emphasis. \u25ba adverbs: position",
+  "example_raw": "It is probably in the sitting room on the table. (Czech Republic; A2 WAYSTAGE; 2005; Czech; Pass)\n\nYou should probably wear a T-shirt and shorts, with sneakers. (Maldives; A2 WAYSTAGE; 2008; Others; Pass)\n\n[talking about painting] It's definitely going to get messy. (Thailand; A2 WAYSTAGE; 2006; Thai; Pass)"
+ },
+ {
+  "egp_id": "1741163711538x197686206470594000",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: EMPHASIS",
+  "can_do_statement": "Can use an increasing range of adverbs, for emphasis.",
+  "example_raw": "If I were you I'd certainly choose not to go with your parents. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nI will certainly ring you on Friday. (France; B1 THRESHOLD; 2003; French; Pass)\n\nWell, with the job you\u2019ve got, you obviously can't keep fit. (Greece; B1 THRESHOLD; 2009; Greek; Pass)\n\nFor these reasons, I definitely recommend staying in a city. (Italy; B1 THRESHOLD; 2004; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163711538x400045316322393600",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE, RESPONSE TOKENS",
+  "can_do_statement": "Can use adverbs expressing certainty as short responses. ",
+  "example_raw": "Do I agree with this statement? Definitely. (Russia; C2 MASTERY; 2000; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163711538x841661069635560700",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "adverbs",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: RESPONSE TOKENS",
+  "can_do_statement": "Can use 'not necessarily' as a short response. ",
+  "example_raw": "Presents. Strips, bows, paper-wrapping. Thinking of Christmas? Not necessarily. (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Portuguese; Pass)"
+ }
+]
+```

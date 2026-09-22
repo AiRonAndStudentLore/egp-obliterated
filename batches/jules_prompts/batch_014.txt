@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_014.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163709012x123278635116746530",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MUCH' WITH UNCOUNTABLE NOUNS, NEGATIVE",
+  "can_do_statement": "Can use 'much' with uncountable nouns in negative contexts. ",
+  "example_raw": "But we didn't have much money, so we didn't buy many things. (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)\n\nI want to sell the television because I haven't got much time to watch it. (France; A2 WAYSTAGE; 2002; French; Pass)"
+ },
+ {
+  "egp_id": "1741163709012x230041547102954000",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH SINGULAR NOUNS",
+  "can_do_statement": "Can use a limited range of quantifying determiners with singular nouns ('a', 'every').\u25ba determiners: articles",
+  "example_raw": "In my home are 3 bedrooms. I have a big kitchen and small toilet. (A1 BREAKTHROUGH; 2009; Polish; Pass)\n\nThe first floor has two bedrooms and a big bathroom with a bath. (A1 BREAKTHROUGH; 2009; Romanian; Pass)\n\nI go to India every year to see my friends and family. (Panjabi, A1 BREAKTHROUGH, Pass, 2007)\n\nI go to college every day. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163709012x344511888995459460",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH SINGULAR NOUNS ",
+  "can_do_statement": "Can use an increasing range of quantifying determiners with singular nouns ('each', 'an', 'one' and numbers). ",
+  "example_raw": "The new art class starts next Monday and each class is about 1 hour long. (Hong Kong; A2 WAYSTAGE; 2006; Chinese; Pass)\n\nYesterday I bought three t-shirts: one blue t-shirt, one pink t-shirt and one yellow t-shirt. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nWe have an extra ticket and are wanting you to come. (India; A2 WAYSTAGE; 2009; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163709012x385518589517292100",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH PLURAL AND UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use a range of quantifying determiners ('some', 'any', 'no', 'more', 'a lot of') with both plural nouns and uncountable nouns.",
+  "example_raw": "I think we should bring some water to drink. (Cyprus; A2 WAYSTAGE; 2006; Turkish; Pass)\n\nI bought them because I don't have any clothes for the summer and I need them! (Spanish - European, A2 WAYSTAGE, Pass, 2008)\n\nThe weather was great. There were no clouds. (Japanese, A2 WAYSTAGE, Pass, 2009)\n\nI want to see that film but I have no time today because I have more work at home. (Sri Lanka; A2 WAYSTAGE; 2003; Tamil; Pass)\n\nIf you want more details, you can call this number. (Sri Lanka; A2 WAYSTAGE; 2010; Singhalese; Pass) \n\nWe will meet at my house at 10.15, so we will have more time in the club. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2008)\n\nWe danced, played games and had lots of fun . (India; A2 WAYSTAGE; 2004; Gujarati; Pass)"
+ },
+ {
+  "egp_id": "1741163709012x416302896661777700",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH PLURAL NOUNS ",
+  "can_do_statement": "Can use an increasing range of quantifying determiners with plural nouns ('all', 'both', 'a few').",
+  "example_raw": "This notice is for all students: we are going to have a concert at school. (Spain; A2 WAYSTAGE; 2005; Spanish - European; Pass)\n\nIt was exciting as both teams played well, but India won the match. (India; A2 WAYSTAGE; 2007; Hindi; Pass)\n\nI'm just writing to say hello, and to tell you a few things. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2008)\n"
+ },
+ {
+  "egp_id": "1741163709230x682584219326611800",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MANY' WITH PLURAL NOUNS, NEGATIVE",
+  "can_do_statement": "Can use 'many' with plural nouns in negative contexts. ",
+  "example_raw": "There are n't many tickets. (other; A2 WAYSTAGE; 2010; Others; Pass)\n\nI bought them because I have n't got many winter clothes. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163709230x890396805087210400",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'SO MANY' WITH PLURAL NOUNS",
+  "can_do_statement": "Can use 'so many' and 'too many' with plural nouns. ",
+  "example_raw": "We played so many games, like dog and bone, four corners, and many more. (India; A2 WAYSTAGE; 2004; Gujarati; Pass)\n\nWe visited so many places, mostly monuments. The weather was perfect. (Philippines; A2 WAYSTAGE; 2009; Tagalog; Pass)\n\nI know, I bought too many things but I liked all of them. (Turkey; A2 WAYSTAGE; 2008; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163709231x184772883851782600",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "3",
+  "guideword": "FORM: DETERMINER + 'OF' + DETERMINER ",
+  "can_do_statement": "Can use an increasing range of quantifying determiners + 'of' + determiner ('half of', 'enough of', 'none of',).\u25ba pronouns",
+  "example_raw": "In my opinion you should spend half of your holiday with your parents and the other half with your friends: I think this would be the best thing to do. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nAnyway that's enough of my news! (Italy; B1 THRESHOLD; 2002; Italian; Pass)\n\nAlthough I knew which kind of dress I wanted, none of the stores had it. (Switzerland; B1 THRESHOLD; 2010; Swiss German; Pass)"
+ },
+ {
+  "egp_id": "1741163709231x384570160463784100",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH PLURAL AND UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use an increasing range of quantifying determiners with both plural nouns and uncountable nouns ('most', 'enough', 'plenty of', 'loads of').",
+  "example_raw": "I'm convinced that most people watch too much TV these days. (Russian, B1 THRESHOLD, Pass, 2010)\n\nIf you haven't got enough credit on your phone, we can meet at 11 am at the bookshop. (===NONE===, B1 THRESHOLD, Pass, 2004) \n\nI think if we meet at 8 pm, we'll have plenty of time to buy the tickets and some drinks. (Hungary; B1 THRESHOLD; 2004; Hungarian; Pass)\n\nWe went to loads of beautiful places. (Brazil; B1 THRESHOLD; 2003; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163709231x447456423959638800",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'SO MUCH', 'TOO MUCH' WITH UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use 'so much' and 'too much' with uncountable nouns.",
+  "example_raw": "Hello Marina. Unfortunately I have so much work at the moment that I can't help you. (Germany; B1 THRESHOLD; 2005; German; Pass)\n\nMy neighbours are making too much noise. (B1 THRESHOLD; 2007; Farsi; Pass)"
+ },
+ {
+  "egp_id": "1741163709231x599038386454310800",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MUCH' WITH UNCOUNTABLE NOUNS, INTERROGATIVE",
+  "can_do_statement": "Can use 'much' with uncountable nouns in interrogative contexts. ",
+  "example_raw": "\nHow much television do you watch? (Portugal; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nDo you watch much TV? (Portugal; B1 THRESHOLD; 2010; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163709231x782328236071253400",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH UNCOUNTABLE NOUNS ",
+  "can_do_statement": "Can use quantifying determiners with uncountable nouns, often in informal and/or spoken contexts ('a little', 'a bit of' and 'a little bit of').",
+  "example_raw": "I went with my friends so we could spend a little time together. (Spanish - Latin American, B1 THRESHOLD, Pass, 2003)\n\nI had a bit of free time, so I took the bus and I went to my friend's house. (Greece; B1 THRESHOLD; 2008; Greek; Pass)\n\nI just watch a little bit of TV when I come home from school. (Turkey; B1 THRESHOLD; 2007; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163709231x799263972459703900",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'MANY' WITH PLURAL NOUNS, INTERROGATIVE",
+  "can_do_statement": "Can use 'many' with plural nouns in interrogative contexts. ",
+  "example_raw": "Have you got many friends in England? (Brazil; B1 THRESHOLD; 2009; Portuguese; Pass)\n\n[talking about TV] How many channels are there in Britain? (Spain; B1 THRESHOLD; 2010; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163709231x840776157772557800",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "2",
+  "guideword": "FORM: DETERMINER + 'OF' + DETERMINER",
+  "can_do_statement": "Can use a range of quantifying determiners + 'of' + determiner ('all of', 'some of', 'both of', 'many of', 'any of', number + 'of', 'each of'). \u25ba pronouns: quantity",
+  "example_raw": "I spent all of my money! (Turkish, A2 WAYSTAGE, Pass, 2008)\n\nSome of my friends gave me books. (Farsi, A2 WAYSTAGE, Pass, 2004)\n\nThe competition was very tough because both of the teams were good. (Bengali, A2 WAYSTAGE, Pass, 2007)\n\nMany of my relatives and friends had come. (Tamil, A2 WAYSTAGE, Pass, 2004)\n\nI enjoyed the party. I had invited five of my friends and my family. (Gujarati, A2 WAYSTAGE, Pass, 2004)\n\nWithout a library card you can't take any of the books with you. (Saudi Arabia; A2 WAYSTAGE; 2005; Urdu; Pass)"
+ },
+ {
+  "egp_id": "1741163709231x973378158122198000",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "quantity",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH PLURAL NOUNS ",
+  "can_do_statement": "Can use a wide range of quantifying determiners with plural nouns ('several', 'millions of', 'a few of').",
+  "example_raw": "So several days ago we received a complaint. (Chinese, B1 THRESHOLD, Pass, 2002)\n\nI took it and wished to have millions of dollars. (Mexico; B1 THRESHOLD; 2010; Spanish - Latin American; Pass)\n\nThey interviewed a few of the students, the teachers and the headmistress. (Egypt; B1 THRESHOLD; 2008; Arabic - Egyptian; Pass)"
+ }
+]
+```

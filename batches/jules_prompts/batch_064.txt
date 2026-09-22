@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_064.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163715026x124934317842935180",
+  "level": "B1",
+  "super_category": "QUESTIONS",
+  "sub_category": "alternatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'OR SOMETHING ELSE', VAGUE",
+  "can_do_statement": "Can form alternative question with 'or something else' as the second alternative to a noun phrase, to refer to something non-specific. ",
+  "example_raw": "Shall we buy him a book, a CD or something else? (Greece; B2 VANTAGE; 2000; Greek; Pass)\n\nPoetry, history or something else? (Hungary; B2 VANTAGE; 2004; Hungarian; Pass)"
+ },
+ {
+  "egp_id": "1741163715026x244056815814885470",
+  "level": "B1",
+  "super_category": "QUESTIONS",
+  "sub_category": "alternatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'OR NOT'",
+  "can_do_statement": "Can form alternative questions using 'or not' to substitute for a clause, sometimes to express annoyance or impatience. ",
+  "example_raw": "For a few seconds he was quiet. I couldn't wait, I asked nervously about his exam, did he pass or not? (Poland; B1 THRESHOLD; 2005; Polish; Pass)\n\nDo you want to do that or not? (Japan; B1 THRESHOLD; 2007; Japanese; Pass)\n\nDo you agree with me or not? (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nWill you be there till that time or not? (India; B1 THRESHOLD; 2007; Hindi; Pass)"
+ },
+ {
+  "egp_id": "1741163715026x510674477671172500",
+  "level": "B1",
+  "super_category": "QUESTIONS",
+  "sub_category": "alternatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PHRASE + PHRASE",
+  "can_do_statement": "Can form alternative questions with two phrases combined with 'or'. ",
+  "example_raw": "Is this area in the city or in the countryside? (Switzerland; B1 THRESHOLD; 2008; Swiss German; Pass)\n\nDo you feel more sympathy for your friends or your parents? (Germany; B1 THRESHOLD; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163715026x780872145435740400",
+  "level": "A2",
+  "super_category": "QUESTIONS",
+  "sub_category": "alternatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WORD + WORD",
+  "can_do_statement": "Can form alternative questions with two words from the same class combined with 'or'. ",
+  "example_raw": "Can you bring some food or drinks for the dinner? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass) \n\nIs it cheap or expensive for you? (Spain; A2 WAYSTAGE; 2010; Spanish - European; Pass)\n\nWe can chat or watch a film. (Italy; A2 WAYSTAGE; 2009; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163715026x782914672927385200",
+  "level": "B1",
+  "super_category": "QUESTIONS",
+  "sub_category": "alternatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: CLAUSE + CLAUSE",
+  "can_do_statement": "Can form alternative questions with two clauses combined with 'or'.",
+  "example_raw": "Are you still with him or did you two break up? (Peru; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)\n\nShould I go there and talk to her or should I stay here? (Cyprus; B1 THRESHOLD; 2009; Greek; Pass)\n\nWhat do you think about going for walks or jogging in your breaks? (Germany; B1 THRESHOLD; 2009; German; Pass)"
+ },
+ {
+  "egp_id": "1741163715028x242469073040096920",
+  "level": "C1",
+  "super_category": "QUESTIONS",
+  "sub_category": "alternatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: ELLIPTED MODAL, HEDGING",
+  "can_do_statement": "Can form alternative questions with two clauses and ellipsis in the second clause, often as a hedging device.",
+  "example_raw": "Maybe you could hand out toys or show a movie? (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Swedish; Pass)\n\nMaybe you will be able to arrange another excursion this year or provide more time there? (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163715028x672938393631707000",
+  "level": "C1",
+  "super_category": "QUESTIONS",
+  "sub_category": "alternatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: STRONG ALTERNATIVE",
+  "can_do_statement": "Can form alternative questions using an extreme alternative to give greater pragmatic force. ",
+  "example_raw": "Is this new industry a blessing for the region or the exact opposite? (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2004; Dutch; Pass)"
+ },
+ {
+  "egp_id": "1741163715029x597656273954143700",
+  "level": "C2",
+  "super_category": "QUESTIONS",
+  "sub_category": "alternatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS",
+  "can_do_statement": "Can form alternative questions with two or more clauses and ellipsis in the second or third clause. ",
+  "example_raw": "Is it not better to take the television away or stop them going to the cinema? (Switzerland; C2 MASTERY; 1993; German; Pass)\n\nDo you enjoy reading, find it a waste of time or have an indifferent attitude to it? (Greece; C2 MASTERY; 2008; Greek; Pass)\n\nIs he going to give it back to me or show it to everybody? (Brazil; C2 MASTERY; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163715029x581931663090474100",
+  "level": "B1",
+  "super_category": "QUESTIONS",
+  "sub_category": "tags",
+  "lexical_range": "2",
+  "guideword": "FORM: AFFIRMATIVE MAIN CLAUSES + AFFIRMATIVE QUESTION TAGS ",
+  "can_do_statement": "Can use an increasing range of affirmative tags with affirmative clauses.",
+  "example_raw": "Your boyfriend is also 16, is he? (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nYou bought new black clothes, did you? (France; B1 THRESHOLD; 2006; French; Pass)"
+ },
+ {
+  "egp_id": "1741163715029x648850706024519700",
+  "level": "A2",
+  "super_category": "QUESTIONS",
+  "sub_category": "tags",
+  "lexical_range": "1",
+  "guideword": "FORM: QUESTION TAGS",
+  "can_do_statement": "Can use a limited range of question tags.",
+  "example_raw": "You don't know where I live, do you? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nIt differs from the story which you told me, doesn't it? (Japan; A2 WAYSTAGE; 2010; Japanese; Pass)\n\nIt's fantastic, isn't it? (Italy; A2 WAYSTAGE; 2004; Italian; Pass)\n\nIt cost \u00a330, it was not too expensive, was it? (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163715029x648987133230414000",
+  "level": "B1",
+  "super_category": "QUESTIONS",
+  "sub_category": "tags",
+  "lexical_range": "2",
+  "guideword": "FORM: AFFIRMATIVE MAIN CLAUSES + NEGATIVE QUESTION TAGS ",
+  "can_do_statement": "Can use an increasing range of 'be', 'do', 'have' and modal verb tags with negative main clauses.",
+  "example_raw": "And so you're moving to a different area, aren't you? (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nYou love books, don't you? (Italy; B1 THRESHOLD; 2005; Italian; Pass)\n\nIt sounds peaceful, doesn't it? (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nWe've arranged to meet at 12, haven't we? (Japan; B1 THRESHOLD; 2008; Japanese; Pass)\n\nI think it would be fantastic, wouldn't it? (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nWhen you come back, we should rent some movies, shouldn't we? (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nYou'll see the programme on the 23rd of August, won't you? (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nWe could go on holiday together, couldn't we? (Germany; B1 THRESHOLD; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163715029x657729815451493500",
+  "level": "B1",
+  "super_category": "QUESTIONS",
+  "sub_category": "tags",
+  "lexical_range": "2",
+  "guideword": "FORM: NEGATIVE MAIN CLAUSES + AFFIRMATIVE QUESTION TAGS ",
+  "can_do_statement": "Can use an increasing range of affirmative 'be', 'do' and 'have' tags with negative main clauses.",
+  "example_raw": "I mean, your parents don't like discos, do they? (Brazil; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nDoesn't sound interesting, does it? (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nHe is not important, is he? (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nThat isn't normal, is it? (Switzerland; B1 THRESHOLD; 2010; Swiss German; Pass)\n\nYou haven't been to my house before, have you? (Korea, North; B1 THRESHOLD; 2010; Korean; Pass)\n\nWe haven't met each other for about 1 year, have we? (Japan; B1 THRESHOLD; 2004; Japanese; Pass)"
+ },
+ {
+  "egp_id": "1741163715030x194842096031816000",
+  "level": "B2",
+  "super_category": "QUESTIONS",
+  "sub_category": "tags",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: TAGS WITH IMPERATIVES AS SOFTENERS",
+  "can_do_statement": "Can use an affirmative or negative tag after an imperative clause to soften the imperative.",
+  "example_raw": "Think about it, will you? (Spain; B2 VANTAGE; 2001; Catalan; Pass)\n\nGo to the Lake Frene route, will you? (Japan; B2 VANTAGE; 1998; Japanese; Pass)\n\nLet's check together, shall we? (Turkey; B2 VANTAGE; 2001; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163715030x321100995378926500",
+  "level": "B1",
+  "super_category": "QUESTIONS",
+  "sub_category": "tags",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'RIGHT' AS AN INFORMAL TAG",
+  "can_do_statement": "Can use 'right' as a tag in informal contexts.",
+  "example_raw": "You are 14 years old, right? (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI think you asked if I liked shopping for clothes, right? (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nYou asked me for some help, right? (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nThey're black, right? (Thailand; B1 THRESHOLD; 2006; Thai; Pass)"
+ },
+ {
+  "egp_id": "1741163715030x683749532720890600",
+  "level": "C1",
+  "super_category": "QUESTIONS",
+  "sub_category": "tags",
+  "lexical_range": "N/A",
+  "guideword": "FORM: TAGS WITH 'THERE' + 'BE' ",
+  "can_do_statement": "Can use affirmative and negative forms of question tags with 'there' + 'be'. ",
+  "example_raw": "As you put it that way, there isn't much of a difference with our time, is there? (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Dutch; Pass)\n\nBut there is always something you can improve, isn't there? (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Russian; Pass)"
+ }
+]
+```

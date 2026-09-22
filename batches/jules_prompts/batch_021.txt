@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_021.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163709472x799988979606151400",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "future with be going to",
+  "lexical_range": "N/A",
+  "guideword": "USE: PLANS IN THE PAST",
+  "can_do_statement": "Can use the past form of 'be going to' (often followed by 'but') to talk about a plan, sometimes one that may have changed.  ",
+  "example_raw": "We were going to get married two months ago but we broke up and I really didn't know why. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nWe were going to have a cup of coffee on Tuesday morning, do you remember? (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163709473x242654561345864160",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "present continuous for future use",
+  "lexical_range": "1",
+  "guideword": "USE: FUTURE ARRANGEMENTS",
+  "can_do_statement": "Can use the present continuous with a limited range of verbs to talk about future arrangements.",
+  "example_raw": "I'm working this Saturday and Sunday morning. (Spanish - European, A2 WAYSTAGE, Pass, 2009)\n\nWe are having the meal at 7pm. (A2 Polish)\n\nThey are going back on 20th July. (A2 Ukrainian)"
+ },
+ {
+  "egp_id": "1741163709473x284037098314951170",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "present continuous for future use",
+  "lexical_range": "1",
+  "guideword": "USE: QUESTIONS ABOUT THE FUTURE",
+  "can_do_statement": "Can use the present continuous with a limited range of verbs to ask about future plans.",
+  "example_raw": "[talking about a Rolling Stones concert] Are you coming? (Swiss German, A2 WAYSTAGE, Pass, 2010)\n\n[talking about a party] It starts at 6. When are you coming? (A2 Turkish)\n\n[asking about holidays] Where are you going? (A2 Tagalog)"
+ },
+ {
+  "egp_id": "1741163709473x494283441514848260",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "present continuous for future use",
+  "lexical_range": "2",
+  "guideword": "USE: FUTURE ARRANGEMENTS",
+  "can_do_statement": "Can use the present continuous with an increasing range of verbs to talk about future arrangements.",
+  "example_raw": "I\u2019m attending my grandmother\u2019s funeral tomorrow. (B1 Malay)\n\nWe\u2019re expecting a child very soon. (B1 Chinese)\n\nThe movie is starting at 8 o\u2019clock. (B1 Czech)"
+ },
+ {
+  "egp_id": "1741163709473x902891256431768200",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "present continuous for future use",
+  "lexical_range": "2",
+  "guideword": "USE: QUESTIONS ABOUT THE FUTURE",
+  "can_do_statement": "Can use the present continuous with an increasing range of verbs to ask about future plans.",
+  "example_raw": "Are you visiting my country on your next holiday? (B1 Korean)\n\nWhy are you moving to a different area? (B1 Arabic Levant)"
+ },
+ {
+  "egp_id": "1741163709473x972778365312376400",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "present continuous for future use",
+  "lexical_range": "3",
+  "guideword": "USE: FUTURE ARRANGEMENTS",
+  "can_do_statement": "Can use the present continuous with a wide range of verbs to talk about future arrangements.",
+  "example_raw": "We\u2019re throwing a party for fun on 5th January. (B2 French)\n\nShe is joining the course on Friday. (B2 Dutch)"
+ },
+ {
+  "egp_id": "1741163709666x931279969752233300",
+  "level": "B2",
+  "super_category": "FUTURE",
+  "sub_category": "present continuous for future use",
+  "lexical_range": "3",
+  "guideword": "USE: QUESTIONS ABOUT THE FUTURE",
+  "can_do_statement": "Can use the present continuous with a wide range of common verbs to ask about future plans.",
+  "example_raw": "So are you planning to visit Japan then? (B2 Japan) \n\nWhen is the festival starting and when is it finishing? (Czech, B2 VANTAGE, Pass, 2008)\n\nWhat kind of seminar materials are you providing? (German, B2 VANTAGE, Pass, 2000)"
+ },
+ {
+  "egp_id": "1741163709666x240355824465352520",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "present simple for future use",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH 'WHEN'",
+  "can_do_statement": "Can use the present simple with 'when' to refer to the future. ",
+  "example_raw": "I'll tell you more when I meet you. (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)\n\nCan you, please, call me when you find it? (Brazil; A2 WAYSTAGE; 2005; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163709666x476412061092230640",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "present simple for future use",
+  "lexical_range": "N/A",
+  "guideword": "USE: TIMETABLES AND PLANS",
+  "can_do_statement": "Can use the present simple to talk about timetabled events in the future.",
+  "example_raw": "[Talking about a film] It begins on 8 o'clock in the evening. (Switzerland; A2 WAYSTAGE; 2009; Swiss German; Pass)\n\nThe class is on Monday.  It starts at 6:00 pm and finishes at 7:00 pm. (Cuba; A2 WAYSTAGE; 2006; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163709666x869572460282350800",
+  "level": "A2",
+  "super_category": "FUTURE",
+  "sub_category": "present simple for future use",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'HOPE'",
+  "can_do_statement": "Can use the present simple with 'I hope' to talk about hopes and wishes for the future.",
+  "example_raw": "I hope you enjoy your holiday too. (A2, Chinese)\n\nI hope you come to visit me soon. (A2, Spanish \u2013 Latin American)"
+ },
+ {
+  "egp_id": "1741163710384x781429758496606800",
+  "level": "B1",
+  "super_category": "FUTURE",
+  "sub_category": "present simple for future use",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH 'AS SOON AS'",
+  "can_do_statement": "Can use the present simple with 'as soon as' to refer to the future. ",
+  "example_raw": "I'm planning to move as soon as I finish college because job opportunities in my area aren't good. (B1 Portuguese)\n\nI will let you know as soon as I get the exact date. (Colombia; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163710384x991044369751703600",
+  "level": "C1",
+  "super_category": "FUTURE",
+  "sub_category": "present simple for future use",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH 'BY THE TIME'",
+  "can_do_statement": "Can use the present simple with 'by the time' to refer to the future.",
+  "example_raw": " \u2026 by the time he gets home, he will just want to go straight to bed. (C1 Spanish - Latin American)\n\nBy the time you arrive the information office at the airport will be closed, as at 11.00 o'clock a full day strike will start. (Italy; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Italian; Pass)\n"
+ },
+ {
+  "egp_id": "1741163710385x601071277336939100",
+  "level": "C1",
+  "super_category": "FUTURE",
+  "sub_category": "present simple for future use",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS, OBLIGATION ",
+  "can_do_statement": "Can use the present simple after speech act verbs expressing suggestions and obligation. ",
+  "example_raw": "We would suggest that our management takes a closer look. (C1 German)\n\nI recommend that we go to the theatre in Ginza where \"Miss Saigon\" is on. (C1 Japanese)\n\nMoreover, we insist that the agreement between you is legally binding \u2026. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163710385x778921051041153500",
+  "level": "C2",
+  "super_category": "FUTURE",
+  "sub_category": "present simple for future use",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INVERSION WITH 'ONLY WHEN'",
+  "can_do_statement": "Can use the present simple with 'only when' (followed by 'will' and inverted subject) to refer to the future.",
+  "example_raw": "Only when we understand that, will we be able to live in better societies. (C2 Spanish - Latin American)\n\nMoreover, I think that only when people manage this will they be able to move on with their lives and offer something new to humanity. (Greece; C2 MASTERY; 2008; Greek; Pass)\n\nAnd, sadly, I also believe that only when something really catastrophic happens will citizens face reality and accept that measures must be taken. (Portugal; C2 MASTERY; 2010; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163710385x337673798370062850",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "adjectives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'IT' + 'BE' + 'IMPORTANT' + CLAUSE ",
+  "can_do_statement": "Can use 'it' + 'be' + 'important' + ('that') clause. ",
+  "example_raw": "It's important that you take breaks and don't work all the time. (Germany; B1 THRESHOLD; 2009; German; Pass)\n\nIt's important that you eat healthy food. (Mexico; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI think it's important that you analyze each point to decide what to do. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ }
+]
+```

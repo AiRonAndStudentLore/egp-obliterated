@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_006.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163708329x778951051617750700",
+  "level": "A1",
+  "super_category": "CLAUSES",
+  "sub_category": "declarative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE DECLARATIVE WITH 'BE'",
+  "can_do_statement": "Can form a simple negative declarative clause with lexical 'be' + 'not' or 'n't'. ",
+  "example_raw": "My college is not very big. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nThis place isn't big. (A1 BREAKTHROUGH; 2007; Lithuanian; Pass)\n\nI'm not bad. (A1 BREAKTHROUGH; 2006; Panjabi; Pass)"
+ },
+ {
+  "egp_id": "1741163708329x894844343465365000",
+  "level": "A1",
+  "super_category": "CLAUSES",
+  "sub_category": "declarative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE DECLARATIVE, LEXICAL VERBS",
+  "can_do_statement": "Can form simple negative declarative clauses.",
+  "example_raw": "I don't like maths. (A1 BREAKTHROUGH; 2007; Farsi; Pass)\n\nI don't have children. (A1 BREAKTHROUGH; 2008; Polish; Pass)\n\nI don't know. (A1 BREAKTHROUGH; 2009; French; Pass)"
+ },
+ {
+  "egp_id": "1741163708329x931125497510935300",
+  "level": "A1",
+  "super_category": "CLAUSES",
+  "sub_category": "declarative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE DECLARATIVE, MODAL AUXILIARY VERBS",
+  "can_do_statement": "Can form an affirmative declarative clause with modal verbs.",
+  "example_raw": "I can go to see her tomorrow. (A1 BREAKTHROUGH; 2009; Panjabi; Pass)\n\nI will visit you soon. (A1 BREAKTHROUGH; 2009; Kurdish; Pass)"
+ },
+ {
+  "egp_id": "1741163708330x413468355048861400",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "declarative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE DECLARATIVE, MODAL AUXILIARY VERBS",
+  "can_do_statement": "Can form a simple negative declarative clause with modal verb + 'not' or 'n't'. ",
+  "example_raw": "I know you couldn't come to my party so I want to tell you about my presents and party. (Turkey; A2 WAYSTAGE; 2004; Turkish; Pass)\n\nI can't wait to see you and tell you the rest. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nYou won't have to bring anything. (France; A2 WAYSTAGE; 2009; French; Pass)\n\nWhen I worked in the sushi bar, I could not eat lunch and dinner at the normal time. Sometimes I ate lunch at 3pm and dinner was at 11pm. (A2 WAYSTAGE; 2006; Japanese; Pass)\n\nOnce you have started, you will not want to stop. (Hong Kong; A2 WAYSTAGE; 1999; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163708330x456690728495361200",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "declarative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE DECLARATIVE WITH 'HAVE'",
+  "can_do_statement": "Can form a simple negative declarative clause with auxiliary 'have' + 'not' or 'n't' and 'have' + 'not' or 'n't (got)' ",
+  "example_raw": "I haven't eaten Italian food for a long time. (Ecuador; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\n\u2026 now I haven't got any money. (Spain; A2 WAYSTAGE; 2005; Spanish - European; Pass)\n\nI bought them because I hadn't got any clothes for summer. (Turkey; A2 WAYSTAGE; 2008; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163708330x678606711578176000",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "declarative",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AUXILIARY 'DO', FOR EMPHASIS",
+  "can_do_statement": "Can use the auxiliary verb 'do' in an affirmative declarative clause, for emphasis and affirmation. ",
+  "example_raw": "Yes, I do have a favorite restaurant. (Mexico; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)\n\nI do miss you. (Syria; B1 THRESHOLD; 2002; Arabic - Levant; Pass)\n\nI do apologise for the change but I can't be there on the 28th of June. (Italy; B1 THRESHOLD; 2003; Italian; Pass)\n\nAfter all, you did say that you wanted go somewhere with your friends. (Turkey; B1 THRESHOLD; 2008; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163708336x128539343181511400",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "interrogatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE INTERROGATIVE, WITH MODAL AUXILIARY VERBS",
+  "can_do_statement": "Can form interrogative clauses ('yes/no' forms) with modal auxiliary verbs.",
+  "example_raw": "Would you like to come with me? (Argentina; A2 WAYSTAGE; 2005; Spanish - Latin American; Pass)\n\nWill you go with me? (Russia; A2 WAYSTAGE; 2009; Russian; Pass)\n\nCan I come tomorrow to collect it? (Poland; A2 WAYSTAGE; 2005; Polish; Pass)\n\nShall we meet at 7.30 pm? (Switzerland; A2 WAYSTAGE; 2008; Swiss German; Pass)"
+ },
+ {
+  "egp_id": "1741163708336x903931402154698900",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "interrogatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE INTERROGATIVE, WITH AUXILIARY 'BE/HAVE'",
+  "can_do_statement": "Can form interrogative clauses ('yes/no' forms) with auxiliary 'be' and 'have'. ",
+  "example_raw": "Are you going to the new art class? (Cyprus; A2 WAYSTAGE; 2006; Turkish; Pass)\n\nHave you got a new dress for the party? (Italy; A2 WAYSTAGE; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163708336x928067678664856700",
+  "level": "A1",
+  "super_category": "CLAUSES",
+  "sub_category": "interrogatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE INTERROGATIVE, WITH 'BE'",
+  "can_do_statement": "Can form interrogative clauses with 'be'. ",
+  "example_raw": "How are you? (A1 BREAKTHROUGH; 2009; Farsi; Pass)\n\nAre you ok? (A1 BREAKTHROUGH; 2011; Thai; Pass)"
+ },
+ {
+  "egp_id": "1741163708336x930002080700909000",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "interrogatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE INTERROGATIVE",
+  "can_do_statement": "Can form interrogative clauses ('yes/no' forms) of main lexical verbs with auxiliary 'do'.",
+  "example_raw": "Do you remember Julie? (Brazil; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nDid you buy a new mobile phone? (Spain; A2 WAYSTAGE; 2007; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163708342x469176927335390700",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "interrogatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE 'WH-' INTERROGATIVE ",
+  "can_do_statement": "Can form 'wh-' interrogative clauses with a 'wh-' word as object. ",
+  "example_raw": "When are you coming here? (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nWhat have you bought? (Turkey; A2 WAYSTAGE; 2008; Turkish; Pass)\n\nAnd what must I bring? (France; A2 WAYSTAGE; 2009; French; Pass)\n\nWhen can we meet? (Spain; A2 WAYSTAGE; 2005; Spanish - European; Pass)\n\nWhere did you go? (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)\n\nHow  do you feel? (Thailand; A2 WAYSTAGE; 2007; Thai; Pass)"
+ },
+ {
+  "egp_id": "1741163708343x587422418001030500",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "interrogatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'WH-' INTERROGATIVE, SUBJECT",
+  "can_do_statement": "Can form questions with a 'wh-' word as subject, without an auxiliary verb. ",
+  "example_raw": "What happened? (Spanish - Latin American, B1 THRESHOLD)\n\nWho cares? (Spanish - Latin American, B1 THRESHOLD)\n\nWho knows? (Portuguese, B1 THRESHOLD)"
+ },
+ {
+  "egp_id": "1741163708343x612263360498884700",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "interrogatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE INTERROGATIVE + ADVERB",
+  "can_do_statement": "Can form negative interrogative clauses with an adverb in mid position, between the subject and the main verb. ",
+  "example_raw": "Money - hasn't it always been one of the most important problems for students? (Japan; B2 VANTAGE; 2000; Japanese; Fail)\n\nWhy don't you ever listen to me? (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nHaven't you ever heard about the photographer Donatela and the painter Christian? (Greece; B2 VANTAGE; 2001; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708343x784452436860678700",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "interrogatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INTERROGATIVE + ADVERB",
+  "can_do_statement": "Can form interrogative clauses with an adverb in mid position, between the subject and the main verb. ",
+  "example_raw": "Have you ever been to Marseille? (France; B1 THRESHOLD; 2001; French; Pass)\n\nWhat kind of books do you usually read? (Italy; B1 THRESHOLD; 2005; Italian; Pass)\n\nDo you still remember my best friend? (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)"
+ },
+ {
+  "egp_id": "1741163708343x852921288542131100",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "interrogatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'WHICH', 'WHOSE'",
+  "can_do_statement": null,
+  "example_raw": null
+ }
+]
+```

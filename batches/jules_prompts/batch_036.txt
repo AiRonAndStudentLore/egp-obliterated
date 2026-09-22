@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_036.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163711299x337236996148793340",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "USE: FIXED PLANS",
+  "can_do_statement": "Can use 'will' to talk about fixed plans in the future, often with timetabled times or dates.",
+  "example_raw": "Mr Miller, the Sales Director, will visit us next Thursday. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nI'm sorry, but I won't be able to attend your class tomorrow \u2026. (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163711299x562241618213371140",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "USE: HABITUAL AND TYPICAL",
+  "can_do_statement": "Can use 'will' to talk about something which is typical or habitual. ",
+  "example_raw": "The abundance of ingredients required in any recipe will result normally in a spicy but nutritious dish, a dish that will usually contain some kind of sauce made of hot pepper, tomatoes, garlic and onion, some kind of meat and also some vegetables. (Mexico; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Spanish - Latin American; Pass)\n\nShe will often knock on the door to see you. (Japan; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Japanese; Fail)\n\nGo to lots of beautiful places that you won't usually be able to go to with a car, such as riversides. (Hong Kong; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163711299x818480809453484800",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "USE: WILLFULNESS OR DISAPPROVAL",
+  "can_do_statement": "Can use 'will' to talk about general behaviour, often disapprovingly.",
+  "example_raw": "Indeed no one can imagine what children will do! (France; C2 MASTERY; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163711299x946557867550668000",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "N/A",
+  "guideword": "USE: PREDICTIONS",
+  "can_do_statement": "Can use 'will' to make predictions.\u25ba question tags",
+  "example_raw": "I think that in 20 years' time it will be bigger than it is, because my town is growing very fast. (Brazil; B1 THRESHOLD; 2007; Portuguese; Pass)\n\nAll your life, you'll be able to look at your parents, but as soon as you finish your school, it'll be harder to meet your old friends. (Mexico; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nBut you're right, without much sport practice you'll soon put on weight, won't you? (Russia; B1 THRESHOLD; 2009; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163711299x956666388048580000",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "will",
+  "lexical_range": "3",
+  "guideword": "USE: REQUESTS",
+  "can_do_statement": "Can use 'will' (particularly 'Will you please') to make requests and commands in a wide range of contexts.",
+  "example_raw": "Will you please send me his name, address and telephone number. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nWill you please inform me about the exact payment. (Netherlands; B2 VANTAGE; 1998; Dutch; Pass)\n\nWill you pay attention! (Hungary; B2 VANTAGE; 2005; Hungarian; Pass)"
+ },
+ {
+  "egp_id": "1741163711300x363892315600628400",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: INVITATIONS WITH 'LIKE'",
+  "can_do_statement": "Can use 'would like to invite' to make invitations.",
+  "example_raw": "I would like to invite you to dinner in my house on Saturday at 7 30 pm. (A1 BREAKTHROUGH; 2010; Others; Pass)\n\nDear Neighbours, I would like to invite you to my home for dinner. (A1 BREAKTHROUGH; 2008; Arabic - Other; Pass)"
+ },
+ {
+  "egp_id": "1741163711300x444537304178034940",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE WITH 'LIKE'",
+  "can_do_statement": "Can use the affirmative form with 'like'. ",
+  "example_raw": "I'd like to invite you to dinner. (Farsi, A1 BREAKTHROUGH, Pass, 2008)\n\nI would like to eat some Spanish food. (Italian, A1 BREAKTHROUGH, Pass, 2006)"
+ },
+ {
+  "egp_id": "1741163711300x569087712695511000",
+  "level": "A1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: WISHES AND PREFERENCES WITH 'LIKE'",
+  "can_do_statement": "Can use 'would like' to talk about wishes and preferences.",
+  "example_raw": "If possible, I'd like to come to see you on Tuesday afternoon. (A1 BREAKTHROUGH; 2009; French; Pass)\n\nI would like to eat chicken, potatoes and some vegetables. (A1 BREAKTHROUGH; 2006; Nepali; Pass)"
+ },
+ {
+  "egp_id": "1741163711300x575118039725408060",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative forms.",
+  "example_raw": "[talking about clothes] You wouldn't believe how much they cost! (Chinese, A2 WAYSTAGE, Pass, 2008)\n\nI think we would not need much money. (India; A2 WAYSTAGE; 2010; Panjabi; )"
+ },
+ {
+  "egp_id": "1741163711300x794671062336923500",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form.",
+  "example_raw": "I'd love to have a pen-friend in Japan. (China; A2 WAYSTAGE; 2002; Chinese; Pass) \n\n[talking about what day to go to the cinema] I would prefer Sunday afternoon. (Chinese, A2 WAYSTAGE, Pass, 2003)"
+ },
+ {
+  "egp_id": "1741163711528x190407588241565220",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: WISHES AND PREFERENCES ",
+  "can_do_statement": "Can use 'would' with a wide range of verbs to talk about wishes and preferences.",
+  "example_raw": "I would prefer to go on Sunday, because on Sunday I have no school. (Malaysia; A2 WAYSTAGE; 2003; Chinese; Pass)\n\n[talking about going to see a film] I'd prefer to see it tomorrow. (Uruguay; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)\n\nBring your new CD! I'd love to hear it! (Cyprus; A2 WAYSTAGE; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163711528x214459269683046980",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS WITH 'IT WOULD BE'",
+  "can_do_statement": "Can use 'it would be' to make suggestions.",
+  "example_raw": "[talking about a jazz concert] It would be very good if you came with me. (India; A2 WAYSTAGE; 2009; Oriya; Pass)\n\nIt would be nice to bring your new computer game and some clothes. (Cyprus; A2 WAYSTAGE; 2009; Greek; Pass)\n\nIt would be perfect if you arrived at 7.20. (Peru; A2 WAYSTAGE; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163711528x505214348491108700",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST NEGATIVE",
+  "can_do_statement": "Can use 'would not have' + '-ed' or 'wouldn\u2019t have' + '-ed'",
+  "example_raw": "Without your help, I wouldn't have got this result. (Spain; B1 THRESHOLD; 2010; Spanish - European; Pass)\n\nHad it not been for that day, she would not have met George. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)"
+ },
+ {
+  "egp_id": "1741163711528x575112972653735200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST AFFIRMATIVE",
+  "can_do_statement": "Can use 'would have' + '-ed'.",
+  "example_raw": "I did not think my friend Janis would have done that. (France; B1 THRESHOLD; 2008; French; Pass)\n\nThat answer would have changed my life. (Italy; B1 THRESHOLD; 2008; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163711528x595400239413859000",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: IMAGINED SITUATIONS",
+  "can_do_statement": "Can use 'would' to talk about imagined situations.",
+  "example_raw": "I was thinking of painting my bedroom blue. It would look awesome. (Bengali, A2 WAYSTAGE, Pass, 2006)\n\nIt would be fun there. (Taiwan; A2 WAYSTAGE; 2010; Chinese; Pass)"
+ }
+]
+```

@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_012.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163708792x578027203654075000",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "1",
+  "guideword": "FORM: PREPOSITION + NO ARTICLE",
+  "can_do_statement": "Can use no article before a limited range of nouns in some fixed expressions with prepositions.",
+  "example_raw": "If you are at home, I can come tomorrow. (A1 BREAKTHROUGH; 2009; Farsi; Pass)\n\nWe are going to the sports centre by car. (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)\n\nI go to college every day. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163708793x169611736244202020",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "2",
+  "guideword": "FORM: PREPOSITION + NO ARTICLE",
+  "can_do_statement": "Can use no article before an increasing range of nouns in some fixed expressions with prepositions. ",
+  "example_raw": "The weather is very cold at night. (China; B1 THRESHOLD; 2001; Chinese; Pass)\n\nThis programme will be shown on television next Friday. (Poland; B1 THRESHOLD; 2008; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163708793x231349056007116500",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "N/A",
+  "guideword": "USE: ONE MORE (WITH 'ANOTHER')",
+  "can_do_statement": "Can use 'another' to talk about something additional. ",
+  "example_raw": "Dear Mary, I spent a week in Dubai and I am going to spend another week in Al Ain. (United Arab Emirates; B1 THRESHOLD; 2001; Arabic - Gulf; Pass)\n\nIn 'Master' they've got excellent pasta, which is another reason why I love the restaurant. (Argentina; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)\n"
+ },
+ {
+  "egp_id": "1741163708793x394528376329640770",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "1",
+  "guideword": "FORM/USE: NO ARTICLE",
+  "can_do_statement": "Can use no article before a limited range of singular, plural and uncountable nouns when referring to things in general. ",
+  "example_raw": "In my free time I usually play football. (Poland; A1 BREAKTHROUGH; 2010; Polish; Pass)\n\nIn my free time usually I stay at home. I watch TV, read books\u2026 (A1 BREAKTHROUGH; 2010; Arabic - Other; Pass)\n\nI like rice and sweet dishes. (A1 BREAKTHROUGH; 2006; Urdu; Pass)"
+ },
+ {
+  "egp_id": "1741163708793x555362877047412000",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE' + ADJECTIVES, SPECIFYING",
+  "can_do_statement": "Can use 'the' + adjectives in a noun phrase, to specify. ",
+  "example_raw": "My house is opposite the new caf\u00e9. (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nFor the first class you need to bring color pens and papers. (Brazil; A2 WAYSTAGE; 2006; Portuguese; Pass)\n\nI think it's on the red sofa. (Sri Lanka; A2 WAYSTAGE; 2005; Singhalese; Pass)\n"
+ },
+ {
+  "egp_id": "1741163708793x603808210938091100",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "2",
+  "guideword": "FORM/USE: NO ARTICLE",
+  "can_do_statement": "Can use no article before an increasing range of singular and plural nouns when referring to things in general. ",
+  "example_raw": "Education in the future will change in a good way. (B1 THRESHOLD; 2009; Tagalog; Pass)\n\nBut remember this: friends are important, but they are not for life. Your family will always be there to support you. (Brazil; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nYes, sometimes I like shopping for clothes. (Switzerland; B1 THRESHOLD; 2006; German; Pass)"
+ },
+ {
+  "egp_id": "1741163708793x652344620706507100",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'THE' + SUPERLATIVES ",
+  "can_do_statement": "Can form a noun phrase with 'the' + superlative adjectives + noun. ",
+  "example_raw": "It has the latest technology. (Cyprus; A2 WAYSTAGE; 2007; Greek; Pass)\n\nThe best place is La Baule, which is Europe's biggest beach. (France; A2 WAYSTAGE; 2001; French; Pass) \n\nIt was the most expensive mobile phone in the shop. (Spain; A2 WAYSTAGE; 2007; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163708793x822211978637164400",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'ANOTHER' |",
+  "can_do_statement": "Can use 'another' with singular nouns. \u25ba pronouns \u25ba determiners ",
+  "example_raw": "Every 5 minutes, he makes another great joke. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nMaria cried, but after a few minutes, she dried her tears and said: \"Tomorrow will be another day! (Peru; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163708794x298696032662709950",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "N/A",
+  "guideword": "USE: DIFFERENT (WITH 'ANOTHER')",
+  "can_do_statement": "Can use 'another' to talk about something different. ",
+  "example_raw": "I'm sorry but I won't be able to go to the English class tomorrow because I'll go to Maldonado to see my mother that is ill. But I can go another day to cover the work I've missed. (Uruguay; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nPersonally I think that it is better to stay at another hotel such as a Holiday Inn. (Turkey; B1 THRESHOLD; 2004; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163708794x304620412508079360",
+  "level": "B1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE OTHER'",
+  "can_do_statement": "Can use 'the other' with a singular noun to refer to the second or the opposite of two things, and with a plural noun to refer to one of a set of things. \u25ba pronouns \u25ba  noun phrases",
+  "example_raw": "She saw his blue jacket in a shop on the other side of the street. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI moved to this house because the other house was very small, and my brother and I have to share a bedroom. (Uruguay; B1 THRESHOLD; 2007; Spanish - Latin American; Pass)\n\nWe need a new distribution company, because the other companies are very expensive. (Turkey; B1 THRESHOLD; 2007; Turkish; Pass)\n\nIn the first lesson we did some games in English, so I met all the other people in the class. (Switzerland; B1 THRESHOLD; 2002; Swiss German; Pass)"
+ },
+ {
+  "egp_id": "1741163708998x378745678664328200",
+  "level": "B2",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE MORE \u2026 THE MORE \u2026'",
+  "can_do_statement": "Can use the in comparative phrases 'more', 'less', 'worse', 'better \u2026 the more', 'less', 'worse \u2026' to talk about one thing that is affected by another. \u25ba comparative clauses ",
+  "example_raw": "[talking about how watching TV is bad for you] I mean that you can watch one or two hours a day but the more you watch, the worse you become. (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nThe better education you have, the better opportunities you can get. (B2 VANTAGE; 2009; Bulgarian; Pass)"
+ },
+ {
+  "egp_id": "1741163709001x358121922371724900",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "lexical_range": "1",
+  "guideword": "USE: 'THESE', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'these' to refer to things with immediate relevance or which have already been mentioned. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "example_raw": "\u2026 you can visit the Old Museum, the Green Park, the old bridge and old church. These places are very old. (Libya; A2 WAYSTAGE; 2001; Arabic - Meghreb; Pass)\n\nI bought a swimsuit, shorts, t-shirts and sunglasses. I'll need these things because it's summer time. (Cyprus; A2 WAYSTAGE; 2008; Greek; Pass)\n\nThe first jeans I wanted were cheaper, but too small. These jeans are better and they're pretty good for me. (Russia; A2 WAYSTAGE; 2008; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163709001x603991364400066700",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "USE: THOSE POINTING ",
+  "can_do_statement": "Can use 'those' to talk about or point to things which the speaker or writer perceives to be further away in time and space. ",
+  "example_raw": "Placeholder row, lack of spoken data (see A2)"
+ },
+ {
+  "egp_id": "1741163709001x827143402527184000",
+  "level": "C2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THIS' WITH NOUN AND POSSESSIVE",
+  "can_do_statement": "Can use 'this' + noun + 'of' + possessive pronoun to highlight something, often in a positive way. ",
+  "example_raw": "What is more, not only is this rare talent of theirs used for public pleasure but also for international sports success, which makes us all proud. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\nThis characteristic of his is shown in every situation of his life. (Brazil; C2 MASTERY; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163709001x956266227421554000",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "lexical_range": "2",
+  "guideword": "FORM: 'THOSE' ",
+  "can_do_statement": "Can use 'those' with plural nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "example_raw": "The cost of those clothes was \u00a3300. (Malaysia; A2 WAYSTAGE; 2008; Chinese; Pass)\n\nI love to play those instruments. (Sri Lanka; A2 WAYSTAGE; 2010; Singhalese; Pass)"
+ }
+]
+```

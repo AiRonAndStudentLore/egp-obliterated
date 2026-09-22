@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_005.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163715813x920160730248656800",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INVERTED CONDITIONAL CLAUSE, 'SHOULD'",
+  "can_do_statement": "Can introduce a conditional subordinate clause with 'should' + inverted subject.",
+  "example_raw": "Should you require any further information about the program or any other detail please do not hesitate to ask for it. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Spanish - European; Pass)\n\nShould there be a lack of mutual understanding a break-up is unavoidable. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163715814x475016379352568560",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF IT WERE NOT FOR', FORMAL",
+  "can_do_statement": "Can use 'If it weren\u2019t / were not for' + noun phrase to introduce conditions in formal contexts. \u25ba past simple",
+  "example_raw": "If it weren't for that boy, I am definitely certain that I would have failed the examinations and I would have ended up taking the class again the following year. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\nIf it weren't for his determination, he would have resigned when he first heard \"no\". (Brazil; C2 MASTERY; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163715814x629362533174766300",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF IT WERE' + 'TO'-INFINITIVE FORM, FORMAL",
+  "can_do_statement": "Can use 'If it were' + 'to-' infinitive to introduce conditions in formal contexts. ",
+  "example_raw": "If it were to be published, the first issue would probably include a small introduction about the people who helped in the creation of the magazine. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Greek; Pass)\n\nHowever displacing such a number of commuters will need a lot of planning and a very good infrastructure if it were to succeed. (South Africa; C2 MASTERY; 2010; English)"
+ },
+ {
+  "egp_id": "1741163715814x878379023593554300",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WHETHER OR NOT', FORMAL ",
+  "can_do_statement": "Can use 'whether or not' to introduce conditions in formal contexts.",
+  "example_raw": "Whether or not the visitors should imitate local customs and behaviour is definitely a debatable issue. (India; 2003; Hindi)\n\nWhether or not it is better to educate boys and girls in separate schools has been a widely discussed issue in recent years. (Japan; 2008; Japanese)\n\nWhether or not richer countries should help these poor nations is a very controversial issue, there are people on both sides of the argument who have very strong feelings. (Sudan; 2001; Arabic - Egyptian)\n\nHowever, it depends only on the children whether or not they'll go to a university and there are many factors to be considered before deciding on going. (Greece; C2 MASTERY; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708153x322996688200238400",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "coordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MULTIPLE MAIN CLAUSES, INSTRUCTIONS",
+  "can_do_statement": "Can combine multiple main clauses, with commas and conjunctions expressing order, often to give instructions or directions. ",
+  "example_raw": "Your house is near to mine so turn down the 5th street and then go straight almost all the way. When you see the purple street turn there, then go to the left to the Red street, that is my street, my house is 17. (Mexico; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nYou start at your house, go straight ahead, then turn right. (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)"
+ },
+ {
+  "egp_id": "1741163708153x328592532654335940",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "coordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NEITHER \u2026 NOR', EMPHASIS",
+  "can_do_statement": "Can combine two main clauses of the same type using 'neither' in front or mid position, followed by 'nor' to introduce the second clause, for emphasis. ",
+  "example_raw": "We neither walk nor do exercises. (Turkey; B2 VANTAGE; 2000; Turkish; Fail)\n\nThey neither got married nor had children. (Argentina; B2 VANTAGE; 1997; Korean; Pass)\n\nWe should neither eat too much, nor eat too. (France; B2 VANTAGE; 1999; French; Pass)"
+ },
+ {
+  "egp_id": "1741163708153x480316823264789900",
+  "level": "A1",
+  "super_category": "CLAUSES",
+  "sub_category": "coordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM: CLAUSE + CLAUSE, ELLIPTED SUBJECT",
+  "can_do_statement": "Can omit the subject in a second main declarative clause when the subject is obvious or the same as the first clause. ",
+  "example_raw": "She likes to listen to music and watch TV. (A1 BREAKTHROUGH; 2006; Urdu; Pass)\n\nAfter break we go to the class and play some games or study. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nSometimes I go to the park with my friend and play tennis and football. (Poland; A1 BREAKTHROUGH; 2010; Polish; Pass)\n\nI can clean or cook for you. (A1 BREAKTHROUGH; 2009; Romanian; Pass)"
+ },
+ {
+  "egp_id": "1741163708153x695756963015404300",
+  "level": "A1",
+  "super_category": "CLAUSES",
+  "sub_category": "coordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MAIN CLAUSE + MAIN CLAUSE",
+  "can_do_statement": "Can combine two main declarative clauses using co-ordinating conjunctions ('and', 'but', 'or'). ",
+  "example_raw": "I like my college and I like my class. (A1 BREAKTHROUGH; 2007; Gujarati; Pass)\n\nOn Sunday I visit my friends, but I often stay at home and I read books. (Poland; A1 BREAKTHROUGH; 2010; Polish; Pass)\n\nI like English lessons but I don't like physics. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nI watch television, I read magazines or I sleep. (A1 BREAKTHROUGH; 2007; Slovak; Pass)"
+ },
+ {
+  "egp_id": "1741163708153x699829274975112700",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "coordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMBINING CLAUSES OF THE SAME TYPE",
+  "can_do_statement": "Can combine clauses of the same type, main or subordinate, finite or non-finite, with conjunctions. ",
+  "example_raw": "You will have a great time with your friends, because I know they are going to the seaside and staying in a hotel near the sea. (Georgia (Republic of); B1 THRESHOLD; 2008; Georgian; Pass)\n\nThey chose our school because it's very modern and there are a lot of students. (Switzerland; B1 THRESHOLD; 2008; Italian; Pass)\n\nOtherwise, if you want to relax and see your friend, the countryside will be the best. (France; B1 THRESHOLD; 2004; French; Fail)\n\nYou asked for my advice about either going on holiday with your parents or staying with your friends. (Italy; B1 THRESHOLD; 2008; Italian; Pass"
+ },
+ {
+  "egp_id": "1741163708153x823286292425265000",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "coordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: MULTIPLE MAIN CLAUSES, NARRATIVE",
+  "can_do_statement": "Can combine multiple main clauses with a range of conjunctions, often in a narrative context. ",
+  "example_raw": "By the time his mother arrived home, the suitcase was still lost, so Larry decided to tell her the truth, but then his mother showed him his suitcase and told Larry that he left it in the car. (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nIf you want to go somewhere with your friends then do it and promise your parents that you will go with them the next holidays, or arrange a family day with them, because then your parents will know that you love them and that they are still very important to you. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\n"
+ },
+ {
+  "egp_id": "1741163708153x841687423551314000",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "coordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'EITHER \u2026 OR'",
+  "can_do_statement": "Can combine two main clauses of the same type using 'either' in front or mid position, followed by 'or' to introduce the second clause. ",
+  "example_raw": "Regarding your future plans, we would like to know which city you are going to move to, so that if we get the chance, we can either visit you or write to you. (Uruguay; B1 THRESHOLD; 2002; Spanish - Latin American; Pass)\n\nIn my opinion, you should either ask your parents if you can invite a few friends, or ask them to share your holidays. (France; B1 THRESHOLD; 2008; French; Pass)\n\nYou can either go to the gym or attend some special classes where you get gentle exercises. (Ukraine; B1 THRESHOLD; 2009; Ukrainian; Pass)\n\nI thought: \"Either I talk to her now or I won't be able to talk to her anytime! (Germany; B1 THRESHOLD; 2009; German; Pass)"
+ },
+ {
+  "egp_id": "1741163708154x515786574797433100",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "coordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT (ALSO)', FOCUS",
+  "can_do_statement": "Can combine clauses using 'not only' in mid position of the first clause followed by \u2026 'but (also)' to introduce the second clause, to give focus.",
+  "example_raw": "The atmosphere was friendly, not only because it wasn't too crowded, but also because the waiters always help you. (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nI really like it; not only because it is nice and colourful  but because I spent most of my childhood summers there. (Spain; B2 VANTAGE; 2003; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163708328x809057828256698500",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "coordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT (ALSO)' WITH INVERSION, FOCUS",
+  "can_do_statement": "Can combine clauses using 'not only' in front position followed by an inverted first clause + \u2026 'but (also)' to introduce the second clause, to give focus.",
+  "example_raw": "And not only did they come for the most popular sports, such as football and basketball, but many other less known activities were very well attended. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Spanish - European; Pass)\n\nNot only was he helpful but the students had the opportunity to watch videos and listen to music. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)\n\nNot only has the cost improved, but also the value for money. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Swiss German; Pass)"
+ },
+ {
+  "egp_id": "1741163708329x546836553751250300",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "coordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NEGATIVE CLAUSE +  'NOR', FOCUS",
+  "can_do_statement": "Can combine a negative clause with an inverted clause with 'nor', to give focus.",
+  "example_raw": "That night Kevin did not sleep; nor did Kristin. (Spain; C2 MASTERY; 1999; Catalan; Pass)\n\nThey do not have any hobbies, nor do they have friends or relatives (at least not where they live). (Sweden; C2 MASTERY; 1993; Swedish; Pass)\n\nHer diary was never found, nor was Juliette. (Netherlands; C2 MASTERY; 1993; Dutch; Pass)\n\nI should never have agreed to meet him, after all I didn't know the man nor did I understand what he was talking about, but he really said my friend Peter was in danger, that's what made me say yes. (Portugal; C2 MASTERY; 1993; Portuguese; Fail)\n"
+ },
+ {
+  "egp_id": "1741163708329x286701804737242940",
+  "level": "A1",
+  "super_category": "CLAUSES",
+  "sub_category": "declarative",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE DECLARATIVE",
+  "can_do_statement": "Can form simple affirmative declarative clauses.",
+  "example_raw": "I study English at college. (A1 BREAKTHROUGH; 2007; Mandarin; Pass)\n\nMy friend is a nurse. (A1 BREAKTHROUGH; 2006; Panjabi; Pass)\n\nI'm living in Manchester. (A1 BREAKTHROUGH; 2009; Kurdish; Pass)\n\nIt's very cheap and you can buy all you need. (A1 BREAKTHROUGH; 2008; Italian; Fail)\n\nHe is very nice but sometimes he is a little crazy. (A1 BREAKTHROUGH; 2006; Italian; Pass)"
+ }
+]
+```

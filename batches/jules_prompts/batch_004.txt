@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_004.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163715624x362174287337988740",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF' + PAST PERFECT + 'WOULD HAVE' + '-ED', IMAGINED SITUATION, REGRET|(THIRD CONDITIONAL)",
+  "can_do_statement": "Can form conditional subordinate clauses with 'if' + past perfect simple and 'would have' + '-ed' in the main clause, to talk about imagined situations in the past, often with regret.",
+  "example_raw": "If they had not been there, I would have been very lonely. (Vietnam; B1 THRESHOLD; 2001; Vietnamese; Pass)\n\nIf I hadn't gone to these horse-riding lessons, I wouldn't have lost my watch. (Argentina; B1 THRESHOLD; 2000; Polish; Pass)\n\nI realise that if I hadn't agreed with my parents to go to the concert I wouldn't have met Britney Spears. (Spain; B1 THRESHOLD; 2006; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163715624x704023316934564200",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF' + PAST SIMPLE + 'COULD', FUTURE, IMAGINED SITUATION",
+  "can_do_statement": "Can form conditional subordinate clauses with 'if' + past simple, and 'could' in the main clause to talk about an imagined situation, often in the context of suggesting.",
+  "example_raw": "If you wanted to do some outdoor activities, we could go fishing or even walking through the green fields. (Egypt; B1 THRESHOLD; 2004; Arabic - Egyptian; Pass)\n\nIf you arrived in town the day before, we could arrange accommodation for you at the nearest Hotel. (Italy; B1 THRESHOLD; 2001; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163715624x888960790421745800",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF I WERE YOU' + 'WOULD', FUTURE, IMAGINED SITUATION",
+  "can_do_statement": "Can use 'if I were you' and 'would' in the main clause often in the context of advice or opinion-giving. ",
+  "example_raw": "Well, if I were you I would go to a small school in the countryside because it's less complicated than going to a large school in a town. (Peru; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nIf I were you, I would talk to everybody and tell them when are you free, and spend the summer with both friends and parents. (Spain; B1 THRESHOLD; 2008; Basque; Pass) \n\n[deciding between two holiday options] If I were you, I would accept both of them. (Switzerland; B1 THRESHOLD; 2008; Swiss German; Pass)"
+ },
+ {
+  "egp_id": "1741163715624x965900869689892700",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'UNLESS', EXCEPTIONS",
+  "can_do_statement": "Can use 'unless' + present simple to talk about an exception, with present and future reference.",
+  "example_raw": "I think I am going to pay by cash, unless you accept credit cards. (B1 THRESHOLD; 2003; Pass)\n\nIf I were you I'd go to work on foot, unless it's far away from your house. (Libya; B1 THRESHOLD; 2009; Arabic - Meghreb; Pass)\n\nBut unless you do some sports activities you will gain a lot of weight. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163715625x266655396639862820",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPTED 'IF' CLAUSE",
+  "can_do_statement": "Can form ellipted 'if' clauses with 'if' + '-ed' form.",
+  "example_raw": "Furthermore I found little rooms where an employee could take a short nap if needed. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Swiss German; Pass)\n\nMeals are served, if requested, three times a day, unless picnic lunches are needed. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; German; Pass)\n\nWomen who want to start a career more often decide to be single or, if married, don't devote much time to the family. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163715625x660401017226531000",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: ELLIPTED 'IF NOT', ALTERNATIVE ",
+  "can_do_statement": "Can use 'If not' as a conditional clause to offer an alternative to refer to a previous direct or indirect 'yes-no' question where the answer might be \u2018no\u2019.",
+  "example_raw": "Is the Sheraton Hotel ok for you? If not, call me as soon as possible. (Peru; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nDo you work on Sundays? If not, you could do exercise on Sundays. (Mexico; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI hope it's ok for you. If not, call me on my mobile phone. (Switzerland; B1 THRESHOLD; 2004; Swiss German; Pass)"
+ },
+ {
+  "egp_id": "1741163715625x693512709893246700",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: ELLIPTED 'IF SO', CONFIRMING",
+  "can_do_statement": "Can use 'If so' as a conditional clause to refer a previous direct or indirect 'yes-no' question where the answer might be \u2018yes\u2019. \u25ba Clauses coordinated ",
+  "example_raw": "Do you think we could have an extra class? If so, I'd like to do it to cover the work I'll miss. (Brazil; B1 THRESHOLD; 2006; Portuguese; Pass)\n\nIs it possible to pay by credit card? If so, which ones do you take? (B1 THRESHOLD; 2003; ; Pass) "
+ },
+ {
+  "egp_id": "1741163715625x776180432248680300",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF' + PAST PERFECT + MODAL VERBS IMAGINED SITUATION, REGRET",
+  "can_do_statement": "Can form conditional subordinate clauses with if + the past perfect simple and modal verb + 'have' + '-ed' in the main clause, to talk about imagined situations in the past, often with regret.",
+  "example_raw": "All this could have been avoided, if the plan had been more flexible. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)\n\nSeveral statements in the newspaper could have been avoided, if the writer had taken notice of the income results which were sent along with the other facts from the charity day. (Denmark; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Danish; Pass)\n\nHowever, I think I could have learned more if more individual tuition had been available. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)\n\nI wrote this article referring to my own experience in London, hence I might have had a different opinion if I had gone to another city or country. (Italy; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163715625x825088087099632500",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: SUBORDINATING CONJUNCTIONS, CONDITIONS",
+  "can_do_statement": "Can use conditional subordinate clauses with a range of conjunctions ('as long as', 'provided') + present simple or present continuous, with future reference.",
+  "example_raw": "As long as it involves children I'd be delighted to work for you during the summer. (Denmark; B2 VANTAGE; 1998; Danish; Pass)\n\nIf you're really eager to learn age doesn\u2019t really matter as long as you're willing to learn. (B2 VANTAGE; 2009; Tagalog; Pass)\n\nMy client will most certainly ask for compensation covering all losses incurred, unless you manage to find out where the goods are. (Germany; B2 VANTAGE; 2008; German; Pass)\n\nFinally, I am pleased to inform you that we would like to offer a 10% discount provided you reserve office space for eighteen months. (China; B2 VANTAGE; 2002; Chinese; Fail)\n\nProviding we implement the suggested actions I believe we can increase sales within the next six months, overcoming the current situation caused by the international situation. (Portugal; B2 VANTAGE; 2009; Portuguese; Fail)\n\nI would suggest that you might bring a city map in case you lose your way. (Japan; B2 VANTAGE; 1993; Japanese; Pass)"
+ },
+ {
+  "egp_id": "1741163715625x901361750583648400",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF' + 'SHOULD', FORMAL, POLITE",
+  "can_do_statement": "Can form subordinate conditional clauses with 'if you should', in polite, formal contexts. ",
+  "example_raw": "If you should have any concerns about my choice, please tell me. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; German; Pass)\n\nIf you should have any problems, you can go to an information booth and you will be told which train you have to take to Hassau. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; German; Pass)\n\nIf you should get lost, don't hesitate to call us. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)\n\nIf you should have any further questions do not hesitate to contact us. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; German; Pass)"
+ },
+ {
+  "egp_id": "1741163715813x104521611350361970",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERTED PAST PERFECT, IMAGINED PAST",
+  "can_do_statement": "Can use past perfect +  inverted subject, and a modal verb + 'have' + '-ed' in the main clause  to talk about imagined situations in the past.",
+  "example_raw": "Had he been more experienced he would have known that these things always happen in this part of the world. (Sweden; C2 MASTERY; 2001; Swedish; Pass)\n\nHad we known this fact we would have organised more activities within school hours. (Switzerland; C2 MASTERY; 2006; French; Pass)\n\nHad we learnt from the mistakes of the past, we would have given up fighting each other a long time ago. (Russia; C2 MASTERY; 1998; Russian; Pass)\n\nHad I known so many people from abroad were coming to visit our stand, I would have studied harder during my private lessons in the past. (Spain; C2 MASTERY; 1998; Spanish - European; Pass)\n\nHad this file fallen into enemy hands, it might have had disastrous effects on the Western world. (Denmark; C2 MASTERY; 1993; Danish; Pass)\n\nHad public transportation been an option I would have chosen that instead of my car. (Denmark; C2 MASTERY; 2010; Danish; Pass)"
+ },
+ {
+  "egp_id": "1741163715813x134565574339758690",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "USE: INVERTED 'SHOULD', FUTURE, POSSIBLE OUTCOME, FORMAL, POLITE ",
+  "can_do_statement": "Can use inverted 'should', + 'would' in the main clause to talk about possible future outcomes, in polite or formal contexts. ",
+  "example_raw": "Should we win your prize we would like to build a new school close to our production center, for the children of the area. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2004; German; Pass)\n\nShould you fail to do so, we would have no choice but to take further action. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163715813x225051382084452860",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WERE IT NOT FOR', FORMAL",
+  "can_do_statement": "Can use 'Were it not for' + noun phrase to introduce conditions in formal contexts. \u25ba past simple",
+  "example_raw": "Were it not for my university, I would give up this class immediately. (Russia; B1 THRESHOLD; 2002; Russian; Pass)\n\nWere it not for that kind of toy, children would be able to gain more team-spirit, creativity and self-confidence. (Greece; C2 MASTERY; 2008; Greek; Pass)\n\nIn fact, were it not for that reason, Laura would have accepted the comfortable executive chair in a big company. (Spain; C2 MASTERY; 1993; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163715813x251667317407443520",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERTED 'WERE' + 'TO' INFINITIVE, FORMAL",
+  "can_do_statement": "Can use 'were' with an inverted subject + 'to' infinitive, to introduce conditions in formal contexts. \u25ba past simple",
+  "example_raw": "Were I to win this travel scholarship, the country of my choice would be Japan. (Switzerland; C2 MASTERY; 2001; German; Pass)\n\nWere you to compare people's views on animals to their views on food, you would find many similarities. (Sweden; C2 MASTERY; 1998; Swedish; Pass)\n\nWere someone to decide that he did not want to go to university, he would have to face the consequences of his choice. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\nWere this suggestion to be put into practice, our town's personality would change completely from a small town to a port of call for a large number of visitors. (Greece; C2 MASTERY; 2003; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163715813x668177836402207500",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: SUBORDINATING CONJUNCTIONS, CONDITIONS",
+  "can_do_statement": "Can use conditional subordinate clauses with a range of conjunctions ('so long as', 'on condition that', 'in the event that') with past, present or future reference.|",
+  "example_raw": "As a matter of fact, education is free and as a result they can attend whichever university they desire so long as they have the proper qualifications, of course. (Greece; C2 MASTERY; 2005; Greek; Pass)\n\nI was allowed to bring my friends home and go out with them on condition that my parents knew where I was and when I was going to return. (Poland; C2 MASTERY; 1993; Polish; Pass)"
+ }
+]
+```

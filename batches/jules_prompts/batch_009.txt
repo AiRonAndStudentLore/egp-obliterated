@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_009.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163708567x363468807312569340",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: REASON",
+  "can_do_statement": "Can use a finite subordinate clause with conjunctions to introduce reasons, after a main clause. ",
+  "example_raw": "I prefer to speak on 14 July, as I have got another appointment on the next day. (India; B1 THRESHOLD; 2009; Malayalam; Pass)\n\nI am going to be absent from my English class next week, as I am travelling to Italy. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nUnfortunately I will not be able to go to your class tomorrow since I have an appointment with the doctor. (Peru; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nA budget of \u20ac10,000 is approved to replace our old copier machine, since it is not working properly. (India; B1 THRESHOLD; 2009; Tamil; Pass)"
+ },
+ {
+  "egp_id": "1741163708567x510473221734893950",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF' CLAUSES, CONDITIONS",
+  "can_do_statement": "Can use a finite subordinate clause with 'if', before or after a main clause, to introduce conditions. \u25ba clauses: conditionals",
+  "example_raw": "I would be very happy if you visit me in Dublin. (A2 WAYSTAGE; 2007; Spanish - Other; Pass)\n\nI will come see you on Friday if it\u2019s ok with you. (A2 WAYSTAGE; 2008; Farsi; Pass)\n\nIf you want to come, just tell me. (India; A2 WAYSTAGE; 2009; Tamil; Pass)"
+ },
+ {
+  "egp_id": "1741163708567x890527430865632800",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PURPOSE",
+  "can_do_statement": "Can use a non-finite subordinate clause with 'to', to introduce purpose.",
+  "example_raw": "To get to my house you'll have to take the 5th avenue and go 6 streets to the left and at the bottom you'll see another street, go 3 streets to the right and there you'll find my house. (Mexico; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nTo reach my house, you just have to go to the book shop and turn left. (Portugal; A2 WAYSTAGE; 2009; Portuguese; Pass)\n\nTo contact me you can call me on my mobile phone. (A2 WAYSTAGE; 2009; Portuguese; )"
+ },
+ {
+  "egp_id": "1741163708567x901227389993147800",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: TIME",
+  "can_do_statement": "Can use a finite subordinate clause with time conjunctions, before or after a main clause. ",
+  "example_raw": "I feel comfortable when I am wearing these clothes. (Malaysia; A2 WAYSTAGE; 2008; Malay; Pass)\n\nWhen I bought my computer, the price was 1000 pounds. (China; A2 WAYSTAGE; 2002; Chinese; Pass)\n\nWhen you are outside my home, phone me. (Bulgaria; A2 WAYSTAGE; 2009; Bulgarian; Pass)\n\nMike and I were watching it while we were eating pizza. (Peru; A2 WAYSTAGE; 2007; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163708567x913678567426078300",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PURPOSE, RESULT",
+  "can_do_statement": "Can use a finite subordinate clause with conjunctions ('so (that), in order that') to introduce purpose and result, after a main clause.",
+  "example_raw": "I think it is important to write about this topic so that young students and other people who are working with business, can get some inspiration. (Sweden; B1 THRESHOLD; 2008; Swedish; Pass)\n\nCould you please give me some extra exercises so that I can cover the work I missed? (Brazil; B1 THRESHOLD; 2006; Portuguese; Pass)\n\nPlease contact me if you need accommodation so I can book it for you. (Switzerland; B1 THRESHOLD; 2001; German; Pass) \n\nIf you come, please bring your camera in order that we can take some photos. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)"
+ },
+ {
+  "egp_id": "1741163708569x268710231555063360",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NON-FINITE WITH '-ING'",
+  "can_do_statement": "Can use a non-finite subordinate clause with 'after' + 'having/being' + '-ed' form, before a main clause, to refer to past time. ",
+  "example_raw": "After having worked for many hours, you'll probably be tired. (Brazil; B2 VANTAGE; 1993; Portuguese; Fail)\n\nAfter having left you, we reached Dublin and we stayed there for four days and then we made a tour of Ireland. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nAfter being given the pass you'll be able to take as many pictures you like. (Greece; B2 VANTAGE; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708569x385656258064060800",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: CONDITIONS",
+  "can_do_statement": "Can use a finite subordinate clause, before or after a main clause, with conjunctions to introduce conditions. \u25ba clauses: conditionals",
+  "example_raw": "Unless something is done many people will die. (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nGetting to work by car is comfortable and faster unless you are caught in a traffic jam. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nProvided the weather is fine, you could also go swimming or take a tour through our beautiful town. (Austria; B2 VANTAGE; 2001; German; Pass)\n\nI agree with you that your house will certainly be too small and I like your suggestion to book the Majestic Hotel, provided it will not be too expensive. (Netherlands; B2 VANTAGE; 2001; Dutch; Pass)"
+ },
+ {
+  "egp_id": "1741163708569x527540071099035200",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NON-FINITE WITH '-ING'",
+  "can_do_statement": "Can use a non-finite subordinate clause with 'before' and 'after' + '-ing', before or after a main clause, to refer to time. ",
+  "example_raw": "Instead I buy books once a month and I read them in the evening before going to bed. (Italy; B1 THRESHOLD; 2005; Italian; Pass)\n\nWe can relax after working hard at school. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nBefore going back home we ate a hot meal in a beautiful restaurant called \u201cPalladium\u201d. (Poland; B1 THRESHOLD; 1999; Polish; Pass)\n\nAfter having breakfast I started doing my homework. (Spain; B1 THRESHOLD; 2010; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163708570x262059735785698850",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NON-FINITE AFTER 'IF'",
+  "can_do_statement": "Can use non-finite clauses after 'if'. .\u25ba 'clauses: conditionals'",
+  "example_raw": "Please do not hesitate to ask for further assistance if needed. (other; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; German; Pass)\n\nFinally, there are some suggestions that, if taken, could improve the schools' academic standards. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Portuguese; Pass)\n\nThere are plenty of taxis, of course, but they are very expensive, if compared with London taxis. (Italy; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163708570x297785508495203460",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WERE' + PRONOUN + 'TO' INFINITIVE, FORMAL",
+  "can_do_statement": "Can use 'Were' + pronoun + 'to' infinitive to introduce a condition, in formal contexts. ",
+  "example_raw": "Were I to choose one of them, I would select the last one, so that I could have the opportunity to take part in my favourite radio station's programme. (Greece; C2 MASTERY; 2005; Greek; Fail)\n\nWere you to need any further information, please do not hesitate to contact me. (Switzerland; C2 MASTERY; 1998; French; Fail)\n\nWere we to give them this opportunity, it would not only be a great advantage for them but for the future of our society as well. (Greece; C2 MASTERY; 2003; Greek; Pass)\n\nWere they to be paid a sufficient sum, say, equivalent or even more than their current pay-check, they would be inclined to give up their jobs. (Cyprus; C2 MASTERY; 2000; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708570x301704306507399700",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NON-FINITE WITH '-ED' CLAUSES, FOCUS",
+  "can_do_statement": "Can use a non-finite subordinate clause with an '-ed' form, before a main clause, to give focus.",
+  "example_raw": "Compared to the campsite job this one has its advantages. (Romania; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Romanian; Pass)\n\nBased on the assessment above, I strongly recommend that we should take some action to improve the store. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Chinese; Pass)\n\nGiven all the inconveniences explained above I expect compensation from your company and if I do not hear from you within ten days I will have to contact my solicitors and take further steps. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Spanish - European; Pass)\n\nBased in Zurich with departments all over Europe we reach almost 150 million people. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2010; Romansch; Pass)"
+ },
+ {
+  "egp_id": "1741163708570x407214749191681340",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NON-FINITE AFTER 'ALTHOUGH', 'THOUGH'",
+  "can_do_statement": "Can use non-finite clauses after subordinating conjunctions '(although, though)', to express contrast. ",
+  "example_raw": "\nI was my parents' first and only child, and I was brought up at my grandparents' home, because, although married, my mother decided not to leave her parents' home, and my father agreed with her. (Spain; C2 MASTERY; 1993; Spanish - European; Pass)\n\nAlthough committed to her job she successfully maintains her social contacts all over the world. (Germany; C2 MASTERY; 1993; German; Pass)\n\nJack, though disappointed, respects the result. (Switzerland; C2 MASTERY; 1993; German; Pass)\n"
+ },
+ {
+  "egp_id": "1741163708570x600858468058892400",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION",
+  "can_do_statement": "Can introduce a subordinate clause with inverted 'should/had/were' + subject + verb, in formal contexts. ",
+  "example_raw": "Should you need any further assistance, do not hesitate to contact me. (Czech; Czech Republic; C1 EFFECTIVE OPERATIONAL PROFICIENCY; Pass; 2007) \n\nHad we known that before we could have taken more money with us. (Greek, Greece, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2008)\n\nWere I able to travel to any place and time, I would probably choose the Greece of more than two thousand years ago. (Spanish \u2013 European, Spain, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass 2000)"
+ },
+ {
+  "egp_id": "1741163708570x758271347243594900",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT' + '-ING' CLAUSE",
+  "can_do_statement": "Can use a non-finite clause, introduced by 'not' + '-ing', to give more information. ",
+  "example_raw": "Not knowing the North of London very well it took me quite a long time to get there. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2004; German; Pass)\n\nA nine-member family living peacefully in 19th-century England is suddenly shocked by the untimely death of the mother. Not having accepted his wife's death, the father, George, deeply depressed, is left alone to raise his seven children. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708570x985060556560681900",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "subordinated",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: '-ING' CLAUSE",
+  "can_do_statement": "Can use a non-finite clause, introduced by '-ing' before a main clause, to give more information. ",
+  "example_raw": "Having no choice, I sat down on a bench which was in the middle of the road to wait for the rain to stop. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\nUsing his best smile, Paul asked her if he could sit beside her. (Chile; B2 VANTAGE; 1997; Spanish - Latin American; Pass)\n\nHaving analysed the data I have concluded that CTP Translations would suit our company best. (Russia; B2 VANTAGE; 2000; Russian; Pass)"
+ }
+]
+```

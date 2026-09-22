@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_052.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163713101x869805445646449900",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: RECENT PAST",
+  "can_do_statement": "Can use the present perfect simple to refer to a finished event or state in the recent past, that has a present relevance, often with 'just'.  \u25ba adverbs",
+  "example_raw": "My mother has broken her right leg. (Peru; B1 THRESHOLD; 2006; German; Pass)\n\nI've just received your mail. (France; B1 THRESHOLD; 2004; French; Pass)\n\nI've found a job for you. (Italy; B1 THRESHOLD; 2005; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163713101x942811642239743600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the present perfect simple with an increasing range of adverbs in the normal mid position. ",
+  "example_raw": "This is a famous seafood restaurant, you know, I've always loved seafood. (Mexico; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)\n\nHave you ever been to Gorgeousbi? (Korea, North; B1 THRESHOLD; 2005; Korean; Pass)"
+ },
+ {
+  "egp_id": "1741163713102x805096612277930600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: UNFINISHED ",
+  "can_do_statement": "Can use the present perfect simple to refer to a state or period of time which is unlimited or indefinite. ",
+  "example_raw": "In spite of bad weather forecasts on TV, it has been a sunny, warm weekend. (Spain; B1 THRESHOLD; 2003; Spanish - European; Pass)\n\nI've had a really nice week. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nIt is a great movie. It has won a lot of prizes so I think it will be good to see it at the cinema. (Iran; B1 THRESHOLD; 2004; Farsi; Pass)"
+ },
+ {
+  "egp_id": "1741163713111x354631070539948000",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "2",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form with an increasing range of verbs.",
+  "example_raw": "How has your family been? (Mexico; B2 VANTAGE; 2000; Spanish - Latin American; Pass)\n\n\nBut what have these animals done? (Netherlands; B2 VANTAGE; 1993; Dutch; Pass)\n\nIn 1970 people in the UK married in their early 20s, but nowadays they marry at the end of their 20s. But why has this changed? (B2 VANTAGE; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163713111x611310529067472800",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: WITH 'STILL'",
+  "can_do_statement": "Can use the negative form of the present perfect simple with 'still' to emphasise that something that was expected to happen continues not to happen.  \u25ba adverbs",
+  "example_raw": "I still haven't read the role but when I read it, I was very excited and I accepted Mr Brown's offer. (Greece; B2 VANTAGE; 2002; Greek; Pass)\n\nYou asked me whether I bought a computer or a bicycle and I have to tell you that I still haven't decided. (Germany; B2 VANTAGE; 1997; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163713111x811420585366934300",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: WITH SUPERLATIVE ",
+  "can_do_statement": "Can use the present perfect simple with a superlative adjective to talk about a unique experience.  \u25ba adjectives: superlatives",
+  "example_raw": "This restaurant has the most delicious shrimps I have ever tasted. (Mexico; B1 THRESHOLD; 2005; Spanish - Latin American; Pass)\n\nThat is the best game I've ever played. (Romania; B1 THRESHOLD; 2010; Hungarian; Pass)\n\nI've never been there before but my friend Pepo said that it is the biggest park she has ever seen. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nAt the top of that, you will see the most amazing view you have ever seen. (Japan; B1 THRESHOLD; 2004; Japanese; Pass)"
+ },
+ {
+  "egp_id": "1741163713111x834717044155053800",
+  "level": "C1",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "3",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the full negative forms with a wide range of verbs, often in formal contexts.",
+  "example_raw": "Thus, you have not fulfilled your task with due care, as you have stated in your letter. (Austria; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; German; Pass)\n\nSomehow, in my country education has not evolved, although it manages to maintain some advantages. (Yugoslavia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Serbian; Pass)"
+ },
+ {
+  "egp_id": "1741163713112x784244213132092200",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "present perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: NEWSWORTHY",
+  "can_do_statement": "Can use the present perfect simple to introduce news. ",
+  "example_raw": "A new shopping centre has opened in our town. (Russia; C2 MASTERY; 2005; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163713112x603850914179882600",
+  "level": "A1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PREPOSITION + NOUN PHRASE",
+  "can_do_statement": "Can form prepositional phrases with a preposition and a noun phrase. ",
+  "example_raw": "When I have free time, I go to the park with my dog. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nWe have lots of vegetables and fruit in the summer. (A1 BREAKTHROUGH; 2009; Slovak; Pass)\n\nWe sometimes meet friends or go to the Sports Center at the weekend. (A1 BREAKTHROUGH; 2006; Mandarin; Pass)"
+ },
+ {
+  "egp_id": "1741163713112x664516393932309100",
+  "level": "A2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'JUST' + PREPOSITION",
+  "can_do_statement": "Can use 'just' to modify prepositions. ",
+  "example_raw": "It's just near the cinema. (India; A2 WAYSTAGE; 2009; Hindi; Pass)\n\nSo you have to go along 3 blocks and turn on your left and just in front of you is the Cathedral and next to the Cathedral is the Zocalo. (Mexico; A2 WAYSTAGE; 2001; Spanish - Latin American; Pass)\n\nMy house is just after the library. (France; A2 WAYSTAGE; 2009; French; Pass)"
+ },
+ {
+  "egp_id": "1741163713112x806003192035927200",
+  "level": "A1",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "1",
+  "guideword": "FORM: SIMPLE",
+  "can_do_statement": "Can use a limited range of simple (single-word) prepositions. ",
+  "example_raw": "I'm sending some flowers to you. (A1 BREAKTHROUGH; 2009; Romanian; Pass)\n\nHe works in Bognor Regis. (A1 Slovak)\n\nI can cook some food for you. (A1 BREAKTHROUGH; 2009; Bengali; Pass)\n\nI usually go shopping with her in Chester. (Bulgarian, A1 BREAKTHROUGH, Pass, 2006)\n\nCan you come on Saturday at five o'clock in the afternoon? (A1 Polish)\n\nI will come to your house on time. (A1 BREAKTHROUGH; 2006; Mandarin; Pass)"
+ },
+ {
+  "egp_id": "1741163713112x864243593656802700",
+  "level": "A2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "1",
+  "guideword": "FORM: COMPLEX",
+  "can_do_statement": "Can use a limited range of complex prepositions. ",
+  "example_raw": "We can meet in the park near to my house at 7.00 p.m. (A2 Spanish Latin American)\n\nI have a lot of hobbies, such as reading, singing, drawing and so on. (A2 Chinese)\n\nI will be free at 4 p.m. and we can meet each other in front of our tennis club. (A2 Farsi)"
+ },
+ {
+  "egp_id": "1741163713112x995827873320149100",
+  "level": "A2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "2",
+  "guideword": "FORM: SIMPLE",
+  "can_do_statement": "Can use an increasing range of simple (single-word) prepositions. ",
+  "example_raw": "Please return it by tomorrow morning. (A2 Hindi)\n\nMy phone is blue like the sky. (A2 Greek)\n\nThe match was between Arsenal and Liverpool. (A2 Latin American Spanish)\n\nWe have to arrive home before 7.30pm. (A2 Thai)\n\nMy house is opposite the post office. (A2 Italian)\n\nDuring the party I danced, played games, ate cake and talked to everyone. (A2 Portuguese)"
+ },
+ {
+  "egp_id": "1741163713115x117482459797167540",
+  "level": "A2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: + '-ING'",
+  "can_do_statement": "Can form prepositional phrases using the '-ing' form of verbs as complements. ",
+  "example_raw": "I can help by bringing the sound box and bit box I am free at friday 7:30 pm. (Bangladesh; A2 WAYSTAGE; 2005; Bengali; Pass)\n\nThanks for replying. (Japan; A2 WAYSTAGE; 2008; Japanese; Pass)\n\nI was crazy about playing tennis. (Russia; A2 WAYSTAGE; 2009; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163713115x831925659489416200",
+  "level": "A2",
+  "super_category": "PREPOSITIONS",
+  "sub_category": "prepostions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: STRANDING",
+  "can_do_statement": "Can end a 'wh-' question with a preposition, where the preposition is stranded from its complement. ",
+  "example_raw": "Who are you going with? (Philippines; A2 WAYSTAGE; 2009; Tagalog; Pass)\n\nSo what are you waiting for? (Hong Kong; A2 WAYSTAGE; 1999; Chinese; Pass)"
+ }
+]
+```

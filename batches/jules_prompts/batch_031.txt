@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_031.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163710845x798749370290314700",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+  "can_do_statement": "Can use 'must' to guess and deduce, most commonly with 'it must be', or 'you must be'.",
+  "example_raw": "Second, it must be boring for you to sit at a computer all day. (Turkish, B1 THRESHOLD)\n\n[talking about moving to another town] You must be so nervous. (Spanish - Latin American, B1 THRESHOLD)\n"
+ },
+ {
+  "egp_id": "1741163710846x395037418398339200",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form.",
+  "example_raw": "Is it possible to use the prize next year or must I cancel my trip to India? (Swedish, B2 VANTAGE)\n\nFinally, how much money must I bring with me? (French, B2 VANTAGE)"
+ },
+ {
+  "egp_id": "1741163710846x539626302372578500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "3",
+  "guideword": "USE: OBLIGATION AND NECESSITY",
+  "can_do_statement": "Can use 'must' (with a wide range of pronouns and nouns) to talk about obligation and necessity.",
+  "example_raw": "[talking about something the speaker has found] She took it and said we must go and find him. (Poland; B1 THRESHOLD; 2008; Polish; Pass)\n\nYour parents must learn to let you live your own life \u2026 (German, B1 THRESHOLD)"
+ },
+ {
+  "egp_id": "1741163710846x710310357514026400",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS",
+  "can_do_statement": "Can use 'must' to make strong, encouraging suggestions.",
+  "example_raw": "This club has been opened for just two weeks. I mean we must see it. (Czech, B1 THRESHOLD)\n\n[talking about a day out] We must do that again, don't you think?! (Spanish - Latin American, B1 THRESHOLD)\n\nRome is really fantastic and you must go there! (Italy; B1 THRESHOLD; 2004; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163710846x862002717036825300",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST AFFIRMATIVE",
+  "can_do_statement": "Can use 'must have' + '-ed'.",
+  "example_raw": "When I realized that he must have forgotten, I called him up. (Chinese, B2 VANTAGE)\n\nWe had lots of fun learning how to ski. It was pretty hard at the beginning. I must have fallen about fifty times. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n"
+ },
+ {
+  "egp_id": "1741163711029x414511959030775550",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: EMPHASIS ",
+  "can_do_statement": "Can use the fixed expression 'I must say' to give emphasis, usually about something positive. ",
+  "example_raw": "I must say that I'm most delighted to have you here with us, Mr. Saramago, and it's with enormous pleasure that my students will hear your words. (Portuguese, B2 VANTAGE)\n\nAs I like music a lot I went to as many concerts as possible, and I must say that they were superb. (Germany; B2  ; 2000; German; Pass)"
+ },
+ {
+  "egp_id": "1741163711029x470432432448934400",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'must' with an increasing range of adverbs (including 'all', 'never', 'strongly', 'first') in the normal mid position after the modal verb. \u25ba adverbs",
+  "example_raw": "To sum up, we must all act immediately because the existence of humanity may be in danger. (Greek, B2 VANTAGE)\n\nBut there is one, just one thing we must never forget: we have to be authentic. (Peru; B2 VANTAGE; 2008; Spanish - Latin American; Pass)\n\n[talking about a guide book] In addition I must strongly recommend you add something about nightlife. (Russia; B2 VANTAGE; 2002; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163711029x580434283031923800",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS",
+  "can_do_statement": "Can use ellipted 'must have' + '-ed' without a subject. \u25ba ellipsis",
+  "example_raw": "[from a story] 'Must have fallen out of a car, or somfin'\" This was his next thought. (Polish, C2 MASTERY)"
+ },
+ {
+  "egp_id": "1741163711029x833971545638738200",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: OBLIGATION AND NECESSITY",
+  "can_do_statement": "Can use 'must' to ask about obligation and necessity.",
+  "example_raw": "Is it possible to use the prize next year or must I cancel my trip to India? (Swedish, B2 VANTAGE)\n\nFinally, how much money must I bring with me? (French, B2 VANTAGE)"
+ },
+ {
+  "egp_id": "1741163711029x868317160566453600",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+  "can_do_statement": "Can use the perfect form of 'must' to make deductions about the past.",
+  "example_raw": "Of course, India must have changed a lot since Jules Verne wrote his book, but I think that its charm remains. (French, B2 VANTAGE)\n\nI must have looked awful because she asked me whether I was all right. (Poland; B2 VANTAGE; 1993; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711029x881777172555198800",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: CONCESSIONS",
+  "can_do_statement": "Can use the fixed expression 'I must admit' or 'you must admit' to express concession.",
+  "example_raw": "On the other hand you must admit that not all ready-made meals taste really good and often they are not as healthy as fresh ones. (German, B2 VANTAGE)\n\nHowever, I must admit that I completely agree with Chris and consider the mountain road too daring to try. (Russia; B2  ; 1998; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163711029x915601173893870500",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "USE: RULES",
+  "can_do_statement": "Can use the negative forms of 'must' to talk about what is not permitted.",
+  "example_raw": "You must not hit them or punish them without good reason if you do not want them to become your worst enemy. (France; B2 VANTAGE; 1997; French; Pass)\n\nThey must not write on the walls. (Switzerland; B2 VANTAGE; 1993; Danish; Pass)\n\nIn school for example, you mustn't talk during lessons, and you have to be on time. (Sweden; B2 VANTAGE; 2000; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163711030x333448797717017540",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST, NEGATIVE",
+  "can_do_statement": "Can use 'must not have been' (especially with 'easy').",
+  "example_raw": "But I would like to stress that I was really happy that she found another husband, although she had three little children which must not have been easy for him. (German, C2 MASTERY)\n\nSomething I have missed on behalf of my father is a bit more tenderness, but again I am guessing it must not have been easy for him to be a post-wartime son of a widow. (Spanish - European, C2 MASTERY)\n\nIt mustn't have been more than an hour after the first announcement of the captain that there was a second one. (Greece; C2 MASTERY; 2001; Greek; Pass)\n"
+ },
+ {
+  "egp_id": "1741163711030x411652772454090800",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use 'must' with a wide range of adverbs in the normal mid position after the modal verb. \u25ba adverbs|",
+  "example_raw": "There must certainly be other solutions to the problem of the need for space for new houses. (Greece; C2 MASTERY; 2008; Greek; Pass)\n\nRECOMMENDATION In my opinion our town must clearly use this area to create a park and a playground for children. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\nI must completely disagree with this statement, since I believe that in all jobs or occupations only the good professionals are able to earn a lot of money. (Portugal; C2 MASTERY; 2005; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163711030x504903793194680900",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "must",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INVERSION",
+  "can_do_statement": "Can invert 'must' and the subject after negative phrases, e.g. 'not only', 'never', 'nor', to change the focus and give prominence/emphasis.",
+  "example_raw": "Not only must you study really hard during university, but also keep studying afterwards. (Portuguese, C2 MASTERY)\n\nTo sum up, my opinion is that education is sacred, necessary and useful to all of us and never must it be characterised as \"a waste of time\". (Greek, C2 MASTERY)\n\n[talking about personality] Nor must we overlook the human qualities. (French, C2 MASTERY)"
+ }
+]
+```

@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_011.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163708784x576043020818136800",
+  "level": "C1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT ALSO' WITH INVERSION",
+  "can_do_statement": "Can use inverted auxiliary 'do' + the subject after 'not only', to give focus.",
+  "example_raw": "Indeed, not only did they teach us useful knowledge, but they also organised practical exercises to ensure that we had assimilated all the information. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Greek; Pass)\n\nFurthermore, not only do I speak (and write) in fluent English, but I also speak French, Spanish and Portuguese. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2004; Mende; Pass)\n\nFor me, not only do extreme sports provide satisfaction of achievement, but they also help you to express yourself. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708784x613382438137329400",
+  "level": "C1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'YET', CONCESSIVE",
+  "can_do_statement": "Can use '(and) yet' to combine phrases and clauses to introduce a contrast, often unexpected. ",
+  "example_raw": "In the face of these recent events, our department also reviewed the contract with ProLine International, and found some interesting yet unpleasant details. (Romania; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Romanian; Fail)\n\nThis college is famous for its art teachers and very skilled students, and yet it does not have its own gallery. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Polish; Pass)\n\nThe host family was carefully selected, yet it was four miles away from school. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163708784x977839839085230600",
+  "level": "C2",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'AND YET', CONCESSIVE",
+  "can_do_statement": "Can use 'And yet' to combine sentences to introduce a contrast, often unexpected, sometimes in a formal context. ",
+  "example_raw": "If I had, I would try to do the best for them, just like my parents did, and very likely I would make the same mistakes. And yet, I think I would be a good and loving father. (Germany; C2 MASTERY; 1993; German; Pass)\n\nI felt very embarrassed and I was sure I would get the sack. And yet the manager forgave me and I continued to work there. (Poland; B2 VANTAGE; 1993; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163708784x986774694963059200",
+  "level": "C1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT ALSO'",
+  "can_do_statement": "Can use 'not only \u2026 but also' to combine phrases and clauses, often for focus or emphasis.",
+  "example_raw": "This book is not only a guide to the history of music but also a compendium of theory. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Catalan; Pass)\n\nIn addition to that, if we move to the new premises, we can not only solve the above problems, but also gain other benefits such as a better environment. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Chinese; Fail)\n\nIf we go back in time we will see that the difference between the old and the modern films is not only the number produced but also the content. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708785x514563206586401860",
+  "level": "A1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "subordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'BECAUSE' ",
+  "can_do_statement": "Can use 'because' as a subordinating conjunction to introduce a subordinate clause. ",
+  "example_raw": "I want a big garden because I have children. (Arabic - Other)\n\nShe likes meeting other people because she wants to improve her English. (Nepali)"
+ },
+ {
+  "egp_id": "1741163708788x305019632595426400",
+  "level": "B1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "subordinating",
+  "lexical_range": "2",
+  "guideword": "FORM: SIMPLE",
+  "can_do_statement": "Can use an increasing range of simple subordinating conjunctions ('as, after, before since, until, although, whether, so (that), though') to introduce a subordinate clause.",
+  "example_raw": "In fact, I have to buy a desk, as I don't have one. (French)\n\nI usually read during the afternoon after I have finished my homework. (Italian) \n\nBefore going out in the centre, we went to a pub in order to eat something together, but I didn't see my boyfriend because he stayed at home. (Italian)\n\nI haven't seen him since we were at school. (Portuguese)\n\nI'm really sorry that I'm not available to attend this since I'll be in China for an important meeting with a customer. (Chinese)\n\nBut I didn't remember my ring until I got back home. (Korean)\n\nAlthough the holiday was fantastic, I wished that you were with us. (Afrikaans)\n\nMy parents also want me to go on holiday with them this summer, although I want to stay with my friends. (German)\n\nThere were lots of people waiting for us though we had never met them before. (French)\n\nYou gave it to me so that I could fix it! (Bengal)"
+ },
+ {
+  "egp_id": "1741163708788x412817088848612500",
+  "level": "B2",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "subordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPLEX",
+  "can_do_statement": "Can use more complex subordinating conjunctions ('as long as, as soon as, in order that, despite the fact that, due to the fact that, as if, as though') to introduce a subordinate clause. ",
+  "example_raw": "As far as I am concerned, keeping animals in zoos is not cruel as long as the zoos keep to certain rules concerning the conditions the animals have to be kept in. (Dutch)\n\nI decided to go to Paris as soon as I finished university. (Spanish - Latin American)\n\nThe jazz, rock and classical concerts were really entertaining except that there were some concert halls which were too small for the audience. (Korean) \n\nSo take a rest in your hotel, in order that you can be prepared for your packed schedule. (Greek)\n\nTo sum up, the festival was successful, so I hope most people enjoyed the festival despite the fact that there were some problems with the poor sound system, and so on. (Korean)\n\nDue to the fact that the mass of cars pollute the cities and the environment, we are forced to give up our city habits and learn to be more sensible by using public transportation. (German)\n\nFrom the window of my room I could see her every night, as if she was the great mother of the sky. (Portuguese)\n\nEverything was so familiar, so close, as though he had never left the place. (Russia; B2 VANTAGE; 1997; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163708788x610612165275527200",
+  "level": "B2",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "subordinating",
+  "lexical_range": "3",
+  "guideword": "FORM: SIMPLE",
+  "can_do_statement": "Can use a wide range of simple subordinating conjunctions ('once, whereas, unless, except (that) provided (that)'), to introduce a subordinate clause.",
+  "example_raw": "Believe me, once you have tried it, you'll never give it up. (Spanish - Latin American)\n\nOnce you become an employee, you'll get discounts on books and CDs. (French)\n\nSome of us find it very useful whereas others still have difficulty in accepting technology as a valuable thing for everyone. (Polish)\n\nGetting to work by car is comfortable, and faster unless you are caught in a traffic jam. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nUnless the situation improves, we will be forced to try a new supplier. (Romanian)\n\nWhenever I walk down the street, I always want to go into every shop. (Korean)\n\nI can't say that I\u2019ve changed much, except that now I'm blond! (Brazil; B2 VANTAGE; 2003; Portuguese; Pass)\n\nIt offers special services for students provided you show your student card. (Japanese)\n\nAlso, provided that some customers are always in the shops, the electricity is not really \"wasted\". (Japanese)"
+ },
+ {
+  "egp_id": "1741163708788x790869024789763000",
+  "level": "A2",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "subordinating",
+  "lexical_range": "1",
+  "guideword": "FORM: SIMPLE ",
+  "can_do_statement": "Can use a limited range of simple subordinating conjunctions '(if, when, so, while)' to introduce a subordinate clause.",
+  "example_raw": "But if you don't take your car, you can rent a bike in the park too. (French)\n\nIf I need a camera, I will use my mobile phone. (Turkish)\n\nMy father bought it for me when he saw my grades at school. (Greek)\n\nWhen you buy a pair of shoes, the second pair is free. (Turkish)\n\nMy father said that I should use green, but I don't like green, so I decided to use blue. (Portuguese)\n\nAll of us were dancing while my father sang my favourite song. (Arabic - Meghreb)"
+ },
+ {
+  "egp_id": "1741163708789x414676979110102140",
+  "level": "C1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "subordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: FOCUS",
+  "can_do_statement": "Can use 'whatever', 'wherever', 'however', etc. as a subordinating conjunction, at the beginning of a sentence, to give focus.",
+  "example_raw": "Whatever you choose, you'll probably have to share it with other people. (Swedish)\n\nWhatever the cause of the fall in the standard of your services is, we would strongly recommend that you take all the necessary measures to make sure that this won't happen again. (Romania; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Romanian; Fail)\n\nWherever you go, you find shops, hotels and pubs which are full of tourists. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)\n\nWhoever we appoint, he/she should be a well-qualified, educated and flexible person. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Polish; Fail)"
+ },
+ {
+  "egp_id": "1741163708789x914655436588860800",
+  "level": "C2",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "subordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IN THAT'",
+  "can_do_statement": "Can use 'in that' as a subordinating conjunction, to give greater in-depth explanation, often in formal contexts. ",
+  "example_raw": "Nowadays it is widely argued that professional sports are damaging to people's health in that they involve gruelling training sessions as an integral part of the occupation. (Russian)\n\nIt's often said that nowadays people must be proud of medical advances, in that life is getting considerably longer. (Spain; C2 MASTERY; 1993; Catalan; Fail)"
+ },
+ {
+  "egp_id": "1741163708789x105964971324936210",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH NOUNS ",
+  "can_do_statement": "Can use articles 'the', 'a' and 'an' before nouns. \u25ba noun phrases",
+  "example_raw": "She lives in a small flat in the town - it's great! (A1 BREAKTHROUGH; 2006; German; Pass)\n\nI have an appointment with my G.P. at 5.45 pm. (A1 BREAKTHROUGH; 2006; Turkish; Pass)"
+ },
+ {
+  "egp_id": "1741163708789x174288205596050180",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'A' + 'VERY' + ADJECTIVES",
+  "can_do_statement": "Can use 'a' + 'very' + adjectives in basic noun phrases. \u25ba adverbs \u25ba  noun phrases",
+  "example_raw": "He's a very good man. (A1 BREAKTHROUGH; 2006; Mandarin; Pass)\n\nIt is a very beautiful place. (A1 BREAKTHROUGH; 2007; Russian; Pass)\n\nIt's a very nice town. (A1 BREAKTHROUGH; 2007; Slovak; Pass)"
+ },
+ {
+  "egp_id": "1741163708789x344483096716751800",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "1",
+  "guideword": "FORM: 'A' + ADJECTIVES",
+  "can_do_statement": "Can use 'a' and 'an' before adjectives in a noun phrase. \u25ba adjectives \u25ba  noun phrases",
+  "example_raw": "You can make a quick snack, for example a sandwich. (A1 BREAKTHROUGH; 2006; German; Pass)\n\nWe have a big garden and a small swimming pool. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)\n\nI like it because it is an interesting place. (A1 BREAKTHROUGH; 2007; Romanian; Fail)\n\nIt's an old house, about 50 years old. (A1 BREAKTHROUGH; 2007; Arabic - Other; Fail)"
+ },
+ {
+  "egp_id": "1741163708789x819248395543273500",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "articles",
+  "lexical_range": "1",
+  "guideword": "FORM: PREPOSITION + 'THE' + NOUN",
+  "can_do_statement": "Can use 'the' in prepositional phrases relating to time.",
+  "example_raw": "I work at the weekend and I'm very busy from Monday to Friday. (A1 BREAKTHROUGH; 2008; Polish; Pass)\n\nI can come to see you on Friday in the morning. (A1 BREAKTHROUGH; 2009; Thai; Pass)"
+ }
+]
+```

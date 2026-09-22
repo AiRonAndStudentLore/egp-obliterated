@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_055.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163713633x403618875526840800",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH ADVERBS OF INDEFINITE FREQUENCY ",
+  "can_do_statement": "Can use the present simple with adverbs of indefinite frequency.    \u25ba adverbs",
+  "example_raw": "People usually try to eat their breakfast between 7 and 9 am. (Skills for Life Elementary 2, A2, Polish)\n\nThey always make special things for their celebrations. (Skills for Life Elementary 2, A2, Panjabi)"
+ },
+ {
+  "egp_id": "1741163713633x426061404387356740",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS ",
+  "can_do_statement": "Can use 'yes/no' and 'wh-' question forms with 'you'.",
+  "example_raw": "Do you have a mobile phone? (Key English Test, A2, Greek)\n\nDo you know we are going to have a concert at school?(Key English Test, A2, Bengali) \n\nWhat do you think about my mobile phone? (Key English Test, A2, Turkish)\n\nWho do you want to come to the concert? (Key English Test, A2, Spanish)"
+ },
+ {
+  "egp_id": "1741163713633x552588242206544260",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "2",
+  "guideword": "FORM: NEGATIVE ",
+  "can_do_statement": "Can use the negative form with an increasing range of regular and irregular verbs.",
+  "example_raw": "I don't need the video because I've got the DVD. (Key English Test, A2, Greek)\n\nYou don't bring anything because it's the first day. (Key English Test, A2, Spanish - European)\n\nIt doesn't cost very much. (Key English Test, A2, Italian)"
+ },
+ {
+  "egp_id": "1741163713633x569058685257493250",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "1",
+  "guideword": "USE: MENTAL PROCESS VERBS",
+  "can_do_statement": "Can use the present simple with a limited range of mental process verbs including 'think', 'hope', 'know'.",
+  "example_raw": "I think my bag is in your kitchen. (Key English Test, A2,German)\n\nI hope that you feel better. (Skills for Life Elementary 2, A2, Polish)\n\nDo you know  that I am going to a concert on Saturday. (Key English Test, A2, Tamil)"
+ },
+ {
+  "egp_id": "1741163713633x569339192426698800",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: SUGGESTIONS ",
+  "can_do_statement": "Can use the present simple with 'why don't you\u2026?', 'Why don\u2019t we\u2026?' and 'if you want or if you like' to make suggestions. ",
+  "example_raw": "Why don't you wear your black suit? (Key English Test, A2, Arabic \u2013 Levant)\n\nWhy don\u2019t we go to a disco when the film ends? (Key English Test, A2, Spanish \u2013 Latin American)\n\nWe could have dinner after that if you want. (Key English Test, A2, Arabic \u2013 Egyptian)\n\nWe can go there, if you like. (Key English Test, A2, Vietnamese)"
+ },
+ {
+  "egp_id": "1741163713633x615618906458430600",
+  "level": "B1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "2",
+  "guideword": "USE: MENTAL PROCESS VERBS",
+  "can_do_statement": "Can use the present simple with an increasing a range of mental process verbs, including 'remember', 'understand', 'believe'.",
+  "example_raw": "I'm reading an adventure book, I don't remember the title but it's very boring! (Preliminary English Test, B1, Italian)\n\nWell, I totally understand that you want to go somewhere with your friends. (Preliminary English Test, B1, German)"
+ },
+ {
+  "egp_id": "1741163713633x795560331040402300",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: INSTRUCTIONS AND DIRECTIONS",
+  "can_do_statement": "Can use the present simple to give instructions and directions.",
+  "example_raw": "Then you turn right and my house is on your left. (Key English Test, A2, Greek)\n\nTo find my house you have to leave the bus at the station \"Unberhof\" Then you go straight on for about fifty meters. (Key English Test, A2, Swiss German)\n\nThen you walk for a few minutes See you tomorrow. (Key English Test, A2, Italian)\n"
+ },
+ {
+  "egp_id": "1741163713633x978808878460501800",
+  "level": "A2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INDIRECT QUESTIONS",
+  "can_do_statement": "Can form indirect questions with 'Do you know' + 'how', 'where', 'why', or 'what \u2026?'",
+  "example_raw": "Do you know how to get to my house? (Key English Test, A2, Spanish)\n\nDo you know which present I like best? (Key English Test, A2, Chinese)"
+ },
+ {
+  "egp_id": "1741163713636x147631604573655870",
+  "level": "B1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "1",
+  "guideword": "USE: SPEECH ACT VERBS",
+  "can_do_statement": "Can use the present simple with a limited range of speech act verbs, including 'suggest', 'apologise', 'recommend'. ",
+  "example_raw": "I suggest that if you travel, you should pay for your trip. (B1, Spanish \u2013 Latin American)\n\nI apologise for missing your class. (Preliminary English Test, B1, French)\n\nFor these reasons, I definitely recommend staying in a city. (Preliminary English Test, B1, Italian)"
+ },
+ {
+  "egp_id": "1741163713636x160593634066971800",
+  "level": "B2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INVERSION WITH 'NOT ONLY \u2026 BUT ALSO'",
+  "can_do_statement": "Can use the inverted form of the past simple with auxiliary 'do', in the phrase 'not only \u2026 but also'.",
+  "example_raw": "Not only do they save you filing time, but also they save office space. (First Certificate in English, B2, Chinese)\n\nNot only does it look nice but it's also full of places that we should visit, such as the enormous old castle or the extremely fascinating butterfly farm!! (First Certificate in English, B2, Italian)"
+ },
+ {
+  "egp_id": "1741163713636x207376848650752130",
+  "level": "C1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NEGATIVE QUESTIONS, PERSUASION",
+  "can_do_statement": "Can use the negative question form as a persuasion strategy.",
+  "example_raw": "Don't you just hate taking the bus to school every morning? well I have a perfect solution for you, a great bike with good brakes, a bell and lights. it is a great bike but since I never use it I would be happy to sell it to you. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Dutch; Fail)\n\nDon't you find that when you are having a shower or bath, you occasionally run out of water? (Korea, South; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Korean; Pass)"
+ },
+ {
+  "egp_id": "1741163713636x303999786952285900",
+  "level": "B2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: STORIES AND COMMENTARIES",
+  "can_do_statement": "Can use the present simple to summarise events or plot in a story or piece of history, often to give immediate dramatic interest. ",
+  "example_raw": "The plot of the book takes place in Vienna after the Second World War. (First Certificate in English, B2, German)\n\nThe scene takes place on a train. \u2026 On this train, a man is sleeping. He dreams. He dreams of one of his work colleagues who lost his job last year. (First Certificate in English, B2, French)"
+ },
+ {
+  "egp_id": "1741163713636x311000387736377600",
+  "level": "B1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "1",
+  "guideword": "USE: REPORTING VERBS",
+  "can_do_statement": "Can use the present simple with a limited range of reporting verbs, including 'say', 'show'.",
+  "example_raw": "For example, I know a person that moved to my city two years ago, and now he says that it improved his social life. (Preliminary English Test, B1, Italian)\n\nThe movie shows how a pretty woman with all the problems you can imagine can do different things to make people feel better. (Preliminary English Test, B1, Spanish - Latin American)\n"
+ },
+ {
+  "egp_id": "1741163713636x436399267696059800",
+  "level": "B2",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "3",
+  "guideword": "USE: SPEECH ACT VERBS",
+  "can_do_statement": "Can use the present simple with a wide range of speech act verbs, including '(dis)agree', 'accept', 'advise'.",
+  "example_raw": "We disagree with the new numbering system as it is too complicated. (B2, Swiss German)\n\nI'd love to go to the concert with you so I accept your invitation. (First Certificate in English, B2, Greek)\n\nI advise you to take a coat because it's winter, you know, it's a bit cold. (First Certificate in English, B2,  Portuguese)"
+ },
+ {
+  "egp_id": "1741163713636x943929338741485800",
+  "level": "C1",
+  "super_category": "PRESENT",
+  "sub_category": "present simple",
+  "lexical_range": "3",
+  "guideword": "USE: REPORTING VERBS",
+  "can_do_statement": "Can use the present simple with a wide range of reporting verbs, especially in academic contexts, including 'demonstrate', 'illustrate'.",
+  "example_raw": "The popularity of this TV game in Russia clearly demonstrates the nature of human fears and dreams. (Certificate in Advanced English, C1, Russian)\n\nThe 2 charts illustrate the number of employees, and the trends in profit for three factories, namely the factories located in London, Leeds, and Bristol, which belong to the same company, during the year 2003. (C1, Chinese) "
+ }
+]
+```

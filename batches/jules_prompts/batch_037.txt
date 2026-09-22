@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_037.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163711528x635492123385210640",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS WITH 'LIKE'",
+  "can_do_statement": "Can use the question form 'would you like'.",
+  "example_raw": "Sarah, would you like to play tennis this evening? (Portuguese, A2 WAYSTAGE, Pass, 2008)\n\nI'm going to a concert on Saturday. Would you like to go with me? (Croatian, A2 WAYSTAGE, Pass, 2009)\n\nI want to watch the film, would you like to come with me? (Arabic - Meghreb, A2 WAYSTAGE, Pass, 2003)"
+ },
+ {
+  "egp_id": "1741163711528x898984751471889600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'IF' CLAUSES",
+  "can_do_statement": "Can use 'would' in the main clause of a conditional sentence to talk about an imagined situation, often in the context of advice or opinion-giving.",
+  "example_raw": "It's your decision but if I had the chance, I would go with my friends. (German, B1 THRESHOLD, Pass, 2008)\n\nIf you decided to go to the country school, you'd probably have more attention as a student. (Portuguese, B1 THRESHOLD, Pass, 2008)\n\nIf I were you, I would not watch TV all the time. (Chinese, B1 THRESHOLD, Pass, 2010)\n\nIf I were able to move, I wouldn't move because I think this street is perfect.  (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163711529x426495349233583900",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: FUTURE IN THE PAST",
+  "can_do_statement": "Can use 'would' to talk about the future in the past.",
+  "example_raw": "I've just bought a new dress, and a beautiful black T-shirt. When I saw them, I thought they would be great for tonight's party. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)\n\n\u2026 we thought that the film would be horrible because of the title but when the film started, the story was beautiful and Mauricio and I liked it a lot. (Portuguese, B1 THRESHOLD, Pass, 2002)\n\nAnd she asked me if I would play the game with her against her cousin and her friend on Saturday. (Germany; B1 THRESHOLD; 2001; German; Pass)"
+ },
+ {
+  "egp_id": "1741163711529x535567954222940100",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use an limited range of adverbs with 'would', including 'really', 'probably', 'certainly', 'definitely'.\u25ba adverbs",
+  "example_raw": "I hope you will come soon, and I think that you would really enjoy it because is something different of what you are used to. (Peru; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n\nMore over in my opinion it would probably be the best idea to choose the biggest school ... (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nI would definitely choose to live by the sea side! (Malaysia; B1 THRESHOLD; 2010; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163711529x657615441693555600",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use question forms.",
+  "example_raw": "Would you let me know what you think? (French, B1 THRESHOLD, Pass, 2011)\n\nWould you please do me a favour? Could you go and collect the clothes for me? (Singhalese, B1 THRESHOLD, Pass, 2009)\n\nThink of the fun you will have with your friends, the whole day hanging around, playing sports, eating ice cream. Wouldn't that be wonderful? (Swiss German, B1 THRESHOLD, Pass, 2008)\n\nI think it would be fantastic, wouldn't it? (Italian, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163711534x225764774682792860",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: POLITE REQUESTS",
+  "can_do_statement": "Can use 'would' to make polite requests, often in the fixed expression 'would you mind'.",
+  "example_raw": "Would you tell me about your room in your next letter, please? (Chinese, B1 THRESHOLD, Pass, 2001)\n\nWould it be possible for you to meet me later that day, around 7? (German, B1 THRESHOLD, Pass, 2008)\n\nI had forgotten I have an appointment with my dentist at that time, so, would you mind if we met at 5 o'clock instead of meeting at 4 o'clock? (Spanish - Latin American, B1 THRESHOLD, Pass, 2008)\n\nWe are supposed to have a barbecue for lunch, would you mind bringing a salad? (Spanish - Latin American, B1 THRESHOLD, Pass, 2009)"
+ },
+ {
+  "egp_id": "1741163711534x311504042687477570",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: HABITUAL PAST",
+  "can_do_statement": "Can use 'would' to talk about habitual actions and events in the past.",
+  "example_raw": "[talking about a job that the speaker did last year] In my opinion I worked very hard. I would spend a lot of hours at work. (Chinese, B2 VANTAGE, Pass, 2011)\n\n[from a story about pirates] At night they would go to the rocky seaside and light a fire in order to deceive the boats and let them crash on the rocks. (Portuguese, B2 VANTAGE, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163711534x454213530321553800",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: INDIRECTNESS",
+  "can_do_statement": "Can use 'would' with verbs such as 'advise', 'imagine', 'recommend', 'say' to be less direct.",
+  "example_raw": "I'd advise you to go with your friends because I bet you'll have so much fun! (German, B1 THRESHOLD, Pass, 2008)\n\nIf you want my opinion, I'd recommend the countryside because I think that the city in my country is very noisy. (Spanish - Latin American, B1 THRESHOLD, Pass, 2004)\n\nFinally, I'd say that you should talk with your parents and your friends to decide. (French, B1 THRESHOLD, Pass, 2008)\n\nIf you have decided to move, I would say that it is better for you to choose the large school in the centre of the town. (German, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163711534x485840810825062460",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: IMAGINED SITUATIONS IN THE PAST",
+  "can_do_statement": "Can use 'would' to talk about imagined situations in the past. \u25ba conditionals",
+  "example_raw": "The next week I would have flown to Miami to meet George Clooney. (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nIf I were in your shoes I would have chosen the school which is in the centre of town\u2026  (Iran; B1 THRESHOLD; 2008; Farsi; Pass)\n\nIf you hadn't helped me, I wouldn't have known how to do that homework project. (Italy; B1 THRESHOLD; 2010; Italian; Pass)\n\nIf I had gone with uncomfortable shoes, I wouldn't have danced all the time. (B1 THRESHOLD; 2008; Spanish - Other; Pass)"
+ },
+ {
+  "egp_id": "1741163711534x522343728787019200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTED SPEECH",
+  "can_do_statement": "Can use 'would' as the past form of 'will' in reported clauses.",
+  "example_raw": "She accepted the invitation and she said that she would come on the 21st of June. (Spanish - European, B1 THRESHOLD, Pass, 2008)\n\nI felt better when he said that he would be in Fenerbahce. (Turkish, B1 THRESHOLD, Pass, 2009)\n\nHe told me I would like it and he was right! (Italy; B1 THRESHOLD; 2003; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163711534x531065253308636860",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "N/A",
+  "guideword": "USE: WILLINGNESS IN THE PAST",
+  "can_do_statement": "Can use the negative forms of 'would' to talk about willingness in the past.",
+  "example_raw": "We had to leave without you because the bus driver wouldn't wait. (===NONE===, B1 THRESHOLD, Pass, 2004)\n\n[talking about a guitar] It was all that I wanted in life but my parents would not allow me to buy it. (Spanish - Latin American, B1 THRESHOLD, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163711534x798351647415961600",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use an increasing range of adverbs with 'would', including 'strongly', 'easily', 'especially', 'actually', 'absolutely', 'gladly'  \u25ba adverbs",
+  "example_raw": "Considering the aspects of our education system, and the results of my research, I would strongly recommend the following changes to be made. (Croatia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Croatian; Pass)\n\nBecause of her wide and excellent experience with small children I believe that Nascha would easily fit into a family with small children. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; German; Pass)"
+ },
+ {
+  "egp_id": "1741163711534x901809977839047200",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "would",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use a wide range of adverbs with 'would', including 'undoubtedly', 'possibly', 'normally', 'personally', 'eventually', 'obviously', 'significantly', 'inevitably'. \u25ba adverbs",
+  "example_raw": "[talking about the construction of a leisure centre] I believe that the construction of such a centre would undoubtedly contribute to the improvement of our quality of life. (Greek, C2 MASTERY, Pass, 2009)\n\nOrganising family-oriented activities would significantly increase membership and raise the society's popularity with the local community. (Greek, C2 MASTERY, Pass, 2009)"
+ },
+ {
+  "egp_id": "1741163716067x101148462288360720",
+  "level": "A1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AUXILIARY VERB 'DO', PRESENT",
+  "can_do_statement": "Can form negative statements of main verbs in the present simple with 'don't' + main verb. \u25ba present simple \u25ba can",
+  "example_raw": "I don't have a dining room, so we eat in the living room. (A1 BREAKTHROUGH; 2009; Romanian; Pass)\n\nWe don't like other lessons, for example: French language. (A1 BREAKTHROUGH; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163716067x824562184770361200",
+  "level": "A1",
+  "super_category": "NEGATION",
+  "sub_category": "negation",
+  "lexical_range": "N/A",
+  "guideword": "FORM: MAIN VERB 'BE'",
+  "can_do_statement": "Can form negative statements of main verb 'be', with contracted and uncontracted forms.",
+  "example_raw": "My college is not very big. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nI know you are not well. (A1 BREAKTHROUGH; 2009; French; Pass)\n\nI'm not a good swimmer. (A1 BREAKTHROUGH; 2011; Romanian; Pass)\n\nThis place isn't big. (A1 BREAKTHROUGH; 2007; Lithuanian; Pass)"
+ }
+]
+```

@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_048.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163712333x181896863266680420",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'BECAUSE', EXPLANATIONS ",
+  "can_do_statement": "Can use the past perfect simple after 'because' to give explanatory information.",
+  "example_raw": "He was sleeping but I realised that this was because he had lost a lot of blood. (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nI was driving on to my parents' house because I had arranged to have dinner with them. (Portuguese; Portugal; B2 VANTAGE; Pass)"
+ },
+ {
+  "egp_id": "1741163712333x761860144866407300",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'IF ONLY' AND 'WISH', IMAGINED PAST",
+  "can_do_statement": "Can use the affirmative form after 'if only', and the affirmative and negative forms after 'wish' to talk about regret.",
+  "example_raw": "If only I had listened to my father! (Iran; B2 VANTAGE; 1993; Farsi; Pass)\n\nIf only I had met her before. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nI am sure, because at the end of the concert, I said to my friend \"I wish they had played a bit more\". (Turkey; B2 VANTAGE; 1997; Turkish; Pass)\n\nI wish I hadn't told Pat about my plans. (Poland; B2 VANTAGE; 2000; Polish; Pass)\n\nI wish I hadn't done that but now I can't do anything. (Greece; B2 VANTAGE; 1993; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163712333x963626763332635600",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: TIME UP TO THEN",
+  "can_do_statement": "Can use the past perfect simple to talk about a time before another time in the past.",
+  "example_raw": "He then thought how stupid he had been. (Peru; B1; Spanish - Latin American; Pass)\n\nActually I'd arranged an appointment with my doctor before calling you. (B1; Arabic \u2013 Meghreb; Pass)"
+ },
+ {
+  "egp_id": "1741163712334x136453521650765640",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the past perfect simple with a wide range of adverbs (including 'finally', 'recently', 'simply') in the normal mid-position.  \u25ba adverbs",
+  "example_raw": "He had finally achieved his goal! (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nShe had suddenly woken up at that noise, but now was trying to persuade herself it was just a dream. (Italy; B2 VANTAGE; 1999; Italian; Pass)\n\nAnd had all the furniture and David's personal things been stolen by thieves or had they just simply disappeared? (Greece; B2 VANTAGE; 2006; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163712334x353325929078093700",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION WITH 'NO SOONER \u2026 THAN'",
+  "can_do_statement": "Can invert the subject and auxiliary verb with 'no sooner \u2026 than' to talk about something that happened immediately before something else, often in formal contexts.",
+  "example_raw": "\u2026 but no sooner had I gone to bed than someone broke the door down. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nBut, no sooner had I got there than my classmates informed me that I had done well in my physics exam. (Greek; Greece; B2 VANTAGE; 2002)"
+ },
+ {
+  "egp_id": "1741163712334x456379754309706560",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use question forms.",
+  "example_raw": "Had I made the same mistake twice? (B2; 1993; German; Pass)\n\n\u2026 the question was: Why had he done that? (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163712334x897130264998052400",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION WITH 'NEVER (BEFORE)'",
+  "can_do_statement": "Can invert the subject and auxiliary verb after 'never (before)' to talk about a unique event, often in formal contexts.",
+  "example_raw": "Never had I been in such a ridiculous situation! (South Africa; B2 VANTAGE; 1993; Italian; Pass)\n\nNever before had we seen such marvellous species of fish. (Poland; B2 VANTAGE; 2006; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163712334x957245027107264100",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: ELLIPSIS ",
+  "can_do_statement": "Can leave out the subject before the past perfect simple where it is understood from the previous clause.",
+  "example_raw": "But now she felt stronger and had lost her fear. (France; B2 VANTAGE; 1993; French)\n\nSimon was a very famous writer and had written ten best-sellers. (Greek; Greece; B2 VANTAGE; Pass; 2009)\n\nAll her friends from Chicago had come to visit her and had brought a huge chocolate cake with them. (Spain; B2 VANTAGE; 1993; Spanish - European)\n\nThey were cold and had gone numb. (Korea, South; B2 VANTAGE; 1999; Korean)"
+ },
+ {
+  "egp_id": "1741163712335x315912109814443500",
+  "level": "C1",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: INVERSION, IMAGINED PAST",
+  "can_do_statement": "Can invert the subject and affirmative auxiliary verb to talk about imagined situations in the past, often with regret, in formal contexts. ",
+  "example_raw": "Had I known the tour would be so bad, I wouldn't have booked it. (France; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; French; Pass)\n\nHad they been new people, travellers from other countries, I could have taken it, but all the customers were English! (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)\n\nSometimes I think that had I gone to Britain without this experience, my life would have been different. (Czech Republic; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2006; Czech; Pass)"
+ },
+ {
+  "egp_id": "1741163712335x352820156836315650",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTS OF STATEMENTS",
+  "can_do_statement": "Can use the past perfect simple to report statements, where the main verb in the reporting clause is in the past simple.  \u25ba reported speech",
+  "example_raw": "[\u2026] one morning she was listening to the radio, when suddenly the announcer said that the police had arrested a man who had stolen five expensive and unique paintings. (Greece; B2 VANTAGE; 2006; Greek)\n\nShe tried to explain what had happened, but she couldn't. (Spain; B2 VANTAGE; 1999; Spanish - European) \n\nI looked at the address and I knew what had happened to my sister's postcard. (Hungary; B2 VANTAGE; 2002; Hungarian)"
+ },
+ {
+  "egp_id": "1741163712335x467440951326574700",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: CHANGE OF SITUATION",
+  "can_do_statement": "Can use the past perfect simple to talk about situations which changed. ",
+  "example_raw": "After the show we had planned to go to the theatre restaurant. But it was closed. (France; B2 VANTAGE; 2000; French; Pass)\n\nWe had planned to go to Switzerland, but unfortunately our car broke down. (Sweden; B2 VANTAGE; 1993; Swedish; Pass\n\nAt first she had wanted to make the first move but she wasn't quite convinced. (Poland; B2 VANTAGE; 2008; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163712335x576982604394435300",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: BACKGROUND INFORMATION, RELATIVE CLAUSE",
+  "can_do_statement": "Can use the past perfect simple in relative clauses to give background information.    \u25ba relative clauses",
+  "example_raw": "After a while Mr and Mrs Landsbury, the couple who had organised the party, got everybody's attention and [\u2026] asked everybody to stay calm. (Italy; B2 VANTAGE; 1993; Italian)\n\nHe went to the hotel because he wanted to find out who the person was that had sent him a mysterious letter\u2026 (First Certificate in English; B2; Chinese)\n\n[\u2026] it was Annika who had arranged a huge party for her, and all her friends and family, at the airport. (Danish, Denmark; B2 VANTAGE; Pass)"
+ },
+ {
+  "egp_id": "1741163712335x814539814649439100",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTS OF QUESTIONS ",
+  "can_do_statement": "Can use the past perfect simple to report questions, where the main verb in the reporting clause is in the past simple.  \u25ba reported speech",
+  "example_raw": "I asked him who had given him my phone number and he said it had been me. (Poland; B2 VANTAGE; 2002; Polish)\n\nHe didn't find her, in spite of looking for her in every room of her house, so he decided to come to my house to ask me if I had seen her somewhere. (B2; Basque)\n\nI asked her what had happened and she told me that my grandmother was very ill. (Greece; B2 VANTAGE; 1993; Greek)"
+ },
+ {
+  "egp_id": "1741163712739x117068598667129380",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM: FIXED EXPRESSIONS 'HAD IT NOT BEEN FOR', 'IF IT HADN'T BEEN FOR'",
+  "can_do_statement": "Can use 'had it not been for' \u2026 and 'if it hadn\u2019t been for' with a modal form for giving reasons.",
+  "example_raw": "Had it not been for the fact that I had already read the article, I would have thought that this woman was at least thirty years old. (Greece; C2 MASTERY; 2001; Greek; Pass)\n\nAnother aspect of his emotional side is the fact that he is a very private person, and had it not been for this feature, he might have been able to react differently. (Denmark; C2 MASTERY; 1998; Danish; Pass)\n\nIf it hadn't been for my lack of knowledge, skills, experience, and some other things like that, I wouldn't have been fired. (Israel; C2 MASTERY; 1997; Russian; Pass)\n\nThey had become very good friends and their friendship could have gone a little further if it hadn't been for Dan's character. (Argentina; C2 MASTERY; 1993; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712739x168032886753128670",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "past perfect simple",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: AFTER 'IF ONLY', IMAGINED PAST",
+  "can_do_statement": "Can use the negative form after 'if only' to express regret. ",
+  "example_raw": "If only she had not changed, if only I had helped her, maybe we would still be best friends and I would not be sitting here, writing about her! (Portugal; C2 MASTERY; 1993; Portuguese; Pass)\n\nIf only I hadn't been that rude! (Greece; C2 MASTERY; 2009; Greek; Pass)"
+ }
+]
+```

@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_041.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163711814x165510163769483600",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN PHRASE, NOUN PHRASE ",
+  "can_do_statement": "Can put two noun phrases together (in apposition) to refer to the same person or thing, usually separated by commas.",
+  "example_raw": "Mr Miller, the Sales Director, will visit us next Thursday. (Germany; B1 THRESHOLD; 2001; German; Pass)\n\nYesterday my boyfriend and I decided to go on a cycling holiday to visit some places in the country near Eboli, the town where we live. (Italy; B1 THRESHOLD; 2003; Italian; Pass)\n\nShe has come with me and two more friends, Peter and Gorha. (Spain; B1 THRESHOLD; 2003; Spanish - European; Pass)\n\nI spoke with her and she looks really happy, although a little sad because her best friend, Alison, did not pass the exam. (Spain; B1 THRESHOLD; 2004; Spanish - European; Pass)\n\nA new employee, Mary Watts, has just joined our company. (China; B1 THRESHOLD; 2002; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x331407196629243300",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE THING \u2026'",
+  "can_do_statement": "Can use the noun phrase 'The thing' in front position, with a clause complement, to give focus to something. ",
+  "example_raw": "The thing I enjoyed most about it was a new computer game. (Georgia (Republic of); B1 THRESHOLD; 2007; Georgian; Pass)\n\nThe thing I prefer there is the swimming-pool, because I have met someone there. (France; B1 THRESHOLD; 2003; French; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x374275189138046900",
+  "level": "B2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: POSSESSION WITH PLURAL NOUNS  + '",
+  "can_do_statement": "Can form noun phrases with plural nouns + ' + noun.",
+  "example_raw": "He had promised that he would go to his grandparents' house this afternoon. (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nOur company is a digital company with 15 years' experience. (China; B2 VANTAGE; 2008; Chinese; Pass)\n\nIt is essential to introduce special offers to get customers' attention. (India; B2 VANTAGE; 2009; Telugu; Fail)"
+ },
+ {
+  "egp_id": "1741163711814x437092792361470460",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPLEX NOUN PHRASE WITH POSSESSIVE '\u2018S' + NOUN",
+  "can_do_statement": "Can form complex noun phrases with noun phrase + 'of' + noun phrase + possessive determiner ''s' + noun phrase.",
+  "example_raw": "I ran to the street and I saw the window of my neighbour's car was broken. (B1 THRESHOLD; 2007; Portuguese; Pass)\n\nThe subject of my boss's talk will be IT skills. (Spain; B1 THRESHOLD; 2002; Spanish - European; Pass)\n\nMy friend Ronald had been chosen to play the role of James Bond's son! (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nMy best friend is called Sindi and we met at my brother's birthday. She is the sister of my brother's girlfriend so he invited her as well. (Bulgaria; B1 THRESHOLD; 2010; Bulgarian; Pass)\n\nThe delivery date should be the day of my friend's birthday. (B1 THRESHOLD; 2003; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x441874051766755000",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: INDEFINITE PRONOUNS ",
+  "can_do_statement": "Can form noun phrases with an indefinite pronoun + adjective or clause. ",
+  "example_raw": "We see each other every day and do something different every day. (B1 THRESHOLD; 2004; ; Pass)\n\nYou could bring something to drink. (Uruguay; B1 THRESHOLD; 2009; Spanish - Latin American; Fail)\n\nBut then there is nothing special to eat. (Germany; B1 THRESHOLD; 2006; German; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x584379635897277300",
+  "level": "B2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN + 'OF' + POSSESSIVE DETERMINER + NOUN ",
+  "can_do_statement": "Can form noun phrases with noun + 'of' + possessive determiner + noun + '\u2018s', particularly with 'friend' or 'friends'.",
+  "example_raw": "Actually, I know a great one and they can make a little discount for us because the owner is a friend of my father's. (Albania; B2 VANTAGE; 2009; Albanian; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x656223282475406200",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: FRIEND + 'OF' + POSSESSIVE DETERMINER + NOUN ",
+  "can_do_statement": "Can form noun phrases with 'a friend of' or 'friends of' + possessive determiner + noun.",
+  "example_raw": "He is a friend of my husband. (Japan; B1 THRESHOLD; 1999; Japanese; Pass)\n\nI just thought they were friends of my neighbour who were going to visit him. (B1 THRESHOLD; 2007; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163711814x813874619445620100",
+  "level": "B1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN + 'OF' + POSSESSIVE PRONOUN ",
+  "can_do_statement": "Can form noun phrases with noun + 'of' + possessive pronouns. ",
+  "example_raw": "\u2026 we always did everything together and couldn't stop laughing as she told me many funny stories and I told her lots of silly mistakes of mine. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nA colleague of mine has told me about a Swiss hotel in London. (Switzerland; B1 THRESHOLD; 2004; Swiss German; Fail)\n\nI was looking for something special to do for my last week off and some schoolmates of mine invited me to join the cycling holiday. (Italy; B1 THRESHOLD; 2003; Italian; Pass)\n\nI'm a fan of his, he is my favorite singer. (Turkey; B1 THRESHOLD; 2009; Turkish; Pass)\n\nI want this dream of mine to come true. (India; B1 THRESHOLD; 2010; Panjabi; Pass)"
+ },
+ {
+  "egp_id": "1741163711815x924964675967763700",
+  "level": "B2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: POSTMODIFYING WITH ADJECTIVE PHRASE",
+  "can_do_statement": "Can form complex noun phrases by using adjective phrases as postmodifiers to give more information about the noun.",
+  "example_raw": "Besides, we could leave one day in the morning and go by boat to a small and exotic island full of different and exotic species of birds that we could observe and photograph. (Turkey; B2 VANTAGE; 1993; Portuguese; Pass)\n\nEmily Br\u00f6nte succeeded in writing a romantic, psychological and tragic story, beautifully set in these mysterious moors. (Netherlands; B2 VANTAGE; 2001; Dutch; Pass)"
+ },
+ {
+  "egp_id": "1741163711816x244460653529919870",
+  "level": "C1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NOUN PHRASE WITH POSSESSIVE 'S WITHOUT NOUN",
+  "can_do_statement": "Can form complex noun phrases with noun phrase + 'of' + noun phrase + possessive determiner ''s', omitting the noun where it is previously mentioned. ",
+  "example_raw": "Our after-sales team now is perceived as faster, more qualified, friendlier and more efficient than our competitors\u2019. (China; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2004; Chinese; Pass)\n\nYou cannot have peace and quiet in your own home, as your hour of peacefulness might considerably differ from your neighbours\u2019. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Greek; Pass)\n\nI think it would be better to include a student's view of the college, not only a teacher's. (Romania; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Romanian; Pass)"
+ },
+ {
+  "egp_id": "1741163711816x290378137277149250",
+  "level": "B2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPLEX NOUN PHRASES WITH ADJECTIVES COMBINED WITH 'BUT'",
+  "can_do_statement": "Can form an increasing range of complex noun phrases with more than one adjective combined with 'but'. ",
+  "example_raw": "I am very lucky, because I was born in a small but beautiful city called Neuva Helvecia. (Uruguay; B2 VANTAGE; 2003; Spanish - Latin American; Pass)\n\n\nAs a result, in order to find out which is the most important, you need to ask yourself a simple but tricky question that no man would like to be asked. (Greece; B2 VANTAGE; 2008; Greek; Pass)\n\nThe smoke in the air had a strong but good smell. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)\n\nI will be on business in London to sign a contract with a new but significant customer at that time. (China; B2 VANTAGE; 2002; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163711816x514151092323317250",
+  "level": "C1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "USE: NOMINALISATION, FORMALITY",
+  "can_do_statement": "Can use nominalised forms in academic or business contexts, to make something more formal. ",
+  "example_raw": "As indicated by the charts, the output in state-owned industry increased by 12% in 2000. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Polish; Pass)\n\nWith reference to foreign-invested industry, it recorded fluctuations in industrial output increases throughout three years. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Polish; Pass)\n\nIt stood at 14% in 2002, then dropped by 2% in 2001. 2002 brought a significant growth in the output and recorded 19%. (Poland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Polish; Pass)\n\nWe could say that things have been altered by the advances of science and culture in general, like the rest of the world. (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163711816x759292923161605000",
+  "level": "C2",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPLEX NOUN PHRASES WITH 'LITTLE OR NO'  + NOUN",
+  "can_do_statement": "Can form complex noun phrases with 'little or no' + noun.",
+  "example_raw": "Harvey Keitel has always chosen the scripts that interested him as a person and as an actor, whilst refusing to invest his talent in big-time Hollywood block-busters with little or no artistic value. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nThey have little or no spare time to relax and recharge their batteries; they are constantly under pressure in order to live up to the expectations of the team and the supporters. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\nThe careers of these people started at a very young age with little or no money. (Greece; C2 MASTERY; 2009; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163711816x943210637425187800",
+  "level": "C1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WH-' CLEFT, FOCUS",
+  "can_do_statement": "Can form complex noun phrases with 'wh-' cleft clauses, followed by 'be', to give focus. ",
+  "example_raw": "What everyone loved were the special effects and we were very impressed by the use of advanced technological innovations. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)\n\nWhat companies care about is money and football players help them to earn it. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Catalan; Pass)\n\nWhat tourists want is to see the most typical things in England, not a hamburger restaurant. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Spanish - European; Pass)\n\nWhat students learn are mostly facts and theories. (Korea, South; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Korean; Pass)"
+ },
+ {
+  "egp_id": "1741163711828x633639966955607000",
+  "level": "A1",
+  "super_category": "NOUNS",
+  "sub_category": "noun phrases - grammatical functions",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AS SUBJECTS ",
+  "can_do_statement": "Can use nouns and noun phrases as subjects of the clause. ",
+  "example_raw": "His name is Stanislav. (Singhalese, A1 BREAKTHROUGH)\n\nMy friends are from Poland, Hungary, Libya, and Morocco. (Slovak, A1 BREAKTHROUGH)"
+ }
+]
+```

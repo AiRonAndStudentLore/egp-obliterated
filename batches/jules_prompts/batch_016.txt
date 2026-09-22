@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_016.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163715816x805574954101757600",
+  "level": "C1",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: TEXTUAL REFERENCE",
+  "can_do_statement": "Can use a range of phrases as discourse markers to point to other parts of a text. ",
+  "example_raw": "As mentioned above, it might be possible to negotiate better contracts for your company. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Swiss German; Pass)\n\nI hope this brief note has convinced you to start this club. As mentioned earlier, I have already asked for information. (Netherlands; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Dutch; Pass)\n\nSo as shown above, I recommend TELECARS to be our car services supplier because it offers all we need. (China; B2 VANTAGE; 2002; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163715816x910085760581765400",
+  "level": "B2",
+  "super_category": "DISCOURSE MARKERS",
+  "sub_category": "discourse markers in writing",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: ORGANISING, OPENINGS AND CLOSINGS, FORMAL",
+  "can_do_statement": "Can use a range of phrases as discourse markers to open and close texts and point to conclusions, often in formal contexts. ",
+  "example_raw": "To begin with, I want to ensure that you are going to have a great time with us. (Greece; B2 VANTAGE; 2009; Greek; Pass)\n\nFor a start, we have lived with books for thousands of years while television is only half a century old. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nIn conclusion, if people in zoos look after the animals, it isn\u2019t cruel to keep an animal in zoo. (Spain; B2 VANTAGE; 1993; Catalan; Pass)\n\nTo sum up, I think that whether you use a car or a bicycle depends on several aspects: where you live, when you work, the weather, and also the kind of job you do. (Italy; B2 VANTAGE; 1993; Italian; Pass)\n\nIn summary I would like to say that the majority of students is willing to help with cleaning, collecting the rubbish or even giving up their cars. (B2 VANTAGE; 2009; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163715820x150522391030215800",
+  "level": "B1",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: FRONTING, ADVERBS",
+  "can_do_statement": "Can use adverbs in the front position for focus.",
+  "example_raw": "That's my diary, the dearest thing I had. Here I wrote how I felt, what I did, who I met and all my problems. (Italy; B1 THRESHOLD; 2000; Italian; Pass)\n\nQuickly I opened the envelope, took out a white piece of paper and started to read. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nSuddenly, the door opened. (Brazil; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nOutside, it wasn't a sunny day any longer, it was raining a lot. (Portugal; B1 THRESHOLD; 2007; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163715820x418754553525479940",
+  "level": "B1",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IT' + 'BE' ADJECTIVE + 'THAT' CLAUSE",
+  "can_do_statement": "Can use 'it' + 'be' + adjective + 'that-'clause for focus. ",
+  "example_raw": "It's great that you have got a new job! (Spain; B1 THRESHOLD; 2009; Spanish - European; Pass)\n\nIt's true that there are one or two programmes that are interesting or funny, but the rest... they're horrible! (Spain; B1 THRESHOLD; 2010; Spanish - European; Pass)\n\nIt\u2019s important that you are happy. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nIt is really sad that you have to move to a different area. (Czech Republic; B1 THRESHOLD; 2008; Czech; Pass)"
+ },
+ {
+  "egp_id": "1741163715820x505908632783048000",
+  "level": "A2",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PREPOSITIONAL PHRASES, FRONTING ",
+  "can_do_statement": "Can use prepositional phrases in the front position for focus.",
+  "example_raw": "In the morning, I go to the beach. (Argentina; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)\n\nIn my country, the most popular food is Paella, which is a kind of rice with seafood, really tasty. (A2 WAYSTAGE; 2006; Portuguese; Pass)\n\nFrom your house, take the first turning on your left after the roundabout. (France; A2 WAYSTAGE; 2009; French; Pass)"
+ },
+ {
+  "egp_id": "1741163716064x592610604587924000",
+  "level": "B2",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE THING/ FACT/ POINT/ PROBLEM IS (THAT)'",
+  "can_do_statement": "Can use 'The thing, fact, point, problem, or reason + is (that)' for focus.",
+  "example_raw": "The reason is I like children, I have experience of looking after disabled people and I like to do things like volunteering. (B2 VANTAGE; 1993; Japanese; Pass)\n\nThe problem is I know myself, I am always late when I have to leave my house so I need a car to go faster. (Saudi Arabia; B2 VANTAGE; 1993; Arabic - Gulf; Pass)\n\nThe fact is that not all animals are able to deal with this. (Denmark; B2 VANTAGE; 1993; Danish; Pass)\n\nThe fact is science needs computers to increase knowledge and businesses need them like the air we breathe. (B2 VANTAGE; 1999; Catalan; Pass)\n\nIt is true that a lot of accidents are caused by cars. The point is that the car itself does not cause the accident. (Greece; B2 VANTAGE; 1993; Greek; Pass)\n\nThe thing is, Alison is an eleven-year-old girl who has been, together with her father, left behind by her mother when she was just three. (Brazil; B2 VANTAGE; 2005; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163716064x749646630905427700",
+  "level": "B2",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE REASON (THAT)', 'THE PLACE (WHICH)' + CLAUSE, SUBJECT",
+  "can_do_statement": "Can use 'The reason (that)', 'The place (which)' + clause as subject + 'be' for focus. \u25ba Relative clauses",
+  "example_raw": "The reason I am writing is to suggest a few things about our holidays. (Greece; B2 VANTAGE; 2008; Greek; Pass)\n\nThe reason that I never continued taking lessons is that my school-work became too heavy and the costs of lessons were too expensive for me as a student. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nThe place you need is called \"Academiuta\". (Italy; B2 VANTAGE; 2005; Italian; Pass)\n\nThe place we appreciated the most was the Cap Frehel, where nature is still wild and the birds feel at home. (Belgium; B2 VANTAGE; 1993; French; Pass)\n\nThe place which has impressed me most of all in my life is Abastumani. (Georgia (Republic of); B2 VANTAGE; 1997; Russian; Pass)."
+ },
+ {
+  "egp_id": "1741163716064x767849913238654200",
+  "level": "C1",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: FIXED EXPRESSIONS, FRONTING",
+  "can_do_statement": "Can use fixed expressions in the front position for focus.",
+  "example_raw": "At the end of the day everything is up to you! (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Greek; Fail)\n\nAll in all, the activity week was a nice experience for both students and teachers. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)\n\nAll things considered, I would recommend the third proposal as it seems to me that it covers most of the points the students have been complaining about. (Italy; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Italian; Pass)\n\nWhen it comes down to it, who does not like such a surprise? (Brazil; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Portuguese; Pass)\n\nWhen you think about it, can we afford a flat in Central London and still have something left with a basic salary? (Croatia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Croatian; Pass)"
+ },
+ {
+  "egp_id": "1741163716065x120095405121205090",
+  "level": "C2",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NOT A' + NOUN",
+  "can_do_statement": "Can use 'Not a' + noun with a passive verb or inverted auxiliary and subject for focus. ",
+  "example_raw": "Not a word was spoken by anyone throughout the journey. (Cyprus; C2 MASTERY; 2000; Greek; Pass)\n\nNot a scrap of remorse do they have. (Switzerland; C2 MASTERY; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163716065x166400508777969860",
+  "level": "C1",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WHAT' CLEFT CLAUSE",
+  "can_do_statement": "Can use 'What' + noun or pronoun + verb phrase as subject + 'be', for focus.  ",
+  "example_raw": "What we need is a strong publicity campaign, directed at young people. (Portugal; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Portuguese; Pass)\n\nWhat everyone loved were the special effects and we were very impressed by the use of advanced technological innovations. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)\n\nWhat companies care about is money and football players help them to earn it. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2005; Catalan; Pass)\n\nWhat tourists want is to see the most typical things in England, not a hamburger restaurant or a London musical from the back row in the gallery. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Spanish - European; Pass)\n\nWhat students learn are mostly facts and theories. (Korea, South; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2001; Korean; Pass)\n\nWhat I found particularly fascinating about this story is that it is still exciting and thrilling, despite the plot being rather easy to follow. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163716065x303072824467764300",
+  "level": "C1",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: IMPERATIVES",
+  "can_do_statement": "Can use imperatives as pointing devices within texts for focus.",
+  "example_raw": "Note the disadvantages of this transfer. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2002; Greek; Pass)\n\nNotice the difference in the salary. (Ecuador; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Spanish - Latin American; Pass\n\nSee the written instructions on the phone for complete instruction. (C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Fail)"
+ },
+ {
+  "egp_id": "1741163716065x319522763957327500",
+  "level": "C1",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WH-'CLEFT CLAUSE, TITLES",
+  "can_do_statement": "Can use 'Wh-'cleft clauses as titles or subtitles, to point to something that follows, for focus.",
+  "example_raw": "Why I think this is a good idea \nPeople are sensitive, and when they hear about charities, they always want to help. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)\n\nWhy you should choose that event \nIf you fund this event, you will gain in two ways: firstly you will help needy people, and secondly you will be admired. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Fail)\n\nThe aim of this is to find out why our biggest customer stopped purchasing from our company. \nHow I investigated. First I started looking on the internet in general. (Switzerland; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; German; Fail)\n\nHow we could benefit in terms of sales \nThis drink will be taken by athletes of any kind. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163716065x380877789960183400",
+  "level": "C1",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NON-FINITE WITH '-ED' CLAUSES",
+  "can_do_statement": "Can use a non-finite subordinate clause with an '-ed' form, before a main clause, for focus, often in formal, academic or business contexts.",
+  "example_raw": "Compared to other European capitals, there has been a lot done to make riding a bike less dangerous and more comfortable in Berlin. (Germany; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; German; Pass)\n\nOutlined below are some essential reasons which justify my choice and should be seriously considered. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2003; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163716065x880428316136173400",
+  "level": "C2",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'THE' + PREMODIFIER + 'THING, FACT etc.' + 'IS (THAT)'",
+  "can_do_statement": "Can use 'The' + premodifier + 'thing, fact, point, problem or reason' + 'is (that)' for focus.",
+  "example_raw": "The sad thing about it was that it was actually Richard who said, \"Why don't you go on holiday?\u201d (Poland; C2 MASTERY; 1993; Polish; Pass)\n\nThe strange thing was that the noise reminded her of someone making a cup of tea. (C2 MASTERY; 1993; Swedish; Pass)\n\nThe sad fact is, poverty is very likely to pass down to the next generation in these situations. (China; C2 MASTERY; 1999; Chinese; Pass)\n\nThe relevant point is that that personal, almost intimate relationship between the possessor and the thing possessed is at the core of that particular love we all hold for certain things. (Spain; C2 MASTERY; 2000; Catalan; Pass)\n\nThe only problem is that they are a little too noisy in the night. (Spain; C2 MASTERY; 2003; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163716065x984349956970362600",
+  "level": "C2",
+  "super_category": "FOCUS",
+  "sub_category": "focus",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'WH-'CLEFT  CLAUSE",
+  "can_do_statement": "Can use 'How', 'Why', or 'Where' cleft clauses as subject, for focus",
+  "example_raw": "How we are brought up forms our character, our thinking and our attitude towards ourselves and towards everybody and everything around us. (Switzerland; C2 MASTERY; 1993; German; Fail)\n\nWhere he had gone to was a mystery. (Netherlands; C2 MASTERY; 1998; Dutch; Pass)\n\nHow they influenced my life is hard to tell. (Germany; C2 MASTERY; 1997; German; Pass)\n\nWhy I think my father is successful is because of his personality, he is very fair about everything,; for example if he sees two beautiful women walking down the street and you ask him which is the nicest of them, he couldn't tell even if one was plain ugly he couldn't. (Sweden; C2 MASTERY; 1993; Swedish; Pass)\n\n[talking about possessions] How people have got their objects is also important. (Sweden; C2 MASTERY; 2000; Swedish; Pass)"
+ }
+]
+```

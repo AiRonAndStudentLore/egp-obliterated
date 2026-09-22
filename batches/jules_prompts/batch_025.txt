@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_025.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163716292x917584988638321400",
+  "level": "A2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "1",
+  "guideword": "USE: SUGGESTIONS",
+  "can_do_statement": "Can use 'could' with a limited range of verbs to make suggestions.",
+  "example_raw": "We could have dinner after that, if you want. (Egypt; A2 WAYSTAGE; 2003; Arabic - Egyptian; Pass)\n\nIf you want to visit an interesting place near Paris, you could go to Versailles. (France; A2 WAYSTAGE; 2001; French; Pass)\n\nWe could take the bus, or we could ask my parents to take us there. (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163716294x428246963703272000",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: PERMISSION",
+  "can_do_statement": "Can use 'could I' to seek permission.",
+  "example_raw": "I am in the basketball team of my school and tomorrow there is an important game. Could I take the class that I will miss on Saturday? (Spanish - Latin American, B1 THRESHOLD, Pass, 2006)\n\n\u2026my mother went to the shop and bought the game. She said: \"David, I have got something for you\" \u2026 I said, \u201cCould I play with it now, please?\u201d (Spanish - European, B1 THRESHOLD, Pass, 2010)"
+ },
+ {
+  "egp_id": "1741163716294x808126531664035200",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: POSSIBILITY",
+  "can_do_statement": "Can use 'could' to talk about possibility.",
+  "example_raw": "But believe me, it could be really fun to have a talkative person as your friend, he or she will give you good laugh at anytime! (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nCould this really happen? Could he really be there, in that dark caf\u00e9 \u2026? (Spanish - European, B1 THRESHOLD, Pass, 2009)"
+ },
+ {
+  "egp_id": "1741163716294x857600764651929500",
+  "level": "B1",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "2",
+  "guideword": "USE: SUGGESTIONS",
+  "can_do_statement": "Can use 'could' with an increasing range of verbs to make suggestions.",
+  "example_raw": "\u2026you could become a member of a gym. (Greek, B1 THRESHOLD, Pass, 2009)\n\nWe could meet in the nice cafe next to your house and have a coffee. (German, B1 THRESHOLD, Pass, 2008)\n\nI'm afraid that I need to change the time of our meeting. Could it be at 5.30 pm? (Spanish - Latin American, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163716295x105998126908799500",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PAST",
+  "can_do_statement": "Can used 'could' have + '-ed'. ",
+  "example_raw": "In fact it could have been dangerous but it became funny and also an embarrassing moment in my life! (Switzerland; B2 VANTAGE; 1993; French; Pass)\n\nWhat could have happened? (Greece; B2 VANTAGE; 2006; Greek; Pass)\n\nI must confess that our teacher couldn't have picked anyone better to do it. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n"
+ },
+ {
+  "egp_id": "1741163716295x133200860687879170",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: CRITICISM",
+  "can_do_statement": "Can use 'could have' + '-ed' form to express disapproval or criticism.",
+  "example_raw": "Since your travel company chose a hotel that far from the city, I think that you could have arranged entertainment at the hotel. (Swedish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1998)\n\n\u2026 for the money they had paid, you could have given them a better service (hotel, restaurant and evening entertainment). (Polish, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163716295x333431392231873200",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: PAST POSSIBILITY",
+  "can_do_statement": "Can used affirmative 'could' have + '-ed' to talk about past possibility. ",
+  "example_raw": "Alice was disappointed that her mother could have phoned her but she did not. (Japan; B2 VANTAGE; 2001; Japanese; Pass)\n\nI think that all these problems could have been avoided and that asking my money back is the best way of forgetting that evening. (Spain; B2 VANTAGE; 2000; Catalan; Pass)\n\nI was grateful to them because the ticket was so expensive that I couldn't have bought it. (Italy; B2 VANTAGE; 1993; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163716295x403332037991284800",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: REGRET",
+  "can_do_statement": "Can use 'could have' + '-ed' to talk about regrets.",
+  "example_raw": "I wish I could have stayed, especially to help the children. (Spanish - Latin American, B2 VANTAGE, Pass, 1993)\n\n[someone reflecting on their performance as part of a team at work] I could have listened more to my team members and learned from the experienced ones. (Spanish - Latin American, B2 VANTAGE, Pass, 2011)"
+ },
+ {
+  "egp_id": "1741163716295x431001332463613700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: PAST SPECULATION",
+  "can_do_statement": "Can use 'could have' + '-ed' to speculate about the past.",
+  "example_raw": "I thought perhaps a thief could have entered my house. (Italian, B2 VANTAGE, Pass, 1993)\n\n\u2026 she could have ruined everything I had been preparing for almost four weeks. (Portuguese, B2 VANTAGE, Pass, 1993) \n\nIf he had mugged her, who could have saved her? (Italy; B2 VANTAGE; 1993; Italian; Pass)"
+ },
+ {
+  "egp_id": "1741163716295x544491590213676700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: REPORTED SPEECH",
+  "can_do_statement": "Can use 'could' as the past form of 'can' in reported speech.",
+  "example_raw": "I told them I couldn't go because I didn't have money, I wasn't honest! (Spanish - European, B2 VANTAGE, Pass, 1999)\n\nThe woman said she could put me up if I wanted, and led me to a house nearby. (Chinese, B2 VANTAGE, Pass, 1999)"
+ },
+ {
+  "egp_id": "1741163716295x549939411550883300",
+  "level": "C2",
+  "super_category": "MODALITY",
+  "sub_category": "could",
+  "lexical_range": "N/A",
+  "guideword": "USE: SPECULATION ",
+  "can_do_statement": "Can use 'couldn\u2019t have' + '-ed' to speculate about the past.",
+  "example_raw": "Imagine my dismay when I realised I hadn\u2019t brought back the notebook from the pub. Surely I couldn't have left it on my seat. (French, C2 MASTERY, Pass, 1993)\n\n[speculating about a lost diary] \u2026 her mother couldn't have hidden it there just like that. It just wasn't like her. She must have put it away there and then forgotten about it. (Polish, C2 MASTERY, Pass, 1993)"
+ },
+ {
+  "egp_id": "1741163710395x413989918547746700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use negative form dare not and daren't +  infinitive without to. ",
+  "example_raw": "[talking about a restaurant] But many local people dare not go to Lily, because it is too expensive. (Taiwan; B2 VANTAGE; 1997; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163710395x580382123224487700",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use affirmative form dare + infinitive without to. ",
+  "example_raw": "I can cook if you dare eat it! (Taiwan; B2 VANTAGE; 2001; Chinese; Pass)"
+ },
+ {
+  "egp_id": "1741163710396x202268640000475400",
+  "level": "B2",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "USE: BRAVADO",
+  "can_do_statement": "Can use semi-modal 'dare' to talk about being brave enough to do something.",
+  "example_raw": "Some people object that I have to put up with the rain and other inconveniences, but I think that they are rather jealous because they daren't give up their car. (France; B2 VANTAGE; 1993; French; Pass)"
+ },
+ {
+  "egp_id": "1741163710396x753443551652472000",
+  "level": "C1",
+  "super_category": "MODALITY",
+  "sub_category": "dare",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'I DARE SAY'",
+  "can_do_statement": "Can use the fixed expression 'I dare say' to say that something is probably true.",
+  "example_raw": "I feel that I have a huge responsibility trying to choose only one option, but I dare say that the last option may be the best one. (Argentina; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1999; Spanish - Latin American; Pass)\n\nI must express my concern about some facilities, like the student study centre and the canteen, which I dare say needs improvement. (Italy; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Italian; Pass)"
+ }
+]
+```

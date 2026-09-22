@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_003.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163708151x653728440102574500",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: SUPERLATIVE ADJECTIVE (+ 'THAT')",
+  "can_do_statement": "Can use a superlative adjective (+ noun) (+ 'that') followed by a clause to talk about something unique.",
+  "example_raw": "It was probably the best comedy that anyone could ever have made; however, to the ones who were in the cinema, it didn't seem like a comedy but a horror film. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nIn my opinion this is the worst thing that can ever happen. (Russia; B2 VANTAGE; 2000; Russian; Pass)\n\nThat is the clearest thing I can remember. (Spain; B2 VANTAGE; 1993; Spanish - European; Pass)\n\nWe have developed a new micro processor which is the fastest and smallest that exists at the moment. (Germany; B2 VANTAGE; 2008; German; Pass)"
+ },
+ {
+  "egp_id": "1741163708151x719474108832722800",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "lexical_range": "2",
+  "guideword": "FORM: COMPARATIVE ADJECTIVE + 'THAN' + NON-FINITE CLAUSE",
+  "can_do_statement": ".||Can use than + an increasing range of non-finite clauses (to-infinitive, reduced clause)  forming the second part of a comparison after a comparative adjective||",
+  "example_raw": "It is much easier to be single than to have a partner. (B2 VANTAGE; 2008; Italian; Pass)\n\nDue to the provisions and considerations of the contract which was never revised, I think that arbitration is more appropriate than to file an action in court against the tenant. (France; B2 VANTAGE; 2008; French; Pass)\n\n\nIt performs better than expected and attracts many new customers, especially during the week. (Morocco; B2 VANTAGE; 2007; Arabic - Meghreb; Pass)"
+ },
+ {
+  "egp_id": "1741163708151x809054436449001100",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'RATHER THAN' + NON-FINITE CLAUSE",
+  "can_do_statement": "Can use 'rather than' + a non-finite clause to stress one element in a comparison.",
+  "example_raw": "If you prefer watching TV rather than reading, you have to be critical: you mustn't in any way accept everything, every image that passes in front of your eyes. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nI would say that we are keen on walking in the mountains rather than going on a shopping trip to Edinburgh. (Spain; B2 VANTAGE; 2004; Spanish - European; Pass)\n\nSo, at night they are mostly tired and it's much easier to sit down in front of the television set rather than take a book and read it. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nI would prefer to sleep in tents rather than stay in rooms. (Greece; B2 VANTAGE; 2003; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708152x331629677931650760",
+  "level": "C1",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: SUPERLATIVE ADVERB 'BEST' + CLAUSE",
+  "can_do_statement": "Can use 'the best' as a superlative adverb + pronoun + ellipted 'can' or 'could'. ",
+  "example_raw": "I'm sorry to say that she is not the best of cooks but she tries the best she can. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)\n\nOn Thursday I did the best I could. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2009; Greek; Pass)\n\nHowever, to make sure that we offer the best we can, we would be grateful if you gave us a grant. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163708152x354145685059116700",
+  "level": "B2",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'AS IF' OR 'AS THOUGH' + FINITE CLAUSE",
+  "can_do_statement": "Can use 'as if' or 'as though' + finite clause to introduce a second clause as a comparison. ",
+  "example_raw": "Her heart beat extremely fast, as if it was going to burst out of her chest. (Brazil; B2 VANTAGE; 1999; Portuguese; Pass)\n\nI saw my mate crawling on the floor as if he was looking for something. (Portugal; B2 VANTAGE; 1993; Portuguese; Pass)\n\nEverything was so familiar, so close, as though he had never left the place. (Russia; B2VANTAGE; 1997; Russian; Pass)"
+ },
+ {
+  "egp_id": "1741163708152x610028410376589400",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'SO ...  AS TO', FORMAL",
+  "can_do_statement": "Can use 'so' + adjective + 'as' + 'to'-infinitive clause, usually in formal contexts.",
+  "example_raw": "Travellers should not be so ignorant as to think they can understand other nationalities better when they have once lived in one of their hotels. (Germany; C2 MASTERY; 1993; German; Pass)\n\nHowever, as soon as my glaring eyes met his, beseeching and helpless, I knew I couldn't endure being so cruel as to deny him my caring shoulder... (Portugal; C2 MASTERY; 1993; Portuguese; Pass)\n\nShould I be so fortunate as to win the scholarship, I would use it in a way that would not only affect me, but very much so also the area in which I live. (Denmark; C2 MASTERY; 2001; Danish; Pass)"
+ },
+ {
+  "egp_id": "1741163708153x262593982426201800",
+  "level": "C2",
+  "super_category": "CLAUSES",
+  "sub_category": "comparatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'AS IF' + NON-FINITE CLAUSE",
+  "can_do_statement": "Can use 'as if' + non-finite clause to introduce a second clause as a comparison. ",
+  "example_raw": "She closed her eyes as if to push those thoughts away. (Brazil; C2 MASTERY; 1993; Portuguese; Pass)\n\nThere it was: the chef's body, hacked to pieces, a carving knife in his hand as if to scare off an enemy. (Brazil; C2 MASTERY; 2000; Portuguese; Pass)\n\nI was so frightened that my heart was beating like crazy as if trying to leave my body. (Portugal; C2 MASTERY; 1993; Portuguese; Pass)\n\nBecause of this, my mother never denied us anything, as if trying to compensate for our father's death. (Brazil; C2 MASTERY; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163715620x161645047931569860",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PRESENT SIMPLE 'IF' CLAUSE + MODAL, FUTURE, POSSIBLE OUTCOME",
+  "can_do_statement": "Can use 'if' + present simple to introduce a possible future condition, with modal verbs in the main clause, to talk about a possible result. \u25ba modality",
+  "example_raw": "I think that it would be very good if you start going to the gym or you start cycling. (Colombia; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nI would be very glad if you come and visit us. (Albania; B1 THRESHOLD; 2007; Albanian; Pass)\n\nIf you come to Brazil you can stay at my home. (Brazil; B1 THRESHOLD; 2001; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163715620x337858640533236860",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'IF' CLAUSE + IMPERATIVE, HEDGING",
+  "can_do_statement": "Can use an 'if-' clause ('if you want', 'like', 'prefer') to soften the directness of imperatives, offers or suggestions.",
+  "example_raw": "Bring some films if you want. (Spain; A2 WAYSTAGE; 2009; Spanish - European; Pass)\n\nCall me if you like. (Spain; A2 WAYSTAGE; 2010; Spanish - European; Pass)\n\nPlease, come here wearing a white T-shirt and a skirt, or shorts if you prefer. (Brazil; A2 WAYSTAGE; 2008; Portuguese; Pass)\n\nIf you want I can help you with the music. (Spain; A2 WAYSTAGE; 2005; Spanish - European; Pass)\n\nIf you like, you could bring some drinks. (Portugal; A2 WAYSTAGE; 2009; Portuguese; Pass)\n\nWe can go by bus or if you prefer we can go in my car. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163715620x498638187111649860",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PRESENT SIMPLE 'IF' CLAUSE, REAL CONDITIONS",
+  "can_do_statement": "Can use 'if' + present simple with present simple, 'can' or imperative in the main clause to refer to things that are true now or very likely to happen. ",
+  "example_raw": "If I have spare time I always read a book. (Turkey; A2 WAYSTAGE; 2004; Turkish; Pass)\n\nIf you need to contact me, here is my number: 07938776341, so just call me. (A2 WAYSTAGE; 2009; Polish; Pass)\n\nIf you need some help I'm here to organise the meeting or to make the invitations. (France; A2 WAYSTAGE; 2005; French; Pass)\n\nYou can get to my house if you take the number 35 bus. (Italy; A2 WAYSTAGE; 2009; Italian; Pass)\n\nIf you need more information, call me. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163715620x555336911205332160",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PRESENT SIMPLE 'IF' CLAUSE + 'WILL', FUTURE, LIKELY OUTCOME (FIRST CONDITIONAL)",
+  "can_do_statement": "Can use 'if' + present simple to introduce a possible future condition, with 'will' in the main clause to talk about a likely result. ",
+  "example_raw": "I talked to my parents and I think if you tell them your reasons, they will accept it. (Germany; B1 THRESHOLD; 2008; German; Pass)\n\nI'm sure your parents will be happy if you go with them. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nIf you live in the countryside you will see beautiful nature. (Thailand; B1 THRESHOLD; 2008; Thai; Pass)"
+ },
+ {
+  "egp_id": "1741163715620x594637230902398300",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PRESENT SIMPLE 'IF' CLAUSE + IMPERATIVE",
+  "can_do_statement": "Can use 'if' + present simple, with an imperative in the main clause.",
+  "example_raw": "If you find it, call me. (Brazil; A2 WAYSTAGE; 2005; Portuguese; Pass)\n\nIf you want to come, just tell me. (India; A2 WAYSTAGE; 2009; Tamil; Pass)"
+ },
+ {
+  "egp_id": "1741163715620x681820697260531000",
+  "level": "A2",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'IF' + PRESENT SIMPLE",
+  "can_do_statement": "Can form conditional subordinate clause with 'if' + present simple.",
+  "example_raw": "It is 3 hours long, and if you want to pass it you will have to study very hard, it is very difficult. (Italy; A2 WAYSTAGE; 2006; Italian; Pass)\n\nIf you buy a gift for me, please buy a book, because I love to read. (Brazil; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nIf you agree, we can go shopping after the film. (Argentina; A2 WAYSTAGE; 2003; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163715620x712487586393501200",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PRESENT CONTINUOUS 'IF' CLAUSE , PLANS & ADVICE",
+  "can_do_statement": "Can use 'if' + present continuous or 'going to' to introduce a possible plan, with modal verbs or imperatives in the main clause to give advice.",
+  "example_raw": "Billy, if you are moving you should think a lot, first you have to go and see the two schools. (Argentina; B1 THRESHOLD; 2008; Spanish - Latin American; Pass)\n\nHowever, if you are looking for fun and excitement, I would go for the city. (Argentina; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n\nBut if you are going to live in a town you should choose the large school. (Croatia; B1 THRESHOLD; 2008; German; Pass)\n\nIn addition, if you are going to travel, please choose your partner very carefully. (Korea, South; B1 THRESHOLD; 1999; Korean; Pass)"
+ },
+ {
+  "egp_id": "1741163715621x282870273772287460",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "conditional",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'IF' + PAST SIMPLE + 'WOULD', FUTURE, IMAGINED SITUATION|(SECOND CONDITIONAL)",
+  "can_do_statement": "Can form conditional subordinate clauses with 'if' + past simple, and would in the main clause, to talk about an imagined situation, often in the context of advice or opinion-giving. ",
+  "example_raw": "Maybe it would be more fun if you went with your friends. (Portugal; B1 THRESHOLD; 2008; Portuguese; Pass)\n\nIf you went on holiday with your friends, where would you go? (Italy; B1 THRESHOLD; 2008; Italian; Pass)\n\nBut, if I was able to move, I would like to live near the coast, because I love the sea, I like sunbathing and swimming. (Italy; B1 THRESHOLD; 2010; Italian; Pass)"
+ }
+]
+```

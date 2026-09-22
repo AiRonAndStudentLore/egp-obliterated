@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_046.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163712056x106461892688326740",
+  "level": "C1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: PRESENT CONTINUOUS NEGATIVE",
+  "can_do_statement": "Can use the present continuous passive negative form to refer to ongoing situations in the present.",
+  "example_raw": "In my opinion, the store is not being promoted enough. (C1 Polish)\n\nWomen are not being seen as just inferior to men and incapable of working outside the home. (C1 Portuguese)\n\nFinally, I agree with the fact that mobile phones have helped the human species develop, but as long as they 're not being used in a sensible way, they're a destructive weapon against children's health. (Greece; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2008; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163712056x185610578351898660",
+  "level": "C2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: NON-FINITE PERFECT CLAUSES",
+  "can_do_statement": "Can use passive non-finite '-ing' perfect forms in subordinate clauses to give explanatory background information.",
+  "example_raw": "I myself, having been educated the hard way, would specifically insist on them getting the best possible school education. (C2 German)\n\nHaving been taught the rights and the wrongs, we had an idea about everything. (C2 Azerbaijani) \n\nNot having been given precise orders from the top, as usual he decided to work on his own initiative. (C2 Polish)\n"
+ },
+ {
+  "egp_id": "1741163712056x220763356502948540",
+  "level": "C2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NON-FINITE PERFECT COMPLEMENTS ",
+  "can_do_statement": "Can use non-finite '-ing' perfect forms of the passive as the complement of prepositions.",
+  "example_raw": "They are expected to give the couple expensive presents as a reward for having been invited. (C2 Spanish - Latin American)\n\nWe caught the bus as if we were escaping from Saigon, and with the sensation of having been rewarded with one of the funniest holiday evenings of our lives. (C2 Spanish - European)\n\nMiss Kenton has just been employed as a housekeeper when she knocks on Stevens' pantry door and comes in without having been bidden to do so, bringing a vase of flowers. (C2 Italian)"
+ },
+ {
+  "egp_id": "1741163712056x332718835608695200",
+  "level": "C1",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: SUMMARISING, EVALUATING WITH 'IT'.",
+  "can_do_statement": "Can use the passive with 'it' as a dummy subject, to summarise or evaluate in discussions, usually in formal or academic writing.",
+  "example_raw": "To sum up, it can be concluded that this report has attempted to summarize the main points regarding the Spanish educational system. (C1  Spanish - European)\n\nIn addition, it has been found that some products were difficult to find. (C1 Swiss German)"
+ },
+ {
+  "egp_id": "1741163712056x976576319443112100",
+  "level": "C2",
+  "super_category": "PASSIVES",
+  "sub_category": "passives: form",
+  "lexical_range": "N/A",
+  "guideword": "PRESENT PERFECT CONTINUOUS COMMENT",
+  "can_do_statement": null,
+  "example_raw": null
+ },
+ {
+  "egp_id": "1741163712321x293020264590759800",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: AFFIRMATIVE",
+  "can_do_statement": "Can use the affirmative form. ",
+  "example_raw": "I was waiting for you all Saturday evening. (Spanish - European, A2 WAYSTAGE, Pass, 2004) \n\n[talking about a holiday] I was swimming and sunbathing every day. (Russian, A2 WAYSTAGE, Pass, 2009)\n\nWe were dancing all evening. (Polish, A2 WAYSTAGE, Pass, 2004)"
+ },
+ {
+  "egp_id": "1741163712321x444348941700378800",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: QUESTIONS",
+  "can_do_statement": "Can use the question form.",
+  "example_raw": "Was my mother going to die? (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nI couldnt see anybody, then there he was, my hero, my favorite singer Bob Dylan saying my name, but was he calling me? (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nWhat were you doing? (Uzbekhistan (Republic of); B1 THRESHOLD; 2009; Russian; Pass)\n\n[talking about a dream] Everything was strange. Why was I following a green fox? (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712321x580479358300843000",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "1",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the past continuous with a limited range of adverbs in the normal mid position. ",
+  "example_raw": "I was just watching a football match. (Bengali, A2 WAYSTAGE, Pass, 2007)\n\n[talking about wanting to get a kitten] I was always dreaming about it. (Russian, A2 WAYSTAGE, Pass, 2004)"
+ },
+ {
+  "egp_id": "1741163712321x614372617735755500",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: BACKGROUND EVENTS",
+  "can_do_statement": "Can use the past continuous to show that an event was happening in the background to the main event.",
+  "example_raw": " Yesterday we were studying maths in your house, and I left my book on your bed. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2005)\n\nIt was raining when I arrived. (German, A2 WAYSTAGE, Pass, 2005)\n"
+ },
+ {
+  "egp_id": "1741163712321x623567407739942400",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "2",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the past continuous with an increasing range of adverbs in the normal mid position. ",
+  "example_raw": "He was still waiting at the traffic light. (Italian, B1 THRESHOLD, Pass, 2008)\n\nHe was actually acting like a ghost. (Chinese, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163712321x644327601969835100",
+  "level": "A2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: EVENTS IN PROGRESS ",
+  "can_do_statement": "Can use the past continuous to talk about actions and states in progress around a particular time in the past.",
+  "example_raw": "I went to a soccer game, they were playing the last game to get the championship. (Spanish - Latin American, A2 WAYSTAGE, Pass, 2007)\n\nIt was raining, but the concert was so good that I did not mind. (Uruguay; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163712321x656261946310561000",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: REASON ",
+  "can_do_statement": "Can use the past continuous to give a reason for something, often with 'because'.",
+  "example_raw": "Because she was sitting in the corner, she could see the whole view of the caf\u00e9 in front of her. (Arabic - Meghreb, B1 THRESHOLD, Pass, 2008)\n\nYesterday a TV company came to my school because they were doing a science quiz. (Catalan, B1 THRESHOLD, Pass, 2008)"
+ },
+ {
+  "egp_id": "1741163712321x822329729417525800",
+  "level": "B1",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "FORM: NEGATIVE",
+  "can_do_statement": "Can use the negative form.",
+  "example_raw": "He was not planning to become a professional player. (Spanish - Latin American, C2 MASTERY, Pass, 2004)\n\nShe was not feeling very well. (Portuguese, B2 VANTAGE, Pass, 1993)\n\nI tried to phone her house, but her phone wasn't working. (Spanish - Latin American, B1 THRESHOLD, Pass, 2004)\n\nI'm writing you this letter to tell you that we felt so bad when we heard you weren't working at the school any more. (Spanish - Latin American, B1 THRESHOLD, Pass, 2002)"
+ },
+ {
+  "egp_id": "1741163712327x107883069547981780",
+  "level": "C2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "N/A",
+  "guideword": "USE: UNDESIRED EVENTS",
+  "can_do_statement": "Can use the past continuous with 'always' or 'constantly' to talk about repeated events which are undesired or uncontrolled. ",
+  "example_raw": "They had been told that I was always getting into mischief and so had decided that, by buying me this diary, I would probably calm down a little and my behaviour would change. (Spain; C2 MASTERY; 1993; Catalan; Pass)\n\nI was constantly trying to balance my school life, extra-curricular activities, studies and personal life and was always running out of time. (Greece; C2 MASTERY; 2003; Greek; Pass)"
+ },
+ {
+  "egp_id": "1741163712327x209263766016802180",
+  "level": "B2",
+  "super_category": "PAST",
+  "sub_category": "past continuous",
+  "lexical_range": "3",
+  "guideword": "FORM: WITH ADVERBS",
+  "can_do_statement": "Can use the past continuous with a wide range of adverbs in the normal mid position.",
+  "example_raw": "My younger brother was constantly bothering me. (Russian, B2 VANTAGE, Pass, 1997)\n\nOne day, as she was wistfully walking in the dusk of that day, she told herself she could either go on living her lonely life or make a huge effort to fit in. (French, B2 VANTAGE, Pass, 2005)"
+ }
+]
+```

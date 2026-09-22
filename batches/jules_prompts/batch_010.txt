@@ -1,0 +1,220 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 15 EGP rows below.
+
+Create ONE file: `batches/jules_batch_010.json`
+- A JSON array with exactly 15 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- Do NOT modify any other files.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163708775x236006169337418240",
+  "level": "A1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM: PHRASE + PHRASE",
+  "can_do_statement": "Can use single word conjunctions ('and, but, or') to combine phrases.",
+  "example_raw": "My home is very light and very comfortable. (A1 BREAKTHROUGH; 2009; Polish; Pass)\n\nI live with my mother and her boyfriend. (A1 BREAKTHROUGH; 2009; Polish; Pass)\n\nMy house is small but very nice. (A1 BREAKTHROUGH; 2009; Pashto; Pass)\n\nShe likes to go to the cinema or to the theatre. (A1 BREAKTHROUGH; 2006; French; Pass)"
+ },
+ {
+  "egp_id": "1741163708775x324182637264445630",
+  "level": "A1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM: SENTENCE + SENTENCE",
+  "can_do_statement": "Can use single word conjunctions ('and, but, or') to combine sentences.",
+  "example_raw": "I like it because there are lots of shops, it is not too busy and there is lots of parking. And I like my home because it's not too big and it's a very nice flat. (A1 BREAKTHROUGH; 2009; Tamil; Pass)\n\nI am from Estonia. Estonia it is a small country near the Baltic Sea. But now I live in Dorchester, because I work here. (A1 BREAKTHROUGH; 2007; Russian; Pass)\n\nI go shopping on Ladypool Road. Or sometimes I go to my local shop.  (A1 BREAKTHROUGH; 2008; Panjabi; Pass)"
+ },
+ {
+  "egp_id": "1741163708775x343585548868345200",
+  "level": "A1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "USE: LISTING",
+  "can_do_statement": "Can use 'and' and 'or' before the final item in a list. ",
+  "example_raw": "I like to eat chicken, mushrooms and some vegetables. (A1 BREAKTHROUGH; 2006; Polish; Pass)\n\nI have three rooms; a kitchen, living room, bathroom and toilet. (A1 BREAKTHROUGH; 2009; Polish; Pass)\n\nI go to college every Tuesday, Thursday and Friday morning, (A1 BREAKTHROUGH; 2007; French; Pass)\n\nI really like my English course because there are very good students from other countries, for example from Italy, Portugal, China and India. (A1 BREAKTHROUGH; 2007; Slovak; Pass)\nI like to eat steak, vegetables, potatoes or rice. (A1 BREAKTHROUGH; 2006; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163708775x495770064260905300",
+  "level": "A1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM: CLAUSE + CLAUSE",
+  "can_do_statement": "Can use single word conjunctions ('and, but, or') to combine clauses.",
+  "example_raw": "He is a journalist and he likes everything about cinema. (A1 BREAKTHROUGH; 2006; Italian; Pass)\n\nThere are lots of shops in the town and the town is only five minutes away. (A1 BREAKTHROUGH; 2008; Urdu; Pass)\n\nI have visited a lot of places, but the best place is Thailand. (A1 BREAKTHROUGH; 2007; Slovak; Pass)\n\nI like to eat pasta or pizza, but I'm easy about food, I can eat anything. (A1 BREAKTHROUGH; 2006; French; Pass)\n\nWe love to go to the cinema, or just sit together and have a laugh. (A1 BREAKTHROUGH; 2006; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163708775x971363187748411900",
+  "level": "A1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WORD + WORD",
+  "can_do_statement": "Can use single word conjunctions ('and, but, or') to connect single nouns and adjectives.",
+  "example_raw": "I like chicken and rice. I don't like meat and fish. (A1 BREAKTHROUGH; 2006; Kurdish; Pass)\n\nMy street is quiet and friendly. (A1 BREAKTHROUGH; 2008; Polish; Pass)\n\nOn Monday and Wednesday I have English and maths. (A1 BREAKTHROUGH; 2007; Polish; Pass)\n\nI like my kitchen, it is small but nice. (A1 BREAKTHROUGH; 2009; Polish; Pass)\n\nI like cheese pizza or chicken. (A1 BREAKTHROUGH; 2006; French; Pass)\n\nI like to eat soup, eggs, meat and salad or banana and cheese. (A1 BREAKTHROUGH; 2006; Polish; Pass)"
+ },
+ {
+  "egp_id": "1741163708776x353462175520579140",
+  "level": "B1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'EITHER \u2026 OR'",
+  "can_do_statement": "Can use 'either \u2026 or' to connect two words, phrases or clauses.",
+  "example_raw": "The men wear suits, either white or black, and the bride and women wear special long dresses, usually the same colour. (Yugoslavia; B1 THRESHOLD; 2006; Serbian; Pass)\n\nWe can go either to the beach or to the inner part of Uruguay which is mainly a huge meadow. (Uruguay; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n\nI'll either write or phone you soon. (Japan; B1 THRESHOLD; 2001; Japanese; Pass)\n\nYou can either go to the gym or attend some special classes, where you do gentle exercises. (Ukraine; B1 THRESHOLD; 2009; Ukrainian; Pass)"
+ },
+ {
+  "egp_id": "1741163708776x617714358104645400",
+  "level": "A1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "USE: 'BUT', CONCESSIVE",
+  "can_do_statement": "Can use 'but' to add an unexpected contrast. ",
+  "example_raw": "I really like my home, it is very small but it is very easy to clean. (A1 BREAKTHROUGH; 2009; Urdu; Pass)\n\nI like my home, it's small but so comfortable, and the decoration is beautiful. (A1 BREAKTHROUGH; 2009; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163708776x708485975676895760",
+  "level": "B1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'PLUS' WITH CLAUSES",
+  "can_do_statement": "Can use 'plus' to connect clauses and sentences, often to point out a positive addition or advantage.",
+  "example_raw": "I would be more than pleased to receive you at home, it's not too big, but we could have a lot of fun, plus you won't have to pay a thing! (Mexico; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)\n\nIt's around 200 so it's pretty cheap for a good game. Plus, it's really addictive and fun! (Philippines; B1 THRESHOLD; 2009; Tagalog; Pass)\n\nIt will be fun because everyone is going to be there. Plus, the park is the best place for a picnic, we can run and just have fun! (Philippines; B1 THRESHOLD; 2009; Tagalog; Pass)"
+ },
+ {
+  "egp_id": "1741163708776x893117091364795400",
+  "level": "B1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM: COMPLEX ADDING",
+  "can_do_statement": "Can use a range of conjunctions ('and, but, or, so, then') to combine more complex strings of clauses and sentences.",
+  "example_raw": "I was scared and closed the window, but I couldn't sleep, so a few minutes later I opened the window again, but they were gone. (B1 THRESHOLD; 2007; Portuguese; Pass)\n\nThen we went to his limousine and we went to his studio and he was singing \"Thriller\" then I heard a strange voice, I woke up, and there was my mom waking me up. (Colombia; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163708776x915082045254572900",
+  "level": "B1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'PLUS' WITH NOUNS",
+  "can_do_statement": "Can use 'plus' as coordinating conjunction, often in relation to numbers. ",
+  "example_raw": "In my house we are six people, my mother, my father, my sister and my two brothers, plus my two cats, which are members of the family too. (B1 THRESHOLD; 2003; ; Pass)\n\nIt cost me \u00a32,500 plus the taxes. (Mexico; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nAt the moment I pay 550 pounds monthly plus bills. (B1 THRESHOLD; 2007; Spanish - European; Pass)"
+ },
+ {
+  "egp_id": "1741163708783x284853209894606820",
+  "level": "B1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'BOTH \u2026 AND' WITH NOUNS",
+  "can_do_statement": "Can use 'both \u2026 and' to combine noun phrases, to give emphasis. ",
+  "example_raw": "I felt sorry for you because both friends and family are very important and having to pick one is very hard. (Turkey; B1 THRESHOLD; 2008; Turkish; Pass)\n\nAs a result of our aggressive and successful expansion strategy, both our market share and the number of our staff are increasing tremendously. (China; B1 THRESHOLD; 2008; Chinese; Fail)\n\nArgentina has both wonderful country landscapes and excellent towns to enjoy. (Argentina; B1 THRESHOLD; 2004; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163708783x595841847573481700",
+  "level": "B2",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'BOTH \u2026 AND' WITH PHRASES AND CLAUSES",
+  "can_do_statement": "Can use 'both \u2026 and' to combine phrases and clauses, often for emphasis. ",
+  "example_raw": "And we have won a high reputation both at home and abroad. (China; B2 VANTAGE; 2008; Chinese; Pass)\n\nA lot of people think that television can both entertain and educate. (Italy; B2 VANTAGE; 2004; Italian; Pass)\n\nWhy not buying some extra beer and sell them on the beach? So, I could both get some enjoyment and make some money. So that was I did. (B2 VANTAGE; 1993; Portuguese; Pass)"
+ },
+ {
+  "egp_id": "1741163708783x837178860138102800",
+  "level": "B2",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NEITHER \u2026 NOR' ",
+  "can_do_statement": "Can use 'neither \u2026 nor' to connect two words, phrases or clauses, often to give emphasis or focus.",
+  "example_raw": "Neither you nor I would like that. (Sweden; B2 VANTAGE; 1993; Swedish; Pass)\n\nWe can neither eat nor drink during the lessons. (Poland; B2 VANTAGE; 2000; Polish; Pass)\n\nI have neither climbed nor surfed before, so that would be very exciting for me. (Sweden; B2 VANTAGE; 2000; Swedish; Pass)"
+ },
+ {
+  "egp_id": "1741163708784x444948210386186400",
+  "level": "C2",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM/USE: 'NEITHER'",
+  "can_do_statement": "Can use 'Neither' or 'Nor' + inverted auxiliary or 'be' + subject to add to a previous related negative clause, to focus on an additional negative factor. ",
+  "example_raw": "Nevertheless, I have no recollection of ever leaving my diary. In fact, I can clearly remember that I kept it with me all the time I was working. Neither do I remember losing it during the time I was on the platform waiting for my train to pull in. (Spain; C2 MASTERY; 1993; Catalan; Pass)\n\nMaybe he will eventually get over this terrible experience, but he's bound to be a lonelier boy than he was. Nor does Jack's future look any more promising. (Italy; C2 MASTERY; 1993; Italian; Pass)\n\nThere are also considerable disturbances during day-time. It is, for example, not possible to lead a conversation, e.g. on the veranda, without shouting. Nor is it possible to watch television peacefully without the thunderous noise in the background. (Germany; C2 MASTERY; 1993; German; Pass)\n\nAt first, I didn\u2019t pay attention to the large number of magazines and newspapers she subscribed to. Neither did I oppose her 'need' to get new clothes every month. (Spain; C2 MASTERY; 1998; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163708784x469404755926666750",
+  "level": "C1",
+  "super_category": "CONJUNCTIONS",
+  "sub_category": "coordinating",
+  "lexical_range": "N/A",
+  "guideword": "FORM: 'EITHER \u2026 OR'",
+  "can_do_statement": "Can use 'either \u2026 or' to combine more complex strings of clauses and sentences.",
+  "example_raw": "And finally, about the present, you have two options; either you get something typical from your country, which they may like because you know how much they like collecting things from all over the world, or I get something from the wedding list store and sent it to them with your name on it and we can sort it out when you arrive here. (Spain; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1998; Catalan; Pass)"
+ }
+]
+```
