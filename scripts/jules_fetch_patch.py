@@ -45,6 +45,18 @@ def main():
                 n_changesets += 1
     if not patch:
         raise SystemExit(f"no changeSet patch found in {len(activities)} activities")
+    filtered_lines = []
+    in_batches = False
+    for line in patch.splitlines(True):
+        if line.startswith("diff --git a/batches/"):
+            in_batches = True
+            filtered_lines.append(line)
+        elif line.startswith("diff --git a/"):
+            in_batches = False
+        elif in_batches:
+            filtered_lines.append(line)
+    if filtered_lines:
+        patch = "".join(filtered_lines)
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
     Path(out_path).write_text(patch)
     print(f"fetched {n_changesets} changeSets; final patch = {len(patch)} chars -> {out_path}")

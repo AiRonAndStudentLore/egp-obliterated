@@ -1,7 +1,7 @@
 {
  "batch": "batches/jules_batch_007.json",
  "cycles": 1,
- "passed": 4,
+ "passed": 15,
  "total": 15,
  "auto_fixes": [],
  "verify_ok": true,
@@ -13,48 +13,33 @@
   },
   {
    "egp_id": "1741163708343x470186262730331460",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: \"I don't know what a dog is.\"",
-    "spaCy FALSE-POSITIVE on negative: \"What a pity you couldn't stay.\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708343x892117738381544400",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: \"He isn't here right now.\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708343x903441921851317900",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: \"Tell me what didn't work.\"",
-    "spaCy FALSE-POSITIVE on negative: \"Tell me what didn't work.\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708344x316156631249672000",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: 'How are you?'",
-    "regex FALSE-POSITIVE on negative: \"I don't know how fast he was going.\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708562x194655656955947460",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: 'How do you do that?'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708563x223728715353026530",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'The man who is standing there is my brother.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708563x237474925872659840",
@@ -63,25 +48,18 @@
   },
   {
    "egp_id": "1741163708563x360382864417081200",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: \"Doesn't that sound excellent to you?!\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708563x534984544701562900",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: 'I know that he is here.'",
-    "regex FALSE-POSITIVE on negative: 'That is my car.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708563x609059917595893100",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'I saw Mary, who was walking her dog.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708563x629778718895767000",
@@ -95,18 +73,13 @@
   },
   {
    "egp_id": "1741163708563x872592345857643000",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'How differently we were brought up.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708564x475588905228959040",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'The colour which I prefer is pink.'",
-    "regex FALSE-POSITIVE on negative: \"I don't know which game you mean.\""
-   ]
+   "verdict": "passed",
+   "failures": []
   }
  ]
 }

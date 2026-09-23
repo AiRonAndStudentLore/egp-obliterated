@@ -363,7 +363,7 @@
    "agency_or_distance": "N/A"
   },
   "detection": {
-   "regex_triage": "(?:n't|not)\\b(?:\\s+\\w+){0,4}\\s+many\\s+(?:tickets|clothes|friends|people|books|cars|places|days|things|times)",
+   "regex_triage": "(?:n't|not)\\b(?:\\s+\\w+){0,4}\\s+many(?:\\s+\\w+){0,2}\\s+(?:tickets|clothes|friends|people|books|cars|places|days|things|times)",
    "spacy_token_pattern": [
     {
      "LEMMA": "not"
@@ -382,6 +382,12 @@
     },
     {
      "LOWER": "many"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
     },
     {
      "LOWER": {
@@ -916,7 +922,7 @@
    "agency_or_distance": "N/A"
   },
   "detection": {
-   "regex_triage": "\\b(?:several|millions\\s+of|a\\s+few\\s+of)\\s+(?:days|dollars|students|people|years|times|places|things|books|friends)\\b",
+   "regex_triage": "\\b(?:several|millions\\s+of|a\\s+few\\s+of)(?:\\s+the)?\\s+(?:days|dollars|students|people|years|times|places|things|books|friends)\\b",
    "spacy_token_pattern": [
     {
      "LOWER": {

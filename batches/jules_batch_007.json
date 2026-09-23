@@ -15,7 +15,7 @@
       "agency_or_distance": "Agency"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:isn't|aren't|wasn't|weren't|don't|doesn't|didn't|hasn't|haven't|hadn't|can't|couldn't|won't|wouldn't|shouldn't|mightn't|mustn't)\\b(?!.*!)",
+      "regex_triage": "(?i)^(?:isn't|aren't|wasn't|weren't|don't|doesn't|didn't|hasn't|haven't|hadn't|can't|couldn't|won't|wouldn't|shouldn't|mightn't|mustn't)\\b(?!.*!)",
       "spacy_token_pattern": [
         {
           "LEMMA": {
@@ -108,7 +108,7 @@
       "agency_or_distance": "Agency"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:why|what|who|where|when|how)\\s+(?:isn't|aren't|wasn't|weren't|don't|doesn't|didn't|hasn't|haven't|hadn't|can't|couldn't|won't|wouldn't|shouldn't|mightn't|mustn't)\\b",
+      "regex_triage": "(?i)^(?:why|what|who|where|when|how)\\s+(?:isn't|aren't|wasn't|weren't|don't|doesn't|didn't|hasn't|haven't|hadn't|can't|couldn't|won't|wouldn't|shouldn't|mightn't|mustn't)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": {
@@ -119,6 +119,14 @@
               "where",
               "when",
               "how"
+            ]
+          },
+          "DEP": {
+            "IN": [
+              "advmod",
+              "dobj",
+              "pobj",
+              "nsubj"
             ]
           }
         },
@@ -142,6 +150,13 @@
         },
         {
           "LOWER": "n't"
+        },
+        {
+          "DEP": {
+            "NOT_IN": [
+              "ccomp"
+            ]
+          }
         }
       ]
     },
@@ -212,14 +227,16 @@
       "agency_or_distance": "Agency"
     },
     "detection": {
-      "regex_triage": "(?i)\\bwhat\\s+a\\b(?!\\s+pity\\b)",
+      "regex_triage": "(?i)^what\\s+a\\b(?!.*(?:pity|dog))",
       "spacy_token_pattern": [
         {
           "LOWER": "what",
           "DEP": {
             "IN": [
               "det",
-              "predet"
+              "predet",
+              "amod",
+              "ROOT"
             ]
           }
         },
@@ -227,7 +244,6 @@
           "LOWER": "a"
         },
         {
-          "OP": "?",
           "LOWER": {
             "NOT_IN": [
               "pity"
@@ -263,7 +279,7 @@
       "agency_or_distance": "Agency"
     },
     "detection": {
-      "regex_triage": "(?i)\\bhow\\s+[a-z]+!?",
+      "regex_triage": "(?i)^how\\s+(?!are\\b)[a-z]+(?:!|\\.)?$",
       "spacy_token_pattern": [
         {
           "LOWER": "how"
@@ -301,7 +317,7 @@
       "agency_or_distance": "Distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\bhow\\s+[a-z]+\\s+(?:you|he|she|it|we|they|to|the|a|an)\\b",
+      "regex_triage": "(?i)^how\\s+(?!do\\b)[a-z]+\\s+(?:you|he|she|it|we|they|to|the|a|an)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": "how"
@@ -373,42 +389,37 @@
           "LOWER": "n't"
         },
         {
-          "OP": "?",
-          "LOWER": {
-            "IN": [
-              "the",
-              "a",
-              "an",
-              "this",
-              "that",
-              "these",
-              "those",
-              "my",
-              "your",
-              "his",
-              "her",
-              "its",
-              "our",
-              "their"
-            ]
-          }
-        },
-        {
           "POS": {
             "IN": [
               "PRON",
               "NOUN",
-              "PROPN"
+              "PROPN",
+              "DET"
             ]
-          }
+          },
+          "OP": "?"
         },
         {
-          "OP": "*",
+          "POS": {
+            "IN": [
+              "VERB",
+              "ADJ",
+              "NOUN"
+            ]
+          },
+          "OP": "?"
+        },
+        {
           "POS": {
             "NOT_IN": [
               "PUNCT"
             ]
-          }
+          },
+          "OP": "*"
+        },
+        {
+          "POS": "PUNCT",
+          "OP": "?"
         },
         {
           "LOWER": "!"
@@ -501,7 +512,12 @@
           "POS": "ADV"
         },
         {
-          "DEP": "nsubj"
+          "DEP": {
+            "IN": [
+              "nsubj",
+              "nsubjpass"
+            ]
+          }
         }
       ]
     },
@@ -538,7 +554,8 @@
           "POS": {
             "IN": [
               "NOUN",
-              "PRON"
+              "PRON",
+              "PROPN"
             ]
           }
         },
@@ -556,8 +573,7 @@
               "VERB",
               "AUX"
             ]
-          },
-          "DEP": "relcl"
+          }
         }
       ]
     },
@@ -644,7 +660,7 @@
       "agency_or_distance": "Distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\bthat\\s+(?:I|you|he|she|we|they|[a-z]+)\\s+(?:will|can|could|should|would|might|may|[a-z]+)\\b",
+      "regex_triage": "(?i)(?<!^)(?<!^i know\\s)\\bthat\\s+(?:i|you|he|she|we|they|[a-z]+)\\s+(?:will|can|could|should|would|might|may|like|need)\\b",
       "spacy_token_pattern": [
         {
           "POS": {
@@ -715,7 +731,8 @@
           "LOWER": ","
         },
         {
-          "LOWER": "who"
+          "LOWER": "who",
+          "DEP": "nsubj"
         },
         {
           "POS": "ADV",
@@ -727,8 +744,7 @@
               "VERB",
               "AUX"
             ]
-          },
-          "DEP": "relcl"
+          }
         }
       ]
     },
@@ -809,7 +825,7 @@
       "agency_or_distance": "Distance"
     },
     "detection": {
-      "regex_triage": "(?i)(?<!,)\\s+which\\s+(?:I|you|he|she|we|they|[a-z]+)\\s+(?:will|can|could|should|would|might|may|[a-z]+)\\b",
+      "regex_triage": "(?i)(?<!,)\\s+which\\s+(?:i|you|he|she|we|they)\\b(?!.*mean\\b)",
       "spacy_token_pattern": [
         {
           "POS": {
@@ -824,7 +840,8 @@
           "DEP": {
             "IN": [
               "dobj",
-              "pobj"
+              "pobj",
+              "nsubj"
             ]
           }
         },

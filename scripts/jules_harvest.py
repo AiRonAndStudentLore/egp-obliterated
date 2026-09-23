@@ -91,8 +91,72 @@ def gate_batch(batch_file, egp_ids):
     return {"p": p, "rej": rej, "f": f_}
 
 
+def rescue_pass(state):
+    """Send gate failures back to their sessions (closed loop). One rescue per session."""
+    import os
+    import urllib.request
+    key = os.environ.get("JULES_CODER_API_KEY")
+    if not key:
+        for line in Path.home().joinpath(".bashrc").read_text().splitlines():
+            line = line.strip()
+            if line.startswith("export "):
+                line = line[7:]
+            if line.startswith("JULES_CODER_API_KEY="):
+                key = line.split("=", 1)[1].strip().strip('"').strip("'")
+                break
+    n = 0
+    for s in state["sessions"]:
+        gated = s.get("gated")
+        if not gated or s.get("rescue_sent"):
+            continue
+        errs = str(gated)
+        detail = ""
+        if "precheck failed" in errs or "no report" in errs:
+            detail = "Your batch JSON failed the structural precheck (schema/DB membership). Re-check every rule object against the contract in AGENTS.md and rewrite the file completely."
+        elif "PATCH REJECTED" in errs:
+            detail = ("Your final change touched files outside batches/ — that patch was rejected. "
+                      "Produce a session whose ONLY change is the single file "
+                      f"{s['batch_file']} (rewrite it if it exists). No other files, no scratch scripts.")
+        elif "'f':" in errs and isinstance(gated, dict) and gated.get("f", 0) > 0:
+            report = EGP_DIR / "batches" / f"_report_{Path(s['batch_file']).stem}.json"
+            fails = []
+            if report.exists():
+                rep = json.loads(report.read_text())
+                want = set(s["egp_ids"])
+                for v in rep.get("verdicts", []):
+                    if v.get("egp_id") in want and v.get("verdict") != "passed":
+                        fails.append({"egp_id": v["egp_id"], "failures": v.get("failures", [])[:2]})
+            detail = ("Gate failures on your batch. Each row below lists the exact test failures. "
+                      "Rewrite ONLY the failing rows' regex_triage/spacy_token_pattern so every "
+                      "positive matches and every negative does not, and update the file.\n"
+                      + json.dumps(fails[:10], indent=1)[:2500])
+        else:
+            continue
+        body = json.dumps({"prompt": detail}).encode()
+        try:
+            req = urllib.request.Request(
+                f"https://jules.googleapis.com/v1alpha/sessions/{s['session_id']}:sendMessage",
+                data=body, method="POST",
+                headers={"X-Goog-Api-Key": key, "Content-Type": "application/json"})
+            urllib.request.urlopen(req, timeout=30)
+            s["rescue_sent"] = True
+            s["gated"] = None
+            s["fetched"] = False
+            s["state"] = "RESCUED"
+            n += 1
+            print(f"batch_{s['batch_index']+1:03d}: rescue sent", flush=True)
+        except Exception as e:
+            print(f"batch_{s['batch_index']+1:03d}: rescue failed {e}", flush=True)
+    if n:
+        save_state(state)
+    return n
+
+
 def harvest_once(refill=0):
     state = load_state()
+    rescued_n = rescue_pass(state)
+    if rescued_n:
+        print(f"rescued {rescued_n} sessions", flush=True)
     completed = failed = in_flight = 0
     for s in state["sessions"]:
         gated = s.get("gated")
@@ -121,8 +185,12 @@ def harvest_once(refill=0):
                 safe, bad_path = patch_is_safe(patch_file)
                 if not safe:
                     s["gated"] = {"error": f"patch rejected: touches {bad_path}"}
-                    print(f"batch_{s['batch_index']+1:03d}: PATCH REJECTED (touches {bad_path})")
+                    print(f"batch_{s['batch_index']+1:03d}: PATCH REJECTED (touches {bad_path})", flush=True)
                     continue
+                if s.get("rescue_sent"):
+                    bf_old = EGP_DIR / s["batch_file"]
+                    if bf_old.exists():
+                        bf_old.unlink()  # fresh apply for rescued patch
                 r = subprocess.run(["git", "apply", "--check", patch_file], cwd=EGP_DIR,
                                    capture_output=True, text=True)
                 if r.returncode != 0:

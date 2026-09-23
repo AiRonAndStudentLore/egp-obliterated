@@ -349,13 +349,13 @@
         {
           "LEMMA": {
             "IN": [
-              "latest",
-              "biggest",
-              "best",
-              "worst",
-              "tallest",
-              "fastest",
-              "greatest"
+              "late",
+              "big",
+              "good",
+              "bad",
+              "tall",
+              "fast",
+              "great"
             ]
           }
         },
@@ -791,6 +791,7 @@
         {
           "LEMMA": {
             "IN": [
+              "clothe",
               "clothes",
               "instrument",
               "book",

@@ -1,0 +1,683 @@
+[
+  {
+    "egp_id": "1741163708564x509910132136988540",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NON-DEFINING, OBJECT, WITH 'WHICH'",
+    "can_do_statement": "Can use a non-defining relative clause with 'which' as the object.",
+    "example_raw": "The best of all was a marble statue which my aunt gave me. (Bangladesh; A2 WAYSTAGE; 2004; Bengali; Pass)\n\nThanks for your letter which I received a few days ago. (Greece; A2 WAYSTAGE; 2009; Greek; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Linking secondary descriptive information to a main noun",
+      "pedagogical_hook": "Using a non-defining relative clause with 'which' to add extra, non-essential information",
+      "agency_or_distance": "Distance from core clause by adding optional descriptive layer"
+    },
+    "detection": {
+      "regex_triage": ",\\s*which\\s+(?:I|you|he|she|it|we|they|the|a|an|my|your|his|her|our|their)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_PUNCT": true,
+          "ORTH": ","
+        },
+        {
+          "LOWER": "which"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The best of all was a marble statue, which my aunt gave me.",
+        "I liked the book, which I received a few days ago."
+      ],
+      "negatives": [
+        "The best of all was a marble statue, which sat on the table.",
+        "This is the car which I bought."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708565x122254210106770510",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'THE' + NOUN + 'WHO/THAT', FOCUS",
+    "can_do_statement": "Can use defining relative clauses, 'the person who/that, the thing that, the (only) one who/that' as a focusing device. ",
+    "example_raw": "The thing that was great is that the weather was really warm and it didn't rain. (France; B1 THRESHOLD; 2003; French; Pass)\n\nThe thing that I love most is going to the shops. (Peru; B1 THRESHOLD; 2001; Spanish - Latin American; Pass)\n\nThe person who sat next to me was her. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nThe person who called me was my best friend. (Spain; B1 THRESHOLD; 2006; Catalan; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Focusing attention on a specific entity",
+      "pedagogical_hook": "Using 'the thing that' or 'the person who' to emphasize a particular subject",
+      "agency_or_distance": "Agency in structuring information for emphasis"
+    },
+    "detection": {
+      "regex_triage": "\\bthe\\s+(?:person|thing|only\\s+one|one)\\s+(?:who|that)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "only",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "person",
+              "thing",
+              "one"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "who",
+              "that"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The thing that was great is the weather.",
+        "The person who sat next to me was her."
+      ],
+      "negatives": [
+        "A person who does that is bad.",
+        "The thing was that it rained."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708565x251895365489699360",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH 'WHERE', PLACE",
+    "can_do_statement": "Can use defining relative clauses with 'where' to define nouns referring to place.",
+    "example_raw": "The city where I live is very nice and extremely charming. (B1 THRESHOLD; 2003; ; Pass)\n\nBut if they are going to a place where you go every year you should go with your friends, you will have more fun. (Spain; B1 THRESHOLD; 2008; Spanish - European; Pass)\n\nWe went to the area where I used to live when I was a child near the Highlands. (Czech Republic; B1 THRESHOLD; 2003; Czech; Pass)>",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Specifying a spatial location",
+      "pedagogical_hook": "Using 'where' after a place noun to define which place is meant",
+      "agency_or_distance": "Spatial anchoring of an event to a specific location"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:place|city|area|country|town|room|house|building|street|park)\\s+where\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "NOUN"
+        },
+        {
+          "LOWER": "where"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The city where I live is nice.",
+        "We went to the area where I used to live."
+      ],
+      "negatives": [
+        "I know where you live.",
+        "This is where we met."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708565x386440393591908900",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'WHEN', FOCUS",
+    "can_do_statement": "Can use defining relative clauses with 'when' to define nouns relating to time. ",
+    "example_raw": "The day when he had to go back to Korea, I could not stop myself crying. (Korea, South; B1 THRESHOLD; 1999; Korean; Pass)\n\nI really remember the day when I lost my suitcase in the airport. (Mexico; B1 THRESHOLD; 2006; Spanish - Latin American; Pass)\n\nI was in the class at the time when they made the movie, so you will be able to see me on TV. (Poland; B1 THRESHOLD; 2008; Polish; Pass)",
+    "ontology": {
+      "domain": "TEMPORAL_ASPECT",
+      "mental_model": "Specifying a moment in time",
+      "pedagogical_hook": "Using 'when' after a time noun to define exactly which time is being discussed",
+      "agency_or_distance": "Temporal anchoring of an event to a specific time reference"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:day|time|year|month|week|moment|minute|hour)\\s+when\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "day",
+              "time",
+              "year",
+              "month",
+              "week",
+              "moment",
+              "minute",
+              "hour"
+            ]
+          }
+        },
+        {
+          "LOWER": "when"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I remember the day when he went back.",
+        "I was there at the time when they made it."
+      ],
+      "negatives": [
+        "I know when he arrived.",
+        "When I saw him, he was sad."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708565x566817072036876350",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NON-DEFINING, OBJECT, WITH 'WHO'",
+    "can_do_statement": "Can use a non-defining relative clause with 'who' as the object.",
+    "example_raw": "What I liked most was the friend I made there, a green-eyed chubby boy, who I played with till dinner time, when I had to go home. (Brazil; B1 THRESHOLD; 2003; Portuguese; Pass)\n\nShe turned around and, she couldn't believe it, it was an old classmate Tom, who she hadn't seen for ages! (Germany; B1 THRESHOLD; 2008; German; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Adding non-essential information about a person",
+      "pedagogical_hook": "Using non-defining relative clauses with 'who' as the object to add extra details",
+      "agency_or_distance": "Distance from core identifying features by adding supplementary description"
+    },
+    "detection": {
+      "regex_triage": ",\\s*who(?:m)?\\s+(?:I|you|he|she|we|they|the|a|an|my|your|his|her|our|their)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_PUNCT": true,
+          "ORTH": ","
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "who",
+              "whom"
+            ]
+          },
+          "DEP": {
+            "IN": [
+              "dobj",
+              "pobj"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It was Tom, who she hadn't seen for ages.",
+        "My brother, who I love, is nice."
+      ],
+      "negatives": [
+        "My brother, who lives here, is nice.",
+        "The man who I saw was tall."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708565x817408966754863900",
+    "level": "A2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEFINING, WITHOUT PRONOUN",
+    "can_do_statement": "Can use a defining relative clause, without a relative pronoun.",
+    "example_raw": "My friends said the clothes I wore were very old, and they didn't like them. (Spain; A2 WAYSTAGE; 2008; Spanish - European; Pass)\n\nAll my friends gave me a present but the one I liked best was John's. (Portugal; A2 WAYSTAGE; 2004; Portuguese; Pass)\n\nHere I have the information you want. (Spain; A2 WAYSTAGE; 2006; Spanish - European; Pass)\n\n[talking about video calls] You can see the person you are calling LIVE!!! (Cyprus; A2 WAYSTAGE; 2007; Greek; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Defining a noun implicitly by attaching a subject and verb directly",
+      "pedagogical_hook": "Dropping the relative pronoun in defining clauses when it is the object",
+      "agency_or_distance": "Efficiency in communication by omitting redundant syntactic markers"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:clothes|information|present|one|person|man|woman|people|boy|girl|thing|book|film|movie)\\s+(?:I|you|we|they|he|she)\\s+(?:wore|want|liked|are|am|is|was|were|have|has|had|do|does|did|can|could|will|would|should|[a-z]{3,})",
+      "spacy_token_pattern": [
+        {
+          "POS": "NOUN"
+        },
+        {
+          "TAG": "PRP"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The clothes I wore were old.",
+        "Here is the information you want."
+      ],
+      "negatives": [
+        "I know that you want it.",
+        "She said that I am wrong."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708565x846306043223088400",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: PRONOUN + PREPOSITION",
+    "can_do_statement": "Can use defining relative clauses and non-defining relative clauses ending in a preposition, with 'who/which/that' as the complement of the preposition.",
+    "example_raw": "Thank you very much for having provided us with valuable information about your finance services, which we are greatly interested in. (China; B2 VANTAGE; 2008; Chinese; Pass)\n\nI would like to do some painting, which I am quite good at. (Switzerland; B2 VANTAGE; 2000; French; Pass)\n\nThey have three wonderful children who I love to play with. (Sweden; B2 VANTAGE; 1998; Swedish; Pass)\n\nHe was involved in a case that he had nothing to do with! (Greece; B2 VANTAGE; 2009; Greek; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Connecting a relative pronoun to its required preposition",
+      "pedagogical_hook": "Ending a relative clause with a preposition when the pronoun is the complement",
+      "agency_or_distance": "Syntactic deferral by moving the preposition to the end of the clause"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:who|which|that)\\b(?:(?![.,?!]).)*?\\b(?:in|at|with|to|for|about|on|from)\\s*[.,?!]",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "who",
+              "which",
+              "that"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "IS_PUNCT": false
+        },
+        {
+          "POS": "ADP"
+        },
+        {
+          "IS_PUNCT": true
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "They have three children who I love to play with.",
+        "It was a case that he had nothing to do with!"
+      ],
+      "negatives": [
+        "I know the man who is with her.",
+        "The book which is on the table is mine."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708565x846617399720543500",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'THE REASON WHY', FOCUS",
+    "can_do_statement": "Can use defining relative clauses with 'why' after 'reason', to give an explanation and for focus. ",
+    "example_raw": "The reason why I love it is that it's quite original because it's about a woman who can see ghosts. (Spain; B1 THRESHOLD; 2007; Spanish - European; Pass)\n\nThis is the reason why we are changing our working hours. (Germany; B1 THRESHOLD; 2007; German; Pass)\n\nThis is the main reason why it is so famous and popular as well. (B1 THRESHOLD; 2006; French; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Highlighting causality and explanation",
+      "pedagogical_hook": "Using 'the reason why' to focus on the cause of a situation",
+      "agency_or_distance": "Asserting the causal link as the focal point of the sentence"
+    },
+    "detection": {
+      "regex_triage": "\\bthe\\s+(?:main\\s+)?reason\\s+why\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "main",
+          "OP": "?"
+        },
+        {
+          "LOWER": "reason"
+        },
+        {
+          "LOWER": "why"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The reason why I love it is this.",
+        "This is the reason why we are changing it."
+      ],
+      "negatives": [
+        "I don't know why he did it.",
+        "There is no reason to do that."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708565x862760497502034200",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: DEFINING, OBJECT, WITH 'WHO/THAT'",
+    "can_do_statement": "Can use a defining relative clause with 'who' or 'that' as the object.",
+    "example_raw": "My friends are the people who I love most. (Argentina; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nThey filmed two actors who I don't really know arguing and kissing after it. (Spain; B1 THRESHOLD; 2008; Catalan; Pass)\n\nIt was Sarah, a girl who I met in Spain on my holiday last year. (Switzerland; B1 THRESHOLD; 2006; Swiss German; Pass) \n\nWe are going with my friends Paolo and Ontorio, the guys who you met yesterday. (Italy; B1 THRESHOLD; 2004; Italian; Pass)\n\nSo I sent a letter to the school and they have sent me the details of the people that I'm going to stay with. (Japan; B1 THRESHOLD; 2003; Japanese; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Defining a person by the actions of another subject",
+      "pedagogical_hook": "Using 'who' or 'that' as the object of a defining relative clause",
+      "agency_or_distance": "Specifying identity based on interaction with a distinct subject"
+    },
+    "detection": {
+      "regex_triage": "(?<!,)\\s*(?<!,\\s)\\b[a-z]+\\s+(?:who|that)\\s+(?:I|you|he|she|we|they|the|a|an|my|your|his|her|our|their)\\b(?!\\s+(?:is|are|was|were|has|have)\\b)",
+      "spacy_token_pattern": [
+        {
+          "POS": "NOUN"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "who",
+              "that"
+            ]
+          },
+          "DEP": {
+            "IN": [
+              "dobj",
+              "pobj"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My friends are the people who I love most.",
+        "It was Sarah, a girl who I met in Spain."
+      ],
+      "negatives": [
+        "My brother, who I love, is tall.",
+        "The man who is standing there is my dad."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708565x901437004568881900",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: WITH 'WHOSE NAME'",
+    "can_do_statement": "Can use defining and non-defining relative clauses with 'whose name'.",
+    "example_raw": "We have a new employee whose name is Mary Watts. (Spain; B1 THRESHOLD; 2002; Spanish - European; Pass)\n\nIt was a very famous football player, whose name was known all over the world. (Russia; B1 THRESHOLD; 2009; Russian; Pass)\n\nI have many friends but I'll tell you about my best friend, whose name is Nicos. (Greece; B1 THRESHOLD; 2009; Greek; Pass)\n\nHe has got a friend whose name is Robert. (Germany; B1 THRESHOLD; 2001; German; Pass\n\nThe man whose name I can't remember, wrote a serious looking message. (Switzerland; B1 THRESHOLD; 2004; Swiss German; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Linking an entity to its specific identifying label",
+      "pedagogical_hook": "Using 'whose name' to provide the exact name of a person or thing",
+      "agency_or_distance": "Direct nominal identification attached to a reference"
+    },
+    "detection": {
+      "regex_triage": "(?<!^)\\bwhose\\s+name(?:s)?\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": false
+        },
+        {
+          "LOWER": "whose"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "name",
+              "names"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We have a new employee whose name is Mary.",
+        "He has a friend whose name is Robert."
+      ],
+      "negatives": [
+        "I don't know whose book this is.",
+        "Whose name was called?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708566x933173646960638000",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NON-DEFINING, WITH 'WHOSE'",
+    "can_do_statement": "Can use non-defining relative clauses with 'whose', to give additional information. ",
+    "example_raw": "And I was initially employed to be an entrance assistant, whose job was to keep the queue under control as well as keeping the area clean. (China; B2 VANTAGE; 2000; Chinese; Pass)\n\nI was at the concert when I met a friend of mine whose job is to organise shows like that. (Italy; B2 VANTAGE; 2000; Italian; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Adding extra information about possession",
+      "pedagogical_hook": "Using a non-defining relative clause with 'whose' to add extra details about what someone owns or their relationships",
+      "agency_or_distance": "Distance from core identity by adding supplementary possessive description"
+    },
+    "detection": {
+      "regex_triage": ",\\s*whose\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_PUNCT": true,
+          "ORTH": ","
+        },
+        {
+          "LOWER": "whose"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I met a friend, whose job is to organise shows.",
+        "I have an assistant, whose parents are nice."
+      ],
+      "negatives": [
+        "The man whose car was stolen was sad.",
+        "I wonder whose this is."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708567x103888477209590050",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: DEFINING, WITH 'WHOSE'",
+    "can_do_statement": "Can use defining relative clauses with 'whose', to give more information about relationship.",
+    "example_raw": "I visited several primary schools in Canberra and had opportunities to teach not only Australian children but also Vietnamese children whose parents immigrated to Australia. (Japan; B2 VANTAGE; 1993; Japanese; Pass)\n\nMary is a young lady whose parents had died and she had nobody else but an aunt to live with. (Brazil; B2 VANTAGE; 1993; Portuguese; Pass)",
+    "ontology": {
+      "domain": "ENTITY_TOPOLOGY",
+      "mental_model": "Defining a person by their relationships or possessions",
+      "pedagogical_hook": "Using 'whose' in a defining relative clause to specify exactly who is being discussed based on relation",
+      "agency_or_distance": "Anchoring identity to an external, possessed relational entity"
+    },
+    "detection": {
+      "regex_triage": "(?<!,)\\s*(?<!,\\s)\\b(?:children|lady|boy|girl|man|woman|people)\\s+whose\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "LOWER": "whose"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I teach children whose parents immigrated here.",
+        "Mary is a lady whose parents died."
+      ],
+      "negatives": [
+        "My friend, whose job is great, is rich.",
+        "I wonder whose coat this is."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708567x429681014975256600",
+    "level": "B2",
+    "super_category": "CLAUSES",
+    "sub_category": "relative",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: SENTENCE, EVALUATIVE",
+    "can_do_statement": "Can use a relative clause to refer to a whole clause or sentence, often to express an opinion or evaluation or give a reason. ",
+    "example_raw": "It is now possible to send a letter and receive an answer within ten minutes, which is a good thing if you want to buy a house, a car etc. (Denmark; B2 VANTAGE; 1999; Danish; Pass)\n\nIn addition, zoological gardens allow us to get to know the lifestyles of some animals better, which is very important from the point of view of their protection. (Poland; B2 VANTAGE; 1993; Polish; Pass)\n\nI have also visited the dance shows and the art exhibitions, as well as the talks by writers, which were all really brilliant. (Switzerland; B2 VANTAGE; 2000; French; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Evaluating an entire preceding proposition",
+      "pedagogical_hook": "Using 'which' referring back to a whole clause to give an opinion or evaluation",
+      "agency_or_distance": "Metalinguistic distance in commenting on a complete thought"
+    },
+    "detection": {
+      "regex_triage": ",\\s*which\\s+(?:is|was|are|were|makes|meant|means|has|had)\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_PUNCT": true,
+          "ORTH": ","
+        },
+        {
+          "LOWER": "which"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He passed the exam, which is great.",
+        "It was raining, which meant we stayed inside."
+      ],
+      "negatives": [
+        "The book, which I read, is mine.",
+        "I bought a car which is very fast."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708567x143784828552863340",
+    "level": "B1",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: CONTRAST",
+    "can_do_statement": "Can use a finite subordinate clause with conjunctions ('even though, (al)though, while if') to introduce contrast, before or after a main clause. ",
+    "example_raw": "You should come with your sister even though you would rather be alone. (France; B1 THRESHOLD; 2009; French; Pass)\n\nEven though I am currently quite busy, I will be very glad to take part in the Conference dinner. (Italy; B1 THRESHOLD; 1999; Italian; Pass)\n\nAlthough he was famous, I didn't like him. (Chile; B1 THRESHOLD; 2009; Spanish - Latin American; Pass)\n\nThough we are not studying at the same school now, we always keep in touch. (Vietnam; B1 THRESHOLD; 2009; Vietnamese; Pass)\n\nThe main actor is my favorite actor, although I can't remember his name. (Taiwan; B1 THRESHOLD; 2002; Chinese; Pass)\n\nI think going on holiday with your parents won't be very much fun, while if you go with your friends you will enjoy yourself much more. (Italy; B1 THRESHOLD; 2008; Italian; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Contrasting two opposing ideas",
+      "pedagogical_hook": "Using 'even though' or 'although' to introduce an unexpected contrast to the main clause",
+      "agency_or_distance": "Navigating contradictory facts by explicitly marking contrast"
+    },
+    "detection": {
+      "regex_triage": "\\b(?:even\\s+though|although|while\\s+if)\\b|\\bthough\\s+(?:I|you|he|she|we|they|the)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "although",
+              "though"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "PRON",
+              "NOUN",
+              "PROPN",
+              "DET"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Although he was famous, I didn't like him.",
+        "Though we are not studying there, we keep in touch."
+      ],
+      "negatives": [
+        "He is famous though.",
+        "I will see if he is there."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708567x184494536538858620",
+    "level": "A1",
+    "super_category": "CLAUSES",
+    "sub_category": "subordinated",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: 'BECAUSE', REASONS",
+    "can_do_statement": "Can use a finite subordinate clause with 'because', after a main clause, to introduce reasons. ",
+    "example_raw": "I love her because she is friendly. (A1 BREAKTHROUGH; 2006; Bengali; Pass)\n\nI like my television because it is big and modern. (A1 BREAKTHROUGH; 2009; Arabic - Other; Pass)",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Explaining the cause of a state or action",
+      "pedagogical_hook": "Using 'because' in the middle of a sentence to provide a reason for the main clause",
+      "agency_or_distance": "Connecting an outcome directly to its originating cause"
+    },
+    "detection": {
+      "regex_triage": "\\b[a-zA-Z]{2,}\\s+because\\b",
+      "spacy_token_pattern": [
+        {
+          "IS_SENT_START": false
+        },
+        {
+          "LOWER": "because"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I love her because she is friendly.",
+        "I like my television because it is big."
+      ],
+      "negatives": [
+        "Because it was raining, we stayed inside.",
+        "Because of the rain, we left."
+      ]
+    }
+  }
+]

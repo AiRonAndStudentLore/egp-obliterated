@@ -1,7 +1,7 @@
 {
  "batch": "batches/jules_batch_006.json",
  "cycles": 1,
- "passed": 12,
+ "passed": 15,
  "total": 15,
  "auto_fixes": [],
  "verify_ok": true,
@@ -18,11 +18,8 @@
   },
   {
    "egp_id": "1741163708329x931125497510935300",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: 'Can I go?'",
-    "spaCy FALSE-POSITIVE on negative: 'Can I go?'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708330x413468355048861400",
@@ -31,18 +28,13 @@
   },
   {
    "egp_id": "1741163708330x456690728495361200",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: 'I have not.'",
-    "spaCy FALSE-POSITIVE on negative: 'I have not.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708330x678606711578176000",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy FALSE-POSITIVE on negative: 'Do you miss me?'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708336x128539343181511400",

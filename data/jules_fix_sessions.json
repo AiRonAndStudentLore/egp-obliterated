@@ -1,0 +1,20 @@
+{
+ "sessions": [
+  {
+   "fix_index": 1,
+   "session_id": "8605519470746878165",
+   "state": "IN_PROGRESS",
+   "output": "batches/jules_fix_batch_001.json",
+   "fetched": false,
+   "spawned_at": "2026-09-23T02:30:47"
+  },
+  {
+   "fix_index": 2,
+   "session_id": "14204886293365014251",
+   "state": "IN_PROGRESS",
+   "output": "batches/jules_fix_batch_002.json",
+   "fetched": false,
+   "spawned_at": "2026-09-23T02:30:51"
+  }
+ ]
+}

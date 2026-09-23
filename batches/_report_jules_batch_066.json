@@ -1,17 +1,15 @@
 {
  "batch": "batches/jules_batch_066.json",
  "cycles": 1,
- "passed": 10,
+ "passed": 15,
  "total": 15,
  "auto_fixes": [],
  "verify_ok": true,
  "verdicts": [
   {
    "egp_id": "1741163715818x484532724787778900",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: 'He told a story to his friends.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163715818x645674419690479600",
@@ -25,11 +23,8 @@
   },
   {
    "egp_id": "1741163715818x942794164065401900",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: \"It's a wonder how they survived.\"",
-    "spaCy FALSE-POSITIVE on negative: \"It's a wonder how they survived.\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163715819x177565244544510180",
@@ -58,10 +53,8 @@
   },
   {
    "egp_id": "1741163715820x722979507342767900",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'She told me not to be scared.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163715820x946999443663956600",
@@ -75,18 +68,13 @@
   },
   {
    "egp_id": "1741163715608x123988758899529200",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'Because today is my birthday.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163715620x591479199213417900",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'It all seems very confusing.'",
-    "regex FALSE-POSITIVE on negative: 'She appeared in the doorway.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163715620x718213480807691900",

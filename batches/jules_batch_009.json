@@ -63,7 +63,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\bif\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){0,3}(?:am|is|are|was|were|have|has|had|do|does|did|will|would|can|could|[a-z]+s?|[a-z]+ed)\\b",
+      "regex_triage": "(?i)\\bif\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){0,2}(?:am|is|are|have|has|do|does|want[a-z]*|visit[a-z]*|[a-z]+s)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": "if",
@@ -75,6 +75,14 @@
               "nsubj",
               "nsubjpass",
               "expl"
+            ]
+          }
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBZ"
             ]
           }
         }
@@ -106,7 +114,7 @@
       "agency_or_distance": "agency"
     },
     "detection": {
-      "regex_triage": "(?i)\\bto\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:[a-z]+)?\\b",
+      "regex_triage": "(?i)(?:^To\\s+[a-z]+|(?<!want\\s)(?<!have\\s)(?<!going\\s)\\bto\\s+(?:buy|reach|contact|get|turn)\\b)",
       "spacy_token_pattern": [
         {
           "LOWER": "to",
@@ -148,7 +156,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:when|while|before|after|until|as soon as)\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){1,3}[a-z]+",
+      "regex_triage": "(?i)\\b(?:when|while|before|after|until)\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){1,3}(?:am|is|are|was|were)\\b(?!\\s+arrive\\b)",
       "spacy_token_pattern": [
         {
           "LOWER": {
@@ -163,8 +171,7 @@
           "DEP": {
             "IN": [
               "mark",
-              "advmod",
-              "prep"
+              "advmod"
             ]
           }
         },
@@ -174,6 +181,15 @@
               "nsubj",
               "nsubjpass",
               "expl"
+            ]
+          }
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VBP",
+              "VBD",
+              "VBG"
             ]
           }
         }
@@ -300,7 +316,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:unless|provided(?:\\s+that)?)\\s+(?:[a-z]+(?:'s|'re|'m|'ve|'ll|'d)?\\s+){1,3}[a-z]+",
+      "regex_triage": "(?i)\\b(?:unless\\s+(?:[a-z]+\\s+){1,3}(?:is|are|will|can)|provided\\s+(?:that\\s+)?(?:the|it)\\b)",
       "spacy_token_pattern": [
         {
           "LOWER": {
@@ -309,7 +325,14 @@
               "provided"
             ]
           },
-          "DEP": "mark"
+          "DEP": {
+            "IN": [
+              "mark",
+              "advmod",
+              "prep",
+              "advcl"
+            ]
+          }
         },
         {
           "LOWER": "that",
@@ -320,6 +343,7 @@
             "IN": [
               "nsubj",
               "nsubjpass",
+              "det",
               "expl"
             ]
           }
@@ -453,7 +477,7 @@
       "spacy_token_pattern": [
         {
           "LOWER": "were",
-          "DEP": "advcl"
+          "IS_SENT_START": true
         },
         {
           "DEP": {
@@ -501,8 +525,19 @@
       "spacy_token_pattern": [
         {
           "IS_SENT_START": true,
-          "TAG": "VBN",
-          "DEP": "advcl"
+          "TAG": "VBN"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "to",
+              "on",
+              "by",
+              "in",
+              "with",
+              "from"
+            ]
+          }
         }
       ]
     },
@@ -532,7 +567,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:although|though)\\s+(?:not\\s+)?[a-z]+(?:ed|en|ing)?\\b",
+      "regex_triage": "(?i)\\b(?:although|though)\\s+(?!I\\b|you\\b|he\\b|she\\b|it\\b|we\\b|they\\b)(?:not\\s+)?[a-z]{3,}(?:ed|en|ing)?\\b",
       "spacy_token_pattern": [
         {
           "LOWER": {
@@ -590,7 +625,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)^(?:should|had|were)\\s+(?:I|you|he|she|it|we|they|[A-Z][a-z]+)\\s+(?:not\\s+)?[a-z]+\\b",
+      "regex_triage": "(?i)^(?:should|had|were)\\s+(?:I|you|he|she|it|we|they|[A-Z][a-z]+)\\s+(?:not\\s+)?[a-z]+[^?]*\\,",
       "spacy_token_pattern": [
         {
           "LOWER": {
@@ -600,11 +635,36 @@
               "were"
             ]
           },
-          "IS_SENT_START": true,
-          "DEP": "advcl"
+          "IS_SENT_START": true
         },
         {
           "DEP": "nsubj"
+        },
+        {
+          "DEP": {
+            "IN": [
+              "ccomp",
+              "ROOT"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "TAG": {
+            "IN": [
+              "VB",
+              "VBN",
+              "JJ"
+            ]
+          }
+        },
+        {
+          "DEP": {
+            "IN": [
+              "det",
+              "mark"
+            ]
+          }
         }
       ]
     },
@@ -641,8 +701,7 @@
           "IS_SENT_START": true
         },
         {
-          "TAG": "VBG",
-          "DEP": "advcl"
+          "TAG": "VBG"
         }
       ]
     },
@@ -672,7 +731,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)^[a-z]+ing\\b",
+      "regex_triage": "(?i)^[a-z]+ing\\b[^?.]*,",
       "spacy_token_pattern": [
         {
           "IS_SENT_START": true,

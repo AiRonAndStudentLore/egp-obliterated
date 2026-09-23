@@ -62,7 +62,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:before|if|once|since|so|until|when|while|as\\s+soon\\s+as)\\s+(?:[a-z]+\\s+){0,4}[a-z]+(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood|oke)\\b",
+      "regex_triage": "(?i)\\b(?:before|if|once|since|so|until|when|while|as\\s+soon\\s+as)\\b.*?\\b(?:[a-z]+ed|came|went|saw|got|had|did|was|were|started|stayed)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": {
@@ -122,14 +122,13 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\b[a-z]+(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood)\\b.*?\\band\\s+(?:then\\s+)?[a-z]+\\b.*?\\b[a-z]+(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood)\\b",
+      "regex_triage": "(?i)\\b(?:[a-z]+ed|met|went|got|was|were|had|did|bought|waited|decided)\\b.*?\\band\\s+(?:then\\s+)?(?:[a-z]+ed|met|went|got|was|were|had|did|bought|waited|decided)\\b",
       "spacy_token_pattern": [
         {
           "TAG": "VBD"
         },
         {
-          "OP": "*",
-          "IS_ALPHA": true
+          "OP": "*"
         },
         {
           "LOWER": "and"
@@ -139,8 +138,7 @@
           "OP": "?"
         },
         {
-          "OP": "*",
-          "IS_ALPHA": true
+          "OP": "*"
         },
         {
           "TAG": "VBD"
@@ -217,7 +215,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\bif\\s+(?:[a-z]+\\s+){0,4}(?:were|was|had|did|could|[a-z]+ed)\\b",
+      "regex_triage": "(?i)\\bif\\s+(?:[a-z]+\\s+){0,4}(?:were|was|had|did|could|wanted|spent|[a-z]+ed)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": "if"
@@ -313,6 +311,10 @@
           }
         },
         {
+          "LOWER": "n't",
+          "OP": "?"
+        },
+        {
           "OP": "?",
           "IS_ALPHA": true
         },
@@ -364,8 +366,11 @@
           }
         },
         {
-          "OP": "*",
-          "IS_ALPHA": true
+          "LOWER": "n't",
+          "OP": "?"
+        },
+        {
+          "OP": "*"
         },
         {
           "LOWER": "but"
@@ -469,7 +474,13 @@
           "OP": "?"
         },
         {
-          "TAG": "VB"
+          "POS": {
+            "IN": [
+              "VERB",
+              "NOUN",
+              "ADJ"
+            ]
+          }
         }
       ]
     },
@@ -544,7 +555,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)(?:following|after|having)\\s+(?:[a-z]+\\s+){1,6},\\s+(?:[a-z]+\\s+){0,3}(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood)\\b",
+      "regex_triage": "(?i)\\b(?:following|after|having)\\b.*?,.*?\\b(?:[a-z]+ed|came|was|were|had|did|purchased|went)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": {
@@ -596,7 +607,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:would|could)\\s+(?:[a-z]+\\s+)?(?:be|help|appreciate)\\b.*\\bif\\s+(?:[a-z]+\\s+){0,4}(?:ed|t|d|ew|ank|ought|ound|ept|elt|ood|ave)\\b",
+      "regex_triage": "(?i)\\b(?:would|could)\\b.*?\\bif\\s+(?:[a-z]+\\s+){0,4}(?:[a-z]+ed|told|gave|sent|was|were|had|did|could|would)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": {

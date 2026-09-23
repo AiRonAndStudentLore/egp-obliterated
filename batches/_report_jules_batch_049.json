@@ -1,7 +1,7 @@
 {
  "batch": "batches/jules_batch_049.json",
  "cycles": 1,
- "passed": 7,
+ "passed": 15,
  "total": 15,
  "auto_fixes": [],
  "verify_ok": true,
@@ -13,20 +13,13 @@
   },
   {
    "egp_id": "1741163712741x451753538727761150",
-   "verdict": "test_failures",
-   "failures": [
-    "regex MISSED positive: 'Before I came here, I was happy.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163712741x502986363867653060",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'He met a lot of new friends, and then got married.'",
-    "regex MISSED positive: 'We met at 9 and decided to go.'",
-    "spaCy MISSED positive: 'We met at 9 and decided to go.'",
-    "regex FALSE-POSITIVE on negative: 'He meets a lot of friends and then gets married.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163712741x640931114927365400",
@@ -35,10 +28,8 @@
   },
   {
    "egp_id": "1741163712741x766030441271033700",
-   "verdict": "test_failures",
-   "failures": [
-    "regex MISSED positive: 'It would be better if you spent some time here.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163712741x938657596941798800",
@@ -47,18 +38,13 @@
   },
   {
    "egp_id": "1741163712741x973372936620190600",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: \"Why didn't he call me?\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163712743x203885413206849950",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'Not only did I find them, but also others.'",
-    "spaCy MISSED positive: \"Not only didn't we travel, but also we stayed.\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163712743x210897861318798620",
@@ -67,10 +53,8 @@
   },
   {
    "egp_id": "1741163712743x286039195636331720",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'It is true that it did rain during the day.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163712743x298607385595879740",
@@ -79,19 +63,13 @@
   },
   {
    "egp_id": "1741163712743x467903740487451800",
-   "verdict": "test_failures",
-   "failures": [
-    "regex MISSED positive: 'Following advice from a friend, I purchased the product.'",
-    "regex MISSED positive: 'After having discussed this, we came up with decisions.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163712743x809106963202299400",
-   "verdict": "test_failures",
-   "failures": [
-    "regex MISSED positive: 'I think it would be very helpful if I told you my own case.'",
-    "regex MISSED positive: 'I would be grateful if you gave me this job.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163712744x140719828534094260",

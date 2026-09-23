@@ -223,7 +223,7 @@
       "agency_or_distance": "agency"
     },
     "detection": {
-      "regex_triage": "\\brather\\s+than\\s+(?:the|a|an|[a-z]+s\\b|to\\b|in\\b|on\\b|at\\b|for\\b|with\\b)",
+      "regex_triage": "\\brather\\s+than\\s+(?!to\\b|go\\b|do\\b|see\\b|be\\b|have\\b|face\\b)[a-z]+\\b",
       "spacy_token_pattern": [
         {
           "LOWER": "rather"
@@ -232,13 +232,15 @@
           "LOWER": "than"
         },
         {
-          "LOWER": {
+          "TAG": {
             "NOT_IN": [
-              "going",
-              "doing",
-              "seeing",
-              "being",
-              "having"
+              "VB",
+              "VBG",
+              "VBN",
+              "VBD",
+              "VBZ",
+              "VBP",
+              "TO"
             ]
           }
         }
@@ -420,7 +422,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "\\bthe\\s+best\\s+[a-z]+\\s+(?:that\\s+)?(?:i\\s+|you\\s+|we\\s+|they\\s+|he\\s+|she\\s+)?(?:have|'ve|has|'s)\\b",
+      "regex_triage": "\\bthe\\s+best\\s+[a-z]+\\s+(?:that\\s+)?(?:(?:i|you|we|they|he|she)\\s*)?(?:have|'ve|has|'s)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": "the"
@@ -611,7 +613,7 @@
       "agency_or_distance": "agency"
     },
     "detection": {
-      "regex_triage": "\\b[a-z]+\\s+enough\\s+to\\s+[a-z]+\\b",
+      "regex_triage": "\\b(?!(?:sleep|eat|work|run|play|have|get|do|be)\\b)[a-z]+\\s+enough\\s+to\\s+[a-z]+\\b",
       "spacy_token_pattern": [
         {
           "TAG": "JJ"
@@ -717,8 +719,7 @@
               "seem",
               "be"
             ]
-          },
-          "OP": "?"
+          }
         },
         {
           "LOWER": {

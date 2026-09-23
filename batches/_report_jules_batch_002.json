@@ -1,7 +1,7 @@
 {
  "batch": "batches/jules_batch_002.json",
  "cycles": 1,
- "passed": 11,
+ "passed": 15,
  "total": 15,
  "auto_fixes": [],
  "verify_ok": true,
@@ -28,11 +28,8 @@
   },
   {
    "egp_id": "1741163708149x584991035733899400",
-   "verdict": "test_failures",
-   "failures": [
-    "regex MISSED positive: 'Eat healthy foods rather than fatty foods.'",
-    "spaCy FALSE-POSITIVE on negative: 'He decided to resign rather than face dismissal.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708149x664942128716233300",
@@ -51,10 +48,8 @@
   },
   {
    "egp_id": "1741163708150x563640914716471200",
-   "verdict": "test_failures",
-   "failures": [
-    "regex MISSED positive: \"Well, the best decision I've ever made was the decision to go to France.\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708150x748318227253666600",
@@ -73,10 +68,8 @@
   },
   {
    "egp_id": "1741163708151x444231442548491900",
-   "verdict": "test_failures",
-   "failures": [
-    "regex FALSE-POSITIVE on negative: \"I didn't sleep enough to feel rested.\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708151x483888706062789900",
@@ -85,11 +78,8 @@
   },
   {
    "egp_id": "1741163708151x500725106089104700",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy FALSE-POSITIVE on negative: 'I like roses very much.'",
-    "spaCy FALSE-POSITIVE on negative: 'They have similar tastes.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   }
  ]
 }

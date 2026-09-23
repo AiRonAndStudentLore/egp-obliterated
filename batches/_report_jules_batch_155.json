@@ -1,0 +1,85 @@
+{
+ "batch": "batches/jules_batch_155.json",
+ "cycles": 1,
+ "passed": 15,
+ "total": 15,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163713864x981685154549874200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713867x150062658595893500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713867x281198469131771500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713867x530274295544571840",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713867x574702813002478900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713867x609205291409504700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713867x710371035379195900",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713867x970460151516622800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713868x463659211645272000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713868x569801658869344200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713868x798436542527262600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713875x174658833629234300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713875x322581852326230000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713875x553851897238862400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163713875x671479205493548800",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

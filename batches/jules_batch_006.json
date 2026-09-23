@@ -106,8 +106,25 @@
       "agency_or_distance": "agency"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:can|will|must|should|could|would|might|may|shall)\\b(?:\\s+[a-z]+ly)?\\s+[a-z]+",
+      "regex_triage": "(?i)\\b(?:I|you|he|she|it|we|they|this|that|these|those)\\b\\s+(?:can|will|must|should|could|would|might|may|shall)\\b(?:\\s+[a-z]+ly)?\\s+[a-z]+",
       "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "he",
+              "she",
+              "it",
+              "we",
+              "they",
+              "this",
+              "that",
+              "these",
+              "those"
+            ]
+          }
+        },
         {
           "LEMMA": {
             "IN": [
@@ -225,7 +242,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:haven't|hasn't|hadn't)\\b|\\b(?:have|has|had)\\b(?:\\s+[a-z]+ly)?\\s+(?:not|n't)\\b",
+      "regex_triage": "(?i)\\b(?:haven't|hasn't|hadn't)\\b(?:\\s+[a-z]+ly)?\\s+[a-z]+|\\b(?:have|has|had)\\b(?:\\s+[a-z]+ly)?\\s+(?:not|n't)\\b(?:\\s+[a-z]+ly)?\\s+[a-z]+",
       "spacy_token_pattern": [
         {
           "LEMMA": "have"
@@ -237,6 +254,9 @@
               "n't"
             ]
           }
+        },
+        {
+          "IS_ALPHA": true
         }
       ]
     },
@@ -268,6 +288,19 @@
     "detection": {
       "regex_triage": "(?i)\\b(?:I|you|we|they|he|she|it)\\b\\s+(?:do|does|did)(?:\\s+[a-z]+ly)?\\s+[a-z]+",
       "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "i",
+              "you",
+              "he",
+              "she",
+              "it",
+              "we",
+              "they"
+            ]
+          }
+        },
         {
           "LEMMA": {
             "IN": [

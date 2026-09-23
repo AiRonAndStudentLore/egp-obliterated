@@ -1,0 +1,758 @@
+[
+  {
+    "egp_id": "1741163715033x199281404596736400",
+    "level": "A2",
+    "super_category": "QUESTIONS",
+    "sub_category": "yes/no",
+    "lexical_range": "N/A",
+    "guideword": "FORM: LEXICAL VERBS WITH 'DO'",
+    "can_do_statement": "Can use auxiliary 'do' + subject + main verb to form 'yes/no' questions. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Information seeking with do",
+      "pedagogical_hook": "Using do to ask a yes/no question",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:[^\\w]*(?!(?:who|what|where|when|why|how)\\b)[a-z]+\\s+)?(?:do|does|did)\\b.*?\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "does",
+              "did"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Do you want some tea, John?",
+        "Did he go to the store?"
+      ],
+      "negatives": [
+        "I do not want any tea.",
+        "They did not do it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715033x444139630968705800",
+    "level": "A2",
+    "super_category": "QUESTIONS",
+    "sub_category": "yes/no",
+    "lexical_range": "N/A",
+    "guideword": "FORM: AUXILIARY 'HAVE'",
+    "can_do_statement": "Can use auxiliary 'have' + subject + the '-ed' form to form 'yes/no' questions.  \u25ba  present perfect",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Information seeking with have",
+      "pedagogical_hook": "Using have to ask a yes/no question",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:[^\\w]*(?!(?:who|what|where|when|why|how)\\b)[a-z]+\\s+)?(?:have|has|had)\\b.*?\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "have",
+              "has",
+              "had"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Have you seen this movie, buddy?",
+        "Has she arrived yet?"
+      ],
+      "negatives": [
+        "I have a car.",
+        "They have gone away."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715033x661087028434845600",
+    "level": "A2",
+    "super_category": "QUESTIONS",
+    "sub_category": "yes/no",
+    "lexical_range": "N/A",
+    "guideword": "FORM: MAIN VERB 'BE'",
+    "can_do_statement": "Can use main verb 'be' + subject to form 'yes/no' questions. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Information seeking with be",
+      "pedagogical_hook": "Using be to ask a yes/no question",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:[^\\w]*(?!(?:who|what|where|when|why|how)\\b)[a-z]+\\s+)?(?:am|is|are|was|were)\\b.*?\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "am",
+              "is",
+              "are",
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Are you ready for the test, kids?",
+        "Is this the right train?"
+      ],
+      "negatives": [
+        "I am ready.",
+        "You are here."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715033x768742528426968400",
+    "level": "A2",
+    "super_category": "QUESTIONS",
+    "sub_category": "yes/no",
+    "lexical_range": "2",
+    "guideword": "FORM: MODAL VERBS",
+    "can_do_statement": "Can use an increasing range of modal verbs + subject + main verb to form 'yes/no' questions.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Information seeking with modal",
+      "pedagogical_hook": "Using a modal to ask a yes/no question",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:[^\\w]*(?!(?:who|what|where|when|why|how)\\b)[a-z]+\\s+)?(?:can|could|will|would|shall|should|may|might|must)\\b.*?\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Can you help me with this, please?",
+        "Would you like some coffee?"
+      ],
+      "negatives": [
+        "I can help you.",
+        "They would be happy."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715034x128016271247440200",
+    "level": "B1",
+    "super_category": "QUESTIONS",
+    "sub_category": "yes/no",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE QUESTIONS WITH 'BE'",
+    "can_do_statement": "Can use main verb 'be' + 'n\u2019t' to form negative 'yes/no' questions.",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking confirmation with negative be",
+      "pedagogical_hook": "Using negative be to ask for confirmation",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:[^\\w]*(?!(?:who|what|where|when|why|how)\\b)[a-z]+\\s+)?(?:aren't|isn't|wasn't|weren't)\\b.*?\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "are",
+              "is",
+              "was",
+              "were"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Isn't it beautiful, man?",
+        "Aren't you going to the party?"
+      ],
+      "negatives": [
+        "It isn't beautiful.",
+        "They aren't going to the party."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715034x165762004955058560",
+    "level": "B1",
+    "super_category": "QUESTIONS",
+    "sub_category": "yes/no",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE QUESTIONS, AUXILIARY VERBS",
+    "can_do_statement": "Can use auxiliary 'do' and 'have' + 'n\u2019t' + subject + main verb to form negative 'yes/no' questions. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking confirmation with negative auxiliary",
+      "pedagogical_hook": "Using negative auxiliary to ask for confirmation",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:[^\\w]*(?!(?:who|what|where|when|why|how)\\b)[a-z]+\\s+)?(?:don't|doesn't|didn't|haven't|hasn't|hadn't)\\b.*?\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "does",
+              "did",
+              "have",
+              "has",
+              "had"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Don't you agree, friend?",
+        "Haven't you finished yet?"
+      ],
+      "negatives": [
+        "I don't agree.",
+        "You haven't seen it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715034x328104656808845060",
+    "level": "B1",
+    "super_category": "QUESTIONS",
+    "sub_category": "yes/no",
+    "lexical_range": "N/A",
+    "guideword": "FORM: NEGATIVE QUESTIONS MODAL VERBS",
+    "can_do_statement": "Can use modal verbs + 'not' + subject + main verb to form 'yes/no' questions. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking confirmation with negative modal",
+      "pedagogical_hook": "Using negative modal to ask for confirmation",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:[^\\w]*(?!(?:who|what|where|when|why|how)\\b)[a-z]+\\s+)?(?:can't|couldn't|won't|wouldn't|shan't|shouldn't|mayn't|mightn't|mustn't)\\b.*?\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "ca",
+              "could",
+              "wo",
+              "would",
+              "sha",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Couldn't you try harder, buddy?",
+        "Won't she come with us?"
+      ],
+      "negatives": [
+        "I couldn't try harder.",
+        "She won't come."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715034x378736507797090750",
+    "level": "B1",
+    "super_category": "QUESTIONS",
+    "sub_category": "yes/no",
+    "lexical_range": "N/A",
+    "guideword": "USE: SEEKING AGREEMENT",
+    "can_do_statement": "Can use negative 'yes/no' questions to involve the listener or reader by seeking agreement. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Seeking agreement",
+      "pedagogical_hook": "Using negative questions to seek agreement",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:don't|doesn't|didn't|aren't|isn't|wasn't|weren't|haven't|hasn't|hadn't|can't|couldn't|won't|wouldn't|shan't|shouldn't|mayn't|mightn't|mustn't)\\b.*?\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "does",
+              "did",
+              "are",
+              "is",
+              "was",
+              "were",
+              "have",
+              "has",
+              "had",
+              "ca",
+              "could",
+              "wo",
+              "would",
+              "sha",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "LOWER": "n't"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It's a great idea, don't you think?",
+        "Isn't that amazing?"
+      ],
+      "negatives": [
+        "I don't think it's a great idea.",
+        "I do not think so."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715034x601077874617532500",
+    "level": "C2",
+    "super_category": "QUESTIONS",
+    "sub_category": "yes/no",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: NEGATIVE QUESTIONS WITH 'NOT', EMPHASIS",
+    "can_do_statement": "Can form negative questions with uncontracted 'not' to emphasise a point in an argument. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Emphasising a point with uncontracted not",
+      "pedagogical_hook": "Using uncontracted not for emphasis in negative questions",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)^(?:[^\\w]*(?!(?:who|what|where|when|why|how)\\b)[a-z]+\\s+)?(?:do|does|did|am|is|are|was|were|have|has|had|can|could|will|would|shall|should|may|might|must)\\b\\s+(?:[a-z]+(?:'[a-z]+)?\\s+){1,3}not\\b.*?\\?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "do",
+              "does",
+              "did",
+              "am",
+              "is",
+              "are",
+              "was",
+              "were",
+              "have",
+              "has",
+              "had",
+              "can",
+              "could",
+              "will",
+              "would",
+              "shall",
+              "should",
+              "may",
+              "might",
+              "must"
+            ]
+          }
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "LOWER": "not"
+        },
+        {
+          "OP": "*"
+        },
+        {
+          "ORTH": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Are we not supposed to be there, right?",
+        "Do you not understand?"
+      ],
+      "negatives": [
+        "We are not supposed to be there.",
+        "They do not know."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715817x253069047706943500",
+    "level": "A2",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: REPORTED STATEMENTS WITH 'TELL', PRONOUN SHIFT",
+    "can_do_statement": "Can report statements using a reporting clause with 'tell' + direct object + 'that-'clause, with a pronoun shift where relevant. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Reporting statements with tell",
+      "pedagogical_hook": "Using tell to report what someone said",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:tell|tells|told|telling)\\b\\s+(?:(?:[a-zA-Z]+\\s+){1,5})?that\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "tell"
+        },
+        {
+          "OP": "*",
+          "LENGTH": {
+            "<=": 5
+          }
+        },
+        {
+          "LOWER": "that"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He told the teacher that he would be late.",
+        "She tells us that it was ready."
+      ],
+      "negatives": [
+        "He told a story.",
+        "I know that she told me."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715817x584156896390892800",
+    "level": "B1",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: REPORTED 'YES-NO' QUESTIONS",
+    "can_do_statement": "Can report questions using 'ask' + 'if' or 'whether' + clause, with a pronoun and tense shift where relevant. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Reporting yes/no questions",
+      "pedagogical_hook": "Using ask if/whether to report yes/no questions",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:ask|asks|asked|asking)\\b\\s+(?:(?:[a-zA-Z]+\\s+){1,5})?(?:if|whether)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "ask"
+        },
+        {
+          "OP": "*",
+          "LENGTH": {
+            "<=": 5
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "if",
+              "whether"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I asked my mom if she wanted to come.",
+        "He asks whether it was raining."
+      ],
+      "negatives": [
+        "I asked a question.",
+        "If she wants to come, ask her."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715817x739086227561965400",
+    "level": "A2",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: REPORTED STATEMENTS WITH 'SAY', PRONOUN SHIFT",
+    "can_do_statement": "Can report statements using a reporting clause with 'say' + 'that-'clause, with a pronoun shift where relevant. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Reporting statements with say",
+      "pedagogical_hook": "Using say to report statements",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:say|says|said|saying)\\b\\s+(?:(?:[a-zA-Z]+\\s+){1,3})?that\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "say"
+        },
+        {
+          "OP": "*",
+          "LENGTH": {
+            "<=": 3
+          }
+        },
+        {
+          "LOWER": "that"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "She says that she was happy.",
+        "They said that it was a good idea."
+      ],
+      "negatives": [
+        "She said something.",
+        "I heard that she said it."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715817x804980721338935900",
+    "level": "B1",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: REPORTED 'WH-' QUESTIONS",
+    "can_do_statement": "Can report 'wh-'questions using a reporting verb + 'wh-'word + clause, with a change of pronoun and tense shift where relevant. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Reporting wh-questions",
+      "pedagogical_hook": "Using a wh-word to report questions",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:ask|asks|asked|asking)\\b\\s+(?:(?:[a-zA-Z]+\\s+){1,5})?(?:why|what|when|where|who|how)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "ask"
+        },
+        {
+          "OP": "*",
+          "LENGTH": {
+            "<=": 5
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "why",
+              "what",
+              "when",
+              "where",
+              "who",
+              "how"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I asked my friend why he was crying.",
+        "She asks where the station was."
+      ],
+      "negatives": [
+        "I asked a question.",
+        "Why was he crying?"
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715817x889153733096531600",
+    "level": "B1",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM: REPORTED STATEMENTS, PRONOUN AND TENSE SHIFT",
+    "can_do_statement": "Can report statements using a reporting clause with 'say' or 'tell' + 'that-'clause, with a pronoun and tense shift where relevant. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Reporting statements with pronoun and tense shift",
+      "pedagogical_hook": "Shifting tenses when reporting statements",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:say|says|said|saying|tell|tells|told|telling)\\b(?:\\s+(?:[a-zA-Z]+\\s+){1,5})?that\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "say",
+              "tell"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "LENGTH": {
+            "<=": 5
+          }
+        },
+        {
+          "LOWER": "that"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He told the principal that he was a doctor.",
+        "She says that she had finished."
+      ],
+      "negatives": [
+        "He told a story.",
+        "She said something."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163715818x394138066867376200",
+    "level": "B1",
+    "super_category": "REPORTED SPEECH",
+    "sub_category": "reported speech",
+    "lexical_range": "N/A",
+    "guideword": "FORM/USE: TEMPORAL SHIFTS, FUTURE",
+    "can_do_statement": "Can report speech about events in the future with and without backshifts for words relating to time. ",
+    "ontology": {
+      "domain": "EPISTEMIC_STANCE",
+      "mental_model": "Reporting future events",
+      "pedagogical_hook": "Reporting speech about future events",
+      "agency_or_distance": "N/A"
+    },
+    "detection": {
+      "regex_triage": "(?i)\\b(?:say|says|said|saying|tell|tells|told|telling)\\b(?:(?:.*?)(?:next|tomorrow|following)\\b){1,10}",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "say",
+              "tell"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "LENGTH": {
+            "<=": 10
+          }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "next",
+              "tomorrow",
+              "following"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He says that he would go next week.",
+        "She tells me she was leaving tomorrow."
+      ],
+      "negatives": [
+        "He went next week.",
+        "I will go next week."
+      ]
+    }
+  }
+]

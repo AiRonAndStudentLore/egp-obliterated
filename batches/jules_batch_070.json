@@ -76,7 +76,7 @@
       "agency_or_distance": "distance"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:come|look|put|catch|get)\\b(?:\\s+[a-z]+ly)?\\s+(?:up|out|on|away)\\s+(?:with|to|for|from)(?:\\s*[.,!?]|\\s*$)",
+      "regex_triage": "(?i)\\b(?:com(?:e|es|ing)?|came|look(?:s|ed|ing)?|put(?:s|ting)?|catch(?:es|ing)?|caught|get(?:s|ting)?|got(?:ten)?)\\b(?:\\s+[a-z]+ly)?\\s+(?:up|out|on|away)\\s+(?:with|to|for|from)\\b(?!\\s+\\w)",
       "spacy_token_pattern": [
         {
           "LEMMA": {

@@ -110,7 +110,7 @@
       "agency_or_distance": "High proximity"
     },
     "detection": {
-      "regex_triage": "(?i)\\bthis\\b",
+      "regex_triage": "(?i)\\bthis(?=\\s+(?:is|was|will|can|should|would|has|had)\\b|[.,?!])|\\b(?:did|do|does|done|with|about|for|of|on)\\s+this(?=\\s|$|[.,?!])",
       "spacy_token_pattern": [
         {
           "LOWER": "this",
@@ -347,7 +347,7 @@
       "agency_or_distance": "Distal reference"
     },
     "detection": {
-      "regex_triage": "(?i)\\bthat\\b",
+      "regex_triage": "(?i)\\bthat(?=\\s+(?:is|was|will|can|should|would|has|had)\\b|[.,?!])|\\b(?:did|do|does|done|said|say|with|about|for|of|on)\\s+that(?=\\s|$|[.,?!])",
       "spacy_token_pattern": [
         {
           "LOWER": "that",
@@ -433,7 +433,7 @@
       "agency_or_distance": "Discourse cohesion"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:do|because\\s+of|change|charge\\s+of|about|stop|prevent)\\s+this\\b",
+      "regex_triage": "(?i)\\b(?:do|doing|because\\s+of|change|charge\\s+of|about|stop|prevent)\\s+this\\b",
       "spacy_token_pattern": [
         {
           "LEMMA": {
@@ -485,7 +485,7 @@
       "agency_or_distance": "Plural distal reference"
     },
     "detection": {
-      "regex_triage": "(?i)\\bthose\\b",
+      "regex_triage": "(?i)\\bthose(?=\\s+(?:are|were|will|can|should|would|have|had)\\b|[.,?!])|\\b(?:some|one|many|few|most|all)\\s+of\\s+those\\b",
       "spacy_token_pattern": [
         {
           "LOWER": "those",
@@ -613,7 +613,7 @@
       "agency_or_distance": "Plural proximal reference"
     },
     "detection": {
-      "regex_triage": "(?i)\\bthese\\b",
+      "regex_triage": "(?i)\\bthese(?=\\s+(?:are|were|will|can|should|would|have|had)\\b|[.,?!])|\\b(?:hold|take|keep|leave)\\s+these(?=\\s+(?:for|with|to|in|at)\\b|[.,?!])",
       "spacy_token_pattern": [
         {
           "LOWER": "these",

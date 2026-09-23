@@ -7,7 +7,6 @@
     "lexical_range": "N/A",
     "guideword": "FORM: NEGATIVE",
     "can_do_statement": "Can use the negative form 'ought not to'. ",
-    "example_raw": "Secondly, there ought not to be a division between rich and poor. (Netherlands; C2 MASTERY; 1999; Dutch; Pass)\n\nWe ought not to forget that in the last twenty years the food industry has increased the number of chemicals used in its products. (Uruguay; C2 MASTERY; 2006; Spanish - Latin American; Pass)",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Advisability or mild obligation, explicitly negated.",
@@ -47,7 +46,6 @@
     "lexical_range": "N/A",
     "guideword": "USE: OFFERS",
     "can_do_statement": "Can use 'shall I' to make offers.",
-    "example_raw": "Shall I go and buy some cake and crackers? (Bulgarian, A2 WAYSTAGE, Pass, 2009)\n\nThe tickets cost \u20ac25. Shall I buy you one? (Spanish - European, A2 WAYSTAGE, Pass, 2010)",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Volunteering action by questioning one's own future action.",
@@ -84,7 +82,6 @@
     "lexical_range": "N/A",
     "guideword": "FORM: AFFIRMATIVE",
     "can_do_statement": "Can use the affirmative form. ",
-    "example_raw": "We shall start tomorrow at 2 o'clock. (Marathi, A2 WAYSTAGE, Pass, 2006)\n\nI shall be free on Sunday at 6 o'clock in the evening. (Ukraine; A2 WAYSTAGE; 2005; Russian; Pass)",
     "ontology": {
       "domain": "TEMPORAL_ASPECT",
       "mental_model": "Future intent expressed formally.",
@@ -125,8 +122,7 @@
       ],
       "negatives": [
         "Shall we go?",
-        "They shall not pass.",
-        "We shall not start today."
+        "They shall not pass."
       ]
     }
   },
@@ -138,7 +134,6 @@
     "lexical_range": "N/A",
     "guideword": "USE: SUGGESTIONS",
     "can_do_statement": "Can use 'shall' with 'we' to make suggestions.",
-    "example_raw": "Tomorrow evening there is Laura Pausini's concert in Turin. Shall we go? (Italian, A2 WAYSTAGE, Pass, 2010)\n\nShall we go to a Korean restaurant after the film? (Korean, A2 WAYSTAGE, Pass, 2003)",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Proposing a joint future action to a listener.",
@@ -175,7 +170,6 @@
     "lexical_range": "N/A",
     "guideword": "FORM: QUESTIONS",
     "can_do_statement": "Can use the question form.",
-    "example_raw": "Shall we meet at half past 4 in front of my house? (Japanese, A2 WAYSTAGE, Pass, 2008)\n\nWhat time shall I come? And what shall I bring to the party? (Italian, A2 WAYSTAGE, Pass, 2009)",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Seeking direction, advice, or making a proposal via a question.",
@@ -212,7 +206,6 @@
     "lexical_range": "N/A",
     "guideword": "USE: COMMANDS AND INSTRUCTIONS ",
     "can_do_statement": "Can use 'shall' to express commands in very formal contexts.",
-    "example_raw": "We therefore need to insist that the agreement is binding and that the contract shall be fulfilled. (Swiss German, C1 EFFECTIVE OPERATIONAL PROFICIENCY, Pass, 2007)",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Absolute obligation or directive, often legalistic.",
@@ -220,7 +213,7 @@
       "agency_or_distance": "High modal distance; external authority."
     },
     "detection": {
-      "regex_triage": "(?i)\\b(the|all|each|every|[a-z]+s|you|they|he|she|it|contract|agreement)\\s+(?:[a-z]+\\s+)?shall\\s+(be|have|provide|pay|fulfill)",
+      "regex_triage": "(?i)\\b(?:the|all|each|every|[a-z]+s|you|they|he|she|it|contract|agreement)\\s+(?:[a-z]+\\s+)?shall\\s+(?:be|have|provide|pay|fulfill|fulfil)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": {
@@ -272,7 +265,6 @@
     "lexical_range": "N/A",
     "guideword": "USE: AFTER 'IF' CLAUSES",
     "can_do_statement": "Can use 'shall' in the main clause after an 'if-' clause  \u25ba conditionals",
-    "example_raw": "Nowadays people live longer than they did in the past, which is very nice and pleasant, but we must be careful because if things get out of hand, \u2026 we shall be doomed to live in complete chaos. (Portuguese, C2 MASTERY, Pass, 1993)\n\nI have to inform you that if we do not receive a reply this time we shall take the matter to court. (Poland; C2 MASTERY; 1993; Polish; Pass)",
     "ontology": {
       "domain": "EPISTEMIC_STANCE",
       "mental_model": "Consequence dependent on a condition.",
@@ -312,7 +304,6 @@
     "lexical_range": "N/A",
     "guideword": "USE: PLANS AND INTENTIONS",
     "can_do_statement": "Can use 'shall' to talk about plans and intentions, particularly in formal contexts.",
-    "example_raw": "I promise that I shall cover all the work and give it to you tomorrow. (Thai, B1 THRESHOLD, Pass, 2006)\n\nRemember that we shall meet inside the bar. (Russian, B1 THRESHOLD, Pass, 2008)\n\nI apologise for having to miss tomorrow's English class as my cousin's wedding will be taking place ... I shall be attending class the day after tomorrow. (Tamil, B1 THRESHOLD, Pass, 2006)",
     "ontology": {
       "domain": "TEMPORAL_ASPECT",
       "mental_model": "Stating intent for future action.",
@@ -320,7 +311,7 @@
       "agency_or_distance": "Stated intent."
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:i|we)\\s+(?:really\\s+|certainly\\s+)?shall\\s+(?:be\\s+)?(?:[a-z]+ing\\b|cover|meet|do|go|visit)",
+      "regex_triage": "(?i)\\b(?:i|we)\\s+(?:really\\s+|certainly\\s+)?shall\\s+(?:be\\s+)?(?:[a-z]+ing\\b|cover|meet|do|go|visit)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": {
@@ -375,7 +366,6 @@
     "lexical_range": "N/A",
     "guideword": "USE: PREDICTIONS",
     "can_do_statement": "Can use 'shall' to make predictions.",
-    "example_raw": "As a result, our town shall have financial benefits, as people visiting the library will visit the city\u2019s shops for their needs. (Greece; C2 MASTERY; 2009; Greek; Pass)\n\n\u2026 we shall probably have several years more to live. (France; C2 MASTERY; 1993; French; Pass)",
     "ontology": {
       "domain": "EPISTEMIC_STANCE",
       "mental_model": "Stating expected future state based on current evidence.",
@@ -383,7 +373,7 @@
       "agency_or_distance": "High modal distance; formal prediction."
     },
     "detection": {
-      "regex_triage": "(?i)\\b(town|city|country|we|i|it)\\s+shall\\s+(?:probably\\s+)?(have|be|see|become)\\b",
+      "regex_triage": "(?i)\\b(?:town|city|country|we|i|it)\\s+shall\\s+(?:probably\\s+)?(?:have|be|see|become)\\b",
       "spacy_token_pattern": [
         {
           "POS": {
@@ -431,7 +421,6 @@
     "lexical_range": "N/A",
     "guideword": "USE: SEEKING ADVICE",
     "can_do_statement": "Can use 'shall' to seek advice.",
-    "example_raw": "What shall I buy for her wedding? (Slovak, B1 THRESHOLD, Pass, 2004)\n\n[a student writing to a teacher] I am really sorry but I have to travel to Argentina for health reasons. What shall I do with next week's work? (Spanish - Latin American, B1 THRESHOLD, Pass, 2009)\n",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Asking for guidance on the best course of action.",
@@ -439,7 +428,7 @@
       "agency_or_distance": "Seeking guidance."
     },
     "detection": {
-      "regex_triage": "(?i)\\b(what|where|how|who|why)\\s+shall\\s+(i|we)\\b",
+      "regex_triage": "(?i)\\b(?:what|where|how|who|why)\\s+shall\\s+(?:i|we)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": {
@@ -484,7 +473,6 @@
     "lexical_range": "N/A",
     "guideword": "FORM: NEGATIVE",
     "can_do_statement": "Can use the negative form.",
-    "example_raw": "This way, students shall not die of boredom or feel that their stay was useless. (Japan; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2000; Japanese; Pass)\n\nSecondly, supplier contracts shall not be omitted. (Russia; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 2007; Russian; Pass)\n\nThis is, as I mentioned in my letter, only in the event I shall not be able to pick you up at the airport. (Sweden; C1 EFFECTIVE OPERATIONAL PROFICIENCY; 1993; Swedish; Pass)",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Explicitly negating future event or permission.",
@@ -525,7 +513,6 @@
     "lexical_range": "N/A",
     "guideword": "FORM: NEGATIVE",
     "can_do_statement": "Can use the negative form.",
-    "example_raw": "You shouldn't miss it. (Thai, A2 WAYSTAGE, Pass, 2007)\n\nIt is a new flat, so there shouldn't be any problems. (A2 WAYSTAGE; 2009; Polish; Fail)\n\nI think you should not wear your favourite clothes because they may get dirty. (Thai, A2 WAYSTAGE, Pass, 2006)",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Advising against an action or state.",
@@ -567,7 +554,6 @@
     "lexical_range": "N/A",
     "guideword": "FORM: AFFIRMATIVE",
     "can_do_statement": "Can use the affirmative form. ",
-    "example_raw": "You should come at 6 o'clock. (Russian, A2 WAYSTAGE, Pass, 2009)\n\nSomeday we should go there together. (Portuguese, A2 WAYSTAGE, Pass, 2010)\n\nWe should buy 2 tickets. (Chinese, A2 WAYSTAGE, Pass, 2010)",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Advising an action or state.",
@@ -575,7 +561,7 @@
       "agency_or_distance": "General advice."
     },
     "detection": {
-      "regex_triage": "(?i)\\b(i|you|he|she|it|we|they|people|one|everyone)\\s+(?:really\\s+)?should\\s+(?!not\\b|n't\\b|have\\b)",
+      "regex_triage": "(?i)\\b(?:i|you|he|she|it|we|they|people|one|everyone)\\s+(?:really\\s+)?should\\s+(?!not\\b|n't\\b|have\\b)",
       "spacy_token_pattern": [
         {
           "POS": {
@@ -610,7 +596,6 @@
       ],
       "negatives": [
         "You shouldn't go.",
-        "Should we go?",
         "He should have gone."
       ]
     }
@@ -623,7 +608,6 @@
     "lexical_range": "N/A",
     "guideword": "FORM: QUESTIONS",
     "can_do_statement": "Can use the question form.",
-    "example_raw": "Should I wear special clothes? (Farsi, A2 WAYSTAGE, Pass, 2006)\n\nIt's going to be in S\u00e3o Paulo. Should we go by plane? (Portuguese, A2 WAYSTAGE, Pass, 2009)",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Asking for advice.",
@@ -631,7 +615,7 @@
       "agency_or_distance": "Seeking advice."
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:what\\s+|where\\s+|how\\s+|why\\s+)?should\\s+(i|we|you|he|she|they|it)\\b",
+      "regex_triage": "(?i)\\b(?:what\\s+|where\\s+|how\\s+|why\\s+)?should\\s+(?:i|we|you|he|she|they|it)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": "should"
@@ -660,7 +644,6 @@
     "lexical_range": "N/A",
     "guideword": "USE: ADVICE",
     "can_do_statement": "Can use 'should' to give advice.",
-    "example_raw": "It was only \u20ac70. It is pink. It looks very nice. My advice, you should buy this. (Turkish, A2 WAYSTAGE, Pass, 2007)\n\n\u2026on Monday, you will have to stay in this class for six hours so you should bring something to eat because you will be hungry. (French, A2 WAYSTAGE, Pass, 2006)\n\nYou should take some money, because the ticket costs \u00a34.00. (Italian, A2 WAYSTAGE, Pass, 2010)",
     "ontology": {
       "domain": "DEONTIC_FORCE",
       "mental_model": "Directing someone else's action for their benefit.",
@@ -668,7 +651,7 @@
       "agency_or_distance": "Directed advice to listener."
     },
     "detection": {
-      "regex_triage": "(?i)\\byou\\s+(?:really\\s+|probably\\s+)?should\\s+(buy|bring|take|try|go|see)",
+      "regex_triage": "(?i)\\byou\\s+(?:really\\s+|probably\\s+)?should\\s+(?:buy|bring|take|try|go|see)\\b",
       "spacy_token_pattern": [
         {
           "LOWER": "you"

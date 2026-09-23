@@ -1,7 +1,7 @@
 {
  "batch": "batches/jules_batch_012.json",
  "cycles": 1,
- "passed": 13,
+ "passed": 15,
  "total": 15,
  "auto_fixes": [],
  "verify_ok": true,
@@ -38,11 +38,8 @@
   },
   {
    "egp_id": "1741163708793x652344620706507100",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'It has the latest technology.'",
-    "spaCy MISSED positive: 'La Baule is the biggest beach.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163708793x822211978637164400",
@@ -81,10 +78,8 @@
   },
   {
    "egp_id": "1741163709001x956266227421554000",
-   "verdict": "test_failures",
-   "failures": [
-    "spaCy MISSED positive: 'The cost of those clothes was high.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   }
  ]
 }

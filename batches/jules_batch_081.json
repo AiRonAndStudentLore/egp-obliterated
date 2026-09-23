@@ -249,12 +249,11 @@
    "regex_triage": "(?i)\\bcould(?:n't|\\s+not)?\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|icked|apped)\\b",
    "spacy_token_pattern": [
     {
-     "LOWER": {
-      "IN": [
-       "could",
-       "couldn't"
-      ]
-     }
+     "LOWER": "could"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
     },
     {
      "LOWER": "not",
@@ -298,7 +297,7 @@
    "agency_or_distance": "Agency: asserting normative expectation on another's past behavior"
   },
   "detection": {
-   "regex_triage": "(?i)\\b(?:you|they|he|she|the\\s+company|the\\s+hotel)\\s+could\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|iven|nged)\\b",
+   "regex_triage": "(?i)\\b(?:you|they|he|she|[a-z]+\\s+company|[a-z]+\\s+hotel|[a-z]+s)\\s+could\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|iven|nged)\\b",
    "spacy_token_pattern": [
     {
      "LOWER": {
@@ -353,7 +352,7 @@
    "agency_or_distance": "Distance: distancing from the actual past to explore a counterfactual"
   },
   "detection": {
-   "regex_triage": "(?i)\\b(?:mother|she|he|they|problems?|it|this|that|things?)\\s+could\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|oned|oided)\\b",
+   "regex_triage": "(?i)\\b(?:mother|she|he|they|problems?|it|this|that|things?|everyone|someone|anybody)\\s+could\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|oned|oided)\\b",
    "spacy_token_pattern": [
     {
      "LOWER": {
@@ -464,7 +463,7 @@
    "agency_or_distance": "Distance: distancing to deduce possible past realities"
   },
   "detection": {
-   "regex_triage": "(?i)\\b(?:thief|who|she|he|they|someone|somebody)\\s+could\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|ered|ined|ved)\\b",
+   "regex_triage": "(?i)\\b(?:thief|who|she|he|they|someone|somebody|anyone|everyone|nobody)\\s+could\\s+have\\s+(?:[a-z]+ly\\s+)?[a-z]+(?:ed|en|t|own|ung|unk|un|one|een|ered|ined|ved)\\b",
    "spacy_token_pattern": [
     {
      "LOWER": {
@@ -561,12 +560,11 @@
      "OP": "?"
     },
     {
-     "LOWER": {
-      "IN": [
-       "could",
-       "couldn't"
-      ]
-     }
+     "LOWER": "could"
+    },
+    {
+     "LOWER": "n't",
+     "OP": "?"
     },
     {
      "POS": "VERB",
@@ -702,18 +700,6 @@
   "detection": {
    "regex_triage": "(?i)(?<!how\\s)\\bdare\\s+(?:[a-z]+ly\\s+)?(?!not\\b)(?!n't\\b)(?!to\\b)(?!say\\b)[a-z]+\\b",
    "spacy_token_pattern": [
-    {
-     "LOWER": {
-      "NOT_IN": [
-       "how",
-       "didn't",
-       "don't",
-       "doesn't",
-       "wouldn't"
-      ]
-     },
-     "OP": "?"
-    },
     {
      "LOWER": "dare"
     },

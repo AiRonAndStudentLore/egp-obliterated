@@ -62,8 +62,7 @@
           "LOWER": "not"
         },
         {
-          "IS_PUNCT": true,
-          "OP": "?"
+          "ORTH": "?"
         }
       ]
     },
@@ -178,7 +177,7 @@
       "agency_or_distance": "N/A"
     },
     "detection": {
-      "regex_triage": "\\b\\w+\\s+or\\s+\\w+\\b.*?\\?",
+      "regex_triage": "\\b(?!(?:in|on|at|for|to|with|from|by|the|a|an|my|your|his|her|our|their)\\b)[a-z]+\\s+or\\s+(?!(?:in|on|at|for|to|with|from|by|the|a|an|my|your|his|her|our|their)\\b)[a-z]+\\b.*?\\?",
       "spacy_token_pattern": [
         {
           "POS": {
@@ -273,11 +272,20 @@
       "agency_or_distance": "Mitigating force"
     },
     "detection": {
-      "regex_triage": "(?:can|could|will|would|shall|should|may|might|must)\\s+(?:I|you|he|she|it|we|they|[A-Z][a-z]+).*?\\bor\\s+(?!(?:can|could|will|would|shall|should|may|might|must)\\s)[a-z]+\\b",
+      "regex_triage": "(?:can|could|will|would|shall|should|may|might|must)\\s+(?:I|you|he|she|it|we|they|[A-Z][a-z]+).*?\\bor\\s+(?!(?:can|could|will|would|shall|should|may|might|must)\\s)[a-z]+\\s+(?:a|an|the|more|some|another|it|them|him|her)\\b",
       "spacy_token_pattern": [
         {
-          "LOWER": {
+          "LOWER": "or"
+        },
+        {
+          "POS": {
             "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
               "can",
               "could",
               "will",
@@ -287,47 +295,6 @@
               "may",
               "might",
               "must"
-            ]
-          }
-        },
-        {
-          "DEP": "nsubj",
-          "OP": "?"
-        },
-        {
-          "POS": {
-            "IN": [
-              "ADV",
-              "PART"
-            ]
-          },
-          "OP": "*"
-        },
-        {
-          "POS": {
-            "IN": [
-              "VERB",
-              "AUX"
-            ]
-          },
-          "OP": "+"
-        },
-        {
-          "OP": "*",
-          "POS": {
-            "NOT_IN": [
-              "PUNCT"
-            ]
-          }
-        },
-        {
-          "LOWER": "or"
-        },
-        {
-          "POS": {
-            "IN": [
-              "VERB",
-              "AUX"
             ]
           }
         }
@@ -383,19 +350,7 @@
               "complete",
               "different"
             ]
-          },
-          "OP": "?"
-        },
-        {
-          "LOWER": {
-            "IN": [
-              "opposite",
-              "different",
-              "all",
-              "reverse"
-            ]
-          },
-          "OP": "?"
+          }
         }
       ]
     },
@@ -425,7 +380,7 @@
       "agency_or_distance": "N/A"
     },
     "detection": {
-      "regex_triage": "\\bor\\s+[a-z]+\\b",
+      "regex_triage": "\\bor\\s+(?!(?:I|you|he|she|it|we|they|did|do|does|will|would|can|could|shall|should|is|are|was|were)\\b)[a-z]+\\s+(?:them|an|a|the|it|to|some)\\b",
       "spacy_token_pattern": [
         {
           "POS": "VERB"
@@ -474,6 +429,85 @@
     "detection": {
       "regex_triage": "^(?:(?!(?:not|n't|never|no\\s)).)*,\\s+(?:is|are|was|were|do|does|did|have|has|had|can|could|will|would|shall|should)\\s+(?:I|you|he|she|it|we|they|there)\\s*\\?$",
       "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "never",
+              "no"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "never",
+              "no"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "never",
+              "no"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "never",
+              "no"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "never",
+              "no"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "never",
+              "no"
+            ]
+          },
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "NOT_IN": [
+              "n't",
+              "not",
+              "never",
+              "no"
+            ]
+          },
+          "OP": "?"
+        },
         {
           "LOWER": ","
         },
@@ -701,6 +735,25 @@
       "regex_triage": "(?:n't|not|never)\\b.*?,\\s+(?:do|does|did|is|are|was|were|have|has|had)\\s+(?:I|you|he|she|it|we|they|there)\\s*\\?",
       "spacy_token_pattern": [
         {
+          "LOWER": {
+            "IN": [
+              "n't",
+              "not",
+              "never"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "LOWER": {
+            "NOT_IN": [
+              ".",
+              "?",
+              "!"
+            ]
+          }
+        },
+        {
           "LOWER": ","
         },
         {
@@ -766,6 +819,30 @@
     "detection": {
       "regex_triage": "^(?:Let's|Please\\s+|Just\\s+)?[A-Za-z]+\\b.*?,\\s+(?:will|would|can|could)(?:n't|\\s+not)?\\s+you\\s*\\?|^Let's\\b.*?,\\s+shall\\s+we\\s*\\?",
       "spacy_token_pattern": [
+        {
+          "IS_SENT_START": true,
+          "LOWER": {
+            "NOT_IN": [
+              "i",
+              "you",
+              "he",
+              "she",
+              "we",
+              "they",
+              "it"
+            ]
+          }
+        },
+        {
+          "OP": "*",
+          "LOWER": {
+            "NOT_IN": [
+              ".",
+              "?",
+              "!"
+            ]
+          }
+        },
         {
           "LOWER": ","
         },

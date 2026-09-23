@@ -1,0 +1,92 @@
+{
+ "batch": "batches/jules_batch_065.json",
+ "cycles": 1,
+ "passed": 12,
+ "total": 15,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163715033x199281404596736400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715033x444139630968705800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715033x661087028434845600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715033x768742528426968400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715034x128016271247440200",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715034x165762004955058560",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715034x328104656808845060",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715034x378736507797090750",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715034x601077874617532500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715817x253069047706943500",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'He told the teacher that he would be late.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715817x584156896390892800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715817x739086227561965400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163715817x804980721338935900",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'I asked my friend why he was crying.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715817x889153733096531600",
+   "verdict": "test_failures",
+   "failures": [
+    "spaCy MISSED positive: 'He told the principal that he was a doctor.'",
+    "regex MISSED positive: 'She says that she had finished.'"
+   ]
+  },
+  {
+   "egp_id": "1741163715818x394138066867376200",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

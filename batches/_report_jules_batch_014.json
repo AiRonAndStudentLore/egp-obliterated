@@ -1,7 +1,7 @@
 {
  "batch": "batches/jules_batch_014.json",
  "cycles": 1,
- "passed": 13,
+ "passed": 15,
  "total": 15,
  "auto_fixes": [],
  "verify_ok": true,
@@ -33,11 +33,8 @@
   },
   {
    "egp_id": "1741163709230x682584219326611800",
-   "verdict": "test_failures",
-   "failures": [
-    "regex MISSED positive: \"I haven't got many winter clothes.\"",
-    "spaCy MISSED positive: \"I haven't got many winter clothes.\""
-   ]
+   "verdict": "passed",
+   "failures": []
   },
   {
    "egp_id": "1741163709230x890396805087210400",
@@ -81,10 +78,8 @@
   },
   {
    "egp_id": "1741163709231x973378158122198000",
-   "verdict": "test_failures",
-   "failures": [
-    "regex MISSED positive: 'They interviewed a few of the students.'"
-   ]
+   "verdict": "passed",
+   "failures": []
   }
  ]
 }

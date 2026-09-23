@@ -103,10 +103,11 @@
               "yours",
               "theirs",
               "him",
-              "her"
+              "her",
+              "it",
+              "me"
             ]
-          },
-          "OP": "?"
+          }
         }
       ]
     },
@@ -284,20 +285,35 @@
           }
         },
         {
-          "OP": "?",
           "LOWER": {
-            "NOT_IN": [
-              "n't",
-              "not",
-              "n\u2019t"
+            "IN": [
+              "always",
+              "never",
+              "often",
+              "usually",
+              "sometimes",
+              "really"
             ]
-          }
+          },
+          "OP": "?"
         },
         {
-          "POS": {
+          "LOWER": {
             "IN": [
-              "VERB",
-              "AUX"
+              "can",
+              "ca",
+              "need",
+              "have",
+              "must",
+              "should",
+              "might",
+              "will",
+              "wo",
+              "would",
+              "want",
+              "get",
+              "find",
+              "play"
             ]
           }
         }
@@ -329,25 +345,36 @@
       "agency_or_distance": "DISTANCE"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:we\\s+(?:(?:all\\s+)?(?:can|must|should|have\\s+to|need\\s+to|know|see|find|get|think|believe|understand|feel|often|usually|always|never))|(?:some|many|most|all|none)\\s+of\\s+us|give\\s+us|allows\\s+us|makes\\s+us|helps\\s+us|shows\\s+us|tell\\s+us)\\b(?!\\s+(?:are|went|did|will|would|were|had|have|do)\\b)",
+      "regex_triage": "(?i)\\b(?:we\\s+(?:(?:all\\s+)?(?:can|must|should|have\\s+to|need\\s+to|know|see|find|get|think|believe|understand|feel|often|usually|always|never))|(?:some|many|most|all|none)\\s+of\\s+us|(?:give|gives|allow|allows|make|makes|help|helps|show|shows|tell|tells)\\s+us)\\b(?!\\s+(?:are|went|did|will|would|were|had|have|do)\\b)",
       "spacy_token_pattern": [
         {
-          "LOWER": "we",
-          "DEP": "nsubj"
-        },
-        {
           "LOWER": {
             "IN": [
+              "we",
+              "give",
+              "gives",
+              "allow",
+              "allows",
+              "make",
+              "makes",
+              "help",
+              "helps",
+              "show",
+              "shows",
+              "tell",
+              "tells",
+              "some",
+              "many",
+              "most",
               "all",
-              "often",
-              "usually"
+              "none"
             ]
-          },
-          "OP": "?"
+          }
         },
         {
           "LOWER": {
             "IN": [
+              "us",
               "can",
               "must",
               "should",
@@ -359,10 +386,30 @@
               "believe",
               "understand",
               "feel",
+              "need",
               "have",
-              "need"
+              "of",
+              "all"
             ]
           }
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "us",
+              "know",
+              "see",
+              "find",
+              "get",
+              "think",
+              "believe",
+              "understand",
+              "feel",
+              "need",
+              "have"
+            ]
+          },
+          "OP": "?"
         }
       ]
     },
@@ -464,8 +511,41 @@
       "agency_or_distance": "DISTANCE"
     },
     "detection": {
-      "regex_triage": "(?i)\\b(?:he/she|he\\s+or\\s+she|his/her|his\\s+or\\s+her|him\\s+or\\s+her|him/her)\\b",
+      "regex_triage": "(?i)\\b(?:someone|somebody|anyone|anybody|everyone|everybody|nobody|no\\s*one|person|student|child|teacher|employee)\\b[^.?!]{1,80}\\b(?:he/she|he\\s+or\\s+she|his/her|his\\s+or\\s+her|him/her|him\\s+or\\s+her)\\b",
       "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "someone",
+              "somebody",
+              "anyone",
+              "anybody",
+              "everyone",
+              "everybody",
+              "nobody",
+              "person",
+              "student",
+              "child",
+              "teacher",
+              "employee",
+              "no"
+            ]
+          }
+        },
+        {
+          "LOWER": "one",
+          "OP": "?"
+        },
+        {
+          "OP": "*",
+          "LOWER": {
+            "NOT_IN": [
+              ".",
+              "?",
+              "!"
+            ]
+          }
+        },
         {
           "LOWER": {
             "IN": [

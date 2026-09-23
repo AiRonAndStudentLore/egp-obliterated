@@ -101,7 +101,12 @@ def build_prompt(batch, batch_index):
         f'"negatives": [2 near-miss sentences]}}\n'
         f"- Every regex_triage MUST compile with python re.compile — verify before "
         f"committing. Every spacy_token_pattern must be a flat list of token dicts.\n"
-        f"- Do NOT modify any other files.\n\n"
+        f"- ABSOLUTE FILE SCOPE: your final change must be exactly ONE new file, "
+        f"`batches/jules_batch_{batch_index:03d}.json`. Do NOT create, modify, or delete "
+        f"any other file — not build_batch.py, gate.py, egp_compiled.json, README, or "
+        f"scratch scripts. If you write helper scripts during development, delete them "
+        f"so they never appear in the final diff.\n"
+        f"- Do NOT run build_batch.py, gate.py, or egpObliterationVerify.py.\n\n"
         f"## ROWS\n```json\n{payload}\n```"
     )
 

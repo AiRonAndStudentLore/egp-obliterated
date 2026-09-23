@@ -1,0 +1,449 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_002.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163706930x543836854317855550",
+  "level": "A1",
+  "sub_category": "position",
+  "guideword": "FORM: FREQUENCY, MID POSITION",
+  "can_do_statement": "Can use frequency adverbs in the usual mid position, between the subject and the main verb.",
+  "current_regex_triage": "\\b(?:always|usually|often|sometimes|never|hardly|rarely|seldom|frequently)\\s+(?:[a-z]+(?:s|es)?)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "always",
+      "usually",
+      "often",
+      "sometimes",
+      "never",
+      "hardly",
+      "rarely",
+      "seldom",
+      "frequently"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "go",
+      "goes",
+      "went",
+      "eat",
+      "eats",
+      "ate",
+      "drink",
+      "drinks",
+      "drank",
+      "sleep",
+      "sleeps",
+      "slept",
+      "work",
+      "works",
+      "worked",
+      "listen",
+      "listens",
+      "listened",
+      "watch",
+      "watches",
+      "watched",
+      "clean",
+      "cleans",
+      "cleaned",
+      "read",
+      "reads",
+      "play",
+      "plays",
+      "played",
+      "talk",
+      "talks",
+      "talked",
+      "speak",
+      "speaks",
+      "spoke",
+      "come",
+      "comes",
+      "came",
+      "see",
+      "sees",
+      "saw",
+      "feel",
+      "feels",
+      "felt",
+      "live",
+      "lives",
+      "lived"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Sometimes is more related to some topics like safety, uh, in industry, industrial safety, and maybe other topics like CO2 emissions.",
+   "I think it's the most relevant topics I speak in English, but frequently there are other conversations in English, like casual conversation with partners from the company in other countries.",
+   "And these conversations usually are in English.",
+   "I think less comfortable because when you are talking about your experience and the situation and what you imagine, I think sometimes I can't find the correct words or the correct sentence to express the idea.",
+   "I say, ah, this is the homework, this is the\u2014 right, because I, I really don't have a lot of time to make other things, but I need to practice because sometimes in, in one month I don't have a meeting in English, right?",
+   "Yes, I really want to keep practicing, and sometimes I forgot some basic words.",
+   "So usually I have a lot of work meetings and I have to work walking the, the plant.",
+   "So that's the reason why sometimes you say, oh, I, I need homework, I, I can practice, I can do some, some exercise."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706931x652422120447256700",
+  "level": "A1",
+  "sub_category": "position",
+  "guideword": "FORM: 'REALLY,'  MID POSITION ",
+  "can_do_statement": "Can use 'really' in the usual mid-position, between the subject and the main verb.",
+  "current_regex_triage": "\\breally\\s+(?:[a-z]+)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "really"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "love",
+      "loves",
+      "loved",
+      "like",
+      "likes",
+      "liked",
+      "enjoy",
+      "enjoys",
+      "enjoyed",
+      "want",
+      "wants",
+      "wanted",
+      "need",
+      "needs",
+      "needed",
+      "hope",
+      "hopes",
+      "hoped",
+      "think",
+      "thinks",
+      "thought",
+      "believe",
+      "believes",
+      "believed"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "And, and the other thing is, I, I, I don't really wanna a classic style of learning English.",
+   "I say, ah, this is the homework, this is the\u2014 right, because I, I really don't have a lot of time to make other things, but I need to practice because sometimes in, in one month I don't have a meeting in English, right?",
+   "Yes, I really want to keep practicing, and sometimes I forgot some basic words.",
+   "So in this situation is where I have to keep my English really in a good way.",
+   "Yes, there really is.",
+   "It was a really, really difficult situation.",
+   "I think comparing the 3 big cities, obviously Mexico is really, really big, like 30 million.",
+   "Um, and Monterrey is part of Mexico, and Mexico is really part of the Veracruz."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706938x862543767286873900",
+  "level": "A1",
+  "sub_category": "position",
+  "guideword": "FORM: PLACE, END POSITION",
+  "can_do_statement": "Can use place adverbs in the usual end position.",
+  "current_regex_triage": "(?:[a-z]+)\\s+(?:here|there|nearby|abroad|upstairs|downstairs|away|inside|outside)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "here",
+      "there",
+      "nearby",
+      "abroad",
+      "upstairs",
+      "downstairs",
+      "away",
+      "inside",
+      "outside"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think it's the most relevant topics I speak in English, but frequently there are other conversations in English, like casual conversation with partners from the company in other countries.",
+   "There's some situations that are not in your hands or in your leadership and it happens, you, you need to use some special words or special sentences to, to share the situation, the whole situation.",
+   "I use my headphones here to concentrate.",
+   "Like, all this, all sides inside her mouth.",
+   "I usually listen some TED Talks or YouTube videos about leadership or management or things like that, because there are some, some tech talkers, I don't know.",
+   "Yes, there really is.",
+   "Sometimes there are a lot of people who don't want to see you achieve a goal.",
+   "There was a factory near my born town where I born, and after I finished my my career."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163708998x446294161060833700",
+  "level": "A1",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', POINTING",
+  "can_do_statement": "Can use 'this' in a limited range of contexts to refer to places from the speaker's or writer's point of view. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "current_regex_triage": "\\bthis\\s+(?:area|college|place)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "this"
+   },
+   {
+    "POS": {
+     "IN": [
+      "ADJ",
+      "DET",
+      "ADV"
+     ]
+    },
+    "OP": "*"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "area",
+      "college",
+      "place"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "So, um, yes, it's really interesting, the, the weather in this This place.",
+   "Yeah, but I think the best A time to visit this place is maybe September or October.",
+   "So this area needs more people to to have the trade duties during the day.",
+   "Yes, so a big tornado, and the guy is so scared with the tornado, so running for the stuff, the suitcase, and the friends say to him, okay, we need to leave this place.",
+   "I, I said it every year and, and I, I born it in this area.",
+   "And in this area, we drove more or less 1 hour.",
+   "Yeah, if you can avoid to pass by this area, take another way.",
+   "To find bones in this area."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706534x741393105415276700",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH '-ST' ",
+  "can_do_statement": "Can form superlative adjectives using the suffix '-st' to adjectives ending in '\u2013e'.",
+  "current_regex_triage": "\\b(?:latest|greatest|nicest|largest|finest|rarest|sorest|quietest|simplest|cutest|neatest|narrowest|widest)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "latest",
+      "greatest",
+      "nicest",
+      "largest",
+      "finest",
+      "rarest",
+      "sorest",
+      "quietest",
+      "simplest",
+      "cutest",
+      "neatest",
+      "narrowest",
+      "widest"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Ronaldinho was one of the greatest players of all time.",
+   "crater, it cause\u2014 remains one of the 20th century greatest unsolved scientific mysteries.",
+   "Anthropic just released their latest and best model, Claude Fable-5, and get this, it's even more powerful than their Mythos preview model, which they previously said was too dangerous to release.",
+   "Anthropic just released their latest and best model, Claude Fable-5, and get this, it's even more powerful than their Mythos preview model, which they previously said was too dangerous to\u2014 release."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706532x588070893184955400",
+  "level": "B1",
+  "sub_category": "position",
+  "guideword": "FORM: WITH PRONOUN",
+  "can_do_statement": "Can use an adjective or adjective phrase after pronouns like 'something', 'nothing', 'somewhere', 'nowhere'.",
+  "current_regex_triage": "\\b(?:something|nothing|everything|anything|somewhere|nowhere|everywhere|anywhere)\\s+(?:[a-z]+)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "something",
+      "nothing",
+      "everything",
+      "anything",
+      "someone",
+      "anyone",
+      "everyone",
+      "somewhere",
+      "nowhere",
+      "everywhere",
+      "anywhere"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "special",
+      "nice",
+      "good",
+      "bad",
+      "terrible",
+      "wonderful",
+      "amazing",
+      "interesting",
+      "boring",
+      "different",
+      "new",
+      "old",
+      "important",
+      "difficult",
+      "easy",
+      "strange",
+      "funny",
+      "weird",
+      "sweet",
+      "cold",
+      "hot"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Keep practicing because I think if I need to write an email, I can help with the AI or the translator, or if I need to read something Some text very difficult I can translate or anything else, but in a conversation is it's in real time.",
+   "We, we spend a lot of time on finding topics to, to, to talk about the movie, about the football, about the situation, about the politics, about the anything to keep practicing.",
+   "It is very interesting when you have to explain something good and high efficiency or a safety record.",
+   "Sometimes we have to, to make an explanation about some people get hurt with a machine, with walking, they fell down or something like that.",
+   "It's, uh, I think it's when you think, you think something is there.",
+   "Um, No, something initially.",
+   "Complaints, complaints in the news and anything like that.",
+   "I think it's when you think something is in your\u2014"
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706536x513193449618973840",
+  "level": "C1",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: WITH NOUN AND POSTMODFIER",
+  "can_do_statement": "Can use a postmodifier to make the superlative stronger in the structure superlative + postmodifier + noun. ",
+  "current_regex_triage": "\\bthe\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)(?:[a-z]+est|best|worst|most)\\s+[a-z]+\\s+(?:that|which|who|whose)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "the"
+   },
+   {
+    "POS": {
+     "IN": [
+      "ADJ",
+      "DET"
+     ]
+    }
+   },
+   {
+    "POS": "NOUN"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "that",
+      "which",
+      "who",
+      "whose"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "You have to think of the best way that they can, uh, I don't know.",
+   "Maybe it's not, it's not the correct word that I want to say.",
+   "I think it's because in the real life that happens a lot.",
+   "The worst is that.",
+   "But it's the, the unique problem that I can see is that I know it's, it's heavy.",
+   "I don't know, because at the same time that they are testing me I'm like testing the company.",
+   "So this is the hard part that I find.",
+   "Because so what the\u2014 one of the many things that I noticed that made me feel very, very confident in this was that every time I would go into my banking or WhatsApp, my microphone would turn on automatically."
+  ],
+  "judge1_false_positive_rate": null,
+  "judge1_blind_spot_rate": null,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706726x756237515197119700",
+  "level": "C1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE, WITH ADJECTIVES",
+  "can_do_statement": "Can use a wide range of adverbs with adjectives to express degree or intensity.",
+  "current_regex_triage": "\\b(?:completely|absolutely|extremely|totally|highly|deeply|utterly|thoroughly|perfectly|rather|quite|fairly|somewhat|remarkably)\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "completely",
+      "absolutely",
+      "extremely",
+      "totally",
+      "highly",
+      "deeply",
+      "utterly",
+      "thoroughly",
+      "perfectly",
+      "rather",
+      "quite",
+      "fairly",
+      "somewhat",
+      "remarkably"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Maybe totally 15 days.",
+   "well, fairly popular.",
+   "It is highly likely.",
+   "It's highly likely.",
+   "The radiation, the radiation is like the heat, the heat rather.",
+   "Would you rather\u2014",
+   "Or I would rather.",
+   "I would rather."
+  ],
+  "judge1_false_positive_rate": null,
+  "judge1_blind_spot_rate": null,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ }
+]
+```

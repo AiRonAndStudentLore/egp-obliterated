@@ -1,0 +1,457 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_001.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163706316x926291459998112000",
+  "level": "A1",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING TWO ADJECTIVES WITH 'AND'",
+  "can_do_statement": "Can use 'and' to join a limited range of common adjectives. ",
+  "current_regex_triage": "\\b(?:is|are|was|were|be)(?:\\s+[a-z]+)?\\s+[a-z]+\\s+and\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LEMMA": "be"
+   },
+   {
+    "OP": "?",
+    "POS": "ADV"
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "LOWER": "and"
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "are the ASTM and OSHA.",
+   "You say, oh, this is important project and will attract money, investors, economy dynamics.",
+   "It was countryside 60 years ago, but now the city was growing and growing and growing.",
+   "And this is an overdimension and overweight\u2014",
+   "With these examples, maybe in a travel from between Guadalajara and Mexico, my baggage was lost or And didn't arrive to the other airport.",
+   "Or if you live there, hopefully you get to\u2014 Yes, but the zone which are the places for Jamaicans are cheapest but are dangerous and has difficulties to basic services.",
+   "Ah, no, this is other one who change like a metal and be strong and hard.",
+   "So at the end of the\u2014 before start, we need to check the alignment is correct and haven't moved by any reason, I don't know."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706326x912859360099482800",
+  "level": "A1",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH 'VERY' ",
+  "can_do_statement": "Can use 'very' with a limited range of common gradable adjectives. ",
+  "current_regex_triage": "\\bvery\\s+(nice|friendly|quiet|good|big|small|happy|hot|cold|difficult|important)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "very"
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Keep practicing because I think if I need to write an email, I can help with the AI or the translator, or if I need to read something Some text very difficult I can translate or anything else, but in a conversation is it's in real time.",
+   "It is very interesting when you have to explain something good and high efficiency or a safety record.",
+   "And in this period of time I have been in 2 or 3 situations like that, so it's very common.",
+   "They are very difficult to move.",
+   "And there are very big industrial zones around the city, and it needs bridges, the ways, a lot of things.",
+   "I think this is to help Monterey develop some projects and have a very important economy in technology.",
+   "The states were of a low economy development, so very rural.",
+   "Maybe we have a very big issue with this project today."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706530x479020650602328450",
+  "level": "A1",
+  "sub_category": "position",
+  "guideword": "FORM: ATTRIBUTIVE (WITH NOUNS)",
+  "can_do_statement": "Can use a limited range of adjectives attributively, before a noun. \u25ba noun phrases",
+  "current_regex_triage": "(?:\\b(?:a|an|the|my|your|his|her|our|their|this|that|these|those|some|any)\\s+)(?:big|small|new|old|good|bad|nice|beautiful|happy|sad|hot|cold|red|blue|green|black|white|pretty|ugly|tall|short|long|little|young|important|interesting|expensive|cheap|nice|hard|easy|difficult|long)\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "a",
+      "an",
+      "the",
+      "my",
+      "your",
+      "his",
+      "her",
+      "our",
+      "their",
+      "this",
+      "that",
+      "these",
+      "those",
+      "some",
+      "any"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "big",
+      "small",
+      "new",
+      "old",
+      "good",
+      "bad",
+      "nice",
+      "beautiful",
+      "happy",
+      "sad",
+      "hot",
+      "cold",
+      "red",
+      "blue",
+      "green",
+      "black",
+      "white",
+      "pretty",
+      "ugly",
+      "tall",
+      "short",
+      "long",
+      "little",
+      "young",
+      "important",
+      "interesting",
+      "expensive",
+      "cheap",
+      "hard",
+      "easy",
+      "difficult"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "house",
+      "houses",
+      "car",
+      "cars",
+      "room",
+      "rooms",
+      "book",
+      "books",
+      "dog",
+      "dogs",
+      "cat",
+      "cats",
+      "garden",
+      "pool",
+      "swimming",
+      "friend",
+      "friends",
+      "neighbour",
+      "kitchen",
+      "table",
+      "chair",
+      "door",
+      "window",
+      "wall",
+      "floor",
+      "name",
+      "home",
+      "school",
+      "city",
+      "film",
+      "films",
+      "movie",
+      "movies",
+      "story",
+      "tree",
+      "trees"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "So in this situation is where I have to keep my English really in a good way.",
+   "A difficult English.",
+   "Um, I think he knows he has a, a difficult accent, and he tried to pronounce because he said, oh, we are with the Mexican team, or\u2014",
+   "A little better or slow?",
+   "Um, I think it's a difficult question.",
+   "Um, if you buy a new car, say, oh, you're rich, right?",
+   "A little bit.",
+   "Sometimes, because We are a big company and we need to\u2014 we need providers who send us materials in trucks."
+  ],
+  "judge1_false_positive_rate": 0.25,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706537x909158263292138100",
+  "level": "A1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use 'soon' in the phrases 'See you soon' and 'Get well soon', as a signing-off device. ",
+  "current_regex_triage": "\\b(?:see\\s+you|get\\s+well)\\s+soon\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "see",
+      "get"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "you",
+      "well"
+     ]
+    }
+   },
+   {
+    "LOWER": "soon"
+   }
+  ],
+  "sentences_rule_matched": [
+   "I don't remember when, but I see you soon.",
+   "We'll see you soon."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706721x821677696151876900",
+  "level": "A1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: PLACE",
+  "can_do_statement": "Can use a limited range of adverbs ('here', 'there') to indicate place. ",
+  "current_regex_triage": "\\b(?:here|there)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "here",
+      "there"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think it's the most relevant topics I speak in English, but frequently there are other conversations in English, like casual conversation with partners from the company in other countries.",
+   "There's some situations that are not in your hands or in your leadership and it happens, you, you need to use some special words or special sentences to, to share the situation, the whole situation.",
+   "I use my headphones here to concentrate.",
+   "I usually listen some TED Talks or YouTube videos about leadership or management or things like that, because there are some, some tech talkers, I don't know.",
+   "Yes, there really is.",
+   "Sometimes there are a lot of people who don't want to see you achieve a goal.",
+   "There was a factory near my born town where I born, and after I finished my my career.",
+   "And there was a platform you can change the, the, or close the Explorer You can minimize."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706722x425107176833770200",
+  "level": "A1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE WITH VERBS ",
+  "can_do_statement": "Can use 'really' and 'very much' with verbs expressing preference ('like', 'love'), for emphasis.",
+  "current_regex_triage": "\\b(?:really|very\\s+much)\\s+(?:like|love|enjoy|prefer|hate|adore)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "really",
+      "very"
+     ]
+    }
+   },
+   {
+    "LOWER": "much",
+    "OP": "?"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "like",
+      "love",
+      "enjoy",
+      "prefer",
+      "hate",
+      "adore"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Oh no, it's really like an idle month.",
+   "because I really like to be in my home, so it was easy.",
+   "No, I mean, I really, I really like to listen to music in English, but I'm not saying like\u2014 Am I a singer?",
+   "I, I, I know that it's not really like that today, but there is something here that I don't know.",
+   "That's really like, how do I trust you?",
+   "And yeah, I would really prefer that.",
+   "Be like, yo, I really like that hold music, guys.",
+   "Really like a, uh, tutor."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706722x502415631169033540",
+  "level": "A1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: 'VERY' WITH ADJECTIVES",
+  "can_do_statement": "Can use 'very' to make adjectives stronger.",
+  "current_regex_triage": "\\bvery\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "very"
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Keep practicing because I think if I need to write an email, I can help with the AI or the translator, or if I need to read something Some text very difficult I can translate or anything else, but in a conversation is it's in real time.",
+   "It is very interesting when you have to explain something good and high efficiency or a safety record.",
+   "And in this period of time I have been in 2 or 3 situations like that, so it's very common.",
+   "They are very difficult to move.",
+   "And there are very big industrial zones around the city, and it needs bridges, the ways, a lot of things.",
+   "I think this is to help Monterey develop some projects and have a very important economy in technology.",
+   "The states were of a low economy development, so very rural.",
+   "Maybe we have a very big issue with this project today."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706722x604132732561016200",
+  "level": "A1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: FREQUENCY ",
+  "can_do_statement": "Can use a limited range of adverbs ('always', 'sometimes') to talk about frequency.",
+  "current_regex_triage": "\\b(?:always|sometimes)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "always",
+      "sometimes"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Sometimes is more related to some topics like safety, uh, in industry, industrial safety, and maybe other topics like CO2 emissions.",
+   "I think less comfortable because when you are talking about your experience and the situation and what you imagine, I think sometimes I can't find the correct words or the correct sentence to express the idea.",
+   "I say, ah, this is the homework, this is the\u2014 right, because I, I really don't have a lot of time to make other things, but I need to practice because sometimes in, in one month I don't have a meeting in English, right?",
+   "Yes, I really want to keep practicing, and sometimes I forgot some basic words.",
+   "So that's the reason why sometimes you say, oh, I, I need homework, I, I can practice, I can do some, some exercise.",
+   "Sometimes I have to present results to VP or president.",
+   "Yeah, because sometimes it's\u2014 or usually are 2 main reasons when I have to speak to the director\u2014 direction board for good results.",
+   "But sometimes I think I, I feel limited in my vocabulary."
+  ],
+  "judge1_false_positive_rate": 0.125,
+  "judge1_blind_spot_rate": 0.0,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ },
+ {
+  "egp_id": "1741163706930x543760633232157630",
+  "level": "A1",
+  "sub_category": "position",
+  "guideword": "FORM: DEGREE, BEFORE ADJECTIVES",
+  "can_do_statement": "Can use a limited range of degree adverbs before an adjective.",
+  "current_regex_triage": "\\b(?:very|really|quite|so|too|extremely|fairly|rather|pretty|really)\\s+(?:[a-z]+)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "very",
+      "really",
+      "quite",
+      "so",
+      "too",
+      "extremely",
+      "fairly",
+      "rather",
+      "pretty"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "light",
+      "comfortable",
+      "good",
+      "bad",
+      "nice",
+      "happy",
+      "sad",
+      "easy",
+      "difficult",
+      "expensive",
+      "cheap",
+      "tall",
+      "short",
+      "big",
+      "small",
+      "old",
+      "young",
+      "slow",
+      "fast",
+      "hard",
+      "soft",
+      "bright",
+      "dark"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "So for, for English class, I prefer not use the phone.",
+   "And, and the other thing is, I, I, I don't really wanna a classic style of learning English.",
+   "I say, ah, this is the homework, this is the\u2014 right, because I, I really don't have a lot of time to make other things, but I need to practice because sometimes in, in one month I don't have a meeting in English, right?",
+   "I say, my tongue is so strong, so it's so heavy.",
+   "Yes, I really want to keep practicing, and sometimes I forgot some basic words.",
+   "Keep practicing because I think if I need to write an email, I can help with the AI or the translator, or if I need to read something Some text very difficult I can translate or anything else, but in a conversation is it's in real time.",
+   "So usually I have a lot of work meetings and I have to work walking the, the plant.",
+   "So that's the reason why sometimes you say, oh, I, I need homework, I, I can practice, I can do some, some exercise."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": null,
+  "judge2_blind_spot_rate": null
+ }
+]
+```
