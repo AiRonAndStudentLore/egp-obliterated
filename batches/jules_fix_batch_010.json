@@ -1,0 +1,392 @@
+[
+  {
+    "egp_id": "1741163706536x792145891738564900",
+    "detection": {
+      "regex_triage": "(?i)\\b(?:my|your|his|her|our|their|its|this|that|these|those|some|any)\\s+(?:best|worst|most|[a-z]{2,}est)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "my",
+              "your",
+              "his",
+              "her",
+              "our",
+              "their",
+              "its",
+              "this",
+              "that",
+              "these",
+              "those",
+              "some",
+              "any"
+            ]
+          }
+        },
+        {
+          "LOWER": {
+            "REGEX": "^(best|worst|most|[a-z]{2,}est)$"
+          }
+        },
+        {
+          "POS": "ADJ",
+          "OP": "?"
+        },
+        {
+          "POS": "NOUN"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He is my best friend in the world.",
+        "That was their most important decision."
+      ],
+      "negatives": [
+        "He is the best friend you can have.",
+        "They like most important things in life."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706725x265810821276633920",
+    "detection": {
+      "regex_triage": "(?i)\\b(?:particularly|especially)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "particularly",
+              "especially"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I like all animals, especially dogs.",
+        "The weather is particularly bad today."
+      ],
+      "negatives": [
+        "He is a very special person.",
+        "She is particular about her food choices."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706532x588070893184955400",
+    "detection": {
+      "regex_triage": "(?i)\\b(?:something|nothing|everything|anything|someone|anyone|everyone|somewhere|nowhere|everywhere|anywhere)\\s+(?:very\\s+|really\\s+|quite\\s+)?(?:good|bad|new|special|important|interesting|different|strange|wrong|terrible|nice|beautiful|useful|sweet|cold|hot|big|small)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "something",
+              "nothing",
+              "everything",
+              "anything",
+              "someone",
+              "anyone",
+              "everyone",
+              "somewhere",
+              "nowhere",
+              "everywhere",
+              "anywhere"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": "ADJ",
+          "LOWER": {
+            "IN": [
+              "good",
+              "bad",
+              "new",
+              "special",
+              "important",
+              "interesting",
+              "different",
+              "strange",
+              "wrong",
+              "terrible",
+              "nice",
+              "beautiful",
+              "useful",
+              "sweet",
+              "cold",
+              "hot",
+              "big",
+              "small"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I want to show you something really interesting.",
+        "He gave me nothing useful today."
+      ],
+      "negatives": [
+        "I saw something like a ghost in the dark.",
+        "He knew someone who was very rich."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706726x276724228986273700",
+    "detection": {
+      "regex_triage": "(?i)(?:^|\\b(?:and|but|so)\\s+)\\b(?:completely|obviously|clearly|actually|luckily|honestly|sadly|basically|hopefully)\\b(?:\\s*,)?",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "completely",
+              "obviously",
+              "clearly",
+              "actually",
+              "luckily",
+              "honestly",
+              "sadly",
+              "basically",
+              "hopefully"
+            ]
+          },
+          "DEP": "advmod"
+        },
+        {
+          "IS_PUNCT": true,
+          "LOWER": ",",
+          "OP": "?"
+        },
+        {
+          "POS": "PRON"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "But actually, he did not come to the party.",
+        "Hopefully, it will not rain tomorrow."
+      ],
+      "negatives": [
+        "The story was obviously fake.",
+        "The water is clearly blue."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706724x695725338489926300",
+    "detection": {
+      "regex_triage": "(?i)\\b(?:a|an)\\s+(?:little|bit)(?!\\s+(?:of|more|less)\\b)(?!\\s+(?:money|time|water|wine|food|sugar|salt|milk|piece|percentage|step)\\b)",
+      "spacy_token_pattern": [
+        {
+          "POS": "VERB"
+        },
+        {
+          "POS": "PRON",
+          "OP": "?"
+        },
+        {
+          "LOWER": "a"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "little",
+              "bit"
+            ]
+          },
+          "DEP": {
+            "NOT_IN": ["det", "amod", "quantmod"]
+          }
+        },
+        {
+          "POS": {
+            "NOT_IN": ["NOUN", "PROPN"]
+          },
+          "OP": "?"
+        },
+        {
+          "IS_PUNCT": true,
+          "OP": "?"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He smiled a little.",
+        "I understand it a bit!"
+      ],
+      "negatives": [
+        "I have a little money in my wallet.",
+        "Just a little piece, please."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706536x316287892573927200",
+    "detection": {
+      "regex_triage": "(?i)\\bthe\\s+best\\s+[a-z]+\\s+to\\s+(?!the\\b|a\\b|an\\b|my\\b|your\\b|his\\b|her\\b|our\\b|their\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "the"
+        },
+        {
+          "LOWER": "best"
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PROPN"
+            ]
+          }
+        },
+        {
+          "LOWER": "to",
+          "POS": "PART"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "It is the best book to read.",
+        "This is the best computer to buy."
+      ],
+      "negatives": [
+        "He is the best to play the game.",
+        "She sent the best procedure to the operation."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706726x756650384090509300",
+    "detection": {
+      "regex_triage": "(?i)\\b(?:probably|possibly|certainly|definitely|surely|presumably)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": {
+            "IN": [
+              "probably",
+              "possibly",
+              "certainly",
+              "definitely",
+              "surely",
+              "presumably"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I will probably go to the beach.",
+        "He is definitely coming to the party."
+      ],
+      "negatives": [
+        "Maybe I will go to the store.",
+        "Perhaps he is coming later."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706531x159426464126049660",
+    "detection": {
+      "regex_triage": "(?i)\\b(?:am|is|are|was|were|be|been|being|feel|feels|felt|seem|seems|seemed|look|looks|looked|stay|stays|stayed|keep|keeps|kept)\\s+(?:[a-z]+\\s+){0,2}(?:asleep|awake|alive|alone)\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": {
+            "IN": [
+              "be",
+              "feel",
+              "seem",
+              "look",
+              "stay",
+              "keep"
+            ]
+          }
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "LOWER": {
+            "IN": [
+              "asleep",
+              "awake",
+              "alive",
+              "alone"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The baby is currently asleep.",
+        "I feel completely alone right now."
+      ],
+      "negatives": [
+        "He is afraid of the large spiders.",
+        "The awake baby cried all night long."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163708332x731099780769310200",
+    "detection": {
+      "regex_triage": "(?i)(?:^|[.,!?:;]\\s*|\\b(?:so|okay|and|but|well|now|then)\\s+)\\blet\\s+me\\s+(?!go\\b)[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "let",
+          "TAG": "VB",
+          "DEP": "ROOT"
+        },
+        {
+          "LOWER": "me",
+          "POS": "PRON"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "POS": {
+            "IN": [
+              "VERB",
+              "AUX"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": ["pay", "go"]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "Okay, let me check the schedule.",
+        "So, let me explain it to you."
+      ],
+      "negatives": [
+        "He let me go early.",
+        "She didn't let me pay."
+      ]
+    }
+  }
+]

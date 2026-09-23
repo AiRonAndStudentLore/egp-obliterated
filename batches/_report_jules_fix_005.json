@@ -1,0 +1,68 @@
+{
+ "batch": "batches/jules_fix_batch_005_full.json",
+ "cycles": 1,
+ "passed": 4,
+ "total": 9,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163706530x116599041764892110",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'I only want some water.'",
+    "regex FALSE-POSITIVE on negative: 'The water main broke yesterday.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706534x297695320017452600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706534x596859033442330800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706534x655905069276336400",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706534x741393105415276700",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'That is the biggest building.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706535x505331707885398460",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706722x801643981135109000",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'Well, I think you are right.'",
+    "regex FALSE-POSITIVE on negative: 'It was a very deep well.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706722x916354910575195800",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'She reads a weekly magazine.'",
+    "regex FALSE-POSITIVE on negative: 'He gave me a daily task.'"
+   ]
+  },
+  {
+   "egp_id": "1741163706722x982743824597498400",
+   "verdict": "test_failures",
+   "failures": [
+    "regex FALSE-POSITIVE on negative: 'He eats too much food.'"
+   ]
+  }
+ ]
+}

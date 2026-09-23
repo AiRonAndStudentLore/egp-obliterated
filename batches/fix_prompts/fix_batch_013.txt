@@ -1,0 +1,300 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_013.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163706726x104951219517093630",
+  "level": "C1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use a wide range of adverbs to indicate degrees of certainty. ",
+  "current_regex_triage": "\\b(?:undoubtedly|undeniably|certainly|definitely|surely|presumably|indubitably|unquestionably|without\\s+doubt|doubtless)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "undoubtedly",
+      "undeniably",
+      "certainly",
+      "definitely",
+      "surely",
+      "presumably",
+      "indubitably",
+      "unquestionably",
+      "doubtless"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Well, but definitely I would rather not know when.",
+   "Definitely making things up.",
+   "When he yeah, when he had a new child, like more than sixty definitely.",
+   "Um, hence, well, I'm hoping that's what\u2014 that's my saving grace is I was reading this guy about his documents and he's like, yeah, maybe like you can't get a birth certificate with this, he's like, but you could definitely travel with it, you know, like it'll, it'll run.",
+   "Next guy\u2014 it's probably not a cheap service, it's not 500 pesos, this one definitely not.",
+   "Not exactly the same thing, but it's, uh\u2014 Because, yeah, I mean, you've definitely got all the words, that's for sure.",
+   "And, um, and I can definitely, uh, yeah, I definitely will.",
+   "So I will definitely\u2014 probably maybe be in my morning, because I think tonight is the night that I have, uh, my one really late class with the Polish person, but you know, I just figured\u2014"
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 0.8
+ },
+ {
+  "egp_id": "1741163706325x499920484410304700",
+  "level": "C2",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH 'NO' OR 'NOT ANY' ",
+  "can_do_statement": "Can use 'no' / 'not any' with comparative adjectives to limit the scale of comparison. \u25ba comparative clauses",
+  "current_regex_triage": "\\b(?:no|not\\s+any)\\s+(higher|happier|better|worse|bigger|older|cheaper)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "no",
+      "not"
+     ]
+    }
+   },
+   {
+    "LOWER": "any",
+    "OP": "?"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "higher",
+      "happier",
+      "better",
+      "worse",
+      "bigger",
+      "older",
+      "cheaper"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Not older, it's like 45-ish.",
+   "So I think so, the men, when they are older\u2014 not older, not every man, but when you are in that social media and all the time, I think it's because they feel more younger next to that girl.",
+   "So, no, it's not, it's not better.",
+   "But if you move to Monterrey, of course, it's not better than Guanajuato.",
+   "Not older to, to, to\u2014 no, yeah, you need to, to, to take care from the, the daughter.",
+   "I think for the market, because in Mexico we are paying for a very\u2014 not cheaper.",
+   "I think Korean brands are okay and are good, and it's not cheaper or only based on bad formulas.",
+   "It just doesn't break things as much, but it's not any better."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.875,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706322x402656530651300600",
+  "level": "C2",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING MULTIPLE ADJECTIVES",
+  "can_do_statement": "Can combine more complex, lengthy strings of adjectives, joining the last two adjectives with 'and'. ",
+  "current_regex_triage": "\\b(?:is|are|was|were)\\b[^.]*,\\s*[a-z]+\\s+and\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LEMMA": "be"
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "ORTH": ","
+   },
+   {
+    "OP": "*",
+    "POS": "ADJ"
+   },
+   {
+    "OP": "*",
+    "ORTH": ","
+   },
+   {
+    "OP": "*",
+    "POS": "ADJ"
+   },
+   {
+    "LOWER": "and"
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Here in Jalisco, there are 2 volcanoes, Colima and I don't know the other one.",
+   "And She she was mad with him, but and just and I go and I went to bed.",
+   "Honestly, the, the difference is big, um, because, uh, you\u2014 it's like, I don't know, it's like, um, Stop and Shop and Dollar Tree or Family Dollar.",
+   "And I listen, when, when you are, um, fat, your knee, knees and feet, uh, pain is, um, hard.",
+   "I\u2014 yeah, yeah, uh, we are living in the little, uh, home and it's, it's near, near the beach.",
+   "there is, there is more, uh, I don't know how to say that, uh, I don't know, the violence between, uh, husband and wife, more domestic violence.",
+   "And yeah, no, it was kind of\u2014 Do you think there is a, Do you think there are similarities between, uh, US and Mexico?",
+   "Who are walking, and and we can we can sell during two two days, and every year more or less we can win."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706726x984406879710985100",
+  "level": "C2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DISTANCING",
+  "can_do_statement": "Can use adverbs mid clause, to distance the writer from what they are saying. ",
+  "current_regex_triage": "\\b(?:allegedly|supposedly|reportedly|arguably|presumably|seemingly|apparently|so-called)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "allegedly",
+      "supposedly",
+      "reportedly",
+      "arguably",
+      "presumably",
+      "seemingly",
+      "apparently",
+      "called"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I only remember the\u2014 it's called I Am Richard.",
+   "So they called me through the university.",
+   "The city is called Ciudad Valles.",
+   "It's called the Huasteca.",
+   "many warehouses called sedis.",
+   "Okay, the corn pop is called palomitas.",
+   "Yes, combine, combine, combine, combine elements, combine different elements or chemical elements in new structures, and this at the end transforms in a new material called Clinker.",
+   "The inspectors of, I don't know, safety, or I don't know if it's called safety or health."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 0.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163708146x257734591646491700",
+  "level": "C2",
+  "sub_category": "position",
+  "guideword": "FORM/USE: MID POSITION, DISTANCING",
+  "can_do_statement": "Can use adverbs in mid position, to distance the writer from what they are saying. ",
+  "current_regex_triage": "\\b(?:allegedly|supposedly|reportedly|theoretically|arguably|presumably|seemingly|apparently|technically|reportedly|practically)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "allegedly",
+      "supposedly",
+      "reportedly",
+      "theoretically",
+      "arguably",
+      "presumably",
+      "seemingly",
+      "apparently",
+      "technically",
+      "practically"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "And so, but now when I turn it on today, I should get an opportunity to see where it is because technically I never took it off my account.",
+   "Because I don't even know\u2014 in, in California, it's\u2014 you can't\u2014 you're not allowed to build more stuff because apparently you bought the look of your neighborhood.",
+   "But I would\u2014 the\u2014 I try to\u2014 apparently I'm interested to see now.",
+   "Apparently 160 is like the\u2014 anything over that is too fast.",
+   "The thing you did it, but Google know you very well, apparently.",
+   "But in, in AI managers, you only\u2014 they don't have any sentiment, and you supposedly, yeah.",
+   "Supposedly they don't have any sentiment, and I think it will be easier to live with him.",
+   "Yeah, and for example, in the\u2014 I don't know, the influencers that do some ads or content about scams that\u2014 but in the\u2014 I think thinking in the good way, the influencer didn't know that the, I don't know, the that crypto was a scam and supposedly, supposedly, uh, but the influencer did publicity or advertising about crypto and his followers buy that crypto and then all the, the, the users promote\u2014 perfect, yes\u2014 promotes the crypto and it's\u2014 it will\u2014 no, it was very pursued\u2014 no, very How do you say perjudicial?"
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163709001x295581166797130900",
+  "level": "C2",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', IN NARRATIVES",
+  "can_do_statement": "Can use 'this' with nouns and noun phrases in a narrative to create a sense of immediacy.",
+  "current_regex_triage": "\\bthis\\s+(?:flame|man|girl|boy|woman|person|place|thing|guy|story|tale|world|place|idea|feeling|moment|day|time|age|era|matter|problem|tragedy|drama|scene|moment)\\b|\\bthis\\s+[a-z]+\\s+(?:flame|man|girl|boy|woman|person|place|thing|guy|story|tale|world|feeling|moment|day|time|age|era|matter|problem|tragedy|drama|scene)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "this"
+   },
+   {
+    "POS": {
+     "IN": [
+      "ADJ",
+      "DET",
+      "ADV"
+     ]
+    },
+    "OP": "*"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "flame",
+      "man",
+      "girl",
+      "boy",
+      "woman",
+      "person",
+      "place",
+      "thing",
+      "guy",
+      "story",
+      "tale",
+      "world",
+      "idea",
+      "feeling",
+      "moment",
+      "day",
+      "time",
+      "age",
+      "era",
+      "matter",
+      "problem",
+      "tragedy",
+      "drama",
+      "scene"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "So, um, yes, it's really interesting, the, the weather in this This place.",
+   "Yeah, but I think the best A time to visit this place is maybe September or October.",
+   "You didn't say anything about Italy or Italy in this time we visit Roma and Vatican.",
+   "In this time I can finish one, move to the home, and then move to the theater and have this buffer.",
+   "And this guy wants to control this power for evil reasons.",
+   "But I think in this world maybe there are some humans that are mutants, but not with this kind of powers.",
+   "And this time you say, ah, interesting.",
+   "A lot of variables we couldn't control in this moment, but now we can control."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.5,
+  "judge2_blind_spot_rate": 1.0
+ }
+]
+```

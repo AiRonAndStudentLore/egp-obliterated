@@ -1,0 +1,364 @@
+[
+ {
+  "egp_id": "1741163706726x104951219517093630",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use a wide range of adverbs to indicate degrees of certainty. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "WIDE_CERTAINTY_GRADIENT",
+   "pedagogical_hook": "undoubtedly / undeniably / certainly / definitely / surely / presumably \u2014 high end of the certainty dial",
+   "agency_or_distance": "speaker marks the proposition as settled"
+  },
+  "detection": {
+   "regex_triage": "(?:\\b(?:is|are|was|were|will|can|could|would|should|has|have|had|do|does|did)\\s+)?\\b(?:undoubtedly|undeniably|certainly|definitely|surely|presumably|indubitably|unquestionably)\\s+(?!not\\b)(?:be|have|do|[a-z]{2,})\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "AUX",
+       "VERB",
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "undoubtedly",
+       "undeniably",
+       "certainly",
+       "definitely",
+       "surely",
+       "presumably",
+       "indubitably",
+       "unquestionably"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "ADJ",
+       "ADV",
+       "PART",
+       "AUX"
+      ]
+     },
+     "LOWER": {
+      "NOT_IN": [
+       "not"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I will undoubtedly finish the project.",
+    "She is undeniably talented."
+   ],
+   "negatives": [
+    "Well, but definitely I would rather not know when.",
+    "Next guy this one definitely not."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706325x499920484410304700",
+  "level": "C2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH 'NO' OR 'NOT ANY' ",
+  "can_do_statement": "Can use 'no' / 'not any' with comparative adjectives to limit the scale of comparison. \u25ba comparative clauses",
+  "ontology": {
+   "agency_or_distance": "scale ceiling",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "no caps the scale at zero difference",
+   "pedagogical_hook": "deny the gap entirely"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:no|not\\s+any)\\s+(?:better|worse|more|less|further|farther|[a-z]{2,}er)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "not",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "no",
+       "any"
+      ]
+     }
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJR",
+       "RBR"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is no better than before.",
+    "I am not any happier here."
+   ],
+   "negatives": [
+    "It is not better.",
+    "Not older, it's like 45."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706322x402656530651300600",
+  "level": "C2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING MULTIPLE ADJECTIVES",
+  "can_do_statement": "Can combine more complex, lengthy strings of adjectives, joining the last two adjectives with 'and'. ",
+  "ontology": {
+   "agency_or_distance": "elaborated enumeration",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "long attribute chain closed by and",
+   "pedagogical_hook": "build the long list cleanly"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:is|are|was|were|seem|seems|seemed|look|looks|looked|feel|feels|felt|appear|appears|appeared|become|becomes|became)\\s+(?:very|so|too|really|quite\\s+)?([a-z]+)\\s*,\\s*([a-z]+)\\s+and\\s+([a-z]+)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "AUX",
+       "VERB"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "ORTH": ","
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "and"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The house was big, bright and beautiful.",
+    "The problem is complex, difficult and confusing."
+   ],
+   "negatives": [
+    "Stop and Shop and Dollar Tree or Family Dollar.",
+    "Between husband and wife, domestic violence."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x984406879710985100",
+  "level": "C2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DISTANCING",
+  "can_do_statement": "Can use adverbs mid clause, to distance the writer from what they are saying. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "EPISTEMIC_DISTANCING",
+   "pedagogical_hook": "allegedly / supposedly / reportedly / presumably \u2014 disclaim responsibility for the assertion",
+   "agency_or_distance": "speaker maximum-distance from the proposition"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:is|are|was|were|has|have|had|will|would|can|could|did|does|do|[a-z]+)\\s+(?:allegedly|supposedly|reportedly|arguably|presumably|seemingly|apparently)\\s+(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "AUX",
+       "VERB",
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "allegedly",
+       "supposedly",
+       "reportedly",
+       "arguably",
+       "presumably",
+       "seemingly",
+       "apparently"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX",
+       "ADJ",
+       "ADV",
+       "DET",
+       "PRON"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It allegedly happened yesterday.",
+    "The suspect supposedly left the scene."
+   ],
+   "negatives": [
+    "I only remember the it's called I Am Richard.",
+    "Apparently he didn't know."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708146x257734591646491700",
+  "level": "C2",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM/USE: MID POSITION, DISTANCING",
+  "can_do_statement": "Can use adverbs in mid position, to distance the writer from what they are saying. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "EPISTEMIC_DISTANCING_MID",
+   "pedagogical_hook": "allegedly / supposedly / reportedly / theoretically / arguably / presumably \u2014 slot distancing adverbs medially",
+   "agency_or_distance": "speaker maximum-distance from the proposition mid-clause"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:is|are|was|were|am|has|have|had|do|does|did|will|would|can|could|should|might|may|must|he|she|it|they|we|i|you)\\s+(?:allegedly|supposedly|reportedly|theoretically|arguably|presumably|seemingly|apparently|technically|practically)\\s+(?:[a-z]+)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "AUX",
+       "VERB",
+       "PRON"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "allegedly",
+       "supposedly",
+       "reportedly",
+       "theoretically",
+       "arguably",
+       "presumably",
+       "seemingly",
+       "apparently",
+       "technically",
+       "practically"
+      ]
+     }
+    },
+    {
+     "IS_PUNCT": false
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is technically possible.",
+    "She has practically finished the report."
+   ],
+   "negatives": [
+    "Apparently I am interested to see.",
+    "Supposedly they do not have sentiment."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709001x295581166797130900",
+  "level": "C2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', IN NARRATIVES",
+  "can_do_statement": "Can use 'this' with nouns and noun phrases in a narrative to create a sense of immediacy.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Creating narrative immediacy through reference to specific entities.",
+   "pedagogical_hook": "Bringing the listener into the story with 'this' character or event.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "(?<!\\bin\\s)(?<!\\bat\\s)(?<!\\bon\\s)(?<!\\bof\\s)(?<!\\bfor\\s)(?<!\\bto\\s)(?<!\\bwith\\s)(?<!\\babout\\s)\\bthis\\s+(?:guy|dude|lady|bloke|woman|man|girl|boy|person)\\b(?!\\s+(?:wants|needs|has|is)\\s+to\\b)",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "CCONJ",
+       "VERB",
+       "ADV"
+      ]
+     }
+    },
+    {
+     "LOWER": "this"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "guy",
+       "dude",
+       "lady",
+       "bloke",
+       "woman",
+       "man",
+       "girl",
+       "boy",
+       "person"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX",
+       "ADV"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Then we saw this woman running away.",
+    "And this man just stared at me."
+   ],
+   "negatives": [
+    "We will do it in this time.",
+    "this guy wants to control this power"
+   ]
+  }
+ }
+]

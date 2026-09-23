@@ -1,0 +1,484 @@
+[
+ {
+  "egp_id": "1741163708332x482855077867024000",
+  "level": "B1",
+  "super_category": "CLAUSES",
+  "sub_category": "imperatives",
+  "guideword": "FORM/USE: 'DO', EMPHASIS",
+  "can_do_statement": "Can use 'do' + base form of a main verb, for emphasis or in formal contexts. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "",
+   "pedagogical_hook": "",
+   "agency_or_distance": ""
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:^|[.?!]\\s+)(?:please\\s+)?do\\s+(?:[a-z]+ly\\s+)?(?!(?:you|we|they|i|it|this|that|these|those|a|an|the|my|your|his|her|our|their|some|any|all|vacation|podcast)\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "please",
+     "OP": "?"
+    },
+    {
+     "LOWER": "do"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": "VERB",
+     "TAG": "VB",
+     "LOWER": {
+      "NOT_IN": [
+       "vacation",
+       "podcast",
+       "homework",
+       "business",
+       "mistake",
+       "exam",
+       "test",
+       "yoga",
+       "exercise",
+       "sport",
+       "it",
+       "that",
+       "this"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Do sit down and relax for a moment.",
+    "Please do tell me the truth about what happened."
+   ],
+   "negatives": [
+    "Do vacation or make vacation?",
+    "Do a podcast with this scientist."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706327x603148419284069700",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "modifying",
+  "guideword": "FORM: ADJECTIVE PHRASE + NOUN",
+  "can_do_statement": "Can use adjective phrases attributively, before a noun.",
+  "ontology": {
+   "agency_or_distance": "front-loaded attribute",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "intensifier plus adjective packed before the noun",
+   "pedagogical_hook": "stack it before the noun"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:very|really|quite|so)\\s+(?:important|good|nice|big|small|difficult|friendly|expensive)\\s+(?!to\\b|i\\b|you\\b|he\\b|she\\b|we\\b|they\\b|it\\b)[a-z]{3,}\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADV"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "important",
+       "good",
+       "nice",
+       "big",
+       "small",
+       "difficult",
+       "friendly",
+       "expensive"
+      ]
+     },
+     "DEP": "amod"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was a really difficult situation for us.",
+    "She is a very good person."
+   ],
+   "negatives": [
+    "They are very difficult to move.",
+    "The exam was very difficult I think."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x815759544206507300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: LINKING",
+  "can_do_statement": "Can use an increasing range of adverbs ('therefore', 'furthermore', 'otherwise') to show a relationship between two clauses or sentences. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "DISCOURSE_COUPLING",
+   "pedagogical_hook": "therefore / furthermore / otherwise \u2014 wire two clauses with a logical link",
+   "agency_or_distance": "speaker binds clauses into consequence or addition"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?:[.?!;]\\s*|\\b(?:and|but|or)\\s+)(?:therefore|furthermore|otherwise|moreover)\\b\\s*,?\\s+(?:i|you|he|she|it|we|they|the|a|an|this|that)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "therefore",
+       "furthermore",
+       "otherwise",
+       "moreover"
+      ]
+     }
+    },
+    {
+     "IS_PUNCT": true,
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "DET",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was sick; therefore, I stayed home.",
+    "It is raining, and furthermore, the wind is cold."
+   ],
+   "negatives": [
+    "The difficulty therefore is high.",
+    "Additionally to the Pope, there are churches."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706327x637591254482696300",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH 'ENOUGH' + 'TO'-INFINITIVE ",
+  "can_do_statement": "Can use 'enough' after adjectives followed by 'to'-infinitive ",
+  "ontology": {
+   "agency_or_distance": "unlocked action from sufficiency",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "the threshold reached opens the action",
+   "pedagogical_hook": "enough, so it can happen"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:lucky|mature|old|young|big|good|strong|brave|rich|smart|fast|tall)\\s+enough\\s+to\\s+(?!yeah\\b|yes\\b|no\\b|and\\b|but\\b|the\\b|a\\b|an\\b)[a-z]{2,}\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "enough"
+    },
+    {
+     "LOWER": "to",
+     "POS": "PART"
+    },
+    {
+     "POS": "VERB",
+     "TAG": "VB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He is strong enough to lift the heavy box.",
+    "She is old enough to drive a car."
+   ],
+   "negatives": [
+    "I feel like I'm not good enough to Yeah.",
+    "I do not have big enough for this."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706317x106352194611554880",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "combining",
+  "guideword": "FORM: COMPOUND ADJECTIVES",
+  "can_do_statement": "Can use an increasing range of compound adjectives ('up-to-date', 'state-of-the-art')",
+  "ontology": {
+   "agency_or_distance": "compact naming, close reference",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "hyphen as glue for a single complex attribute",
+   "pedagogical_hook": "two words, one label"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:high-quality|high-performance|up-to-date|state-of-the-art|long-term|short-term|part-time|full-time|well-known)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "high",
+       "long",
+       "short",
+       "part",
+       "full",
+       "well",
+       "up",
+       "state"
+      ]
+     }
+    },
+    {
+     "ORTH": "-"
+    },
+    {
+     "IS_ALPHA": true
+    },
+    {
+     "ORTH": "-",
+     "OP": "?"
+    },
+    {
+     "IS_ALPHA": true,
+     "OP": "?"
+    },
+    {
+     "ORTH": "-",
+     "OP": "?"
+    },
+    {
+     "IS_ALPHA": true,
+     "OP": "?"
+    },
+    {
+     "POS": "NOUN",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We need to use high-quality materials for the bridge.",
+    "She finally found a full-time job."
+   ],
+   "negatives": [
+    "I watched Spider-Man yesterday.",
+    "It is a very well designed system."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x558604773953381500",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM: ATTRIBUTIVE ONLY, TIME ADJECTIVES",
+  "can_do_statement": "Can use the adjectives 'present', 'future', 'former' before a noun.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "TIME_QUALIFIER_ATTRIBUTIVE",
+   "pedagogical_hook": "present / future / former + noun \u2014 mark an entity with its temporal qualifier attributively",
+   "agency_or_distance": "speaker slots an entity into its temporal slot"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:present|future|former)\\s+(?:employer|employee|husband|wife|president|boss|generation|situation|state|owner|manager|job|career|role|leader|company|school)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "present",
+       "future",
+       "former"
+      ]
+     },
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "employer",
+       "employee",
+       "husband",
+       "wife",
+       "president",
+       "boss",
+       "generation",
+       "situation",
+       "state",
+       "owner",
+       "manager",
+       "job",
+       "career",
+       "role",
+       "leader",
+       "company",
+       "school"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am quite happy with my present situation.",
+    "He is the former president of the company."
+   ],
+   "negatives": [
+    "In the future, we will have flying cars.",
+    "I will present the results to the boss."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x660123674531105900",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use a wide range of adverbs and adverb phrases to refer to the timing of an event. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "DENSE_TIME_INDEXICAL",
+   "pedagogical_hook": "shortly / immediately / eventually / finally / currently / nowadays \u2014 finer temporal pointers",
+   "agency_or_distance": "speaker pins the event on a granular S-anchored line"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:shortly|recently|immediately|eventually|suddenly|currently|lately)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "shortly",
+       "recently",
+       "immediately",
+       "eventually",
+       "suddenly",
+       "currently",
+       "lately"
+      ]
+     },
+     "POS": "ADV"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We will shortly arrive at the main station.",
+    "I have recently finished reading that book."
+   ],
+   "negatives": [
+    "Today I do not have the internet in my office.",
+    "Tomorrow I will have a lot of news."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x965878541986587600",
+  "level": "B2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM/USE: DEGREE ADJECTIVES BEFORE NOUNS",
+  "can_do_statement": "Can use a limited range of degree adjectives ('real', 'absolute', 'complete') before a noun to express intensity.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "DEGREE_INTENSIFIER_NAMING",
+   "pedagogical_hook": "real / absolute / complete + noun \u2014 name the entity at the upper extreme of its scale",
+   "agency_or_distance": "speaker escalates the noun to its extreme"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:real|absolute|complete|total|utter)\\s+(?:mess|disaster|idiot|nonsense|joy|failure|surprise|beginner|stranger|nightmare|waste|joke)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "real",
+       "absolute",
+       "complete",
+       "total",
+       "utter"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "mess",
+       "disaster",
+       "idiot",
+       "nonsense",
+       "joy",
+       "failure",
+       "surprise",
+       "beginner",
+       "stranger",
+       "nightmare",
+       "waste",
+       "joke"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The party was a complete disaster from start to finish.",
+    "I think he is an absolute beginner."
+   ],
+   "negatives": [
+    "I have to complete all the tasks today.",
+    "This is a big problem in real life."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x470804791633165250",
+  "level": "B2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use a wide range of manner adverbs to modify how something happpens.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "DENSE_MANNER_QUALIFICATION",
+   "pedagogical_hook": "seriously / completely / entirely / carefully / properly \u2014 wider texture palette for HOW",
+   "agency_or_distance": "speaker expands the texture vocabulary of the action"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:carefully|gently|politely|thoroughly|properly|nicely|gradually|quietly|softly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "carefully",
+       "gently",
+       "politely",
+       "thoroughly",
+       "properly",
+       "nicely",
+       "gradually",
+       "quietly",
+       "softly"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She handled the fragile glass very carefully.",
+    "The snow melted gradually over the week."
+   ],
+   "negatives": [
+    "Well, there are other topics we can discuss.",
+    "I am fully of work right now."
+   ]
+  }
+ }
+]

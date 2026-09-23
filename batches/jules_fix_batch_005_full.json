@@ -1,0 +1,429 @@
+[
+ {
+  "egp_id": "1741163706534x297695320017452600",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH '-EST' ",
+  "can_do_statement": "Can form superlative adjectives using the '-est' suffix, with adjectives of one syllable, and with two-syllable adjectives ending in -y.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "the -est / -iest suffix stamps a word as rank-one on a scale",
+   "pedagogical_hook": "y becomes i before you crown it",
+   "agency_or_distance": "speaker grades things to the top rung"
+  },
+  "detection": {
+   "regex_triage": "\\b(?!(?:best|worst|least|honest|modest|earnest|test|rest|west|chest|quest|guest|forest|interest|suggest|invest|contest|protest|request)\\b)[a-z]{3,}est\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ",
+     "LOWER": {
+      "REGEX": "^[a-z]{3,}est$"
+     },
+     "LEMMA": {
+      "NOT_IN": [
+       "good",
+       "bad",
+       "honest",
+       "modest",
+       "earnest"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He is the smartest boy in the class.",
+    "This is the easiest way to learn."
+   ],
+   "negatives": [
+    "I will do my honest work.",
+    "They went into the dark forest."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706534x596859033442330800",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH 'MY' OR 'YOUR'",
+  "can_do_statement": "Can form a noun phrase with 'my' or 'your' + superlative adjective + noun, with a limited range of nouns and contexts. \u25ba noun phrases",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "a possessive determiner hands the top rank to a person",
+   "pedagogical_hook": "my + the-most-thing + noun",
+   "agency_or_distance": "possessive ties the superlative to an involved party"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:my|your)\\s+(?!(?:test|rest|west|chest|quest|guest|forest|interest|honest|modest|earnest)\\b)(?:[a-z]{3,}est|best|worst)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "my",
+       "your"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ",
+     "LOWER": {
+      "REGEX": "^(?:[a-z]+est|best|worst)$"
+     },
+     "LEMMA": {
+      "NOT_IN": [
+       "honest",
+       "modest",
+       "earnest"
+      ]
+     }
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He is my best friend.",
+    "That was your biggest mistake."
+   ],
+   "negatives": [
+    "She is my honest friend.",
+    "It was his best performance."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706535x505331707885398460",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH 'THE MOST'",
+  "can_do_statement": "Can form superlative adjective phrases using 'the most', with longer adjectives of two or more syllables. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "TWO_SYLLABLE_STAMP",
+   "pedagogical_hook": "the most + adjective \u2014 stamp a multi-syllable adjective as rank-one",
+   "agency_or_distance": "speaker grades two-plus-syllable adjectives to the top"
+  },
+  "detection": {
+   "regex_triage": "\\bthe\\s+most\\s+(?![a-z]+est\\b)(?!of\\b)[a-z]{3,}\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "most"
+    },
+    {
+     "POS": "ADJ",
+     "LOWER": {
+      "REGEX": "^(?![a-z]*est$).+"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was the most beautiful day of my life.",
+    "This is the most expensive car here."
+   ],
+   "negatives": [
+    "He took the most of the food.",
+    "That is the most biggest problem."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706534x655905069276336400",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH 'THE'",
+  "can_do_statement": "Can form a noun phrase with 'the' + superlative adjective + noun. \u25ba noun phrases",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "'the' plus a -est adjective flags exactly one noun as peak of its kind",
+   "pedagogical_hook": "the + -est + thing",
+   "agency_or_distance": "speaker presents the ranking as given, unique"
+  },
+  "detection": {
+   "regex_triage": "\\bthe\\s+(?!(?:test|rest|west|chest|quest|guest|forest|interest|honest|modest|earnest)\\b)(?:[a-z]{3,}est|best|worst)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "POS": "ADJ",
+     "LOWER": {
+      "REGEX": "^(?:[a-z]+est|best|worst)$"
+     },
+     "LEMMA": {
+      "NOT_IN": [
+       "honest",
+       "modest",
+       "earnest"
+      ]
+     }
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is the tallest building in town.",
+    "She is the best player on the team."
+   ],
+   "negatives": [
+    "He is the honest man.",
+    "It is the main goal."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706534x741393105415276700",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH '-ST' ",
+  "can_do_statement": "Can form superlative adjectives using the suffix '-st' to adjectives ending in '\u2013e'.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "words already ending in e just add -st to reach top rank",
+   "pedagogical_hook": "late -> the latest: keep the e, add -st",
+   "agency_or_distance": "speaker grades to the extreme using e-final stems"
+  },
+  "detection": {
+   "regex_triage": "\\b(?!(?:best|worst|least|honest|modest|earnest|test|rest|west|chest|quest|guest|forest|interest|suggest|invest|contest|protest|request)\\b)[a-z]{3,}est\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ",
+     "LOWER": {
+      "REGEX": "^[a-z]+st$"
+     },
+     "LEMMA": {
+      "REGEX": "e$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "That is the largest building in the city.",
+    "She is the nicest person I know."
+   ],
+   "negatives": [
+    "That is the biggest building.",
+    "He is very honest about it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x916354910575195800",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: FREQUENCY ",
+  "can_do_statement": "Can use an increasing range of adverbs ('usually', 'often', 'never', 'weekly') to talk about frequency.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "FREQUENCY_GRADIENT",
+   "pedagogical_hook": "usually / often / never / weekly \u2014 finer-grained frequency markers",
+   "agency_or_distance": "speaker positions the event on a denser frequency scale"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:usually|often|never|weekly|daily|monthly|yearly|rarely|seldom|frequently|occasionally|always|sometimes|normally|regularly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "usually",
+       "often",
+       "never",
+       "weekly",
+       "daily",
+       "monthly",
+       "yearly",
+       "rarely",
+       "seldom",
+       "frequently",
+       "occasionally",
+       "always",
+       "sometimes",
+       "normally",
+       "regularly"
+      ]
+     },
+     "DEP": {
+      "NOT_IN": [
+       "amod",
+       "compound"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I usually walk to the park.",
+    "I go there weekly."
+   ],
+   "negatives": [
+    "She reads a weekly magazine.",
+    "He gave me a daily task."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x982743824597498400",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE, WITH ADJECTIVES",
+  "can_do_statement": "Can use a limited range of degree adverbs ('so', 'quite', 'too') to modify adjectives. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "DEGREE_CALIBRATION",
+   "pedagogical_hook": "so / quite / too + adjective \u2014 turn the adjective up or down",
+   "agency_or_distance": "speaker sets the adjective's intensity on a non-default position"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:so|quite|too)\\s+[a-z]{2,}\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "so",
+       "quite",
+       "too"
+      ]
+     },
+     "POS": "ADV"
+    },
+    {
+     "POS": "ADJ",
+     "LOWER": {
+      "NOT_IN": [
+       "much",
+       "many"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He was so tired after work.",
+    "The book is quite interesting."
+   ],
+   "negatives": [
+    "I was late, so I ran home.",
+    "He eats too much food."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706530x116599041764892110",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM/USE: LIMITING ADJECTIVES",
+  "can_do_statement": "Can use a limited range of adjectives ('main', 'only') that limit the noun that they go before.",
+  "ontology": {
+   "agency_or_distance": "noun restriction",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "limiter fences the noun down to one",
+   "pedagogical_hook": "fence the noun"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:main|only)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "main",
+       "only"
+      ]
+     },
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "This is the main reason I am here.",
+    "He is my only brother."
+   ],
+   "negatives": [
+    "I only want some water.",
+    "The water main broke yesterday."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x801643981135109000",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use a limited range of manner adverbs and adverb phrases to modify how something happens.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "MANNER_QUALIFICATION",
+   "pedagogical_hook": "well / straight / slowly \u2014 describe HOW the action is performed",
+   "agency_or_distance": "speaker sculpts the texture of the verb's action"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:well|straight|slowly|quickly|loudly|quietly|carefully|badly|softly|gently|politely|nicely|kindly|properly)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "NOT_IN": [
+       "ADJ"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "well",
+       "straight",
+       "slowly",
+       "quickly",
+       "loudly",
+       "quietly",
+       "carefully",
+       "badly",
+       "softly",
+       "gently",
+       "politely",
+       "nicely",
+       "kindly",
+       "properly"
+      ]
+     },
+     "POS": "ADV",
+     "IS_SENT_START": false
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He drives his car carefully.",
+    "She sings very well on stage."
+   ],
+   "negatives": [
+    "Well, I think you are right.",
+    "It was a very deep well."
+   ]
+  }
+ }
+]

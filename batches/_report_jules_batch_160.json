@@ -1,0 +1,35 @@
+{
+ "batch": "batches/jules_batch_160.json",
+ "cycles": 1,
+ "passed": 5,
+ "total": 5,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163706530x116599041764892110",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706534x741393105415276700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706722x801643981135109000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706722x916354910575195800",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706722x982743824597498400",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

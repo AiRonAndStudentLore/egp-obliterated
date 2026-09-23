@@ -1041,7 +1041,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706323x542852974077958640": {
    "guideword": "FORM: COMPLEMENT OF 'BE' ",
@@ -1074,7 +1077,10 @@
    "false_positive_rate": 0.5,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.5,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163715275x913732212255741200": {
    "guideword": "FORM: VERB + PREPOSITION + OBJECT",
@@ -1104,7 +1110,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706324x902426433063664400": {
    "guideword": "FORM: WITH 'THAN'",
@@ -1113,7 +1122,10 @@
    "false_positive_rate": 0.25,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.25,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706316x198445876411383900": {
    "guideword": "FORM: COMBINING TWO ADJECTIVES WITH 'BUT'",
@@ -1158,7 +1170,10 @@
    "false_positive_rate": 0.375,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.375,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706533x775298022555111400": {
    "guideword": "FORM/USE: WITH 'OF' + NOUN",
@@ -1167,7 +1182,10 @@
    "false_positive_rate": 0.75,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706533x179575258829023140": {
    "guideword": "FORM/USE: COMPLEX NOUN PHRASES",
@@ -1176,7 +1194,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706531x328919787799353700": {
    "guideword": "FORM: PREDICATIVE, WITH LINKING VERBS",
@@ -1185,7 +1206,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706326x556212736467496000": {
    "guideword": "FORM: WITH PREPOSITIONAL PHRASE",
@@ -1194,7 +1218,10 @@
    "false_positive_rate": 0.25,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.375,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706530x375500171012226750": {
    "guideword": "FORM: PREDICATIVE, WITH 'BE'",
@@ -1203,7 +1230,10 @@
    "false_positive_rate": 0.125,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.125,
+   "pro_blind_spot_rate": 0.6
   },
   "1741163706533x852580769976633900": {
    "guideword": "FORM/USE: WITH 'IN' + NOUN",
@@ -1212,7 +1242,10 @@
    "false_positive_rate": 0.5,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706534x633351345834687300": {
    "guideword": "FORM: WITH '-EST'",
@@ -1221,7 +1254,10 @@
    "false_positive_rate": 0.25,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706534x297695320017452600": {
    "guideword": "FORM: WITH '-EST' ",
@@ -1230,7 +1266,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706534x938846205163626000": {
    "guideword": "FORM: ELLIPSIS, WITH 'THE'",
@@ -1248,7 +1287,10 @@
    "false_positive_rate": 0.75,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706535x505331707885398460": {
    "guideword": "FORM: WITH 'THE MOST'",
@@ -1257,7 +1299,10 @@
    "false_positive_rate": 0.5,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.5,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706534x655905069276336400": {
    "guideword": "FORM: WITH 'THE'",
@@ -1266,7 +1311,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706534x741393105415276700": {
    "guideword": "FORM: WITH '-ST' ",
@@ -1275,7 +1323,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.5,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706722x916354910575195800": {
    "guideword": "USE: FREQUENCY ",
@@ -1284,7 +1335,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163715299x334716733147188740": {
    "guideword": "FORM: VERB + 'TO'-INFINITIVE",
@@ -1302,7 +1356,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706530x116599041764892110": {
    "guideword": "FORM/USE: LIMITING ADJECTIVES",
@@ -1311,7 +1368,10 @@
    "false_positive_rate": 0.375,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.375,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706722x801643981135109000": {
    "guideword": "USE: MANNER",
@@ -1320,7 +1380,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706722x170602944998903700": {
    "guideword": "USE: DEGREE WITH VERBS",
@@ -1329,7 +1392,10 @@
    "false_positive_rate": 0.75,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706723x300249420014393500": {
    "guideword": "USE: FOCUS",
@@ -1338,7 +1404,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706728x956633908640879100": {
    "guideword": "FORM: DEGREE, MODIFYING ADJECTIVES",
@@ -1374,7 +1443,10 @@
    "false_positive_rate": 0.125,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.25,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706724x559298050081440640": {
    "guideword": "USE: STANCE",
@@ -1383,7 +1455,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706938x785040001160448100": {
    "guideword": "FORM: DEGREE, BEFORE ADJECTIVES ",
@@ -1392,7 +1467,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.2,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163706323x574260000317600400": {
    "guideword": "FORM: IRREGULAR",
@@ -1401,7 +1479,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.25,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706724x733988029465825200": {
    "guideword": "USE: CERTAINTY",
@@ -1410,7 +1491,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163706938x110983930774695800": {
    "guideword": "FORM: END POSITION, MANNER",
@@ -1419,7 +1503,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706938x493393825408503100": {
    "guideword": "FORM: MID POSITION",
@@ -1428,7 +1515,10 @@
    "false_positive_rate": 0.625,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.625,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706724x172374615365169500": {
    "guideword": "USE: SEQUENCING",
@@ -1437,7 +1527,10 @@
    "false_positive_rate": 0.25,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.125,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708330x456690728495361200": {
    "guideword": "FORM: NEGATIVE DECLARATIVE WITH 'HAVE'",
@@ -1500,7 +1593,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708336x903931402154698900": {
    "guideword": "FORM: AFFIRMATIVE INTERROGATIVE, WITH AUXILIARY 'BE/HAVE'",
@@ -1536,7 +1632,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708336x930002080700909000": {
    "guideword": "FORM: AFFIRMATIVE INTERROGATIVE",
@@ -1563,7 +1662,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708331x925040480671095300": {
    "guideword": "USE: CLOSINGS",
@@ -1608,7 +1710,10 @@
    "false_positive_rate": 0.5,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708331x843997098925344500": {
    "guideword": "FORM/USE: 'LET'S', SUGGESTION",
@@ -1617,7 +1722,10 @@
    "false_positive_rate": 0.125,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708564x509910132136988540": {
    "guideword": "FORM: NON-DEFINING, OBJECT, WITH 'WHICH'",
@@ -1635,7 +1743,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708563x609059917595893100": {
    "guideword": "FORM: NON-DEFINING, SUBJECT, WITH 'WHO'",
@@ -1788,7 +1899,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708146x666253614436465000": {
    "guideword": "FORM: ADVERB + ADVERB",
@@ -1851,7 +1965,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163709005x516384222350658750": {
    "guideword": "FORM: WITH QUANTIFYING DETERMINERS + 'OF' ",
@@ -1905,7 +2022,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163709000x205393325500403900": {
    "guideword": "FORM: 'THESE' ",
@@ -1914,7 +2034,10 @@
    "false_positive_rate": 0.375,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.375,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163709230x890396805087210400": {
    "guideword": "FORM: 'SO MANY' WITH PLURAL NOUNS",
@@ -1941,7 +2064,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163715820x505908632783048000": {
    "guideword": "FORM/USE: PREPOSITIONAL PHRASES, FRONTING ",
@@ -1959,7 +2085,10 @@
    "false_positive_rate": 0.5,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163709012x344511888995459460": {
    "guideword": "FORM: WITH SINGULAR NOUNS ",
@@ -3651,7 +3780,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706327x526332173403099460": {
    "guideword": "FORM: WITH 'ENOUGH' ",
@@ -3660,7 +3792,10 @@
    "false_positive_rate": 0.125,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706317x556163615013575200": {
    "guideword": "FORM: COMPOUND ADJECTIVES",
@@ -3669,7 +3804,10 @@
    "false_positive_rate": 0.75,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163713121x303053781636601900": {
    "guideword": "FORM: NEGATIVE",
@@ -3687,7 +3825,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706324x315119491769305400": {
    "guideword": "FORM/USE: WITH 'AND'",
@@ -3696,7 +3837,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706317x286016181282525020": {
    "guideword": "FORM: COMBINING MORE THAN TWO ADJECTIVES ",
@@ -3705,7 +3849,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706317x294956758156726500": {
    "guideword": "FORM: COMBINING THE SAME COMPARATIVE ADJECTIVE WITH 'AND'",
@@ -3714,7 +3861,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163714317x316233802350039740": {
    "guideword": "USE: 'SOMETHING' IN VAGUE EXPRESSIONS",
@@ -3741,7 +3891,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706327x129851131046565090": {
    "guideword": "FORM: WITH 'TOO' + 'TO'-INFINITIVE ",
@@ -3750,7 +3903,10 @@
    "false_positive_rate": 0.1428571428571429,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.1428571428571429,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706325x626199986587842000": {
    "guideword": "FORM/USE: WITH 'EVEN'",
@@ -3759,7 +3915,10 @@
    "false_positive_rate": 0.16666666666666663,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.16666666666666663,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706535x223084822137106460": {
    "guideword": "FORM/USE: COMPLEX NOUN PHRASES",
@@ -3786,7 +3945,10 @@
    "false_positive_rate": 0.125,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.25,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706724x690607862239565700": {
    "guideword": "USE: DEGREE, 'REALLY REALLY'",
@@ -3813,7 +3975,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706724x630956425733939100": {
    "guideword": "USE: PLACE",
@@ -3822,7 +3987,10 @@
    "false_positive_rate": 0.25,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.125,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706531x204931412158476450": {
    "guideword": "FORM: ATTRIBUTIVE (WITH NOUNS)",
@@ -3840,7 +4008,10 @@
    "false_positive_rate": 0.5,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.375,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163706536x792145891738564900": {
    "guideword": "FORM: WITH DETERMINERS",
@@ -3849,7 +4020,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706725x265810821276633920": {
    "guideword": "USE: FOCUS",
@@ -3858,7 +4032,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706532x588070893184955400": {
    "guideword": "FORM: WITH PRONOUN",
@@ -3867,7 +4044,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706726x276724228986273700": {
    "guideword": "USE: STANCE",
@@ -3876,7 +4056,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706728x889779704010106100": {
    "guideword": "FORM/USE: MODIFYING CLAUSES, STANCE",
@@ -3894,7 +4077,10 @@
    "false_positive_rate": 0.25,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.4,
-   "verdict": "suspect"
+   "verdict": "suspect",
+   "adjudication": "goldset",
+   "pro_false_positive_rate": 0.5,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163708149x199194532751942660": {
    "guideword": "FORM: FINITE AFTER 'THAN'",
@@ -3921,7 +4107,10 @@
    "false_positive_rate": 0.75,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706728x698576615346089300": {
    "guideword": "FORM: DEGREE, MODIFYING ADVERBS",
@@ -3939,7 +4128,10 @@
    "false_positive_rate": 0.125,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.125,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708146x334549718630644100": {
    "guideword": "FORM: ADVERB + ADVERB",
@@ -3957,7 +4149,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708150x563640914716471200": {
    "guideword": "FORM/USE: 'THE BEST (THAT)'",
@@ -4029,7 +4224,10 @@
    "false_positive_rate": 0.625,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706728x459747949486635000": {
    "guideword": "FORM: MANNER, MODIFYING VERBS  ",
@@ -4065,7 +4263,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708153x699829274975112700": {
    "guideword": "FORM: COMBINING CLAUSES OF THE SAME TYPE",
@@ -4182,7 +4383,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708565x566817072036876350": {
    "guideword": "FORM: NON-DEFINING, OBJECT, WITH 'WHO'",
@@ -4402,7 +4606,10 @@
    "false_positive_rate": 0.75,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.625,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708793x603808210938091100": {
    "guideword": "FORM/USE: NO ARTICLE",
@@ -4420,7 +4627,10 @@
    "false_positive_rate": 0.5,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.125,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163709231x447456423959638800": {
    "guideword": "FORM: 'SO MUCH', 'TOO MUCH' WITH UNCOUNTABLE NOUNS",
@@ -6674,7 +6884,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706317x106352194611554880": {
    "guideword": "FORM: COMPOUND ADJECTIVES",
@@ -6683,7 +6896,10 @@
    "false_positive_rate": 0.75,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706532x558604773953381500": {
    "guideword": "FORM: ATTRIBUTIVE ONLY, TIME ADJECTIVES",
@@ -6692,7 +6908,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163710839x443299354624711040": {
    "guideword": "FORM: QUESTIONS",
@@ -6782,7 +7001,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.125,
+   "pro_blind_spot_rate": 0.6
   },
   "1741163708151x809054436449001100": {
    "guideword": "FORM: 'RATHER THAN' + NON-FINITE CLAUSE",
@@ -6809,7 +7031,10 @@
    "false_positive_rate": 0.625,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708146x347057405549150660": {
    "guideword": "FORM/USE: FRONT POSITION, INVERSION WITH 'NEVER'",
@@ -6845,7 +7070,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708563x360382864417081200": {
    "guideword": "FORM/USE: NEGATIVE INTERROGATIVE ",
@@ -6890,7 +7118,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.25,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708152x354145685059116700": {
    "guideword": "FORM: 'AS IF' OR 'AS THOUGH' + FINITE CLAUSE",
@@ -7043,7 +7274,10 @@
    "false_positive_rate": 0.75,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163715816x736238572687218000": {
    "guideword": "FORM/USE: SUMMARISING, FORMAL",
@@ -8775,7 +9009,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163715820x680259612514314400": {
    "guideword": "FORM/USE: CITATION, PRESENT SIMPLE",
@@ -8838,7 +9075,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706532x433078299562880800": {
    "guideword": "FORM: PAST PARTICPLE AS ADJECTIVE",
@@ -8847,7 +9087,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163715599x778722792823544400": {
    "guideword": "FORM: VERB + '-ING' FORM",
@@ -8865,7 +9108,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163715599x918123165825508200": {
    "guideword": "FORM/USE: VERBS OF SENSES  + OBJECT + '-ING'",
@@ -8892,7 +9138,10 @@
    "false_positive_rate": 0.125,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.125,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708147x101320810869052430": {
    "guideword": "FORM/USE: ADVERB + 'ENOUGH'",
@@ -8973,7 +9222,10 @@
    "false_positive_rate": 0.6666666666666667,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.6666666666666667,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708570x758271347243594900": {
    "guideword": "FORM/USE: 'NOT' + '-ING' CLAUSE",
@@ -9126,7 +9378,10 @@
    "false_positive_rate": 0.625,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.625,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163716065x166400508777969860": {
    "guideword": "FORM/USE: 'WHAT' CLEFT CLAUSE",
@@ -9720,7 +9975,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163712743x298607385595879740": {
    "guideword": "FORM: QUESTIONS ",
@@ -10044,7 +10302,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706537x792815461768504600": {
    "guideword": "FORM/USE: 'SLIGHTEST', 'FAINTEST'",
@@ -10179,7 +10440,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708563x872592345857643000": {
    "guideword": "FORM: 'HOW' + ADVERB + CLAUSE",
@@ -10921,7 +11185,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163715034x601077874617532500": {
    "guideword": "FORM/USE: NEGATIVE QUESTIONS WITH 'NOT', EMPHASIS",
@@ -10993,7 +11260,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163709001x295581166797130900": {
    "guideword": "USE: 'THIS', IN NARRATIVES",
@@ -11002,7 +11272,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.5,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163715275x957741138272661000": {
    "guideword": "FORM: VERB + DIRECT OBJECT + PARTICLE + PREPOSITION + OBJECT",

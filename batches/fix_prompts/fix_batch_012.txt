@@ -1,0 +1,506 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_012.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163706325x685158058775323900",
+  "level": "B2",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH 'A LOT' ",
+  "can_do_statement": "Can use 'a lot' to modify and intensify comparative adjectives used predicatively after a verb, usually 'be'. ",
+  "current_regex_triage": "\\ba\\s+lot\\s+(?:more\\s+)?(cheaper|easier|better|bigger|older|smaller|hotter|worse)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "a"
+   },
+   {
+    "LOWER": "lot"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "cheaper",
+      "easier",
+      "better",
+      "bigger",
+      "older",
+      "smaller",
+      "hotter",
+      "worse"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "But actually, I wonder why they pay so well because there are also, like in Poland, there are also some offers posted by American companies that are looking for people in Poland to save some money and actually they don't offer much, like, you know, those\u2014 Those offers from Israel, yeah, were a lot better financially.",
+   "Yeah, they were a lot better.",
+   "Yeah, a lot better.",
+   "And actually what I'm gonna do is for the sphere, I'm going to set this to 25.5, then it does look a lot better and more coherent."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.25,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706317x691908853350257800",
+  "level": "B2",
+  "sub_category": "combining",
+  "guideword": "FORM: PHRASES MODIFYING NOUNS",
+  "can_do_statement": "Can use adjective phrases to modify nouns.",
+  "current_regex_triage": "\\b(cake|letter|book|house)\\s+(made|sent|written|built)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "POS": "NOUN"
+   },
+   {
+    "TAG": {
+     "IN": [
+      "VBN",
+      "VBD"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Today I don't have the internet in my office because IT IT team was making maintenance in the server.",
+   "Okay, we have some meetings about how the, how the company sent message to all the people.",
+   "And 2 or 3 years after that, the company was looking for new talents to join the company in a program of development in operations.",
+   "So sometimes someone fell in the factory and I have to explain what happened and where and Why the floor was not flat or anything.",
+   "There is a special technician certified.",
+   "Who built their houses after the flood arrived.",
+   "But now the city was Yeah, expanding or spreading out.",
+   "So yes, it's\u2014 and to easily the truck Was parked."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706318x964351339627643300",
+  "level": "C1",
+  "sub_category": "combining",
+  "guideword": "FORM: COMPOUND ADJECTIVES",
+  "can_do_statement": "Can use a wide range of compound adjectives ('open-minded', 'above-mentioned', 'well-to-do', 'jaw-dropping') ",
+  "current_regex_triage": "\\b[a-z]+-[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "IS_ALPHA": true
+   },
+   {
+    "ORTH": "-"
+   },
+   {
+    "IS_ALPHA": true
+   }
+  ],
+  "sentences_rule_matched": [
+   "Yes, I, I think the pure cement or the high-quality cement is for bridges, high buildings, maybe, um, I, I don't know, the presas, hydroelectric, hydroelectric.",
+   "And I think we\u2014 they use the high-performance cement for this type of constructions.",
+   "This is for the neighbors who are around this zone going inside the city, and this is the way the people who live in this zone move to the Wadi al-Hara center.",
+   "So, but I\u2014 Mm-hmm.",
+   "To watch Spider-Man.",
+   "No, no, no, Spider-Man versus like, uh, it's like a lagarto.",
+   "Yes, but I think this Spider-Man is an additional movie of Avengers.",
+   "It's the same Spider-Man."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 0.8
+ },
+ {
+  "egp_id": "1741163706726x546695627596920800",
+  "level": "C1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use a wide range of stance adverbs (simply, truly, surely, apparently, naturally, surprisingly, inevitably, literally, exceptionally, frankly, clearly, amazingly, wisely, admittedly) to indicate an attitude or viewpoint, often in clause initial position.",
+  "current_regex_triage": "\\b(?:simply|truly|surely|apparently|naturally|surprisingly|inevitably|undoubtedly|admittedly|evidently|presumably|reportedly|obviously|undoubtably)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "simply",
+      "truly",
+      "surely",
+      "apparently",
+      "naturally",
+      "surprisingly",
+      "inevitably",
+      "undoubtedly",
+      "admittedly",
+      "evidently",
+      "presumably",
+      "reportedly",
+      "obviously",
+      "undoubtably"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "And obviously it needs a lot of people, so Many people arrive to the city to live and need houses, need buildings.",
+   "I think comparing the 3 big cities, obviously Mexico is really, really big, like 30 million.",
+   "And obviously it needs a lot of people.",
+   "No, I think comparing the 3 big cities, obviously Mexico is really, really big.",
+   "Obviously, if we produce more, we can sell or give more to the supply chain and sell more.",
+   "Obviously the kiln, it has an impact, a direct impact of the flame, expand strange and maybe\u2014 and could have a strange movement when he is\u2014 when it is turning.",
+   "And if we use less clinker, obviously the performance of the cement needs to be the same because there are rules and international regulations about that, but we need to get better performance.",
+   "So obviously sometimes we are frustrated because, you know, yeah, sometimes I don't understand what he says."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706532x433078299562880800",
+  "level": "C1",
+  "sub_category": "position",
+  "guideword": "FORM: PAST PARTICPLE AS ADJECTIVE",
+  "can_do_statement": "Can use the '\u2013ed' form of a verb as an adjective, after a noun.",
+  "current_regex_triage": "\\b(?:[a-z]+(?:s|ves)?)\\s+(?:[a-z]+\\s+)?(?:shown|seen|discussed|introduced|written|chosen|required|considered|accepted|approved|published|received|recorded|presented|suggested|supported|broken|completed|covered|created|developed|selected|reviewed|addressed|adopted|classified|confirmed|defined|derived|divided|illustrated|implemented|observed|organized|produced|protected|related|replaced|reserved|separated)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "films",
+      "movies",
+      "books",
+      "items",
+      "problems",
+      "questions",
+      "issues",
+      "points",
+      "plans",
+      "products",
+      "reports",
+      "results",
+      "tests",
+      "topics",
+      "sections",
+      "chapters",
+      "pages",
+      "parts",
+      "students",
+      "men",
+      "women",
+      "children",
+      "cars",
+      "houses",
+      "rooms",
+      "tables",
+      "doors",
+      "windows",
+      "walls",
+      "floors",
+      "film",
+      "book",
+      "problem",
+      "issue",
+      "point",
+      "plan",
+      "product",
+      "report",
+      "result",
+      "test",
+      "topic",
+      "section",
+      "chapter",
+      "page",
+      "part",
+      "student",
+      "car",
+      "house",
+      "room",
+      "table",
+      "door",
+      "window",
+      "wall",
+      "floor"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "shown",
+      "seen",
+      "discussed",
+      "introduced",
+      "written",
+      "chosen",
+      "required",
+      "considered",
+      "accepted",
+      "approved",
+      "published",
+      "received",
+      "recorded",
+      "presented",
+      "suggested",
+      "supported",
+      "broken",
+      "completed",
+      "covered",
+      "created",
+      "developed",
+      "selected",
+      "reviewed",
+      "addressed",
+      "adopted",
+      "classified",
+      "confirmed",
+      "defined",
+      "derived",
+      "divided",
+      "illustrated",
+      "implemented",
+      "observed",
+      "organized",
+      "produced",
+      "protected",
+      "related",
+      "replaced",
+      "reserved",
+      "separated"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Sometimes is more related to some topics like safety, uh, in industry, industrial safety, and maybe other topics like CO2 emissions.",
+   "Yeah, this week we received a part of a machine, the part of our thing.",
+   "And we received the instruction at 2 or 3 AM because there is a moment to turn all the cars.",
+   "Sometimes a few years ago, they received a visit of things who buy cement in, in the small sacks.",
+   "The world, I think, is divided between the government, the governor, and the president.",
+   "For example, this week we received a part of a machine, of a walkie, of our team is similar like a big, big, big tube.",
+   "And we received this truck at 2 or 3 AM because that is the moment when there are no other cars.",
+   "Sometimes, a few years ago, I received a visit of clients who buy cement in small sacks."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706536x513193449618973840",
+  "level": "C1",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: WITH NOUN AND POSTMODFIER",
+  "can_do_statement": "Can use a postmodifier to make the superlative stronger in the structure superlative + postmodifier + noun. ",
+  "current_regex_triage": "(?i)\\bthe\\s+(?:[a-z]+est|best|worst|most\\s+[a-z]+)\\s+(?:possible|imaginable|conceivable|ever|available)\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "the"
+   },
+   {
+    "LOWER": "most",
+    "OP": "?"
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "possible",
+      "imaginable",
+      "conceivable",
+      "ever",
+      "available"
+     ]
+    }
+   },
+   {
+    "POS": "NOUN"
+   }
+  ],
+  "sentences_rule_matched": [
+   "You have to think of the best way that they can, uh, I don't know.",
+   "Maybe it's not, it's not the correct word that I want to say.",
+   "I think it's because in the real life that happens a lot.",
+   "The worst is that.",
+   "But it's the, the unique problem that I can see is that I know it's, it's heavy.",
+   "I don't know, because at the same time that they are testing me I'm like testing the company.",
+   "So this is the hard part that I find.",
+   "Because so what the\u2014 one of the many things that I noticed that made me feel very, very confident in this was that every time I would go into my banking or WhatsApp, my microphone would turn on automatically."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.875,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706530x601825192696361100",
+  "level": "C1",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH EXTREME ADVERBS",
+  "can_do_statement": "Can modify gradable adjectives with extreme adverbs of degree ('absolutely', 'extremely', 'incredibly', 'totally') to intensify their meaning. ",
+  "current_regex_triage": "\\b(absolutely|extremely|incredibly|totally)\\s+(sure|difficult|fast|new|important|different|amazing|impossible|clear|huge)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "absolutely",
+      "extremely",
+      "incredibly",
+      "totally"
+     ]
+    }
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "In my city, it's absolutely normal.",
+   "It's very nice because it's totally different if you see the.",
+   "It's very nice because it's totally different if you see the.",
+   "I thought it was good because someone told me\u2014 they're like\u2014 and they were incredibly smart, like PhD, but they just didn't have\u2014 like, they couldn't tell a story, you know.",
+   "In Our classes, homeworks are totally online and, uh, represent, uh, uh, a percent of, uh, written part.",
+   "It's very right or extremely right.",
+   "No, it's it's expensive for what it totally useless.",
+   "Well, if it's extremely necessary."
+  ],
+  "judge1_false_positive_rate": 0.125,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.125,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163708335x472053466237699840",
+  "level": "C1",
+  "sub_category": "imperatives",
+  "guideword": "FORM/USE: IMPERATIVE + 'AND' CONDITIONAL",
+  "can_do_statement": "Can use imperatives to introduce a condition followed by 'and' to introduce a consequence of the condition. ",
+  "current_regex_triage": "^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\b(?:Don't\\s+|Never\\s+)?[A-Z][a-z]+\\b(?:\\s+[a-z0-9'-]+){0,5}\\s+and\\s+(?:you|I|we|they)\\b(?:'ll|'re|'d|\\s+will|\\s+wo)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "do",
+      "go",
+      "see",
+      "touch",
+      "try",
+      "say",
+      "ask",
+      "tell",
+      "drop",
+      "miss",
+      "work",
+      "study",
+      "hurry",
+      "come",
+      "show",
+      "buy",
+      "mention",
+      "breathe"
+     ]
+    },
+    "IS_SENT_START": true
+   },
+   {
+    "LOWER": {
+     "NOT_IN": [
+      "and"
+     ]
+    },
+    "OP": "*"
+   },
+   {
+    "LOWER": "and"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "you",
+      "i",
+      "we",
+      "they"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "'ll",
+      "will",
+      "'re",
+      "'d",
+      "wo"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "And and and they're thirty.",
+   "Send me the PDF and I will get the 3 most hateful things that I have in English.",
+   "Yeah, so they well and they're trolling."
+  ],
+  "judge1_false_positive_rate": 0.6666666666666667,
+  "judge1_blind_spot_rate": 0.0,
+  "judge2_false_positive_rate": 0.6666666666666667,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706726x756237515197119700",
+  "level": "C1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE, WITH ADJECTIVES",
+  "can_do_statement": "Can use a wide range of adverbs with adjectives to express degree or intensity.",
+  "current_regex_triage": "(?i)\\b(?:completely|absolutely|extremely|totally|highly|deeply|utterly|thoroughly|perfectly|rather|quite|fairly|somewhat|remarkably)\\s+(?:normal|successful|good|bad|different|sure|certain|impossible|clear|new|true|false|wrong|right|important|likely|unlikely|aware)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "completely",
+      "absolutely",
+      "extremely",
+      "totally",
+      "highly",
+      "deeply",
+      "utterly",
+      "thoroughly",
+      "perfectly",
+      "rather",
+      "quite",
+      "fairly",
+      "somewhat",
+      "remarkably"
+     ]
+    }
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Maybe totally 15 days.",
+   "well, fairly popular.",
+   "It is highly likely.",
+   "It's highly likely.",
+   "The radiation, the radiation is like the heat, the heat rather.",
+   "Would you rather\u2014",
+   "Or I would rather.",
+   "I would rather."
+  ],
+  "judge1_false_positive_rate": 0.625,
+  "judge1_blind_spot_rate": 0.0,
+  "judge2_false_positive_rate": 0.625,
+  "judge2_blind_spot_rate": 1.0
+ }
+]
+```

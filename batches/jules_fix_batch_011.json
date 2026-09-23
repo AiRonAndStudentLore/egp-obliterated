@@ -1,0 +1,385 @@
+[
+ {
+  "egp_id": "1741163708332x482855077867024000",
+  "detection": {
+   "regex_triage": "(?i)(?:^|[.?!]\\s+)(?:please\\s+)?do\\s+(?:[a-z]+ly\\s+)?(?!(?:you|we|they|i|it|this|that|these|those|a|an|the|my|your|his|her|our|their|some|any|all|vacation|podcast)\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "please",
+     "OP": "?"
+    },
+    {
+     "LOWER": "do"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": "VERB",
+     "TAG": "VB",
+     "LOWER": {
+      "NOT_IN": [
+       "vacation",
+       "podcast",
+       "homework",
+       "business",
+       "mistake",
+       "exam",
+       "test",
+       "yoga",
+       "exercise",
+       "sport",
+       "it",
+       "that",
+       "this"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Do sit down and relax for a moment.",
+    "Please do tell me the truth about what happened."
+   ],
+   "negatives": [
+    "Do vacation or make vacation?",
+    "Do a podcast with this scientist."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706327x603148419284069700",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:very|really|quite|so)\\s+(?:important|good|nice|big|small|difficult|friendly|expensive)\\s+(?!to\\b|i\\b|you\\b|he\\b|she\\b|we\\b|they\\b|it\\b)[a-z]{3,}\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADV"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "important",
+       "good",
+       "nice",
+       "big",
+       "small",
+       "difficult",
+       "friendly",
+       "expensive"
+      ]
+     },
+     "DEP": "amod"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was a really difficult situation for us.",
+    "She is a very good person."
+   ],
+   "negatives": [
+    "They are very difficult to move.",
+    "The exam was very difficult I think."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x815759544206507300",
+  "detection": {
+   "regex_triage": "(?i)(?:[.?!;]\\s*|\\b(?:and|but|or)\\s+)(?:therefore|furthermore|otherwise|moreover)\\b\\s*,?\\s+(?:i|you|he|she|it|we|they|the|a|an|this|that)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "therefore",
+       "furthermore",
+       "otherwise",
+       "moreover"
+      ]
+     }
+    },
+    {
+     "IS_PUNCT": true,
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "DET",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was sick; therefore, I stayed home.",
+    "It is raining, and furthermore, the wind is cold."
+   ],
+   "negatives": [
+    "The difficulty therefore is high.",
+    "Additionally to the Pope, there are churches."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706327x637591254482696300",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:lucky|mature|old|young|big|good|strong|brave|rich|smart|fast|tall)\\s+enough\\s+to\\s+(?!yeah\\b|yes\\b|no\\b|and\\b|but\\b|the\\b|a\\b|an\\b)[a-z]{2,}\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "enough"
+    },
+    {
+     "LOWER": "to",
+     "POS": "PART"
+    },
+    {
+     "POS": "VERB",
+     "TAG": "VB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He is strong enough to lift the heavy box.",
+    "She is old enough to drive a car."
+   ],
+   "negatives": [
+    "I feel like I'm not good enough to Yeah.",
+    "I do not have big enough for this."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706317x106352194611554880",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:high-quality|high-performance|up-to-date|state-of-the-art|long-term|short-term|part-time|full-time|well-known)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "high",
+       "long",
+       "short",
+       "part",
+       "full",
+       "well",
+       "up",
+       "state"
+      ]
+     }
+    },
+    {
+     "ORTH": "-"
+    },
+    {
+     "IS_ALPHA": true
+    },
+    {
+     "ORTH": "-",
+     "OP": "?"
+    },
+    {
+     "IS_ALPHA": true,
+     "OP": "?"
+    },
+    {
+     "ORTH": "-",
+     "OP": "?"
+    },
+    {
+     "IS_ALPHA": true,
+     "OP": "?"
+    },
+    {
+     "POS": "NOUN",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We need to use high-quality materials for the bridge.",
+    "She finally found a full-time job."
+   ],
+   "negatives": [
+    "I watched Spider-Man yesterday.",
+    "It is a very well designed system."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x558604773953381500",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:present|future|former)\\s+(?:employer|employee|husband|wife|president|boss|generation|situation|state|owner|manager|job|career|role|leader|company|school)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "present",
+       "future",
+       "former"
+      ]
+     },
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "employer",
+       "employee",
+       "husband",
+       "wife",
+       "president",
+       "boss",
+       "generation",
+       "situation",
+       "state",
+       "owner",
+       "manager",
+       "job",
+       "career",
+       "role",
+       "leader",
+       "company",
+       "school"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am quite happy with my present situation.",
+    "He is the former president of the company."
+   ],
+   "negatives": [
+    "In the future, we will have flying cars.",
+    "I will present the results to the boss."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x660123674531105900",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:shortly|recently|immediately|eventually|suddenly|currently|lately)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "shortly",
+       "recently",
+       "immediately",
+       "eventually",
+       "suddenly",
+       "currently",
+       "lately"
+      ]
+     },
+     "POS": "ADV"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "We will shortly arrive at the main station.",
+    "I have recently finished reading that book."
+   ],
+   "negatives": [
+    "Today I do not have the internet in my office.",
+    "Tomorrow I will have a lot of news."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x965878541986587600",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:real|absolute|complete|total|utter)\\s+(?:mess|disaster|idiot|nonsense|joy|failure|surprise|beginner|stranger|nightmare|waste|joke)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "real",
+       "absolute",
+       "complete",
+       "total",
+       "utter"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "mess",
+       "disaster",
+       "idiot",
+       "nonsense",
+       "joy",
+       "failure",
+       "surprise",
+       "beginner",
+       "stranger",
+       "nightmare",
+       "waste",
+       "joke"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The party was a complete disaster from start to finish.",
+    "I think he is an absolute beginner."
+   ],
+   "negatives": [
+    "I have to complete all the tasks today.",
+    "This is a big problem in real life."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x470804791633165250",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:carefully|gently|politely|thoroughly|properly|nicely|gradually|quietly|softly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "carefully",
+       "gently",
+       "politely",
+       "thoroughly",
+       "properly",
+       "nicely",
+       "gradually",
+       "quietly",
+       "softly"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She handled the fragile glass very carefully.",
+    "The snow melted gradually over the week."
+   ],
+   "negatives": [
+    "Well, there are other topics we can discuss.",
+    "I am fully of work right now."
+   ]
+  }
+ }
+]

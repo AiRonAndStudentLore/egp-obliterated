@@ -1,0 +1,380 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_007.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163706724x172374615365169500",
+  "level": "A2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: SEQUENCING",
+  "can_do_statement": "Can use a limited range of adverbs and adverb phrases ('first', 'then', 'after that') to order segments of discourse.",
+  "current_regex_triage": "\\b(?:first|then|after\\s+that)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "first",
+      "then"
+     ]
+    }
+   },
+   {
+    "LOWER": "after",
+    "OP": "?"
+   },
+   {
+    "LOWER": "that",
+    "OP": "?"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Yeah, I think the next level after that, maybe understand another informal English and use them, I think.",
+   "And then maybe another more common, like travel or in a restaurant.",
+   "And 2 or 3 years after that, the company was looking for new talents to join the company in a program of development in operations.",
+   "Another topic, another exams about the psychological and things like that, and then begin me, began me my career in cement, in the operations.",
+   "I began like a file engineer, then like coordinator, maintenance manager, and now like plant manager.",
+   "I think this\u2014 the first 3 days in the week I, I come, uh, schedule or again schedule the class.",
+   "And then space for lunch from 2 to 2:30.",
+   "And then in the afternoon, I usually spend the time in the\u2014 in other meetings with corporate, with other people who are not here, aren't here in the factory, with the corporate team."
+  ],
+  "judge1_false_positive_rate": 0.25,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.125,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706534x910876285707473500",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH '-EST' ",
+  "can_do_statement": "Can form superlative adjectives by adding the suffix '-est', to adjectives of one syllable.",
+  "current_regex_triage": "\\b(?:the\\s+|my\\s+|your\\s+|his\\s+|her\\s+|our\\s+|their\\s+)?(?!(?:test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)\\b|[a-z]*iest\\b)[a-z]+est\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "oldest",
+      "cheapest",
+      "fastest",
+      "tallest",
+      "coolest",
+      "strongest",
+      "highest",
+      "lowest",
+      "newest",
+      "richest",
+      "poorest",
+      "smartest",
+      "plainest",
+      "barest",
+      "clearest",
+      "hottest",
+      "biggest"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think one of the most important is the strongest, how much can resist under compression.",
+   "Maseca is one of the biggest companies also there.",
+   "Because this plant is in the\u2014 it is one of the most biggest cities in Mexico.",
+   "But this is one of the 3 biggest cities.",
+   "And Masecas is one of the biggest companies of corn.",
+   "It is usually the biggest and we need 2 or 3 of them.",
+   "Because this plant is in the\u2014 it is one of the most biggest cities in Mexico.",
+   "But it is one of the 3 biggest cities."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163708331x891503713311455000",
+  "level": "A2",
+  "sub_category": "imperatives",
+  "guideword": "FORM/USE: NEGATIVE ",
+  "can_do_statement": "Can form a negative imperative with the auxiliary verb 'do' + 'n't' + base form of a main verb, to give advice, instructions or orders. ",
+  "current_regex_triage": "^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\bDon't\\s+(?:[a-z]+ly\\s+)?([a-z]+)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "do",
+    "IS_SENT_START": true
+   },
+   {
+    "LOWER": "n't"
+   },
+   {
+    "POS": "ADV",
+    "OP": "?"
+   },
+   {
+    "POS": "VERB",
+    "TAG": "VB"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Don't mind me.",
+   "Don't visit some places maybe like, like, questionable places.",
+   "Don't complain at home.",
+   "Don't do that.",
+   "Don't freak out.",
+   "Don't have a, like, a heart attack, um, because\u2014 Okay.",
+   "Don't say it.",
+   "Don't say the words."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163708331x357890058176217500",
+  "level": "A2",
+  "sub_category": "imperatives",
+  "guideword": "USE: EMPHASISING AN INSTRUCTION ",
+  "can_do_statement": "Can use negative imperative after an instruction, for emphasis.",
+  "current_regex_triage": "^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\bDon't\\s+(?:forget|be\\s+late|worry|panic|hesitate|give\\s+up|miss\\s+it|tell\\s+anyone)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "do",
+    "IS_SENT_START": true
+   },
+   {
+    "LOWER": "n't"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "forget",
+      "be",
+      "worry",
+      "panic",
+      "hesitate"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Don't worry about it.",
+   "No, don't worry.",
+   "Don't give up, don't give up.",
+   "Don't worry, it's okay.",
+   "No, don't worry.",
+   "Don't worry about that.",
+   "Don't worry, I can't hear you.",
+   "No, don't worry, don't worry."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706722x446923325299920960",
+  "level": "A2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: LINKING",
+  "can_do_statement": "Can use a limited range of adverbs ('also', 'so', 'however') to show a relationship between two clauses or sentences. ",
+  "current_regex_triage": "\\b(?:also|however|So|so)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "also",
+      "so",
+      "however"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "So for, for English class, I prefer not use the phone.",
+   "I say, my tongue is so strong, so it's so heavy.",
+   "So usually I have a lot of work meetings and I have to work walking the, the plant.",
+   "So that's the reason why sometimes you say, oh, I, I need homework, I, I can practice, I can do some, some exercise.",
+   "So that's the reason I, I'll be looking for another, because the agenda changes.",
+   "So yeah, depending on the times, I can Yeah, it happens.",
+   "Yes, I'm the plant manager, so I have in charge of the operations and quality and safety in the plant.",
+   "So I have some meetings with the internal team\u2014 production, maintenance, quality, safety, and HR."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163708331x843997098925344500",
+  "level": "A2",
+  "sub_category": "imperatives",
+  "guideword": "FORM/USE: 'LET'S', SUGGESTION",
+  "can_do_statement": "Can use 'let's' + base form of a main verb, for first person plural imperatives to make a suggestion. ",
+  "current_regex_triage": "^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\bLet's\\s+(?!not\\b)(?:[a-z]+ly\\s+)?([a-z]+)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "let",
+    "IS_SENT_START": true
+   },
+   {
+    "LOWER": "'s"
+   },
+   {
+    "POS": "ADV",
+    "OP": "?"
+   },
+   {
+    "POS": "VERB",
+    "TAG": "VB"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Let's start because it's you and your brain, you know, you have, um, Hormones.",
+   "Let's get, um, let's get a pizza.",
+   "Eh, let's get a pizza.",
+   "Let's get a\u2014 no, let's get\u2014 I think let's get some pizza.",
+   "Let's get\u2014 let's get a\u2014 do you want some pizza?",
+   "Yes, let's get a pizza.",
+   "Yeah, let's see that so in case though...",
+   "Let's talk about it."
+  ],
+  "judge1_false_positive_rate": 0.125,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163708331x150409111220634050",
+  "level": "A2",
+  "sub_category": "imperatives",
+  "guideword": "USE: INSTRUCTIONS",
+  "can_do_statement": "Can use the imperative to give instructions. ",
+  "current_regex_triage": "^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\b(Take|Wear|Bring|Walk|Go|Turn|Change|Call)\\b(?:\\s+[a-z0-9'-]+){0,8}\\s+(and\\s+then|then|to\\s+the)\\b(?:\\s+[a-z0-9'-]+){0,6}[.!]?$",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "take",
+      "wear",
+      "bring",
+      "walk",
+      "go",
+      "turn",
+      "change",
+      "call"
+     ]
+    },
+    "IS_SENT_START": true
+   },
+   {
+    "LOWER": {
+     "NOT_IN": [
+      "then"
+     ]
+    },
+    "OP": "*"
+   },
+   {
+    "LOWER": "then"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Go to the prison.",
+   "Go wrong and then right."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706939x328491474615097540",
+  "level": "A2",
+  "sub_category": "position",
+  "guideword": "FORM: DEGREE, END POSITION",
+  "can_do_statement": "Can use degree adverbs in end position.",
+  "current_regex_triage": "\\b(?:a\\s+lot|a\\s+little|so\\s+much|quite\\s+a\\s+bit|too\\s+much|very\\s+much|enormously)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "lot",
+      "little",
+      "much",
+      "enormously"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Um, how much of my work is in English?",
+   "I say, ah, this is the homework, this is the\u2014 right, because I, I really don't have a lot of time to make other things, but I need to practice because sometimes in, in one month I don't have a meeting in English, right?",
+   "So usually I have a lot of work meetings and I have to work walking the, the plant.",
+   "We, we spend a lot of time on finding topics to, to, to talk about the movie, about the football, about the situation, about the politics, about the anything to keep practicing.",
+   "A little better or slow?",
+   "I, I will work a lot to not have this type of conversations, but sometimes it happens.",
+   "Sometimes there are a lot of people who don't want to see you achieve a goal.",
+   "Maybe you have a credit and you have to\u2014 you don't\u2014 you, you save money a lot in time and you don't spend money in, in a vacay\u2014 in vacations or, you know, things."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163709001x134549933548144820",
+  "level": "A2",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THESE' POINTING||",
+  "can_do_statement": "Can use 'these' to refer to places and things from the speaker's or writer's point of view. ",
+  "current_regex_triage": "\\bthese\\s+\\w+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "these",
+    "DEP": "det"
+   },
+   {
+    "OP": "?",
+    "POS": "ADJ"
+   },
+   {
+    "OP": "?",
+    "POS": "ADV"
+   },
+   {
+    "DEP": {
+     "IN": [
+      "pobj",
+      "attr",
+      "dobj",
+      "nsubj"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "And these conversations usually are in English.",
+   "And I think I, I feel more comfortable with these topics, but, but the reality is I need to improve my speaking abilities in any topic I, I want.",
+   "Yeah, these are some tests we made in the, in the lab of the factory and we analyzed how much force we can put through this block without it having a crack.",
+   "Mexico is Mexican\u2014 I don't know, Mexican accreditation entity, but these rules are aligned with the ASTM, for example.",
+   "I think, uh, I, I, in my weekly agenda, this normally these hours are, uh, are easier to me to schedule.",
+   "In his stories, normally I eat a patata, I throw these small sacks.",
+   "Because Guadalajara is\u2014 yes, for my plant is all these for Mexico.",
+   "I think these both are, are my main focus."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ }
+]
+```

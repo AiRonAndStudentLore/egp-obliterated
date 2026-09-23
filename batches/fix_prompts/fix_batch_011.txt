@@ -1,0 +1,398 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_011.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163708332x482855077867024000",
+  "level": "B1",
+  "sub_category": "imperatives",
+  "guideword": "FORM/USE: 'DO', EMPHASIS",
+  "can_do_statement": "Can use 'do' + base form of a main verb, for emphasis or in formal contexts. ",
+  "current_regex_triage": "^(?:Please\\s+)?\\bDo\\s+(?:[a-z]+ly\\s+)?(?!you\\b|we\\b|they\\b|I\\b)[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "do",
+    "IS_SENT_START": true
+   },
+   {
+    "POS": "ADV",
+    "OP": "?"
+   },
+   {
+    "POS": "VERB",
+    "TAG": "VB"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Do vacation or make vacation?",
+   "Do vacation or make vacation?",
+   "Do a podcast with this scientist study, and the podcast is very good.",
+   "Do it, or use this exact formula."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706327x603148419284069700",
+  "level": "B1",
+  "sub_category": "modifying",
+  "guideword": "FORM: ADJECTIVE PHRASE + NOUN",
+  "can_do_statement": "Can use adjective phrases attributively, before a noun.",
+  "current_regex_triage": "\\b(?:very|really|quite|so)\\s+(important|good|nice|big|small|difficult|friendly|expensive)\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "POS": "ADV"
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "POS": "NOUN"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Sometimes is more related to some topics like safety, uh, in industry, industrial safety, and maybe other topics like CO2 emissions.",
+   "I think it's the most relevant topics I speak in English, but frequently there are other conversations in English, like casual conversation with partners from the company in other countries.",
+   "And it was more informal conversations about communication, about if you use videos or we use email.",
+   "Keep practicing because I think if I need to write an email, I can help with the AI or the translator, or if I need to read something Some text very difficult I can translate or anything else, but in a conversation is it's in real time.",
+   "And only other people say, oh, you're rich.",
+   "It was a really, really difficult situation.",
+   "And usually spare parts It comes from\u2014 depends on the provider, some from Europe, from Asia, China, US, etc.",
+   "They are very difficult to move."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.625,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706724x815759544206507300",
+  "level": "B1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: LINKING",
+  "can_do_statement": "Can use an increasing range of adverbs ('therefore', 'furthermore', 'otherwise') to show a relationship between two clauses or sentences. ",
+  "current_regex_triage": "\\b(?:therefore|furthermore|otherwise|moreover|additionally)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "therefore",
+      "furthermore",
+      "otherwise",
+      "moreover",
+      "additionally"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Additionally to the Pope, there are Very beautiful churches or church, church, churches, churches, museums, other places really fantastic with a lot of art and paintings.",
+   "Um, and additionally sell, sell clinker to the rest of the world.",
+   "Bueno, additionally, there is a politics inside this.",
+   "uh Additionally, he told how he can Start over.",
+   "Otherwise, I have 2 good news.",
+   "Otherwise, I have 2 good news.",
+   "Otherwise, I'll give you 3,000 you can keep of this 10,000, but you have to do this.",
+   "And, and, and the, the, the difficulty therefore for a non-English speaker or native English speaker is to, to separate the colloquial speak with the correct writing."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.125,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706327x637591254482696300",
+  "level": "B2",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH 'ENOUGH' + 'TO'-INFINITIVE ",
+  "can_do_statement": "Can use 'enough' after adjectives followed by 'to'-infinitive ",
+  "current_regex_triage": "\\b(lucky|mature|old|young|big|good|strong|brave|rich)\\s+enough\\s+to\\b",
+  "current_spacy_token_pattern": [
+   {
+    "POS": "ADJ"
+   },
+   {
+    "LOWER": "enough"
+   },
+   {
+    "TAG": "TO"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Uh, yeah, we, we, we work with different companies from mostly the USA, so when, when I have to speak with people that it's like their, their language, I feel like I'm not good enough to Yeah."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706317x106352194611554880",
+  "level": "B2",
+  "sub_category": "combining",
+  "guideword": "FORM: COMPOUND ADJECTIVES",
+  "can_do_statement": "Can use an increasing range of compound adjectives ('up-to-date', 'state-of-the-art')",
+  "current_regex_triage": "\\b[a-z]+-[a-z]+(?:-[a-z]+)*\\b",
+  "current_spacy_token_pattern": [
+   {
+    "IS_ALPHA": true
+   },
+   {
+    "ORTH": "-"
+   },
+   {
+    "IS_ALPHA": true
+   }
+  ],
+  "sentences_rule_matched": [
+   "Yes, I, I think the pure cement or the high-quality cement is for bridges, high buildings, maybe, um, I, I don't know, the presas, hydroelectric, hydroelectric.",
+   "And I think we\u2014 they use the high-performance cement for this type of constructions.",
+   "This is for the neighbors who are around this zone going inside the city, and this is the way the people who live in this zone move to the Wadi al-Hara center.",
+   "So, but I\u2014 Mm-hmm.",
+   "To watch Spider-Man.",
+   "No, no, no, Spider-Man versus like, uh, it's like a lagarto.",
+   "Yes, but I think this Spider-Man is an additional movie of Avengers.",
+   "It's the same Spider-Man."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706532x558604773953381500",
+  "level": "B2",
+  "sub_category": "position",
+  "guideword": "FORM: ATTRIBUTIVE ONLY, TIME ADJECTIVES",
+  "can_do_statement": "Can use the adjectives 'present', 'future', 'former' before a noun.",
+  "current_regex_triage": "\\b(?:the|my|your|his|her|our|their|this|that)?\\s*(?:present|future|former)\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "the",
+      "my",
+      "your",
+      "his",
+      "her",
+      "our",
+      "their",
+      "this",
+      "that"
+     ]
+    },
+    "OP": "?"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "present",
+      "future",
+      "former"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "situation",
+      "location",
+      "position",
+      "president",
+      "manager",
+      "director",
+      "owner",
+      "employee",
+      "wife",
+      "husband",
+      "boyfriend",
+      "girlfriend",
+      "colleague",
+      "boss",
+      "king",
+      "queen",
+      "government",
+      "system",
+      "company"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Sometimes I have to present results to VP or president.",
+   "They call some last graduates from the last years, and I present the exams, the theoretical and engineering knowledge, and English.",
+   "Until, I don't know, to maybe in the future In the future, the future could be this kind of superpower, like control the time or the storms or the mental power.",
+   "It sounds um strange, but I think in a near future it will be a way to diagnose the\u2014",
+   "From now, they chase\u2014 they chase\u2014 in present now\u2014 they chase after the industry, may our innocent receive justice.",
+   "Yeah, it will\u2014 it's in future after that.",
+   "Yeah, not, not, not in AI, uh, will explain, uh, the present or the subjunctive.",
+   "No, no, no, no, the, the future of the cities, the Slow living, good enough, or the gig economy, freedom, or economy, the gig."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706726x660123674531105900",
+  "level": "B2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use a wide range of adverbs and adverb phrases to refer to the timing of an event. ",
+  "current_regex_triage": "\\b(?:shortly|recently|immediately|eventually|finally|suddenly|currently|lately|nowadays|today|tomorrow|already)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "shortly",
+      "recently",
+      "immediately",
+      "eventually",
+      "finally",
+      "suddenly",
+      "currently",
+      "lately",
+      "nowadays",
+      "today",
+      "tomorrow",
+      "already"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Today I don't have the internet in my office because IT IT team was making maintenance in the server.",
+   "If I do during the day, tomorrow I will have a lot of news or, I don't know.",
+   "Maybe we have a very big issue with this project today.",
+   "If I do it during the day, tomorrow I will have a lot of news or quejas, I don't know.",
+   "Today Tesla confirmed we don't have the possibility of\u2014 or We don't have the capacity to receive or guarantee the inversion here in Mexico.",
+   "But today it was raining like 2 or 3 hours ago.",
+   "In the middle of the week today.",
+   "Today is an important day in the factory."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.125,
+  "judge2_blind_spot_rate": 0.6
+ },
+ {
+  "egp_id": "1741163706532x965878541986587600",
+  "level": "B2",
+  "sub_category": "position",
+  "guideword": "FORM/USE: DEGREE ADJECTIVES BEFORE NOUNS",
+  "can_do_statement": "Can use a limited range of degree adjectives ('real', 'absolute', 'complete') before a noun to express intensity.",
+  "current_regex_triage": "\\b(?:real|absolute|complete|total|utter|perfect|true)\\s+(?:[a-z]+)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "real",
+      "absolute",
+      "complete",
+      "total",
+      "utter",
+      "perfect",
+      "true"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "problem",
+      "problems",
+      "issue",
+      "issues",
+      "mess",
+      "disaster",
+      "success",
+      "achievement",
+      "disappointment",
+      "embarrassment",
+      "shame",
+      "tragedy",
+      "nonsense",
+      "waste",
+      "secret",
+      "gift",
+      "pleasure",
+      "joy"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Keep practicing because I think if I need to write an email, I can help with the AI or the translator, or if I need to read something Some text very difficult I can translate or anything else, but in a conversation is it's in real time.",
+   "I don't know, maybe every, every one or all the human mind wants to complete all the tasks or the activities in her mind and no one to fall.",
+   "to complete the 2 activities.",
+   "It's a big problem in your real life, in your life in Arabic.",
+   "If I have depression, if I am a real depression person or just I can, I can be stronger than my friend.",
+   "Say total words 726.",
+   "And it's so sad because parents don't like to listen and just when they, when they watch the real problem in front of them, in front of their eyes, so they, they dare to do something.",
+   "Yes, whatever happened before, and just when they found what happened, the kids It's maybe like him one day and I speak true language, you know."
+  ],
+  "judge1_false_positive_rate": 0.625,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706726x470804791633165250",
+  "level": "B2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use a wide range of manner adverbs to modify how something happpens.",
+  "current_regex_triage": "\\b(?:seriously|completely|entirely|fully|gradually|slowly|quickly|carefully|gently|softly|badly|well|properly|politely|nicely|thoroughly)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "seriously",
+      "completely",
+      "entirely",
+      "fully",
+      "gradually",
+      "slowly",
+      "quickly",
+      "carefully",
+      "gently",
+      "softly",
+      "badly",
+      "well",
+      "properly",
+      "politely",
+      "nicely",
+      "thoroughly"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Fully of work.",
+   "Well, there are other topics.",
+   "Okay, well, that makes sense.",
+   "It's going, it's going well.",
+   "So, um, well, good.",
+   "Well, I'm saying, but maybe it's like this or like this.",
+   "Well, it's bigger.",
+   "Maybe, or, well, schedule the different Or the 2 activities with an intermediate\u2014 Ah, with a buffer."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.875,
+  "judge2_blind_spot_rate": 1.0
+ }
+]
+```

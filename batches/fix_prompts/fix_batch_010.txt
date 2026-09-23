@@ -1,0 +1,407 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_010.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163706536x792145891738564900",
+  "level": "B1",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH DETERMINERS",
+  "can_do_statement": "Can form noun phrases with a range of determiners before a superlative adjective. \u25ba noun phrases",
+  "current_regex_triage": "\\b(?:the|my|your|his|her|our|their|this|that|these|those|some|any|each|every)\\s+(?!test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)(?:[a-z]+est|best|worst|most)\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "the",
+      "my",
+      "your",
+      "his",
+      "her",
+      "our",
+      "their",
+      "this",
+      "that",
+      "these",
+      "those",
+      "some",
+      "any",
+      "each",
+      "every"
+     ]
+    }
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "POS": "NOUN"
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think it's the most relevant topics I speak in English, but frequently there are other conversations in English, like casual conversation with partners from the company in other countries.",
+   "Yes, I\u2014 some last year I, I was in a communication committee.",
+   "But the way we communicated was more informal than the other topics I mentioned.",
+   "I think less comfortable because when you are talking about your experience and the situation and what you imagine, I think sometimes I can't find the correct words or the correct sentence to express the idea.",
+   "The other topics like are more technical, I think, like safety, like emissions.",
+   "I think normally we use the same words and the same sentences.",
+   "And, and the other thing is, I, I, I don't really wanna a classic style of learning English.",
+   "Yes, I really want to keep practicing, and sometimes I forgot some basic words."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": 0.875,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706725x265810821276633920",
+  "level": "B1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: FOCUS",
+  "can_do_statement": "Can use an increasing range of focusing adverbs ('particularly', 'especially') to point to or highlight something. \u25ba adverbs: position ",
+  "current_regex_triage": "\\b(?:particularly|especially|in\\s+particular)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "particularly",
+      "especially",
+      "particular",
+      "in"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Today I don't have the internet in my office because IT IT team was making maintenance in the server.",
+   "It was, uh, 1 or 2 hours of maintenance in the server, and they have an issue and say, oh no, this will end at night.",
+   "Um, how much of my work is in English?",
+   "Are in English.",
+   "Sometimes is more related to some topics like safety, uh, in industry, industrial safety, and maybe other topics like CO2 emissions.",
+   "Okay, maybe are the 2 topics more common I, I have to talk in English.",
+   "I think it's the most relevant topics I speak in English, but frequently there are other conversations in English, like casual conversation with partners from the company in other countries.",
+   "And these conversations usually are in English."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706532x588070893184955400",
+  "level": "B1",
+  "sub_category": "position",
+  "guideword": "FORM: WITH PRONOUN",
+  "can_do_statement": "Can use an adjective or adjective phrase after pronouns like 'something', 'nothing', 'somewhere', 'nowhere'.",
+  "current_regex_triage": "(?i)\\b(?:something|nothing|everything|anything|someone|anyone|everyone|somewhere|nowhere|everywhere|anywhere)\\s+(?:very\\s+|really\\s+|quite\\s+)?(?:good|bad|new|special|important|interesting|different|strange|wrong|terrible|nice|beautiful|useful|sweet|cold|hot)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "something",
+      "nothing",
+      "everything",
+      "anything",
+      "someone",
+      "anyone",
+      "everyone",
+      "somewhere",
+      "nowhere",
+      "everywhere",
+      "anywhere"
+     ]
+    }
+   },
+   {
+    "POS": "ADV",
+    "OP": "*"
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Keep practicing because I think if I need to write an email, I can help with the AI or the translator, or if I need to read something Some text very difficult I can translate or anything else, but in a conversation is it's in real time.",
+   "We, we spend a lot of time on finding topics to, to, to talk about the movie, about the football, about the situation, about the politics, about the anything to keep practicing.",
+   "It is very interesting when you have to explain something good and high efficiency or a safety record.",
+   "Sometimes we have to, to make an explanation about some people get hurt with a machine, with walking, they fell down or something like that.",
+   "It's, uh, I think it's when you think, you think something is there.",
+   "Um, No, something initially.",
+   "Complaints, complaints in the news and anything like that.",
+   "I think it's when you think something is in your\u2014"
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.875,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706726x276724228986273700",
+  "level": "B1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use an increasing range of adverbs ('completely', 'obviously', 'clearly', 'actually', 'luckily', 'honestly', 'sadly', 'basically', 'obviously', 'hopefully') to indicate an attitude or viewpoint.",
+  "current_regex_triage": "\\b(?:completely|obviously|clearly|actually|luckily|honestly|frankly|personally|naturally|basically)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "completely",
+      "obviously",
+      "clearly",
+      "actually",
+      "luckily",
+      "honestly",
+      "frankly",
+      "personally",
+      "naturally",
+      "basically"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "But actually, I live in Mexico.",
+   "Actually, it's going to\u2014 are building the second terminal of the airport.",
+   "And obviously it needs a lot of people, so Many people arrive to the city to live and need houses, need buildings.",
+   "I think comparing the 3 big cities, obviously Mexico is really, really big, like 30 million.",
+   "Actually, it's going to\u2014 are building the second terminal of the airport.",
+   "And obviously it needs a lot of people.",
+   "No, I think comparing the 3 big cities, obviously Mexico is really, really big.",
+   "Actually, we are talking with the technical support to understand the reasons why this fracture appears."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706724x695725338489926300",
+  "level": "B1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE WITH VERBS",
+  "can_do_statement": "Can use an increasing range of degree adverbs ('a little', 'a bit') with verbs to indicate degree or intensity. \u25ba determiners",
+  "current_regex_triage": "\\ba\\s+(?:little|bit)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "a"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "little",
+      "bit"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "A little better or slow?",
+   "A little bit.",
+   "I think it's good because keep practicing the listening a bit.",
+   "Maybe have some similar process in a little part of the similar to cement, but it's for other applications.",
+   "Like put a little\u2014",
+   "I think in a world with 3,000 billion people or more, Maybe exists a little percentage of people who has other performance or capacities in their bodies, but I think this kind of power, like move your mind from another body and control the body.",
+   "Yes, I think more like a superhero, or maybe it's a little step.",
+   "Cake always makes people happy a little bit."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706536x316287892573927200",
+  "level": "B1",
+  "sub_category": "superlatives",
+  "guideword": "FORM: 'THE BEST' WITH NOUN AND  'TO-' INFINITIVE",
+  "can_do_statement": "Can use 'the best' before a noun + 'to'-infinitive.  \u25ba clauses: comparative",
+  "current_regex_triage": "\\bthe\\s+best\\s+(?:[a-z]+|place|time|way|thing|part|reason|moment)\\s+to\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "the"
+   },
+   {
+    "LOWER": "best"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "place",
+      "time",
+      "way",
+      "thing",
+      "part",
+      "reason",
+      "moment",
+      "method",
+      "moment",
+      "opportunity",
+      "chance",
+      "option"
+     ]
+    }
+   },
+   {
+    "LOWER": "to"
+   },
+   {
+    "POS": "VERB"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Yes, they say Jamaica has a lot of beautiful beaches or places to visit, but lives or living in Jamaica is not the best place to live because water conditions are not the best.",
+   "But no, but I thought that if I was working in Google Sheets, Gemini was the best AI to work in a Google Sheet.",
+   "No, technically, technically is the, the, the, that You pick some of the best photos to use it.",
+   "So I'm really prepared to work in Excel, but I think it's the best option to review, review, or to have all your consolidated information.",
+   "And I was like, yeah, I heard that this is the best way to memorize any English word.",
+   "Also, as far as I know, is the number one to coding, which is the best options to use.",
+   "But I think that is not the best procedure to the operation because if I send you the draft document, you have to send them to the to your customer, you know, because at the moment we are working on other operations and we have to get back to this operation, amend all the documents, be, uh, all the time checking if they do the payment or not, you know.",
+   "Madrid is not the best city to get a car because once you get it, you have to take in account, uh, for example, if you want to go out with some friends, you, you need to think about, hey, when are you able to park the car?"
+  ],
+  "judge1_false_positive_rate": 0.125,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.125,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706726x756650384090509300",
+  "level": "B1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use an increasing range of adverbs to indicate degrees of certainty. ",
+  "current_regex_triage": "\\b(?:probably|possibly|certainly|definitely|surely|presumably|likely|maybe|perhaps)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "probably",
+      "possibly",
+      "certainly",
+      "definitely",
+      "surely",
+      "presumably",
+      "likely",
+      "maybe",
+      "perhaps"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Sometimes is more related to some topics like safety, uh, in industry, industrial safety, and maybe other topics like CO2 emissions.",
+   "Okay, maybe are the 2 topics more common I, I have to talk in English.",
+   "I have studied in different academies, uh, during my bachelor's, and maybe 5 or 6 years ago I took other courses where I live, and I think in the last 2 or 3 years I was practicing my English with Preply.",
+   "I think, I, I think one of my improvers, I don't know, Improvers, things you improve, maybe things that helped me to improve was my last tutor.",
+   "Yeah, I think the next level after that, maybe understand another informal English and use them, I think.",
+   "And then maybe another more common, like travel or in a restaurant.",
+   "I think maybe it will be another important topic to how to keep a conversation with another person.",
+   "Sometimes it's falling, or falling would be because\u2014 or maybe, uh, I don't know, when you Have a hat and back."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706531x159426464126049660",
+  "level": "B1",
+  "sub_category": "position",
+  "guideword": "FORM: ADJECTIVES WITH PREFIX 'A-'",
+  "can_do_statement": "Can use adjectives with the prefix a- ('asleep', 'awake', 'alive', 'alone') predicatively only, after linking verbs. ",
+  "current_regex_triage": "\\b(?:is|are|am|was|were|be|been|feel|felt|seem|seemed|look|looked)\\s+(?:very\\s+|almost\\s+|still\\s+)?(asleep|awake|alive|alone|afraid|ashamed|aware)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LEMMA": {
+     "IN": [
+      "be",
+      "feel",
+      "seem",
+      "look"
+     ]
+    }
+   },
+   {
+    "OP": "?",
+    "POS": "ADV"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "asleep",
+      "awake",
+      "alive",
+      "alone",
+      "afraid",
+      "ashamed",
+      "aware"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "So if you are alone, maybe, no s\u00e9, soltero, single, alone, when you're single and you don't have to think in which school are you going to take my son or my daughter, it's easy.",
+   "For example, if we have 8 kids, she can't be alone with the 8 kids, so I need to know how they do here.",
+   "Yes, I was alone.",
+   "He can accept now he's ashamed, you know, wow, in his age, yes.",
+   "I think that really these last years, the people are afraid more than, uh, since, uh, 5 years.",
+   "I know, I know more things, I see more things, and I'm more afraid.",
+   "I think that really these last years, the people are afraid more than, uh, since, uh, 5 years.",
+   "I know, I know more things, I see more things, and I'm more afraid."
+  ],
+  "judge1_false_positive_rate": 0.625,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163708332x731099780769310200",
+  "level": "B1",
+  "sub_category": "imperatives",
+  "guideword": "FORM/USE: 'LET ME', FOCUS",
+  "can_do_statement": "Can use an imperative clause with 'let me' + base form of a main verb, as a focusing device, to introduce something",
+  "current_regex_triage": "^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\bLet\\s+me\\s+(?:[a-z]+ly\\s+)?([a-z]+)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "let",
+    "IS_SENT_START": true
+   },
+   {
+    "LOWER": "me"
+   },
+   {
+    "POS": "ADV",
+    "OP": "?"
+   },
+   {
+    "POS": "VERB",
+    "TAG": "VB"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Let me look on the calendar.",
+   "Let me go back here.",
+   "Okay, let me see.",
+   "Let me check.",
+   "Let me check.",
+   "Okay, let me check.",
+   "Let me think, it's\u2014 what is the name for that?",
+   "Let me search."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ }
+]
+```

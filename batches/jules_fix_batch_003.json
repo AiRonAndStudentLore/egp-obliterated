@@ -1,0 +1,450 @@
+[
+  {
+    "egp_id": "1741163706323x891241573237936400",
+    "level": "A2",
+    "sub_category": "comparatives",
+    "guideword": "FORM: DOUBLE CONSONANT + '-ER'",
+    "can_do_statement": "Can form comparative adjectives with adjectives of one syllable with a short vowel, by doubling the final consonant and adding '-er'",
+    "detection": {
+      "regex_triage": "\\b(bigger|hotter|thinner|fatter|sadder|wetter|redder|madder|flatter|gladder)\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "ADJ",
+          "LOWER": {
+            "IN": [
+              "bigger",
+              "hotter",
+              "thinner",
+              "fatter",
+              "sadder",
+              "wetter",
+              "redder",
+              "madder",
+              "flatter",
+              "gladder"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PRON",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I need a bigger room for this.",
+        "We are looking for a hotter climate."
+      ],
+      "negatives": [
+        "Usually the bigger.",
+        "The weather is a lot hotter."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706323x542852974077958640",
+    "level": "A2",
+    "sub_category": "comparatives",
+    "guideword": "FORM: COMPLEMENT OF 'BE' ",
+    "can_do_statement": "Can use comparative adjectives as a complement of 'be'.",
+    "detection": {
+      "regex_triage": "\\b(?:am|is|are|was|were|be|'s|'m|'re)\\s+(?:very\\s+|really\\s+|much\\s+|a\\s+bit\\s+)?(?:[a-z]+er|better|worse|more\\s+[a-z]+)(?!\\s+(?:than|to)\\b)",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "POS": "ADV",
+          "OP": "?"
+        },
+        {
+          "TAG": "JJR"
+        },
+        {
+          "POS": {
+            "IN": [
+              "PUNCT",
+              "CCONJ",
+              "SCONJ"
+            ]
+          },
+          "LOWER": {
+            "NOT_IN": [
+              "than",
+              "to"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "I think it would be easier.",
+        "The new one is better."
+      ],
+      "negatives": [
+        "It is better than the iPad.",
+        "They are easier to understand."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706322x751352545258591200",
+    "level": "A2",
+    "sub_category": "comparatives",
+    "guideword": "FORM: + -IER",
+    "can_do_statement": "Can form comparative adjectives with adjectives of two syllables ending in '-y' by changing the 'y' to an 'I' and adding '-er'.",
+    "detection": {
+      "regex_triage": "\\b(easier|happier|earlier|prettier|friendlier|heavier|funnier|busier|dirtier|healthier|luckier|sillier|tidier|uglier)\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "ADJ",
+          "LOWER": {
+            "IN": [
+              "easier",
+              "happier",
+              "earlier",
+              "prettier",
+              "friendlier",
+              "heavier",
+              "funnier",
+              "busier",
+              "dirtier",
+              "healthier",
+              "luckier",
+              "sillier",
+              "tidier",
+              "uglier"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PRON",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This is an easier question to answer.",
+        "She is a happier person now."
+      ],
+      "negatives": [
+        "It is much easier.",
+        "He arrived earlier."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706326x319165365934681800",
+    "level": "A2",
+    "sub_category": "modifying",
+    "guideword": "FORM: WITH 'TOO'",
+    "can_do_statement": "Can use 'too' with common gradable adjectives. ",
+    "detection": {
+      "regex_triage": "\\btoo\\s+(?!much\\b|many\\b)[a-z]{3,}\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "too"
+        },
+        {
+          "POS": "ADJ",
+          "LOWER": {
+            "NOT_IN": [
+              "much",
+              "many"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "This box is too heavy.",
+        "The soup is too hot."
+      ],
+      "negatives": [
+        "I ate too much yesterday.",
+        "There are too many cars here."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706323x497245620249982200",
+    "level": "A2",
+    "sub_category": "comparatives",
+    "guideword": "FORM: ENDING IN '-E' + '-R' ",
+    "can_do_statement": "Can form comparative adjectives with adjectives of one syllable ending in 'e', by adding '-r'.",
+    "detection": {
+      "regex_triage": "\\b(nicer|safer|later|wider|larger|closer|finer|braver|cuter|whiter|ruder|looser|stranger|wiser|gentler|simpler)\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "ADJ",
+          "LOWER": {
+            "IN": [
+              "nicer",
+              "safer",
+              "later",
+              "wider",
+              "larger",
+              "closer",
+              "finer",
+              "braver",
+              "cuter",
+              "whiter",
+              "ruder",
+              "looser",
+              "stranger",
+              "wiser",
+              "gentler",
+              "simpler"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PRON",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "We want a larger room.",
+        "It is a safer place."
+      ],
+      "negatives": [
+        "I will see you later.",
+        "They walked closer."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706326x804713615141726700",
+    "level": "A2",
+    "sub_category": "modifying",
+    "guideword": "FORM: WITH 'TOO' + PREPOSITIONAL PHRASE",
+    "can_do_statement": "Can use 'too' + adjective + prepositional phrase",
+    "detection": {
+      "regex_triage": "\\btoo\\s+(?!much\\b|many\\b)[a-z]+\\s+(?:for|in|at|on|with|by|from|about)\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "too"
+        },
+        {
+          "POS": "ADJ",
+          "LOWER": {
+            "NOT_IN": [
+              "much",
+              "many"
+            ]
+          }
+        },
+        {
+          "POS": "ADP",
+          "LOWER": {
+            "NOT_IN": [
+              "to"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The shirt is too small for me.",
+        "It is too hot in the summer."
+      ],
+      "negatives": [
+        "It is too small to read.",
+        "There are too many in the room."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706324x902426433063664400",
+    "level": "A2",
+    "sub_category": "comparatives",
+    "guideword": "FORM: WITH 'THAN'",
+    "can_do_statement": "Can use a comparative adjective with 'than' to compare two nouns or noun phrases.► comparative clauses",
+    "detection": {
+      "regex_triage": "\\b(?:[a-z]+er|better|worse|more\\s+[a-z]+)\\s+than\\b",
+      "spacy_token_pattern": [
+        {
+          "LOWER": "more",
+          "OP": "?"
+        },
+        {
+          "POS": "ADJ",
+          "LOWER": {
+            "NOT_IN": [
+              "more"
+            ]
+          }
+        },
+        {
+          "LOWER": "than"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "My car is faster than yours.",
+        "This book is more interesting than that one."
+      ],
+      "negatives": [
+        "I travel more than you do.",
+        "He has more free time than me."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706316x198445876411383900",
+    "level": "A2",
+    "sub_category": "combining",
+    "guideword": "FORM: COMBINING TWO ADJECTIVES WITH 'BUT'",
+    "can_do_statement": "Can use 'but' to join a limited range of common adjectives, after 'be'.",
+    "detection": {
+      "regex_triage": "\\b(?:am|is|are|was|were|be|'s|'m|'re)\\s+(?:[a-z]+\\s+)?(good|bad|big|small|cheap|expensive|hot|cold|hard|easy|interesting|boring|dangerous|safe|strange|nice|fast|slow|heavy|light)\\s+but\\s+(?!(?:is|are|was|were|am)\\b)(?:[a-z]+\\s+)?[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "LEMMA": "be"
+        },
+        {
+          "OP": "?",
+          "POS": "ADV"
+        },
+        {
+          "POS": "ADJ",
+          "LOWER": {
+            "IN": [
+              "good",
+              "bad",
+              "big",
+              "small",
+              "cheap",
+              "expensive",
+              "hot",
+              "cold",
+              "hard",
+              "easy",
+              "interesting",
+              "boring",
+              "dangerous",
+              "safe",
+              "strange",
+              "nice",
+              "fast",
+              "slow",
+              "heavy",
+              "light"
+            ]
+          }
+        },
+        {
+          "LOWER": "but"
+        },
+        {
+          "OP": "?",
+          "POS": "ADV"
+        },
+        {
+          "POS": "ADJ"
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "The game was safe but boring.",
+        "It was cheap but nice."
+      ],
+      "negatives": [
+        "He is tall but he is slow.",
+        "I was tired but I went to work."
+      ]
+    }
+  },
+  {
+    "egp_id": "1741163706322x927287636901346100",
+    "level": "A2",
+    "sub_category": "comparatives",
+    "guideword": "FORM: + -ER",
+    "can_do_statement": "Can form comparative adjectives from adjectives of one syllable by adding '-er'.",
+    "detection": {
+      "regex_triage": "\\b(older|younger|cheaper|smaller|taller|faster|quieter|harder|longer|shorter|higher|lower|slower|smarter|warmer|colder|cooler|richer|poorer|thicker|weaker|deeper|softer|louder|prouder|sweeter|darker|lighter|clearer|stronger)\\s+[a-z]+\\b",
+      "spacy_token_pattern": [
+        {
+          "POS": "ADJ",
+          "LOWER": {
+            "IN": [
+              "older",
+              "younger",
+              "cheaper",
+              "smaller",
+              "taller",
+              "faster",
+              "quieter",
+              "harder",
+              "longer",
+              "shorter",
+              "higher",
+              "lower",
+              "slower",
+              "smarter",
+              "warmer",
+              "colder",
+              "cooler",
+              "richer",
+              "poorer",
+              "thicker",
+              "weaker",
+              "deeper",
+              "softer",
+              "louder",
+              "prouder",
+              "sweeter",
+              "darker",
+              "lighter",
+              "clearer",
+              "stronger"
+            ]
+          }
+        },
+        {
+          "POS": {
+            "IN": [
+              "NOUN",
+              "PRON",
+              "PROPN"
+            ]
+          }
+        }
+      ]
+    },
+    "unit_tests": {
+      "positives": [
+        "He is an older man.",
+        "I bought a cheaper car."
+      ],
+      "negatives": [
+        "He runs much faster.",
+        "It is slightly smaller."
+      ]
+    }
+  }
+]

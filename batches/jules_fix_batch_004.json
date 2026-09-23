@@ -1,0 +1,394 @@
+[
+ {
+  "egp_id": "1741163706322x848626639383521500",
+  "detection": {
+   "regex_triage": "\\b(?:younger|older|better|bigger|taller|smaller|faster|cheaper)\\s+(?!(?:than|as|me|you|him|her|it|them|us|or|and|but|if|that|this|these|those|then|when|where|why|who|what|to|for|with|in|on|at|by|from|about|because|so|if)\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "younger",
+       "older",
+       "better",
+       "bigger",
+       "taller",
+       "smaller",
+       "faster",
+       "cheaper"
+      ]
+     },
+     "DEP": "amod"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I want a better car.",
+    "She needs a bigger house."
+   ],
+   "negatives": [
+    "It is better than the iPad.",
+    "It's better that you say."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706326x982625360706106900",
+  "detection": {
+   "regex_triage": "\\b(really|so|quite)\\s+(hot|happy|expensive|nice|good|big|small|cold|difficult|friendly)\\b(?!\\s+(?:situation|city|project|guy|building|car|house|person|book|movie|test|day|thing)\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "really",
+       "so",
+       "quite"
+      ]
+     },
+     "DEP": "advmod"
+    },
+    {
+     "POS": "ADJ",
+     "DEP": {
+      "NOT_IN": [
+       "amod"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is really difficult.",
+    "The weather is so nice."
+   ],
+   "negatives": [
+    "It was a really difficult situation.",
+    "It is a really big city."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706533x775298022555111400",
+  "detection": {
+   "regex_triage": "\\b(?:the|this|that|my|his|her|our|their)\\s+(?!(?:test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)\\b)(?:[a-z]+est|best|worst)\\s+of\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "this",
+       "that",
+       "my",
+       "his",
+       "her",
+       "our",
+       "their"
+      ]
+     }
+    },
+    {
+     "TAG": "JJS"
+    },
+    {
+     "LOWER": "of"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He is the best of us.",
+    "That was the hardest of the tests."
+   ],
+   "negatives": [
+    "It is one of the best tests.",
+    "She is the best."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706533x179575258829023140",
+  "detection": {
+   "regex_triage": "\\b(?:the|my|your|his|her|our|their)\\s+(?!(?:test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)\\b)(?:[a-z]+est|best|worst)\\s+(?:[a-z]+\\s+){1,4}(?:of|in)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their"
+      ]
+     }
+    },
+    {
+     "TAG": "JJS"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     },
+     "OP": "+"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "of",
+       "in"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She is the best player in the team.",
+    "It is the biggest company of corn."
+   ],
+   "negatives": [
+    "He is the best of the players.",
+    "It is the best."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706531x328919787799353700",
+  "detection": {
+   "regex_triage": "\\b(?:look|looks|looked|feel|feels|felt)\\s+(?!like\\b)(perfect|comfortable|tired|happy|sad|nice|great|strange|cold|warm)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "look",
+       "feel"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ",
+     "DEP": "acomp",
+     "LOWER": {
+      "IN": [
+       "perfect",
+       "comfortable",
+       "tired",
+       "happy",
+       "sad",
+       "nice",
+       "great",
+       "strange",
+       "cold",
+       "warm"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I feel comfortable in Paris.",
+    "She looks happy today."
+   ],
+   "negatives": [
+    "I feel bad about it.",
+    "He looks angry."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706326x556212736467496000",
+  "detection": {
+   "regex_triage": "\\b(?:is|are|was|were|be|am)\\s+(good|full|ready|late|absent|different)\\s+(for|of|with|from)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "AUX",
+       "VERB"
+      ]
+     },
+     "LEMMA": "be"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "good",
+       "full",
+       "ready",
+       "late",
+       "absent",
+       "different"
+      ]
+     },
+     "DEP": "acomp"
+    },
+    {
+     "TAG": "IN",
+     "DEP": "prep"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is different from the normal cement.",
+    "It would be good for the environment."
+   ],
+   "negatives": [
+    "I would like to speak good with him.",
+    "I think it's good because keep practicing."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706530x375500171012226750",
+  "detection": {
+   "regex_triage": "\\b(?:i am|you are|he is|she is|it is|we are|they are|i was|you were|he was|she was|it was|we were|they were)\\s+(free|friendly|happy|tired|ready|busy|kind|lovely|beautiful|nice)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "PRON",
+     "DEP": "nsubj"
+    },
+    {
+     "LEMMA": "be"
+    },
+    {
+     "POS": "ADJ",
+     "DEP": "acomp",
+     "LOWER": {
+      "IN": [
+       "free",
+       "friendly",
+       "happy",
+       "tired",
+       "ready",
+       "busy",
+       "kind",
+       "lovely",
+       "beautiful",
+       "nice"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "NOT_IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     },
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was tired.",
+    "They are friendly."
+   ],
+   "negatives": [
+    "You are a rich person.",
+    "It is difficult."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706533x852580769976633900",
+  "detection": {
+   "regex_triage": "\\b(?:the|my|his|her)\\s+(?!(?:test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)\\b)(?:[a-z]+est|best|worst)(?:\\s+[a-z]+){0,2}\\s+in\\s+the\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "TAG": "JJS"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": "in"
+    },
+    {
+     "LOWER": "the"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is the biggest in the world.",
+    "He is the best player in the team."
+   ],
+   "negatives": [
+    "It is the best in places.",
+    "The political influence in the decision is huge."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706534x633351345834687300",
+  "detection": {
+   "regex_triage": "\\b(?<!\\bmost\\s)[a-z]*([bcdfghjklmnpqrstvwxz])\\1est\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "most"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "biggest",
+       "hottest",
+       "thinnest",
+       "fattest",
+       "saddest",
+       "wettest",
+       "slimmest",
+       "fittest",
+       "bitterest",
+       "swiftest",
+       "reddest",
+       "smallest"
+      ]
+     },
+     "TAG": "JJS"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is the biggest.",
+    "This is the hottest."
+   ],
+   "negatives": [
+    "It is the most biggest city.",
+    "This is the most hottest."
+   ]
+  }
+ }
+]

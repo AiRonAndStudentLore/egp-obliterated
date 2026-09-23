@@ -1,0 +1,486 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_009.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163706317x286016181282525020",
+  "level": "B1",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING MORE THAN TWO ADJECTIVES ",
+  "can_do_statement": "Can use commas and 'and' to join more than two adjectives, after 'be'.",
+  "current_regex_triage": "\\b(?:is|are|was|were)\\b[^.]*,\\s*[a-z]+\\s+and\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LEMMA": "be"
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "ORTH": ","
+   },
+   {
+    "OP": "*",
+    "POS": "ADJ"
+   },
+   {
+    "OP": "*",
+    "ORTH": ","
+   },
+   {
+    "OP": "*",
+    "POS": "ADJ"
+   },
+   {
+    "LOWER": "and"
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Here in Jalisco, there are 2 volcanoes, Colima and I don't know the other one.",
+   "And She she was mad with him, but and just and I go and I went to bed.",
+   "Honestly, the, the difference is big, um, because, uh, you\u2014 it's like, I don't know, it's like, um, Stop and Shop and Dollar Tree or Family Dollar.",
+   "And I listen, when, when you are, um, fat, your knee, knees and feet, uh, pain is, um, hard.",
+   "I\u2014 yeah, yeah, uh, we are living in the little, uh, home and it's, it's near, near the beach.",
+   "there is, there is more, uh, I don't know how to say that, uh, I don't know, the violence between, uh, husband and wife, more domestic violence.",
+   "And yeah, no, it was kind of\u2014 Do you think there is a, Do you think there are similarities between, uh, US and Mexico?",
+   "Who are walking, and and we can we can sell during two two days, and every year more or less we can win."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 0.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706317x294956758156726500",
+  "level": "B1",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING THE SAME COMPARATIVE ADJECTIVE WITH 'AND'",
+  "can_do_statement": "Can use 'and' to repeat a comparative adjective to indicate change over time, usually after 'become' or get. \u25ba adjectives: comparatives",
+  "current_regex_triage": "\\b([a-z]+)\\s+and\\s+\\1\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "hotter",
+      "colder",
+      "worse",
+      "better",
+      "bigger"
+     ]
+    }
+   },
+   {
+    "LOWER": "and"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "hotter",
+      "colder",
+      "worse",
+      "better",
+      "bigger"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "It was countryside 60 years ago, but now the city was growing and growing and growing.",
+   "And we are going to work in a root cause analysis to identify and solve all the reasons and continue And continue and\u2014 or keep our kill confident.",
+   "Okay, or something when you fall and fall and fall.",
+   "But I say, I was taking vitamins and this and this and this.",
+   "Yes, because if you, you make uh a, um, steak in your home, you at the end you need to clean your, I don't know, your oven, your But if you have a very big oven and you every day are producing steam, there are tons and tons um of fly ash you are producing.",
+   "I don't know, I think a little bit more than 1 hour because I stay like 25 hours on and on.",
+   "Yes, because it's not, not, you know, they cry for toys or whatever, and you know, but when it's constant crying and crying and you say, what happened?",
+   "Yes, yes, it's I think it's that and and and I think that is the joke in the in the when you watch that TV is because honestly oh no my camera."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706324x779144564678598700",
+  "level": "B1",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH 'A (LITTLE) BIT' ",
+  "can_do_statement": "Can use 'a (little) bit' to modify comparative adjectives used predicatively after a verb, usually 'be'.",
+  "current_regex_triage": "\\ba\\s+(?:little\\s+)?bit\\s+(smaller|older|bigger|better|cheaper|younger|hotter|easier)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "a"
+   },
+   {
+    "LOWER": "little",
+    "OP": "?"
+   },
+   {
+    "LOWER": "bit"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "smaller",
+      "older",
+      "bigger",
+      "better",
+      "cheaper",
+      "younger",
+      "hotter",
+      "easier"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Yeah, can you make it a bit bigger?",
+   "So it would be a little bit better."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706327x129851131046565090",
+  "level": "B1",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH 'TOO' + 'TO'-INFINITIVE ",
+  "can_do_statement": "Can use 'too' before adjectives followed by 'to'-infinitive.",
+  "current_regex_triage": "\\btoo\\s+(busy|old|young|small|big|tired|sick|late|difficult|expensive)\\s+to\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "too"
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "TAG": "TO"
+   }
+  ],
+  "sentences_rule_matched": [
+   "It was too long to read.",
+   "Everything is taking too much to be modified and updated because currently we are having a whole branding changes, uh, referencing to\u2014 referring to the color brands and the textures and everything.",
+   "No, it's not too easy to scam an insurance company.",
+   "Mexico play good, but England is too hard to, uh, to win over.",
+   "Commonly, it's not, it's not too easy to, uh, quit, uh, For the herring.",
+   "We have many abandoned houses, but the problem is that the government is too slow to prepare the documents for buying those houses because, yeah, I think the government will be more faster.",
+   "Anthropic just released their latest and best model, Claude Fable-5, and get this, it's even more powerful than their Mythos preview model, which they previously said was too dangerous to release."
+  ],
+  "judge1_false_positive_rate": 0.1428571428571429,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.1428571428571429,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706325x626199986587842000",
+  "level": "B1",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH 'EVEN'",
+  "can_do_statement": "Can use 'even' to modify and intensify comparative adjectives used predicatively after a verb, usually 'be' and 'get'.",
+  "current_regex_triage": "\\beven\\s+(?:more\\s+)?(better|bigger|hotter|older|cheaper|smaller|worse|easier)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "even"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "better",
+      "bigger",
+      "hotter",
+      "older",
+      "cheaper",
+      "smaller",
+      "worse",
+      "easier"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "So, I mean, like, many things are even cheaper.",
+   "So yeah, and then, you know, this is going to be even worse in the future.",
+   "So this smell was even worse.",
+   "And France actually has had the same coach for like 10 years now or something, and they just have even better players.",
+   "But I think they are quite, quite, quite good as a team, and this is actually even better in my opinion because like there are many teams that have great players but they suck anyway, like Portugal for example, Germany, England, and so on.",
+   "It's even cheaper."
+  ],
+  "judge1_false_positive_rate": 0.16666666666666663,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.16666666666666663,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706324x454596359825248060",
+  "level": "B1",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH '(SO) MUCH' ",
+  "can_do_statement": "Can use '(so) much' to modify and intensify comparative adjectives used predicatively after a verb, usually 'be'. ",
+  "current_regex_triage": "\\b(?:so\\s+)?much\\s+(better|bigger|easier|worse|cheaper|older|hotter|nicer)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "much"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "better",
+      "bigger",
+      "easier",
+      "worse",
+      "cheaper",
+      "older",
+      "hotter",
+      "nicer"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I wonder, like, most of my students on Preply, I think the youngest that I've had is, well, like a couple young people, but always much older.",
+   "And he's\u2014 you would do so much better in life.",
+   "But, but, but also, how can you know that if the new model is so much better than the other one?",
+   "No, but you told me\u2014 you\u2014 I remember that you told me, oh, they're much better in the, in the first lessons, uh, in the past.",
+   "but it's much better than ChatGPT and because ChatGPT is competition.",
+   "And for example, an iPhone in United States is very cheap comparing to Argentina, but it's in the same price comparing\u2014 much cheaper than Argentina, but it's as cheap as Chile.",
+   "Yeah, and I, I, and, and I can write in English much better than I, I speak it.",
+   "Costco is very, very, very much, much better."
+  ],
+  "judge1_false_positive_rate": 0.125,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.25,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706532x500431022156884600",
+  "level": "B1",
+  "sub_category": "position",
+  "guideword": "FORM: WITH 'MAKE' AS OBJECT COMPLEMENT",
+  "can_do_statement": "Can use adjectives as object complement after 'make'.",
+  "current_regex_triage": "\\b(?:makes?|made)\\s+(?:[a-z]+\\s+){1,2}(?:[a-z]+)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "make",
+      "makes",
+      "made"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "me",
+      "you",
+      "him",
+      "her",
+      "it",
+      "us",
+      "them"
+     ]
+    },
+    "OP": "?"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "the",
+      "a",
+      "an"
+     ]
+    },
+    "OP": "?"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "room",
+      "rooms",
+      "kitchen",
+      "garden",
+      "house",
+      "houses",
+      "car",
+      "cars",
+      "meal",
+      "meals",
+      "food",
+      "dish",
+      "dishes",
+      "presentation",
+      "report",
+      "reports",
+      "plan",
+      "plans"
+     ]
+    },
+    "OP": "?"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "happy",
+      "sad",
+      "angry",
+      "tired",
+      "hungry",
+      "rich",
+      "famous",
+      "strong",
+      "weak",
+      "sick",
+      "well",
+      "ill",
+      "clear",
+      "easy",
+      "hard",
+      "difficult",
+      "popular",
+      "late",
+      "early",
+      "beautiful",
+      "interesting",
+      "wonderful",
+      "clean",
+      "dirty",
+      "quiet",
+      "loud"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I say, ah, this is the homework, this is the\u2014 right, because I, I really don't have a lot of time to make other things, but I need to practice because sometimes in, in one month I don't have a meeting in English, right?",
+   "Yeah, usually, um, make some viral videos about this topic.",
+   "Sometimes we have to, to make an explanation about some people get hurt with a machine, with walking, they fell down or something like that.",
+   "Yeah, these are some tests we made in the, in the lab of the factory and we analyzed how much force we can put through this block without it having a crack.",
+   "To make this type of proofs.",
+   "And here we weld it and make it the big machine.",
+   "We arrive, they arrive to the plant and here we weld it and make a Wow.",
+   "I make a fast read of this document."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706724x630956425733939100",
+  "level": "B1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: PLACE",
+  "can_do_statement": "Can use an increasing range of adverbs and adverb phrases ('near', 'far away', 'upstairs', 'downstairs') to indicate place. ",
+  "current_regex_triage": "\\b(?:nearby|upstairs|downstairs|abroad|far\\s+away)\\b|\\bnear\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "near",
+      "nearby",
+      "upstairs",
+      "downstairs",
+      "abroad",
+      "far",
+      "away"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "There was a factory near my born town where I born, and after I finished my my career.",
+   "Yes, and here in this factory, we use train to send product to the Pacific Coast and some states near, next to California.",
+   "The Manzanillo is like 3 or 4 hours, uh, far from south or away.",
+   "Yeah, away, away.",
+   "I think the most near\u2014",
+   "Yes, it's really 2 or 3 hours away from the border.",
+   "Um, but the president, there is a war, he needs to move the industry to other side of the country because the south of the country next to Guatemala, near Guatemala, is the zone where forest.",
+   "Yes, and then near or close to the half day."
+  ],
+  "judge1_false_positive_rate": 0.25,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.125,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706724x414008667308469300",
+  "level": "B1",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use an increasing range of manner adverbs and adverb phrases to modify how something happens.",
+  "current_regex_triage": "\\b(?:carefully|slowly|quickly|gently|softly|smoothly|gradually|seriously|properly|fully|entirely|completely|deeply|highly|widely|badly|terribly|beautifully|easily|freely|brightly|calmly|cleverly|eagerly|firmly|gladly|gracefully|patiently|proudly|rapidly|safely|sincerely|tightly|warmly|willingly)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "carefully",
+      "slowly",
+      "quickly",
+      "gently",
+      "softly",
+      "smoothly",
+      "gradually",
+      "seriously",
+      "properly",
+      "fully",
+      "entirely",
+      "completely",
+      "deeply",
+      "highly",
+      "widely",
+      "badly",
+      "terribly",
+      "beautifully",
+      "easily",
+      "freely",
+      "brightly",
+      "calmly",
+      "cleverly",
+      "eagerly",
+      "firmly",
+      "gladly",
+      "gracefully",
+      "patiently",
+      "proudly",
+      "rapidly",
+      "safely",
+      "sincerely",
+      "tightly",
+      "warmly",
+      "willingly"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Fully of work.",
+   "So yes, it's\u2014 and to easily the truck Was parked.",
+   "So we tried to be a good neighbor We may worry in this situation and use or find ways to operate safely, sustainable, sustainable, and find like this decision, prefer to move the loads during the night.",
+   "Avenues for the facility of the people to move easily and smoothly.",
+   "So we try to be a good neighbor, good neighbor in this situation and use or find ways to operate safely, sustainable, sustainable, and find like this situation, prefer to move the load during the night.",
+   "Develop big avenues and for the facility of the people to move easily, to move faster.",
+   "It is highly likely.",
+   "It's highly likely."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.375,
+  "judge2_blind_spot_rate": 0.8
+ }
+]
+```

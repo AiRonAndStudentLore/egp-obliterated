@@ -1,0 +1,121 @@
+You are a formal linguistic compiler. Your job is to translate a slice of English Grammar Profile (EGP) can-do statements into deterministic parsing contracts for a transcript analysis engine.
+
+TASK:
+For each EGP descriptor provided in the JSON input below, output a compiled detector object adhering strictly to the JSON schema.
+
+RULES:
+1. OUTPUT FORMAT: Return a valid JSON array of objects ONLY. No commentary, no Markdown formatting around the output, no introductory text.
+2. DETECTION ENGINES:
+   - "regex_triage": A fast, single regex string targeting the core clause or phrase. Must handle optional intervening adverbs ((?:\s+[a-z]+ly)?) and contractions. Double-escape all backslashes (e.g., "\\b").
+   - "spacy_token_pattern": An array of token matching dictionaries compatible with spaCy's Matcher (using attributes: LOWER, POS, TAG, DEP, OP, IN).
+3. ONTOLOGY MAPPING:
+   - Map each item to one of the four cognitive domains: "TEMPORAL_ASPECT", "EPISTEMIC_STANCE", "DEONTIC_FORCE", or "ENTITY_TOPOLOGY".
+   - Assign the corresponding "mental_model" and "pedagogical_hook".
+4. UNIT TESTS:
+   - "positives": Provide 2 realistic spoken utterances that must trigger the detector.
+   - "negatives": Provide 2 distractor sentences containing identical keywords or similar surface forms that MUST NOT match (e.g., aspect confusion, homonyms, or distinct syntactic functions).
+5. SPACY POS-TAG QUIRKS (en_core_web_sm) — design around these, do not anchor on POS:
+   - Sentence-initial capitalised adverbs ("Actually", "Unfortunately", "Yesterday", "Today") get tagged PROPN, not ADV.
+   - Predicate uses of words that are normally ADV (e.g., "I'm well.", predicate ADJ) get tagged ADJ.
+   - "too" / "so" sometimes tag as DET or SCONJ in conjunction-like uses.
+   - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
+   - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
+
+OUTPUT SCHEMA FOR EACH OBJECT:
+{
+  "egp_id": "string",
+  "level": "string",
+  "super_category": "string",
+  "sub_category": "string",
+  "guideword": "string",
+  "can_do_statement": "string",
+  "ontology": {
+    "domain": "TEMPORAL_ASPECT | EPISTEMIC_STANCE | DEONTIC_FORCE | ENTITY_TOPOLOGY",
+    "mental_model": "string",
+    "pedagogical_hook": "string",
+    "agency_or_distance": "string"
+  },
+  "detection": {
+    "regex_triage": "string",
+    "spacy_token_pattern": [
+      { "ATTRIBUTE": "VALUE" }
+    ]
+  },
+  "unit_tests": {
+    "positives": ["string", "string"],
+    "negatives": ["string", "string"]
+  }
+}
+
+INPUT DATA:
+[
+  PASTE_10_TO_15_RAW_EGP_ENTRIES_HERE
+]
+
+## TASK
+Compile detection rules for the 5 EGP rows below.
+
+Create ONE file: `batches/jules_batch_160.json`
+- A JSON array with exactly 5 objects, input order preserved.
+- Each object = the input row (keep egp_id, level, super_category, sub_category, lexical_range, guideword, can_do_statement unchanged) PLUS:
+  - "detection": {"regex_triage": "<regex string>", "spacy_token_pattern": [<token dicts>]}
+  - "unit_tests": {"positives": [2 example sentences], "negatives": [2 near-miss sentences]}
+- Every regex_triage MUST compile with python re.compile — verify before committing. Every spacy_token_pattern must be a flat list of token dicts.
+- ABSOLUTE FILE SCOPE: your final change must be exactly ONE new file, `batches/jules_batch_160.json`. Do NOT create, modify, or delete any other file — not build_batch.py, gate.py, egp_compiled.json, README, or scratch scripts. If you write helper scripts during development, delete them so they never appear in the final diff.
+- Do NOT run build_batch.py, gate.py, or egpObliterationVerify.py.
+
+## ROWS
+```json
+[
+ {
+  "egp_id": "1741163706530x116599041764892110",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "lexical_range": "1",
+  "guideword": "FORM/USE: LIMITING ADJECTIVES",
+  "can_do_statement": "Can use a limited range of adjectives ('main', 'only') that limit the noun that they go before.",
+  "example_raw": "\u2026the main reason is that I am practising the language. (Mexico; A2 WAYSTAGE; 2002; Spanish - Latin American; Pass)\n\nBut the only thing that I didn't like was the weather. (Peru; A2 WAYSTAGE; 2009; Spanish - Latin American; Pass)"
+ },
+ {
+  "egp_id": "1741163706534x741393105415276700",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "lexical_range": "N/A",
+  "guideword": "FORM: WITH '-ST' ",
+  "can_do_statement": "Can form superlative adjectives using the suffix '-st' to adjectives ending in '\u2013e'.",
+  "example_raw": "I always watch the latest music videos from there. (Malaysia; A2 WAYSTAGE; 2010; Chinese; Pass)\n\nI like it because it's the largest. (Italy; A2 WAYSTAGE; 2004; Italian; Pass)\n\nBut the nicest thing at my party was my presents. (Brazil; A2 WAYSTAGE; 2004; Portuguese; Fail)"
+ },
+ {
+  "egp_id": "1741163706722x801643981135109000",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "1",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use a limited range of manner adverbs and adverb phrases to modify how something happens.",
+  "example_raw": "\u2026 both the players played well. (India; A2 WAYSTAGE; 2007; Tamil; Pass)\n\nYou must go straight, then turn left. (Italy; A2 WAYSTAGE; 2009; Italian; Pass)\n\nSome of them can swim very fast. (Malaysia; A2 WAYSTAGE; 2007; Chinese; Pass)\n\n[talking about a bike] It's very colourfull, and it goes very quickly. (France; A2 WAYSTAGE; 2004; French; Pass)"
+ },
+ {
+  "egp_id": "1741163706722x916354910575195800",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "2",
+  "guideword": "USE: FREQUENCY ",
+  "can_do_statement": "Can use an increasing range of adverbs ('usually', 'often', 'never', 'weekly') to talk about frequency.",
+  "example_raw": "People usually try to eat their breakfast between 7 and 9 am. (A2 Polish)\n\nI have to pay weekly or monthly? (A2 WAYSTAGE; 2009; Portuguese; Pass)\n\nI often go to the Shanghai Museum. (China; A2 WAYSTAGE; 2002; Chinese; Pass)\n\nYou never remember anything! (Spain; A2 WAYSTAGE; 2006; Catalan; Pass)"
+ },
+ {
+  "egp_id": "1741163706722x982743824597498400",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "lexical_range": "1",
+  "guideword": "USE: DEGREE, WITH ADJECTIVES",
+  "can_do_statement": "Can use a limited range of degree adverbs ('so', 'quite', 'too') to modify adjectives. ",
+  "example_raw": "I went to Vinpearland. It's so beautiful. (Vietnam; A2 WAYSTAGE; 2009; Vietnamese; Pass)\n\nIt was quite expensive, it cost \u00a3100. (Spain; A2 WAYSTAGE; 2007; Spanish - European; Pass)\n\nThe weather was too hot. (India; A2 WAYSTAGE; 2009; Tamil; Pass)"
+ }
+]
+```

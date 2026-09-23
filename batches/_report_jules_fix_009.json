@@ -1,0 +1,55 @@
+{
+ "batch": "batches/jules_fix_batch_009_full.json",
+ "cycles": 1,
+ "passed": 9,
+ "total": 9,
+ "auto_fixes": [],
+ "verify_ok": true,
+ "verdicts": [
+  {
+   "egp_id": "1741163706317x286016181282525020",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706317x294956758156726500",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706324x454596359825248060",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706324x779144564678598700",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706325x626199986587842000",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706327x129851131046565090",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706532x500431022156884600",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706724x414008667308469300",
+   "verdict": "passed",
+   "failures": []
+  },
+  {
+   "egp_id": "1741163706724x630956425733939100",
+   "verdict": "passed",
+   "failures": []
+  }
+ ]
+}

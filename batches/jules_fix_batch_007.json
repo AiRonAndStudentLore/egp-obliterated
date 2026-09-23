@@ -1,0 +1,540 @@
+[
+ {
+  "egp_id": "1741163706724x172374615365169500",
+  "level": "A2",
+  "super_category": "adverbs and adverb phrases",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: SEQUENCING",
+  "can_do_statement": "Can use a limited range of adverbs and adverb phrases ('first', 'then', 'after that') to order segments of discourse.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Ordering points in time or narrative sequence",
+   "pedagogical_hook": "Using discourse markers to structure a story or list",
+   "agency_or_distance": "Neutral observer"
+  },
+  "detection": {
+   "regex_triage": "(?i)^(?:(?:and|but|so|well|because)\\s+)?(?:first|then|after\\s+that)[\\s,]+(?:i|you|he|she|it|we|they|there)\\b",
+   "spacy_token_pattern": [
+    {
+     "IS_SENT_START": true,
+     "LOWER": {
+      "IN": [
+       "and",
+       "but",
+       "so",
+       "well",
+       "because"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "first",
+       "then",
+       "after"
+      ]
+     }
+    },
+    {
+     "LOWER": "that",
+     "OP": "?"
+    },
+    {
+     "IS_PUNCT": true,
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "i",
+       "you",
+       "he",
+       "she",
+       "it",
+       "we",
+       "they",
+       "there"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "First, I went to the mall.",
+    "And then, she started crying."
+   ],
+   "negatives": [
+    "I was the first person there.",
+    "First thing I do is sleep."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706534x910876285707473500",
+  "level": "A2",
+  "super_category": "adjectives",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH '-EST'",
+  "can_do_statement": "Can form superlative adjectives by adding the suffix '-est', to adjectives of one syllable.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Evaluating extremes on a scale",
+   "pedagogical_hook": "Identifying the absolute peak of a quality",
+   "agency_or_distance": "Objective assessment"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:the|my|your|his|her|our|their)\\s+(?!(?:test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)\\b|[a-z]*iest\\b)([a-z]+est)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "oldest",
+       "cheapest",
+       "fastest",
+       "tallest",
+       "coolest",
+       "strongest",
+       "highest",
+       "lowest",
+       "newest",
+       "richest",
+       "poorest",
+       "smartest",
+       "plainest",
+       "barest",
+       "clearest",
+       "hottest",
+       "biggest"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is the biggest company here.",
+    "He was my fastest runner."
+   ],
+   "negatives": [
+    "It is the most biggest city.",
+    "It is one of the 3 biggest cities."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708331x891503713311455000",
+  "level": "A2",
+  "super_category": "verbs",
+  "sub_category": "imperatives",
+  "guideword": "FORM/USE: NEGATIVE",
+  "can_do_statement": "Can form a negative imperative with the auxiliary verb 'do' + 'n't' + base form of a main verb, to give advice, instructions or orders.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Imposing a prohibition or restriction",
+   "pedagogical_hook": "Telling someone what not to do",
+   "agency_or_distance": "Direct control over another's actions"
+  },
+  "detection": {
+   "regex_triage": "(?i)^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\bDon't\\s+(?!(?:worry|panic|forget|hesitate|mind|freak|bother)\\b)(?:[a-z]+ly\\s+)?([a-z]+)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "do",
+     "IS_SENT_START": true
+    },
+    {
+     "LOWER": "n't"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": "VERB",
+     "TAG": "VB",
+     "LEMMA": {
+      "NOT_IN": [
+       "worry",
+       "panic",
+       "forget",
+       "hesitate",
+       "mind",
+       "freak",
+       "bother"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Don't touch that button.",
+    "Don't go there alone."
+   ],
+   "negatives": [
+    "Don't worry about it.",
+    "Don't mind me."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708331x357890058176217500",
+  "level": "A2",
+  "super_category": "verbs",
+  "sub_category": "imperatives",
+  "guideword": "USE: EMPHASISING AN INSTRUCTION",
+  "can_do_statement": "Can use negative imperative after an instruction, for emphasis.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Reinforcing a previously stated command",
+   "pedagogical_hook": "Adding weight to an instruction with a negated follow-up",
+   "agency_or_distance": "High direct control"
+  },
+  "detection": {
+   "regex_triage": "(?i)^(?!no\\b|don't\\b|yes\\b|yeah\\b|oh\\b).+[.,!]\\s*\\bdon't\\s+(?:forget|be\\s+late|worry|panic|hesitate|give\\s+up|miss\\s+it|tell\\s+anyone)\\b",
+   "spacy_token_pattern": [
+    {
+     "IS_SENT_START": true,
+     "POS": "VERB",
+     "TAG": "VB",
+     "LEMMA": {
+      "NOT_IN": [
+       "do"
+      ]
+     }
+    },
+    {
+     "OP": "*"
+    },
+    {
+     "IS_PUNCT": true
+    },
+    {
+     "LOWER": "do"
+    },
+    {
+     "LOWER": "n't"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "forget",
+       "be",
+       "worry",
+       "panic",
+       "hesitate",
+       "give",
+       "miss",
+       "tell"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Call me, don't forget.",
+    "Keep trying, don't give up."
+   ],
+   "negatives": [
+    "No, don't worry.",
+    "Don't give up, don't give up."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x446923325299920960",
+  "level": "A2",
+  "super_category": "adverbs and adverb phrases",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: LINKING",
+  "can_do_statement": "Can use a limited range of adverbs ('also', 'so', 'however') to show a relationship between two clauses or sentences.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Establishing logical connections between propositions",
+   "pedagogical_hook": "Linking ideas with consequence, addition, or contrast",
+   "agency_or_distance": "Logical structuring"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b[a-z]+\\b.*?[.,!]\\s+(?:and\\s+)?(also|so|however)\\s+(?:i|you|he|she|it|we|they|there|the|[a-z]+)\\b",
+   "spacy_token_pattern": [
+    {
+     "IS_PUNCT": true
+    },
+    {
+     "LOWER": "and",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "also",
+       "so",
+       "however"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "DET",
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I was tired, so I went to bed.",
+    "He likes cats, however John is allergic."
+   ],
+   "negatives": [
+    "He is so strong.",
+    "So I went to the store."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708331x843997098925344500",
+  "level": "A2",
+  "super_category": "verbs",
+  "sub_category": "imperatives",
+  "guideword": "FORM/USE: 'LET'S', SUGGESTION",
+  "can_do_statement": "Can use 'let's' + base form of a main verb, for first person plural imperatives to make a suggestion.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Proposing a joint action",
+   "pedagogical_hook": "Suggesting a collaborative activity",
+   "agency_or_distance": "Shared agency"
+  },
+  "detection": {
+   "regex_triage": "(?i)^(?:(?:yes|yeah|ok|okay|well|so|now|please|[a-z]+[,!])\\s+)?\\bLet's\\s+(?!(?:not|see|say|talk|start|take)\\b)(?:[a-z]+ly\\s+)?([a-z]+)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "let"
+    },
+    {
+     "LOWER": "'s"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": "VERB",
+     "TAG": "VB",
+     "LEMMA": {
+      "NOT_IN": [
+       "see",
+       "say",
+       "talk",
+       "start",
+       "take"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Yes, let's get a pizza tonight.",
+    "Let's play outside."
+   ],
+   "negatives": [
+    "Let's see what happens.",
+    "Let's talk about it."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708331x150409111220634050",
+  "level": "A2",
+  "super_category": "verbs",
+  "sub_category": "imperatives",
+  "guideword": "USE: INSTRUCTIONS",
+  "can_do_statement": "Can use the imperative to give instructions.",
+  "ontology": {
+   "domain": "DEONTIC_FORCE",
+   "mental_model": "Directing spatial or sequential actions",
+   "pedagogical_hook": "Giving step-by-step guidance",
+   "agency_or_distance": "Direct instruction"
+  },
+  "detection": {
+   "regex_triage": "(?i)^(?:(?:Please|[A-Z][a-z]+[,!])\\s+)?\\b(Take|Walk|Go|Turn|Cross)\\b\\s+(?:straight|left|right|past|down|up|the\\s+(?:first|second|street|road|corner))\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "take",
+       "walk",
+       "go",
+       "turn",
+       "cross"
+      ]
+     },
+     "IS_SENT_START": true
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "straight",
+       "left",
+       "right",
+       "past",
+       "down",
+       "up",
+       "the"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Turn left at the corner.",
+    "Go straight past the bank."
+   ],
+   "negatives": [
+    "Go wrong and then right.",
+    "Go to the prison."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706939x328491474615097540",
+  "level": "A2",
+  "super_category": "adverbs and adverb phrases",
+  "sub_category": "position",
+  "guideword": "FORM: DEGREE, END POSITION",
+  "can_do_statement": "Can use degree adverbs in end position.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "Scaling the intensity of an entire preceding clause",
+   "pedagogical_hook": "Putting 'a lot' or 'so much' at the very end to emphasize",
+   "agency_or_distance": "Subjective emphasis"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:a\\s+lot|a\\s+little|so\\s+much|quite\\s+a\\s+bit|too\\s+much|very\\s+much|enormously)\\s*(?:[.,?!:;]|\\s*$)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "lot",
+       "little",
+       "much",
+       "bit",
+       "enormously"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "of",
+       "in",
+       "to"
+      ]
+     },
+     "POS": {
+      "NOT_IN": [
+       "NOUN",
+       "ADJ"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "IS_PUNCT": true
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I like it a lot.",
+    "He helped me so much!"
+   ],
+   "negatives": [
+    "I have a lot of time.",
+    "She has so much money."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709001x134549933548144820",
+  "level": "A2",
+  "super_category": "pronouns",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THESE' POINTING||",
+  "can_do_statement": "Can use 'these' to refer to places and things from the speaker's or writer's point of view.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Deictic reference to multiple proximate physical entities",
+   "pedagogical_hook": "Pointing at things nearby with 'these'",
+   "agency_or_distance": "Immediate physical proximity"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bthese\\s+(?:[a-z]+\\s+){0,2}(?:things|places|books|shoes|clothes|pictures|keys|bags|boxes|sacks|cars|plants|animals|people|guys|kids|children)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "these",
+     "DEP": "det"
+    },
+    {
+     "POS": "ADJ",
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "things",
+       "places",
+       "books",
+       "shoes",
+       "clothes",
+       "pictures",
+       "keys",
+       "bags",
+       "boxes",
+       "sacks",
+       "cars",
+       "plants",
+       "animals",
+       "people",
+       "guys",
+       "kids",
+       "children"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Look at these old shoes.",
+    "These beautiful places are nice."
+   ],
+   "negatives": [
+    "I hate these new rules.",
+    "These topics are hard."
+   ]
+  }
+ }
+]

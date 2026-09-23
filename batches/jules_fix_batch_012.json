@@ -1,0 +1,420 @@
+[
+ {
+  "egp_id": "1741163706325x685158058775323900",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:am|is|are|was|were|been|look|looks|looked|seem|seems|seemed)\\s+(?:[a-z]+\\s+)*a\\s+lot\\s+(?:(?:more|less)\\s+)?[a-z]+(?:er|est|orse|etter)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "LOWER": "a"
+    },
+    {
+     "LOWER": "lot"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "more",
+       "less"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJR",
+       "RBR"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The new design looks a lot better than the old one.",
+    "It is a lot cheaper to buy it online."
+   ],
+   "negatives": [
+    "Yeah, a lot better.",
+    "A lot more people are here."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706317x691908853350257800",
+  "detection": {
+   "regex_triage": "(?i)\\b[a-z]+\\s+(?:[a-z]+ly\\s+)?(?:made|sent|written|built|covered|filled|broken|full)\\s+(?:of|with|by|in|on|from)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "NOUN"
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "VERB"
+      ]
+     },
+     "DEP": {
+      "IN": [
+       "amod",
+       "acl"
+      ]
+     }
+    },
+    {
+     "POS": "ADP"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I ate a cake completely made of chocolate.",
+    "He found a box full of toys."
+   ],
+   "negatives": [
+    "The company was making maintenance.",
+    "The empty box was there."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706318x964351339627643300",
+  "detection": {
+   "regex_triage": "(?i)\\b[a-z]{3,}-[a-z]{3,}\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "ADV",
+       "ADJ",
+       "NOUN",
+       "VERB"
+      ]
+     },
+     "IS_LOWER": true,
+     "IS_ALPHA": true,
+     "LENGTH": {
+      ">=": 3
+     }
+    },
+    {
+     "ORTH": "-"
+    },
+    {
+     "POS": {
+      "IN": [
+       "ADJ",
+       "VERB",
+       "NOUN",
+       "ADV"
+      ]
+     },
+     "IS_LOWER": true,
+     "IS_ALPHA": true,
+     "LENGTH": {
+      ">=": 3
+     }
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She is a very open-minded person.",
+    "That was a jaw-dropping performance."
+   ],
+   "negatives": [
+    "He has an X-ray scan.",
+    "T-shirt sizes are listed online."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x546695627596920800",
+  "detection": {
+   "regex_triage": "^(?:[A-Z][a-z]+,\\s+)?(?:Simply|Truly|Surely|Apparently|Naturally|Surprisingly|Inevitably|Undoubtedly|Admittedly|Evidently|Presumably|Reportedly|Obviously|Undoubtably),\\s+",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "simply",
+       "truly",
+       "surely",
+       "apparently",
+       "naturally",
+       "surprisingly",
+       "inevitably",
+       "undoubtedly",
+       "admittedly",
+       "evidently",
+       "presumably",
+       "reportedly",
+       "obviously",
+       "undoubtably"
+      ]
+     },
+     "IS_SENT_START": true
+    },
+    {
+     "ORTH": ","
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Obviously, if we produce more, we can sell more.",
+    "Surprisingly, the weather was quite nice today."
+   ],
+   "negatives": [
+    "And obviously it needs a lot of people.",
+    "The answer is obviously incorrect."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x433078299562880800",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:problem|issue|point|plan|product|report|result|test|topic|section|chapter|page|part|student|car|house|room|table|door|window|wall|floor)s?\\s+(?:shown|seen|discussed|introduced|written|chosen|required|considered|accepted|approved|published|received|recorded|presented|suggested|supported|broken|completed|covered|created|developed|selected|reviewed|addressed|adopted|classified|confirmed|defined|derived|divided|illustrated|implemented|observed|organized|produced|protected|related|replaced|reserved|separated)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "NOUN"
+    },
+    {
+     "TAG": "VBN",
+     "DEP": "acl"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The topics discussed were very interesting.",
+    "I read the report published yesterday."
+   ],
+   "negatives": [
+    "This week we received a part of a machine.",
+    "The world is divided between the two nations."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x513193449618973840",
+  "detection": {
+   "regex_triage": "(?i)\\bthe\\s+(?:most\\s+)?[a-z]+(?:est|st|er)\\s+(?:possible|imaginable|conceivable|ever|available)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "most",
+     "OP": "?"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJS",
+       "RBS",
+       "JJ"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "possible",
+       "imaginable",
+       "conceivable",
+       "ever",
+       "available"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is the best possible way to solve the problem.",
+    "This was the highest ever temperature recorded."
+   ],
+   "negatives": [
+    "Because of the possible outcomes, we decided to wait.",
+    "The worst is that we have no choice."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706530x601825192696361100",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:absolutely|extremely|incredibly|totally)\\s+(?:sure|difficult|fast|new|important|different|amazing|impossible|clear|huge|normal|happy)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "absolutely",
+       "extremely",
+       "incredibly",
+       "totally"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ",
+     "DEP": {
+      "IN": [
+       "acomp",
+       "amod"
+      ]
+     },
+     "LOWER": {
+      "NOT_IN": [
+       "online",
+       "useless",
+       "right"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The test was extremely difficult.",
+    "She bought a totally different dress."
+   ],
+   "negatives": [
+    "In our classes, homework is totally online.",
+    "It is totally useless."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708335x472053466237699840",
+  "detection": {
+   "regex_triage": "^(?:Please\\s+)?(?!And\\b)[A-Z][a-z]+\\s+(?:[a-z]+\\s+){0,5}and\\s+(?:you|I|we|they)\\b(?:'ll|'re|'d|\\s+will|\\s+wo)",
+   "spacy_token_pattern": [
+    {
+     "TAG": "VB",
+     "DEP": "ROOT"
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "and",
+       ".",
+       "?",
+       "!"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": "and"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "i",
+       "we",
+       "they",
+       "he",
+       "she",
+       "it"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "'ll",
+       "will",
+       "wo"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Send me the PDF and I will get it.",
+    "Do it and you will see the results."
+   ],
+   "negatives": [
+    "And and and they're thirty.",
+    "Yeah, so they will and they're trolling."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x756237515197119700",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:completely|absolutely|extremely|totally|highly|deeply|utterly|thoroughly|perfectly|rather|quite|fairly|somewhat|remarkably)\\s+(?:normal|successful|good|bad|different|sure|certain|impossible|clear|new|true|false|wrong|right|important|likely|unlikely|aware)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "completely",
+       "absolutely",
+       "extremely",
+       "totally",
+       "highly",
+       "deeply",
+       "utterly",
+       "thoroughly",
+       "perfectly",
+       "rather",
+       "quite",
+       "fairly",
+       "somewhat",
+       "remarkably"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ",
+     "DEP": {
+      "IN": [
+       "amod",
+       "acomp"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The outcome is highly likely.",
+    "He is a thoroughly good man."
+   ],
+   "negatives": [
+    "Maybe totally 15 days.",
+    "I would rather not go there."
+   ]
+  }
+ }
+]

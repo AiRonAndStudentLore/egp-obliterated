@@ -1,0 +1,355 @@
+[
+ {
+  "egp_id": "1741163708998x292634198326936960",
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:information|advice|weather|news|furniture|equipment|luggage|baggage|homework|traffic|money|knowledge|music|water|milk|coffee|tea|bread|rice|sugar|cheese|meat|fun|progress|research|evidence|luck)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this",
+     "DEP": "det"
+    },
+    {
+     "OP": "*",
+     "POS": {
+      "IN": [
+       "ADJ",
+       "NUM"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "information",
+       "advice",
+       "weather",
+       "news",
+       "furniture",
+       "equipment",
+       "luggage",
+       "baggage",
+       "homework",
+       "traffic",
+       "money",
+       "knowledge",
+       "music",
+       "water",
+       "milk",
+       "coffee",
+       "tea",
+       "bread",
+       "rice",
+       "sugar",
+       "cheese",
+       "meat",
+       "fun",
+       "progress",
+       "research",
+       "evidence",
+       "luck"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I need this information right now.",
+    "This luggage is very heavy."
+   ],
+   "negatives": [
+    "This topic is interesting.",
+    "This block is very hard."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709000x205393325500403900",
+  "detection": {
+   "regex_triage": "\\bthese\\s+(?:[a-z]+\\s+)?[a-z]{2,}s\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "these",
+     "DEP": "det"
+    },
+    {
+     "OP": "*",
+     "POS": "ADJ"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "NNS",
+       "NNPS"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "These conversations are always helpful.",
+    "I love these beautiful flowers."
+   ],
+   "negatives": [
+    "These are my favorite books.",
+    "All these for Mexico."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708999x278889696769958800",
+  "detection": {
+   "regex_triage": "\\b([a-z]{4,})\\b.{1,100}?\\bthis\\s+\\1\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this",
+     "DEP": "det"
+    },
+    {
+     "OP": "*",
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I bought a new dress, and this dress is amazing.",
+    "We have a serious problem. How do we solve this problem?"
+   ],
+   "negatives": [
+    "A dress is not this expensive.",
+    "The problem with this is clear."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708999x197534813538877700",
+  "detection": {
+   "regex_triage": "\\bthat\\s+(?!is\\b|are\\b|was\\b|were\\b|will\\b|would\\b|can\\b|could\\b|has\\b|have\\b|had\\b|makes\\b|helped\\b|come\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "that",
+     "DEP": "det"
+    },
+    {
+     "OP": "*",
+     "POS": "ADJ"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "NN",
+       "NNP"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I read that book yesterday.",
+    "That tutor was very helpful to me."
+   ],
+   "negatives": [
+    "Things that helped me a lot.",
+    "I think that makes perfect sense."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706317x616093618641182500",
+  "detection": {
+   "regex_triage": "\\b([a-z]+er|worse|better)\\s+and\\s+(?!\\1\\b)(?:[a-z]+er|worse|better)\\b",
+   "spacy_token_pattern": [
+    {
+     "TAG": {
+      "IN": [
+       "JJR",
+       "JJ"
+      ]
+     },
+     "LOWER": {
+      "REGEX": "^(better|worse|[a-z]+er)$"
+     }
+    },
+    {
+     "LOWER": "and"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJR",
+       "JJ"
+      ]
+     },
+     "LOWER": {
+      "REGEX": "^(better|worse|[a-z]+er)$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Computers are getting cheaper and better.",
+    "The weather is warmer and nicer today."
+   ],
+   "negatives": [
+    "It is cheaper, and the quality is better.",
+    "The weather is hot and humid."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706327x526332173403099460",
+  "detection": {
+   "regex_triage": "(?:is|are|was|were|am|be)\\s+(?:not\\s+)?(big|good|old|young|strong|tall|warm|safe|clear|hard|easy)\\s+enough(?:\\s+(?:to|for|because)|\\s*[.,!?]|$)",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "enough",
+     "DEP": "advmod"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The house is big enough for us.",
+    "My coffee is not strong enough."
+   ],
+   "negatives": [
+    "Enough has been said about it.",
+    "We have enough big boxes."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706317x556163615013575200",
+  "detection": {
+   "regex_triage": "\\b(?:good-looking|well-known|old-fashioned|hard-working|open-minded|high-quality|high-tech|part-time|full-time)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "good",
+       "well",
+       "old",
+       "hard",
+       "open",
+       "high",
+       "part",
+       "full"
+      ]
+     }
+    },
+    {
+     "ORTH": "-"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "looking",
+       "known",
+       "fashioned",
+       "working",
+       "minded",
+       "quality",
+       "tech",
+       "time"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He is a very good-looking man.",
+    "She is a well-known writer."
+   ],
+   "negatives": [
+    "I am watching Spider-Man.",
+    "We need high performance."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706317x456519880167863600",
+  "detection": {
+   "regex_triage": "\\b(big|small|old|new|good|bad|beautiful|ugly|long|short|nice|quiet),\\s+(big|small|old|new|good|bad|beautiful|ugly|long|short|nice|quiet)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ",
+     "DEP": "amod"
+    },
+    {
+     "ORTH": ","
+    },
+    {
+     "POS": "ADJ",
+     "DEP": "amod"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is a small, quiet town.",
+    "She has a beautiful, old house."
+   ],
+   "negatives": [
+    "Hello, Aaron, nice to meet you.",
+    "It was a small issue, bad for us."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706324x315119491769305400",
+  "detection": {
+   "regex_triage": "\\b([a-z]+er|worse|better)\\s+and\\s+\\1\\b",
+   "spacy_token_pattern": [
+    {
+     "TAG": {
+      "IN": [
+       "JJR",
+       "JJ"
+      ]
+     },
+     "LOWER": {
+      "REGEX": "^(better|worse|[a-z]+er)$"
+     }
+    },
+    {
+     "LOWER": "and"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJR",
+       "JJ"
+      ]
+     },
+     "LOWER": {
+      "REGEX": "^(better|worse|[a-z]+er)$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The weather is getting hotter and hotter.",
+    "My English is becoming better and better."
+   ],
+   "negatives": [
+    "It was growing and growing.",
+    "We bought tons and tons of it."
+   ]
+  }
+ }
+]

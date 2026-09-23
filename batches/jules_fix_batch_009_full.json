@@ -1,0 +1,598 @@
+[
+ {
+  "egp_id": "1741163706317x286016181282525020",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING MORE THAN TWO ADJECTIVES ",
+  "can_do_statement": "Can use commas and 'and' to join more than two adjectives, after 'be'.",
+  "ontology": {
+   "agency_or_distance": "enumerative description",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "list of attributes closed by and",
+   "pedagogical_hook": "list them, then close the list"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:is|are|was|were|am|'s|'re|'m)\\b[^.]*?(?<!\\ba\\s)(?<!\\ban\\s)(?<!\\bthe\\s)[a-z]+\\s*,\\s*(?:[a-z]+\\s*,\\s*)*[a-z]+\\s+and\\s+[a-z]+(?!\\s+[a-z]+\\b)(?=\\s*[.,]|$)",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "OP": "*",
+     "POS": "ADV"
+    },
+    {
+     "POS": "ADJ",
+     "DEP": "acomp"
+    },
+    {
+     "ORTH": ","
+    },
+    {
+     "OP": "*",
+     "POS": "ADJ"
+    },
+    {
+     "OP": "*",
+     "ORTH": ","
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "and"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The car is big, fast and beautiful.",
+    "They are very smart, funny and kind."
+   ],
+   "negatives": [
+    "The car is big and fast.",
+    "There is a big, fast and beautiful car."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706317x294956758156726500",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING THE SAME COMPARATIVE ADJECTIVE WITH 'AND'",
+  "can_do_statement": "Can use 'and' to repeat a comparative adjective to indicate change over time, usually after 'become' or get. \u25ba adjectives: comparatives",
+  "ontology": {
+   "agency_or_distance": "temporal drift of a property",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "same scale intensifying over time",
+   "pedagogical_hook": "the change keeps changing"
+  },
+  "detection": {
+   "regex_triage": "\\b([a-z]+er|worse|better|l\\u0065ss|more)\\s+and\\s+\\1\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "REGEX": ".*er$|worse|better"
+     },
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "and"
+    },
+    {
+     "LOWER": {
+      "REGEX": ".*er$|worse|better"
+     },
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The weather became hotter and hotter.",
+    "They are getting better and better."
+   ],
+   "negatives": [
+    "The city was growing and growing.",
+    "I was taking vitamins and this and this."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706324x779144564678598700",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH 'A (LITTLE) BIT' ",
+  "can_do_statement": "Can use 'a (little) bit' to modify comparative adjectives used predicatively after a verb, usually 'be'.",
+  "ontology": {
+   "agency_or_distance": "hedged scale gap",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "a bit narrows the distance between scale points",
+   "pedagogical_hook": "shrink the gap politely"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:is|are|was|were|am|'s|'re|'m|be|been)\\b[^.]*?\\ba\\s+(?:little\\s+)?bit\\s+(?:smaller|older|bigger|better|cheaper|younger|hotter|easier)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "OP": "*",
+     "POS": {
+      "IN": [
+       "PRON",
+       "DET"
+      ]
+     }
+    },
+    {
+     "LOWER": "a"
+    },
+    {
+     "LOWER": "little",
+     "OP": "?"
+    },
+    {
+     "LOWER": "bit"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "smaller",
+       "older",
+       "bigger",
+       "better",
+       "cheaper",
+       "younger",
+       "hotter",
+       "easier"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is a bit bigger now.",
+    "The room was a little bit better."
+   ],
+   "negatives": [
+    "Yeah, can you make it a bit bigger?",
+    "He spoke a bit faster."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706327x129851131046565090",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH 'TOO' + 'TO'-INFINITIVE ",
+  "can_do_statement": "Can use 'too' before adjectives followed by 'to'-infinitive.",
+  "ontology": {
+   "agency_or_distance": "blocked action from excess",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "excess degree slams the door on the action",
+   "pedagogical_hook": "too much, so it can't happen"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:is|are|was|were|am|'s|'re|'m|be)\\b[^.]*?\\btoo\\s+(?:busy|old|young|small|big|tired|sick|late|difficult|expensive)\\s+to\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "OP": "*",
+     "POS": "ADV"
+    },
+    {
+     "LOWER": "too"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "busy",
+       "old",
+       "young",
+       "small",
+       "big",
+       "tired",
+       "sick",
+       "late",
+       "difficult",
+       "expensive"
+      ]
+     },
+     "DEP": "acomp"
+    },
+    {
+     "TAG": "TO"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He is too young to drive.",
+    "The car was too expensive to buy."
+   ],
+   "negatives": [
+    "It was too long to read.",
+    "It is too dangerous to release."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706325x626199986587842000",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH 'EVEN'",
+  "can_do_statement": "Can use 'even' to modify and intensify comparative adjectives used predicatively after a verb, usually 'be' and 'get'.",
+  "ontology": {
+   "agency_or_distance": "escalated scale gap",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "even pushes an already high point higher",
+   "pedagogical_hook": "climb one rung more"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:is|are|was|were|am|'s|'re|'m|be|get|gets|got|getting)\\b[^.]*?\\beven\\s+(?:more\\s+)?(?:better|bigger|hotter|older|cheaper|smaller|worse|easier)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": {
+      "IN": [
+       "be",
+       "get"
+      ]
+     }
+    },
+    {
+     "OP": "*",
+     "POS": {
+      "IN": [
+       "ADV",
+       "PRON"
+      ]
+     }
+    },
+    {
+     "LOWER": "even"
+    },
+    {
+     "LOWER": "more",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "better",
+       "bigger",
+       "hotter",
+       "older",
+       "cheaper",
+       "smaller",
+       "worse",
+       "easier"
+      ]
+     },
+     "DEP": "acomp"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is even better today.",
+    "The weather got even hotter."
+   ],
+   "negatives": [
+    "They just have even better players.",
+    "We have even cheaper prices."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706324x454596359825248060",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH '(SO) MUCH' ",
+  "can_do_statement": "Can use '(so) much' to modify and intensify comparative adjectives used predicatively after a verb, usually 'be'. ",
+  "ontology": {
+   "agency_or_distance": "intensified scale gap",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "much stretches the distance between two scale points",
+   "pedagogical_hook": "widen the gap"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:is|are|was|were|am|'s|'re|'m|be)\\b[^.]*?\\b(?:so\\s+)?much\\s+(?:better|bigger|easier|worse|cheaper|older|hotter|nicer)(?!\\s+(?:player|players|car|cars|person|people|thing|things)\\b)",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "be"
+    },
+    {
+     "OP": "*",
+     "POS": {
+      "IN": [
+       "ADV",
+       "PRON"
+      ]
+     }
+    },
+    {
+     "LOWER": "so",
+     "OP": "?"
+    },
+    {
+     "LOWER": "much"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "better",
+       "bigger",
+       "easier",
+       "worse",
+       "cheaper",
+       "older",
+       "hotter",
+       "nicer"
+      ]
+     },
+     "DEP": "acomp"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is much better now.",
+    "The car was so much bigger."
+   ],
+   "negatives": [
+    "I remember they were much better players.",
+    "He runs much better today."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x500431022156884600",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM: WITH 'MAKE' AS OBJECT COMPLEMENT",
+  "can_do_statement": "Can use adjectives as object complement after 'make'.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "RESULT_STATE_NAMING",
+   "pedagogical_hook": "make + object + adjective \u2014 name the result state of the action on the entity",
+   "agency_or_distance": "speaker attributes the resulting state to a caused entity"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:make|makes|made)\\b(?:\\s+(?:the|a|an|me|you|him|her|it|us|them))?(?:\\s+[a-z]+){0,2}\\s+(?:happy|sad|angry|tired|hungry|rich|famous|strong|weak|sick|well|ill|clear|easy|hard|difficult|popular|late|early|beautiful|interesting|wonderful|clean|dirty|quiet|loud)\\b",
+   "spacy_token_pattern": [
+    {
+     "LEMMA": "make"
+    },
+    {
+     "POS": {
+      "IN": [
+       "DET",
+       "PRON"
+      ]
+     },
+     "OP": "?"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN",
+       "ADJ"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PRON",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "happy",
+       "sad",
+       "angry",
+       "tired",
+       "hungry",
+       "rich",
+       "famous",
+       "strong",
+       "weak",
+       "sick",
+       "well",
+       "ill",
+       "clear",
+       "easy",
+       "hard",
+       "difficult",
+       "popular",
+       "late",
+       "early",
+       "beautiful",
+       "interesting",
+       "wonderful",
+       "clean",
+       "dirty",
+       "quiet",
+       "loud"
+      ]
+     },
+     "DEP": {
+      "IN": [
+       "ccomp",
+       "oprd",
+       "xcomp",
+       "acomp"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It makes me happy.",
+    "She made the room clean."
+   ],
+   "negatives": [
+    "I make a fast read.",
+    "We make some viral videos."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x630956425733939100",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: PLACE",
+  "can_do_statement": "Can use an increasing range of adverbs and adverb phrases ('near', 'far away', 'upstairs', 'downstairs') to indicate place. ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "LOCATIVE_STAGING",
+   "pedagogical_hook": "near / far away / upstairs / downstairs \u2014 place the event on the spatial stage",
+   "agency_or_distance": "speaker positions entities in shared physical space"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:nearby|upstairs|downstairs|abroad|far\\s+away)\\b|(?<!\\b(?:most|more)\\s)\\bnear\\b(?!\\s+(?:the|my|your|his|her|our|their|a|an|some)\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "nearby",
+       "upstairs",
+       "downstairs",
+       "abroad",
+       "far",
+       "near"
+      ]
+     },
+     "POS": "ADV"
+    },
+    {
+     "LOWER": "away",
+     "POS": "ADV",
+     "OP": "?"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "They are upstairs.",
+    "She lives far away."
+   ],
+   "negatives": [
+    "I live near the station.",
+    "There was a factory near my born town."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x414008667308469300",
+  "level": "B1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use an increasing range of manner adverbs and adverb phrases to modify how something happens.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "DENSE_MANNER_QUALIFICATION",
+   "pedagogical_hook": "carefully / gradually / properly \u2014 wider texture palette for the verb's HOW",
+   "agency_or_distance": "speaker expands the texture vocabulary of the action"
+  },
+  "detection": {
+   "regex_triage": "(?<!\\bis\\s)(?<!\\bare\\s)(?<!\\bwas\\s)(?<!\\bwere\\s)(?<!\\bbe\\s)(?<!\\bam\\s)\\b(?:carefully|slowly|quickly|gently|softly|smoothly|gradually|seriously|properly|fully|entirely|completely|deeply|highly|widely|badly|terribly|beautifully|easily|freely|brightly|calmly|cleverly|eagerly|firmly|gladly|gracefully|patiently|proudly|rapidly|safely|sincerely|tightly|warmly|willingly)\\b(?!\\s+(?:likely|unlikely|probable|possible|of)\\b)",
+   "spacy_token_pattern": [
+    {
+     "POS": "VERB"
+    },
+    {
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PRON",
+       "DET",
+       "ADP",
+       "ADJ"
+      ]
+     },
+     "OP": "*"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "carefully",
+       "slowly",
+       "quickly",
+       "gently",
+       "softly",
+       "smoothly",
+       "gradually",
+       "seriously",
+       "properly",
+       "fully",
+       "entirely",
+       "completely",
+       "deeply",
+       "highly",
+       "widely",
+       "badly",
+       "terribly",
+       "beautifully",
+       "easily",
+       "freely",
+       "brightly",
+       "calmly",
+       "cleverly",
+       "eagerly",
+       "firmly",
+       "gladly",
+       "gracefully",
+       "patiently",
+       "proudly",
+       "rapidly",
+       "safely",
+       "sincerely",
+       "tightly",
+       "warmly",
+       "willingly"
+      ]
+     },
+     "DEP": "advmod"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She walked slowly.",
+    "Find ways to operate safely."
+   ],
+   "negatives": [
+    "Fully of work.",
+    "It is highly likely."
+   ]
+  }
+ }
+]

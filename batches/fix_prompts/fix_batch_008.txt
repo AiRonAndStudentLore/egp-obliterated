@@ -1,0 +1,388 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_008.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163708998x292634198326936960",
+  "level": "A2",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THIS' WITH UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use 'this' with uncountable nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "current_regex_triage": "\\bthis\\s+(?:information|food|music|advice|help|water|milk|rice|bread|money|time|fun|work|research|knowledge|news|progress|equipment|furniture|homework|luggage|traffic|imagination|patience|intelligence|love|happiness|anger|courage|freedom|experience|evidence|data|behaviour|behavior|information)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "this",
+    "DEP": "det"
+   },
+   {
+    "OP": "?",
+    "POS": "ADJ"
+   },
+   {
+    "OP": "?",
+    "POS": "ADV"
+   },
+   {
+    "DEP": {
+     "IN": [
+      "pobj",
+      "attr",
+      "dobj",
+      "nsubj"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "So in this situation is where I have to keep my English really in a good way.",
+   "Easier understand this accent than London accent is.",
+   "Yeah, usually, um, make some viral videos about this topic.",
+   "I, I will work a lot to not have this type of conversations, but sometimes it happens.",
+   "Yeah, your partner maybe is important because you need to join, join force, forces to, to achieve this This goal, maybe sometimes some goals you can alone achievement\u2014 achieve them.",
+   "and in my actual position, maybe don't have this kind of situation, but I have to\u2014 I have all the responsibility of the operation.",
+   "And I think we\u2014 they use the high-performance cement for this type of constructions.",
+   "Yeah, these are some tests we made in the, in the lab of the factory and we analyzed how much force we can put through this block without it having a crack."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163709000x205393325500403900",
+  "level": "A2",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THESE' ",
+  "can_do_statement": "Can use 'these' with plural nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative ",
+  "current_regex_triage": "\\bthese\\s+\\w+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "these",
+    "DEP": "det"
+   },
+   {
+    "OP": "?",
+    "POS": "ADJ"
+   },
+   {
+    "OP": "?",
+    "POS": "ADV"
+   },
+   {
+    "DEP": {
+     "IN": [
+      "pobj",
+      "attr",
+      "dobj",
+      "nsubj"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "And these conversations usually are in English.",
+   "And I think I, I feel more comfortable with these topics, but, but the reality is I need to improve my speaking abilities in any topic I, I want.",
+   "Yeah, these are some tests we made in the, in the lab of the factory and we analyzed how much force we can put through this block without it having a crack.",
+   "Mexico is Mexican\u2014 I don't know, Mexican accreditation entity, but these rules are aligned with the ASTM, for example.",
+   "I think, uh, I, I, in my weekly agenda, this normally these hours are, uh, are easier to me to schedule.",
+   "In his stories, normally I eat a patata, I throw these small sacks.",
+   "Because Guadalajara is\u2014 yes, for my plant is all these for Mexico.",
+   "I think these both are, are my main focus."
+  ],
+  "judge1_false_positive_rate": 0.375,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.375,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163708999x278889696769958800",
+  "level": "A2",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'this' to refer to something with immediate relevance which has already been mentioned. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "current_regex_triage": "\\bthis\\s+(?:problem|dress|house)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "this"
+   },
+   {
+    "POS": {
+     "IN": [
+      "ADJ",
+      "DET",
+      "ADV"
+     ]
+    },
+    "OP": "*"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "problem",
+      "dress",
+      "house"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "It's, it's\u2014 I've read about other people having this problem.",
+   "Like, there are, there are people, and you know, it's this problem becomes with another problem, you know.",
+   "No, we don't have this problem.",
+   "And depending if the house is in the middle of the incidental area, yes, I think yes, they can refuse insurance or bring coverage for this house.",
+   "Okay, when you go to the file for this house or this person, you can see that things are changed.",
+   "Masz\u0142o, for this problem?",
+   "Or maybe in some of the cases when they\u2014 this house are ready for sale, they, uh, made the sale through the, uh, subasta.",
+   "Because, you know, in this problem, in this issue, I think that we don't have the problem."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 0.8
+ },
+ {
+  "egp_id": "1741163708999x197534813538877700",
+  "level": "A2",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THAT'",
+  "can_do_statement": "Can use 'that' with singular nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "current_regex_triage": "\\bthat\\s+\\w+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "that",
+    "DEP": "det"
+   },
+   {
+    "OP": "?",
+    "POS": "ADJ"
+   },
+   {
+    "OP": "?",
+    "POS": "ADV"
+   },
+   {
+    "DEP": {
+     "IN": [
+      "pobj",
+      "attr",
+      "dobj",
+      "nsubj"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think, I, I think one of my improvers, I don't know, Improvers, things you improve, maybe things that helped me to improve was my last tutor.",
+   "And I think it was one of the things that helped me to improve.",
+   "But for other reasons, I left this\u2014 that tutor.",
+   "There's some situations that are not in your hands or in your leadership and it happens, you, you need to use some special words or special sentences to, to share the situation, the whole situation.",
+   "Okay, that makes sense.",
+   "We program supercars and other people needed to receive the load at that time.",
+   "So much of that come from some, I don't know, some mines, Paris, or Paris, like 2 hours apart from Nepal.",
+   "Monterrey has the opportunity but has another political situation that always stops so many projects."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706317x616093618641182500",
+  "level": "B1",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING COMPARATIVE ADJECTIVES WITH 'AND'",
+  "can_do_statement": "Can use 'and' to join a limited range of comparative adjectives.\u25ba adjectives: comparatives",
+  "current_regex_triage": "\\b\\w+er\\s+and\\s+\\w+er\\b",
+  "current_spacy_token_pattern": [
+   {
+    "POS": "ADJ"
+   },
+   {
+    "LOWER": "and"
+   },
+   {
+    "POS": {
+     "IN": [
+      "ADJ",
+      "ADV"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "It is very interesting when you have to explain something good and high efficiency or a safety record.",
+   "Yes, and there are a lot of famous and important places inside the Vatican.",
+   "Ah, no, this is other one who change like a metal and be strong and hard.",
+   "Obviously the kiln, it has an impact, a direct impact of the flame, expand strange and maybe\u2014 and could have a strange movement when he is\u2014 when it is turning.",
+   "Normally this temperature is calculated with the power fuel consumption and the heat power and other variables, but in the, in the In the calc\u2014 the temperature we calculate is more than 5,000 Kelvin, or I don't know, it's really, really high.",
+   "It's a structured city, and the downtown is beautiful and very colonial.",
+   "It's just I went to\u2014 for, um, for accompany my mother because my, my grandma was sick and just for share with, share with them and do something she need of me.",
+   "So he went to preschool and obviously he, he couldn't speak."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706327x526332173403099460",
+  "level": "B1",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH 'ENOUGH' ",
+  "can_do_statement": "Can use 'enough' to modify adjectives. ",
+  "current_regex_triage": "\\b(big|good|old|young|strong|fast|tall|warm|safe|clear)\\s+enough\\b",
+  "current_spacy_token_pattern": [
+   {
+    "POS": "ADJ"
+   },
+   {
+    "LOWER": "enough"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Uh, yeah, we, we, we work with different companies from mostly the USA, so when, when I have to speak with people that it's like their, their language, I feel like I'm not good enough to Yeah.",
+   "So I like it a lot, but I have like this part sometimes telling me, oh, if you are not good enough, because she's telling you all these kind of things.",
+   "Well, What would prevent\u2014 What would be a strong enough fear that you would, would prevent someone from doing that, do you think?",
+   "No, no, no, no, the, the future of the cities, the Slow living, good enough, or the gig economy, freedom, or economy, the gig.",
+   "I can learn any language good enough in 3 months.",
+   "Um, and I didn't get too good, so, right, so I wasn't jumping quite high enough.",
+   "I just\u2014 because the doctor always tell me, oh no, you can't use the, the contacts because you use a lot the, the phone and your laptop and you see a lot of screen, uh, and your, your prescription is not an mush us, or no, not tall enough, or something like that.",
+   "I just, because the doctor always tell me, oh no, you can't use the, the contacts because you use a lot the, the phone and your laptop and you see a lot of screen, uh, and your, your prescription is not an mush us, or no, not tall enough, or something like that."
+  ],
+  "judge1_false_positive_rate": 0.125,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706317x556163615013575200",
+  "level": "B1",
+  "sub_category": "combining",
+  "guideword": "FORM: COMPOUND ADJECTIVES",
+  "can_do_statement": "Can use a limited range of compound adjectives ('good-looking', 'well-known') ",
+  "current_regex_triage": "\\b[a-z]+-[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "IS_ALPHA": true
+   },
+   {
+    "ORTH": "-"
+   },
+   {
+    "IS_ALPHA": true
+   }
+  ],
+  "sentences_rule_matched": [
+   "Yes, I, I think the pure cement or the high-quality cement is for bridges, high buildings, maybe, um, I, I don't know, the presas, hydroelectric, hydroelectric.",
+   "And I think we\u2014 they use the high-performance cement for this type of constructions.",
+   "This is for the neighbors who are around this zone going inside the city, and this is the way the people who live in this zone move to the Wadi al-Hara center.",
+   "So, but I\u2014 Mm-hmm.",
+   "To watch Spider-Man.",
+   "No, no, no, Spider-Man versus like, uh, it's like a lagarto.",
+   "Yes, but I think this Spider-Man is an additional movie of Avengers.",
+   "It's the same Spider-Man."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706317x456519880167863600",
+  "level": "B1",
+  "sub_category": "combining",
+  "guideword": "FORM: BEFORE THE NOUN",
+  "can_do_statement": "Can use a comma to combine two adjectives used before the noun, following the usual order of adjective types.",
+  "current_regex_triage": "\\b[a-z]+,\\s+[a-z]+\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "POS": "ADJ"
+   },
+   {
+    "ORTH": ","
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "POS": "NOUN"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Hello, Aaron, nice to meet you.",
+   "It was, uh, 1 or 2 hours of maintenance in the server, and they have an issue and say, oh no, this will end at night.",
+   "I, I have other meetings, but I type from my mobile.",
+   "So for, for English class, I prefer not use the phone.",
+   "Um, how much of my work is in English?",
+   "I, I think 20, 30%.",
+   "Sometimes is more related to some topics like safety, uh, in industry, industrial safety, and maybe other topics like CO2 emissions.",
+   "Okay, maybe are the 2 topics more common I, I have to talk in English."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706324x315119491769305400",
+  "level": "B1",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH 'AND'",
+  "can_do_statement": "Can use 'and' to repeat a comparative adjective to indicate change over time, usually after 'become' or 'get'.  \u25ba adjectives: comparatives",
+  "current_regex_triage": "\\b([a-z]+)\\s+and\\s+\\1\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "smaller",
+      "longer",
+      "worse",
+      "hotter",
+      "colder",
+      "bigger"
+     ]
+    }
+   },
+   {
+    "LOWER": "and"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "smaller",
+      "longer",
+      "worse",
+      "hotter",
+      "colder",
+      "bigger"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "It was countryside 60 years ago, but now the city was growing and growing and growing.",
+   "And we are going to work in a root cause analysis to identify and solve all the reasons and continue And continue and\u2014 or keep our kill confident.",
+   "Okay, or something when you fall and fall and fall.",
+   "But I say, I was taking vitamins and this and this and this.",
+   "Yes, because if you, you make uh a, um, steak in your home, you at the end you need to clean your, I don't know, your oven, your But if you have a very big oven and you every day are producing steam, there are tons and tons um of fly ash you are producing.",
+   "I don't know, I think a little bit more than 1 hour because I stay like 25 hours on and on.",
+   "Yes, because it's not, not, you know, they cry for toys or whatever, and you know, but when it's constant crying and crying and you say, what happened?",
+   "Yes, yes, it's I think it's that and and and I think that is the joke in the in the when you watch that TV is because honestly oh no my camera."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ }
+]
+```

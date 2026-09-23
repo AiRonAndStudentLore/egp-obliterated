@@ -1,0 +1,431 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_005.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163706534x297695320017452600",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH '-EST' ",
+  "can_do_statement": "Can form superlative adjectives using the '-est' suffix, with adjectives of one syllable, and with two-syllable adjectives ending in -y.",
+  "current_regex_triage": "\\b(?:the\\s+|my\\s+|your\\s+)?[a-z]+iest\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "funniest",
+      "easiest",
+      "happiest",
+      "prettiest",
+      "laziest",
+      "busiest",
+      "angriest",
+      "hungriest",
+      "noisiest",
+      "ugliest",
+      "spiciest",
+      "silliest",
+      "cheekiest",
+      "heaviest",
+      "earliest",
+      "greasiest",
+      "messiest",
+      "crankiest"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "And how do you think it's the easiest ways to learn, to learn a language?",
+   "And it's supposed like if you know 2 languages, uh, to learn the 3rd one, it's easiest.",
+   "Like, why do you want to be in a communist country where\u2014 he's like sending me videos of Locked Up Abroad and I'm like, you're the craziest person.",
+   "Probably this is the easiest period of your life to, you know, to find yourself a wife to just to do it very early.",
+   "Deadliest Catch, exactly."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706534x596859033442330800",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH 'MY' OR 'YOUR'",
+  "can_do_statement": "Can form a noun phrase with 'my' or 'your' + superlative adjective + noun, with a limited range of nouns and contexts. \u25ba noun phrases",
+  "current_regex_triage": "\\b(?:my|your|his|her|our|their)\\s+(?!(?:test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)\\b)(?:[a-z]+est|best|worst)\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "my",
+      "your",
+      "his",
+      "her",
+      "our",
+      "their"
+     ]
+    }
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "POS": "NOUN"
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think it's my main goal.",
+   "I think, I, I think one of my improvers, I don't know, Improvers, things you improve, maybe things that helped me to improve was my last tutor.",
+   "I think, I think this is a next level in my\u2014 my next level, I think, is, uh, communicate my ideas fluently with the normally formal English, I think.",
+   "I, I think that's, uh, a reason why you don't have to share your main goals with every people, maybe with your family or your, your wife, your partner, I don't know.",
+   "and in my actual position, maybe don't have this kind of situation, but I have to\u2014 I have all the responsibility of the operation.",
+   "I think, uh, I, I, in my weekly agenda, this normally these hours are, uh, are easier to me to schedule.",
+   "I think these both are, are my main focus.",
+   "But in a different way that all the market, all the people was thinking, a lot of people in their homes wants to make a construction or repair their own buildings."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 0.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706535x505331707885398460",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH 'THE MOST'",
+  "can_do_statement": "Can form superlative adjective phrases using 'the most', with longer adjectives of two or more syllables. ",
+  "current_regex_triage": "\\bthe\\s+most\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "the"
+   },
+   {
+    "LOWER": "most"
+   },
+   {
+    "POS": {
+     "IN": [
+      "ADJ",
+      "DET"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think it's the most relevant topics I speak in English, but frequently there are other conversations in English, like casual conversation with partners from the company in other countries.",
+   "I think the most of the The places, the, the jobs.",
+   "I think one of the most important is the strongest, how much can resist under compression.",
+   "Because this plant is in the\u2014 it is one of the most biggest cities in Mexico.",
+   "I think Guadalajara is the most orderly, the most structured city, and develops some infrastructure projects in a smart way.",
+   "I think the most near\u2014",
+   "Because this plant is in the\u2014 it is one of the most biggest cities in Mexico.",
+   "But of the 3 cities, I think Guadalajara is the most organized, the most structured city."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.5,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706534x655905069276336400",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH 'THE'",
+  "can_do_statement": "Can form a noun phrase with 'the' + superlative adjective + noun. \u25ba noun phrases",
+  "current_regex_triage": "\\bthe\\s+(?!(?:test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)\\b)(?:[a-z]+est|best|worst)\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "the"
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "POS": "NOUN"
+   }
+  ],
+  "sentences_rule_matched": [
+   "But the way we communicated was more informal than the other topics I mentioned.",
+   "I think less comfortable because when you are talking about your experience and the situation and what you imagine, I think sometimes I can't find the correct words or the correct sentence to express the idea.",
+   "The other topics like are more technical, I think, like safety, like emissions.",
+   "I think normally we use the same words and the same sentences.",
+   "And, and the other thing is, I, I, I don't really wanna a classic style of learning English.",
+   "But I think it's like them\u2014 it's not the main goal I want to\u2014 how I want to learn.",
+   "So I have some meetings with the internal team\u2014 production, maintenance, quality, safety, and HR.",
+   "I think this is the main topics of my week."
+  ],
+  "judge1_false_positive_rate": 1.0,
+  "judge1_blind_spot_rate": 0.0,
+  "judge2_false_positive_rate": 1.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706534x741393105415276700",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH '-ST' ",
+  "can_do_statement": "Can form superlative adjectives using the suffix '-st' to adjectives ending in '\u2013e'.",
+  "current_regex_triage": "(?i)\\b(?:nicest|largest|finest|rarest|simplest|cutest|widest|latest|bravest|closest|safest|strangest|wisest|noblest|gentlest)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "nicest",
+      "largest",
+      "finest",
+      "rarest",
+      "simplest",
+      "cutest",
+      "widest",
+      "latest",
+      "bravest",
+      "closest",
+      "safest",
+      "strangest",
+      "wisest",
+      "noblest",
+      "gentlest"
+     ]
+    },
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Ronaldinho was one of the greatest players of all time.",
+   "crater, it cause\u2014 remains one of the 20th century greatest unsolved scientific mysteries.",
+   "Anthropic just released their latest and best model, Claude Fable-5, and get this, it's even more powerful than their Mythos preview model, which they previously said was too dangerous to release.",
+   "Anthropic just released their latest and best model, Claude Fable-5, and get this, it's even more powerful than their Mythos preview model, which they previously said was too dangerous to\u2014 release."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.5,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706722x916354910575195800",
+  "level": "A2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: FREQUENCY ",
+  "can_do_statement": "Can use an increasing range of adverbs ('usually', 'often', 'never', 'weekly') to talk about frequency.",
+  "current_regex_triage": "\\b(?:usually|often|never|weekly|daily|monthly|yearly|hourly|annually|rarely|seldom|frequently|occasionally)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "usually",
+      "often",
+      "never",
+      "weekly",
+      "daily",
+      "monthly",
+      "yearly",
+      "hourly",
+      "rarely",
+      "seldom",
+      "frequently",
+      "occasionally"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think it's the most relevant topics I speak in English, but frequently there are other conversations in English, like casual conversation with partners from the company in other countries.",
+   "And these conversations usually are in English.",
+   "So usually I have a lot of work meetings and I have to work walking the, the plant.",
+   "Yeah, because sometimes it's\u2014 or usually are 2 main reasons when I have to speak to the director\u2014 direction board for good results.",
+   "I usually listen some TED Talks or YouTube videos about leadership or management or things like that, because there are some, some tech talkers, I don't know.",
+   "Yeah, usually, um, make some viral videos about this topic.",
+   "I think, uh, I, I, in my weekly agenda, this normally these hours are, uh, are easier to me to schedule.",
+   "And then in the afternoon, I usually spend the time in the\u2014 in other meetings with corporate, with other people who are not here, aren't here in the factory, with the corporate team."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706722x982743824597498400",
+  "level": "A2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE, WITH ADJECTIVES",
+  "can_do_statement": "Can use a limited range of degree adverbs ('so', 'quite', 'too') to modify adjectives. ",
+  "current_regex_triage": "\\b(?:so|quite|too)\\s+(?:[a-z]+)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "so",
+      "quite",
+      "too"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "beautiful",
+      "expensive",
+      "good",
+      "bad",
+      "big",
+      "small",
+      "nice",
+      "happy",
+      "sad",
+      "easy",
+      "difficult",
+      "tired",
+      "late",
+      "early",
+      "fast",
+      "slow",
+      "hot",
+      "cold",
+      "important",
+      "interesting",
+      "helpful",
+      "lovely",
+      "wonderful",
+      "terrible",
+      "awful",
+      "amazing",
+      "beautiful",
+      "handsome",
+      "pretty",
+      "ugly",
+      "simple",
+      "complicated",
+      "boring",
+      "exciting",
+      "tasty",
+      "delicious",
+      "horrible",
+      "fantastic",
+      "brilliant"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "So for, for English class, I prefer not use the phone.",
+   "I say, my tongue is so strong, so it's so heavy.",
+   "So usually I have a lot of work meetings and I have to work walking the, the plant.",
+   "So that's the reason why sometimes you say, oh, I, I need homework, I, I can practice, I can do some, some exercise.",
+   "So that's the reason I, I'll be looking for another, because the agenda changes.",
+   "So yeah, depending on the times, I can Yeah, it happens.",
+   "Yes, I'm the plant manager, so I have in charge of the operations and quality and safety in the plant.",
+   "So I have some meetings with the internal team\u2014 production, maintenance, quality, safety, and HR."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.875,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706530x116599041764892110",
+  "level": "A2",
+  "sub_category": "position",
+  "guideword": "FORM/USE: LIMITING ADJECTIVES",
+  "can_do_statement": "Can use a limited range of adjectives ('main', 'only') that limit the noun that they go before.",
+  "current_regex_triage": "\\b(?:the|my|your|his|her|its|their)\\s+(main|only|first|last|same)\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "the",
+      "my",
+      "your",
+      "his",
+      "her",
+      "its",
+      "their"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "main",
+      "only",
+      "first",
+      "last",
+      "same"
+     ]
+    }
+   },
+   {
+    "POS": "NOUN"
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think normally we use the same words and the same sentences.",
+   "I think it's my main goal.",
+   "But I think it's like them\u2014 it's not the main goal I want to\u2014 how I want to learn.",
+   "I think, I, I think one of my improvers, I don't know, Improvers, things you improve, maybe things that helped me to improve was my last tutor.",
+   "I think this is the main topics of my week.",
+   "I think this is one of the main topics I used to listen Okay.",
+   "I, I think that's, uh, a reason why you don't have to share your main goals with every people, maybe with your family or your, your wife, your partner, I don't know.",
+   "They call some last graduates from the last years, and I present the exams, the theoretical and engineering knowledge, and English."
+  ],
+  "judge1_false_positive_rate": 0.375,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": 0.375,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706722x801643981135109000",
+  "level": "A2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: MANNER",
+  "can_do_statement": "Can use a limited range of manner adverbs and adverb phrases to modify how something happens.",
+  "current_regex_triage": "\\b(?:well|straight|slowly|quickly|loudly|quietly|carefully|badly|softly|gently|politely|nicely|kindly|properly)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "well",
+      "straight",
+      "slowly",
+      "quickly",
+      "loudly",
+      "quietly",
+      "carefully",
+      "badly",
+      "softly",
+      "gently",
+      "politely",
+      "nicely",
+      "kindly",
+      "properly"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Well, there are other topics.",
+   "Okay, well, that makes sense.",
+   "It's going, it's going well.",
+   "So, um, well, good.",
+   "Well, I'm saying, but maybe it's like this or like this.",
+   "Well, it's bigger.",
+   "Maybe, or, well, schedule the different Or the 2 activities with an intermediate\u2014 Ah, with a buffer.",
+   "well, fairly popular."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.875,
+  "judge2_blind_spot_rate": 1.0
+ }
+]
+```

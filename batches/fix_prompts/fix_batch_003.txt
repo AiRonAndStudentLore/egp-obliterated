@@ -1,0 +1,344 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_003.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163706323x891241573237936400",
+  "level": "A2",
+  "sub_category": "comparatives",
+  "guideword": "FORM: DOUBLE CONSONANT + '-ER'",
+  "can_do_statement": "Can form comparative adjectives with adjectives of one syllable with a short vowel, by doubling the final consonant and adding '-er'",
+  "current_regex_triage": "\\b(bigger|hotter|thinner|fatter|sadder)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "bigger",
+      "hotter",
+      "thinner",
+      "fatter",
+      "sadder"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Usually the bigger.",
+   "Well, it's bigger.",
+   "But it's bigger than this picture from Mona Lisa.",
+   "It's another kind of get hotter material.",
+   "And I love It's in Colombia because the breakfast is bigger.",
+   "You I never I never yeah it's a bigger deal too because.",
+   "It's bigger than that.",
+   "Um, but it's heavy and bigger than arepas."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706323x542852974077958640",
+  "level": "A2",
+  "sub_category": "comparatives",
+  "guideword": "FORM: COMPLEMENT OF 'BE' ",
+  "can_do_statement": "Can use comparative adjectives as a complement of 'be'.",
+  "current_regex_triage": "\\b(?:is|are|was|were|be|'s)\\s+(?:more\\s+)?(?:better|worse|easier|bigger|hotter)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LEMMA": "be"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "better",
+      "worse",
+      "easier",
+      "bigger",
+      "hotter"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I prefer the\u2014 it's better than the iPad or my laptop to have better sound.",
+   "I think, uh, I, I, in my weekly agenda, this normally these hours are, uh, are easier to me to schedule.",
+   "And then begins the rainy season, so the weather calms down to 38, 41, 43 degrees, but it is better than 51, 52.",
+   "Well, it's bigger.",
+   "But it's bigger than this picture from Mona Lisa.",
+   "But actually the new goal is 85, you know, more the last metric, the last objective, because if we produce more in a cement mill Another KPIs will, will be better, like electrical consumption and the time of operation of the mills.",
+   "I think it would be easier.",
+   "I think it's better if you\u2014 in this world where we all are connected, I think why not be connected to a train or be connected with the avocados and travel?"
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 0.8
+ },
+ {
+  "egp_id": "1741163706322x751352545258591200",
+  "level": "A2",
+  "sub_category": "comparatives",
+  "guideword": "FORM: + -IER",
+  "can_do_statement": "Can form comparative adjectives with adjectives of two syllables ending in '-y' by changing the 'y' to an 'I' and adding '-er'.",
+  "current_regex_triage": "\\b(easier|happier|earlier|prettier|friendlier|heavier|funnier)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "easier",
+      "happier",
+      "earlier",
+      "prettier",
+      "friendlier",
+      "heavier",
+      "funnier"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Easier understand this accent than London accent is.",
+   "I think, uh, I, I, in my weekly agenda, this normally these hours are, uh, are easier to me to schedule.",
+   "Maybe have some similar process in earlier part of the\u2014 similar to like to cement, but it's for other applications.",
+   "I think it would be easier.",
+   "Hey, clinker, maybe it will be not as easy, easier than actually we have the raw materials for the Portland cement.",
+   "And it's easier to like, we create a workflow.",
+   "No, you got to see some of the people, like, like, like a lot of\u2014 imagine me like 30 kilos heavier with a beard and an alcoholic.",
+   "Okay, so they do it because they know that it's, uh, a good point because it's, it's more, uh, it's, it's easier to have, uh, a good mark with the asynchronous part, right?"
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706326x319165365934681800",
+  "level": "A2",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH 'TOO'",
+  "can_do_statement": "Can use 'too' with common gradable adjectives. ",
+  "current_regex_triage": "\\btoo\\s+(expensive|small|big|old|young|hot|cold|difficult|busy|late)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "too"
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "the president is Mexican, but the vice president is too Mexican.",
+   "It's too big.",
+   "No, it's not too much time, I think, but there is an important distribution or logistic I don't know.",
+   "Was fighting with a\u2014 and I was too high, so they can't use her weapon in any, uh, I don't know, any building.",
+   "A bit of it, not too much.",
+   "Like when I say if It's too complicated or it's too much.",
+   "Uh, uh, yeah, not too much.",
+   "With pre-K is too loud."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.5,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706323x497245620249982200",
+  "level": "A2",
+  "sub_category": "comparatives",
+  "guideword": "FORM: ENDING IN '-E' + '-R' ",
+  "can_do_statement": "Can form comparative adjectives with adjectives of one syllable ending in 'e', by adding '-r'.",
+  "current_regex_triage": "\\b(nicer|safer|later|wider|larger|closer|finer)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "nicer",
+      "safer",
+      "later",
+      "wider",
+      "larger",
+      "closer",
+      "finer"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "And even in\u2014 and if later I feel uncomfortable or I think it's not useful, I will say to you.",
+   "Keep safe and make a safety\u2014 a safer\u2014 a safety activity or operation.",
+   "So she explained to her, I come back when you want to go to the daycare, get your snack and go to, you know, enjoy, make activities, and later, later, later, Later or later, later, later, and come back.",
+   "Mama come and son, uh, later after these activities.",
+   "And just, I ate that and then a larger Pasta, chicken, broccoli, pasta.",
+   "They do presentation videos, da, da, da, da, da, and One, one year later, they\u2014 I, I\u2014 wait.",
+   "One year later, they gave up.",
+   "Today, later on, this is all I'll say."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706326x804713615141726700",
+  "level": "A2",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH 'TOO' + PREPOSITIONAL PHRASE",
+  "can_do_statement": "Can use 'too' + adjective + prepositional phrase",
+  "current_regex_triage": "\\btoo\\s+(small|big|old|young|hot|cold|difficult|busy|late|short|long|tight)\\s+for\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "too"
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "LOWER": "for"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Yeah, yeah, yeah, yeah, no, I\u2014 this is too good for me, but the I, I want\u2014 no, I was thinking that we can use as a, as a, what, not as a map, but as a Yeah, yeah.",
+   "Sorry, I can't read the text because it's too small for me.",
+   "You\u2014 it's very easy to just send a drone and hit something because the country is too large for any air defense to be fully efficient.",
+   "Too bad for Mexico but\u2014"
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706324x902426433063664400",
+  "level": "A2",
+  "sub_category": "comparatives",
+  "guideword": "FORM: WITH 'THAN'",
+  "can_do_statement": "Can use a comparative adjective with 'than' to compare two nouns or noun phrases.\u25ba comparative clauses",
+  "current_regex_triage": "\\b(?:(?:bigger|smaller|older|younger|better|worse|cheaper|taller|hotter|easier|nicer|larger|faster)\\s+than|more\\s+[a-z]+\\s+than)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "bigger",
+      "smaller",
+      "older",
+      "younger",
+      "better",
+      "worse",
+      "cheaper",
+      "taller",
+      "hotter",
+      "easier",
+      "nicer",
+      "larger",
+      "faster"
+     ]
+    }
+   },
+   {
+    "LOWER": "than"
+   }
+  ],
+  "sentences_rule_matched": [
+   "I prefer the\u2014 it's better than the iPad or my laptop to have better sound.",
+   "But the way we communicated was more informal than the other topics I mentioned.",
+   "I think Guadalajara is more structured than the other cities.",
+   "I think Guadalajara is most\u2014 is more structured than the other cities.",
+   "And then begins the rainy season, so the weather calms down to 38, 41, 43 degrees, but it is better than 51, 52.",
+   "But in this Euro trip, you travel more than you visit and know more airports than main towns.",
+   "But it's bigger than this picture from Mona Lisa.",
+   "I don't know, or maybe live more years than other people."
+  ],
+  "judge1_false_positive_rate": 0.25,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.25,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706316x198445876411383900",
+  "level": "A2",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING TWO ADJECTIVES WITH 'BUT'",
+  "can_do_statement": "Can use 'but' to join a limited range of common adjectives, after 'be'.",
+  "current_regex_triage": "\\b(?:is|are|was|were|be|been)(?:\\s+[a-z]+ly)?\\s+[a-z]+\\s+but\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LEMMA": "be"
+   },
+   {
+    "OP": "?",
+    "POS": "ADV"
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "LOWER": "but"
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "Or if you live there, hopefully you get to\u2014 Yes, but the zone which are the places for Jamaicans are cheapest but are dangerous and has difficulties to basic services.",
+   "It was really difficult but interesting because it was a special moment.",
+   "Yes, but it was super strange but fun at the same time because what happens is that the other nun died at home and her daughter or something like that was going to see her and she was like, what I will do?",
+   "Like, why would that be anything but like, 'Oh, I'm glad you're saying that.' Exactly.",
+   "Many other\u2014 or yeah, teams that used to be good but now\u2014 I think Belgium has not won yet.",
+   "No, I know, okay, okay, I know there were floods but I didn't know about the fires to be honest.",
+   "Yeah, it's like a reinterpretation of the taco, which is not But that doesn't make it a taco."
+  ],
+  "judge1_false_positive_rate": 0.7142857142857143,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.7142857142857143,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706322x927287636901346100",
+  "level": "A2",
+  "sub_category": "comparatives",
+  "guideword": "FORM: + -ER",
+  "can_do_statement": "Can form comparative adjectives from adjectives of one syllable by adding '-er'.",
+  "current_regex_triage": "\\b(older|younger|cheaper|smaller|taller|faster|quieter)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "older",
+      "younger",
+      "cheaper",
+      "smaller",
+      "taller",
+      "faster",
+      "quieter"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Faster, better building, hospital.",
+   "Develop big avenues and for the facility of the people to move easily, to move faster.",
+   "The main burner is like, it's like, like another tube smaller than kiln.",
+   "So it can be cheaper because all the, all the raw materials we need are growing um up in cost every year.",
+   "It's here in Boston about friends and that I am like older people.",
+   "Not older, it's like 45-ish.",
+   "And one friend has a girlfriend younger than him.",
+   "The guy I told you before, he's a younger girlfriend, remember?"
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.125,
+  "judge2_blind_spot_rate": 1.0
+ }
+]
+```

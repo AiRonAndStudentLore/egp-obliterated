@@ -1,0 +1,454 @@
+[
+ {
+  "egp_id": "1741163708998x292634198326936960",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THIS' WITH UNCOUNTABLE NOUNS",
+  "can_do_statement": "Can use 'this' with uncountable nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular, or uncountable entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'this' specific item or substance.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthis\\s+(?:information|advice|weather|news|furniture|equipment|luggage|baggage|homework|traffic|money|knowledge|music|water|milk|coffee|tea|bread|rice|sugar|cheese|meat|fun|progress|research|evidence|luck)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this",
+     "DEP": "det"
+    },
+    {
+     "OP": "*",
+     "POS": {
+      "IN": [
+       "ADJ",
+       "NUM"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "information",
+       "advice",
+       "weather",
+       "news",
+       "furniture",
+       "equipment",
+       "luggage",
+       "baggage",
+       "homework",
+       "traffic",
+       "money",
+       "knowledge",
+       "music",
+       "water",
+       "milk",
+       "coffee",
+       "tea",
+       "bread",
+       "rice",
+       "sugar",
+       "cheese",
+       "meat",
+       "fun",
+       "progress",
+       "research",
+       "evidence",
+       "luck"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I need this information right now.",
+    "This luggage is very heavy."
+   ],
+   "negatives": [
+    "This topic is interesting.",
+    "This block is very hard."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163709000x205393325500403900",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THESE' ",
+  "can_do_statement": "Can use 'these' with plural nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative ",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, plural entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'these' specific items.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\bthese\\s+(?:[a-z]+\\s+)?[a-z]{2,}s\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "these",
+     "DEP": "det"
+    },
+    {
+     "OP": "*",
+     "POS": "ADJ"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "NNS",
+       "NNPS"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "These conversations are always helpful.",
+    "I love these beautiful flowers."
+   ],
+   "negatives": [
+    "These are my favorite books.",
+    "All these for Mexico."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708999x278889696769958800",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', ALREADY MENTIONED",
+  "can_do_statement": "Can use 'this' to refer to something with immediate relevance which has already been mentioned. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Referencing previously mentioned entities with immediate relevance.",
+   "pedagogical_hook": "Referring back to 'this' specific thing just discussed.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "\\b([a-z]{4,})\\b.{1,100}?\\bthis\\s+\\1\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this",
+     "DEP": "det"
+    },
+    {
+     "OP": "*",
+     "POS": "ADJ"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I bought a new dress, and this dress is amazing.",
+    "We have a serious problem. How do we solve this problem?"
+   ],
+   "negatives": [
+    "A dress is not this expensive.",
+    "The problem with this is clear."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708999x197534813538877700",
+  "level": "A2",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THAT'",
+  "can_do_statement": "Can use 'that' with singular nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular entities at a distance.",
+   "pedagogical_hook": "Referring to 'that' specific item.",
+   "agency_or_distance": "Distal"
+  },
+  "detection": {
+   "regex_triage": "\\bthat\\s+(?!is\\b|are\\b|was\\b|were\\b|will\\b|would\\b|can\\b|could\\b|has\\b|have\\b|had\\b|makes\\b|helped\\b|come\\b)[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "that",
+     "DEP": "det"
+    },
+    {
+     "OP": "*",
+     "POS": "ADJ"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "NN",
+       "NNP"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I read that book yesterday.",
+    "That tutor was very helpful to me."
+   ],
+   "negatives": [
+    "Things that helped me a lot.",
+    "I think that makes perfect sense."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706317x616093618641182500",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING COMPARATIVE ADJECTIVES WITH 'AND'",
+  "can_do_statement": "Can use 'and' to join a limited range of comparative adjectives.\u25ba adjectives: comparatives",
+  "ontology": {
+   "agency_or_distance": "comparative pairing",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "two scales raised together",
+   "pedagogical_hook": "more of both"
+  },
+  "detection": {
+   "regex_triage": "\\b([a-z]+er|worse|better)\\s+and\\s+(?!\\1\\b)(?:[a-z]+er|worse|better)\\b",
+   "spacy_token_pattern": [
+    {
+     "TAG": {
+      "IN": [
+       "JJR",
+       "JJ"
+      ]
+     },
+     "LOWER": {
+      "REGEX": "^(better|worse|[a-z]+er)$"
+     }
+    },
+    {
+     "LOWER": "and"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJR",
+       "JJ"
+      ]
+     },
+     "LOWER": {
+      "REGEX": "^(better|worse|[a-z]+er)$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Computers are getting cheaper and better.",
+    "The weather is warmer and nicer today."
+   ],
+   "negatives": [
+    "It is cheaper, and the quality is better.",
+    "The weather is hot and humid."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706327x526332173403099460",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH 'ENOUGH' ",
+  "can_do_statement": "Can use 'enough' to modify adjectives. ",
+  "ontology": {
+   "agency_or_distance": "sufficient degree",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "the attribute reaches the threshold",
+   "pedagogical_hook": "past the line"
+  },
+  "detection": {
+   "regex_triage": "(?:is|are|was|were|am|be)\\s+(?:not\\s+)?(big|good|old|young|strong|tall|warm|safe|clear|hard|easy)\\s+enough(?:\\s+(?:to|for|because)|\\s*[.,!?]|$)",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "enough",
+     "DEP": "advmod"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The house is big enough for us.",
+    "My coffee is not strong enough."
+   ],
+   "negatives": [
+    "Enough has been said about it.",
+    "We have enough big boxes."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706317x556163615013575200",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "combining",
+  "guideword": "FORM: COMPOUND ADJECTIVES",
+  "can_do_statement": "Can use a limited range of compound adjectives ('good-looking', 'well-known') ",
+  "ontology": {
+   "agency_or_distance": "compact naming",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "hyphen joins two roots into one trait",
+   "pedagogical_hook": "two roots, one trait"
+  },
+  "detection": {
+   "regex_triage": "\\b(?:good-looking|well-known|old-fashioned|hard-working|open-minded|high-quality|high-tech|part-time|full-time)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "good",
+       "well",
+       "old",
+       "hard",
+       "open",
+       "high",
+       "part",
+       "full"
+      ]
+     }
+    },
+    {
+     "ORTH": "-"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "looking",
+       "known",
+       "fashioned",
+       "working",
+       "minded",
+       "quality",
+       "tech",
+       "time"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "He is a very good-looking man.",
+    "She is a well-known writer."
+   ],
+   "negatives": [
+    "I am watching Spider-Man.",
+    "We need high performance."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706317x456519880167863600",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "combining",
+  "guideword": "FORM: BEFORE THE NOUN",
+  "can_do_statement": "Can use a comma to combine two adjectives used before the noun, following the usual order of adjective types.",
+  "ontology": {
+   "agency_or_distance": "pre-nominal packing",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "stack attributes before the noun",
+   "pedagogical_hook": "load the noun"
+  },
+  "detection": {
+   "regex_triage": "\\b(big|small|old|new|good|bad|beautiful|ugly|long|short|nice|quiet),\\s+(big|small|old|new|good|bad|beautiful|ugly|long|short|nice|quiet)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": "ADJ",
+     "DEP": "amod"
+    },
+    {
+     "ORTH": ","
+    },
+    {
+     "POS": "ADJ",
+     "DEP": "amod"
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is a small, quiet town.",
+    "She has a beautiful, old house."
+   ],
+   "negatives": [
+    "Hello, Aaron, nice to meet you.",
+    "It was a small issue, bad for us."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706324x315119491769305400",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "comparatives",
+  "guideword": "FORM/USE: WITH 'AND'",
+  "can_do_statement": "Can use 'and' to repeat a comparative adjective to indicate change over time, usually after 'become' or 'get'.  \u25ba adjectives: comparatives",
+  "ontology": {
+   "agency_or_distance": "temporal drift of a property",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "same scale intensifying over time",
+   "pedagogical_hook": "the change keeps changing"
+  },
+  "detection": {
+   "regex_triage": "\\b([a-z]+er|worse|better)\\s+and\\s+\\1\\b",
+   "spacy_token_pattern": [
+    {
+     "TAG": {
+      "IN": [
+       "JJR",
+       "JJ"
+      ]
+     },
+     "LOWER": {
+      "REGEX": "^(better|worse|[a-z]+er)$"
+     }
+    },
+    {
+     "LOWER": "and"
+    },
+    {
+     "TAG": {
+      "IN": [
+       "JJR",
+       "JJ"
+      ]
+     },
+     "LOWER": {
+      "REGEX": "^(better|worse|[a-z]+er)$"
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The weather is getting hotter and hotter.",
+    "My English is becoming better and better."
+   ],
+   "negatives": [
+    "It was growing and growing.",
+    "We bought tons and tons of it."
+   ]
+  }
+ }
+]

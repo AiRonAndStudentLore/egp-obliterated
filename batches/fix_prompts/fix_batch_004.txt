@@ -1,0 +1,382 @@
+You are fixing over-broad ESL grammar detector rules. Two independent judges reviewed the sentences each rule currently matches and CONCUR the rule is wrong.
+
+For each rule below:
+1. Read can_do_statement — the ONLY thing the rule should detect.
+2. Read sentences_rule_matched — judges say these should NOT all match.
+3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
+4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
+
+Write ONE file: `batches/jules_fix_batch_004.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
+
+## RULES
+```json
+[
+ {
+  "egp_id": "1741163706322x848626639383521500",
+  "level": "A2",
+  "sub_category": "comparatives",
+  "guideword": "FORM: BEFORE NOUNS",
+  "can_do_statement": "Can use comparative adjectives attributively, before nouns. ",
+  "current_regex_triage": "\\b(?:younger|older|better|bigger|taller)\\s+(?!than\\b|as\\b|me\\b|you\\b|him\\b|her\\b|it\\b|them\\b|us\\b)[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "younger",
+      "older",
+      "better",
+      "bigger",
+      "taller"
+     ]
+    }
+   },
+   {
+    "POS": "NOUN"
+   }
+  ],
+  "sentences_rule_matched": [
+   "I prefer the\u2014 it's better than the iPad or my laptop to have better sound.",
+   "A little better or slow?",
+   "Faster, better building, hospital.",
+   "But I think we can know better these places or visit important places in this city and not still running or traveling during the night and the other day wake up very early from the train to the main town or things like that.",
+   "And then in the first weeks, we are thinking about how to stop all the plan, which are the better procedures for keep the machines.",
+   "And if we use less clinker, obviously the performance of the cement needs to be the same because there are rules and international regulations about that, but we need to get better performance.",
+   "I think it's better if you\u2014 in this world where we all are connected, I think why not be connected to a train or be connected with the avocados and travel?",
+   "Yes, maybe it's better that you say, yeah, if there is some type of\u2014 antros, restaurants, or some places like that, I prefer that."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.5,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706326x982625360706106900",
+  "level": "A2",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH DEGREE ADVERBS",
+  "can_do_statement": "Can use adverbs of degree ('really', 'so', 'quite') with an increasing range of common gradable adjectives.",
+  "current_regex_triage": "\\b(really|so|quite)\\s+(hot|happy|expensive|nice|good|big|small|cold|difficult|friendly)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "really",
+      "so",
+      "quite"
+     ]
+    }
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "I say, my tongue is so strong, so it's so heavy.",
+   "It was a really, really difficult situation.",
+   "So much of that come from some, I don't know, some mines, Paris, or Paris, like 2 hours apart from Nepal.",
+   "And obviously it needs a lot of people, so Many people arrive to the city to live and need houses, need buildings.",
+   "I think comparing the 3 big cities, obviously Mexico is really, really big, like 30 million.",
+   "Monterrey has the opportunity but has another political situation that always stops so many projects.",
+   "And it would be really difficult project to develop and be attractive to\u2014",
+   "It would be really difficult situation."
+  ],
+  "judge1_false_positive_rate": 0.375,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.375,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706533x775298022555111400",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: WITH 'OF' + NOUN",
+  "can_do_statement": "Can use a limited range of prepositional phrases with 'of' after a superlative adjective, to refer to one thing within a set or part of a set.",
+  "current_regex_triage": "\\b(?:the|this|that|my|his|her|our|their)\\s+(?!(?:test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)\\b)(?:[a-z]+est|best|worst)(?:\\s+[a-z]+){0,3}\\s+of\\s+",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "the",
+      "this",
+      "that",
+      "my",
+      "his",
+      "her",
+      "our",
+      "their"
+     ]
+    }
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "POS": "NOUN",
+    "OP": "*"
+   },
+   {
+    "LOWER": "of"
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think this is the main topics of my week.",
+   "I think the most of the The places, the, the jobs.",
+   "This is the, I think, the Mexican copy of the international normal rules, I think.",
+   "Actually, it's going to\u2014 are building the second terminal of the airport.",
+   "And Masecas is one of the biggest companies of corn.",
+   "Actually, it's going to\u2014 are building the second terminal of the airport.",
+   "Is one of the the best of the year.",
+   "I think the interesting part of this movie is because this is the Marvel Spider-Man, who used technology to take some type of power, powers."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 0.0,
+  "judge2_false_positive_rate": 0.875,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706533x179575258829023140",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: COMPLEX NOUN PHRASES",
+  "can_do_statement": "Can form a limited range of complex noun phrases with a superlative adjective  + prepositional phrase, to talk about something unique.\u25ba noun phrases \u25ba  clauses: comparison",
+  "current_regex_triage": "\\b(?:the|my|your|his|her|our|their)\\s+(?!(?:test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)\\b)(?:[a-z]+est|best|worst)(?:\\s+[a-z]+){0,5}\\s+(?:of|in)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "the",
+      "my",
+      "your",
+      "his",
+      "her",
+      "our",
+      "their"
+     ]
+    }
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "POS": "NOUN",
+    "OP": "*"
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "of",
+      "in"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think this is the main topics of my week.",
+   "I think the most of the The places, the, the jobs.",
+   "This is the, I think, the Mexican copy of the international normal rules, I think.",
+   "Actually, it's going to\u2014 are building the second terminal of the airport.",
+   "No, I, I think maybe I, I think explaining The concentration, maybe the political influence in the decision.",
+   "And Masecas is one of the biggest companies of corn.",
+   "Actually, it's going to\u2014 are building the second terminal of the airport.",
+   "I think maybe I begin explaining the whole situation, maybe the political influence in the decision."
+  ],
+  "judge1_false_positive_rate": 0.875,
+  "judge1_blind_spot_rate": 0.0,
+  "judge2_false_positive_rate": 0.875,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706531x328919787799353700",
+  "level": "A2",
+  "sub_category": "position",
+  "guideword": "FORM: PREDICATIVE, WITH LINKING VERBS",
+  "can_do_statement": "Can use a limited range of adjectives predicatively, after linking verbs 'look' and 'feel'.",
+  "current_regex_triage": "\\b(?:looks|looked|feel|feels|felt)\\s+(perfect|comfortable|tired|happy|sad|nice|great|strange|cold|warm)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LEMMA": {
+     "IN": [
+      "look",
+      "feel"
+     ]
+    }
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "But sometimes I think I, I feel limited in my vocabulary.",
+   "And even in\u2014 and if later I feel uncomfortable or I think it's not useful, I will say to you.",
+   "I don't know, I don't feel comfortable in Paris.",
+   "And I feel, I feel good working here, so, but I think, um, um, maybe next year I'm going to start for another opportunities, so.",
+   "And when I had to uh start responding under pressure, it's when I start to feel nervous, even a uh simple question like, uh, uh tell me 5 things with the\u2014 that starts with the letter C.",
+   "Yeah, well, that's when I start to feel nervous.",
+   "But I'm not feeling bad, nothing like that.",
+   "But I feel good, um, because just focusing on 5 kids and I'm not\u2014 I don't need to fight with all the teachers."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706326x556212736467496000",
+  "level": "A2",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH PREPOSITIONAL PHRASE",
+  "can_do_statement": "Can form adjective phrases with a very limited range of adjectives + a prepositional phrase. ",
+  "current_regex_triage": "\\b(good|full|ready|late|absent|different)\\s+(for|of|with|from)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "good",
+      "full",
+      "ready",
+      "late",
+      "absent",
+      "different"
+     ]
+    }
+   },
+   {
+    "TAG": "IN"
+   }
+  ],
+  "sentences_rule_matched": [
+   "I think it's good because keep practicing the listening a bit.",
+   "I think it's good because keep practicing the listening and the speaking.",
+   "Maybe this product is very different from the normal Portland cement.",
+   "It would be good for the environment.",
+   "It's different than other types of ground.",
+   "Yes, so that is another point for my motivation because I would like to speak good with him.",
+   "So you say when the people watch the movies or whatever in English, it's not good with subtitles?",
+   "I don't know, so how you told me, preposition is good for speak and listening, Well, for you to\u2014 You say it's not focusing so a lot on grammar."
+  ],
+  "judge1_false_positive_rate": 0.25,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.375,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706530x375500171012226750",
+  "level": "A2",
+  "sub_category": "position",
+  "guideword": "FORM: PREDICATIVE, WITH 'BE'",
+  "can_do_statement": "Can use an increasing range of adjectives predicatively, after 'be'.",
+  "current_regex_triage": "\\b(?:i am|you are|he is|she is|it is|we are|they are|i was|you were|he was|she was|it was|we were|they were)\\s+(free|friendly|happy|tired|ready|busy|kind|lovely|beautiful|nice)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LEMMA": "be"
+   },
+   {
+    "POS": "ADJ"
+   }
+  ],
+  "sentences_rule_matched": [
+   "I prefer the\u2014 it's better than the iPad or my laptop to have better sound.",
+   "I think it's the most relevant topics I speak in English, but frequently there are other conversations in English, like casual conversation with partners from the company in other countries.",
+   "the president is Mexican, but the vice president is too Mexican.",
+   "sometimes it's difficult.",
+   "Some people are jealous.",
+   "Um, if you buy a new car, say, oh, you're rich, right?",
+   "And only other people say, oh, you're rich.",
+   "Yeah, your partner maybe is important because you need to join, join force, forces to, to achieve this This goal, maybe sometimes some goals you can alone achievement\u2014 achieve them."
+  ],
+  "judge1_false_positive_rate": 0.125,
+  "judge1_blind_spot_rate": 0.8,
+  "judge2_false_positive_rate": 0.125,
+  "judge2_blind_spot_rate": 0.6
+ },
+ {
+  "egp_id": "1741163706533x852580769976633900",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: WITH 'IN' + NOUN",
+  "can_do_statement": "Can use prepositional phrases with 'in' + singular name of a place after a superlative adjective.",
+  "current_regex_triage": "\\b(?:the|my|his|her)\\s+(?!(?:test|rest|west|quest|chest|least|lest|forest|interest|contest|protest|request|digest|modest|honest|suggest|invest|divest|manifest|attest)\\b)(?:[a-z]+est|best|worst)(?:\\s+[a-z]+){0,3}\\s+in\\s+the\\s+[a-z]+\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": "the"
+   },
+   {
+    "POS": "ADJ"
+   },
+   {
+    "POS": "NOUN",
+    "OP": "*"
+   },
+   {
+    "LOWER": "in"
+   },
+   {
+    "LOWER": "the"
+   },
+   {
+    "POS": "NOUN"
+   }
+  ],
+  "sentences_rule_matched": [
+   "No, I, I think maybe I, I think explaining The concentration, maybe the political influence in the decision.",
+   "I think maybe I begin explaining the whole situation, maybe the political influence in the decision.",
+   "Um, No, no, no, I don't remember who\u2014 a victim was the bad guy in the movie?",
+   "But I, I know the situation is not the best in in the places.",
+   "I mean, it's one of the biggest in the world.",
+   "And when my, my, when she lived with my grandma's house, she has other people in kitchen, so my, my mother never learned about kid\u2014 about food, how make food, because my, my grandma and my, my grandfather My mother is the first girl in the family, I'll say.",
+   "Because my grandma, my grandfather\u2014 my mother is the first girl in the family.",
+   "It's like the highest in the world."
+  ],
+  "judge1_false_positive_rate": 0.5,
+  "judge1_blind_spot_rate": 0.0,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706534x633351345834687300",
+  "level": "A2",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH '-EST'",
+  "can_do_statement": "Can form superlative adjectives with adjectives of one syllable with a short vowel, by doubling the final consonant and adding '\u2013est'.",
+  "current_regex_triage": "\\b[a-z]*([bcdfghjklmnpqrstvwxz])\\1est\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "biggest",
+      "hottest",
+      "thinnest",
+      "fattest",
+      "saddest",
+      "wettest",
+      "slimmest",
+      "fittest",
+      "bitterest",
+      "swiftest",
+      "reddest",
+      "smallest",
+      "chattest",
+      "brattest",
+      "grossest"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "Maseca is one of the biggest companies also there.",
+   "Because this plant is in the\u2014 it is one of the most biggest cities in Mexico.",
+   "But this is one of the 3 biggest cities.",
+   "And Masecas is one of the biggest companies of corn.",
+   "It is usually the biggest and we need 2 or 3 of them.",
+   "Because this plant is in the\u2014 it is one of the most biggest cities in Mexico.",
+   "But it is one of the 3 biggest cities.",
+   "And this is one of the hottest cities in Mexico."
+  ],
+  "judge1_false_positive_rate": 0.25,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ }
+]
+```
