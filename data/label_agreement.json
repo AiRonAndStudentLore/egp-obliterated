@@ -30,7 +30,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706722x425107176833770200": {
    "guideword": "USE: DEGREE WITH VERBS ",
@@ -39,7 +42,10 @@
    "false_positive_rate": 0.5,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.5,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706728x827649422602473600": {
    "guideword": "FORM: PLACE, COMPLEMENT",
@@ -57,7 +63,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706326x912859360099482800": {
    "guideword": "FORM: WITH 'VERY' ",
@@ -66,7 +75,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163706728x987923532840156800": {
    "guideword": "FORM: DEGREE and TIME, MODIFYING VERBS",
@@ -84,7 +96,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163706722x604132732561016200": {
    "guideword": "USE: FREQUENCY ",
@@ -93,7 +108,10 @@
    "false_positive_rate": 0.125,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706530x479020650602328450": {
    "guideword": "FORM: ATTRIBUTIVE (WITH NOUNS)",
@@ -102,7 +120,10 @@
    "false_positive_rate": 0.25,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.25,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163706537x909158263292138100": {
    "guideword": "USE: TIME",
@@ -111,7 +132,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.5,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706930x543760633232157630": {
    "guideword": "FORM: DEGREE, BEFORE ADJECTIVES",
@@ -120,7 +144,10 @@
    "false_positive_rate": 0.75,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.8,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163708146x551167324571377540": {
    "guideword": "FORM: 'VERY' + ADVERB",
@@ -147,7 +174,10 @@
    "false_positive_rate": 0.125,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.4,
-   "verdict": "suspect"
+   "verdict": "suspect",
+   "adjudication": "goldset",
+   "pro_false_positive_rate": 0.125,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706316x926291459998112000": {
    "guideword": "FORM: COMBINING TWO ADJECTIVES WITH 'AND'",
@@ -156,7 +186,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 0.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706931x652422120447256700": {
    "guideword": "FORM: 'REALLY,'  MID POSITION ",
@@ -165,7 +198,10 @@
    "false_positive_rate": 0.5,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.5,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163708567x184494536538858620": {
    "guideword": "FORM/USE: 'BECAUSE', REASONS",
@@ -201,7 +237,10 @@
    "false_positive_rate": 1.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 1.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708153x480316823264789900": {
    "guideword": "FORM: CLAUSE + CLAUSE, ELLIPTED SUBJECT",
@@ -300,7 +339,10 @@
    "false_positive_rate": 0.875,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708793x394528376329640770": {
    "guideword": "FORM/USE: NO ARTICLE",
@@ -354,7 +396,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163708785x514563206586401860": {
    "guideword": "FORM: 'BECAUSE' ",
@@ -390,7 +435,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163710388x273734335473510240": {
    "guideword": "FORM: QUESTION ",
@@ -417,7 +465,10 @@
    "false_positive_rate": 0.25,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163710388x482560605581935800": {
    "guideword": "FORM: NEGATIVE ",
@@ -489,7 +540,10 @@
    "false_positive_rate": 0.625,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.875,
+   "pro_blind_spot_rate": 0.6
   },
   "1741163711300x363892315600628400": {
    "guideword": "USE: INVITATIONS WITH 'LIKE'",
@@ -975,7 +1029,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706323x891241573237936400": {
    "guideword": "FORM: DOUBLE CONSONANT + '-ER'",
@@ -993,7 +1050,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 0.8
   },
   "1741163706322x751352545258591200": {
    "guideword": "FORM: + -IER",
@@ -1002,7 +1062,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.0,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706326x319165365934681800": {
    "guideword": "FORM: WITH 'TOO'",
@@ -1029,7 +1092,10 @@
    "false_positive_rate": 0.75,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.75,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706326x804713615141726700": {
    "guideword": "FORM: WITH 'TOO' + PREPOSITIONAL PHRASE",
@@ -1056,7 +1122,10 @@
    "false_positive_rate": 0.7142857142857143,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.7142857142857143,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706322x927287636901346100": {
    "guideword": "FORM: + -ER",
@@ -1065,7 +1134,10 @@
    "false_positive_rate": 0.0,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.125,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706322x848626639383521500": {
    "guideword": "FORM: BEFORE NOUNS",
@@ -1074,7 +1146,10 @@
    "false_positive_rate": 0.5,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
-   "verdict": "critical"
+   "verdict": "critical",
+   "adjudication": "redeliver",
+   "pro_false_positive_rate": 0.5,
+   "pro_blind_spot_rate": 1.0
   },
   "1741163706326x982625360706106900": {
    "guideword": "FORM: WITH DEGREE ADVERBS",
@@ -7188,6 +7263,3763 @@
    "false_positive_rate": null,
    "nonhits_checked": 5,
    "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710387x307020078437927360": {
+   "guideword": "FORM/USE: 'IT' + LINKING VERB + ADJECTIVES + CLAUSE, HEDGING",
+   "can_do": "Can use 'it' + linking verb + adjective + ('that') clause to make an assertion less direct",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710393x435738862107397440": {
+   "guideword": "USE: GENERAL TRUTHS AND TENDENCIES",
+   "can_do": "Can use 'can' to talk about general truths and tendencies.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163709242x695590620556235600": {
+   "guideword": "FORM: NEGATIVE ",
+   "can_do": "Can use the negative form with 'will'. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163710393x749410106828691000": {
+   "guideword": "USE: GUESSES AND PREDICTIONS",
+   "can_do": "Can use the negative forms of 'can't' and 'cannot' to guess, predict and deduce.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708788x610612165275527200": {
+   "guideword": "FORM: SIMPLE",
+   "can_do": "Can use a wide range of simple subordinating conjunctions ('once, whereas, unless, except ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163709452x228579889474654900": {
+   "guideword": "USE: EVENTS COMPLETED IN THE FUTURE",
+   "can_do": "Can use the future perfect simple with 'will' to talk about something which is expected to",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710395x413989918547746700": {
+   "guideword": "FORM: NEGATIVE",
+   "can_do": "Can use negative form dare not and daren't +  infinitive without to. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710396x202268640000475400": {
+   "guideword": "USE: BRAVADO",
+   "can_do": "Can use semi-modal 'dare' to talk about being brave enough to do something.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710611x171270541916320500": {
+   "guideword": "USE: 'BE MEANT TO', IDEAL STATES",
+   "can_do": "Can use 'be meant to' to talk about ideal states. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710394x261510254385375330": {
+   "guideword": "USE: REPROACHES AND APPEALS",
+   "can_do": "Can use negative forms of 'can' to make reproaches or appeals.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163709236x822096858545011700": {
+   "guideword": "FORM: 'BE DUE TO'",
+   "can_do": "Can use the present form of 'be' + 'due to'. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710611x469025318254761660": {
+   "guideword": "FORM/USE: 'BE MORE/LESS LIKELY', COMPARISON",
+   "can_do": "Can use '(much) more/less' to modify 'likely' in a comparison. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710611x434796619294706160": {
+   "guideword": "USE: 'BE LIKELY TO', PROBABILITY",
+   "can_do": "Can use 'be' (+modifier) 'likely to' to talk about probability.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710393x306065725753619460": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use 'can' with an increasing range of adverbs (including 'easily', 'hardly', 'now', 'p",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710611x575620351539563000": {
+   "guideword": "USE: 'BE BOUND TO', CERTAINTY",
+   "can_do": "Can use 'be' (+ modifier) 'bound to' to talk about something certain or inevitable.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710611x552856145589085900": {
+   "guideword": "USE: 'BE SUPPOSED TO', HEARSAY",
+   "can_do": "Can use 'be supposed to' to talk about hearsay or supposition.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710612x402995334969845200": {
+   "guideword": "FORM/USE: IMPERATIVE",
+   "can_do": "Can use the imperative form 'be sure to', to express obligation. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710612x901003785079941200": {
+   "guideword": "USE: 'BE SURE/CERTAIN TO'",
+   "can_do": "Can use 'be sure to', 'be certain to' to talk about certainty. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710387x670189134684302700": {
+   "guideword": "FORM: SUBJECT + 'BE' + ADJECTIVE + 'TO' + INFINITIVE ",
+   "can_do": "Can use pronoun or noun + 'be' + adjective + 'to' + (past) infinitive. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163710613x108457117806470160": {
+   "guideword": "USE: 'BE FORCED TO', OBLIGATION",
+   "can_do": "Can use 'be forced to' to talk about an unnamed obligation, where the circumstances are be",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710618x970201243309381400": {
+   "guideword": "USE: SUGGESTION",
+   "can_do": "Can use 'you (have) got to' to make a strong suggestion.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710395x580382123224487700": {
+   "guideword": "FORM: AFFIRMATIVE",
+   "can_do": "Can use affirmative form dare + infinitive without to. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710840x470507602302159700": {
+   "guideword": "USE: COMMAND",
+   "can_do": "Can use 'may I' to make a polite request, command or suggestion in formal contexts.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710840x532362863135737100": {
+   "guideword": "FORM/USE: PAST AFFIRMATIVE",
+   "can_do": "Can use 'may have' + '-ed' to talk about possibility in the past.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710610x653060315541222000": {
+   "guideword": "FORM: 'BE' EXPRESSIONS + INFINITIVE",
+   "can_do": "Can use the full range of expressions with 'be' + infinitive ('be likely to', 'be due to',",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710840x547885966746675300": {
+   "guideword": "USE: POLITE REQUEST",
+   "can_do": "Can use 'may I' to make a polite request for permission.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710611x641365217086004500": {
+   "guideword": "FORM: 'BE' + ADJECTIVE + 'THAT'",
+   "can_do": "Can use 'be' + 'obvious/sure/likely/certain' followed by a 'that'-clause.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710840x148674711226765900": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use 'may' with an increasing range of adverbs (most commonly 'even', 'only', 'already'",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710840x911616768286395600": {
+   "guideword": "USE: FOCUSING",
+   "can_do": "Can use 'may' in phrases such as as 'you may know', or 'as you may have' + '-ed' to focus ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710611x315903322735290560": {
+   "guideword": "USE: 'BE DUE TO', 'BE TO', SCHEDULES",
+   "can_do": "Can use 'be due to' and, more formally, 'be to' to talk about things that are scheduled or",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711029x470432432448934400": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use 'must' with an increasing range of adverbs (including 'all', 'never', 'strongly', ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710613x796455236335726800": {
+   "guideword": "USE: 'BE OBLIGED TO', OBLIGATION",
+   "can_do": "Can use 'be obliged to' to talk about an external obligation, especially in institutional ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711029x833971545638738200": {
+   "guideword": "USE: OBLIGATION AND NECESSITY",
+   "can_do": "Can use 'must' to ask about obligation and necessity.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710387x650967748684691500": {
+   "guideword": "FORM/USE: 'IT' + LINKING VERB + ADJECTIVES + ('THAT') CLAUSE, FOCUS",
+   "can_do": "Can use 'it' + linking verb + adjective + ('that') clause as a focusing device.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711029x881777172555198800": {
+   "guideword": "USE: CONCESSIONS",
+   "can_do": "Can use the fixed expression 'I must admit' or 'you must admit' to express concession.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711029x414511959030775550": {
+   "guideword": "USE: EMPHASIS ",
+   "can_do": "Can use the fixed expression 'I must say' to give emphasis, usually about something positi",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711029x868317160566453600": {
+   "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+   "can_do": "Can use the perfect form of 'must' to make deductions about the past.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163711031x841582544358879100": {
+   "guideword": "USE: OBLIGATION AND NECESSITY",
+   "can_do": "Can use 'needn't to' talk about a lack of obligation. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710846x395037418398339200": {
+   "guideword": "FORM: QUESTIONS",
+   "can_do": "Can use the question form.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711031x948362564696333800": {
+   "guideword": "FORM: NEGATIVE",
+   "can_do": "Can use the negative form.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163711029x915601173893870500": {
+   "guideword": "USE: RULES",
+   "can_do": "Can use the negative forms of 'must' to talk about what is not permitted.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710611x851664498917631400": {
+   "guideword": "USE: 'BE SUPPOSED TO', OBLIGATION, EXPECTATION",
+   "can_do": "Can use 'be supposed to' to talk about expectation or obligation. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711032x545399225271266940": {
+   "guideword": "USE: DESIRED STATES ",
+   "can_do": "Can use 'ought to' to talk about desired states of affairs.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711291x330489296656484280": {
+   "guideword": "FORM: 'SHOULD BE' + '-ING'",
+   "can_do": "Can use 'should be' + '-ing'.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710846x862002717036825300": {
+   "guideword": "FORM: PAST AFFIRMATIVE",
+   "can_do": "Can use 'must have' + '-ed'.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711287x337411277365052160": {
+   "guideword": "FORM: ELLIPSIS ",
+   "can_do": "Can use 'should' and 'shouldn't' without a following verb where the previous main verb is ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711031x774677823144905200": {
+   "guideword": "FORM: ELLIPSIS",
+   "can_do": "Can use 'ought to' without a following verb where the previous main verb is understood. \u25ba ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711291x955830775192889600": {
+   "guideword": "USE: EXPECTATIONS ",
+   "can_do": "Can use 'should be' + '-ing' to talk about expectations.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711534x311504042687477570": {
+   "guideword": "USE: HABITUAL PAST",
+   "can_do": "Can use 'would' to talk about habitual actions and events in the past.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711292x489347557953784260": {
+   "guideword": "FORM: ELLIPSIS",
+   "can_do": "Can use 'used to' without a following verb where the previous main verb is understood. \u25ba e",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711299x956666388048580000": {
+   "guideword": "USE: REQUESTS",
+   "can_do": "Can use 'will' (particularly 'Will you please') to make requests and commands in a wide ra",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716295x431001332463613700": {
+   "guideword": "USE: PAST SPECULATION",
+   "can_do": "Can use 'could have' + '-ed' to speculate about the past.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716295x105998126908799500": {
+   "guideword": "FORM: PAST",
+   "can_do": "Can used 'could' have + '-ed'. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163716072x486471898998410700": {
+   "guideword": "FORM: 'NEITHER OF', 'NONE OF' + PRONOUN",
+   "can_do": "Can use negative forms 'neither of' and 'none of' + pronoun or noun phrase with the affirm",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716295x544491590213676700": {
+   "guideword": "USE: REPORTED SPEECH",
+   "can_do": "Can use 'could' as the past form of 'can' in reported speech.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716072x615032056929655300": {
+   "guideword": "FORM/USE: 'NEITHER \u2026 NOR'",
+   "can_do": "Can use 'neither \u2026 nor' to connect two words, phrases or clauses, often to give emphasis o",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716070x320077410338691650": {
+   "guideword": "FORM/USE: 'NOT', EMPHASIS",
+   "can_do": "Can use uncontracted 'not' for emphasis or in formal contexts.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163710840x998342327190675100": {
+   "guideword": "USE: OPINION",
+   "can_do": "Can use 'may \u2026 but' to express an unexpected point of view. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711814x584379635897277300": {
+   "guideword": "FORM: NOUN + 'OF' + POSSESSIVE DETERMINER + NOUN ",
+   "can_do": "Can form noun phrases with noun + 'of' + possessive determiner + noun + '\u2018s', particularly",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708567x429681014975256600": {
+   "guideword": "FORM/USE: SENTENCE, EVALUATIVE",
+   "can_do": "Can use a relative clause to refer to a whole clause or sentence, often to express an opin",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711291x569539011340594050": {
+   "guideword": "USE: OBLIGATION ",
+   "can_do": "Can use 'should be' + '-ing' to talk about present general obligation. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716295x333431392231873200": {
+   "guideword": "USE: PAST POSSIBILITY",
+   "can_do": "Can used affirmative 'could' have + '-ed' to talk about past possibility. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712049x417888525913085100": {
+   "guideword": "FORM: PAST PERFECT SIMPLE, AFFIRMATIVE ",
+   "can_do": "Can use the past perfect passive affirmative form.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716295x403332037991284800": {
+   "guideword": "USE: REGRET",
+   "can_do": "Can use 'could have' + '-ed' to talk about regrets.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711814x374275189138046900": {
+   "guideword": "FORM: POSSESSION WITH PLURAL NOUNS  + '",
+   "can_do": "Can form noun phrases with plural nouns + ' + noun.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163712049x932315866168376600": {
+   "guideword": "FORM: PAST CONTINUOUS AFFIRMATIVE. ",
+   "can_do": "Can use the past continuous passive affirmative. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711821x616876087798387200": {
+   "guideword": "FORM'-ING' FORMS, SUBJECT",
+   "can_do": "Can use the '-ing' form of verbs as nouns in subject position.  ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716072x944158847712108200": {
+   "guideword": "FORM/USE: 'NEVER', INVERTED FRONT POSITION, FOCUS",
+   "can_do": "Can use 'never' in front position followed by an inverted subject (most commonly 'I') + ma",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712050x914576942340939400": {
+   "guideword": "FORM: PAST SIMPLE NEGATIVE",
+   "can_do": "Can use past simple passive negative. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712051x281512629992666900": {
+   "guideword": "FORM: PRESENT CONTINUOUS, AFFIRMATIVE ",
+   "can_do": "Can use the present continuous passive affirmative with an increasing range of verbs.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711816x290378137277149250": {
+   "guideword": "FORM: COMPLEX NOUN PHRASES WITH ADJECTIVES COMBINED WITH 'BUT'",
+   "can_do": "Can form an increasing range of complex noun phrases with more than one adjective combined",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712052x534602507801792400": {
+   "guideword": "USE: SUMMARIES AND EVALUATIONS",
+   "can_do": "Can use the passive with modal verbs to evaluate or summarise.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712052x640694659658228000": {
+   "guideword": "FORM: WITH VERBS TAKING TWO OBJECTS, , WITH PREPOSITIONAL PHRASE",
+   "can_do": "Can use the passive with a range of tenses and verbs needing two objects (e.g. give, offer",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712052x291725965796862700": {
+   "guideword": "FORM: PRESENT PERFECT SIMPLE, AFFIRMATIVE ",
+   "can_do": "Can use the present perfect passive affirmative form (often in the context of reporting). ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712052x892253245373132200": {
+   "guideword": "FORM: WITH MODAL VERBS",
+   "can_do": "Can use the passive with modal verbs in a range of contexts, with a variety of subjects.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712049x547897454512315650": {
+   "guideword": "FORM: MODAL PERFECT ",
+   "can_do": "Can use the present perfect simple affirmative and negative forms with modal verbs to refe",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163712052x950930440387598800": {
+   "guideword": "FORM: WITH VERBS TAKING TWO OBJECTS.",
+   "can_do": "Can use the passive with a wide range of verbs needing two objects, putting the indirect o",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712052x960121852033115700": {
+   "guideword": "FORM: PRESENT PERFECT SIMPLE, NEGATIVE ",
+   "can_do": "Can use the present perfect passive negative form (often in the context of reporting). \u25ba r",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712057x241065069713333200": {
+   "guideword": "FORM/USE: 'HAVE' + OBJ + '-ED', PROACTIVE PASSIVE",
+   "can_do": "Can use have + object + -ed to talk about something where the speaker is in a pro-active o",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711815x924964675967763700": {
+   "guideword": "FORM: POSTMODIFYING WITH ADJECTIVE PHRASE",
+   "can_do": "Can form complex noun phrases by using adjective phrases as postmodifiers to give more inf",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712057x530445527704735500": {
+   "guideword": "FORM: 'GET' + REFLEXIVE PRONOUN + '-ED'",
+   "can_do": "Can use a reflexive pronoun with the 'get'-passive. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712057x955381549397373800": {
+   "guideword": "FORM/USE: 'GET' + OBJECT + 'TO'-INFINITIVE",
+   "can_do": "Can use 'get' + object + 'to'-infinitive to talk about causing someone to do something. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712051x779313477999546100": {
+   "guideword": "FORM: PRESENT CONTINUOUS, NEGATIVE",
+   "can_do": "Can use the present continuous passive negative.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163712327x209263766016802180": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use the past continuous with a wide range of adverbs in the normal mid position.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712328x669982657855112700": {
+   "guideword": "FORM/USE: BACKGROUND INFORMATION WITH RELATIVE CLAUSE",
+   "can_do": "Can use the past perfect continuous in a relative clause to give background information.  ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712050x954476408686193200": {
+   "guideword": "FORM: PAST PERFECT SIMPLE, NEGATIVE ",
+   "can_do": "Can use the past perfect passive negative form.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715816x575654726038477250": {
+   "guideword": "FORM/USE: COMPARING",
+   "can_do": "Can use a range of phrases as discourse markers to introduce a comparison. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163712332x322280679825253100": {
+   "guideword": "USE: RESULTS",
+   "can_do": "Can use the past perfect continuous to talk about events which started before a time in th",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712328x422695616724010100": {
+   "guideword": "FORM: NEGATIVE",
+   "can_do": "Can use the negative form. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712332x793082629536507400": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use the past perfect continuous with adverbs in the normal mid position. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712333x761860144866407300": {
+   "guideword": "FORM/USE: AFTER 'IF ONLY' AND 'WISH', IMAGINED PAST",
+   "can_do": "Can use the affirmative form after 'if only', and the affirmative and negative forms after",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712334x136453521650765640": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use the past perfect simple with a wide range of adverbs (including 'finally', 'recent",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712052x759366241193606100": {
+   "guideword": "USE: WITH 'WILL', FUTURE REFERENCE",
+   "can_do": "Can use the passive with 'will' to talk about the future.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712334x353325929078093700": {
+   "guideword": "FORM/USE: INVERSION WITH 'NO SOONER \u2026 THAN'",
+   "can_do": "Can invert the subject and auxiliary verb with 'no sooner \u2026 than' to talk about something ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712049x217545267830854720": {
+   "guideword": "FORM: INFINITIVE",
+   "can_do": "Can use the passive infinitive affirmative and negative forms after an increasing range of",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712335x576982604394435300": {
+   "guideword": "USE: BACKGROUND INFORMATION, RELATIVE CLAUSE",
+   "can_do": "Can use the past perfect simple in relative clauses to give background information.    \u25ba r",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712334x957245027107264100": {
+   "guideword": "FORM: ELLIPSIS ",
+   "can_do": "Can leave out the subject before the past perfect simple where it is understood from the p",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712335x352820156836315650": {
+   "guideword": "USE: REPORTS OF STATEMENTS",
+   "can_do": "Can use the past perfect simple to report statements, where the main verb in the reporting",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712328x663782601864534800": {
+   "guideword": "FORM/USE: BACKGROUND INFORMATION WITH TIME CONJUNCTION",
+   "can_do": "Can use the past perfect continuous after a time conjunction to give background informatio",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712741x374005051648893500": {
+   "guideword": "FORM: NEGATIVE",
+   "can_do": "Can use the negative form with a wide range of regular and irregular verbs.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712333x181896863266680420": {
+   "guideword": "FORM/USE: AFTER 'BECAUSE', EXPLANATIONS ",
+   "can_do": "Can use the past perfect simple after 'because' to give explanatory information.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163712741x138382859022856420": {
+   "guideword": "FORM: QUESTIONS",
+   "can_do": "Can use 'yes/no', 'wh-', tag and negative question forms with an increasing range of verbs",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163712335x814539814649439100": {
+   "guideword": "USE: REPORTS OF QUESTIONS ",
+   "can_do": "Can use the past perfect simple to report questions, where the main verb in the reporting ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712334x897130264998052400": {
+   "guideword": "FORM/USE: INVERSION WITH 'NEVER (BEFORE)'",
+   "can_do": "Can invert the subject and auxiliary verb after 'never (before)' to talk about a unique ev",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712741x451753538727761150": {
+   "guideword": "FORM: WITH SUBORDINATING CONJUNCTIONS",
+   "can_do": "Can use the past simple with a range of subordinating conjunctions, including 'as soon as'",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712335x467440951326574700": {
+   "guideword": "USE: CHANGE OF SITUATION",
+   "can_do": "Can use the past perfect simple to talk about situations which changed. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712747x939400938846862500": {
+   "guideword": "USE: RECENT PAST",
+   "can_do": "Can use the present perfect continuous to focus on a finished activity in the recent past ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713111x611310529067472800": {
+   "guideword": "FORM/USE: WITH 'STILL'",
+   "can_do": "Can use the negative form of the present perfect simple with 'still' to emphasise that som",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713116x636100257659625700": {
+   "guideword": "FORM/USE: FORMAL",
+   "can_do": "Can use less frequent simple prepositions, often in a more formal, literary or business co",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713116x878693855125900300": {
+   "guideword": "FORM/USE: PREPOSITION + 'WH-'WORD",
+   "can_do": "Can use preposition + relative pronoun as complement, to avoid preposition stranding, ofte",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713116x968587932066165600": {
+   "guideword": "FORM: COMPLEX",
+   "can_do": "Can use a wide range of complex prepositions.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713111x354631070539948000": {
+   "guideword": "FORM: QUESTIONS",
+   "can_do": "Can use the question form with an increasing range of verbs.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.2,
+   "verdict": "no_data"
+  },
+  "1741163712747x885210955530291000": {
+   "guideword": "FORM: NEGATIVE",
+   "can_do": "Can use the negative form.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163712743x210897861318798620": {
+   "guideword": "USE: POLITENESS: 'I WONDERED' AND 'I WANTED'",
+   "can_do": "Can use the past simple with 'I wondered' and 'I wanted' as politeness structures, when ma",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163713638x152872542688260900": {
+   "guideword": "FORM: 'OURS' AS OBJECT",
+   "can_do": "Can use the possessive pronoun 'ours' with singular and plural reference, in object positi",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713636x303999786952285900": {
+   "guideword": "USE: STORIES AND COMMENTARIES",
+   "can_do": "Can use the present simple to summarise events or plot in a story or piece of history, oft",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163712743x809106963202299400": {
+   "guideword": "USE: POLITENESS AFTER 'IF'",
+   "can_do": "Can use the past simple after 'if' as a politeness structure, especially in letters and em",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163713638x185275902393746900": {
+   "guideword": "FORM: COMPARATIVE CLAUSES WITH 'OURS', 'HERS'",
+   "can_do": "Can use the possessive pronouns 'hers' and 'ours' in comparative clauses.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713638x836792370741996700": {
+   "guideword": "FORM: 'OURS' AS SUBJECT ",
+   "can_do": "Can use the possessive pronoun 'ours', with singular and plural reference, in subject posi",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712741x938657596941798800": {
+   "guideword": "FORM: WITH TIME ADJUNCTS",
+   "can_do": "Can use a range of time adjuncts with the past simple.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.2,
+   "verdict": "no_data"
+  },
+  "1741163713636x436399267696059800": {
+   "guideword": "USE: SPEECH ACT VERBS",
+   "can_do": "Can use the present simple with a wide range of speech act verbs, including '(dis)agree', ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713861x561082941367103500": {
+   "guideword": "FORM: 'THEIRS' AS OBJECT ",
+   "can_do": "Can use the possessive pronoun 'theirs', with singular and plural reference, in object pos",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713638x866856905336536400": {
+   "guideword": "FORM: 'HERS' AS OBJECT",
+   "can_do": "Can use the possessive pronoun 'hers', with singular reference, in object positions, and c",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710386x348002796343913640": {
+   "guideword": "FORM: 'IT' + LINKING VERB + ADJECTIVES + CLAUSE",
+   "can_do": "Can use 'it' + linking verb + adjective + ('that') clause. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163713864x114619505443246400": {
+   "guideword": "USE: 'YOURSELVES', FOR POLITENESS ",
+   "can_do": "Can use the plural reflexive pronoun 'yourselves' for politeness.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713636x160593634066971800": {
+   "guideword": "FORM: INVERSION WITH 'NOT ONLY \u2026 BUT ALSO'",
+   "can_do": "Can use the inverted form of the past simple with auxiliary 'do', in the phrase 'not only ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713625x686455222331109500": {
+   "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY ",
+   "can_do": "Can use the present continuous with an increasing range of adverbs of indefinite frequency",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712327x913269929337566600": {
+   "guideword": "USE: POLITENESS ",
+   "can_do": "Can use the past continuous to make a request or suggestions more polite or less direct.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712747x163928397652527870": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use the present perfect continuous with adverbs in the normal mid position. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163713863x705171809781664600": {
+   "guideword": "FORM/USE: 'BY' + PLURAL ",
+   "can_do": "Can use plural reflexive pronouns with 'by' to mean alone, without any help.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163713864x952104218120751700": {
+   "guideword": "FORM: 'BY ITSELF'",
+   "can_do": "Can use the reflexive pronoun 'itself' with 'by' to mean alone or without any help.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713638x218168046477418500": {
+   "guideword": "FORM: +  'OF OURS'",
+   "can_do": "Can use the possessive pronoun 'ours' after noun + 'of'.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713864x455439077287223000": {
+   "guideword": "USE: PLURAL, FOR EMPHASIS",
+   "can_do": "Can use plural reflexive pronouns for emphasis.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713875x174658833629234300": {
+   "guideword": "FORM: (OBJECT) USING 'IT' TO INTRODUCE",
+   "can_do": "Can use 'it' as an object with 'make' to introduce something the speaker or writer is goin",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713875x553851897238862400": {
+   "guideword": "FORM: (SUBJECT) 'ONE'",
+   "can_do": "Can use 'one' as a generic personal pronoun in the subject position to mean people in gene",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713864x333646306844270800": {
+   "guideword": "FORM: PLURAL, AFTER PREPOSITIONS",
+   "can_do": "Can use plural reflexive pronouns after prepositions where the object of the preposition i",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163714101x765546723658128100": {
+   "guideword": "FORM/USE: 'THESE ONES', 'THOSE ONES' SUBSTITUTION",
+   "can_do": "Can use 'these ones', 'those ones' as a substitute for plural countable nouns that have pr",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713875x671479205493548800": {
+   "guideword": "FORM: (SUBJECT) EMPTY 'IT'",
+   "can_do": "Can use dummy 'it' with 'appears', 'feels', 'looks' and 'seems'.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714110x318658885213508350": {
+   "guideword": "FORM: 'THESE ONES', 'THOSE ONES'",
+   "can_do": "Can use 'these ones', 'those ones' as a substitute for plural countable nouns which have a",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714103x415443728158977150": {
+   "guideword": "FORM: WITH 'OF' + OBJECT PRONOUN",
+   "can_do": "Can use a wide range of pronouns ('neither', 'either', 'none') with 'of' followed by an ob",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163713875x322581852326230000": {
+   "guideword": "FORM: (SUBJECT) ELLIPSIS ",
+   "can_do": "Can leave out the subject pronoun with a limited range of verbs, in informal contexts. \u25ba e",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713864x447435342130462200": {
+   "guideword": "FORM: SAME SUBJECT AND OBJECT, PLURAL",
+   "can_do": "Can use plural reflexive pronouns to refer to actions where the subject and object of the ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713864x981685154549874200": {
+   "guideword": "USE: 'IN ITSELF', INTENSIFYING ",
+   "can_do": "Can use the fixed expression 'in itself' as an intensifier .",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713864x227611017911317760": {
+   "guideword": "USE: 'ITSELF', FOR EMPHASIS ",
+   "can_do": "Can use the singular pronoun 'itself' for emphasis.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714103x345009813374196540": {
+   "guideword": "FORM: SUBJECT AND OBJECT PRONOUNS, 'EACH', 'SEVERAL', 'NEITHER', 'ENOUGH'",
+   "can_do": "Can use pronouns 'each', 'either', 'enough', 'neither', 'several' as subject and object pr",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715025x810006712006467000": {
+   "guideword": "FORM/USE: 'ONE ANOTHER', FORMAL",
+   "can_do": "Can use 'one another' as the object of a verb or complement of a preposition to talk about",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714319x927217125425351800": {
+   "guideword": "FORM: SUBJECT",
+   "can_do": "Can use the full range of indefinite pronouns as subjects, with a singular verb. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714319x940429972413785400": {
+   "guideword": "USE: VAGUE EXPRESSIONS",
+   "can_do": "Can use indefinite pronouns in vague expressions to refer to things in a non-specific way.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715024x612825975757156400": {
+   "guideword": "FORM/USE: GENDER NEUTRAL",
+   "can_do": "Can use 'he/she', 'he' or 'she' or 'they' to refer back to gender neutral singular nouns o",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715819x177565244544510180": {
+   "guideword": "FORM: MODIFICATION, REPORTING VERB + ADVERB",
+   "can_do": "Can modify the reporting verb with an adverb. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163714101x483581657596987140": {
+   "guideword": "FORM/USE: 'THOSE', SUBSTITUTION ",
+   "can_do": "Can use 'those' as a substitute, followed by a relative clause or '-ed' or '-ing'. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715820x279868282649035070": {
+   "guideword": "FORM/USE: REPORTING VERBS, PAST CONTINUOUS",
+   "can_do": "Can use the past continuous of the reporting verb to report mental processes, with a finit",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715819x225500036872228400": {
+   "guideword": "FORM: DIRECT SPEECH, REPORTING CLAUSE, INVERTED SUBJECT",
+   "can_do": "Can report speech directly inverting the subject and verb in the reporting clause where th",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715820x722979507342767900": {
+   "guideword": "FORM: REPORTED REQUESTS AND COMMANDS, NEGATIVE",
+   "can_do": "Can report requests and commands with 'ask' or 'tell' + direct object + 'not' + 'to-'infin",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715819x186805151899247300": {
+   "guideword": "FORM: DIRECT SPEECH, REPORTING CLAUSE, MID POSITION",
+   "can_do": "Can report speech and thought directly using the reporting verb in the mid position of the",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.2,
+   "verdict": "no_data"
+  },
+  "1741163715274x284779145472593860": {
+   "guideword": "FORM: VERB + PARTICLE + PREPOSITION + OBJECT",
+   "can_do": "Can use an increasing range of verb + particle + preposition + noun or pronoun.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714320x570187312160225660": {
+   "guideword": "USE: 'WE', 'US', GENERAL",
+   "can_do": "Can use 'we' and 'us' to refer to people in general.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715275x932225330988349400": {
+   "guideword": "FORM: PREPOSITIONAL VERB, STRANDED PREPOSITION",
+   "can_do": "Can use verb + preposition, where the preposition is separated from its complement. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715030x194842096031816000": {
+   "guideword": "FORM/USE: TAGS WITH IMPERATIVES AS SOFTENERS",
+   "can_do": "Can use an affirmative or negative tag after an imperative clause to soften the imperative",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715032x903417430290867700": {
+   "guideword": "FORM: NEGATIVE QUESTIONS WITH MAIN VERBS",
+   "can_do": "Can use 'wh-'words + the negative form of auxiliary 'do' + subject + main verb to form 'wh",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715299x362507539878509800": {
+   "guideword": "FORM: SEMI-MODAL AUXILIARY VERBS, 'DARE', 'NEED'",
+   "can_do": "Can use semi-modal auxiliary verbs, 'dare' and 'need'. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714321x943493236628559500": {
+   "guideword": "FORM/USE: GENDER NEUTRAL",
+   "can_do": "Can use 'they/them' to refer back to indefinite pronouns when we do not know the number or",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715278x620223367206575700": {
+   "guideword": "FORM: NO OBJECT",
+   "can_do": "Can use a wide range of phrasal verbs without an object.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715275x765416794436642000": {
+   "guideword": "FORM: VERB + ADVERB + PREPOSITION",
+   "can_do": "Can use an adverb between the verb and the preposition.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715288x862819908682726700": {
+   "guideword": "FORM: VERB + PARTICLE + OBJECT",
+   "can_do": "Can use a wide range of phrasal verbs + particle + object. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711828x662115964014106400": {
+   "guideword": "FORM: NO ARTICLE",
+   "can_do": "Can use uncountable nouns without a definite article to refer to an abstract thing in gene",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715608x437514984752567900": {
+   "guideword": "FORM: 'THERE' + VERBS WITH MODAL MEANING",
+   "can_do": "Can use 'there' with other verbs with modal meaning + 'be' + complement.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706318x964351339627643300": {
+   "guideword": "FORM: COMPOUND ADJECTIVES",
+   "can_do": "Can use a wide range of compound adjectives ('open-minded', 'above-mentioned', 'well-to-do",
+   "hits_checked": 8,
+   "false_positive_rate": 1.0,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "critical"
+  },
+  "1741163715820x680259612514314400": {
+   "guideword": "FORM/USE: CITATION, PRESENT SIMPLE",
+   "can_do": "Can use the present simple form of the reporting verb to report information from a written",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715599x773097571519741400": {
+   "guideword": "FORM: 'TO'-INFINITIVE OR '-ING' FORM, MEANING",
+   "can_do": "Can follow some verbs with a 'to'-infinitive or an '-ing' form, with a change in meaning.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706537x905537267921213700": {
+   "guideword": "FORM/USE: WITH POSTMODFIER AND NOUN",
+   "can_do": "Can use a postmodifier to make the superlative stronger, in the structure superlative + no",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715620x591479199213417900": {
+   "guideword": "FORM: LINKING + COMPLEMENT",
+   "can_do": "Can use a wide range of linking verbs with complements.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715820x946999443663956600": {
+   "guideword": "FORM/USE: TEMPORAL SHIFTS, PAST",
+   "can_do": "Can report speech about events in the past with backshifts for tenses and words relating t",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715599x482760253719255500": {
+   "guideword": "FORM: VERB + NEW SUBJECT + '-ING' FORM",
+   "can_do": "Can introduce a new subject before the '-ing' form (using noun or object pronoun).",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706726x546695627596920800": {
+   "guideword": "USE: STANCE",
+   "can_do": "Can use a wide range of stance adverbs (simply, truly, surely, apparently, naturally, surp",
+   "hits_checked": 8,
+   "false_positive_rate": 0.0,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "critical"
+  },
+  "1741163706532x433078299562880800": {
+   "guideword": "FORM: PAST PARTICPLE AS ADJECTIVE",
+   "can_do": "Can use the '\u2013ed' form of a verb as an adjective, after a noun.",
+   "hits_checked": 8,
+   "false_positive_rate": 1.0,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "critical"
+  },
+  "1741163715599x778722792823544400": {
+   "guideword": "FORM: VERB + '-ING' FORM",
+   "can_do": "Can use an increasing range of verbs followed by an '-ing' form. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163706536x513193449618973840": {
+   "guideword": "FORM/USE: WITH NOUN AND POSTMODFIER",
+   "can_do": "Can use a postmodifier to make the superlative stronger in the structure superlative + pos",
+   "hits_checked": 8,
+   "false_positive_rate": 0.875,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "critical"
+  },
+  "1741163715599x918123165825508200": {
+   "guideword": "FORM/USE: VERBS OF SENSES  + OBJECT + '-ING'",
+   "can_do": "Can use some verbs connected with the senses + direct object + an '-ing' form, to give emp",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708149x543465587723424900": {
+   "guideword": "FORM/USE: ADVERBS + PREPOSITIONAL PHRASES, HIGHLIGHT",
+   "can_do": "Can post-modify adverbs with a complex prepositional phrase complement, to highlight infor",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706530x601825192696361100": {
+   "guideword": "FORM: WITH EXTREME ADVERBS",
+   "can_do": "Can modify gradable adjectives with extreme adverbs of degree ('absolutely', 'extremely', ",
+   "hits_checked": 8,
+   "false_positive_rate": 0.125,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "critical"
+  },
+  "1741163708147x101320810869052430": {
+   "guideword": "FORM/USE: ADVERB + 'ENOUGH'",
+   "can_do": "Can post-modify adverbs with 'enough to intensify'.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714319x138758397083681870": {
+   "guideword": "FORM/USE: WITH RELATIVE CLAUSES, FOCUS",
+   "can_do": "Can use indefinite pronouns with a relative clause to form complex noun phrases, to give f",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163715288x522910495367056000": {
+   "guideword": "FORM: VERB + NOUN + PARTICLE ",
+   "can_do": "Can use phrasal verbs + nouns as object + particle.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708335x425762217604840600": {
+   "guideword": "USE: POINTING, IN FORMAL CONTEXTS",
+   "can_do": "Can use imperatives to point within or to a document within formal contexts, often academi",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708335x356877701278647700": {
+   "guideword": "FORM/USE: 'LET' + THIRD PERSON PRONOUN, PERMISSION, ORDER",
+   "can_do": "Can use an imperative clause with  'let' + 'him/her/them' + base form of a main verb, to  ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706930x408715502774479550": {
+   "guideword": "FORM: DEGREE, MODIFYING ADVERBS",
+   "can_do": "Can use an increasing range of degree adverbs to modify a range of adverb types. \u25ba adjecti",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.6,
+   "verdict": "no_data"
+  },
+  "1741163708147x650959713788834800": {
+   "guideword": "FORM: ADVERB + ADVERB",
+   "can_do": "Can modify a wide range of adverbs with other adverbs. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163706930x186899124179832800": {
+   "guideword": "FORM: DEGREE, MODIFYING COMPARATIVES",
+   "can_do": "Can use degree adverbs ('slightly', 'a bit', 'much') to modify comparatives.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708335x472053466237699840": {
+   "guideword": "FORM/USE: IMPERATIVE + 'AND' CONDITIONAL",
+   "can_do": "Can use imperatives to introduce a condition followed by 'and' to introduce a consequence ",
+   "hits_checked": 3,
+   "false_positive_rate": 0.6666666666666667,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "critical"
+  },
+  "1741163708570x758271347243594900": {
+   "guideword": "FORM/USE: 'NOT' + '-ING' CLAUSE",
+   "can_do": "Can use a non-finite clause, introduced by 'not' + '-ing', to give more information. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708335x435983145620809200": {
+   "guideword": "FORM/USE: DON'T 'LET' + PRONOUN, PERMISSION, ORDER",
+   "can_do": "Can use an imperative clause with  'let' + 'him/her/them' + base form of a main verb, to d",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708152x331629677931650760": {
+   "guideword": "FORM: SUPERLATIVE ADVERB 'BEST' + CLAUSE",
+   "can_do": "Can use 'the best' as a superlative adverb + pronoun + ellipted 'can' or 'could'. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163708328x809057828256698500": {
+   "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT (ALSO)' WITH INVERSION, FOCUS",
+   "can_do": "Can combine clauses using 'not only' in front position followed by an inverted first claus",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715625x266655396639862820": {
+   "guideword": "FORM: ELLIPTED 'IF' CLAUSE",
+   "can_do": "Can form ellipted 'if' clauses with 'if' + '-ed' form.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715625x901361750583648400": {
+   "guideword": "FORM/USE: 'IF' + 'SHOULD', FORMAL, POLITE",
+   "can_do": "Can form subordinate conditional clauses with 'if you should', in polite, formal contexts.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715813x920160730248656800": {
+   "guideword": "FORM: INVERTED CONDITIONAL CLAUSE, 'SHOULD'",
+   "can_do": "Can introduce a conditional subordinate clause with 'should' + inverted subject.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708784x576043020818136800": {
+   "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT ALSO' WITH INVERSION",
+   "can_do": "Can use inverted auxiliary 'do' + the subject after 'not only', to give focus.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708570x301704306507399700": {
+   "guideword": "FORM/USE: NON-FINITE WITH '-ED' CLAUSES, FOCUS",
+   "can_do": "Can use a non-finite subordinate clause with an '-ed' form, before a main clause, to give ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708784x613382438137329400": {
+   "guideword": "FORM/USE: 'YET', CONCESSIVE",
+   "can_do": "Can use '(and) yet' to combine phrases and clauses to introduce a contrast, often unexpect",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163708784x986774694963059200": {
+   "guideword": "FORM/USE: 'NOT ONLY \u2026 BUT ALSO'",
+   "can_do": "Can use 'not only \u2026 but also' to combine phrases and clauses, often for focus or emphasis.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708789x414676979110102140": {
+   "guideword": "FORM/USE: FOCUS",
+   "can_do": "Can use 'whatever', 'wherever', 'however', etc. as a subordinating conjunction, at the beg",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163709233x219446270024584740": {
+   "guideword": "FORM: 'EITHER', 'NEITHER' + 'OF' + DETERMINER WITH PLURAL NOUNS",
+   "can_do": "Can use 'either' and 'neither' + 'of' with plural noun phrases or pronouns.\u25ba pronouns",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712334x456379754309706560": {
+   "guideword": "FORM: QUESTIONS",
+   "can_do": "Can use question forms.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.4,
+   "verdict": "no_data"
+  },
+  "1741163709233x320864481076375400": {
+   "guideword": "FORM: 'EITHER', 'NEITHER' WITH SINGULAR NOUNS",
+   "can_do": "Can use 'either' and 'neither' with singular nouns.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708570x262059735785698850": {
+   "guideword": "FORM: NON-FINITE AFTER 'IF'",
+   "can_do": "Can use non-finite clauses after 'if'. .\u25ba 'clauses: conditionals'",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163706726x756237515197119700": {
+   "guideword": "USE: DEGREE, WITH ADJECTIVES",
+   "can_do": "Can use a wide range of adverbs with adjectives to express degree or intensity.",
+   "hits_checked": 8,
+   "false_positive_rate": 0.625,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "critical"
+  },
+  "1741163716065x166400508777969860": {
+   "guideword": "FORM/USE: 'WHAT' CLEFT CLAUSE",
+   "can_do": "Can use 'What' + noun or pronoun + verb phrase as subject + 'be', for focus.  ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708570x600858468058892400": {
+   "guideword": "FORM/USE: INVERSION",
+   "can_do": "Can introduce a subordinate clause with inverted 'should/had/were' + subject + verb, in fo",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716065x380877789960183400": {
+   "guideword": "FORM/USE: NON-FINITE WITH '-ED' CLAUSES",
+   "can_do": "Can use a non-finite subordinate clause with an '-ed' form, before a main clause, for focu",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716065x303072824467764300": {
+   "guideword": "FORM/USE: IMPERATIVES",
+   "can_do": "Can use imperatives as pointing devices within texts for focus.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163709235x495747867128213400": {
+   "guideword": "USE: EXPECTATIONS WITH 'MIGHT' OR 'MAY'",
+   "can_do": "Can use the future continuous with 'might' or 'may' to talk about an event or activity pot",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709453x634368432932458000": {
+   "guideword": "USE: ASSUMPTIONS",
+   "can_do": "Can use the future perfect simple with 'will' to make assumptions about the present, parti",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715816x805574954101757600": {
+   "guideword": "FORM/USE: TEXTUAL REFERENCE",
+   "can_do": "Can use a range of phrases as discourse markers to point to other parts of a text. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163709453x816599367616623800": {
+   "guideword": "USE: POLITENESS",
+   "can_do": "Can use the future perfect simple with 'will' as a politeness strategy, often in formal co",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709453x517184390257893000": {
+   "guideword": "FORM: WITH ADVERBS ",
+   "can_do": "Can use the future perfect with adverbs (in the normal mid-position). ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709462x498053003229829800": {
+   "guideword": "FORM: NEGATIVE 'SHALL' ",
+   "can_do": "Can use the negative form 'shall not'.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715625x776180432248680300": {
+   "guideword": "FORM/USE: 'IF' + PAST PERFECT + MODAL VERBS IMAGINED SITUATION, REGRET",
+   "can_do": "Can form conditional subordinate clauses with if + the past perfect simple and modal verb ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710384x991044369751703600": {
+   "guideword": "FORM: WITH 'BY THE TIME'",
+   "can_do": "Can use the present simple with 'by the time' to refer to the future.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716065x319522763957327500": {
+   "guideword": "FORM/USE: 'WH-'CLEFT CLAUSE, TITLES",
+   "can_do": "Can use 'Wh-'cleft clauses as titles or subtitles, to point to something that follows, for",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710394x510073809645116300": {
+   "guideword": "USE: EMPHASIS",
+   "can_do": "Can use expressions with 'can' or 'can\u2019t' to give focus or add emphasis, such as 'as you c",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710388x558221911355252500": {
+   "guideword": "FORM/USE: MODIFYING ADJECTIVES, EMPHASIS",
+   "can_do": "Can modify adjectives with adverbs, often for emphasis.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163709472x336460271601600300": {
+   "guideword": "FORM: WITH ADVERBS ",
+   "can_do": "Can use 'be' + 'going to' with an increasing range of adverbs (particularly adverbs of cer",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710388x886068932656131300": {
+   "guideword": "FORM/USE: MODIFYING ADJECTIVES, HEDGING",
+   "can_do": "Can modify adjectives with degree adverbs, often to make an assertion less direct.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163716064x767849913238654200": {
+   "guideword": "FORM/USE: FIXED EXPRESSIONS, FRONTING",
+   "can_do": "Can use fixed expressions in the front position for focus.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.4,
+   "verdict": "no_data"
+  },
+  "1741163709233x220608988049977300": {
+   "guideword": "USE: HYPERBOLE",
+   "can_do": "Can use determiners in hyperbole, often in informal contexts ('millions of', 'loads of', '",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163708784x469404755926666750": {
+   "guideword": "FORM: 'EITHER \u2026 OR'",
+   "can_do": "Can use 'either \u2026 or' to combine more complex strings of clauses and sentences.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710609x838509246682484900": {
+   "guideword": "USE: 'HOW DARE \u2026!'",
+   "can_do": "Can use 'how dare \u2026 !' to express disapproval or offense about something",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710609x454833184411402000": {
+   "guideword": "FORM: QUESTION",
+   "can_do": "Can use the question form. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163710394x606520841619965400": {
+   "guideword": "FORM/USE: PAST NEGATIVE, DEDUCTIONS",
+   "can_do": "Can use 'can't' or 'cannot have' + '-ed' to make deductions.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710840x730541799606596100": {
+   "guideword": "FORM/USE: 'MAY WELL'",
+   "can_do": "Can use 'may well' to give emphasis to something unexpected.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709011x121675845924224210": {
+   "guideword": "FORM: 'ONE'S'",
+   "can_do": "Can use 'one's' to indicate possession, referring to people in general. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710840x171768917119373020": {
+   "guideword": "FORM/USE: PAST NEGATIVE",
+   "can_do": "Can use 'may not have' + '-ed' to talk about possibility in the past. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710844x346277767826757440": {
+   "guideword": "USE: POLITE CRITICISM",
+   "can_do": "Can use the question form to make polite criticisms and suggestions.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163710613x174694583388425250": {
+   "guideword": "FORM/USE: HEDGING",
+   "can_do": "Can use 'be' + 'not' + adjective + 'that-' clause to make an assertion less direct.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710396x753443551652472000": {
+   "guideword": "FORM/USE: 'I DARE SAY'",
+   "can_do": "Can use the fixed expression 'I dare say' to say that something is probably true.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710844x406795981475466500": {
+   "guideword": "USE: CONSOLING OR JUSTIFYING",
+   "can_do": "Can use 'might' followed by 'but' to console or justify. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163710394x181194799335548060": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use a wide range of adverbs with 'can' in the normal mid position after the modal verb",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163710843x167923658280904700": {
+   "guideword": "FORM: PAST, NEGATIVE",
+   "can_do": "Can use 'might not have' + '-ed'. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710843x613591932833607400": {
+   "guideword": "FORM: QUESTIONS ",
+   "can_do": "Can use the question form.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163711031x153375030941925500": {
+   "guideword": "FORM: PAST, NEGATIVE",
+   "can_do": "Can use 'needn't have' + '-ed'.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711032x281092767712077150": {
+   "guideword": "FORM/USE: DESIRED STATES, WITH 'THERE OUGHT TO BE' ",
+   "can_do": "Can use 'there ought to be' to talk about desired states of affairs. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710394x568523559828543400": {
+   "guideword": "FORM: PASSIVE ",
+   "can_do": "Can use 'can' in passive reporting clauses in a more formal impersonal style (e.g. for rep",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163710385x601071277336939100": {
+   "guideword": "USE: SUGGESTIONS, OBLIGATION ",
+   "can_do": "Can use the present simple after speech act verbs expressing suggestions and obligation. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163711291x489521855903887900": {
+   "guideword": "FORM/USE: AFTER 'IF' CLAUSES",
+   "can_do": "Can use 'should' after 'if' to talk about possible situations in the future.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711055x305504796629080700": {
+   "guideword": "FORM/USE: PAST, AFFIRMATIVE",
+   "can_do": "Can use 'ought to have' + '-ed' to refer to desired states of affairs in the past. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711292x729451836972431900": {
+   "guideword": "FORM: QUESTIONS",
+   "can_do": "Can use the question form. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163711057x155202045665735940": {
+   "guideword": "USE: COMMANDS AND INSTRUCTIONS ",
+   "can_do": "Can use 'shall' to express commands in very formal contexts.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711292x177435763592044280": {
+   "guideword": "FORM/USE: INVERSION",
+   "can_do": "Can use 'should' with an inverted subject to refer to possible situations, in formal conte",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711299x562241618213371140": {
+   "guideword": "USE: HABITUAL AND TYPICAL",
+   "can_do": "Can use 'will' to talk about something which is typical or habitual. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710843x267892712489931740": {
+   "guideword": "USE: POSSIBILITY IN THE PAST",
+   "can_do": "Can use 'might not have' + '-ed' to talk about possibility with a past reference.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710613x336970391866066940": {
+   "guideword": "USE: 'BE SET TO', ASSERTION",
+   "can_do": "Can use 'be set to' to talk about strong assertion about the future, especially in institu",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716072x449913250965678900": {
+   "guideword": "FORM/USE: 'NOT' + STANCE ADVERB, HEDGING",
+   "can_do": "Can use 'not' + stance adverb, often  in a mid position, to soften the directness of a sta",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716072x485073520726290800": {
+   "guideword": "FORM: 'NONE', SUBSTITUTION",
+   "can_do": "Can use negative pronoun 'none' to substitute for subject and object pronouns or noun phra",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716072x182229027169600770": {
+   "guideword": "FORM/USE: 'WHATSOEVER', EMPHASIS",
+   "can_do": "Can use 'whatsoever' after a negative form for emphasis. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711538x841661069635560700": {
+   "guideword": "FORM/USE: RESPONSE TOKENS",
+   "can_do": "Can use 'not necessarily' as a short response. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711534x798351647415961600": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use an increasing range of adverbs with 'would', including 'strongly', 'easily', 'espe",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711538x899852393729137200": {
+   "guideword": "FORM/USE: 'NOT NECESSARILY'",
+   "can_do": "Can use 'not necessarily' to express a possible exception to a general perception, i.e. no",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716072x770198940521685800": {
+   "guideword": "USE: FORMAL",
+   "can_do": "Can use '(very) few' meaning 'not many' to refer to people in formal written contexts, oft",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711057x995048909365883900": {
+   "guideword": "FORM: NEGATIVE",
+   "can_do": "Can use the negative form.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711816x514151092323317250": {
+   "guideword": "USE: NOMINALISATION, FORMALITY",
+   "can_do": "Can use nominalised forms in academic or business contexts, to make something more formal.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163711054x175278152218314660": {
+   "guideword": "FORM/USE: EMPHASIS, WITH 'REALLY'",
+   "can_do": "Can use 'ought to' with 'really' to add emphasis.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712056x332718835608695200": {
+   "guideword": "FORM/USE: SUMMARISING, EVALUATING WITH 'IT'.",
+   "can_do": "Can use the passive with 'it' as a dummy subject, to summarise or evaluate in discussions,",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712052x105324067307769550": {
+   "guideword": "FORM/USE: NON-FINITE CLAUSES",
+   "can_do": "Can use a passive non-finite '-ing' form as a subordinate clause or a noun clause to give ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711055x172792709822924300": {
+   "guideword": "USE: LIKELIHOOD ",
+   "can_do": "Can use 'ought to' to talk about something which is likely.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711821x165850595372269760": {
+   "guideword": "FORM'-ING' FORMS, ABSTRACT NOUNS",
+   "can_do": "Can use the '-ing' form of verbs as abstract nouns. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163712057x414876536962195400": {
+   "guideword": "FORM/USE: 'GET' + OBJECT + '-ED'",
+   "can_do": "Can use 'get' + object + '-ed' to talk about causing or instructing something to happen or",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716295x133200860687879170": {
+   "guideword": "USE: CRITICISM",
+   "can_do": "Can use 'could have' + '-ed' form to express disapproval or criticism.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716072x190757617985932480": {
+   "guideword": "FORM/USE: 'NOT ONLY \u2026 (BUT) ALSO' WITH INVERSION",
+   "can_do": "Can use auxiliary 'do' + inverted subject after 'not only', to give focus.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712320x420977783135077200": {
+   "guideword": "FORM/USE: 'GET' + OBJECT + '-ING'",
+   "can_do": "Can use 'get' + object + '-ing' to talk about causing someone or something to do something",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712056x106461892688326740": {
+   "guideword": "FORM/USE: PRESENT CONTINUOUS NEGATIVE",
+   "can_do": "Can use the present continuous passive negative form to refer to ongoing situations in the",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711816x943210637425187800": {
+   "guideword": "FORM/USE: 'WH-' CLEFT, FOCUS",
+   "can_do": "Can form complex noun phrases with 'wh-' cleft clauses, followed by 'be', to give focus. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706726x104951219517093630": {
+   "guideword": "USE: CERTAINTY",
+   "can_do": "Can use a wide range of adverbs to indicate degrees of certainty. ",
+   "hits_checked": 8,
+   "false_positive_rate": 0.0,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "critical"
+  },
+  "1741163712743x298607385595879740": {
+   "guideword": "FORM: QUESTIONS ",
+   "can_do": "Can use 'yes/no', 'wh-', tag and negative question forms with a wide range of verbs.  \u25ba Qu",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163712744x852310054287561700": {
+   "guideword": "USE: POLITENESS: 'I THOUGHT'",
+   "can_do": "Can use the past simple 'I thought' as a politeness structure to sound less direct.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712743x203885413206849950": {
+   "guideword": "FORM: INVERSION WITH 'NOT ONLY \u2026 BUT ALSO'",
+   "can_do": "Can use the inverted form of the past simple with auxiliary 'do', in the phrase 'not only ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163713636x943929338741485800": {
+   "guideword": "USE: REPORTING VERBS",
+   "can_do": "Can use the present simple with a wide range of reporting verbs, especially in academic co",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713636x207376848650752130": {
+   "guideword": "FORM/USE: NEGATIVE QUESTIONS, PERSUASION",
+   "can_do": "Can use the negative question form as a persuasion strategy.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713636x966355033057875000": {
+   "guideword": "FORM/USE: NEGATIVE QUESTIONS, OPINION",
+   "can_do": "Can use the negative question form to check opinions.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712335x315912109814443500": {
+   "guideword": "FORM/USE: INVERSION, IMAGINED PAST",
+   "can_do": "Can invert the subject and affirmative auxiliary verb to talk about imagined situations in",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711816x244460653529919870": {
+   "guideword": "FORM: NOUN PHRASE WITH POSSESSIVE 'S WITHOUT NOUN",
+   "can_do": "Can form complex noun phrases with noun phrase + 'of' + noun phrase + possessive determine",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714103x860661498438757200": {
+   "guideword": "FORM: 'NONE', SUBSTITUTION",
+   "can_do": "Can use pronouns 'none' to substitute for subject and object pronouns. \u25ba  pronouns: substi",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714103x889764706504247800": {
+   "guideword": "USE: FORMAL ",
+   "can_do": "Can use 'few', 'many', 'most', 'others' to refer to people in formal written contexts, oft",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716072x678281983839554200": {
+   "guideword": "FORM: 'NOT ALL', 'NOT EVERY'",
+   "can_do": "Can use 'not with indefinite pronouns 'everyone' and 'everything' and determiners 'every',",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163713625x675785619911793800": {
+   "guideword": "USE: RHETORICAL QUESTIONS ",
+   "can_do": "Can use question forms to ask rhetorical questions.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714110x633342796946525000": {
+   "guideword": "FORM: 'NONE'",
+   "can_do": "Can use 'none' as a pronoun. \u25ba  determiners: quantity  \u25ba  pronouns: quantity ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713861x328259304388360100": {
+   "guideword": "FORM: 'OURS' AS SUBJECT ",
+   "can_do": "Can use the possessive pronoun 'ours', in subject position. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713116x701061838010980100": {
+   "guideword": "FORM/USE: FORMAL",
+   "can_do": "Can use less frequent complex prepositions, often in a more formal, literary or business c",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714319x832568399007343700": {
+   "guideword": "FORM/USE: 'ANYTHING', FOCUS ",
+   "can_do": "Can use 'anything' with post-modifiers to form complex noun phrases as subjects with a sin",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714101x204016393074029760": {
+   "guideword": "FORM: 'THAT OF', 'THOSE OF'",
+   "can_do": "Can use 'that of' and 'those of' as a possessive form, in formal and professional contexts",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163712743x286039195636331720": {
+   "guideword": "USE: FOR EMPHASIS, WITH 'DID'",
+   "can_do": "Can use the past simple with 'did' for emphasis.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713875x822556848048788000": {
+   "guideword": "FORM/USE: (SUBJECT) 'IT' + PASSIVE ",
+   "can_do": "Can use 'it' with the passive voice where the subject is unknown or unimportant, often in ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715030x683749532720890600": {
+   "guideword": "FORM: TAGS WITH 'THERE' + 'BE' ",
+   "can_do": "Can use affirmative and negative forms of question tags with 'there' + 'be'. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163713111x834717044155053800": {
+   "guideword": "FORM: NEGATIVE",
+   "can_do": "Can use the full negative forms with a wide range of verbs, often in formal contexts.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714104x293283723619803800": {
+   "guideword": "FORM: MODIFIED",
+   "can_do": "Can modify 'few' and 'many' with 'very', 'too', 'so' as intensifiers. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714319x415686089243547200": {
+   "guideword": "FORM/USE: 'ANYTHING', ELLIPSIS",
+   "can_do": "Can use 'anything' in an ellipted clause, ('if there is anything \u2026'). ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163712743x467903740487451800": {
+   "guideword": "USE: COMPLEX ORDERING OF PAST EVENTS",
+   "can_do": "Can use the past simple to order sequences of events in the past in a complex way.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163706322x308841091964953600": {
+   "guideword": "USE: FOCUS",
+   "can_do": "Can use a list of adjectives in ellipted clauses before and after a noun, to give focus. \u25ba",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715028x242469073040096920": {
+   "guideword": "FORM/USE: ELLIPTED MODAL, HEDGING",
+   "can_do": "Can form alternative questions with two clauses and ellipsis in the second clause, often a",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715025x801370095944183200": {
+   "guideword": "FORM: 'EACH \u2026' + 'THE OTHER(S)', AS COMPLEMENT",
+   "can_do": "Can use 'each' (+ noun or pronoun) as subject followed by 'the other(s)' a complement of a",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715032x219052815087732670": {
+   "guideword": "USE: FOCUS",
+   "can_do": "Can use 'wh-'questions as a focusing device, often in a narrative or argument.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715607x616643876228690600": {
+   "guideword": "FORM/USE: VERBS OF SENSES + OBJECT + INFINITIVE",
+   "can_do": "Can use some verbs connected with the senses + direct object + infinitive without 'to' emp",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715275x268506157109972930": {
+   "guideword": "FORM: PHRASAL-PREPOSITIONAL VERB, STRANDED PREPOSITION",
+   "can_do": "Can use verb + particle + preposition, where the preposition is separated from its complem",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715288x271026624538714300": {
+   "guideword": "FORM: VERB + PRONOUN + PARTICLE ",
+   "can_do": "Can use a wide range of phrasal verbs + object pronoun + particle. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706325x710438084625442200": {
+   "guideword": "FORM/USE: WITH 'NOT THAT MUCH'",
+   "can_do": "Can use 'not that much' to modify comparative adjectives to a small degree. \u25ba comparative ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711828x251823774434196220": {
+   "guideword": "FORM: UNCOUNTABLE NOUNS",
+   "can_do": "Can use a wide range of uncountable nouns, particularly referring to abstract concepts. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.6,
+   "verdict": "no_data"
+  },
+  "1741163708146x422722508652768400": {
+   "guideword": "FORM/USE: FRONT POSITION, INVERSION, WITH 'HARDLY'",
+   "can_do": "Can use 'hardly' in front position followed by an inverted subject and verb, to give focus",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708153x262593982426201800": {
+   "guideword": "FORM: 'AS IF' + NON-FINITE CLAUSE",
+   "can_do": "Can use 'as if' + non-finite clause to introduce a second clause as a comparison. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706325x499920484410304700": {
+   "guideword": "FORM/USE: WITH 'NO' OR 'NOT ANY' ",
+   "can_do": "Can use 'no' / 'not any' with comparative adjectives to limit the scale of comparison. \u25ba c",
+   "hits_checked": 8,
+   "false_positive_rate": 0.875,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "critical"
+  },
+  "1741163706537x792815461768504600": {
+   "guideword": "FORM/USE: 'SLIGHTEST', 'FAINTEST'",
+   "can_do": "Can use 'the slightest', 'the faintest' with a specific range of nouns to express the leas",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706530x588030046772396400": {
+   "guideword": "FORM: COMPARISON ",
+   "can_do": "Can use adjectives in 'as \u2026 as' and 'so \u2026 that' in comparative structures. \u25ba comparative c",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708329x546836553751250300": {
+   "guideword": "FORM/USE: NEGATIVE CLAUSE +  'NOR', FOCUS",
+   "can_do": "Can combine a negative clause with an inverted clause with 'nor', to give focus.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714104x276089744133384700": {
+   "guideword": "FORM: RELATIVE PRONOUNS",
+   "can_do": "Can use 'some of', 'many of' to modify relative pronouns in a relative clause. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708563x629778718895767000": {
+   "guideword": "FORM: 'HOW' + CLAUSE",
+   "can_do": "Can use 'How' + clause. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163708336x234249756391385900": {
+   "guideword": "FORM/USE: 'DON'T YOU \u2026'",
+   "can_do": "Can use you with an imperative form to make an instruction stronger.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163708570x297785508495203460": {
+   "guideword": "FORM/USE: 'WERE' + PRONOUN + 'TO' INFINITIVE, FORMAL",
+   "can_do": "Can use 'Were' + pronoun + 'to' infinitive to introduce a condition, in formal contexts. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708335x133935596064802990": {
+   "guideword": "FORM/USE: 'LET' + THIRD PERSON PRONOUN, DEVOLVING RESPONSIBILITY",
+   "can_do": "Can use an imperative clause with 'let' + 'him/her/them' + base form of a main verb, to de",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715813x225051382084452860": {
+   "guideword": "FORM/USE: 'WERE IT NOT FOR', FORMAL",
+   "can_do": "Can use 'Were it not for' + noun phrase to introduce conditions in formal contexts. \u25ba past",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708152x610028410376589400": {
+   "guideword": "FORM/USE: 'SO ...  AS TO', FORMAL",
+   "can_do": "Can use 'so' + adjective + 'as' + 'to'-infinitive clause, usually in formal contexts.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715813x668177836402207500": {
+   "guideword": "FORM/USE: SUBORDINATING CONJUNCTIONS, CONDITIONS",
+   "can_do": "Can use conditional subordinate clauses with a range of conjunctions ('so long as', 'on co",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708149x973970498543633300": {
+   "guideword": "FORM: PRE- AND POST-MODIFIED ADVERBS",
+   "can_do": "Can form adverb phrases with modifiers before, and complements after, adverbs. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715028x672938393631707000": {
+   "guideword": "FORM/USE: STRONG ALTERNATIVE",
+   "can_do": "Can form alternative questions using an extreme alternative to give greater pragmatic forc",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715813x251667317407443520": {
+   "guideword": "FORM/USE: INVERTED 'WERE' + 'TO' INFINITIVE, FORMAL",
+   "can_do": "Can use 'were' with an inverted subject + 'to' infinitive, to introduce conditions in form",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706322x402656530651300600": {
+   "guideword": "FORM: COMBINING MULTIPLE ADJECTIVES",
+   "can_do": "Can combine more complex, lengthy strings of adjectives, joining the last two adjectives w",
+   "hits_checked": 8,
+   "false_positive_rate": 1.0,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "critical"
+  },
+  "1741163708563x872592345857643000": {
+   "guideword": "FORM: 'HOW' + ADVERB + CLAUSE",
+   "can_do": "Can use 'How' + adverb + clause. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163715814x878379023593554300": {
+   "guideword": "FORM/USE: 'WHETHER OR NOT', FORMAL ",
+   "can_do": "Can use 'whether or not' to introduce conditions in formal contexts.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715814x629362533174766300": {
+   "guideword": "FORM/USE: 'IF IT WERE' + 'TO'-INFINITIVE FORM, FORMAL",
+   "can_do": "Can use 'If it were' + 'to-' infinitive to introduce conditions in formal contexts. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708784x977839839085230600": {
+   "guideword": "FORM/USE: 'AND YET', CONCESSIVE",
+   "can_do": "Can use 'And yet' to combine sentences to introduce a contrast, often unexpected, sometime",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708789x914655436588860800": {
+   "guideword": "FORM/USE: 'IN THAT'",
+   "can_do": "Can use 'in that' as a subordinating conjunction, to give greater in-depth explanation, of",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715813x134565574339758690": {
+   "guideword": "USE: INVERTED 'SHOULD', FUTURE, POSSIBLE OUTCOME, FORMAL, POLITE ",
+   "can_do": "Can use inverted 'should', + 'would' in the main clause to talk about possible future outc",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709011x101004395816580500": {
+   "guideword": "FORM: SINGULAR NOUN ENDING IN 'S' + APOSTROPHE",
+   "can_do": "Can use an apostrophe after singular nouns ending in 's', to indicate possession.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709012x469636454463137700": {
+   "guideword": "FORM: ''S + 'S'",
+   "can_do": "Can use two possessive ''s' constructions in the same noun phrase. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709001x827143402527184000": {
+   "guideword": "FORM/USE: 'THIS' WITH NOUN AND POSSESSIVE",
+   "can_do": "Can use 'this' + noun + 'of' + possessive pronoun to highlight something, often in a posit",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.8,
+   "verdict": "no_data"
+  },
+  "1741163715814x475016379352568560": {
+   "guideword": "FORM/USE: 'IF IT WERE NOT FOR', FORMAL",
+   "can_do": "Can use 'If it weren\u2019t / were not for' + noun phrase to introduce conditions in formal con",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708570x407214749191681340": {
+   "guideword": "FORM/USE: NON-FINITE AFTER 'ALTHOUGH', 'THOUGH'",
+   "can_do": "Can use non-finite clauses after subordinating conjunctions '(although, though)', to expre",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163708784x444948210386186400": {
+   "guideword": "FORM/USE: 'NEITHER'",
+   "can_do": "Can use 'Neither' or 'Nor' + inverted auxiliary or 'be' + subject to add to a previous rel",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715813x104521611350361970": {
+   "guideword": "FORM/USE: INVERTED PAST PERFECT, IMAGINED PAST",
+   "can_do": "Can use past perfect +  inverted subject, and a modal verb + 'have' + '-ed' in the main cl",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716065x120095405121205090": {
+   "guideword": "FORM/USE: 'NOT A' + NOUN",
+   "can_do": "Can use 'Not a' + noun with a passive verb or inverted auxiliary and subject for focus. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716065x880428316136173400": {
+   "guideword": "FORM/USE: 'THE' + PREMODIFIER + 'THING, FACT etc.' + 'IS (THAT)'",
+   "can_do": "Can use 'The' + premodifier + 'thing, fact, point, problem or reason' + 'is (that)' for fo",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706532x467634628716204740": {
+   "guideword": "FORM/USE: DEGREE ADJECTIVES BEFORE NOUNS",
+   "can_do": "Can use an increasing range of adjectives before a noun to express intensity.",
+   "hits_checked": 8,
+   "false_positive_rate": 0.25,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.2,
+   "verdict": "solid"
+  },
+  "1741163716065x984349956970362600": {
+   "guideword": "FORM/USE: 'WH-'CLEFT  CLAUSE",
+   "can_do": "Can use 'How', 'Why', or 'Where' cleft clauses as subject, for focus",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716067x147000311893029860": {
+   "guideword": "FORM/USE: 'IT' CLEFT",
+   "can_do": "Can use 'It' + 'be' + noun + 'that' clause for focus.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709241x531655376865656240": {
+   "guideword": "USE: 'BE DUE TO' ",
+   "can_do": "Can use the simple past form of 'be' + 'due to' to talk about scheduled events in the futu",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709469x456116392447661900": {
+   "guideword": "USE: PREDICTIONS WITH 'SHALL'",
+   "can_do": "Can use 'shall' to make predictions, usually in formal contexts.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709453x606798789385971200": {
+   "guideword": "FORM: QUESTIONS ",
+   "can_do": "Can use the question form of the future perfect simple.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709241x694975673678065400": {
+   "guideword": "USE: ASSUMPTIONS",
+   "can_do": "Can use the future perfect continuous to make assumptions about the present.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709234x899400819655924500": {
+   "guideword": "FORM/USE: 'MANY A' WITH SINGULAR NOUNS, FOR FOCUS",
+   "can_do": "Can use 'many a' or 'many an' + singular noun for emphasis and focus.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710394x264223806244499500": {
+   "guideword": "USE: REFLECTIONS",
+   "can_do": "Can use 'how can' to reflect, through rhetorical questions. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710385x778921051041153500": {
+   "guideword": "FORM: INVERSION WITH 'ONLY WHEN'",
+   "can_do": "Can use the present simple with 'only when' (followed by 'will' and inverted subject) to r",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709005x786738476096090000": {
+   "guideword": "USE: EMOTIONAL DISTANCE",
+   "can_do": "Can use 'that' and 'those' to convey emotional distance, often to express disapproval.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710609x732138645679422100": {
+   "guideword": "FORM/USE: NEGATIVE WITH 'DIDN'T'",
+   "can_do": "Can use the negative form 'didn't dare' + infinitive without 'to' to talk about not being ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716067x243366578638317700": {
+   "guideword": "FORM/USE: MULTIPLE FIXED EXPRESSIONS",
+   "can_do": "Can use more than one fixed expression in the front position for added focus.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.4,
+   "verdict": "no_data"
+  },
+  "1741163710613x411995420006495200": {
+   "guideword": "FORM: NEGATIVE",
+   "can_do": "Can use 'be' + 'not' + adjective + 'to' + infinitive.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709472x588484642713553900": {
+   "guideword": "FORM: WITH ADVERBS ",
+   "can_do": "Can use 'be' + 'going to' with a wide range of adverbs before the main verb. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710618x128533111434523170": {
+   "guideword": "USE: OBLIGATION",
+   "can_do": "Can use present and past forms of 'have to' + '-ed' to talk about obligations in the past.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710618x284270552774544600": {
+   "guideword": "USE: DEDUCTIONS AND CONCLUSIONS",
+   "can_do": "Can use a range of present and past forms of 'have (got) to' to talk about deductions and ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709012x498407182012378100": {
+   "guideword": "FORM: ''S' WITH ELLIPTED NOUN",
+   "can_do": "Can use ''s' without a following noun when the noun has already been mentioned or is obvio",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711029x580434283031923800": {
+   "guideword": "FORM: ELLIPSIS",
+   "can_do": "Can use ellipted 'must have' + '-ed' without a subject. \u25ba ellipsis",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710614x791981949538591400": {
+   "guideword": "FORM/USE: 'BE' + ADJECTIVE + 'NOT' + 'TO'",
+   "can_do": "Can use 'be' + adjective + 'not' + 'to' + infinitive for emphasis.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710841x403556143145239230": {
+   "guideword": "FORM/USE: 'MAY AS WELL'",
+   "can_do": "Can use 'may as well' to talk about what we think is the easiest or most logical course of",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710841x848786099914337500": {
+   "guideword": "USE: CONCESSION",
+   "can_do": "Can use 'may' in a subordinate clause expressing concession with 'however', 'whatever', 'w",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710844x795406964176839600": {
+   "guideword": "FORM: 'MIGHT AS WELL'",
+   "can_do": "Can use 'might as well', mostly to talk about or suggest what we think is the easiest or m",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710844x664690208940296400": {
+   "guideword": "USE: EMPHASIS",
+   "can_do": "Can use 'try as I might' for emphasis at the beginning of a sentence.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710841x706837420800042400": {
+   "guideword": "USE: HEDGING",
+   "can_do": "Can use 'it may be' + '-ed' that as a hedging device when drawing conclusions and summaris",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163709462x743053516670709100": {
+   "guideword": "USE: LONG-TERM INTENTIONS WITH 'SHALL'",
+   "can_do": "Can use 'shall' to talk about long-term intentions. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711055x131146939288121260": {
+   "guideword": "FORM: CONTRACTED FORM, NEGATIVE",
+   "can_do": "Can use 'oughtn't' (without 'to') + verb.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163710618x543611533546182200": {
+   "guideword": "FORM: PAST",
+   "can_do": "Can use 'have to have' + '-ed'. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711030x333448797717017540": {
+   "guideword": "FORM: PAST, NEGATIVE",
+   "can_do": "Can use 'must not have been' (especially with 'easy').",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163711057x361262241051185400": {
+   "guideword": "USE: PREDICTIONS",
+   "can_do": "Can use 'shall' to make predictions.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711030x411652772454090800": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use 'must' with a wide range of adverbs in the normal mid position after the modal ver",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711296x829671541616373600": {
+   "guideword": "FORM: 'USED NOT TO'",
+   "can_do": "Can use negative form 'used not to'",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711295x478982689806013000": {
+   "guideword": "FORM/USE: WITH 'AS' + PRONOUN, NARRATIVE ",
+   "can_do": "Can use 'as' + pronoun + 'used to' \u2026 to add background to a narrative, often to highlight ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711299x818480809453484800": {
+   "guideword": "USE: WILLFULNESS OR DISAPPROVAL",
+   "can_do": "Can use 'will' to talk about general behaviour, often disapprovingly.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711030x504903793194680900": {
+   "guideword": "FORM: INVERSION",
+   "can_do": "Can invert 'must' and the subject after negative phrases, e.g. 'not only', 'never', 'nor',",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716295x549939411550883300": {
+   "guideword": "USE: SPECULATION ",
+   "can_do": "Can use 'couldn\u2019t have' + '-ed' to speculate about the past.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711055x530884409098289800": {
+   "guideword": "FORM: QUESTIONS, NEGATIVE ",
+   "can_do": "Can use 'ought' + subject + 'not to' + verb to form (rhetorical) questions, often in forma",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711534x901809977839047200": {
+   "guideword": "FORM: WITH ADVERBS",
+   "can_do": "Can use a wide range of adverbs with 'would', including 'undoubtedly', 'possibly', 'normal",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711031x889528493173510800": {
+   "guideword": "USE: IN DISCUSSION",
+   "can_do": "Can use the question form rhetorically in discussion, typically in formal contexts.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163716292x392889013913381400": {
+   "guideword": "FORM/USE: 'IN THE LEAST', EMPHASIS",
+   "can_do": "Can use 'in the least' after a negative form for emphasis. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711057x158399813598145700": {
+   "guideword": "USE: AFTER 'IF' CLAUSES",
+   "can_do": "Can use 'shall' in the main clause after an 'if-' clause  \u25ba conditionals",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711055x585919331905116800": {
+   "guideword": "FORM: NEGATIVE",
+   "can_do": "Can use the negative form 'ought not to'. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716073x696199339681962600": {
+   "guideword": "FORM/USE: 'NOT A' + NOUN, EMPHASIS",
+   "can_do": "Can use 'not a' + noun, often with a following  passive structure, for emphasis.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716292x111486420070027630": {
+   "guideword": "FORM/USE: 'NEITHER'",
+   "can_do": "Can use 'Neither' or 'Nor' + with 'do' or 'be' + inverted subject to add to a previous rel",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712056x220763356502948540": {
+   "guideword": "FORM: NON-FINITE PERFECT COMPLEMENTS ",
+   "can_do": "Can use non-finite '-ing' perfect forms of the passive as the complement of prepositions.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163716291x581144268274536400": {
+   "guideword": "FORM/USE: 'DON'T YOU \u2026', WARNING",
+   "can_do": "Can use a negative imperative form with 'you' to give a warning or reprimand.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712056x976576319443112100": {
+   "verdict": "error",
+   "error": "'NoneType' object is not subscriptable"
+  },
+  "1741163712327x107883069547981780": {
+   "guideword": "USE: UNDESIRED EVENTS",
+   "can_do": "Can use the past continuous with 'always' or 'constantly' to talk about repeated events wh",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712739x117068598667129380": {
+   "guideword": "FORM: FIXED EXPRESSIONS 'HAD IT NOT BEEN FOR', 'IF IT HADN'T BEEN FOR'",
+   "can_do": "Can use 'had it not been for' \u2026 and 'if it hadn\u2019t been for' with a modal form for giving r",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712321x355132007254578300": {
+   "guideword": "FORM/USE: 'HAVE' + OBJECT + INFINITIVE",
+   "can_do": "Can use 'have' + object + infinitive without 'to' to talk about asking or causing someone ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712332x868931903135236100": {
+   "guideword": "FORM: QUESTIONS",
+   "can_do": "Can use the question form. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163712739x551343528482470600": {
+   "guideword": "FORM: INVERSION WITH 'HARDLY \u2026WHEN'",
+   "can_do": "Can invert the subject and affirmative auxiliary verb with 'hardly \u2026 when' to talk about s",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711816x759292923161605000": {
+   "guideword": "FORM: COMPLEX NOUN PHRASES WITH 'LITTLE OR NO'  + NOUN",
+   "can_do": "Can form complex noun phrases with 'little or no' + noun.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712056x185610578351898660": {
+   "guideword": "FORM/USE: NON-FINITE PERFECT CLAUSES",
+   "can_do": "Can use passive non-finite '-ing' perfect forms in subordinate clauses to give explanatory",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713625x540058676609126000": {
+   "guideword": "FORM/USE: WITH ADVERBS OF INDEFINITE FREQUENCY",
+   "can_do": "Can use the present continuous with a wide range of adverbs of indefinite frequency, often",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713625x476438924071697100": {
+   "guideword": "USE: POLITENESS",
+   "can_do": "Can use the present continuous with verbs that are not usually used in this form to make s",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713112x784244213132092200": {
+   "guideword": "USE: NEWSWORTHY",
+   "can_do": "Can use the present perfect simple to introduce news. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713862x925885380518367700": {
+   "guideword": "FORM: OF 'THEIRS', 'HERS', 'HIS'",
+   "can_do": "Can use the possessive pronouns 'hers', 'theirs' and 'his' after noun + 'of'.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713862x157795078394705100": {
+   "guideword": "FORM: 'HIS'",
+   "can_do": "Can use the possessive pronoun 'his', with singular and plural reference, in subject and o",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713861x378989306596738050": {
+   "guideword": "FORM/USE: WITH 'THAT \u2026 OF'",
+   "can_do": "Can use 'that \u2026 of' + possessive pronouns to express an attitude about someone or somethin",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712739x168032886753128670": {
+   "guideword": "FORM/USE: AFTER 'IF ONLY', IMAGINED PAST",
+   "can_do": "Can use the negative form after 'if only' to express regret. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713862x246016696032147480": {
+   "guideword": "FORM: 'THEIRS' AS SUBJECT",
+   "can_do": "Can use the possessive pronoun 'theirs', with singular and plural reference, in subject po",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163714104x425497348594013000": {
+   "guideword": "FORM/USE: 'MANY ARE THE' + NOUN, FOR FOCUS ",
+   "can_do": "Can form complex noun phrases using an inverted form 'Many' + 'are' + noun phrase, followe",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714104x359859718563069000": {
+   "guideword": "FORM: 'A LOT' AND 'MUCH'",
+   "can_do": "Can use 'a lot' and 'much' as a subject pronouns. \u25ba focus",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163712747x212368838412682500": {
+   "guideword": "FORM/USE: INVERSION",
+   "can_do": "Can invert the subject and affirmative auxiliary verb with 'not only \u2026 but' as a focusing ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163711538x400045316322393600": {
+   "guideword": "FORM/USE, RESPONSE TOKENS",
+   "can_do": "Can use adverbs expressing certainty as short responses. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713862x281101637978056000": {
+   "guideword": "FORM: 'HERS' AS SUBJECT ",
+   "can_do": "Can use the possessive pronoun 'hers' with singular reference, in subject position.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163706726x984406879710985100": {
+   "guideword": "USE: DISTANCING",
+   "can_do": "Can use adverbs mid clause, to distance the writer from what they are saying. ",
+   "hits_checked": 8,
+   "false_positive_rate": 1.0,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "critical"
+  },
+  "1741163715034x601077874617532500": {
+   "guideword": "FORM/USE: NEGATIVE QUESTIONS WITH 'NOT', EMPHASIS",
+   "can_do": "Can form negative questions with uncontracted 'not' to emphasise a point in an argument. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715029x597656273954143700": {
+   "guideword": "FORM: ELLIPSIS",
+   "can_do": "Can form alternative questions with two or more clauses and ellipsis in the second or thir",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715026x505796493500260540": {
+   "guideword": "FORM: 'EACH \u2026 THE OTHER(S)', AS OBJECT",
+   "can_do": "Can use 'each' (+ noun or pronoun) as subject followed by 'the other(s)' as object , to re",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163714316x658765118459248000": {
+   "guideword": "FORM/USE: 'THE ONE(S) THAT', FOR FOCUS",
+   "can_do": "Can use 'The one(s) that' + clause in subject position, for focus. \u25ba focus",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713867x574702813002478900": {
+   "guideword": "USE: DISCOURSE MARKERS",
+   "can_do": "Can use 'as for myself' as a discourse marker to introduce or focus on a personal opinion.",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163715607x852787378805638700": {
+   "guideword": "FORM/USE: 'WOULD HATE' + 'TO'",
+   "can_do": "Can use 'would hate' + 'to' infinitive, for emphasis. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "no_data"
+  },
+  "1741163713875x914428795342302700": {
+   "guideword": "FORM: (SUBJECT) CLEFT CONSTRUCTIONS WITH 'IT'",
+   "can_do": "Can form a cleft construction beginning with 'it' to emphasise the subject of the main cla",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.0,
+   "verdict": "no_data"
+  },
+  "1741163708146x257734591646491700": {
+   "guideword": "FORM/USE: MID POSITION, DISTANCING",
+   "can_do": "Can use adverbs in mid position, to distance the writer from what they are saying. ",
+   "hits_checked": 8,
+   "false_positive_rate": 0.0,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "critical"
+  },
+  "1741163709001x295581166797130900": {
+   "guideword": "USE: 'THIS', IN NARRATIVES",
+   "can_do": "Can use 'this' with nouns and noun phrases in a narrative to create a sense of immediacy.",
+   "hits_checked": 8,
+   "false_positive_rate": 0.0,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 1.0,
+   "verdict": "critical"
+  },
+  "1741163715275x957741138272661000": {
+   "guideword": "FORM: VERB + DIRECT OBJECT + PARTICLE + PREPOSITION + OBJECT",
+   "can_do": "Can use a direct object with some prepositional verbs as well as an object of the preposit",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.2,
+   "verdict": "no_data"
+  },
+  "1741163711031x683368301481546160": {
+   "guideword": "FORM: QUESTIONS",
+   "can_do": "Can use the question form. ",
+   "hits_checked": 0,
+   "false_positive_rate": null,
+   "nonhits_checked": 5,
+   "blind_spot_rate": 0.6,
    "verdict": "no_data"
   }
  }

@@ -1,0 +1,419 @@
+[
+ {
+  "egp_id": "1741163706930x543836854317855550",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: FREQUENCY, MID POSITION",
+  "can_do_statement": "Can use frequency adverbs in the usual mid position, between the subject and the main verb.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:I|you|we|they|he|she|it)\\s+(?:always|usually|often|sometimes|never|hardly|rarely|seldom|frequently)\\s+(?!(?:am|is|are|was|were|will|can|could|would|should|has|have|had)\\b)[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     },
+     "DEP": "nsubj"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "always",
+       "usually",
+       "often",
+       "sometimes",
+       "never",
+       "hardly",
+       "rarely",
+       "seldom",
+       "frequently"
+      ]
+     }
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I always wake up early.",
+    "She never eats meat."
+   ],
+   "negatives": [
+    "Sometimes I go to the park.",
+    "I am always tired."
+   ]
+  },
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "MEDIAL_FREQUENCY_SLOT",
+   "pedagogical_hook": "subject + always/usually/often/sometimes + verb \u2014 slot the adverb between subject and verb",
+   "agency_or_distance": "speaker marks the verb's frequency medially"
+  }
+ },
+ {
+  "egp_id": "1741163706931x652422120447256700",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: 'REALLY,'  MID POSITION ",
+  "can_do_statement": "Can use 'really' in the usual mid-position, between the subject and the main verb.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:I|you|we|they|he|she|it)\\s+really\\s+(?!(?:am|is|are|was|were|will|can|could|would|should|has|have|had)\\b)[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     },
+     "DEP": "nsubj"
+    },
+    {
+     "LOWER": "really"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I really like this book.",
+    "She really wants a dog."
+   ],
+   "negatives": [
+    "This is really good.",
+    "I am really tired."
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "MID_INTENSIFIER_SLOT",
+   "pedagogical_hook": "subject + really + verb \u2014 slot the intensifier between subject and main verb",
+   "agency_or_distance": "speaker amplifies the verb mid-clause"
+  }
+ },
+ {
+  "egp_id": "1741163706938x862543767286873900",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: PLACE, END POSITION",
+  "can_do_statement": "Can use place adverbs in the usual end position.",
+  "detection": {
+   "regex_triage": "(?i)\\b[a-z]+\\s+(?:here|there|nearby|abroad|upstairs|downstairs|away|inside|outside)\\s*[.,!?]",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "NOUN",
+       "PRON",
+       "AUX",
+       "ADJ"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "here",
+       "there",
+       "nearby",
+       "abroad",
+       "upstairs",
+       "downstairs",
+       "away",
+       "inside",
+       "outside"
+      ]
+     },
+     "POS": "ADV"
+    },
+    {
+     "IS_PUNCT": true
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I want to go there.",
+    "We are eating outside."
+   ],
+   "negatives": [
+    "There is a dog.",
+    "We went outside the house."
+   ]
+  },
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "FINAL_LOCATIVE_ANCHOR",
+   "pedagogical_hook": "verb + here/there/nearby/abroad/away/upstairs/downstairs \u2014 anchor the place at the clause tail",
+   "agency_or_distance": "speaker locates entities at the end of the clause"
+  }
+ },
+ {
+  "egp_id": "1741163708998x446294161060833700",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', POINTING",
+  "can_do_statement": "Can use 'this' in a limited range of contexts to refer to places from the speaker's or writer's point of view. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "detection": {
+   "regex_triage": "(?i)\\bthis\\s+(?:place|area|country|city|town|region|continent|planet|state)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "place",
+       "area",
+       "country",
+       "city",
+       "town",
+       "region",
+       "continent",
+       "planet",
+       "state"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I love living in this city.",
+    "This area is very nice."
+   ],
+   "negatives": [
+    "I like this book.",
+    "This is a big house."
+   ]
+  },
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'this' specific place or thing.",
+   "agency_or_distance": "Proximal"
+  }
+ },
+ {
+  "egp_id": "1741163706534x741393105415276700",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: WITH '-ST' ",
+  "can_do_statement": "Can form superlative adjectives using the suffix '-st' to adjectives ending in '\u2013e'.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:nicest|largest|finest|rarest|simplest|cutest|widest|latest|bravest|closest|safest|strangest|wisest|noblest|gentlest)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "nicest",
+       "largest",
+       "finest",
+       "rarest",
+       "simplest",
+       "cutest",
+       "widest",
+       "latest",
+       "bravest",
+       "closest",
+       "safest",
+       "strangest",
+       "wisest",
+       "noblest",
+       "gentlest"
+      ]
+     },
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is the nicest car.",
+    "That is the largest building."
+   ],
+   "negatives": [
+    "He is the greatest player.",
+    "It is the tallest tree."
+   ]
+  },
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "words already ending in e just add -st to reach top rank",
+   "pedagogical_hook": "late -> the latest: keep the e, add -st",
+   "agency_or_distance": "speaker grades to the extreme using e-final stems"
+  }
+ },
+ {
+  "egp_id": "1741163706532x588070893184955400",
+  "level": "B1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM: WITH PRONOUN",
+  "can_do_statement": "Can use an adjective or adjective phrase after pronouns like 'something', 'nothing', 'somewhere', 'nowhere'.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:something|nothing|everything|anything|someone|anyone|everyone|somewhere|nowhere|everywhere|anywhere)\\s+(?:very\\s+|really\\s+|quite\\s+)?(?:good|bad|new|special|important|interesting|different|strange|wrong|terrible|nice|beautiful|useful|sweet|cold|hot)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "something",
+       "nothing",
+       "everything",
+       "anything",
+       "someone",
+       "anyone",
+       "everyone",
+       "somewhere",
+       "nowhere",
+       "everywhere",
+       "anywhere"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I want to eat something sweet.",
+    "There is nothing wrong."
+   ],
+   "negatives": [
+    "Something is on the table.",
+    "I saw nothing in the room."
+   ]
+  },
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "INDETERMINATE_PLACEMENT",
+   "pedagogical_hook": "something / nothing + adjective \u2014 leave the referent vague and color it",
+   "agency_or_distance": "speaker keeps the referent indeterminate while coloring it"
+  }
+ },
+ {
+  "egp_id": "1741163706536x513193449618973840",
+  "level": "C1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM/USE: WITH NOUN AND POSTMODFIER",
+  "can_do_statement": "Can use a postmodifier to make the superlative stronger in the structure superlative + postmodifier + noun. ",
+  "detection": {
+   "regex_triage": "(?i)\\bthe\\s+(?:[a-z]+est|best|worst|most\\s+[a-z]+)\\s+(?:possible|imaginable|conceivable|ever|available)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "most",
+     "OP": "?"
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "possible",
+       "imaginable",
+       "conceivable",
+       "ever",
+       "available"
+      ]
+     }
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was the worst possible outcome.",
+    "He is the greatest ever player."
+   ],
+   "negatives": [
+    "It was the worst outcome.",
+    "It is a possible outcome."
+   ]
+  },
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "POSTMODIFIED_TIER",
+   "pedagogical_hook": "the + superlative + noun + that/who/which/I/you/we \u2014 annotate the top member with a clause",
+   "agency_or_distance": "speaker appends a clause to sharpen the superlative target"
+  }
+ },
+ {
+  "egp_id": "1741163706726x756237515197119700",
+  "level": "C1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE, WITH ADJECTIVES",
+  "can_do_statement": "Can use a wide range of adverbs with adjectives to express degree or intensity.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:completely|absolutely|extremely|totally|highly|deeply|utterly|thoroughly|perfectly|rather|quite|fairly|somewhat|remarkably)\\s+(?:normal|successful|good|bad|different|sure|certain|impossible|clear|new|true|false|wrong|right|important|likely|unlikely|aware)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "completely",
+       "absolutely",
+       "extremely",
+       "totally",
+       "highly",
+       "deeply",
+       "utterly",
+       "thoroughly",
+       "perfectly",
+       "rather",
+       "quite",
+       "fairly",
+       "somewhat",
+       "remarkably"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is completely normal.",
+    "She was highly successful."
+   ],
+   "negatives": [
+    "I would rather go.",
+    "She completely finished."
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "WIDE_DEGREE_CALIBRATION",
+   "pedagogical_hook": "completely / absolutely / extremely / totally / utterly / thoroughly \u2014 turn the adjective past every default",
+   "agency_or_distance": "speaker pushes the adjective to the upper extreme"
+  }
+ }
+]

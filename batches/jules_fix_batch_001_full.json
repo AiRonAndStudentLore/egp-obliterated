@@ -1,0 +1,690 @@
+[
+ {
+  "egp_id": "1741163706316x926291459998112000",
+  "level": "A1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "combining",
+  "guideword": "FORM: COMBINING TWO ADJECTIVES WITH 'AND'",
+  "can_do_statement": "Can use 'and' to join a limited range of common adjectives. ",
+  "detection": {
+   "regex_triage": "\\b(big|small|new|old|good|bad|nice|beautiful|happy|sad|hot|cold|red|blue|green|black|white|pretty|ugly|tall|short|long|young|important|interesting|expensive|cheap|hard|easy|difficult|strong|fast|slow|quiet|friendly)\\s+and\\s+(big|small|new|old|good|bad|nice|beautiful|happy|sad|hot|cold|red|blue|green|black|white|pretty|ugly|tall|short|long|young|important|interesting|expensive|cheap|hard|easy|difficult|strong|fast|slow|quiet|friendly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "big",
+       "small",
+       "new",
+       "old",
+       "good",
+       "bad",
+       "nice",
+       "beautiful",
+       "happy",
+       "sad",
+       "hot",
+       "cold",
+       "red",
+       "blue",
+       "green",
+       "black",
+       "white",
+       "pretty",
+       "ugly",
+       "tall",
+       "short",
+       "long",
+       "young",
+       "important",
+       "interesting",
+       "expensive",
+       "cheap",
+       "hard",
+       "easy",
+       "difficult",
+       "strong",
+       "fast",
+       "slow",
+       "quiet",
+       "friendly"
+      ]
+     },
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": "and"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "big",
+       "small",
+       "new",
+       "old",
+       "good",
+       "bad",
+       "nice",
+       "beautiful",
+       "happy",
+       "sad",
+       "hot",
+       "cold",
+       "red",
+       "blue",
+       "green",
+       "black",
+       "white",
+       "pretty",
+       "ugly",
+       "tall",
+       "short",
+       "long",
+       "young",
+       "important",
+       "interesting",
+       "expensive",
+       "cheap",
+       "hard",
+       "easy",
+       "difficult",
+       "strong",
+       "fast",
+       "slow",
+       "quiet",
+       "friendly"
+      ]
+     },
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The car is big and beautiful.",
+    "The food is hot and good."
+   ],
+   "negatives": [
+    "are the ASTM and OSHA.",
+    "This is an overdimension and overweight."
+   ]
+  },
+  "ontology": {
+   "agency_or_distance": "low agency, additive description",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "additive stacking of attributes",
+   "pedagogical_hook": "add another brushstroke"
+  }
+ },
+ {
+  "egp_id": "1741163706326x912859360099482800",
+  "level": "A1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "modifying",
+  "guideword": "FORM: WITH 'VERY' ",
+  "can_do_statement": "Can use 'very' with a limited range of common gradable adjectives. ",
+  "detection": {
+   "regex_triage": "\\bvery\\s+(big|small|new|old|good|bad|nice|beautiful|happy|sad|hot|cold|red|blue|green|black|white|pretty|ugly|tall|short|long|young|important|interesting|expensive|cheap|hard|easy|difficult|strong|fast|slow|quiet|friendly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "very"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "big",
+       "small",
+       "new",
+       "old",
+       "good",
+       "bad",
+       "nice",
+       "beautiful",
+       "happy",
+       "sad",
+       "hot",
+       "cold",
+       "red",
+       "blue",
+       "green",
+       "black",
+       "white",
+       "pretty",
+       "ugly",
+       "tall",
+       "short",
+       "long",
+       "young",
+       "important",
+       "interesting",
+       "expensive",
+       "cheap",
+       "hard",
+       "easy",
+       "difficult",
+       "strong",
+       "fast",
+       "slow",
+       "quiet",
+       "friendly"
+      ]
+     },
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The house is very big.",
+    "This book is very good."
+   ],
+   "negatives": [
+    "They are very rural.",
+    "It is very efficiency."
+   ]
+  },
+  "ontology": {
+   "agency_or_distance": "high degree",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "very pushes the attribute up the scale",
+   "pedagogical_hook": "turn it up"
+  }
+ },
+ {
+  "egp_id": "1741163706530x479020650602328450",
+  "level": "A1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "position",
+  "guideword": "FORM: ATTRIBUTIVE (WITH NOUNS)",
+  "can_do_statement": "Can use a limited range of adjectives attributively, before a noun. \u25ba noun phrases",
+  "detection": {
+   "regex_triage": "(?:a|an|the|my|your|his|her|our|their|this|that|these|those|some|any)\\s+(big|small|new|old|good|bad|nice|beautiful|happy|sad|hot|cold|red|blue|green|black|white|pretty|ugly|tall|short|long|young|important|interesting|expensive|cheap|hard|easy|difficult|strong|fast|slow|quiet|friendly)\\s+(house|houses|car|cars|room|rooms|book|books|dog|dogs|cat|cats|garden|pool|friend|friends|neighbour|kitchen|table|chair|door|window|wall|floor|name|home|school|city|film|films|movie|movies|story|tree|trees|man|woman|boy|girl|child|children|people)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "a",
+       "an",
+       "the",
+       "my",
+       "your",
+       "his",
+       "her",
+       "our",
+       "their",
+       "this",
+       "that",
+       "these",
+       "those",
+       "some",
+       "any"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "big",
+       "small",
+       "new",
+       "old",
+       "good",
+       "bad",
+       "nice",
+       "beautiful",
+       "happy",
+       "sad",
+       "hot",
+       "cold",
+       "red",
+       "blue",
+       "green",
+       "black",
+       "white",
+       "pretty",
+       "ugly",
+       "tall",
+       "short",
+       "long",
+       "young",
+       "important",
+       "interesting",
+       "expensive",
+       "cheap",
+       "hard",
+       "easy",
+       "difficult",
+       "strong",
+       "fast",
+       "slow",
+       "quiet",
+       "friendly"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "house",
+       "houses",
+       "car",
+       "cars",
+       "room",
+       "rooms",
+       "book",
+       "books",
+       "dog",
+       "dogs",
+       "cat",
+       "cats",
+       "garden",
+       "pool",
+       "friend",
+       "friends",
+       "neighbour",
+       "kitchen",
+       "table",
+       "chair",
+       "door",
+       "window",
+       "wall",
+       "floor",
+       "name",
+       "home",
+       "school",
+       "city",
+       "film",
+       "films",
+       "movie",
+       "movies",
+       "story",
+       "tree",
+       "trees",
+       "man",
+       "woman",
+       "boy",
+       "girl",
+       "child",
+       "children",
+       "people"
+      ]
+     },
+     "POS": {
+      "IN": [
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I have a big house.",
+    "He bought a new car."
+   ],
+   "negatives": [
+    "A difficult English is hard to learn.",
+    "A little better or slow?"
+   ]
+  },
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "ATTRIBUTIVE_PLACEMENT",
+   "pedagogical_hook": "determiner + adjective + noun \u2014 slot the adjective before its noun as a foreground modifier",
+   "agency_or_distance": "speaker foregrounds a property directly on the entity"
+  }
+ },
+ {
+  "egp_id": "1741163706537x909158263292138100",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use 'soon' in the phrases 'See you soon' and 'Get well soon', as a signing-off device. ",
+  "detection": {
+   "regex_triage": "(?:^|[.!?]\\s+|\\b(?:anyway|well|so)\\s*[,]\\s*)\\b(?:see\\s+you|get\\s+well)\\s+soon\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "see",
+       "get"
+      ]
+     },
+     "IS_SENT_START": true
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "you",
+       "well"
+      ]
+     }
+    },
+    {
+     "LOWER": "soon"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "See you soon!",
+    "Get well soon."
+   ],
+   "negatives": [
+    "I will see you soon.",
+    "We'll see you soon."
+   ]
+  },
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "DISCOURSE_CLOSING_ANCHOR",
+   "pedagogical_hook": "see you / get well + soon \u2014 closes the conversation with a forward-pointing adverb",
+   "agency_or_distance": "speaker hands the hearer a near-future expectation as a parting signal"
+  }
+ },
+ {
+  "egp_id": "1741163706721x821677696151876900",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: PLACE",
+  "can_do_statement": "Can use a limited range of adverbs ('here', 'there') to indicate place. ",
+  "detection": {
+   "regex_triage": "\\b(?:here|there)\\b(?!\\s+(?:is|are|was|were|will|'s|'re|'ll)\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "here",
+       "there"
+      ]
+     },
+     "POS": "ADV",
+     "DEP": "advmod"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I use my headphones here to concentrate.",
+    "I live there now."
+   ],
+   "negatives": [
+    "There are other conversations in English.",
+    "There was a factory near my town."
+   ]
+  },
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "LOCATIVE_STAGING",
+   "pedagogical_hook": "here / there \u2014 point to a place on the conversational stage",
+   "agency_or_distance": "speaker deictically anchors an entity in shared space"
+  }
+ },
+ {
+  "egp_id": "1741163706722x425107176833770200",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE WITH VERBS ",
+  "can_do_statement": "Can use 'really' and 'very much' with verbs expressing preference ('like', 'love'), for emphasis.",
+  "detection": {
+   "regex_triage": "\\b(?:I|you|he|she|it|we|they|people|friends|everyone|someone|nobody)\\s+(?:really|very\\s+much)\\s+(?:like|likes|love|loves|enjoy|enjoys|prefer|prefers|hate|hates|adore|adores)\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "really",
+       "very"
+      ]
+     }
+    },
+    {
+     "LOWER": "much",
+     "OP": "?"
+    },
+    {
+     "LEMMA": {
+      "IN": [
+       "like",
+       "love",
+       "enjoy",
+       "prefer",
+       "hate",
+       "adore"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I really like pizza.",
+    "She really loves cats."
+   ],
+   "negatives": [
+    "It's really like an idle month.",
+    "Really like a tutor."
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "AMPLIFIED_PREFERENCE",
+   "pedagogical_hook": "really / very much + like/love \u2014 turn the dial past the standard setting",
+   "agency_or_distance": "speaker marks the affective state as more than ordinary"
+  }
+ },
+ {
+  "egp_id": "1741163706722x502415631169033540",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: 'VERY' WITH ADJECTIVES",
+  "can_do_statement": "Can use 'very' to make adjectives stronger.",
+  "detection": {
+   "regex_triage": "\\bvery\\s+(big|small|new|old|good|bad|nice|beautiful|happy|sad|hot|cold|red|blue|green|black|white|pretty|ugly|tall|short|long|young|important|interesting|expensive|cheap|hard|easy|difficult|strong|fast|slow|quiet|friendly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "very"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "big",
+       "small",
+       "new",
+       "old",
+       "good",
+       "bad",
+       "nice",
+       "beautiful",
+       "happy",
+       "sad",
+       "hot",
+       "cold",
+       "red",
+       "blue",
+       "green",
+       "black",
+       "white",
+       "pretty",
+       "ugly",
+       "tall",
+       "short",
+       "long",
+       "young",
+       "important",
+       "interesting",
+       "expensive",
+       "cheap",
+       "hard",
+       "easy",
+       "difficult",
+       "strong",
+       "fast",
+       "slow",
+       "quiet",
+       "friendly"
+      ]
+     },
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Keep practicing because some text is very difficult.",
+    "It is very interesting when you explain."
+   ],
+   "negatives": [
+    "They are very rural.",
+    "I need something very efficiency."
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "DEGREE_AMPLIFIER",
+   "pedagogical_hook": "very + adjective \u2014 push the adjective past its default setting",
+   "agency_or_distance": "speaker escalates the force of a quality word"
+  }
+ },
+ {
+  "egp_id": "1741163706722x604132732561016200",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: FREQUENCY ",
+  "can_do_statement": "Can use a limited range of adverbs ('always', 'sometimes') to talk about frequency.",
+  "detection": {
+   "regex_triage": "\\b(?:I|you|he|she|it|we|they)\\s+(?:always|sometimes)\\s+(?:am|is|are|was|were|will|can|could|should|do|does|did|have|has|had|[a-z]+(?:s|ed|ing)?)\\b(?!\\s+(?:is|are|was|were)\\b)",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "PROPN",
+       "NOUN"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "always",
+       "sometimes"
+      ]
+     }
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I always wake up early.",
+    "They sometimes go there."
+   ],
+   "negatives": [
+    "Sometimes is more related to other things.",
+    "Sometimes are two main reasons."
+   ]
+  },
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "FREQUENCY_INDEXICAL",
+   "pedagogical_hook": "always / sometimes \u2014 place the event on a frequency dial",
+   "agency_or_distance": "speaker locates the event on the spectrum from never-to-always"
+  }
+ },
+ {
+  "egp_id": "1741163706930x543760633232157630",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: DEGREE, BEFORE ADJECTIVES",
+  "can_do_statement": "Can use a limited range of degree adverbs before an adjective.",
+  "detection": {
+   "regex_triage": "\\b(?:very|really|so)\\s+(big|small|new|old|good|bad|nice|beautiful|happy|sad|hot|cold|red|blue|green|black|white|pretty|ugly|tall|short|long|young|important|interesting|expensive|cheap|hard|easy|difficult|strong|fast|slow|quiet|friendly)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "very",
+       "really",
+       "so"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "big",
+       "small",
+       "new",
+       "old",
+       "good",
+       "bad",
+       "nice",
+       "beautiful",
+       "happy",
+       "sad",
+       "hot",
+       "cold",
+       "red",
+       "blue",
+       "green",
+       "black",
+       "white",
+       "pretty",
+       "ugly",
+       "tall",
+       "short",
+       "long",
+       "young",
+       "important",
+       "interesting",
+       "expensive",
+       "cheap",
+       "hard",
+       "easy",
+       "difficult",
+       "strong",
+       "fast",
+       "slow",
+       "quiet",
+       "friendly"
+      ]
+     },
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is really good.",
+    "She is so nice."
+   ],
+   "negatives": [
+    "I really don't want to go.",
+    "So for English class I study."
+   ]
+  },
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "DEGREE_PRE_ADJACENT",
+   "pedagogical_hook": "very / really / quite + adjective \u2014 slot the intensifier just before the adjective",
+   "agency_or_distance": "speaker intensifies the adjective from a zero position"
+  }
+ }
+]

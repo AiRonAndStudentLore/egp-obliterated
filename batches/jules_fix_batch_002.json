@@ -1,0 +1,331 @@
+[
+ {
+  "egp_id": "1741163706930x543836854317855550",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:I|you|we|they|he|she|it)\\s+(?:always|usually|often|sometimes|never|hardly|rarely|seldom|frequently)\\s+(?!(?:am|is|are|was|were|will|can|could|would|should|has|have|had)\\b)[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     },
+     "DEP": "nsubj"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "always",
+       "usually",
+       "often",
+       "sometimes",
+       "never",
+       "hardly",
+       "rarely",
+       "seldom",
+       "frequently"
+      ]
+     }
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I always wake up early.",
+    "She never eats meat."
+   ],
+   "negatives": [
+    "Sometimes I go to the park.",
+    "I am always tired."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706931x652422120447256700",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:I|you|we|they|he|she|it)\\s+really\\s+(?!(?:am|is|are|was|were|will|can|could|would|should|has|have|had)\\b)[a-z]+",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     },
+     "DEP": "nsubj"
+    },
+    {
+     "LOWER": "really"
+    },
+    {
+     "POS": "VERB"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I really like this book.",
+    "She really wants a dog."
+   ],
+   "negatives": [
+    "This is really good.",
+    "I am really tired."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706938x862543767286873900",
+  "detection": {
+   "regex_triage": "(?i)\\b[a-z]+\\s+(?:here|there|nearby|abroad|upstairs|downstairs|away|inside|outside)\\s*[.,!?]",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "NOUN",
+       "PRON",
+       "AUX",
+       "ADJ"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "here",
+       "there",
+       "nearby",
+       "abroad",
+       "upstairs",
+       "downstairs",
+       "away",
+       "inside",
+       "outside"
+      ]
+     },
+     "POS": "ADV"
+    },
+    {
+     "IS_PUNCT": true
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I want to go there.",
+    "We are eating outside."
+   ],
+   "negatives": [
+    "There is a dog.",
+    "We went outside the house."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708998x446294161060833700",
+  "detection": {
+   "regex_triage": "(?i)\\bthis\\s+(?:place|area|country|city|town|region|continent|planet|state)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "place",
+       "area",
+       "country",
+       "city",
+       "town",
+       "region",
+       "continent",
+       "planet",
+       "state"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I love living in this city.",
+    "This area is very nice."
+   ],
+   "negatives": [
+    "I like this book.",
+    "This is a big house."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706534x741393105415276700",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:nicest|largest|finest|rarest|simplest|cutest|widest|latest|bravest|closest|safest|strangest|wisest|noblest|gentlest)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "nicest",
+       "largest",
+       "finest",
+       "rarest",
+       "simplest",
+       "cutest",
+       "widest",
+       "latest",
+       "bravest",
+       "closest",
+       "safest",
+       "strangest",
+       "wisest",
+       "noblest",
+       "gentlest"
+      ]
+     },
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is the nicest car.",
+    "That is the largest building."
+   ],
+   "negatives": [
+    "He is the greatest player.",
+    "It is the tallest tree."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706532x588070893184955400",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:something|nothing|everything|anything|someone|anyone|everyone|somewhere|nowhere|everywhere|anywhere)\\s+(?:very\\s+|really\\s+|quite\\s+)?(?:good|bad|new|special|important|interesting|different|strange|wrong|terrible|nice|beautiful|useful|sweet|cold|hot)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "something",
+       "nothing",
+       "everything",
+       "anything",
+       "someone",
+       "anyone",
+       "everyone",
+       "somewhere",
+       "nowhere",
+       "everywhere",
+       "anywhere"
+      ]
+     }
+    },
+    {
+     "POS": "ADV",
+     "OP": "*"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I want to eat something sweet.",
+    "There is nothing wrong."
+   ],
+   "negatives": [
+    "Something is on the table.",
+    "I saw nothing in the room."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706536x513193449618973840",
+  "detection": {
+   "regex_triage": "(?i)\\bthe\\s+(?:[a-z]+est|best|worst|most\\s+[a-z]+)\\s+(?:possible|imaginable|conceivable|ever|available)\\s+[a-z]+\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "the"
+    },
+    {
+     "LOWER": "most",
+     "OP": "?"
+    },
+    {
+     "POS": "ADJ"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "possible",
+       "imaginable",
+       "conceivable",
+       "ever",
+       "available"
+      ]
+     }
+    },
+    {
+     "POS": "NOUN"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It was the worst possible outcome.",
+    "He is the greatest ever player."
+   ],
+   "negatives": [
+    "It was the worst outcome.",
+    "It is a possible outcome."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706726x756237515197119700",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:completely|absolutely|extremely|totally|highly|deeply|utterly|thoroughly|perfectly|rather|quite|fairly|somewhat|remarkably)\\s+(?:normal|successful|good|bad|different|sure|certain|impossible|clear|new|true|false|wrong|right|important|likely|unlikely|aware)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "completely",
+       "absolutely",
+       "extremely",
+       "totally",
+       "highly",
+       "deeply",
+       "utterly",
+       "thoroughly",
+       "perfectly",
+       "rather",
+       "quite",
+       "fairly",
+       "somewhat",
+       "remarkably"
+      ]
+     }
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "It is completely normal.",
+    "She was highly successful."
+   ],
+   "negatives": [
+    "I would rather go.",
+    "She completely finished."
+   ]
+  }
+ }
+]
