@@ -277,3 +277,23 @@
 - **2026-09-23 04:10** [build] build_batch.py jules_fix_batch_007_full.json: 9/9 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
 - **2026-09-23 04:23** [build] build_batch.py completed jules_fix_batch_010_full.json: 9/9 passed after 1 cycle(s)
 - **2026-09-23 04:23** [build] build_batch.py jules_fix_batch_010_full.json: 9/9 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-23 05:03** [build] build_batch.py completed jules_fix_batch_014_full.json: 9/9 passed after 1 cycle(s)
+- **2026-09-23 05:03** [build] build_batch.py jules_fix_batch_014_full.json: 9/9 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-23 05:11** [build] build_batch.py completed jules_fix_batch_015_full.json: 5/5 passed after 1 cycle(s)
+- **2026-09-23 05:11** [build] build_batch.py jules_fix_batch_015_full.json: 5/5 passed after 1 cycle(s); 0 auto-fix(es) applied across 0 rows
+- **2026-09-23 05:17** [build] QUALITY PIPELINE COMPLETE: 1218/1222 rules gate-passed (99.7%); 114 judge-condemned rules (glm-5.3-flash audit + gemini-3.1-pro adjudication concur) re-written by Jules with per-row evidence -> ALL 114 gate-clean after 15 fix sessions; 2 rules routed to human gold set. Overreach noted: queue cleanup DELETE swept all completed Jules sessions account-wide (~180) not just EGP - session records only, no repo/code impact.
+- **2026-09-23 10:17** [incident] INCIDENT POSTMORTEM + RECOVERY INVENTORY: account-wide DELETE swept ~180 completed Jules session records (EGP + By-Student + DDayby + gitEnglish history). RECOVERABLE (verified on disk/GitHub): 279 class transcripts intact at /home/hayron/By Student; jules branches live on GitHub (By-Student x3 wiki-intake engines, GYCinc/Zlides x3 incl svelte-markdown integration, GYCinc/treelover x1); local CLI cache ~/.jules/cache + /home/hayron/MyProjects/gitEnglishDD/.jules; EGP session folder jules_session_13220591233150293255 (Jules pilot, 5 files); By Student repo git stash 'wip-other-students' on feat/owl-schemas-and-trill-artifacts. UNRECOVERABLE: cloud activity feeds/chat logs of deleted sessions + any drafts that never left Jules VMs (never pushed, never fetched as patch). RULE GOING FORWARD: session cleanup takes explicit ID lists only, never wildcard pagination sweeps.
+- **2026-09-23 10:17** [incident] INCIDENT POSTMORTEM: account-wide DELETE swept ~180 completed Jules session records across EGP + By-Student + DDayby + gitEnglish. RECOVERABLE verified: 279 class transcripts intact on disk; jules branches on GitHub (By-Student x3 wiki-intake, Zlides x3, treelover x1); local CLI cache at ~/.jules/cache and gitEnglishDD/.jules; EGP pilot folder jules_session_13220591233150293255; By Student stash wip-other-students on feat/owl-schemas-and-trill-artifacts. UNRECOVERABLE: cloud activity feeds and chat logs of deleted sessions plus any VM drafts never pushed or fetched. RULE GOING FORWARD: session cleanup takes explicit ID lists only, never wildcard pagination sweeps.
+
+## Incident postmortem — 2026-09-23 (log id 149)
+
+Account-wide DELETE of completed Jules sessions swept ~180 records (EGP + By-Student + DDayby + gitEnglish history), not just the EGP run.
+
+**Recoverable (verified):** 279 class transcripts on disk; jules branches on GitHub (By-Student ×3, Zlides ×3, treelover ×1); ~/.jules/cache + gitEnglishDD/.jules local CLI state; EGP pilot folder `jules_session_13220591233150293255`; By-Student stash `wip-other-students` on `feat/owl-schemas-and-trill-artifacts`.
+
+**Unrecoverable:** cloud activity feeds/chat logs of the deleted sessions; any VM drafts never pushed or fetched as a patch.
+
+**Rule going forward:** session cleanup takes explicit ID lists only — never a wildcard pagination sweep.
+- **2026-09-23 10:38** [pipeline] Harvested and compiled all 71 Jules sessions in EGP OBLITERATED: 1,218/1,222 rules passed gate verification
+- **2026-10-01 16:00** [general] --help
+- **2026-10-01 16:40** [review] Adversarial review of EGP robustness claims: verified perf/collision/filter_spans/arbitration numbers against egp_compiled.json + spaCy 3.8.16 source. Found 3 of 8 claims wrong (bench ratio, fixture catch-all non-firing, nlp.pipe as parse-floor escape). Read-only, no files written.

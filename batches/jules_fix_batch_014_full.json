@@ -1,0 +1,484 @@
+[
+ {
+  "egp_id": "1741163706532x162687205151185180",
+  "level": "A1",
+  "super_category": "ADJECTIVES",
+  "sub_category": "superlatives",
+  "guideword": "FORM: 'MY BEST FRIEND'",
+  "can_do_statement": "Can use the irregular superlative adjective 'best' in the phrase 'my best friend'.",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "one person crowned as top member of a set by the speaker",
+   "pedagogical_hook": "crown your number-one person",
+   "agency_or_distance": "possessive anchors the ranking to the speaker's own world"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmy\\s+best\\s+friends?\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "my"
+    },
+    {
+     "LOWER": "best"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "friend",
+       "friends"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "She is my best friend in the whole world.",
+    "I love hanging out with my best friends."
+   ],
+   "negatives": [
+    "AI is your best friend.",
+    "He went out with his best mate."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706931x922201162401665300",
+  "level": "A1",
+  "super_category": "ADVERBS",
+  "sub_category": "position",
+  "guideword": "FORM: TIME, END POSITION",
+  "can_do_statement": "Can use time adverbs in the usual end position.",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "FINAL_TIME_ANCHOR",
+   "pedagogical_hook": "verb + yesterday/today/tomorrow/soon/now/just/already \u2014 anchor the time at the clause tail",
+   "agency_or_distance": "speaker places the time at the end of the clause"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b[a-z]+\\s+(?:yesterday|today|tomorrow|soon|now|tonight|then)\\s*[.?!]",
+   "spacy_token_pattern": [
+    {
+     "IS_ALPHA": true
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "yesterday",
+       "today",
+       "tomorrow",
+       "soon",
+       "now",
+       "tonight",
+       "then"
+      ]
+     }
+    },
+    {
+     "TEXT": {
+      "IN": [
+       ".",
+       "!",
+       "?"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I am going to the store tomorrow.",
+    "We should really leave now!"
+   ],
+   "negatives": [
+    "Tomorrow I will go to the store.",
+    "Today is a very good day."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708998x842376822392022500",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "FORM: 'THIS' WITH SINGULAR NOUNS",
+  "can_do_statement": "Can use 'this' with singular nouns. \u25ba noun phrases \u25ba  pronouns: demonstrative",
+  "ontology": {
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "Identification of specific, singular entities in the immediate context.",
+   "pedagogical_hook": "Pointing to 'this' specific item.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bthis\\s+(?:\\w+\\s+)?(?:place|house|car|book|kitchen|room|guy|girl|person|man|woman|child|restaurant|hotel|film|movie|story|tree|flower|dog|cat|letter|paper|pen|table|chair|window|door|street|road|town|city|country|river|mountain)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "this"
+    },
+    {
+     "POS": "ADJ",
+     "OP": "?"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "place",
+       "house",
+       "car",
+       "book",
+       "kitchen",
+       "room",
+       "guy",
+       "girl",
+       "person",
+       "man",
+       "woman",
+       "child",
+       "restaurant",
+       "hotel",
+       "film",
+       "movie",
+       "story",
+       "tree",
+       "flower",
+       "dog",
+       "cat",
+       "letter",
+       "paper",
+       "pen",
+       "table",
+       "chair",
+       "window",
+       "door",
+       "street",
+       "road",
+       "town",
+       "city",
+       "country",
+       "river",
+       "mountain"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I really like this house.",
+    "This beautiful city is amazing."
+   ],
+   "negatives": [
+    "I will do it this week.",
+    "In this situation, we must be careful."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163708998x669595367530949600",
+  "level": "A1",
+  "super_category": "DETERMINERS",
+  "sub_category": "demonstratives",
+  "guideword": "USE: 'THIS', FUTURE",
+  "can_do_statement": "Can use 'this' with time and date words to refer to 'the one that's coming'. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "Identification of future temporal points or periods.",
+   "pedagogical_hook": "Referring to 'this' upcoming event or time.",
+   "agency_or_distance": "Proximal"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:will|'ll|going|plan|hope)\\b(?:\\s+\\w+){0,3}\\s+this\\s+(?:week|weekend|month|year|monday|tuesday|wednesday|thursday|friday|saturday|sunday|morning|afternoon|evening|night|summer|winter|spring|autumn)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "'ll",
+       "going",
+       "plan",
+       "hope"
+      ]
+     }
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "LOWER": "this"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "week",
+       "weekend",
+       "month",
+       "year",
+       "monday",
+       "tuesday",
+       "wednesday",
+       "thursday",
+       "friday",
+       "saturday",
+       "sunday",
+       "morning",
+       "afternoon",
+       "evening",
+       "night",
+       "summer",
+       "winter",
+       "spring",
+       "autumn"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I will see you this week.",
+    "We are going to Paris this summer."
+   ],
+   "negatives": [
+    "I went to Paris this summer.",
+    "We received the package this week."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706323x178559274412128260",
+  "level": "A2",
+  "super_category": "ADJECTIVES",
+  "sub_category": "comparatives",
+  "guideword": "FORM: WITH 'MORE'",
+  "can_do_statement": "Can form a range of comparative adjective phrases using 'more' + longer adjectives (usually three or more syllables). ",
+  "ontology": {
+   "agency_or_distance": "periphrastic degree marking",
+   "domain": "ENTITY_TOPOLOGY",
+   "mental_model": "long roots outsource comparison to 'more'",
+   "pedagogical_hook": "long word? let more do the work"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\bmore\\s+(?:careful|expensive|comfortable|difficult|important|interesting|beautiful|crowded|popular)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": "more"
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "careful",
+       "expensive",
+       "comfortable",
+       "difficult",
+       "important",
+       "interesting",
+       "beautiful",
+       "crowded",
+       "popular"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "This book is more interesting.",
+    "The city is more crowded now."
+   ],
+   "negatives": [
+    "He is more big than me.",
+    "That is more good."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x170602944998903700",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE WITH VERBS",
+  "can_do_statement": "Can use a limited range of adverbs and adverb phrases ('so much', 'a lot') with verbs to indicate degree or intensity. \u25ba determiners",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "INTENSITY_VOCALISATION",
+   "pedagogical_hook": "so much / a lot \u2014 amplify the verb to maximum volume",
+   "agency_or_distance": "speaker cranks the speaker-level of feeling or action"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:so\\s+much|a\\s+lot)\\b(?!\\s+(?:of\\b|[a-z]+\\b))|\\b(?:so\\s+much|a\\s+lot)\\b(?=\\s+(?:because|when|if|and|but)\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "so",
+       "a"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "much",
+       "lot"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "of"
+      ]
+     },
+     "POS": {
+      "NOT_IN": [
+       "NOUN",
+       "PROPN",
+       "ADJ",
+       "DET"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I like it a lot.",
+    "She worries so much."
+   ],
+   "negatives": [
+    "I have a lot of time.",
+    "We spent so much money."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706723x300249420014393500",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: FOCUS",
+  "can_do_statement": "Can use a limited range of adverbs ('only', 'just') to focus on or point to something.",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "FOCUS_NARROWING",
+   "pedagogical_hook": "only / just \u2014 spotlight a single element, dimming the rest",
+   "agency_or_distance": "speaker isolates one referent from a presumed larger set"
+  },
+  "detection": {
+   "regex_triage": "(?i)(?<!\\bthe\\s)(?<!\\ban\\s)(?<!\\ba\\s)(?<!\\bmy\\s)(?<!\\byour\\s)(?<!\\bhis\\s)(?<!\\bher\\s)(?<!\\bour\\s)(?<!\\btheir\\s)(?<!\\bits\\s)\\b(?:only|just)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "only",
+       "just"
+      ]
+     },
+     "POS": "ADV"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I only want to sleep.",
+    "It is just a scratch."
+   ],
+   "negatives": [
+    "He is the only person here.",
+    "That is a just cause."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706722x642517242671444100",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use a limited range of adverbs ('yesterday', 'just', 'now', 'already',) to refer to the timing of an event. ",
+  "ontology": {
+   "domain": "TEMPORAL_ASPECT",
+   "mental_model": "DEICTIC_TIME_ANCHOR",
+   "pedagogical_hook": "yesterday / just / now / already \u2014 pin the event to a point on the speech-time line",
+   "agency_or_distance": "speaker anchors the event relative to S"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:yesterday|just|now|already)\\b(?!\\s+(?:a|an|the)\\b)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "yesterday",
+       "just",
+       "now",
+       "already"
+      ]
+     }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX",
+       "PRON",
+       "PUNCT"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I arrived yesterday.",
+    "I just saw him."
+   ],
+   "negatives": [
+    "It is just a piece.",
+    "Now the game begins."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x559298050081440640",
+  "level": "A2",
+  "super_category": "ADVERBS",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use a limited range of adverbs ('actually', 'unfortunately', 'of course', 'I\u2019m sorry') to indicate an attitude or viewpoint. ",
+  "ontology": {
+   "domain": "EPISTEMIC_STANCE",
+   "mental_model": "REFINED_STANCE",
+   "pedagogical_hook": "simply / truly / surely / apparently / naturally / surprisingly / inevitably \u2014 finer-grained stance markers",
+   "agency_or_distance": "speaker marks nuanced distance from the proposition"
+  },
+  "detection": {
+   "regex_triage": "(?i)\\b(?:actually|unfortunately)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "actually",
+       "unfortunately"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Actually, I think it is a great idea.",
+    "Unfortunately, we cannot come to the party."
+   ],
+   "negatives": [
+    "He is obviously the best player.",
+    "Clearly, this is a mistake."
+   ]
+  }
+ }
+]

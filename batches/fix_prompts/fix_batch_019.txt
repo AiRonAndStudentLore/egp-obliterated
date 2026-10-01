@@ -6,12 +6,209 @@ For each rule below:
 3. Rewrite regex_triage (python re.compile-able) and spacy_token_pattern (flat token dicts; prefer LOWER anchors; use OP for optional slots) so the rule matches ONLY genuine demonstrations of the can-do, including learner variants ('I see you soon' without future marker is still 'see you soon').
 4. unit_tests: 2 positives (MUST match) + 2 negatives with overlapping vocabulary (MUST NOT match). Choose positives that satisfy the judges' standard.
 
-Write ONE file: `batches/jules_fix_batch_002.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
+Write ONE file: `batches/jules_fix_batch_019.json` — JSON array, one object per rule in input order, each = {egp_id, detection: {regex_triage, spacy_token_pattern}, unit_tests: {positives: [2], negatives: [2]}}.
 ABSOLUTE: exactly one new file, nothing else touched. Do not run any scripts.
 
 ## RULES
 ```json
 [
+ {
+  "egp_id": "1741163706722x170602944998903700",
+  "level": "A2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: DEGREE WITH VERBS",
+  "can_do_statement": "Can use a limited range of adverbs and adverb phrases ('so much', 'a lot') with verbs to indicate degree or intensity. \u25ba determiners",
+  "current_regex_triage": "\\b(?:so\\s+much|a\\s+lot)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "so",
+      "a"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "much",
+      "lot"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I say, ah, this is the homework, this is the\u2014 right, because I, I really don't have a lot of time to make other things, but I need to practice because sometimes in, in one month I don't have a meeting in English, right?",
+   "So usually I have a lot of work meetings and I have to work walking the, the plant.",
+   "We, we spend a lot of time on finding topics to, to, to talk about the movie, about the football, about the situation, about the politics, about the anything to keep practicing.",
+   "I, I will work a lot to not have this type of conversations, but sometimes it happens.",
+   "Sometimes there are a lot of people who don't want to see you achieve a goal.",
+   "Maybe you have a credit and you have to\u2014 you don't\u2014 you, you save money a lot in time and you don't spend money in, in a vacay\u2014 in vacations or, you know, things.",
+   "Yes, there are a lot of There are some difficulties.",
+   "So there are a lot of situations like that."
+  ],
+  "judge1_false_positive_rate": 0.75,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.75,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706723x300249420014393500",
+  "level": "A2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: FOCUS",
+  "can_do_statement": "Can use a limited range of adverbs ('only', 'just') to focus on or point to something.",
+  "current_regex_triage": "\\b(?:only|just)\\s+\\S+",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "only",
+      "just"
+     ]
+    }
+   },
+   {
+    "LOWER": {
+     "IN": [
+      "two",
+      "three",
+      "four",
+      "five",
+      "six",
+      "seven",
+      "eight",
+      "nine",
+      "ten",
+      "one",
+      "twenty",
+      "thirty",
+      "fifty",
+      "hundred",
+      "thousand",
+      "hours",
+      "hour",
+      "days",
+      "day",
+      "weeks",
+      "week",
+      "months",
+      "month",
+      "years",
+      "year",
+      "minutes",
+      "minute",
+      "seconds",
+      "second",
+      "times",
+      "time",
+      "way",
+      "thing",
+      "thing",
+      "person",
+      "people",
+      "chance",
+      "choices",
+      "choice",
+      "pounds",
+      "euros",
+      "dollars",
+      "moment",
+      "minutes"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I need only from my brain to.",
+   "I only remember the\u2014 it's called I Am Richard.",
+   "And only other people say, oh, you're rich.",
+   "We only produce cement, the the gray spoon, the gray.",
+   "Maybe I only say I live in Mexico, but I don't say the city you live in.",
+   "So there are small ways, only one way for something.",
+   "Just a piece.",
+   "Yes, for my plant, only for Mexico."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706722x642517242671444100",
+  "level": "A2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: TIME",
+  "can_do_statement": "Can use a limited range of adverbs ('yesterday', 'just', 'now', 'already',) to refer to the timing of an event. ",
+  "current_regex_triage": "\\b(?:yesterday|just|now|already)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "yesterday",
+      "just",
+      "now",
+      "already"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "I began like a file engineer, then like coordinator, maintenance manager, and now like plant manager.",
+   "But now the city was Yeah, expanding or spreading out.",
+   "Just a piece.",
+   "Now I'm going to carry every baltai we receive in my warehouse.",
+   "They just like confirm.",
+   "It was countryside 60 years ago, but now the city was growing and growing and growing.",
+   "And now we have a neighborhood.",
+   "Now I'm going to care every small sack we receive in my warehouse."
+  ],
+  "judge1_false_positive_rate": 0.125,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.25,
+  "judge2_blind_spot_rate": 1.0
+ },
+ {
+  "egp_id": "1741163706724x559298050081440640",
+  "level": "A2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: STANCE",
+  "can_do_statement": "Can use a limited range of adverbs ('actually', 'unfortunately', 'of course', 'I\u2019m sorry') to indicate an attitude or viewpoint. ",
+  "current_regex_triage": "\\b(?:simply|truly|surely|apparently|naturally|surprisingly|inevitably|clearly|obviously|undoubtedly|admittedly)\\b",
+  "current_spacy_token_pattern": [
+   {
+    "LOWER": {
+     "IN": [
+      "simply",
+      "truly",
+      "surely",
+      "apparently",
+      "naturally",
+      "surprisingly",
+      "inevitably",
+      "clearly",
+      "obviously",
+      "undoubtedly",
+      "admittedly"
+     ]
+    }
+   }
+  ],
+  "sentences_rule_matched": [
+   "And obviously it needs a lot of people, so Many people arrive to the city to live and need houses, need buildings.",
+   "I think comparing the 3 big cities, obviously Mexico is really, really big, like 30 million.",
+   "And obviously it needs a lot of people.",
+   "No, I think comparing the 3 big cities, obviously Mexico is really, really big.",
+   "Obviously, if we produce more, we can sell or give more to the supply chain and sell more.",
+   "Obviously the kiln, it has an impact, a direct impact of the flame, expand strange and maybe\u2014 and could have a strange movement when he is\u2014 when it is turning.",
+   "And if we use less clinker, obviously the performance of the cement needs to be the same because there are rules and international regulations about that, but we need to get better performance.",
+   "So obviously sometimes we are frustrated because, you know, yeah, sometimes I don't understand what he says."
+  ],
+  "judge1_false_positive_rate": 0.0,
+  "judge1_blind_spot_rate": 1.0,
+  "judge2_false_positive_rate": 0.0,
+  "judge2_blind_spot_rate": 1.0
+ },
  {
   "egp_id": "1741163706938x785040001160448100",
   "level": "A2",

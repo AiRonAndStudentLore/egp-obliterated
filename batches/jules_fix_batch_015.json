@@ -1,0 +1,241 @@
+[
+ {
+  "egp_id": "1741163706938x785040001160448100",
+  "level": "A2",
+  "sub_category": "position",
+  "guideword": "FORM: DEGREE, BEFORE ADJECTIVES ",
+  "can_do_statement": "Can use an increasing range of degree adverbs before an adjective.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:so|quite|too|rather|fairly|extremely|pretty|really)\\s+(?!want\\b|know\\b|need\\b|like\\b|love\\b|hate\\b|have\\b|do\\b|did\\b|does\\b|don't\\b|didn't\\b|doesn't\\b|for\\b|I\\b|you\\b|he\\b|she\\b|it\\b|we\\b|they\\b|the\\b|a\\b|an\\b|my\\b|your\\b|his\\b|her\\b|our\\b|their\\b|this\\b|that\\b|these\\b|those\\b|to\\b|in\\b|on\\b|at\\b)[a-z]{3,15}\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "so",
+       "quite",
+       "too",
+       "rather",
+       "fairly",
+       "extremely",
+       "pretty",
+       "really"
+      ]
+     },
+     "DEP": "advmod"
+    },
+    {
+     "POS": "ADJ"
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "The exam was quite difficult for me.",
+    "It is so beautiful in the summer."
+   ],
+   "negatives": [
+    "I really want to be good at English.",
+    "So for me, the difficult part is speaking."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706323x574260000317600400",
+  "level": "A2",
+  "sub_category": "comparatives",
+  "guideword": "FORM: IRREGULAR",
+  "can_do_statement": "Can form irregular comparative adjectives.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:is|was|are|were|am|'s|'re|'m|be|feel|feels|felt|seem|seems|seemed|look|looks|looked|sound|sounds|sounded|become|becomes|became|get|gets|got|the|a|an|some|any|no|my|your|his|her|our|their|its)\\s+(?:a\\s+little\\s+|much\\s+|far\\s+|way\\s+|even\\s+|still\\s+|lot\\s+)?(better|worse|further|farther)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "better",
+       "worse",
+       "further",
+       "farther"
+      ]
+     },
+     "POS": "ADJ",
+     "DEP": {
+      "NOT_IN": [
+       "advmod"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think this phone is better than my old one.",
+    "The weather got worse during the night."
+   ],
+   "negatives": [
+    "I can understand English better now.",
+    "She needs to run further to train for the race."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706724x733988029465825200",
+  "level": "A2",
+  "sub_category": "adverbs and adverb phrases: types and meanings",
+  "guideword": "USE: CERTAINTY",
+  "can_do_statement": "Can use a limited range of adverbs ('maybe', 'perhaps') to indicate degrees of certainty. ",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:maybe|perhaps)\\s+(?!five\\b|two\\b|one\\b|three\\b|four\\b|six\\b|seven\\b|eight\\b|nine\\b|ten\\b|other\\b|another\\b)(?:I|you|he|she|it|we|they|the|my|your|his|her|our|their|this|that|there|some|every|all|[A-Z][a-z]+|[a-z]+\\b)\\b",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "maybe",
+       "perhaps"
+      ]
+     },
+     "DEP": "advmod"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "DET",
+       "PROPN",
+       "SCONJ",
+       "NOUN"
+      ]
+     },
+     "LOWER": {
+      "NOT_IN": [
+       "one",
+       "two",
+       "three",
+       "four",
+       "five",
+       "six",
+       "seven",
+       "eight",
+       "nine",
+       "ten",
+       "other",
+       "another",
+       "more",
+       "less"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "Maybe we can go to the cinema tomorrow.",
+    "Perhaps the weather will be better next week."
+   ],
+   "negatives": [
+    "I have maybe five or six dollars in my wallet.",
+    "Perhaps two people were there."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706938x110983930774695800",
+  "level": "A2",
+  "sub_category": "position",
+  "guideword": "FORM: END POSITION, MANNER",
+  "can_do_statement": "Can use manner adverbs in the usual end position.",
+  "detection": {
+   "regex_triage": "(?i)(?<!^)(?<!\\bOk,\\s)(?<!\\bOkay,\\s)(?<!\\bOh,\\s)(?<!\\bSo,\\s)(?<!\\bum,\\s)(?<!\\buh,\\s)\\b(?:well|quickly|slowly|loudly|quietly|carefully|fast|hard|softly|gently|politely|properly|nicely)(?=\\s*[.,?!:;]|$)",
+   "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "well",
+       "quickly",
+       "slowly",
+       "loudly",
+       "quietly",
+       "carefully",
+       "fast",
+       "hard",
+       "softly",
+       "gently",
+       "politely",
+       "properly",
+       "nicely"
+      ]
+     },
+     "DEP": "advmod",
+     "IS_SENT_START": false
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I think the project is going really well.",
+    "She closed the door very quietly."
+   ],
+   "negatives": [
+    "Well, I think we should go now.",
+    "They had to wear a hard hat on the site."
+   ]
+  }
+ },
+ {
+  "egp_id": "1741163706938x493393825408503100",
+  "level": "A2",
+  "sub_category": "position",
+  "guideword": "FORM: MID POSITION",
+  "can_do_statement": "Can use adverbs in mid position between the subject and the main verb and after modal verbs, auxiliary verbs and 'be'.",
+  "detection": {
+   "regex_triage": "(?i)\\b(?:can|could|will|would|may|might|must|should|am|'m|is|'s|are|'re|was|were|have|'ve|has|had|'d|do|does|did|don't|doesn't|didn't|won't|can't|couldn't|wouldn't|shouldn't|haven't|hasn't|hadn't|isn't|aren't|wasn't|weren't|I|you|he|she|it|we|they|people|man|woman|boy|girl|teacher|student)\\s+(?:always|usually|often|sometimes|never|probably|just|already|really)\\s+(?!big\\b|small\\b|good\\b|bad\\b|hot\\b|cold\\b|happy\\b|sad\\b|nice\\b|easy\\b|difficult\\b|hard\\b|late\\b|early\\b|fast\\b|slow\\b|tall\\b|short\\b|beautiful\\b|expensive\\b|cheap\\b|important\\b|near\\b|far\\b|kind\\b|common\\b|interesting\\b|boring\\b|the\\b|a\\b|an\\b|really\\b|part\\b|sure\\b|right\\b|wrong\\b|ready\\b|true\\b|false\\b|different\\b|same\\b)[a-z]{2,}\\b",
+   "spacy_token_pattern": [
+    {
+     "POS": {
+      "IN": [
+       "AUX",
+       "VERB",
+       "PART",
+       "PRON",
+       "NOUN",
+       "PROPN"
+      ]
+     }
+    },
+    {
+     "LOWER": {
+      "IN": [
+       "always",
+       "usually",
+       "often",
+       "sometimes",
+       "never",
+       "really",
+       "probably",
+       "just",
+       "already"
+      ]
+     },
+     "DEP": "advmod"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
+     }
+    }
+   ]
+  },
+  "unit_tests": {
+   "positives": [
+    "I have always wanted to visit Japan.",
+    "I usually go to the store later."
+   ],
+   "negatives": [
+    "Mexico is a really big city.",
+    "The weather is usually hot here."
+   ]
+  }
+ }
+]

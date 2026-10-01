@@ -103,6 +103,22 @@
    "output": "batches/jules_fix_batch_013.json",
    "fetched": true,
    "spawned_at": "2026-09-23T03:19:08"
+  },
+  {
+   "fix_index": 14,
+   "session_id": "9848727206101325390",
+   "state": "COMPLETED",
+   "output": "batches/jules_fix_batch_014.json",
+   "fetched": true,
+   "spawned_at": "2026-09-23T04:35:34"
+  },
+  {
+   "fix_index": 15,
+   "session_id": "3306857971729351190",
+   "state": "COMPLETED",
+   "output": "batches/jules_fix_batch_015.json",
+   "fetched": true,
+   "spawned_at": "2026-09-23T04:35:38"
   }
  ]
 }

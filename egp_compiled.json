@@ -384,19 +384,10 @@
    "agency_or_distance": "possessive anchors the ranking to the speaker's own world"
   },
   "detection": {
-   "regex_triage": "\\b(?:my|your|his|her|our|their)\\s+best\\s+(?:friends?|mates?|buddies?)\\b",
+   "regex_triage": "(?i)\\bmy\\s+best\\s+friends?\\b",
    "spacy_token_pattern": [
     {
-     "LOWER": {
-      "IN": [
-       "my",
-       "your",
-       "his",
-       "her",
-       "our",
-       "their"
-      ]
-     }
+     "LOWER": "my"
     },
     {
      "LOWER": "best"
@@ -405,11 +396,7 @@
      "LOWER": {
       "IN": [
        "friend",
-       "friends",
-       "mate",
-       "mates",
-       "buddy",
-       "buddies"
+       "friends"
       ]
      }
     }
@@ -417,12 +404,12 @@
   },
   "unit_tests": {
    "positives": [
-    "She's my best friend.",
-    "Marco has been my best friend since primary school."
+    "She is my best friend in the whole world.",
+    "I love hanging out with my best friends."
    ],
    "negatives": [
-    "I always try to do my best.",
-    "This is the best pizza in town."
+    "AI is your best friend.",
+    "He went out with his best mate."
    ]
   }
  },
@@ -1132,8 +1119,11 @@
    "agency_or_distance": "speaker places the time at the end of the clause"
   },
   "detection": {
-   "regex_triage": "(?:[a-z]+)\\s+(?:yesterday|today|tomorrow|soon|now|just|already|tonight|tonite|then)\\b",
+   "regex_triage": "(?i)\\b[a-z]+\\s+(?:yesterday|today|tomorrow|soon|now|tonight|then)\\s*[.?!]",
    "spacy_token_pattern": [
+    {
+     "IS_ALPHA": true
+    },
     {
      "LOWER": {
       "IN": [
@@ -1142,10 +1132,17 @@
        "tomorrow",
        "soon",
        "now",
-       "just",
-       "already",
        "tonight",
        "then"
+      ]
+     }
+    },
+    {
+     "TEXT": {
+      "IN": [
+       ".",
+       "!",
+       "?"
       ]
      }
     }
@@ -1153,12 +1150,12 @@
   },
   "unit_tests": {
    "positives": [
-    "I hope to see you soon.",
-    "She went to the park yesterday."
+    "I am going to the store tomorrow.",
+    "We should really leave now!"
    ],
    "negatives": [
-    "I went to the bank.",
-    "She finished her homework."
+    "Tomorrow I will go to the store.",
+    "Today is a very good day."
    ]
   }
  },
@@ -2362,36 +2359,37 @@
    "agency_or_distance": "Proximal"
   },
   "detection": {
-   "regex_triage": "\\bthis\\s+(?:summer|winter|spring|autumn|week(?:end)?|month|year|monday|tuesday|wednesday|thursday|friday|saturday|sunday|season|holiday|evening|morning|afternoon|night)\\b",
+   "regex_triage": "(?i)\\b(?:will|'ll|going|plan|hope)\\b(?:\\s+\\w+){0,3}\\s+this\\s+(?:week|weekend|month|year|monday|tuesday|wednesday|thursday|friday|saturday|sunday|morning|afternoon|evening|night|summer|winter|spring|autumn)\\b",
    "spacy_token_pattern": [
+    {
+     "LOWER": {
+      "IN": [
+       "will",
+       "'ll",
+       "going",
+       "plan",
+       "hope"
+      ]
+     }
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
+    {
+     "OP": "?"
+    },
     {
      "LOWER": "this"
     },
     {
-     "POS": {
-      "IN": [
-       "ADJ",
-       "DET",
-       "ADV"
-      ]
-     },
-     "OP": "*"
-    },
-    {
      "LOWER": {
       "IN": [
-       "morning",
-       "afternoon",
-       "evening",
-       "night",
-       "day",
        "week",
        "weekend",
        "month",
-       "summer",
-       "winter",
-       "spring",
-       "autumn",
        "year",
        "monday",
        "tuesday",
@@ -2400,20 +2398,14 @@
        "friday",
        "saturday",
        "sunday",
-       "january",
-       "february",
-       "march",
-       "april",
-       "may",
-       "june",
-       "july",
-       "august",
-       "september",
-       "october",
-       "november",
-       "december",
-       "season",
-       "holiday"
+       "morning",
+       "afternoon",
+       "evening",
+       "night",
+       "summer",
+       "winter",
+       "spring",
+       "autumn"
       ]
      }
     }
@@ -2421,12 +2413,12 @@
   },
   "unit_tests": {
    "positives": [
-    "This summer I want to go on holiday.",
-    "I have a good plan for this weekend."
+    "I will see you this week.",
+    "We are going to Paris this summer."
    ],
    "negatives": [
-    "Last summer was great.",
-    "I will go next weekend."
+    "I went to Paris this summer.",
+    "We received the package this week."
    ]
   }
  },
@@ -2444,20 +2436,14 @@
    "agency_or_distance": "Proximal"
   },
   "detection": {
-   "regex_triage": "\\bthis\\s+(?:place|house|car|book|kitchen|room|guy|girl|person|man|woman|child|restaurant|hotel|book|film|movie|story|tree|flower|dog|cat|card|letter|paper|pen|pencil|table|chair|window|door|street|road|town|city|country|river|mountain|problem|issue|question|situation|idea|plan|reason|way|method|moment|day|week|month|year|saturday|sunday|monday|tuesday|wednesday|thursday|friday|summer|winter|morning|afternoon|evening)\\b",
+   "regex_triage": "(?i)\\bthis\\s+(?:\\w+\\s+)?(?:place|house|car|book|kitchen|room|guy|girl|person|man|woman|child|restaurant|hotel|film|movie|story|tree|flower|dog|cat|letter|paper|pen|table|chair|window|door|street|road|town|city|country|river|mountain)\\b",
    "spacy_token_pattern": [
     {
      "LOWER": "this"
     },
     {
-     "POS": {
-      "IN": [
-       "ADJ",
-       "DET",
-       "ADV"
-      ]
-     },
-     "OP": "*"
+     "POS": "ADJ",
+     "OP": "?"
     },
     {
      "LOWER": {
@@ -2483,7 +2469,6 @@
        "flower",
        "dog",
        "cat",
-       "card",
        "letter",
        "paper",
        "pen",
@@ -2497,30 +2482,7 @@
        "city",
        "country",
        "river",
-       "mountain",
-       "problem",
-       "issue",
-       "question",
-       "situation",
-       "idea",
-       "plan",
-       "reason",
-       "way",
-       "method",
-       "moment",
-       "saturday",
-       "sunday",
-       "monday",
-       "tuesday",
-       "wednesday",
-       "thursday",
-       "friday",
-       "summer",
-       "winter",
-       "morning",
-       "afternoon",
-       "evening",
-       "number"
+       "mountain"
       ]
      }
     }
@@ -2528,12 +2490,12 @@
   },
   "unit_tests": {
    "positives": [
-    "I like this place because it is very nice.",
-    "If you like, then we can go this Saturday."
+    "I really like this house.",
+    "This beautiful city is amazing."
    ],
    "negatives": [
-    "I like that place.",
-    "I like these places."
+    "I will do it this week.",
+    "In this situation, we must be careful."
    ]
   }
  },
@@ -6218,24 +6180,36 @@
    "pedagogical_hook": "long word? let more do the work"
   },
   "detection": {
-   "regex_triage": "\\bmore\\s+(careful|expensive|comfortable|difficult|important|interesting|beautiful|crowded|popular)\\b",
+   "regex_triage": "(?i)\\bmore\\s+(?:careful|expensive|comfortable|difficult|important|interesting|beautiful|crowded|popular)\\b",
    "spacy_token_pattern": [
     {
      "LOWER": "more"
     },
     {
-     "POS": "ADJ"
+     "LOWER": {
+      "IN": [
+       "careful",
+       "expensive",
+       "comfortable",
+       "difficult",
+       "important",
+       "interesting",
+       "beautiful",
+       "crowded",
+       "popular"
+      ]
+     }
     }
    ]
   },
   "unit_tests": {
-   "negatives": [
-    "I need more money.",
-    "She speaks more slowly."
-   ],
    "positives": [
-    "I think you must be more careful.",
-    "It was more expensive than the other clothes."
+    "This book is more interesting.",
+    "The city is more crowded now."
+   ],
+   "negatives": [
+    "He is more big than me.",
+    "That is more good."
    ]
   }
  },
@@ -6368,7 +6342,7 @@
    "pedagogical_hook": "the word jumps the ladder"
   },
   "detection": {
-   "regex_triage": "\\b(better|worse|further|farther)\\b",
+   "regex_triage": "(?i)\\b(?:is|was|are|were|am|'s|'re|'m|be|feel|feels|felt|seem|seems|seemed|look|looks|looked|sound|sounds|sounded|become|becomes|became|get|gets|got|the|a|an|some|any|no|my|your|his|her|our|their|its)\\s+(?:a\\s+little\\s+|much\\s+|far\\s+|way\\s+|even\\s+|still\\s+|lot\\s+)?(better|worse|further|farther)\\b",
    "spacy_token_pattern": [
     {
      "LOWER": {
@@ -6378,18 +6352,24 @@
        "further",
        "farther"
       ]
+     },
+     "POS": "ADJ",
+     "DEP": {
+      "NOT_IN": [
+       "advmod"
+      ]
      }
     }
    ]
   },
   "unit_tests": {
-   "negatives": [
-    "She runs faster than me.",
-    "It is easier now."
-   ],
    "positives": [
-    "What colour do you think is better?",
-    "For further information, contact us."
+    "I think this phone is better than my old one.",
+    "The weather got worse during the night."
+   ],
+   "negatives": [
+    "I can understand English better now.",
+    "She needs to run further to train for the race."
    ]
   }
  },
@@ -7424,7 +7404,7 @@
    "agency_or_distance": "speaker cranks the speaker-level of feeling or action"
   },
   "detection": {
-   "regex_triage": "\\b(?:so\\s+much|a\\s+lot)\\b",
+   "regex_triage": "(?i)\\b(?:so\\s+much|a\\s+lot)\\b(?!\\s+(?:of\\b|[a-z]+\\b))|\\b(?:so\\s+much|a\\s+lot)\\b(?=\\s+(?:because|when|if|and|but)\\b)",
    "spacy_token_pattern": [
     {
      "LOWER": {
@@ -7441,17 +7421,32 @@
        "lot"
       ]
      }
+    },
+    {
+     "LOWER": {
+      "NOT_IN": [
+       "of"
+      ]
+     },
+     "POS": {
+      "NOT_IN": [
+       "NOUN",
+       "PROPN",
+       "ADJ",
+       "DET"
+      ]
+     }
     }
    ]
   },
   "unit_tests": {
    "positives": [
-    "I am looking forward to seeing you so much!",
-    "We listened to music and we danced a lot too."
+    "I like it a lot.",
+    "She worries so much."
    ],
    "negatives": [
-    "He is so kind to me.",
-    "I love you more than anything."
+    "I have a lot of time.",
+    "We spent so much money."
    ]
   }
  },
@@ -7524,7 +7519,7 @@
    "agency_or_distance": "speaker anchors the event relative to S"
   },
   "detection": {
-   "regex_triage": "\\b(?:yesterday|just|now|already)\\b",
+   "regex_triage": "(?i)\\b(?:yesterday|just|now|already)\\b(?!\\s+(?:a|an|the)\\b)",
    "spacy_token_pattern": [
     {
      "LOWER": {
@@ -7535,17 +7530,27 @@
        "already"
       ]
      }
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX",
+       "PRON",
+       "PUNCT"
+      ]
+     }
     }
    ]
   },
   "unit_tests": {
    "positives": [
-    "Yesterday I went shopping.",
-    "I've just seen your mail."
+    "I arrived yesterday.",
+    "I just saw him."
    ],
    "negatives": [
-    "I went home and rested.",
-    "She came over later."
+    "It is just a piece.",
+    "Now the game begins."
    ]
   }
  },
@@ -7700,7 +7705,7 @@
    "agency_or_distance": "speaker isolates one referent from a presumed larger set"
   },
   "detection": {
-   "regex_triage": "\\b(?:only|just)\\s+\\S+",
+   "regex_triage": "(?i)(?<!\\bthe\\s)(?<!\\ban\\s)(?<!\\ba\\s)(?<!\\bmy\\s)(?<!\\byour\\s)(?<!\\bhis\\s)(?<!\\bher\\s)(?<!\\bour\\s)(?<!\\btheir\\s)(?<!\\bits\\s)\\b(?:only|just)\\b",
    "spacy_token_pattern": [
     {
      "LOWER": {
@@ -7708,68 +7713,19 @@
        "only",
        "just"
       ]
-     }
-    },
-    {
-     "LOWER": {
-      "IN": [
-       "two",
-       "three",
-       "four",
-       "five",
-       "six",
-       "seven",
-       "eight",
-       "nine",
-       "ten",
-       "one",
-       "twenty",
-       "thirty",
-       "fifty",
-       "hundred",
-       "thousand",
-       "hours",
-       "hour",
-       "days",
-       "day",
-       "weeks",
-       "week",
-       "months",
-       "month",
-       "years",
-       "year",
-       "minutes",
-       "minute",
-       "seconds",
-       "second",
-       "times",
-       "time",
-       "way",
-       "thing",
-       "thing",
-       "person",
-       "people",
-       "chance",
-       "choices",
-       "choice",
-       "pounds",
-       "euros",
-       "dollars",
-       "moment",
-       "minutes"
-      ]
-     }
+     },
+     "POS": "ADV"
     }
    ]
   },
   "unit_tests": {
    "positives": [
-    "It's only two hours.",
-    "I have only one chance."
+    "I only want to sleep.",
+    "It is just a scratch."
    ],
    "negatives": [
-    "I went home and rested.",
-    "She plays football."
+    "He is the only person here.",
+    "That is a just cause."
    ]
   }
  },
@@ -7860,22 +7816,13 @@
    "agency_or_distance": "speaker marks nuanced distance from the proposition"
   },
   "detection": {
-   "regex_triage": "\\b(?:simply|truly|surely|apparently|naturally|surprisingly|inevitably|clearly|obviously|undoubtedly|admittedly)\\b",
+   "regex_triage": "(?i)\\b(?:actually|unfortunately)\\b",
    "spacy_token_pattern": [
     {
      "LOWER": {
       "IN": [
-       "simply",
-       "truly",
-       "surely",
-       "apparently",
-       "naturally",
-       "surprisingly",
-       "inevitably",
-       "clearly",
-       "obviously",
-       "undoubtedly",
-       "admittedly"
+       "actually",
+       "unfortunately"
       ]
      }
     }
@@ -7883,12 +7830,12 @@
   },
   "unit_tests": {
    "positives": [
-    "Obviously everybody has the right to be on a strike.",
-    "We can't truly blame ourselves."
+    "Actually, I think it is a great idea.",
+    "Unfortunately, we cannot come to the party."
    ],
    "negatives": [
-    "I went to the bank yesterday.",
-    "She finished her homework."
+    "He is obviously the best player.",
+    "Clearly, this is a mistake."
    ]
   }
  },
@@ -7906,20 +7853,43 @@
    "agency_or_distance": "speaker calibrates commitment to the proposition"
   },
   "detection": {
-   "regex_triage": "\\b(?:probably|possibly|certainly|definitely|surely|presumably|likely|maybe|perhaps)\\b",
+   "regex_triage": "(?i)\\b(?:maybe|perhaps)\\s+(?!five\\b|two\\b|one\\b|three\\b|four\\b|six\\b|seven\\b|eight\\b|nine\\b|ten\\b|other\\b|another\\b)(?:I|you|he|she|it|we|they|the|my|your|his|her|our|their|this|that|there|some|every|all|[A-Z][a-z]+|[a-z]+\\b)\\b",
    "spacy_token_pattern": [
     {
      "LOWER": {
       "IN": [
-       "probably",
-       "possibly",
-       "certainly",
-       "definitely",
-       "surely",
-       "presumably",
-       "likely",
        "maybe",
        "perhaps"
+      ]
+     },
+     "DEP": "advmod"
+    },
+    {
+     "POS": {
+      "IN": [
+       "PRON",
+       "DET",
+       "PROPN",
+       "SCONJ",
+       "NOUN"
+      ]
+     },
+     "LOWER": {
+      "NOT_IN": [
+       "one",
+       "two",
+       "three",
+       "four",
+       "five",
+       "six",
+       "seven",
+       "eight",
+       "nine",
+       "ten",
+       "other",
+       "another",
+       "more",
+       "less"
       ]
      }
     }
@@ -7927,12 +7897,12 @@
   },
   "unit_tests": {
    "positives": [
-    "And it will probably be on TV next month!",
-    "If I were you I'd certainly choose not to go."
+    "Maybe we can go to the cinema tomorrow.",
+    "Perhaps the weather will be better next week."
    ],
    "negatives": [
-    "I went to the bank yesterday.",
-    "She finished her homework."
+    "I have maybe five or six dollars in my wallet.",
+    "Perhaps two people were there."
    ]
   }
  },
@@ -8109,7 +8079,7 @@
    "agency_or_distance": "speaker describes how the action was performed at the end"
   },
   "detection": {
-   "regex_triage": "\\b(?:well|quickly|slowly|loudly|quietly|carefully|fast|hard|softly|gently|politely|properly|nicely)\\b",
+   "regex_triage": "(?i)(?<!^)(?<!\\bOk,\\s)(?<!\\bOkay,\\s)(?<!\\bOh,\\s)(?<!\\bSo,\\s)(?<!\\bum,\\s)(?<!\\buh,\\s)\\b(?:well|quickly|slowly|loudly|quietly|carefully|fast|hard|softly|gently|politely|properly|nicely)(?=\\s*[.,?!:;]|$)",
    "spacy_token_pattern": [
     {
      "LOWER": {
@@ -8128,18 +8098,20 @@
        "properly",
        "nicely"
       ]
-     }
+     },
+     "DEP": "advmod",
+     "IS_SENT_START": false
     }
    ]
   },
   "unit_tests": {
    "positives": [
-    "Please answer me quickly because there are only eleven tickets.",
-    "She drives carefully on icy roads."
+    "I think the project is going really well.",
+    "She closed the door very quietly."
    ],
    "negatives": [
-    "I went to the bank.",
-    "She finished her homework."
+    "Well, I think we should go now.",
+    "They had to wear a hard hat on the site."
    ]
   }
  },
@@ -8157,30 +8129,17 @@
    "agency_or_distance": "speaker places the adverb in the medial slot"
   },
   "detection": {
-   "regex_triage": "\\b(?:can|could|will|would|may|might|must|should|am|is|are|was|were|have|has|had|do|does|did)\\s+(?:always|usually|often|sometimes|never|really|probably|just|never|already)\\b",
+   "regex_triage": "(?i)\\b(?:can|could|will|would|may|might|must|should|am|'m|is|'s|are|'re|was|were|have|'ve|has|had|'d|do|does|did|don't|doesn't|didn't|won't|can't|couldn't|wouldn't|shouldn't|haven't|hasn't|hadn't|isn't|aren't|wasn't|weren't|I|you|he|she|it|we|they|people|man|woman|boy|girl|teacher|student)\\s+(?:always|usually|often|sometimes|never|probably|just|already|really)\\s+(?!big\\b|small\\b|good\\b|bad\\b|hot\\b|cold\\b|happy\\b|sad\\b|nice\\b|easy\\b|difficult\\b|hard\\b|late\\b|early\\b|fast\\b|slow\\b|tall\\b|short\\b|beautiful\\b|expensive\\b|cheap\\b|important\\b|near\\b|far\\b|kind\\b|common\\b|interesting\\b|boring\\b|the\\b|a\\b|an\\b|really\\b|part\\b|sure\\b|right\\b|wrong\\b|ready\\b|true\\b|false\\b|different\\b|same\\b)[a-z]{2,}\\b",
    "spacy_token_pattern": [
     {
-     "LOWER": {
+     "POS": {
       "IN": [
-       "can",
-       "could",
-       "will",
-       "would",
-       "may",
-       "might",
-       "must",
-       "should",
-       "am",
-       "is",
-       "are",
-       "was",
-       "were",
-       "have",
-       "has",
-       "had",
-       "do",
-       "does",
-       "did"
+       "AUX",
+       "VERB",
+       "PART",
+       "PRON",
+       "NOUN",
+       "PROPN"
       ]
      }
     },
@@ -8197,18 +8156,27 @@
        "just",
        "already"
       ]
+     },
+     "DEP": "advmod"
+    },
+    {
+     "POS": {
+      "IN": [
+       "VERB",
+       "AUX"
+      ]
      }
     }
    ]
   },
   "unit_tests": {
    "positives": [
-    "I have always loved reading novels.",
-    "She is probably going to arrive late."
+    "I have always wanted to visit Japan.",
+    "I usually go to the store later."
    ],
    "negatives": [
-    "I went to the cinema yesterday.",
-    "She left her book here."
+    "Mexico is a really big city.",
+    "The weather is usually hot here."
    ]
   }
  },
@@ -8226,7 +8194,7 @@
    "agency_or_distance": "speaker modulates the adjective's intensity"
   },
   "detection": {
-   "regex_triage": "\\b(?:so|quite|too|rather|fairly|extremely|pretty|really)\\s+(?:[a-z]+)\\b",
+   "regex_triage": "(?i)\\b(?:so|quite|too|rather|fairly|extremely|pretty|really)\\s+(?!want\\b|know\\b|need\\b|like\\b|love\\b|hate\\b|have\\b|do\\b|did\\b|does\\b|don't\\b|didn't\\b|doesn't\\b|for\\b|I\\b|you\\b|he\\b|she\\b|it\\b|we\\b|they\\b|the\\b|a\\b|an\\b|my\\b|your\\b|his\\b|her\\b|our\\b|their\\b|this\\b|that\\b|these\\b|those\\b|to\\b|in\\b|on\\b|at\\b)[a-z]{3,15}\\b",
    "spacy_token_pattern": [
     {
      "LOWER": {
@@ -8240,43 +8208,22 @@
        "pretty",
        "really"
       ]
-     }
+     },
+     "DEP": "advmod"
     },
     {
-     "LOWER": {
-      "IN": [
-       "glad",
-       "happy",
-       "sad",
-       "expensive",
-       "cheap",
-       "big",
-       "small",
-       "good",
-       "bad",
-       "nice",
-       "easy",
-       "difficult",
-       "tired",
-       "late",
-       "early",
-       "fast",
-       "slow",
-       "hot",
-       "cold"
-      ]
-     }
+     "POS": "ADJ"
     }
    ]
   },
   "unit_tests": {
    "positives": [
-    "I'm so glad you are coming.",
-    "They are quite expensive."
+    "The exam was quite difficult for me.",
+    "It is so beautiful in the summer."
    ],
    "negatives": [
-    "I went to the cinema yesterday.",
-    "She left her book here."
+    "I really want to be good at English.",
+    "So for me, the difficult part is speaking."
    ]
   }
  },
