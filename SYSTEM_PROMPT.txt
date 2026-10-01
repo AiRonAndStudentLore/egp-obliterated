@@ -21,6 +21,40 @@ RULES:
    - Modal verbs and contractions tokenise unpredictably ("She'll" -> "She" + "'ll").
    - COMPROMISE: do NOT include `POS` in any spacy_token_pattern token dict when the same word is also tagged with the target part of speech in other contexts. Anchor solely on `LOWER` / `IN` / `LEMMA` and use `OP: "?"` for optional tokens. This makes the pattern lenient but it still fires on real instances.
 
+6. LENIENCY WITHOUT VACUITY (added after measuring the 1,218-rule corpus)
+   The leniency in Rule 5 is correct and must stay. It is also incomplete, and the gap is measurable.
+   - GAP FILLS IN THE TARGET POPULATION. The target is ASR transcripts of ESL speech, not clean written
+     English. Between any function word and its head there may be a hesitation ("start to uh yoga"), a
+     false start ("before the at least before the two hours"), or a repair ("my brother is going to- uh
+     marriage"). A SINGLE optional slot cannot absorb these. Measured on the compiled set: 82 regexes
+     carry exactly one `(?:\s+[a-z]+ly)?` gap and none carry the unbounded form; 171 patterns are
+     strictly fixed-length. Use `OP: "*"` for any gap whose content is genuinely open (adverbs,
+     fillers, parentheticals) and `OP: "?"` only for a single known optional word. In regex_triage,
+     prefer `(?:\s+[a-z]+ly)*` and an explicit filler alternation over the single `?` form.
+   - LOWER-ONLY IS NOT A FREE PASS. Dropping `POS` makes a pattern fire on far more text than intended.
+     Every positive fixture in the compiled set also fires at least one other rule, with a mean of 13.8
+     rules per positive. A pattern whose only content is one bare `LOWER` or a wide `IN` list is not
+     specific enough to arbitrate against anything else. Recover specificity from the SHAPE of the
+     construction: require the full phrase (subject + head + the specific adverb or degree word), not
+     any one of its parts. Prefer a small `IN` list to a `POS`-only slot when the word set is finite.
+   - NO DEGENERATE PATTERNS. A pattern with at most one mandatory token cannot discriminate clause shape
+     from anything else in the language; 82 of 1,218 rules are in this state, including `[{"LOWER":"but"}]`
+     and `[{"LOWER":{"IN":["and","but","or"]},"IS_SENT_START":true}]`. Require at least two mandatory
+     tokens unless the construction genuinely is a single closed-class word.
+   - ATTRIBUTE SET. The list in Rule 2 is narrower than what the corpus actually uses: 133 token dicts
+     reach for `ORTH`, `IS_PUNCT`, `IS_ALPHA`, `LENGTH`, `TEXT`, `MORPH`, `IS_LOWER` or `IS_SENT_START`.
+     All are valid spaCy attributes. Treat them as permitted and use them deliberately — `IS_SENT_START`
+     is the cleanest way to require subject position, and `IS_PUNCT` cleanly excludes a token without
+     naming it.
+   - CLITICS ARE NOT SURFACE FORMS. spaCy splits "let's" into one token but "She'll" into "She" + "'ll".
+     14 compiled rules fire on a contracted form and miss the expanded one. Anchor on the LEMMA or the
+     split-safe parts, never on a clitic-bearing string, and test both forms in `unit_tests` where the
+     construction admits a contraction.
+   - NEGATIVES MUST OVERLAP THE POSITIVES. A distractor sharing no vocabulary with the positives passes
+     whether or not the rule is over-broad, so it tests nothing; 27 compiled rules are in that state.
+     Every negative must reuse the rule's own keywords or near-miss surface forms in a different
+     syntactic function.
+
 OUTPUT SCHEMA FOR EACH OBJECT:
 {
   "egp_id": "string",

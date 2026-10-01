@@ -1,0 +1,71 @@
+name: egp-gate
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Install toolchain
+        run: |
+          uv python install 3.14
+          uv sync --all-extras --dev
+
+      - name: Detector regression suite
+        run: uv run pytest tests/ -q --tb=short
+
+      - name: Report (never fails the build on its own)
+        if: always()
+        run: uv run pytest tests/ -q -s --tb=no -k "report or contract_attrs or ontology_is_complete or negatives_overlap or contracted" || true
+
+      - name: Live Execution Gate over the compiled set
+        # gate.py is the compile-loop validator and runs in its own subprocess by
+        # design, so a malformed pattern can never poison a live registry.
+        run: |
+          uv run python -c "
+          import json, subprocess, sys
+          rules = json.load(open('egp_compiled.json'))
+          p = subprocess.run([sys.executable, 'gate.py'], input=json.dumps(rules),
+                             capture_output=True, text=True, timeout=1800)
+          if p.returncode != 0:
+              print(p.stderr[-2000:]); sys.exit(1)
+          verdicts = json.load(__import__('io').StringIO(p.stdout))
+          bad = [v for v in verdicts if v['verdict'] != 'passed']
+          print(f\"gate: {len(verdicts) - len(bad)}/{len(verdicts)} passed\")
+          for v in bad[:20]:
+              print(' ', v['egp_id'], v['verdict'], v['failures'][:1])
+          sys.exit(1 if bad else 0)
+          "
+
+      - name: Arbitration file is in sync with the compiled set
+        run: |
+          uv run python -c "
+          import json, sys
+          arb = json.load(open('egp_arbitration.json'))
+          rules = json.load(open('egp_compiled.json'))
+          ids = {r['egp_id'] for r in rules}
+          have = set(arb['rules'])
+          if ids != have:
+              print('egp_arbitration.json is stale')
+              print('  missing:', sorted(ids - have)[:5])
+              print('  extra  :', sorted(have - ids)[:5])
+              sys.exit(1)
+          print(f'arbitration covers all {len(ids)} rules')
+          "
