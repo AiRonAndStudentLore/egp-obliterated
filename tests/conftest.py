@@ -19,6 +19,10 @@ CORPUS_ROOT = os.environ.get("EGP_CORPUS", "/home/hayron/By Student")
 
 LEVELS = {"A1", "A2", "B1", "B2", "C1", "C2"}
 
+#: Sessions used for the ground-truth calibration. 60 resolves ~2,800 learner
+#: EGP events, which is enough to see a several-point move in agreement.
+CALIBRATION_SESSIONS = 60
+
 #: Every attribute spaCy's Matcher actually accepts on a token dict.
 SPACY_TOKEN_ATTRS = {
     "ORTH", "TEXT", "LOWER", "NORM", "LEMMA", "LENGTH", "IS_ALPHA", "IS_DIGIT",
@@ -104,3 +108,18 @@ def corpus_turns():
     if not turns:
         pytest.skip("no turns parsed from corpus")
     return turns
+
+
+@pytest.fixture(scope="session")
+def calibration(compiled, corpus_turns):
+    """One calibration run shared by every test in `test_calibration.py`.
+
+    Each separate call re-parses the corpus, and three of them pushed the suite past
+    five minutes.
+    """
+    from egp_engine.calibrate import calibrate
+
+    report = calibrate(compiled, max_sessions=CALIBRATION_SESSIONS)
+    if "error" in report:
+        pytest.skip(report["error"])
+    return report
