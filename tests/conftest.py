@@ -32,10 +32,17 @@ SPACY_TOKEN_ATTRS = {
     "IS_SENT_START", "SHAPE", "IDX", "ENT_KB_ID", "ENT_LABEL", "ENT_DESC",
 }
 
-#: The narrower set `SYSTEM_PROMPT.txt` instructs the compiler to use. Patterns
-#: reaching outside it still run — spaCy accepts them — but they are out of contract
-#: and are reported separately by `test_out_of_contract_token_attrs`.
-CONTRACT_TOKEN_ATTRS = {"LOWER", "LEMMA", "POS", "TAG", "DEP", "OP", "IN"}
+#: The attribute set `SYSTEM_PROMPT.txt` Rule 2 sanctions. All are handled natively
+#: by en_core_web_sm. The compiled set uses 14 of these; the remainder are sanctioned so
+#: the compiler has a legitimate structural alternative to lexical sprawl, which is the
+#: documented cause of the band skew measured in `egp_engine/calibrate.py`.
+CONTRACT_TOKEN_ATTRS = {
+    "LOWER", "LEMMA", "NORM", "ORTH", "TEXT", "SHAPE", "LENGTH",
+    "POS", "TAG", "DEP", "MORPH",
+    "IS_ALPHA", "IS_DIGIT", "IS_LOWER", "IS_UPPER", "IS_PUNCT",
+    "IS_SPACE", "IS_STOP", "LIKE_NUM", "LIKE_WORD",
+    "OP", "IN", "IS_SENT_START",
+}
 
 
 @pytest.fixture(scope="session")

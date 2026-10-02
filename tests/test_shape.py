@@ -66,25 +66,45 @@ def test_token_pattern_uses_only_supported_attrs(rules):
             assert not extra, f"{rule['egp_id']}: unsupported attrs {sorted(extra)}"
 
 
-def test_out_of_contract_token_attrs(rules, capsys):
-    """Attributes outside `SYSTEM_PROMPT.txt`'s enumerated list.
+def test_no_out_of_contract_token_attrs(rules):
+    """The compiled set must stay inside the attribute set Rule 2 now sanctions.
 
-    These run fine under spaCy, so this is a reporting test, not a gate. It exists
-    because the contract and the compiled data disagree: 133 token dicts reach for
-    ORTH, IS_PUNCT, IS_ALPHA, LENGTH, TEXT, MORPH or IS_LOWER, none of which the
-    contract names. Either the contract is incomplete or the compiler drifted.
+    This was previously a reporting test over a narrower contract list: 133 token
+    dicts reached for ORTH, IS_PUNCT, IS_ALPHA, LENGTH, TEXT, MORPH, IS_LOWER and
+    IS_SENT_START, none of which the contract named. The contract has been widened
+    to match reality — en_core_web_sm handles every one of them natively and each
+    buys structural precision — so this is now a hard gate.
     """
-    seen: dict[str, list[str]] = {}
+    offenders: dict[str, int] = {}
     for rule in rules:
         for tok in rule["detection"]["spacy_token_pattern"]:
             for key in set(tok) - CONTRACT_TOKEN_ATTRS:
-                seen.setdefault(key, []).append(rule["egp_id"])
+                offenders[key] = offenders.get(key, 0) + 1
+    assert not offenders, (
+        f"token dicts use attributes outside the SYSTEM_PROMPT Rule 2 contract: "
+        f"{offenders}"
+    )
+
+
+def test_structural_attributes_are_actually_used(rules, capsys):
+    """The band skew diagnosis depends on structural attributes being available.
+
+    `egp_engine/calibrate.py` attributes the A1->B1/C2 skew to lexical sprawl
+    standing in for structure. If the compiler stops using ORTH, IS_SENT_START,
+    IS_PUNCT and IS_ALPHA, the documented remedy in Rule 6 is not being taken and
+    the skew will not close. Reported, not gated, so the counts are visible on a PR.
+    """
+    counts: dict[str, int] = {}
+    for rule in rules:
+        for tok in rule["detection"]["spacy_token_pattern"]:
+            for key in ("ORTH", "IS_SENT_START", "IS_PUNCT", "IS_ALPHA", "MORPH", "LENGTH"):
+                if key in tok:
+                    counts[key] = counts.get(key, 0) + 1
     with capsys.disabled():
-        if seen:
-            print("\n  token attrs outside the SYSTEM_PROMPT contract list:")
-            for key, ids in sorted(seen.items(), key=lambda kv: -len(kv[1])):
-                print(f"    {key:<12} {len(ids):>3} rules")
-    assert True
+        print("\n  structural attribute usage in the compiled set:")
+        for key, n in sorted(counts.items(), key=lambda kv: -kv[1]):
+            print(f"    {key:<15} {n:>4} token dicts")
+    assert counts, "no structural attribute is used anywhere in the compiled set"
 
 
 def test_regex_compiles(rules):
